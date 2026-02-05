@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChangeLog.kr - AI 도구 변경 로그</title>
+  <meta name="description" content="AI 도구들의 변경 로그를 한국어로 확인하세요. Claude Code, Cursor, ChatGPT, Gemini 등 모든 AI 서비스 업데이트">
+  <meta name="theme-color" content="#0D0D0D">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ChangeLog.kr - AI 도구 변경 로그">
+  <meta property="og:description" content="AI 도구들의 변경 로그를 한국어로 확인하세요">
+  <meta property="og:site_name" content="ChangeLog.kr">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terminal: {
+              bg: '#0D0D0D',
+              surface: '#1A1A1A',
+              elevated: '#242424',
+              border: '#2A2A2A',
+              'border-hover': '#3A3A3A',
+              muted: '#666666',
+            },
+            light: {
+              bg: '#FAFAFA',
+              surface: '#FFFFFF',
+              elevated: '#F5F5F5',
+              border: '#E5E5E5',
+              'border-hover': '#D4D4D4',
+              muted: '#737373',
+            },
+            neon: {
+              cyan: '#00D9FF',
+              'cyan-dim': '#0891B2',
+              'cyan-glow': 'rgba(0, 217, 255, 0.15)',
+              purple: '#7B61FF',
+              'purple-dim': '#7C3AED',
+              green: '#10B981',
+              'green-dim': '#059669',
+              amber: '#F59E0B',
+              'amber-dim': '#D97706',
+              red: '#EF4444',
+              'red-dim': '#DC2626',
+            },
+          },
+          fontFamily: {
+            display: ['"JetBrains Mono"', 'monospace'],
+            body: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon': '0 0 20px rgba(0, 217, 255, 0.15)',
+            'neon-lg': '0 0 40px rgba(0, 217, 255, 0.2)',
+            'neon-glow': '0 0 60px rgba(0, 217, 255, 0.25), 0 0 100px rgba(0, 217, 255, 0.1)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-terminal-bg dark:bg-terminal-bg text-gray-100 min-h-screen font-body transition-colors duration-300 light:bg-light-bg light:text-gray-900">
+  <!-- Mobile Menu Button -->
+  <button id="mobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 p-2.5 rounded-lg bg-terminal-surface/90 backdrop-blur-sm border border-terminal-border text-gray-400 hover:text-neon-cyan hover:border-neon-cyan/50 transition-all duration-200 shadow-lg">
+    <svg id="menuOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+    <svg id="menuCloseIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-terminal-surface border-r border-terminal-border z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out flex flex-col">
+    <!-- Logo -->
+    <div class="p-5 border-b border-terminal-border">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-terminal-bg border border-terminal-border flex items-center justify-center shadow-neon">
+          <span class="text-neon-cyan font-display font-bold text-lg">&gt;_</span>
+        </div>
+        <div>
+          <h1 class="font-display font-bold text-white text-base tracking-tight">ChangeLog<span class="text-neon-cyan">.kr</span></h1>
+          <p class="text-xs text-terminal-muted">AI 도구 업데이트</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service List -->
+    <nav class="flex-1 overflow-y-auto p-4">
+      <p class="text-[10px] font-semibold text-terminal-muted uppercase tracking-widest mb-3 px-2">Services</p>
+      <div id="serviceList" class="space-y-1">
+        <!-- Claude Code - Active by default -->
+        <a href="#" class="service-item active flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group" data-service="claude-code">
+          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm group-hover:border-neon-cyan/30 transition-colors">
+            <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 group-hover:text-white truncate">Claude Code</p>
+            <p class="text-[10px] text-terminal-muted">Anthropic</p>
+          </div>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-neon-cyan/10 text-neon-cyan font-mono">{{VERSION_COUNT}}</span>
+        </a>
+
+        <!-- Cursor - Coming Soon -->
+        <div class="service-item-disabled flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed">
+          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
+            <svg class="w-4 h-4 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-400 truncate">Cursor</p>
+            <p class="text-[10px] text-terminal-muted">Coming soon</p>
+          </div>
+        </div>
+
+        <!-- Windsurf - Coming Soon -->
+        <div class="service-item-disabled flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed">
+          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
+            <svg class="w-4 h-4 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-400 truncate">Windsurf</p>
+            <p class="text-[10px] text-terminal-muted">Coming soon</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-4 border-t border-terminal-border bg-terminal-bg/50">
+      <div class="flex items-center justify-between">
+        <button id="themeToggle" class="p-2 rounded-lg text-terminal-muted hover:text-neon-cyan hover:bg-terminal-elevated transition-all duration-200" title="테마 전환">
+          <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+        <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-terminal-muted hover:text-neon-cyan hover:bg-terminal-elevated transition-all duration-200" title="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden hidden transition-opacity duration-300"></div>
+
+  <!-- Main Content -->
+  <main class="lg:ml-64 min-h-screen">
+    <!-- Header -->
+    <header class="sticky top-0 z-20 bg-terminal-bg/80 backdrop-blur-xl border-b border-terminal-border">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <!-- Service Title -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3 pl-12 lg:pl-0">
+            <h2 id="serviceTitle" class="text-xl sm:text-2xl font-display font-bold text-white tracking-tight">Claude Code</h2>
+            <span id="versionBadge" class="px-2.5 py-1 rounded-md text-xs font-mono bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">
+              {{VERSION_COUNT}} versions
+            </span>
+          </div>
+          <p class="text-sm text-terminal-muted hidden sm:block">
+            Last updated: <span class="text-gray-400 font-medium">{{LAST_UPDATED}}</span>
+          </p>
+        </div>
+
+        <!-- Search -->
+        <div class="relative mb-4">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-terminal-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="변경사항 검색..."
+            class="w-full pl-12 pr-10 py-3 rounded-xl bg-terminal-surface border border-terminal-border text-gray-100 placeholder-terminal-muted focus:outline-none focus:border-neon-cyan/50 focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-200 font-body"
+          >
+          <button id="searchClear" class="absolute right-4 top-1/2 -translate-y-1/2 text-terminal-muted hover:text-neon-cyan transition-colors hidden">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-4">
+          <!-- Category Filters -->
+          <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-hide pb-1 sm:pb-0">
+            <span class="text-[10px] text-terminal-muted font-medium shrink-0 uppercase tracking-wider">분류:</span>
+            <button class="filter-btn category-filter active" data-category="all">전체</button>
+            <button class="filter-btn category-filter" data-category="added">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-green"></span> 추가
+            </button>
+            <button class="filter-btn category-filter" data-category="fixed">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan"></span> 수정
+            </button>
+            <button class="filter-btn category-filter" data-category="improved">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-purple"></span> 개선
+            </button>
+            <button class="filter-btn category-filter" data-category="changed">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-amber"></span> 변경
+            </button>
+            <button class="filter-btn category-filter" data-category="removed">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-red"></span> 제거
+            </button>
+          </div>
+
+          <div class="hidden sm:block w-px h-5 bg-terminal-border"></div>
+
+          <!-- Version Filter -->
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] text-terminal-muted font-medium uppercase tracking-wider">버전:</span>
+            <button class="filter-btn version-filter active" data-major="all">All</button>
+            <button class="filter-btn version-filter" data-major="2">2.x</button>
+            <button class="filter-btn version-filter" data-major="1">1.x</button>
+            <button class="filter-btn version-filter" data-major="0">0.x</button>
+          </div>
+
+          <button id="toggleAllBtn" class="ml-auto text-xs text-terminal-muted hover:text-neon-cyan transition-colors hidden sm:flex items-center gap-1.5 font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            모두 펼치기
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <!-- Results Summary -->
+      <div id="resultsSummary" class="hidden mb-4 text-sm text-terminal-muted">
+        <span id="resultsCount"></span>
+      </div>
+
+      <!-- Timeline Version List -->
+      <div id="versionList" class="relative pl-6 sm:pl-8">
+        <!-- Timeline line -->
+        <div class="timeline-line absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-neon-cyan/50 via-terminal-border to-terminal-border"></div>
+
+        <!-- Versions rendered by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="hidden text-center py-16">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-terminal-surface border border-terminal-border flex items-center justify-center">
+          <svg class="w-8 h-8 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-300 mb-2">검색 결과 없음</h3>
+        <p class="text-terminal-muted text-sm mb-4">검색어 또는 필터 조건을 변경해 보세요.</p>
+        <button id="clearFiltersBtn" class="px-4 py-2 rounded-lg text-sm font-medium text-neon-cyan bg-neon-cyan/10 border border-neon-cyan/20 hover:bg-neon-cyan/20 transition-colors duration-200">
+          필터 초기화
+        </button>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loadingState" class="text-center py-16">
+        <div class="inline-flex items-center gap-3 text-terminal-muted">
+          <svg class="animate-spin w-5 h-5 text-neon-cyan" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <span>변경 로그를 불러오는 중...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-terminal-border mt-12 bg-terminal-surface/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-terminal-muted">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-display font-bold text-white">ChangeLog<span class="text-neon-cyan">.kr</span></span>
+            <span class="text-terminal-muted hidden sm:inline">|</span>
+            <span class="text-terminal-muted">Powered by GitHub Actions &amp; AI Translation</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" id="sourceLink" target="_blank" rel="noopener noreferrer" class="hover:text-neon-cyan transition-colors flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              원본 Changelog
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-neon-cyan text-terminal-bg shadow-lg shadow-neon-cyan/25 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:shadow-neon-cyan/40 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Version Card Template (used by JS) -->
+  <template id="versionCardTemplate">
+    <article class="version-card relative mb-6 fade-in">
+      <!-- Timeline Node -->
+      <div class="timeline-node absolute -left-6 sm:-left-8 top-5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-terminal-bg border-2 border-neon-cyan shadow-neon transition-all duration-300"></div>
+
+      <!-- Card -->
+      <div class="version-card-inner bg-terminal-surface rounded-xl border border-terminal-border hover:border-terminal-border-hover transition-all duration-300 overflow-hidden group">
+        <button class="version-header w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left cursor-pointer">
+          <div class="flex items-center gap-3 min-w-0">
+            <h2 class="version-title text-base sm:text-lg font-display font-bold text-white tracking-tight group-hover:text-neon-cyan transition-colors">
+              <!-- version -->
+            </h2>
+            <span class="entry-count px-2 py-0.5 rounded-md text-[10px] font-mono bg-terminal-elevated text-terminal-muted border border-terminal-border">
+              <!-- count -->
+            </span>
+          </div>
+          <svg class="chevron w-5 h-5 text-terminal-muted group-hover:text-neon-cyan transition-all duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="version-body">
+          <div class="version-entries px-4 sm:px-5 pb-4 sm:pb-5 space-y-1">
+            <!-- entries rendered here -->
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Entry Template -->
+  <template id="entryTemplate">
+    <div class="entry-item flex items-start gap-2.5 py-2 px-3 rounded-lg hover:bg-terminal-elevated/50 transition-colors group">
+      <span class="category-badge mt-0.5 px-2 py-0.5 rounded text-[10px] font-semibold shrink-0 uppercase tracking-wide font-display">
+        <!-- category -->
+      </span>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-start gap-2">
+          <span class="scope-badge hidden px-1.5 py-0.5 rounded text-[10px] font-medium bg-terminal-elevated text-terminal-muted shrink-0 mt-0.5 font-mono">
+            <!-- scope -->
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="entry-text text-sm text-gray-300 leading-relaxed">
+              <!-- translated text -->
+            </p>
+            <div class="original-text hidden mt-1.5">
+              <p class="text-xs text-terminal-muted italic leading-relaxed">
+                <!-- original text -->
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="toggle-original mt-1 text-[10px] text-terminal-muted hover:text-neon-cyan transition-colors opacity-0 group-hover:opacity-100 font-medium">
+          원문 보기
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

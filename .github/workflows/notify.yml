@@ -1,0 +1,41 @@
+name: Send Notifications
+
+on:
+  workflow_dispatch:
+    inputs:
+      new_versions:
+        description: 'JSON array of new version strings'
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # Ensure we have latest translations
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pull latest data
+        run: git pull origin main
+
+      - name: Send Telegram notification
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: node scripts/notify-telegram.mjs
+        continue-on-error: true
+
+      - name: Send email notification
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL_FROM: ${{ vars.NOTIFY_EMAIL_FROM }}
+          NOTIFY_EMAIL_TO: ${{ vars.NOTIFY_EMAIL_TO }}
+          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: node scripts/notify-email.mjs
+        continue-on-error: true

@@ -1,0 +1,39 @@
+name: Check for Updates
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'  # Every 6 hours at minute 17
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      has_new: ${{ steps.detect.outputs.has_new }}
+      new_versions: ${{ steps.detect.outputs.new_versions }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Detect new versions
+        id: detect
+        run: node scripts/detect-new-versions.mjs
+
+  trigger-translate:
+    needs: check
+    if: needs.check.outputs.has_new == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'translate.yml',
+              ref: 'main',
+              inputs: {
+                new_versions: '${{ needs.check.outputs.new_versions }}'
+              }
+            })

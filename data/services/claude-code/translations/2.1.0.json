@@ -1,0 +1,664 @@
+{
+  "version": "2.1.0",
+  "parsedAt": "2026-02-05T05:07:04.101Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added automatic skill hot-reload - skills created or modified in `~/.claude/skills` or `.claude/skills` are now immediately available without restarting the session",
+      "translation": "자동 기술 핫 리로드 기능이 추가되었습니다 - `~/.claude/skills` 또는 `.claude/skills`에서 생성되거나 수정된 기술이 세션을 재시작하지 않고 즉시 사용 가능합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for running skills and slash commands in a forked sub-agent context using `context: fork` in skill frontmatter",
+      "translation": "기술 프론트 매터에서 `context: fork`를 사용하여 포크된 서브 에이전트 컨텍스트에서 기술과 슬래시 명령을 실행할 수 있도록 지원이 추가되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for `agent` field in skills to specify agent type for execution",
+      "translation": "실행을 위한 에이전트 유형을 지정할 수 있도록 기술에 `agent` 필드 지원이 추가되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `language` setting to configure Claude's response language (e.g., language: \"japanese\")",
+      "translation": "Claude의 응답 언어를 설정할 수 있는 `language` 설정이 추가되었습니다 (예: language: \"japanese\")."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Shift+Enter to work out of the box in iTerm2, WezTerm, Ghostty, and Kitty without modifying terminal configs",
+      "translation": "Shift+Enter가 iTerm2, WezTerm, Ghostty 및 Kitty에서 터미널 설정을 수정하지 않고 기본적으로 작동하도록 변경되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `respectGitignore` support in `settings.json` for per-project control over @-mention file picker behavior",
+      "translation": "@-멘션 파일 선택기 동작에 대한 프로젝트별 제어를 위해 `settings.json`에 `respectGitignore` 지원이 추가되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `IS_DEMO` environment variable to hide email and organization from the UI, useful for streaming or recording sessions",
+      "translation": "UI에서 이메일과 조직을 숨기기 위한 `IS_DEMO` 환경 변수가 추가되었습니다. 이는 스트리밍이나 녹화 세션에 유용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed security issue where sensitive data (OAuth tokens, API keys, passwords) could be exposed in debug logs",
+      "translation": "민감한 데이터( OAuth 토큰, API 키, 비밀번호)가 디버그 로그에 노출될 수 있는 보안 문제가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed files and skills not being properly discovered when resuming sessions with `-c` or `--resume`",
+      "translation": "`-c` 또는 `--resume`으로 세션을 재개할 때 파일과 기술이 제대로 발견되지 않는 문제가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasted content being lost when replaying prompts from history using up arrow or Ctrl+R search",
+      "translation": "위 화살표 또는 Ctrl+R 검색을 사용하여 히스토리에서 프롬프트를 재생할 때 붙여넣은 내용이 사라지는 문제가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc key with queued prompts to only move them to input without canceling the running task",
+      "translation": "대기 중인 프롬프트와 함께 Esc 키가 실행 중인 작업을 취소하지 않고 입력으로만 이동하도록 수정되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced permission prompts for complex bash commands",
+      "translation": "복잡한 bash 명령에 대한 권한 요청이 줄어들었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed command search to prioritize exact and prefix matches on command names over fuzzy matches in descriptions",
+      "translation": "명령 검색이 설명에서 모호한 일치를 우선시하는 대신 명령 이름의 정확한 일치 및 접두사 일치를 우선시하도록 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PreToolUse hooks to allow `updatedInput` when returning `ask` permission decision, enabling hooks to act as middleware while still requesting user consent",
+      "translation": "`ask` 권한 결정을 반환할 때 `updatedInput`을 허용하도록 PreToolUse 훅이 수정되어 훅이 사용자 동의를 요청하면서 미들웨어로 작동할 수 있게 되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin path resolution for file-based marketplace sources",
+      "translation": "파일 기반 마켓플레이스 소스에 대한 플러그인 경로 해상도가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed LSP tool being incorrectly enabled when no LSP servers were configured",
+      "translation": "LSP 서버가 구성되지 않았을 때 LSP 도구가 잘못 활성화되는 문제가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background tasks failing with \"git repository not found\" error for repositories with dots in their names",
+      "translation": "이름에 점이 있는 리포지토리에 대해 \"git repository not found\" 오류로 인해 백그라운드 작업이 실패하는 문제가 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude in Chrome support for WSL environments",
+      "translation": "WSL 환경에서 Chrome에서 Claude 지원이 수정되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows native installer silently failing when executable creation fails",
+      "translation": "실행 파일 생성 실패 시 Windows 네이티브 설치 프로그램이 조용히 실패하는 문제가 수정되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved CLI help output to display options and subcommands in alphabetical order for easier navigation",
+      "translation": "CLI 도움말 출력이 옵션과 서브 명령을 알파벳 순으로 표시하도록 개선되어 탐색이 용이해졌습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added wildcard pattern matching for Bash tool permissions using `*` at any position in rules (e.g., `Bash(npm *)`, `Bash(* install)`, `Bash(git * main)`)",
+      "translation": "규칙에서 `*`를 사용하여 Bash 도구 권한에 대한 와일드카드 패턴 매칭을 추가했습니다 (예: `Bash(npm *)`, `Bash(* install)`, `Bash(git * main)`)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added unified Ctrl+B backgrounding for both bash commands and agents - pressing Ctrl+B now backgrounds all running foreground tasks simultaneously",
+      "translation": "Bash 명령과 에이전트 모두에 대해 통합된 Ctrl+B 백그라운딩 기능을 추가했습니다 - 이제 Ctrl+B를 누르면 모든 실행 중인 포그라운드 작업이 동시에 백그라운드로 전환됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for MCP `list_changed` notifications, allowing MCP servers to dynamically update their available tools, prompts, and resources without requiring reconnection",
+      "translation": "MCP `list_changed` 알림에 대한 지원을 추가하여 MCP 서버가 재연결 없이도 사용 가능한 도구, 프롬프트 및 리소스를 동적으로 업데이트할 수 있도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/teleport` and `/remote-env` slash commands for claude.ai subscribers, allowing them to resume and configure remote sessions",
+      "translation": "claude.ai 구독자를 위한 `/teleport` 및 `/remote-env` 슬래시 명령을 추가하여 원격 세션을 재개하고 구성할 수 있도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for disabling specific agents using `Task(AgentName)` syntax in settings.json permissions or the `--disallowedTools` CLI flag",
+      "translation": "settings.json 권한에서 `Task(AgentName)` 구문 또는 `--disallowedTools` CLI 플래그를 사용하여 특정 에이전트를 비활성화하는 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added hooks support to agent frontmatter, allowing agents to define PreToolUse, PostToolUse, and Stop hooks scoped to the agent's lifecycle",
+      "translation": "에이전트의 생명주기에 범위가 지정된 PreToolUse, PostToolUse 및 Stop 후크를 정의할 수 있도록 에이전트 프론트매터에 후크 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added hooks support for skill and slash command frontmatter",
+      "translation": "기술 및 슬래시 명령 프론트매터에 대한 후크 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added new Vim motions: `;` and `,` to repeat f/F/t/T motions, `y` operator for yank with `yy`/`Y`, `p`/`P` for paste, text objects (`iw`, `aw`, `iW`, `aW`, `i\"`, `a\"`, `i'`, `a'`, `i(`, `a(`, `i[`, `a[`, `i{`, `a{`), `>>` and `<<` for indent/dedent, and `J` to join lines",
+      "translation": "새로운 Vim 동작을 추가했습니다: `;` 및 `,`는 f/F/t/T 동작을 반복하고, `y` 연산자는 `yy`/`Y`로 복사하며, `p`/`P`는 붙여넣기, 텍스트 객체(`iw`, `aw`, `iW`, `aW`, `i\"`, `a\"`, `i'`, `a'`, `i(`, `a(`, `i[`, `a[`, `i{`, `a{`), `>>` 및 `<<`는 들여쓰기/내어쓰기를 위한 것이며, `J`는 줄을 합칩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/plan` command shortcut to enable plan mode directly from the prompt",
+      "translation": "프롬프트에서 직접 계획 모드를 활성화할 수 있는 `/plan` 명령 단축키를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added slash command autocomplete support when `/` appears anywhere in input, not just at the beginning",
+      "translation": "입력의 어디에서나 `/`가 나타날 때 슬래시 명령 자동 완성 지원을 추가했습니다, 시작 부분에만 국한되지 않습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--tools` flag support in interactive mode to restrict which built-in tools Claude can use during interactive sessions",
+      "translation": "대화형 모드에서 인터랙티브 세션 동안 Claude가 사용할 수 있는 내장 도구를 제한하기 위한 `--tools` 플래그 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS` environment variable to override the default file read token limit",
+      "translation": "기본 파일 읽기 토큰 제한을 재정의하기 위한 `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS` 환경 변수를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for `once: true` config for hooks",
+      "translation": "후크에 대한 `once: true` 구성 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for YAML-style lists in frontmatter `allowed-tools` field for cleaner skill declarations",
+      "translation": "더 깔끔한 기술 선언을 위해 프론트매터 `allowed-tools` 필드에 YAML 스타일 목록 지원을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for prompt and agent hook types from plugins (previously only command hooks were supported)",
+      "translation": "플러그인에서 프롬프트 및 에이전트 후크 유형에 대한 지원을 추가했습니다 (이전에는 명령 후크만 지원됨)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added Cmd+V support for image paste in iTerm2 (maps to Ctrl+V)",
+      "translation": "iTerm2에서 이미지 붙여넣기를 위한 Cmd+V 지원을 추가했습니다 (Ctrl+V에 매핑됨)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added left/right arrow key navigation for cycling through tabs in dialogs",
+      "translation": "대화 상자에서 탭을 순환하기 위한 왼쪽/오른쪽 화살표 키 탐색을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added real-time thinking block display in Ctrl+O transcript mode",
+      "translation": "Ctrl+O 전사 모드에서 실시간 사고 블록 표시를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added filepath to full output in background bash task details dialog",
+      "translation": "백그라운드 Bash 작업 세부 정보 대화 상자에 전체 출력의 파일 경로를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added Skills as a separate category in the context visualization",
+      "translation": "컨텍스트 시각화에서 기술을 별도의 범주로 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OAuth token refresh not triggering when server reports token expired but local expiration check disagrees",
+      "translation": "서버가 토큰 만료를 보고할 때 로컬 만료 검사와 일치하지 않아 OAuth 토큰 새로 고침이 트리거되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session persistence getting stuck after transient server errors by recovering from 409 conflicts when the entry was actually stored",
+      "translation": "실제로 항목이 저장될 때 409 충돌에서 복구하여 일시적인 서버 오류 후 세션 지속성이 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session resume failures caused by orphaned tool results during concurrent tool execution",
+      "translation": "동시 도구 실행 중 고아 도구 결과로 인해 세션 복원 실패를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a race condition where stale OAuth tokens could be read from the keychain cache during concurrent token refresh attempts",
+      "translation": "동시 토큰 새로 고침 시 오래된 OAuth 토큰이 키체인 캐시에서 읽히는 경쟁 조건을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed AWS Bedrock subagents not inheriting EU/APAC cross-region inference model configuration, causing 403 errors when IAM permissions are scoped to specific regions",
+      "translation": "AWS Bedrock 서브 에이전트가 EU/APAC 교차 지역 추론 모델 구성을 상속받지 않아 IAM 권한이 특정 지역으로 제한될 때 403 오류가 발생하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed API context overflow when background tasks produce large output by truncating to 30K chars with file path reference",
+      "translation": "백그라운드 작업이 큰 출력을 생성할 때 API 컨텍스트 오버플로우를 수정하여 파일 경로 참조와 함께 30K 문자로 잘라냈습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hang when reading FIFO files by skipping symlink resolution for special file types",
+      "translation": "특수 파일 유형에 대한 심볼릭 링크 해석을 건너뛰어 FIFO 파일을 읽을 때 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal keyboard mode not being reset on exit in Ghostty, iTerm2, Kitty, and WezTerm",
+      "translation": "Ghostty, iTerm2, Kitty 및 WezTerm에서 종료 시 터미널 키보드 모드가 재설정되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Alt+B and Alt+F (word navigation) not working in iTerm2, Ghostty, Kitty, and WezTerm",
+      "translation": "iTerm2, Ghostty, Kitty 및 WezTerm에서 Alt+B 및 Alt+F(단어 탐색)가 작동하지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `${CLAUDE_PLUGIN_ROOT}` not being substituted in plugin `allowed-tools` frontmatter, which caused tools to incorrectly require approval",
+      "translation": "플러그인 `allowed-tools` 프론트매터에서 `${CLAUDE_PLUGIN_ROOT}`가 대체되지 않아 도구가 잘못된 승인을 요구하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed files created by the Write tool using hardcoded 0o600 permissions instead of respecting the system umask",
+      "translation": "Write 도구로 생성된 파일이 시스템 umask를 존중하지 않고 하드코딩된 0o600 권한을 사용하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed commands with `$()` command substitution failing with parse errors",
+      "translation": "`$()` 명령 대체가 구문 오류로 실패하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multi-line bash commands with backslash continuations being incorrectly split and flagged for permissions",
+      "translation": "백슬래시 연속이 있는 다중 행 bash 명령이 잘못 분할되고 권한으로 플래그가 지정되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed bash command prefix extraction to correctly identify subcommands after global options (e.g., `git -C /path log` now correctly matches `Bash(git log:*)` rules)",
+      "translation": "전역 옵션 후에 하위 명령을 올바르게 식별하도록 bash 명령 접두사 추출을 수정했습니다(예: `git -C /path log`가 이제 `Bash(git log:*)` 규칙과 올바르게 일치합니다)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash commands passed as CLI arguments (e.g., `claude /context`) not being executed properly",
+      "translation": "CLI 인수로 전달된 슬래시 명령(예: `claude /context`)이 제대로 실행되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pressing Enter after Tab-completing a slash command selecting a different command instead of submitting the completed one",
+      "translation": "슬래시 명령을 Tab 완성한 후 Enter를 눌렀을 때 완료된 명령이 아닌 다른 명령을 선택하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash command argument hint flickering and inconsistent display when typing commands with arguments",
+      "translation": "인수와 함께 명령을 입력할 때 슬래시 명령 인수 힌트가 깜박이고 일관되지 않게 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude sometimes redundantly invoking the Skill tool when running slash commands directly",
+      "translation": "슬래시 명령을 직접 실행할 때 Claude가 때때로 Skill 도구를 중복 호출하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skill token estimates in `/context` to accurately reflect frontmatter-only loading",
+      "translation": "`/context`에서 스킬 토큰 추정치가 프론트매터 전용 로딩을 정확하게 반영하도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents sometimes not inheriting the parent's model by default",
+      "translation": "서브 에이전트가 기본적으로 부모 모델을 상속받지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model picker showing incorrect selection for Bedrock/Vertex users using `--model haiku`",
+      "translation": "`--model haiku`를 사용하는 Bedrock/Vertex 사용자에게 잘못된 선택을 보여주는 모델 선택기 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed duplicate Bash commands appearing in permission request option labels",
+      "translation": "권한 요청 옵션 레이블에 중복된 Bash 명령어가 나타나는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed noisy output when background tasks complete - now shows clean completion message instead of raw output",
+      "translation": "백그라운드 작업 완료 시 시끄러운 출력 대신 깔끔한 완료 메시지를 표시하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background task completion notifications to appear proactively with bullet point",
+      "translation": "글머리 기호와 함께 사전 예방적으로 나타나는 백그라운드 작업 완료 알림 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed forked slash commands showing \"AbortError\" instead of \"Interrupted\" message when cancelled",
+      "translation": "취소 시 \"Interrupted\" 메시지 대신 \"AbortError\"를 표시하는 포크된 슬래시 명령어 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cursor disappearing after dismissing permission dialogs",
+      "translation": "권한 대화 상자를 닫은 후 커서가 사라지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/hooks` menu selecting wrong hook type when scrolling to a different option",
+      "translation": "`/hooks` 메뉴에서 다른 옵션으로 스크롤할 때 잘못된 훅 유형이 선택되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed images in queued prompts showing as \"[object Object]\" when pressing Esc to cancel",
+      "translation": "취소를 위해 Esc를 눌렀을 때 대기 중인 프롬프트의 이미지가 \"[object Object]\"로 표시되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed images being silently dropped when queueing messages while backgrounding a task",
+      "translation": "작업을 백그라운드로 전환하는 동안 메시지를 큐에 추가할 때 이미지가 조용히 삭제되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed large pasted images failing with \"Image was too large\" error",
+      "translation": "\"Image was too large\" 오류로 인해 큰 이미지 붙여넣기가 실패하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed extra blank lines in multiline prompts containing CJK characters (Japanese, Chinese, Korean)",
+      "translation": "CJK 문자(일본어, 중국어, 한국어)를 포함한 다중 행 프롬프트에서 추가 빈 줄이 발생하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ultrathink keyword highlighting being applied to wrong characters when user prompt text wraps to multiple lines",
+      "translation": "사용자 프롬프트 텍스트가 여러 줄로 줄바꿈될 때 잘못된 문자에 적용되는 ultrathink 키워드 강조 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed collapsed \"Reading X files…\" indicator incorrectly switching to past tense when thinking blocks appear mid-stream",
+      "translation": "\"Reading X files…\" 표시기가 생각 블록이 중간에 나타날 때 잘못된 과거형으로 전환되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash read commands (like `ls` and `cat`) not being counted in collapsed read/search groups, causing groups to incorrectly show \"Read 0 files\"",
+      "translation": "축소된 읽기/검색 그룹에서 `ls` 및 `cat`과 같은 Bash 읽기 명령어가 계산되지 않아 그룹이 \"Read 0 files\"로 잘못 표시되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed spinner token counter to properly accumulate tokens from subagents during execution",
+      "translation": "실행 중 서브 에이전트로부터 토큰을 제대로 누적하도록 스피너 토큰 카운터 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory leak in git diff parsing where sliced strings retained large parent strings",
+      "translation": "슬라이스된 문자열이 큰 부모 문자열을 유지하는 git diff 파싱에서 메모리 누수 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed race condition where LSP tool could return \"no server available\" during startup",
+      "translation": "LSP 도구가 시작 시 \"no server available\"을 반환할 수 있는 경쟁 조건 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed feedback submission hanging indefinitely when network requests timeout",
+      "translation": "네트워크 요청이 시간 초과될 때 피드백 제출이 무한정 멈추는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed search mode in plugin discovery and log selector views exiting when pressing up arrow",
+      "translation": "플러그인 발견 및 로그 선택기 뷰에서 검색 모드가 위쪽 화살표를 누를 때 종료되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hook success message showing trailing colon when hook has no output",
+      "translation": "훅에 출력이 없을 때 후행 콜론이 표시되는 훅 성공 메시지 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Multiple optimizations to improve startup performance",
+      "translation": "시작 성능을 개선하기 위한 여러 최적화가 이루어졌습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved terminal rendering performance when using native installer or Bun, especially for text with emoji, ANSI codes, and Unicode characters",
+      "translation": "네이티브 설치 프로그램이나 Bun을 사용할 때, 특히 이모지, ANSI 코드 및 유니코드 문자가 포함된 텍스트의 터미널 렌더링 성능이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance when reading Jupyter notebooks with many cells",
+      "translation": "많은 셀을 포함한 Jupyter 노트북을 읽을 때 성능이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved reliability for piped input like `cat refactor.md | claude`",
+      "translation": "`cat refactor.md | claude`와 같은 파이프 입력의 신뢰성이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved reliability for AskQuestion tool",
+      "translation": "AskQuestion 도구의 신뢰성이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved sed in-place edit commands to render as file edits with diff preview",
+      "translation": "파일 편집으로 렌더링되도록 sed 인라인 편집 명령이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Claude to automatically continue when response is cut off due to output token limit, instead of showing an error message",
+      "translation": "응답이 출력 토큰 제한으로 인해 중단될 경우 오류 메시지를 표시하는 대신 자동으로 계속 진행하도록 Claude가 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved compaction reliability",
+      "translation": "압축 신뢰성이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved subagents (Task tool) to continue working after permission denial, allowing them to try alternative approaches",
+      "translation": "권한 거부 후에도 계속 작업할 수 있도록 서브 에이전트(작업 도구)가 개선되어 대체 접근 방식을 시도할 수 있게 되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved skills to show progress while executing, displaying tool uses as they happen",
+      "translation": "실행 중 진행 상황을 표시하고 도구 사용을 실시간으로 보여주는 기술이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved skills from `/skills/` directories to be visible in the slash command menu by default (opt-out with `user-invocable: false` in frontmatter)",
+      "translation": "`/skills/` 디렉토리의 기술이 기본적으로 슬래시 명령 메뉴에 표시되도록 개선되었습니다(전면 문서에서 `user-invocable: false`로 선택 해제 가능)."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved skill suggestions to prioritize recently and frequently used skills",
+      "translation": "최근 및 자주 사용된 기술을 우선시하는 기술 제안이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved spinner feedback when waiting for the first response token",
+      "translation": "첫 번째 응답 토큰을 기다릴 때 스피너 피드백이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved token count display in spinner to include tokens from background agents",
+      "translation": "스피너에서 토큰 수 표시가 백그라운드 에이전트의 토큰을 포함하도록 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved incremental output for async agents to give the main thread more control and visibility",
+      "translation": "비동기 에이전트를 위한 점진적 출력이 개선되어 메인 스레드가 더 많은 제어와 가시성을 가질 수 있게 되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved permission prompt UX with Tab hint moved to footer, cleaner Yes/No input labels with contextual placeholders",
+      "translation": "권한 요청 UX가 개선되어 Tab 힌트가 바닥글로 이동하고, 더 깔끔한 예/아니오 입력 레이블과 상황에 맞는 자리 표시자가 추가되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Claude in Chrome notification with shortened help text and persistent display until dismissed",
+      "translation": "Chrome에서의 Claude 알림이 단축된 도움말 텍스트와 함께 개선되어 해제될 때까지 지속적으로 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved macOS screenshot paste reliability with TIFF format support",
+      "translation": "TIFF 형식 지원으로 macOS 스크린샷 붙여넣기 신뢰성이 개선되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/stats` output",
+      "translation": "`/stats` 출력이 개선되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated Atlassian MCP integration to use a more reliable default configuration (streamable HTTP)",
+      "translation": "Atlassian MCP 통합이 더 신뢰할 수 있는 기본 구성(스트리밍 가능한 HTTP)을 사용하도록 업데이트되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed \"Interrupted\" message color from red to grey for a less alarming appearance",
+      "translation": "\"Interrupted\" 메시지 색상을 빨간색에서 회색으로 변경하여 덜 경고적인 모습으로 수정했습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed permission prompt when entering plan mode - users can now enter plan mode without approval",
+      "translation": "계획 모드에 들어갈 때 권한 요청을 제거했습니다 - 이제 사용자는 승인 없이 계획 모드에 들어갈 수 있습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed underline styling from image reference links",
+      "translation": "이미지 참조 링크에서 밑줄 스타일을 제거했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": "SDK",
+      "original": "Changed minimum zod peer dependency to ^4.0.0",
+      "translation": "최소 zod 동료 의존성을 ^4.0.0으로 변경했습니다."
+    },
+    {
+      "category": "added",
+      "scope": "VSCode",
+      "original": "Added currently selected model name to the context menu",
+      "translation": "현재 선택된 모델 이름을 컨텍스트 메뉴에 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": "VSCode",
+      "original": "Added descriptive labels on auto-accept permission button (e.g., \"Yes, allow npm for this project\" instead of \"Yes, and don't ask again\")",
+      "translation": "자동 승인 권한 버튼에 설명적인 레이블을 추가했습니다 (예: \"예, 이 프로젝트에 대해 npm을 허용합니다\" 대신 \"예, 다시 묻지 마세요\")."
+    },
+    {
+      "category": "fixed",
+      "scope": "VSCode",
+      "original": "Fixed paragraph breaks not rendering in markdown content",
+      "translation": "마크다운 콘텐츠에서 단락 구분이 제대로 렌더링되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": "VSCode",
+      "original": "Fixed scrolling in the extension inadvertently scrolling the parent iframe",
+      "translation": "확장에서 스크롤할 때 부모 iframe이 우연히 스크롤되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": "Windows",
+      "original": "Fixed issue with improper rendering",
+      "translation": "잘못된 렌더링 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-02-05T05:17:28.319Z",
+  "translationEngine": "openai",
+  "translationCharCount": 10575
+}

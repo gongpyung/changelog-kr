@@ -1,0 +1,58 @@
+name: Translate New Versions
+
+on:
+  workflow_dispatch:
+    inputs:
+      new_versions:
+        description: 'JSON array of new version strings'
+        required: true
+      translate_all:
+        description: 'Translate all untranslated versions'
+        required: false
+        default: 'false'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch latest changelog
+        run: |
+          curl -sL https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md \
+            -o data/raw/CHANGELOG.md
+
+      - name: Parse changelog
+        run: node scripts/parse-changelog.mjs
+
+      - name: Translate new versions
+        env:
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
+        run: node scripts/translate.mjs
+
+      - name: Commit translated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "chore: add Korean translations for ${{ github.event.inputs.new_versions }}"
+          git push
+
+      - name: Trigger notification
+        if: github.event.inputs.translate_all != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'notify.yml',
+              ref: 'main',
+              inputs: {
+                new_versions: '${{ github.event.inputs.new_versions }}'
+              }
+            })
