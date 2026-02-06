@@ -4,6 +4,15 @@ import { readFile } from 'fs/promises';
 import { resolve } from 'path';
 
 /**
+ * Load service name from services.json
+ */
+async function getServiceName(serviceId) {
+  const config = JSON.parse(await readFile(resolve(process.cwd(), 'data/services.json'), 'utf-8'));
+  const service = config.services.find(s => s.id === serviceId);
+  return service?.name || serviceId;
+}
+
+/**
  * Send email via Resend API
  */
 async function sendEmail(apiKey, from, to, subject, html) {
@@ -88,7 +97,7 @@ function escapeHtml(text) {
 /**
  * Render email template
  */
-async function renderTemplate(version, entries, siteUrl) {
+async function renderTemplate(serviceName, version, entries, siteUrl) {
   const templatePath = resolve(process.cwd(), 'templates/email.html.template');
 
   let template;
@@ -107,6 +116,7 @@ async function renderTemplate(version, entries, siteUrl) {
   });
 
   return template
+    .replace(/{{SERVICE_NAME}}/g, escapeHtml(serviceName))
     .replace(/{{VERSION}}/g, escapeHtml(version))
     .replace(/{{ENTRIES}}/g, entriesHtml)
     .replace(/{{SITE_URL}}/g, escapeHtml(siteUrl))
@@ -120,7 +130,8 @@ async function main() {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_EMAIL_FROM;
   const toList = process.env.NOTIFY_EMAIL_TO;
-  const newVersionsJson = process.env.NEW_VERSIONS;
+  const versionsMap = process.env.NEW_VERSIONS_MAP;
+  const legacyVersions = process.env.NEW_VERSIONS;
   const siteUrl = process.env.SITE_URL || 'https://claude-code-changelog-ko.pages.dev';
 
   if (!apiKey) {
@@ -138,20 +149,31 @@ async function main() {
     return;
   }
 
-  if (!newVersionsJson) {
-    console.log('No new versions to notify');
+  // Parse input - support both formats
+  let serviceVersions;
+  if (versionsMap) {
+    // New format: {"claude-code": ["2.1.33"], "gemini-cli": ["0.27.2"]}
+    try {
+      serviceVersions = JSON.parse(versionsMap);
+    } catch (error) {
+      console.error('Failed to parse NEW_VERSIONS_MAP:', error.message);
+      process.exit(1);
+    }
+  } else if (legacyVersions) {
+    // Legacy format: ["2.1.33"] -> default to claude-code
+    try {
+      const versions = JSON.parse(legacyVersions);
+      serviceVersions = { 'claude-code': versions };
+    } catch (error) {
+      console.error('Failed to parse NEW_VERSIONS:', error.message);
+      process.exit(1);
+    }
+  } else {
+    console.log('No versions specified');
     return;
   }
 
-  let newVersions;
-  try {
-    newVersions = JSON.parse(newVersionsJson);
-  } catch (error) {
-    console.error('Failed to parse NEW_VERSIONS:', error.message);
-    process.exit(1);
-  }
-
-  if (!Array.isArray(newVersions) || newVersions.length === 0) {
+  if (Object.keys(serviceVersions).length === 0) {
     console.log('No new versions to notify');
     return;
   }
@@ -162,46 +184,51 @@ async function main() {
     return;
   }
 
-  console.log(`Sending email notifications for ${newVersions.length} version(s) to ${recipients.length} recipient(s)...`);
-
   let successCount = 0;
   let failCount = 0;
 
-  for (const version of newVersions) {
-    try {
-      const translationPath = resolve(process.cwd(), `data/translations/${version}.json`);
+  for (const [serviceId, versions] of Object.entries(serviceVersions)) {
+    if (!Array.isArray(versions) || versions.length === 0) {
+      continue;
+    }
 
-      let entries;
+    const serviceName = await getServiceName(serviceId);
+    console.log(`Sending email notifications for ${serviceName} (${versions.length} version(s)) to ${recipients.length} recipient(s)...`);
+
+    for (const version of versions) {
       try {
-        const data = await readFile(translationPath, 'utf-8');
-        const parsed = JSON.parse(data);
-        entries = parsed.entries;
-      } catch (error) {
-        console.error(`Failed to read translation for ${version}:`, error.message);
-        failCount++;
-        continue;
-      }
+        const translationPath = resolve(process.cwd(), `data/services/${serviceId}/translations/${version}.json`);
 
-      if (!entries || entries.length === 0) {
-        console.warn(`No entries found for version ${version}`);
-        failCount++;
-        continue;
-      }
+        let entries;
+        try {
+          const data = await readFile(translationPath, 'utf-8');
+          const parsed = JSON.parse(data);
+          entries = parsed.entries;
+        } catch (error) {
+          console.error(`Failed to read translation for ${serviceName} ${version}:`, error.message);
+          failCount++;
+          continue;
+        }
 
-      const html = await renderTemplate(version, entries, siteUrl);
-      const subject = `Claude Code v${version} 업데이트 - 한국어 번역`;
+        if (!entries || entries.length === 0) {
+          console.warn(`No entries found for ${serviceName} version ${version}`);
+          failCount++;
+          continue;
+        }
 
-      await sendEmail(apiKey, from, recipients, subject, html);
-      console.log(`✅ Sent email notification for v${version}`);
-      successCount++;
+        const html = await renderTemplate(serviceName, version, entries, siteUrl);
+        const subject = `${serviceName} v${version} 업데이트 - 한국어 번역`;
 
-      // Rate limiting: wait 1 second between emails
-      if (newVersions.indexOf(version) < newVersions.length - 1) {
+        await sendEmail(apiKey, from, recipients, subject, html);
+        console.log(`✅ Sent email notification for ${serviceName} v${version}`);
+        successCount++;
+
+        // Rate limiting: wait 1 second between emails
         await new Promise(resolve => setTimeout(resolve, 1000));
+      } catch (error) {
+        console.error(`❌ Failed to send email for ${serviceName} v${version}:`, error.message);
+        failCount++;
       }
-    } catch (error) {
-      console.error(`❌ Failed to send email for v${version}:`, error.message);
-      failCount++;
     }
   }
 

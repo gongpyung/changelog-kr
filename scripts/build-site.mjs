@@ -40,33 +40,24 @@ async function discoverServices() {
 
   const validServices = [];
 
-  let discoveredDirs;
-  try {
-    discoveredDirs = await readdir(SERVICES_DIR);
-  } catch {
-    return null;
-  }
+  for (const serviceMeta of config.services) {
+    if (!serviceMeta.enabled) continue;
 
-  for (const dir of discoveredDirs) {
-    const translationsPath = join(SERVICES_DIR, dir, 'translations');
+    const translationsPath = join(SERVICES_DIR, serviceMeta.id, 'translations');
+    let jsonFiles = [];
     try {
       const files = await readdir(translationsPath);
-      const jsonFiles = files.filter(f => f.endsWith('.json'));
-
-      if (jsonFiles.length > 0) {
-        const meta = config.services.find(s => s.id === dir);
-        if (meta && meta.enabled) {
-          validServices.push({
-            id: dir,
-            meta,
-            translationsPath,
-            fileCount: jsonFiles.length
-          });
-        }
-      }
+      jsonFiles = files.filter(f => f.endsWith('.json'));
     } catch {
-      // translations folder doesn't exist - skip
+      // translations folder doesn't exist - service has zero translations
     }
+
+    validServices.push({
+      id: serviceMeta.id,
+      meta: serviceMeta,
+      translationsPath,
+      fileCount: jsonFiles.length
+    });
   }
 
   return validServices;
@@ -76,8 +67,13 @@ async function discoverServices() {
  * Build data for a single service
  */
 async function buildServiceData(service) {
-  const files = await readdir(service.translationsPath);
-  const jsonFiles = files.filter(f => f.endsWith('.json'));
+  let jsonFiles = [];
+  try {
+    const files = await readdir(service.translationsPath);
+    jsonFiles = files.filter(f => f.endsWith('.json'));
+  } catch {
+    // translations dir may not exist for new services
+  }
 
   const versions = [];
   for (const file of jsonFiles) {
@@ -248,7 +244,7 @@ async function main() {
 
   console.log('');
   console.log('========================================');
-  console.log('  Claude Code Changelog - Site Builder');
+  console.log('  ChangeLog.kr - Site Builder');
   console.log('========================================');
   console.log('');
 
@@ -273,11 +269,22 @@ async function main() {
     await copyFile(SERVICES_CONFIG, join(SITE_DATA_DIR, 'services.json'));
     console.log('  Copied services.json');
 
-    // Build combined all-translations.json from first enabled service for backward compatibility
+    // Build combined all-translations.json from default service for backward compatibility
     console.log('[3/4] Building all-translations.json (backward compatibility)...');
-    const primaryService = services[0];
-    const files = await readdir(primaryService.translationsPath);
-    const jsonFiles = files.filter(f => f.endsWith('.json'));
+    let config;
+    try {
+      config = JSON.parse(await readFile(SERVICES_CONFIG, 'utf-8'));
+    } catch { config = null; }
+    const defaultServiceId = config?.defaultService || 'claude-code';
+    const primaryService = services.find(s => s.id === defaultServiceId) || services[0];
+    let primaryFiles = [];
+    try {
+      const allFiles = await readdir(primaryService.translationsPath);
+      primaryFiles = allFiles.filter(f => f.endsWith('.json'));
+    } catch {
+      // primary service may have no translations dir
+    }
+    const jsonFiles = primaryFiles;
 
     const versions = [];
     for (const file of jsonFiles) {

@@ -78,7 +78,7 @@
   </script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-terminal-bg dark:bg-terminal-bg text-gray-100 min-h-screen font-body transition-colors duration-300 light:bg-light-bg light:text-gray-900">
+<body class="min-h-screen font-body antialiased transition-colors duration-300">
   <!-- Mobile Menu Button -->
   <button id="mobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 p-2.5 rounded-lg bg-terminal-surface/90 backdrop-blur-sm border border-terminal-border text-gray-400 hover:text-neon-cyan hover:border-neon-cyan/50 transition-all duration-200 shadow-lg">
     <svg id="menuOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,39 +108,7 @@
     <nav class="flex-1 overflow-y-auto p-4">
       <p class="text-[10px] font-semibold text-terminal-muted uppercase tracking-widest mb-3 px-2">Services</p>
       <div id="serviceList" class="space-y-1">
-        <!-- Claude Code - Active by default -->
-        <a href="#" class="service-item active flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group" data-service="claude-code">
-          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm group-hover:border-neon-cyan/30 transition-colors">
-            <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-200 group-hover:text-white truncate">Claude Code</p>
-            <p class="text-[10px] text-terminal-muted">Anthropic</p>
-          </div>
-          <span class="text-[10px] px-1.5 py-0.5 rounded bg-neon-cyan/10 text-neon-cyan font-mono">204</span>
-        </a>
-
-        <!-- Cursor - Coming Soon -->
-        <div class="service-item-disabled flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed">
-          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
-            <svg class="w-4 h-4 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-400 truncate">Cursor</p>
-            <p class="text-[10px] text-terminal-muted">Coming soon</p>
-          </div>
-        </div>
-
-        <!-- Windsurf - Coming Soon -->
-        <div class="service-item-disabled flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed">
-          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
-            <svg class="w-4 h-4 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-400 truncate">Windsurf</p>
-            <p class="text-[10px] text-terminal-muted">Coming soon</p>
-          </div>
-        </div>
+        <!-- Dynamically rendered by app.js -->
       </div>
     </nav>
 
@@ -155,7 +123,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
           </svg>
         </button>
-        <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-terminal-muted hover:text-neon-cyan hover:bg-terminal-elevated transition-all duration-200" title="GitHub">
+        <a id="sidebarGithubLink" href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-terminal-muted hover:text-neon-cyan hover:bg-terminal-elevated transition-all duration-200" title="GitHub">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
       </div>
@@ -179,7 +147,7 @@
             </span>
           </div>
           <p class="text-sm text-terminal-muted hidden sm:block">
-            Last updated: <span class="text-gray-400 font-medium">2026-02-06 00:41</span>
+            Last updated: <span class="text-gray-400 font-medium">2026-02-06 23:59</span>
           </p>
         </div>
 

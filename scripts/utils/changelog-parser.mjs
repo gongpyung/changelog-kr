@@ -4,7 +4,7 @@
  */
 
 const SCOPE_REGEX = /^\[([^\]]+)\]/;
-const VERSION_REGEX = /^## (\d+\.\d+\.\d+)/;
+const VERSION_REGEX = /^## (\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)/;
 
 /**
  * Classify entry based on first word

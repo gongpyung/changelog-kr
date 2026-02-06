@@ -143,8 +143,8 @@ export async function translateBatch(texts, sourceLang = 'en', targetLang = 'ko'
   }
 
   // Protect code, URLs, and paths
-  const placeholderManager = new PlaceholderManager();
-  const protectedTexts = texts.map(text => placeholderManager.protect(text));
+  const managers = texts.map(() => new PlaceholderManager());
+  const protectedTexts = texts.map((text, i) => managers[i].protect(text));
 
   // Create batches
   const batches = createBatches(protectedTexts);
@@ -170,7 +170,7 @@ export async function translateBatch(texts, sourceLang = 'en', targetLang = 'ko'
   }
 
   // Restore protected content
-  const restoredTranslations = allTranslations.map(text => placeholderManager.restore(text));
+  const restoredTranslations = allTranslations.map((text, i) => managers[i].restore(text));
 
   return {
     translations: restoredTranslations,

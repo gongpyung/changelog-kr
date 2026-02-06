@@ -73,6 +73,7 @@
   const serviceTitle = $('#serviceTitle');
   const versionBadge = $('#versionBadge');
   const sourceLink = $('#sourceLink');
+  const sidebarGithubLink = $('#sidebarGithubLink');
   const sidebar = $('#sidebar');
   const sidebarOverlay = $('#sidebarOverlay');
   const mobileMenuBtn = $('#mobileMenuBtn');
@@ -154,27 +155,51 @@
 
     serviceList.innerHTML = '';
 
-    const enabledServices = servicesConfig.services.filter(s => s.enabled);
+    // Render all services: enabled ones are clickable, disabled ones show "Coming soon"
+    servicesConfig.services.forEach(service => {
+      if (!service.enabled) {
+        // Disabled service - Coming soon
+        const item = document.createElement('div');
+        item.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed';
+        item.innerHTML = `
+          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
+            <span class="text-xs font-bold text-terminal-muted">${escapeHtml(service.shortName.charAt(0).toUpperCase())}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-400 truncate">${escapeHtml(service.name)}</p>
+            <p class="text-[10px] text-terminal-muted">${escapeHtml(service.vendor)} &middot; Coming soon</p>
+          </div>
+        `;
+        serviceList.appendChild(item);
+        return;
+      }
 
-    enabledServices.forEach(service => {
-      const item = document.createElement('div');
-      item.className = `service-item ${service.id === currentService ? 'active' : ''}`;
+      const isActive = service.id === currentService;
+      const item = document.createElement('a');
+      item.href = '#';
+      item.className = `service-item flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${isActive ? 'active' : ''}`;
       item.dataset.serviceId = service.id;
 
-      // Get first letter for icon
       const iconLetter = service.shortName.charAt(0).toUpperCase();
+      const iconStyle = isActive
+        ? `border-color: ${service.color}; color: ${service.color};`
+        : `border-color: ${service.color}40;`;
+      const letterStyle = isActive ? '' : `color: ${service.color};`;
 
       item.innerHTML = `
-        <div class="service-icon" style="${service.id === currentService ? '' : `border-color: ${service.color}40;`}">
-          ${service.id === currentService ? iconLetter : `<span style="color: ${service.color}">${iconLetter}</span>`}
+        <div class="w-8 h-8 rounded-md bg-terminal-elevated border flex items-center justify-center text-sm group-hover:border-opacity-60 transition-colors" style="${iconStyle}">
+          <span class="text-xs font-bold" style="${letterStyle}">${iconLetter}</span>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="font-medium truncate">${service.name}</p>
-          <p class="text-xs opacity-60">Changelog</p>
+          <p class="text-sm font-medium text-gray-200 group-hover:text-white truncate">${escapeHtml(service.name)}</p>
+          <p class="text-[10px] text-terminal-muted">${escapeHtml(service.vendor)}</p>
         </div>
       `;
 
-      item.addEventListener('click', () => switchService(service.id));
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchService(service.id);
+      });
       serviceList.appendChild(item);
     });
   }
@@ -198,6 +223,7 @@
     // Update UI
     if (serviceTitle) serviceTitle.textContent = service.name;
     if (sourceLink) sourceLink.href = service.sourceUrl;
+    if (sidebarGithubLink) sidebarGithubLink.href = service.sourceUrl;
 
     // Re-render service list to update active state
     renderServiceList();
@@ -328,7 +354,31 @@
     versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-terminal-border"></div>';
 
     if (filteredVersions.length === 0) {
-      if (emptyState) emptyState.classList.remove('hidden');
+      // Check if this is a service with no data at all vs. filter producing no results
+      if (allVersions.length === 0) {
+        // Service has no translations at all - show service empty state
+        if (emptyState) {
+          emptyState.classList.remove('hidden');
+          const heading = emptyState.querySelector('h3');
+          const desc = emptyState.querySelector('p');
+          if (heading) heading.textContent = '\uC544\uC9C1 changelog \uC138\uBD80 \uB0B4\uC6A9\uC774 \uC5C6\uC2B5\uB2C8\uB2E4';
+          if (desc) desc.textContent = '\uC0C8 \uB9B4\uB9AC\uC988\uAC00 \uAC8C\uC2DC\uB418\uBA74 \uC790\uB3D9\uC73C\uB85C \uC218\uC9D1\uB429\uB2C8\uB2E4.';
+          // "아직 changelog 세부 내용이 없습니다" / "새 릴리스가 게시되면 자동으로 수집됩니다."
+          const clearBtn = emptyState.querySelector('#clearFiltersBtn');
+          if (clearBtn) clearBtn.classList.add('hidden');
+        }
+      } else {
+        // Filter produced no results
+        if (emptyState) {
+          emptyState.classList.remove('hidden');
+          const heading = emptyState.querySelector('h3');
+          const desc = emptyState.querySelector('p');
+          if (heading) heading.textContent = '\uAC80\uC0C9 \uACB0\uACFC \uC5C6\uC74C';
+          if (desc) desc.textContent = '\uAC80\uC0C9\uC5B4 \uB610\uB294 \uD544\uD130 \uC870\uAC74\uC744 \uBCC0\uACBD\uD574 \uBCF4\uC138\uC694.';
+          const clearBtn = emptyState.querySelector('#clearFiltersBtn');
+          if (clearBtn) clearBtn.classList.remove('hidden');
+        }
+      }
       if (toggleAllBtn) toggleAllBtn.classList.add('hidden');
       return;
     }
@@ -675,6 +725,7 @@
       if (service) {
         if (serviceTitle) serviceTitle.textContent = service.name;
         if (sourceLink) sourceLink.href = service.sourceUrl;
+        if (sidebarGithubLink) sidebarGithubLink.href = service.sourceUrl;
       }
 
       renderServiceList();

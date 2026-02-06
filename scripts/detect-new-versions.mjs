@@ -1,33 +1,35 @@
 /**
- * Detect new changelog versions by comparing remote with local data
+ * Detect new changelog versions for all enabled services
+ * Compares remote sources with local data/services/{id}/versions.json
  * Outputs GitHub Actions variables if running in CI
+ *
+ * Environment variables:
+ *   SERVICE_ID - optional, check only one service (e.g. "claude-code")
+ *
+ * Outputs (GitHub Actions):
+ *   has_new - "true" if any service has new versions
+ *   new_versions_map - JSON object: {"claude-code": ["2.1.33"], "gemini-cli": ["0.27.2"]}
  */
 
-import { readFile, appendFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 import { appendFileSync } from 'node:fs';
 import { join } from 'path';
+import { fetchAndParseReleases } from './utils/releases-parser.mjs';
 
-const REMOTE_CHANGELOG_URL = 'https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md';
-const VERSIONS_FILE = join('data', 'versions.json');
+const SERVICES_FILE = join('data', 'services.json');
 
 /**
- * Fetch remote CHANGELOG.md
+ * Fetch remote CHANGELOG.md from URL and parse version headers
  */
-async function fetchRemoteChangelog() {
-  console.log('Fetching remote CHANGELOG.md...');
-  const response = await fetch(REMOTE_CHANGELOG_URL);
+async function fetchMarkdownVersions(url) {
+  console.log(`  Fetching markdown changelog from ${url}...`);
+  const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch remote changelog: ${response.status} ${response.statusText}`);
+    throw new Error(`Failed to fetch changelog: ${response.status} ${response.statusText}`);
   }
 
-  return await response.text();
-}
-
-/**
- * Parse version headers from markdown content
- */
-function parseVersions(markdown) {
+  const markdown = await response.text();
   const versionRegex = /^## (\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)/gm;
   const versions = [];
   let match;
@@ -40,17 +42,44 @@ function parseVersions(markdown) {
 }
 
 /**
- * Read local versions.json
+ * Get remote versions for a service based on its changelogType
  */
-async function readLocalVersions() {
+async function getRemoteVersions(service) {
+  if (service.changelogType === 'markdown') {
+    return await fetchMarkdownVersions(service.changelogSource.url);
+  }
+
+  if (service.changelogType === 'github-releases') {
+    const result = await fetchAndParseReleases(service.changelogSource);
+    return result.versions.map(v => v.version);
+  }
+
+  console.warn(`  Unknown changelogType: ${service.changelogType}`);
+  return [];
+}
+
+/**
+ * Read local versions.json for a service
+ */
+async function readLocalVersions(serviceId) {
+  const versionsFile = join('data', 'services', serviceId, 'versions.json');
   try {
-    const content = await readFile(VERSIONS_FILE, 'utf-8');
+    const content = await readFile(versionsFile, 'utf-8');
     const data = JSON.parse(content);
-    return data.versions.map(v => v.version);
+    return (data.versions || []).map(v => v.version);
   } catch (error) {
-    console.warn(`Warning: Could not read ${VERSIONS_FILE}: ${error.message}`);
+    console.warn(`  Warning: Could not read ${versionsFile}: ${error.message}`);
     return [];
   }
+}
+
+/**
+ * Load enabled services from services.json
+ */
+async function loadServices() {
+  const content = await readFile(SERVICES_FILE, 'utf-8');
+  const data = JSON.parse(content);
+  return data.services.filter(s => s.enabled && s.changelogType);
 }
 
 /**
@@ -61,8 +90,6 @@ function setGitHubOutput(name, value) {
   if (!outputFile) {
     return;
   }
-
-  // Write to GITHUB_OUTPUT file
   const line = `${name}=${value}\n`;
   appendFileSync(outputFile, line, 'utf-8');
 }
@@ -71,35 +98,72 @@ function setGitHubOutput(name, value) {
  * Main function
  */
 async function main() {
-  console.log('Claude Code Version Detector\n');
+  console.log('Multi-Service Version Detector\n');
 
-  // Fetch and parse remote versions
-  const remoteMarkdown = await fetchRemoteChangelog();
-  const remoteVersions = parseVersions(remoteMarkdown);
-  console.log(`Found ${remoteVersions.length} versions in remote changelog`);
+  // Load services
+  let services = await loadServices();
+  console.log(`Loaded ${services.length} enabled service(s) from ${SERVICES_FILE}`);
 
-  // Read local versions
-  const localVersions = await readLocalVersions();
-  console.log(`Found ${localVersions.length} versions in local data`);
+  // Filter by SERVICE_ID if specified
+  const filterServiceId = process.env.SERVICE_ID;
+  if (filterServiceId) {
+    services = services.filter(s => s.id === filterServiceId);
+    if (services.length === 0) {
+      console.error(`Service "${filterServiceId}" not found or not enabled.`);
+      setGitHubOutput('has_new', 'false');
+      setGitHubOutput('new_versions_map', '{}');
+      process.exit(0);
+    }
+    console.log(`Filtered to service: ${filterServiceId}`);
+  }
 
-  // Find new versions
-  const newVersions = remoteVersions.filter(v => !localVersions.includes(v));
+  const newVersionsMap = {};
+  let totalNew = 0;
+
+  // Check each service
+  for (const service of services) {
+    console.log(`\n--- ${service.name} (${service.id}) ---`);
+
+    try {
+      // Get remote versions
+      const remoteVersions = await getRemoteVersions(service);
+      console.log(`  Remote: ${remoteVersions.length} version(s)`);
+
+      // Get local versions
+      const localVersions = await readLocalVersions(service.id);
+      console.log(`  Local: ${localVersions.length} version(s)`);
+
+      // Find new versions
+      const newVersions = remoteVersions.filter(v => !localVersions.includes(v));
+
+      if (newVersions.length > 0) {
+        console.log(`  New: ${newVersions.length} version(s)`);
+        newVersions.forEach(v => console.log(`    - ${v}`));
+        newVersionsMap[service.id] = newVersions;
+        totalNew += newVersions.length;
+      } else {
+        console.log('  No new versions.');
+      }
+    } catch (error) {
+      console.error(`  Error checking ${service.name}: ${error.message}`);
+    }
+  }
 
   // Output results
   console.log('\n' + '='.repeat(60));
-  if (newVersions.length > 0) {
-    console.log(`✓ Found ${newVersions.length} new version(s):`);
-    newVersions.forEach(v => console.log(`  - ${v}`));
+  if (totalNew > 0) {
+    console.log(`Found ${totalNew} new version(s) across ${Object.keys(newVersionsMap).length} service(s):`);
+    for (const [id, versions] of Object.entries(newVersionsMap)) {
+      console.log(`  ${id}: ${versions.join(', ')}`);
+    }
 
-    // Set GitHub Actions outputs
     setGitHubOutput('has_new', 'true');
-    setGitHubOutput('new_versions', JSON.stringify(newVersions));
+    setGitHubOutput('new_versions_map', JSON.stringify(newVersionsMap));
   } else {
-    console.log('No new versions found.');
+    console.log('No new versions found across all services.');
 
-    // Set GitHub Actions outputs
     setGitHubOutput('has_new', 'false');
-    setGitHubOutput('new_versions', '[]');
+    setGitHubOutput('new_versions_map', '{}');
   }
   console.log('='.repeat(60));
 
@@ -108,11 +172,11 @@ async function main() {
 }
 
 main().catch(error => {
-  console.error('\n✗ Error:', error.message);
+  console.error('\nError:', error.message);
 
   // Set GitHub Actions outputs for error case
   setGitHubOutput('has_new', 'false');
-  setGitHubOutput('new_versions', '[]');
+  setGitHubOutput('new_versions_map', '{}');
 
   // Still exit 0 (don't fail the workflow)
   process.exit(0);

@@ -4,6 +4,15 @@ import { readFile } from 'fs/promises';
 import { resolve } from 'path';
 
 /**
+ * Load service name from services.json
+ */
+async function getServiceName(serviceId) {
+  const config = JSON.parse(await readFile(resolve(process.cwd(), 'data/services.json'), 'utf-8'));
+  const service = config.services.find(s => s.id === serviceId);
+  return service?.name || serviceId;
+}
+
+/**
  * Escape special characters for Telegram MarkdownV2
  * Must escape: _*[]()~`>#+-=|{}.!
  */
@@ -58,8 +67,8 @@ function formatEntry(entry) {
 /**
  * Build Telegram message for a version
  */
-async function buildMessage(version, siteUrl) {
-  const translationPath = resolve(process.cwd(), `data/translations/${version}.json`);
+async function buildMessage(serviceId, serviceName, version, siteUrl) {
+  const translationPath = resolve(process.cwd(), `data/services/${serviceId}/translations/${version}.json`);
 
   let entries;
   try {
@@ -77,7 +86,7 @@ async function buildMessage(version, siteUrl) {
   }
 
   // Build message
-  const header = '🔄 *Claude Code 업데이트*\n\n';
+  const header = `🔄 *${escapeMarkdownV2(serviceName)} 업데이트*\n\n`;
   const versionLine = `*v${escapeMarkdownV2(version)}*\n\n`;
 
   // Top 5 entries
@@ -102,7 +111,8 @@ async function buildMessage(version, siteUrl) {
 async function main() {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-  const newVersionsJson = process.env.NEW_VERSIONS;
+  const versionsMap = process.env.NEW_VERSIONS_MAP;
+  const legacyVersions = process.env.NEW_VERSIONS;
   const siteUrl = process.env.SITE_URL || 'https://claude-code-changelog-ko.pages.dev';
 
   if (!botToken) {
@@ -115,49 +125,65 @@ async function main() {
     return;
   }
 
-  if (!newVersionsJson) {
-    console.log('No new versions to notify');
+  // Parse input - support both formats
+  let serviceVersions;
+  if (versionsMap) {
+    // New format: {"claude-code": ["2.1.33"], "gemini-cli": ["0.27.2"]}
+    try {
+      serviceVersions = JSON.parse(versionsMap);
+    } catch (error) {
+      console.error('Failed to parse NEW_VERSIONS_MAP:', error.message);
+      process.exit(1);
+    }
+  } else if (legacyVersions) {
+    // Legacy format: ["2.1.33"] -> default to claude-code
+    try {
+      const versions = JSON.parse(legacyVersions);
+      serviceVersions = { 'claude-code': versions };
+    } catch (error) {
+      console.error('Failed to parse NEW_VERSIONS:', error.message);
+      process.exit(1);
+    }
+  } else {
+    console.log('No versions specified');
     return;
   }
 
-  let newVersions;
-  try {
-    newVersions = JSON.parse(newVersionsJson);
-  } catch (error) {
-    console.error('Failed to parse NEW_VERSIONS:', error.message);
-    process.exit(1);
-  }
-
-  if (!Array.isArray(newVersions) || newVersions.length === 0) {
+  if (Object.keys(serviceVersions).length === 0) {
     console.log('No new versions to notify');
     return;
   }
-
-  console.log(`Sending Telegram notifications for ${newVersions.length} version(s)...`);
 
   let successCount = 0;
   let failCount = 0;
 
-  for (const version of newVersions) {
-    try {
-      const message = await buildMessage(version, siteUrl);
+  for (const [serviceId, versions] of Object.entries(serviceVersions)) {
+    if (!Array.isArray(versions) || versions.length === 0) {
+      continue;
+    }
 
-      if (!message) {
-        failCount++;
-        continue;
-      }
+    const serviceName = await getServiceName(serviceId);
+    console.log(`Sending Telegram notifications for ${serviceName} (${versions.length} version(s))...`);
 
-      await sendTelegramMessage(botToken, chatId, message);
-      console.log(`✅ Sent Telegram notification for v${version}`);
-      successCount++;
+    for (const version of versions) {
+      try {
+        const message = await buildMessage(serviceId, serviceName, version, siteUrl);
 
-      // Rate limiting: wait 1 second between messages
-      if (newVersions.indexOf(version) < newVersions.length - 1) {
+        if (!message) {
+          failCount++;
+          continue;
+        }
+
+        await sendTelegramMessage(botToken, chatId, message);
+        console.log(`✅ Sent Telegram notification for ${serviceName} v${version}`);
+        successCount++;
+
+        // Rate limiting: wait 1 second between messages
         await new Promise(resolve => setTimeout(resolve, 1000));
+      } catch (error) {
+        console.error(`❌ Failed to send notification for ${serviceName} v${version}:`, error.message);
+        failCount++;
       }
-    } catch (error) {
-      console.error(`❌ Failed to send notification for v${version}:`, error.message);
-      failCount++;
     }
   }
 

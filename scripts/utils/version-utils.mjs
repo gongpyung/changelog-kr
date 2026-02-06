@@ -7,11 +7,14 @@
  * Parse version string into [major, minor, patch]
  */
 function parseVersion(version) {
-  const parts = version.split('.').map(Number);
+  const [main, ...preReleaseParts] = version.split('-');
+  const preRelease = preReleaseParts.length > 0 ? preReleaseParts.join('-') : null;
+  const parts = main.split('.').map(Number);
   return {
     major: parts[0] || 0,
     minor: parts[1] || 0,
-    patch: parts[2] || 0
+    patch: parts[2] || 0,
+    preRelease
   };
 }
 
@@ -33,6 +36,13 @@ export function compareVersions(a, b) {
 
   if (vA.patch !== vB.patch) {
     return vA.patch < vB.patch ? -1 : 1;
+  }
+
+  // Pre-release handling: version with pre-release < version without
+  if (vA.preRelease && !vB.preRelease) return -1;
+  if (!vA.preRelease && vB.preRelease) return 1;
+  if (vA.preRelease && vB.preRelease) {
+    return vA.preRelease < vB.preRelease ? -1 : vA.preRelease > vB.preRelease ? 1 : 0;
   }
 
   return 0;

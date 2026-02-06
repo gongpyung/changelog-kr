@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       has_new: ${{ steps.detect.outputs.has_new }}
-      new_versions: ${{ steps.detect.outputs.new_versions }}
+      new_versions_map: ${{ steps.detect.outputs.new_versions_map }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,6 +34,6 @@ jobs:
               workflow_id: 'translate.yml',
               ref: 'main',
               inputs: {
-                new_versions: '${{ needs.check.outputs.new_versions }}'
+                new_versions_map: '${{ needs.check.outputs.new_versions_map }}'
               }
             })

@@ -3,13 +3,20 @@ name: Translate New Versions
 on:
   workflow_dispatch:
     inputs:
+      new_versions_map:
+        description: 'JSON map of service ID to version arrays'
+        required: false
       new_versions:
-        description: 'JSON array of new version strings'
-        required: true
+        description: '(deprecated) JSON array for claude-code backward compat'
+        required: false
       translate_all:
         description: 'Translate all untranslated versions'
         required: false
         default: 'false'
+
+concurrency:
+  group: "translate"
+  cancel-in-progress: false
 
 jobs:
   translate:
@@ -20,19 +27,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch latest changelog
-        run: |
-          curl -sL https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md \
-            -o data/raw/CHANGELOG.md
-
-      - name: Parse changelog
-        run: node scripts/parse-changelog.mjs
-
-      - name: Translate new versions
+      - name: Parse and translate
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
           NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
-        run: node scripts/translate.mjs
+        run: |
+          node scripts/parse-changelog.mjs
+          node scripts/translate.mjs
 
       - name: Commit translated data
         run: |
@@ -53,6 +57,7 @@ jobs:
               workflow_id: 'notify.yml',
               ref: 'main',
               inputs: {
+                new_versions_map: '${{ github.event.inputs.new_versions_map }}',
                 new_versions: '${{ github.event.inputs.new_versions }}'
               }
             })
