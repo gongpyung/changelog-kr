@@ -79,16 +79,6 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="min-h-screen font-body antialiased transition-colors duration-300">
-  <!-- Mobile Menu Button -->
-  <button id="mobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 p-2.5 rounded-lg bg-white/90 dark:bg-terminal-surface/90 backdrop-blur-sm border border-gray-200 dark:border-terminal-border text-gray-500 dark:text-gray-400 hover:text-neon-cyan hover:border-neon-cyan/50 transition-all duration-200 shadow-lg">
-    <svg id="menuOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-    <svg id="menuCloseIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
-
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-terminal-surface border-r border-gray-200 dark:border-terminal-border z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out flex flex-col">
     <!-- Logo -->
@@ -148,7 +138,15 @@
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <!-- Service Title -->
         <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-3 pl-12 lg:pl-0">
+          <div class="flex items-center gap-3">
+            <button id="mobileMenuBtn" class="lg:hidden p-2 -ml-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-neon-cyan hover:bg-gray-100 dark:hover:bg-terminal-elevated transition-all duration-200">
+              <svg id="menuOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+              <svg id="menuCloseIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
             <h2 id="serviceTitle" class="text-xl sm:text-2xl font-display font-bold text-gray-900 dark:text-white tracking-tight">Claude Code</h2>
             <span id="versionBadge" class="px-2.5 py-1 rounded-md text-xs font-mono bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">
               {{VERSION_COUNT}} versions
