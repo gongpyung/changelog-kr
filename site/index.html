@@ -90,9 +90,9 @@
   </button>
 
   <!-- Sidebar -->
-  <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-terminal-surface border-r border-terminal-border z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out flex flex-col">
+  <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-terminal-surface border-r border-gray-200 dark:border-terminal-border z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out flex flex-col">
     <!-- Logo -->
-    <div class="p-5 border-b border-terminal-border">
+    <div class="p-5 border-b border-gray-200 dark:border-terminal-border">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-terminal-bg border border-gray-200 dark:border-terminal-border flex items-center justify-center shadow-neon">
           <span class="text-neon-cyan font-display font-bold text-lg">&gt;_</span>
@@ -112,7 +112,7 @@
     </nav>
 
     <!-- Sidebar Footer -->
-    <div class="p-4 border-t border-terminal-border bg-gray-50 dark:bg-terminal-bg/50">
+    <div class="p-4 border-t border-gray-200 dark:border-terminal-border bg-gray-50 dark:bg-terminal-bg/50">
       <div class="flex items-center justify-between">
         <button id="themeToggle" class="p-2 rounded-lg text-gray-500 dark:text-terminal-muted hover:text-neon-cyan hover:bg-gray-100 dark:hover:bg-terminal-elevated transition-all duration-200" title="테마 전환">
           <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@
         </button>
         <a href="https://github.com/gongpyung/changelog-kr/issues"
            target="_blank" rel="noopener noreferrer"
-           class="p-2 rounded-lg text-terminal-muted hover:text-neon-cyan hover:bg-terminal-elevated transition-all duration-200"
+           class="p-2 rounded-lg text-gray-500 dark:text-terminal-muted hover:text-neon-cyan hover:bg-gray-100 dark:hover:bg-terminal-elevated transition-all duration-200"
            title="개선의견">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -154,14 +154,14 @@
               207 versions
             </span>
           </div>
-          <p class="text-sm text-terminal-muted hidden sm:block">
-            Last updated: <span class="text-gray-500 dark:text-gray-400 font-medium">2026-02-07 13:39</span>
+          <p class="text-sm text-gray-500 dark:text-terminal-muted hidden sm:block">
+            Last updated: <span class="text-gray-500 dark:text-gray-400 font-medium">2026-02-07 15:49</span>
           </p>
         </div>
 
         <!-- Search -->
         <div class="relative mb-4">
-          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-terminal-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-terminal-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
           <input
@@ -170,7 +170,7 @@
             placeholder="변경사항 검색..."
             class="w-full pl-12 pr-10 py-3 rounded-xl bg-white dark:bg-terminal-surface border border-gray-200 dark:border-terminal-border text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-terminal-muted focus:outline-none focus:border-neon-cyan/50 focus:ring-2 focus:ring-neon-cyan/20 transition-all duration-200 font-body"
           >
-          <button id="searchClear" class="absolute right-4 top-1/2 -translate-y-1/2 text-terminal-muted hover:text-neon-cyan transition-colors hidden">
+          <button id="searchClear" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-terminal-muted hover:text-neon-cyan transition-colors hidden">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -179,7 +179,6 @@
         <div class="flex flex-wrap items-center gap-2 sm:gap-4">
           <!-- Category Filters -->
           <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-hide pb-1 sm:pb-0">
-            <span class="text-[10px] text-terminal-muted font-medium shrink-0 uppercase tracking-wider">분류:</span>
             <button class="filter-btn category-filter active" data-category="all">전체</button>
             <button class="filter-btn category-filter" data-category="added">
               <span class="w-1.5 h-1.5 rounded-full bg-neon-green"></span> 추가
@@ -198,9 +197,8 @@
             </button>
           </div>
 
-          <button id="toggleAllBtn" class="ml-auto text-xs text-terminal-muted hover:text-neon-cyan transition-colors hidden sm:flex items-center gap-1.5 font-medium">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-            모두 펼치기
+          <button id="toggleAllBtn" class="ml-auto p-1.5 text-gray-500 dark:text-terminal-muted hover:text-neon-cyan transition-colors flex items-center" title="모두 펼치기">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 9l5-5 5 5M7 15l5 5 5-5"/></svg>
           </button>
         </div>
       </div>
@@ -216,27 +214,27 @@
       </nav>
 
       <!-- Results Summary -->
-      <div id="resultsSummary" class="hidden mb-4 text-sm text-terminal-muted">
+      <div id="resultsSummary" class="hidden mb-4 text-sm text-gray-500 dark:text-terminal-muted">
         <span id="resultsCount"></span>
       </div>
 
       <!-- Timeline Version List -->
       <div id="versionList" class="relative pl-6 sm:pl-8">
         <!-- Timeline line -->
-        <div class="timeline-line absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-neon-cyan/50 via-terminal-border to-terminal-border"></div>
+        <div class="timeline-line absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-neon-cyan/50 via-gray-300 dark:via-terminal-border to-gray-300 dark:to-terminal-border"></div>
 
         <!-- Versions rendered by JS -->
       </div>
 
       <!-- Empty State -->
       <div id="emptyState" class="hidden text-center py-16">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-terminal-surface border border-terminal-border flex items-center justify-center">
-          <svg class="w-8 h-8 text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gray-100 dark:bg-terminal-surface border border-gray-200 dark:border-terminal-border flex items-center justify-center">
+          <svg class="w-8 h-8 text-gray-400 dark:text-terminal-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </div>
         <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">검색 결과 없음</h3>
-        <p class="text-terminal-muted text-sm mb-4">검색어 또는 필터 조건을 변경해 보세요.</p>
+        <p class="text-gray-500 dark:text-terminal-muted text-sm mb-4">검색어 또는 필터 조건을 변경해 보세요.</p>
         <button id="clearFiltersBtn" class="px-4 py-2 rounded-lg text-sm font-medium text-neon-cyan bg-neon-cyan/10 border border-neon-cyan/20 hover:bg-neon-cyan/20 transition-colors duration-200">
           필터 초기화
         </button>
@@ -244,7 +242,7 @@
 
       <!-- Loading State -->
       <div id="loadingState" class="text-center py-16">
-        <div class="inline-flex items-center gap-3 text-terminal-muted">
+        <div class="inline-flex items-center gap-3 text-gray-500 dark:text-terminal-muted">
           <svg class="animate-spin w-5 h-5 text-neon-cyan" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
@@ -255,9 +253,9 @@
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-terminal-border mt-12 bg-gray-50 dark:bg-terminal-surface/30">
+    <footer class="border-t border-gray-200 dark:border-terminal-border mt-12 bg-gray-50 dark:bg-terminal-surface/30">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-terminal-muted">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500 dark:text-terminal-muted">
           <div class="flex items-center gap-2 flex-wrap">
             <span class="font-display font-bold text-gray-900 dark:text-white">ChangeLog<span class="text-neon-cyan">.kr</span></span>
           </div>

@@ -45,8 +45,8 @@
 <tr>
 <td width="50%">
 
-### 🌙 다크 모드
-Neon Terminal 테마로 눈의 피로를 줄여줍니다.
+### 🌙 다크/라이트 모드
+Neon Terminal 다크 테마 + 깔끔한 라이트 테마
 
 </td>
 <td width="50%">
@@ -134,7 +134,7 @@ changelog-kr/
 | 영역 | 기술 |
 |------|------|
 | **Frontend** | Vanilla JS, Tailwind CSS (CDN) |
-| **Design** | Neon Terminal Theme (CSS 변수 + dark 모드) |
+| **Design** | Neon Terminal Theme (CSS 변수 + dark/light 모드) |
 | **Translation** | OpenAI GPT-4o / Gemini API / Google Translate |
 | **Parsing** | Markdown 파서 + GitHub Releases API 파서 |
 | **Hosting** | GitHub Pages |

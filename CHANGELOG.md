@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-02-07
+
+### Fixed
+- **Light theme全面 개선** - 19개 라이트 모드 이슈 수정
+  - 사이드바가 라이트 모드에서도 다크 배경으로 표시되던 문제 (CRITICAL)
+  - 타임라인 선이 흰 배경에 검정으로 나오던 문제 (CRITICAL)
+  - 빈 상태/에러 상태 박스가 다크 색상으로 나오던 문제 (CRITICAL)
+  - 필터 버튼 hover/active 색상이 다크 모드 전용이던 문제 (CRITICAL)
+  - `text-terminal-muted` 등 Tailwind 유틸리티 클래스에 `dark:` 접두사 누락 (HIGH)
+  - 카테고리 뱃지 배경색이 흰 배경에서 너무 연하던 문제 (HIGH)
+  - 에러 상태 텍스트(`text-gray-300`)가 흰 배경에서 안 보이던 문제 (HIGH)
+
+### Changed
+- **CSS 변수 활용 개선** - 하드코딩된 `rgba()` 값을 CSS 변수(`var(--neon-cyan-glow)` 등)로 교체하여 라이트/다크 자동 전환
+- **라이트 모드 전용 오버라이드 추가** - 카드 hover shadow, 뱃지 색상 강화, 선택 영역 색상 등 `html:not(.dark)` 블록 추가
+- **Tailwind 클래스 페어링** - 모든 `terminal-*` 클래스에 `dark:` 접두사와 라이트 모드 대응 클래스 추가 (`bg-white dark:bg-terminal-surface` 패턴)
+
 ## [2.1.0] - 2026-02-07
 
 ### Added

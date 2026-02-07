@@ -121,17 +121,26 @@
     sidebar.classList.remove('-translate-x-full');
     sidebarOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    if (mobileMenuBtn) mobileMenuBtn.classList.add('hidden');
   }
 
   function closeSidebar() {
     sidebar.classList.add('-translate-x-full');
     sidebarOverlay.classList.add('hidden');
     document.body.style.overflow = '';
+    if (mobileMenuBtn) mobileMenuBtn.classList.remove('hidden');
   }
 
   function setupMobileSidebar() {
     if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', openSidebar);
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = !sidebar.classList.contains('-translate-x-full');
+        if (isOpen) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      });
     }
     if (sidebarOverlay) {
       sidebarOverlay.addEventListener('click', closeSidebar);
@@ -239,7 +248,7 @@
 
     // Show loading
     if (loadingState) loadingState.classList.remove('hidden');
-    if (versionList) versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-terminal-border"></div>';
+    if (versionList) versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-terminal-border"></div>';
 
     // Load new data
     await loadServiceData(serviceId);
@@ -271,13 +280,13 @@
       if (loadingState) {
         loadingState.innerHTML = `
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-terminal-surface border border-terminal-border flex items-center justify-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gray-100 dark:bg-terminal-surface border border-gray-200 dark:border-terminal-border flex items-center justify-center">
               <svg class="w-8 h-8 text-neon-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
               </svg>
             </div>
-            <p class="text-gray-300 font-medium">데이터를 불러올 수 없습니다</p>
-            <p class="text-sm text-terminal-muted mt-1">${error.message}</p>
+            <p class="text-gray-700 dark:text-gray-300 font-medium">데이터를 불러올 수 없습니다</p>
+            <p class="text-sm text-gray-500 dark:text-terminal-muted mt-1">${error.message}</p>
           </div>
         `;
       }
@@ -402,7 +411,7 @@
     if (!versionList) return;
 
     // Keep timeline line
-    versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-terminal-border"></div>';
+    versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-terminal-border"></div>';
 
     if (filteredVersions.length === 0) {
       // Check if this is a service with no data at all vs. filter producing no results
@@ -635,10 +644,19 @@
   function updateToggleButtonText() {
     if (!toggleAllBtn) return;
     const isAllExpanded = manualToggleState === true;
-    toggleAllBtn.innerHTML = `
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-      ${isAllExpanded ? '모두 접기' : '모두 펼치기'}
-    `;
+    const text = isAllExpanded ? '모두 접기' : '모두 펼치기';
+    if (isAllExpanded) {
+      // Fold icon: chevrons pointing inward (toward center)
+      toggleAllBtn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4l5 5 5-5M7 20l5-5 5 5"/></svg>
+      `;
+    } else {
+      // Unfold icon: chevrons pointing outward (away from center)
+      toggleAllBtn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 9l5-5 5 5M7 15l5 5 5-5"/></svg>
+      `;
+    }
+    toggleAllBtn.title = text;
   }
 
   function setupToggleAll() {
