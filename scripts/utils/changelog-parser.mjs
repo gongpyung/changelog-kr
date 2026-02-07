@@ -5,6 +5,7 @@
 
 const SCOPE_REGEX = /^\[([^\]]+)\]/;
 const VERSION_REGEX = /^## \[?(\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)\]?/;
+const DATE_REGEX = /[-–]\s*(?:\()?(\d{4}-\d{2}-\d{2})(?:\))?/;
 const SECTION_HEADING_REGEX = /^### (.+)$/;
 
 /**
@@ -122,10 +123,16 @@ export function parseChangelog(markdown) {
 
     if (match) {
       const version = match[1];
+
+      // Extract date from version heading
+      const dateMatch = line.match(DATE_REGEX);
+      const date = dateMatch ? dateMatch[1] : null;
+
       const entries = parseVersionSection(lines, i + 1);
 
       versions.push({
         version,
+        date,
         entries,
         entryCount: entries.length
       });
@@ -146,9 +153,14 @@ export function parseVersion(markdown, versionStr) {
     const match = line.match(VERSION_REGEX);
 
     if (match && match[1] === versionStr) {
+      // Extract date from version heading
+      const dateMatch = line.match(DATE_REGEX);
+      const date = dateMatch ? dateMatch[1] : null;
+
       const entries = parseVersionSection(lines, i + 1);
       return {
         version: versionStr,
+        date,
         entries,
         entryCount: entries.length
       };

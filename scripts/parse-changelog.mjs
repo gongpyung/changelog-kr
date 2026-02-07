@@ -70,6 +70,53 @@ async function fetchAndParseService(service) {
 }
 
 /**
+ * Fetch dates from external source (e.g., GitHub Releases API)
+ * Returns Map<version, dateString> (e.g., "2.1.34" → "2026-02-06")
+ */
+async function fetchDatesFromSource(service) {
+  const dateMap = new Map();
+  const src = service.dateSource;
+
+  if (src.type === 'github-releases') {
+    console.log(`  Fetching dates from GitHub Releases (${src.owner}/${src.repo})...`);
+    let page = 1;
+    const perPage = 100;
+
+    while (true) {
+      const url = `https://api.github.com/repos/${src.owner}/${src.repo}/releases?per_page=${perPage}&page=${page}`;
+      const headers = { 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'changelog-kr-parser' };
+      if (process.env.GITHUB_TOKEN) {
+        headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+      }
+
+      const response = await fetch(url, { headers });
+      if (!response.ok) {
+        console.warn(`  ⚠ Failed to fetch dates: ${response.status}`);
+        break;
+      }
+
+      const releases = await response.json();
+      if (releases.length === 0) break;
+
+      for (const rel of releases) {
+        const version = rel.tag_name.replace(/^v/, '');
+        const date = rel.published_at ? rel.published_at.slice(0, 10) : null;
+        if (date) {
+          dateMap.set(version, date);
+        }
+      }
+
+      if (releases.length < perPage) break;
+      page++;
+    }
+
+    console.log(`  Found dates for ${dateMap.size} version(s)`);
+  }
+
+  return dateMap;
+}
+
+/**
  * Layer 1: Merge parsed versions with existing versions.json
  * Preserves: translationStatus, translatedAt, translationCharCount, translationEntryCount
  * Updates: entries, entryCount, date
@@ -116,6 +163,16 @@ async function processService(service) {
   // Fetch and parse versions from source
   const parsedVersions = await fetchAndParseService(service);
   console.log(`  Parsed ${parsedVersions.length} version(s) from source`);
+
+  // Fetch dates from external source if configured
+  if (service.dateSource) {
+    const dateMap = await fetchDatesFromSource(service);
+    for (const ver of parsedVersions) {
+      if (!ver.date && dateMap.has(ver.version)) {
+        ver.date = dateMap.get(ver.version);
+      }
+    }
+  }
 
   if (parsedVersions.length === 0) {
     console.log('  No versions found, skipping.');
@@ -180,6 +237,7 @@ async function processService(service) {
     // Write new/untranslated version file
     const versionJson = {
       version: versionData.version,
+      date: versionData.date || null,
       parsedAt: new Date().toISOString(),
       translationStatus: 'pending',
       entries: (versionData.entries || []).map(entry => ({

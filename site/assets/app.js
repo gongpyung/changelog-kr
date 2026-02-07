@@ -43,6 +43,16 @@
   };
 
   // ---------------------------------------------------------------------------
+  // Utility Functions
+  // ---------------------------------------------------------------------------
+
+  function formatVersionDate(dateStr) {
+    if (!dateStr) return '';
+    const [year, month, day] = dateStr.split('-');
+    return `${year}.${month}.${day}`;
+  }
+
+  // ---------------------------------------------------------------------------
   // State
   // ---------------------------------------------------------------------------
 
@@ -342,6 +352,7 @@
       if (matchingEntries.length > 0) {
         filteredVersions.push({
           version: ver.version,
+          date: ver.date,
           entries: matchingEntries,
           totalEntries: ver.entries.length,
         });
@@ -477,9 +488,15 @@
     // Header
     const header = document.createElement('button');
     header.className = 'version-header w-full';
+
+    const dateHtml = ver.date
+      ? `<span class="version-date text-xs font-medium text-gray-400 dark:text-terminal-muted">${formatVersionDate(ver.date)}</span>`
+      : '';
+
     header.innerHTML = `
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 min-w-0">
         <h2 class="text-lg font-bold">v${ver.version}</h2>
+        ${dateHtml}
         <span class="px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted">${ver.entries.length}개</span>
       </div>
       <svg class="chevron w-5 h-5 ${isExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">

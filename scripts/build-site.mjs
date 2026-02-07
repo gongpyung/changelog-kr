@@ -85,7 +85,28 @@ async function buildServiceData(service) {
     }
   }
 
+  // Read versions.json to get date information
+  const versionsIndexPath = join(dirname(service.translationsPath), 'versions.json');
+  let dateMap = new Map();
+  try {
+    const indexContent = await readFile(versionsIndexPath, 'utf-8');
+    const indexData = JSON.parse(indexContent);
+    for (const v of (indexData.versions || [])) {
+      if (v.date) dateMap.set(v.version, v.date);
+    }
+  } catch {
+    // No versions.json or read error - continue without dates
+  }
+
   const sorted = sortVersionsDescending(versions);
+
+  // Merge dates from versions.json
+  for (const ver of sorted) {
+    if (!ver.date && dateMap.has(ver.version)) {
+      ver.date = dateMap.get(ver.version);
+    }
+  }
+
   const stripped = stripForFrontend(sorted);
 
   const outputDir = join(SITE_DATA_DIR, 'services', service.id);
@@ -155,6 +176,7 @@ function sortVersionsDescending(versions) {
 function stripForFrontend(versions) {
   return versions.map(v => ({
     version: v.version,
+    date: v.date || null,
     entries: (v.entries || []).map(entry => ({
       category: entry.category || 'other',
       scope: entry.scope || null,
