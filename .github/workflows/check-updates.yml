@@ -24,6 +24,8 @@ jobs:
     needs: check
     if: needs.check.outputs.has_new == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - uses: actions/github-script@v7
         with:
