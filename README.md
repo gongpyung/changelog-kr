@@ -26,15 +26,14 @@
 
 ## 🛠️ 지원 서비스
 
-| 서비스 | 카테고리 | 상태 |
-|--------|----------|------|
-| **Claude Code** | 코딩 어시스턴트 | ✅ 지원 중 |
-| Cursor | 코딩 어시스턴트 | 🔜 준비 중 |
-| Windsurf | 코딩 어시스턴트 | 🔜 준비 중 |
-| GitHub Copilot | 코딩 어시스턴트 | 📋 예정 |
-| ChatGPT | 범용 AI | 📋 예정 |
-| Gemini | 범용 AI | 📋 예정 |
-| Perplexity | 범용 AI | 📋 예정 |
+| 서비스 | 제공사 | 소스 | 상태 |
+|--------|--------|------|------|
+| **Claude Code** | Anthropic | CHANGELOG.md | ✅ 207개 버전 |
+| **Codex CLI** | OpenAI | GitHub Releases | ✅ 102개 버전 |
+| **Gemini CLI** | Google | GitHub Releases | ✅ 74개 버전 |
+| **oh-my-claudecode** | Yeachan Heo | CHANGELOG.md | ✅ 55개 버전 |
+| Cursor | Anysphere | - | 🔜 준비 중 |
+| Windsurf | Codeium | - | 🔜 준비 중 |
 
 > 💡 새로운 서비스 추가를 원하시면 [Issue](https://github.com/gongpyung/changelog-kr/issues)를 열어주세요!
 
@@ -101,24 +100,31 @@ cd site && python -m http.server 8080
 ```
 changelog-kr/
 ├── 📂 data/
-│   ├── services.json              # 서비스 메타데이터
+│   ├── services.json                # 서비스 설정 (4개 서비스)
 │   └── services/
-│       └── claude-code/
-│           └── translations/      # 버전별 번역 JSON
+│       ├── claude-code/
+│       │   ├── versions.json        # 버전 인덱스
+│       │   └── translations/*.json  # 버전별 번역
+│       ├── codex-cli/
+│       ├── gemini-cli/
+│       └── oh-my-claudecode/
 ├── 📂 scripts/
-│   ├── build-site.mjs             # 사이트 빌드
-│   ├── fetch-changelog.mjs        # Changelog 다운로드
-│   ├── parse-changelog.mjs        # Markdown 파싱
-│   └── translate.mjs              # AI 번역
-├── 📂 site/
-│   ├── index.html                 # 메인 페이지
-│   └── assets/
-│       ├── app.js                 # 클라이언트 앱
-│       ├── style.css              # Neon Terminal 테마
-│       └── favicon.svg            # 파비콘
+│   ├── build-site.mjs               # 사이트 빌드
+│   ├── detect-new-versions.mjs      # 새 버전 감지
+│   ├── parse-changelog.mjs          # Changelog 파싱
+│   ├── translate.mjs                # AI 번역 (다중 서비스)
+│   └── utils/
+│       ├── changelog-parser.mjs     # Markdown 파서
+│       ├── releases-parser.mjs      # GitHub Releases 파서
+│       └── version-utils.mjs        # 버전 정렬
+├── 📂 site/                         # 빌드 출력 (정적 사이트)
+│   ├── index.html
+│   ├── assets/                      # JS, CSS, favicon
+│   └── data/services/               # 서비스별 번역 데이터
 ├── 📂 templates/
-│   └── index.html.template        # HTML 템플릿
-└── 📂 .github/workflows/          # GitHub Actions
+│   └── index.html.template          # HTML 템플릿
+├── 📂 tests/                        # 단위 테스트 (50+)
+└── 📂 .github/workflows/            # CI/CD 자동화
 ```
 
 ---
@@ -127,11 +133,13 @@ changelog-kr/
 
 | 영역 | 기술 |
 |------|------|
-| **Frontend** | Vanilla JS, Tailwind CSS |
-| **Design** | Neon Terminal Theme |
-| **Translation** | Google Cloud Translation API |
+| **Frontend** | Vanilla JS, Tailwind CSS (CDN) |
+| **Design** | Neon Terminal Theme (CSS 변수 + dark 모드) |
+| **Translation** | OpenAI GPT-4o / Gemini API / Google Translate |
+| **Parsing** | Markdown 파서 + GitHub Releases API 파서 |
 | **Hosting** | GitHub Pages |
-| **Automation** | GitHub Actions |
+| **CI/CD** | GitHub Actions (6시간 주기 자동 감지/번역/배포) |
+| **Testing** | Vitest (50+ 단위 테스트) |
 | **Notifications** | Telegram Bot, Resend (Email) |
 
 ---
