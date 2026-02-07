@@ -4,7 +4,8 @@
  */
 
 const SCOPE_REGEX = /^\[([^\]]+)\]/;
-const VERSION_REGEX = /^## (\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)/;
+const VERSION_REGEX = /^## \[?(\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)\]?/;
+const SECTION_HEADING_REGEX = /^### (.+)$/;
 
 /**
  * Classify entry based on first word
@@ -36,11 +37,29 @@ function extractScope(text) {
 }
 
 /**
+ * Map Keep a Changelog section heading to category
+ */
+function mapSectionToCategory(headingText) {
+  const normalized = headingText.toLowerCase().trim();
+
+  if (normalized === 'added') return 'added';
+  if (normalized === 'fixed') return 'fixed';
+  if (normalized === 'changed') return 'changed';
+  if (normalized === 'removed') return 'removed';
+  if (normalized === 'deprecated') return 'removed';
+  if (['improved', 'performance'].includes(normalized)) return 'improved';
+  if (['breaking changes', 'refactored', 'security'].includes(normalized)) return 'changed';
+
+  return null; // fallback to classifyEntry
+}
+
+/**
  * Parse a single version section
  */
 function parseVersionSection(lines, startIndex) {
   const entries = [];
   let currentEntry = null;
+  let currentSectionCategory = null;
 
   for (let i = startIndex; i < lines.length; i++) {
     const line = lines[i];
@@ -48,6 +67,13 @@ function parseVersionSection(lines, startIndex) {
     // Stop at next version heading
     if (VERSION_REGEX.test(line)) {
       break;
+    }
+
+    // Check for section heading (### Added, ### Fixed, etc.)
+    const sectionMatch = line.match(SECTION_HEADING_REGEX);
+    if (sectionMatch) {
+      currentSectionCategory = mapSectionToCategory(sectionMatch[1]);
+      continue;
     }
 
     // New bullet point
@@ -64,7 +90,7 @@ function parseVersionSection(lines, startIndex) {
       currentEntry = {
         text,
         scope,
-        category: classifyEntry(text),
+        category: currentSectionCategory || classifyEntry(text),
         raw: bulletText
       };
     }

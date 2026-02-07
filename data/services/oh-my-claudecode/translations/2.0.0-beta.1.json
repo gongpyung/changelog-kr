@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0-beta.1",
+  "parsedAt": "2026-02-06T15:55:18.199Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Intelligent Model Routing System** (`src/features/model-routing/`) - `types.ts`: Core types for routing (ComplexityTier, RoutingDecision, etc.) - `signals.ts`: Complexity signal extraction (lexical, structural, context) - `scorer.ts`: Weighted scoring system for complexity calculation - `rules.ts`: Priority-based routing rules engine - `router.ts`: Main routing logic with `getModelForTask()` API - `prompts/`: Tier-specific prompt adaptations (opus.ts, sonnet.ts, haiku.ts)",
+      "translation": "**지능형 모델 라우팅 시스템** (`src/features/model-routing/`) - `types.ts`: 라우팅을 위한 핵심 타입 (ComplexityTier, RoutingDecision 등) - `signals.ts`: 복잡성 신호 추출 (어휘, 구조, 컨텍스트) - `scorer.ts`: 복잡성 계산을 위한 가중치 점수 시스템 - `rules.ts`: 우선순위 기반 라우팅 규칙 엔진 - `router.ts`: `getModelForTask()` API를 포함한 주요 라우팅 로직 - `prompts/`: 티어별 프롬프트 적응 (opus.ts, sonnet.ts, haiku.ts)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Adaptive Routing for ALL Agents** - Only orchestrators are fixed to Opus (they analyze and delegate) - All other agents adapt based on task complexity: - `oracle`: lookup → Haiku, tracing → Sonnet, debugging → Opus - `prometheus`: breakdown → Haiku, planning → Sonnet, strategic → Opus - `momus`: checklist → Haiku, gap analysis → Sonnet, adversarial → Opus - `metis`: impact → Haiku, deps → Sonnet, risk analysis → Opus - `explore`: simple search → Haiku, complex → Sonnet - `document-writer`: simple docs → Haiku, complex → Sonnet - `sisyphus-junior`: simple fix → Haiku, module work → Sonnet, risky → Opus",
+      "translation": "**모든 에이전트를 위한 적응형 라우팅** - 오케스트레이터만 Opus로 고정 (분석 및 위임) - 다른 모든 에이전트는 작업 복잡성에 따라 적응: - `oracle`: 조회 → Haiku, 추적 → Sonnet, 디버깅 → Opus - `prometheus`: 분해 → Haiku, 계획 → Sonnet, 전략적 → Opus - `momus`: 체크리스트 → Haiku, 갭 분석 → Sonnet, 적대적 → Opus - `metis`: 영향 → Haiku, deps → Sonnet, 위험 분석 → Opus - `explore`: 간단한 검색 → Haiku, 복잡한 검색 → Sonnet - `document-writer`: 간단한 문서 → Haiku, 복잡한 문서 → Sonnet - `sisyphus-junior`: 간단한 수정 → Haiku, 모듈 작업 → Sonnet, 위험한 작업 → Opus"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Complexity Signal Detection** - Lexical: word count, keywords (architecture, debugging, risk, simple) - Structural: subtask count, cross-file deps, impact scope, reversibility - Context: previous failures, conversation depth, plan complexity",
+      "translation": "**복잡성 신호 감지** - 어휘: 단어 수, 키워드 (아키텍처, 디버깅, 위험, 간단) - 구조: 하위 작업 수, 파일 간 의존성, 영향 범위, 가역성 - 컨텍스트: 이전 실패, 대화 깊이, 계획 복잡성"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Tiered Prompt Adaptations** - Haiku: Concise, direct prompts for speed - Sonnet: Balanced prompts for efficiency - Opus: Deep reasoning prompts with thinking mode",
+      "translation": "**티어별 프롬프트 적응** - Haiku: 속도를 위한 간결하고 직접적인 프롬프트 - Sonnet: 효율성을 위한 균형 잡힌 프롬프트 - Opus: 사고 모드를 포함한 깊은 사고 프롬프트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Orchestrator Prompts** updated with intelligent routing guidance",
+      "translation": "**오케스트레이터 프롬프트**가 지능형 라우팅 지침으로 업데이트됨"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Configuration** (`src/config/loader.ts`) now includes routing options",
+      "translation": "**구성** (`src/config/loader.ts`)에 라우팅 옵션 포함"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Types** (`src/shared/types.ts`) extended with routing configuration",
+      "translation": "**타입** (`src/shared/types.ts`)에 라우팅 구성 확장"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Routing is now proactive (orchestrator decides upfront) instead of reactive",
+      "translation": "라우팅이 이제 반응적이 아닌 선제적으로 변경됨 (오케스트레이터가 사전에 결정)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Deprecated `routeWithEscalation()` - use `getModelForTask()` instead No action needed - the system automatically routes based on complexity. To override: ```typescript Task( (subagent_type = \"oracle\"), (model = \"opus\"), (prompt = \"Force Opus for this task\"), ); ``` ---",
+      "translation": "`routeWithEscalation()` 사용 중단 - 대신 `getModelForTask()` 사용 필요 없음 - 시스템이 복잡성에 따라 자동으로 라우팅합니다. 무시하려면: ```typescript Task( (subagent_type = \"oracle\"), (model = \"opus\"), (prompt = \"이 작업에 대해 Opus 강제\"), ); ``` ---"
+    }
+  ],
+  "translatedAt": "2026-02-06T16:00:53.216Z",
+  "translationEngine": "openai",
+  "translationCharCount": 2045
+}

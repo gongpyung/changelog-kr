@@ -1,0 +1,100 @@
+{
+  "version": "3.7.3",
+  "parsedAt": "2026-02-06T15:55:18.178Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Plugin Discovery** (`src/compatibility/discovery.ts`) - Auto-discovery of installed plugins and MCP servers - JSON Schema validation of plugin manifests using ajv - Path traversal protection with `isPathWithinDirectory()` validation - Symlink resolution and directory containment checks",
+      "translation": "**플러그인 검색** (`src/compatibility/discovery.ts`) - 설치된 플러그인 및 MCP 서버 자동 검색 - ajv를 사용한 플러그인 매니페스트의 JSON 스키마 검증 - `isPathWithinDirectory()` 검증을 통한 경로 탐색 보호 - 심볼릭 링크 해석 및 디렉토리 포함 검사"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Tool Registry** (`src/compatibility/registry.ts`) - Central registry for all discovered tools - Conflict resolution when multiple plugins provide the same tool - Priority-based tool selection",
+      "translation": "**도구 레지스트리** (`src/compatibility/registry.ts`) - 발견된 모든 도구의 중앙 레지스트리 - 여러 플러그인이 동일한 도구를 제공할 때의 충돌 해결 - 우선순위 기반 도구 선택"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Permission Adapter** (`src/compatibility/permission-adapter.ts`) - Safe external tool usage with permission integration - ReDoS prevention using safe-regex library for pattern validation",
+      "translation": "**권한 어댑터** (`src/compatibility/permission-adapter.ts`) - 권한 통합을 통한 안전한 외부 도구 사용 - 안전한 정규 표현식 라이브러리를 사용한 ReDoS 방지"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**MCP Bridge** (`src/compatibility/mcp-bridge.ts`) - Server connection management and tool invocation - Command whitelist enforcement (node, npx, python, python3, ruby, go) - Environment variable filtering to block dangerous vars (LD_PRELOAD, NODE_OPTIONS, etc.) - Proper child process error handlers and cleanup on spawn failure",
+      "translation": "**MCP 브리지** (`src/compatibility/mcp-bridge.ts`) - 서버 연결 관리 및 도구 호출 - 명령 허용 목록 적용 (node, npx, python, python3, ruby, go) - 위험한 환경 변수를 차단하기 위한 환경 변수 필터링 (LD_PRELOAD, NODE_OPTIONS 등) - 적절한 자식 프로세스 오류 처리기 및 스폰 실패 시 정리"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Documentation** (`docs/COMPATIBILITY.md`) - 1,000+ line comprehensive documentation covering architecture, usage, and security",
+      "translation": "**문서화** (`docs/COMPATIBILITY.md`) - 아키텍처, 사용법 및 보안을 다루는 1,000줄 이상의 포괄적인 문서"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**CLI Tools** - `omc tools list` - List all discovered tools - `omc tools enable/disable` - Manage tool availability In response to security review by @shaun0927: 1. **Arbitrary Code Execution** - Added command whitelist to MCP bridge; only allowed executables can be spawned 2. **Environment Variable Injection** - Block 10 dangerous environment variables (LD_PRELOAD, NODE_OPTIONS, etc.) 3. **ReDoS Vulnerability** - Validate regex patterns with safe-regex library before compilation 4. **No Schema Validation** - Added ajv-based JSON Schema validation for plugin manifests 5. **Missing Error Handlers** - Added child process error handlers with proper cleanup on spawn failure 6. **Path Traversal** - Added `isPathWithinDirectory()` with symlink resolution to prevent directory escape",
+      "translation": "**CLI 도구** - `omc tools list` - 발견된 모든 도구 나열 - `omc tools enable/disable` - 도구 사용 가능성 관리 @shaun0927의 보안 검토에 대한 응답: 1. **임의 코드 실행** - MCP 브리지에 명령 허용 목록 추가; 허용된 실행 파일만 스폰 가능 2. **환경 변수 주입** - 10개의 위험한 환경 변수 차단 (LD_PRELOAD, NODE_OPTIONS 등) 3. **ReDoS 취약점** - 컴파일 전에 안전한 정규 표현식 라이브러리로 정규 표현식 패턴 검증 4. **스키마 검증 없음** - 플러그인 매니페스트에 대한 ajv 기반 JSON 스키마 검증 추가 5. **오류 처리기 누락** - 스폰 실패 시 적절한 정리와 함께 자식 프로세스 오류 처리기 추가 6. **경로 탐색** - 디렉토리 탈출 방지를 위한 심볼릭 링크 해석과 함께 `isPathWithinDirectory()` 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(hud):** Address code review feedback for cache toggle feature (#164)",
+      "translation": "**fix(hud):** 캐시 토글 기능에 대한 코드 리뷰 피드백 반영 (#164)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(rate-limit-wait):** Add ESM compatibility for `__filename` in daemon (#169, #172)",
+      "translation": "**fix(rate-limit-wait):** 데몬에서 `__filename`의 ESM 호환성 추가 (#169, #172)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**64 new tests** (all passing) - 30 compatibility layer tests (`src/__tests__/compatibility.test.ts`) - 34 security vulnerability tests (`src/__tests__/compatibility-security.test.ts`)",
+      "translation": "**64개의 새로운 테스트** (모두 통과) - 30개의 호환성 레이어 테스트 (`src/__tests__/compatibility.test.ts`) - 34개의 보안 취약점 테스트 (`src/__tests__/compatibility-security.test.ts`)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`ajv` ^8.17.1 - JSON Schema validation",
+      "translation": "`ajv` ^8.17.1 - JSON 스키마 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`safe-regex` ^2.1.1 - ReDoS prevention **New Files:**",
+      "translation": "`safe-regex` ^2.1.1 - ReDoS 방지 **새 파일:**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/compatibility/` - Complete compatibility layer (6 source files) - `index.ts` - Main exports and initialization - `types.ts` - TypeScript interfaces (276 lines) - `discovery.ts` - Plugin/MCP discovery with schema validation - `registry.ts` - Tool registry with conflict resolution - `permission-adapter.ts` - Permission integration with ReDoS protection - `mcp-bridge.ts` - MCP server bridge with security hardening - `safe-regex.d.ts` - Type declarations for safe-regex",
+      "translation": "`src/compatibility/` - 완전한 호환성 레이어 (6개의 소스 파일) - `index.ts` - 주요 내보내기 및 초기화 - `types.ts` - TypeScript 인터페이스 (276줄) - `discovery.ts` - 스키마 검증을 통한 플러그인/MCP 검색 - `registry.ts` - 충돌 해결이 포함된 도구 레지스트리 - `permission-adapter.ts` - ReDoS 보호가 포함된 권한 통합 - `mcp-bridge.ts` - 보안 강화가 포함된 MCP 서버 브리지 - `safe-regex.d.ts` - safe-regex의 타입 선언"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`docs/COMPATIBILITY.md` - Architecture documentation (1,051 lines)",
+      "translation": "`docs/COMPATIBILITY.md` - 아키텍처 문서 (1,051줄)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/__tests__/compatibility.test.ts` - Feature tests (612 lines)",
+      "translation": "`src/__tests__/compatibility.test.ts` - 기능 테스트 (612줄)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/__tests__/compatibility-security.test.ts` - Security tests (549 lines) **Lines Added:** ~5,000+ ---",
+      "translation": "`src/__tests__/compatibility-security.test.ts` - 보안 테스트 (549줄) **추가된 줄:** ~5,000+"
+    }
+  ],
+  "translatedAt": "2026-02-06T15:57:42.112Z",
+  "translationEngine": "openai",
+  "translationCharCount": 3058
+}

@@ -1,0 +1,40 @@
+{
+  "version": "4.0.6",
+  "parsedAt": "2026-02-06T15:55:18.160Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Codex/GPT/Gemini magic-keyword MCP delegation** - New keyword detection for `ask codex`, `use gpt`, `delegate to gemini` that routes directly to MCP tools instead of skill invocation. Requires intent phrases to avoid false positives.",
+      "translation": "**Codex/GPT/Gemini 매직 키워드 MCP 위임** - `ask codex`, `use gpt`, `delegate to gemini`에 대한 새로운 키워드 감지로, 스킬 호출 대신 MCP 도구로 직접 라우팅합니다. 오탐 방지를 위해 의도 문구가 필요합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Codex model fallback chain** - Automatic retry with fallback models (`gpt-5.3-codex` → `gpt-5.3` → `gpt-5.2-codex` → `gpt-5.2`) on model-not-found errors for both blocking and background execution.",
+      "translation": "**Codex 모델 폴백 체인** - 모델을 찾을 수 없는 오류 시 자동으로 폴백 모델(`gpt-5.3-codex` → `gpt-5.3` → `gpt-5.2-codex` → `gpt-5.2`)로 재시도합니다. 이는 차단 및 백그라운드 실행 모두에 적용됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Full sanitization pipeline in TypeScript** - Ported XML tag, URL, file path, and code block stripping from runtime .mjs to TypeScript keyword detector for consistent false-positive prevention.",
+      "translation": "**TypeScript에서의 전체 정화 파이프라인** - XML 태그, URL, 파일 경로, 코드 블록 제거를 런타임 .mjs에서 TypeScript 키워드 감지기로 포팅하여 일관된 오탐 방지를 제공합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Background retry error handling** - Fixed silent error swallowing when model fallback retry fails in background execution, preventing jobs from getting stuck in \"running\" state.",
+      "translation": "**백그라운드 재시도 오류 처리** - 백그라운드 실행에서 모델 폴백 재시도가 실패할 때 발생하는 조용한 오류 삼킴을 수정하여 작업이 \"실행 중\" 상태에 멈추지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Redundant sanitization in keyword wrappers** - Removed double-processing where `hasKeyword`, `getAllKeywords`, and `getPrimaryKeyword` called `removeCodeBlocks` before `detectKeywordsWithType` which already calls `sanitizeForKeywordDetection`.",
+      "translation": "**키워드 래퍼에서의 중복 정화** - `hasKeyword`, `getAllKeywords`, `getPrimaryKeyword`가 `detectKeywordsWithType` 호출 전 `removeCodeBlocks`를 호출하여 중복 처리되던 문제를 제거했습니다. `detectKeywordsWithType`는 이미 `sanitizeForKeywordDetection`을 호출합니다."
+    }
+  ],
+  "translatedAt": "2026-02-06T15:55:41.953Z",
+  "translationEngine": "openai",
+  "translationCharCount": 1052
+}

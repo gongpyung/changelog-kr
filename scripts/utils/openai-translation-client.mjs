@@ -1,10 +1,10 @@
 /**
  * OpenAI API Translation Client
- * Uses GPT-4o-mini for high-quality changelog translations
+ * Uses GPT-4o for high-quality changelog translations
  */
 
 const API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
-const MODEL = 'gpt-4o-mini';
+const MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 const MAX_BATCH_SIZE = 20;
 const BATCH_DELAY_MS = 300;
 
@@ -15,7 +15,7 @@ function buildPrompt(texts) {
   const numbered = texts.map((text, i) => `${i + 1}. ${text}`).join('\n');
 
   return `You are a professional translator specializing in software documentation.
-Translate the following Claude Code changelog entries from English to Korean.
+Translate the following software changelog entries from English to Korean.
 
 RULES:
 - Translate naturally into Korean, not word-by-word

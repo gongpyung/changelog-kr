@@ -9,7 +9,7 @@
  * Environment variables:
  *   NEW_VERSIONS_MAP  - JSON object: {"service-id": ["version1", "version2"]}
  *   NEW_VERSIONS      - JSON array (backward compat, defaults to claude-code service)
- *   OPENAI_API_KEY    - Use OpenAI GPT-4o-mini
+ *   OPENAI_API_KEY    - Use OpenAI (model via OPENAI_MODEL env, default: gpt-4o)
  *   GEMINI_API_KEY    - Use Gemini API
  *   GOOGLE_TRANSLATE_API_KEY - Use Google Translate v2
  */
@@ -262,7 +262,7 @@ async function main() {
   const engine = getTranslationEngine();
 
   if (engine === 'openai') {
-    console.log('\nUsing OpenAI GPT-4o-mini for translation\n');
+    console.log(`\nUsing OpenAI ${process.env.OPENAI_MODEL || 'gpt-4o'} for translation\n`);
   } else if (engine === 'gemini') {
     console.log('\nUsing Gemini API for translation\n');
   } else if (engine === 'google') {

@@ -1,0 +1,64 @@
+{
+  "version": "4.0.7",
+  "parsedAt": "2026-02-06T15:55:18.159Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**SQLite-backed MCP job state storage** - New `job-state-db.ts` with WAL-mode SQLite for reliable job state persistence. Includes JSON fallback compatibility for environments without native modules.",
+      "translation": "**SQLite 기반 MCP 작업 상태 저장소** - 신뢰할 수 있는 작업 상태 지속성을 위한 WAL 모드 SQLite를 사용하는 새로운 `job-state-db.ts`. 네이티브 모듈이 없는 환경을 위한 JSON 대체 호환성 포함."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Improved job management reliability** - SQLite-first reads for check/wait/list/kill flows with automatic fallback to JSON file-based storage.",
+      "translation": "**개선된 작업 관리 신뢰성** - check/wait/list/kill 흐름에 대한 SQLite 우선 읽기와 JSON 파일 기반 저장소로의 자동 대체 기능."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**PreCompact hook job summaries** - Pre-compact hook now injects job summary data from SQLite into checkpoint content.",
+      "translation": "**PreCompact 훅 작업 요약** - Pre-compact 훅이 이제 SQLite에서 작업 요약 데이터를 체크포인트 콘텐츠에 주입."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Comprehensive test coverage** - 74 new unit tests for job-state-db + 16 integration tests for SQLite job management.",
+      "translation": "**포괄적인 테스트 커버리지** - job-state-db에 대한 74개의 새로운 단위 테스트와 SQLite 작업 관리에 대한 16개의 통합 테스트."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Windows compatibility** - Platform-aware path normalization (`toForwardSlash()`), `pathToFileURL()` for bridge detection, cross-platform config/data directory resolution (`getConfigDir()`/`getDataDir()`), and `shell: true` for CLI spawn on Windows.",
+      "translation": "**Windows 호환성** - 플랫폼 인식 경로 정규화 (`toForwardSlash()`), 브리지 감지를 위한 `pathToFileURL()`, 교차 플랫폼 구성/데이터 디렉토리 해결 (`getConfigDir()`/`getDataDir()`), Windows에서 CLI 스폰을 위한 `shell: true`."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Path traversal hardening** - Strengthened `isAllowedPath` and boundary checks with `isAbsolute()` guard for Windows drive-letter edge cases. Added security regression tests.",
+      "translation": "**경로 탐색 강화** - Windows 드라이브 문자 경계 사례에 대한 `isAbsolute()` 보호를 통한 `isAllowedPath` 및 경계 검사 강화. 보안 회귀 테스트 추가."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Worktree boundary validation** - Hardened and clarified worktree boundary enforcement for MCP file/path handling across codex-core and gemini-core.",
+      "translation": "**작업 트리 경계 검증** - codex-core와 gemini-core 전반에 걸쳐 MCP 파일/경로 처리를 위한 작업 트리 경계 강화 및 명확화."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Teleport command** - Now uses `git worktree list` and `fs.rmSync` with cross-platform `path.isAbsolute()` checks.",
+      "translation": "**텔레포트 명령** - 이제 `git worktree list`와 `fs.rmSync`를 교차 플랫폼 `path.isAbsolute()` 검사와 함께 사용."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**LSP client** - Updated URI construction to use `pathToFileURL()` for Windows compatibility.",
+      "translation": "**LSP 클라이언트** - Windows 호환성을 위해 URI 구성을 `pathToFileURL()`로 업데이트."
+    }
+  ],
+  "translatedAt": "2026-02-06T15:55:35.314Z",
+  "translationEngine": "openai",
+  "translationCharCount": 1359
+}

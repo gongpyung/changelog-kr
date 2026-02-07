@@ -33,6 +33,15 @@
     other: 'badge-other',
   };
 
+  const CATEGORY_ORDER = {
+    added: 0,
+    fixed: 1,
+    improved: 2,
+    changed: 3,
+    removed: 4,
+    other: 5,
+  };
+
   // ---------------------------------------------------------------------------
   // State
   // ---------------------------------------------------------------------------
@@ -42,7 +51,7 @@
   let allVersions = [];
   let filteredVersions = [];
   let expandedSet = new Set();
-  let allExpanded = false;
+  let manualToggleState = null; // null=기본(상위N개), true=모두펼침, false=모두접기
 
   let activeCategory = 'all';
   let activeScope = 'all';
@@ -162,12 +171,12 @@
         const item = document.createElement('div');
         item.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed';
         item.innerHTML = `
-          <div class="w-8 h-8 rounded-md bg-terminal-elevated border border-terminal-border flex items-center justify-center text-sm">
-            <span class="text-xs font-bold text-terminal-muted">${escapeHtml(service.shortName.charAt(0).toUpperCase())}</span>
+          <div class="w-8 h-8 rounded-md bg-gray-100 dark:bg-terminal-elevated border border-gray-200 dark:border-terminal-border flex items-center justify-center text-sm">
+            <span class="text-xs font-bold text-gray-500 dark:text-terminal-muted">${escapeHtml(service.shortName.charAt(0).toUpperCase())}</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-400 truncate">${escapeHtml(service.name)}</p>
-            <p class="text-[10px] text-terminal-muted">${escapeHtml(service.vendor)} &middot; Coming soon</p>
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">${escapeHtml(service.name)}</p>
+            <p class="text-[10px] text-gray-500 dark:text-terminal-muted">${escapeHtml(service.vendor)} &middot; Coming soon</p>
           </div>
         `;
         serviceList.appendChild(item);
@@ -187,12 +196,12 @@
       const letterStyle = isActive ? '' : `color: ${service.color};`;
 
       item.innerHTML = `
-        <div class="w-8 h-8 rounded-md bg-terminal-elevated border flex items-center justify-center text-sm group-hover:border-opacity-60 transition-colors" style="${iconStyle}">
+        <div class="w-8 h-8 rounded-md bg-gray-100 dark:bg-terminal-elevated border flex items-center justify-center text-sm group-hover:border-opacity-60 transition-colors" style="${iconStyle}">
           <span class="text-xs font-bold" style="${letterStyle}">${iconLetter}</span>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="text-sm font-medium text-gray-200 group-hover:text-white truncate">${escapeHtml(service.name)}</p>
-          <p class="text-[10px] text-terminal-muted">${escapeHtml(service.vendor)}</p>
+          <p class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white truncate">${escapeHtml(service.name)}</p>
+          <p class="text-[10px] text-gray-500 dark:text-terminal-muted">${escapeHtml(service.vendor)}</p>
         </div>
       `;
 
@@ -304,8 +313,7 @@
   }
 
   function matchesMajor(version) {
-    if (activeMajor === 'all') return true;
-    return version.version.startsWith(activeMajor + '.');
+    return true;
   }
 
   function applyFilters() {
@@ -318,6 +326,10 @@
         (e) => matchesSearch(e) && matchesCategory(e) && matchesScope(e)
       );
 
+      matchingEntries.sort((a, b) =>
+        (CATEGORY_ORDER[a.category] ?? 5) - (CATEGORY_ORDER[b.category] ?? 5)
+      );
+
       if (matchingEntries.length > 0) {
         filteredVersions.push({
           version: ver.version,
@@ -328,6 +340,7 @@
     }
 
     renderVersions();
+    renderVersionToc();
     updateResultsSummary();
   }
 
@@ -346,6 +359,44 @@
   // ---------------------------------------------------------------------------
   // Rendering
   // ---------------------------------------------------------------------------
+
+  function renderVersionToc() {
+    const tocContainer = $('#versionToc');
+    if (!tocContainer) return;
+
+    const majorGroups = {};
+    for (const ver of filteredVersions) {
+      const major = ver.version.split('.')[0];
+      if (!majorGroups[major]) {
+        majorGroups[major] = { count: 0, firstVersion: ver.version };
+      }
+      majorGroups[major].count++;
+    }
+
+    const sortedMajors = Object.keys(majorGroups).sort((a, b) => Number(b) - Number(a));
+
+    tocContainer.innerHTML = '';
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex items-center gap-2 min-w-max';
+
+    for (const major of sortedMajors) {
+      const group = majorGroups[major];
+      const btn = document.createElement('a');
+      btn.href = `#v${group.firstVersion}`;
+      btn.className = 'version-toc-item';
+      btn.textContent = `v${major}.x (${group.count})`;
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(`v${group.firstVersion}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      wrapper.appendChild(btn);
+    }
+
+    tocContainer.appendChild(wrapper);
+  }
 
   function renderVersions() {
     if (!versionList) return;
@@ -405,8 +456,14 @@
     article.id = `v${ver.version}`;
     article.style.animationDelay = `${Math.min(index * 30, 300)}ms`;
 
-    const isExpanded = expandedSet.has(ver.version) ||
-      (index < DEFAULT_EXPANDED_COUNT && !searchQuery && activeCategory === 'all' && activeScope === 'all' && activeMajor === 'all');
+    let isExpanded;
+    if (manualToggleState === true) {
+      isExpanded = true;
+    } else if (manualToggleState === false) {
+      isExpanded = false;
+    } else {
+      isExpanded = expandedSet.has(ver.version) || index < DEFAULT_EXPANDED_COUNT;
+    }
 
     // Header
     const header = document.createElement('button');
@@ -414,7 +471,7 @@
     header.innerHTML = `
       <div class="flex items-center gap-3">
         <h2 class="text-lg font-bold">v${ver.version}</h2>
-        <span class="px-2 py-0.5 rounded-md text-xs font-medium bg-terminal-elevated text-terminal-muted">${ver.entries.length}개</span>
+        <span class="px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted">${ver.entries.length}개</span>
       </div>
       <svg class="chevron w-5 h-5 ${isExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -468,7 +525,7 @@
 
     let scopeHtml = '';
     if (entry.scope) {
-      scopeHtml = `<span class="px-1.5 py-0.5 rounded text-xs font-medium bg-terminal-elevated text-terminal-muted shrink-0">${escapeHtml(entry.scope)}</span>`;
+      scopeHtml = `<span class="px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted shrink-0">${escapeHtml(entry.scope)}</span>`;
     }
 
     div.innerHTML = `
@@ -514,6 +571,8 @@
         $$('.category-filter').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         activeCategory = btn.dataset.category;
+        manualToggleState = null;
+        updateToggleButtonText();
         applyFilters();
       });
     });
@@ -525,20 +584,15 @@
         $$('.scope-filter').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         activeScope = btn.dataset.scope;
+        manualToggleState = null;
+        updateToggleButtonText();
         applyFilters();
       });
     });
   }
 
   function setupVersionFilters() {
-    $$('.version-filter').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        $$('.version-filter').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeMajor = btn.dataset.major;
-        applyFilters();
-      });
-    });
+    // Removed: version filter buttons replaced by version TOC navigation (Task 6)
   }
 
   // ---------------------------------------------------------------------------
@@ -555,6 +609,8 @@
       debounceTimer = setTimeout(() => {
         searchQuery = searchInput.value.trim();
         if (searchClear) searchClear.classList.toggle('hidden', !searchQuery);
+        manualToggleState = null;
+        updateToggleButtonText();
         applyFilters();
       }, DEBOUNCE_MS);
     });
@@ -564,6 +620,8 @@
         searchInput.value = '';
         searchQuery = '';
         searchClear.classList.add('hidden');
+        manualToggleState = null;
+        updateToggleButtonText();
         applyFilters();
         searchInput.focus();
       });
@@ -574,26 +632,28 @@
   // Toggle All
   // ---------------------------------------------------------------------------
 
+  function updateToggleButtonText() {
+    if (!toggleAllBtn) return;
+    const isAllExpanded = manualToggleState === true;
+    toggleAllBtn.innerHTML = `
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+      ${isAllExpanded ? '모두 접기' : '모두 펼치기'}
+    `;
+  }
+
   function setupToggleAll() {
     if (!toggleAllBtn) return;
 
     toggleAllBtn.addEventListener('click', () => {
-      allExpanded = !allExpanded;
-
-      if (allExpanded) {
-        filteredVersions.forEach((v) => expandedSet.add(v.version));
-        toggleAllBtn.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-          모두 접기
-        `;
-      } else {
+      if (manualToggleState === true) {
+        manualToggleState = false;
         expandedSet.clear();
-        toggleAllBtn.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-          모두 펼치기
-        `;
+      } else {
+        manualToggleState = true;
+        filteredVersions.forEach((v) => expandedSet.add(v.version));
       }
 
+      updateToggleButtonText();
       applyFilters();
     });
   }
@@ -606,6 +666,9 @@
     if (!clearFiltersBtn) return;
 
     clearFiltersBtn.addEventListener('click', () => {
+      manualToggleState = null;
+      updateToggleButtonText();
+
       if (searchInput) {
         searchInput.value = '';
         searchQuery = '';
@@ -623,9 +686,6 @@
       if (allScope) allScope.classList.add('active');
 
       activeMajor = 'all';
-      $$('.version-filter').forEach((b) => b.classList.remove('active'));
-      const allVer = $('.version-filter[data-major="all"]');
-      if (allVer) allVer.classList.add('active');
 
       applyFilters();
     });
@@ -646,6 +706,7 @@
           const show = window.scrollY > 400;
           backToTop.style.opacity = show ? '1' : '0';
           backToTop.style.transform = show ? 'translateY(0)' : 'translateY(1rem)';
+          backToTop.style.pointerEvents = show ? 'auto' : 'none';
           ticking = false;
         });
         ticking = true;

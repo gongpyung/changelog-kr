@@ -1,0 +1,46 @@
+{
+  "version": "3.7.8",
+  "parsedAt": "2026-02-06T15:55:18.175Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**OMC Tools Server** (`src/mcp/omc-tools-server.ts`) - Uses `createSdkMcpServer` and `tool` helpers from `@anthropic-ai/claude-agent-sdk` - Exposes tools in MCP format as `mcp__omc-tools__<tool_name>` - Zero external process overhead - runs in-process - Configurable tool filtering via `getOmcToolNames()`",
+      "translation": "**OMC Tools Server** (`src/mcp/omc-tools-server.ts`) - `@anthropic-ai/claude-agent-sdk`의 `createSdkMcpServer` 및 `tool` 헬퍼 사용 - MCP 형식으로 도구를 `mcp__omc-tools__<tool_name>`로 노출 - 외부 프로세스 오버헤드 없음 - 프로세스 내에서 실행 - `getOmcToolNames()`를 통한 도구 필터링 설정 가능"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**15 Custom Tools Exposed** - **12 LSP Tools**: `lsp_hover`, `lsp_definition`, `lsp_references`, `lsp_completion`, `lsp_signature_help`, `lsp_rename`, `lsp_code_actions`, `lsp_formatting`, `lsp_symbols`, `lsp_diagnostics`, `lsp_diagnostics_directory`, `lsp_semantic_tokens` - **2 AST Tools**: `ast_query`, `ast_query_multi` - **1 Python Tool**: `python_repl` (persistent REPL with session management)",
+      "translation": "**15개 사용자 정의 도구 노출** - **12개 LSP 도구**: `lsp_hover`, `lsp_definition`, `lsp_references`, `lsp_completion`, `lsp_signature_help`, `lsp_rename`, `lsp_code_actions`, `lsp_formatting`, `lsp_symbols`, `lsp_diagnostics`, `lsp_diagnostics_directory`, `lsp_semantic_tokens` - **2개 AST 도구**: `ast_query`, `ast_query_multi` - **1개 Python 도구**: `python_repl` (세션 관리가 가능한 지속적인 REPL)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Session Integration** - Tools automatically added to session's `allowedTools` - MCP server registered in session's `mcpServers` config - Feature flags for LSP/AST/Python tool inclusion",
+      "translation": "**세션 통합** - 도구가 자동으로 세션의 `allowedTools`에 추가됨 - MCP 서버가 세션의 `mcpServers` 설정에 등록됨 - LSP/AST/Python 도구 포함을 위한 기능 플래그"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Agent Definitions** (`src/agents/definitions.ts`) - Relevant agents (architect, executor, explore, qa-tester) now have LSP/AST tools in their tool arrays - Enables IDE-like capabilities for agent analysis and modification tasks **New Files:**",
+      "translation": "**에이전트 정의** (`src/agents/definitions.ts`) - 관련 에이전트(architect, executor, explore, qa-tester)에 이제 LSP/AST 도구가 도구 배열에 포함됨 - 에이전트 분석 및 수정 작업을 위한 IDE와 같은 기능 제공 **새 파일:**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/mcp/omc-tools-server.ts` - SDK MCP server implementation",
+      "translation": "`src/mcp/omc-tools-server.ts` - SDK MCP 서버 구현"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/__tests__/omc-tools-server.test.ts` - 10 tests for tool exposure **Usage:** ```typescript // Tools available to subagents as: mcp__omc - tools__lsp_hover; mcp__omc - tools__lsp_definition; mcp__omc - tools__ast_query; mcp__omc - tools__python_repl; // ... etc ``` ---",
+      "translation": "`src/__tests__/omc-tools-server.test.ts` - 도구 노출을 위한 10개의 테스트 **사용법:** ```typescript // 하위 에이전트에 제공되는 도구: mcp__omc - tools__lsp_hover; mcp__omc - tools__lsp_definition; mcp__omc - tools__ast_query; mcp__omc - tools__python_repl; // ... 등 ``` ---"
+    }
+  ],
+  "translatedAt": "2026-02-06T15:57:26.182Z",
+  "translationEngine": "openai",
+  "translationCharCount": 1468
+}

@@ -1,0 +1,160 @@
+{
+  "version": "2.6.0",
+  "parsedAt": "2026-02-06T15:55:18.197Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Notepad Memory System** (`src/hooks/notepad/index.ts`) - **Compaction-Resilient Context** - `.sisyphus/notepad.md` persists across context compactions - **Three-tier storage architecture:** - **Priority Context** - Always loaded on session start (max 500 chars, critical discoveries) - **Working Memory** - Session notes with timestamps (auto-pruned after 7 days) - **MANUAL** - User content that is never auto-pruned - **Auto-injection** of Priority Context via SessionStart hook - **Auto-pruning** of old Working Memory entries on session stop - `/note <content>` command for manual note-taking",
+      "translation": "**메모장 메모리 시스템** (`src/hooks/notepad/index.ts`) - **압축 복원 컨텍스트** - `.sisyphus/notepad.md`는 컨텍스트 압축 시에도 유지됨 - **3단계 저장 아키텍처:** - **우선순위 컨텍스트** - 세션 시작 시 항상 로드됨 (최대 500자, 중요한 발견) - **작업 메모리** - 타임스탬프가 있는 세션 노트 (7일 후 자동 삭제) - **수동** - 자동 삭제되지 않는 사용자 콘텐츠 - 세션 시작 훅을 통한 우선순위 컨텍스트의 **자동 삽입** - 세션 종료 시 오래된 작업 메모리 항목의 **자동 삭제** - 수동 노트 작성용 `/note <content>` 명령어"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Remember Tag Auto-Capture** (`src/installer/hooks.ts`) - **PostToolUse Hook** - `<remember>content</remember>` - Auto-saves to Working Memory section - `<remember priority>content</remember>` - Auto-saves to Priority Context section - Agents can output remember tags to persist discoveries across compactions - Works without jq dependency (grep/sed fallback) - Installed as `post-tool-use.sh` hook",
+      "translation": "**기억 태그 자동 캡처** (`src/installer/hooks.ts`) - **PostToolUse 훅** - `<remember>content</remember>` - 작업 메모리 섹션에 자동 저장 - `<remember priority>content</remember>` - 우선순위 컨텍스트 섹션에 자동 저장 - 에이전트는 기억 태그를 출력하여 압축 시 발견 내용을 유지할 수 있음 - jq 의존성 없이 작동 (grep/sed 대체) - `post-tool-use.sh` 훅으로 설치됨"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**PRD (Product Requirements Document) Support** (`src/hooks/ralph-prd/index.ts`) - `prd.json` structured task format with user stories, acceptance criteria, priorities - Story status tracking (`passes: boolean`) for completion detection - CRUD operations: `readPrd`, `writePrd`, `markStoryComplete`, `getNextStory` - Status calculation: `getPrdStatus` returns completion stats - Formatting utilities for display and context injection",
+      "translation": "**PRD (제품 요구사항 문서) 지원** (`src/hooks/ralph-prd/index.ts`) - 사용자 스토리, 수용 기준, 우선순위가 포함된 `prd.json` 구조화된 작업 형식 - 완료 감지를 위한 스토리 상태 추적 (`passes: boolean`) - CRUD 작업: `readPrd`, `writePrd`, `markStoryComplete`, `getNextStory` - 상태 계산: `getPrdStatus`는 완료 통계를 반환 - 표시 및 컨텍스트 삽입을 위한 포맷팅 유틸리티"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Progress Memory System** (`src/hooks/ralph-progress/index.ts`) - Append-only `progress.txt` for memory persistence between iterations - Codebase patterns section for consolidated learnings - Per-story progress entries with implementation notes, files changed, learnings - Pattern extraction and learning retrieval for context injection",
+      "translation": "**진행 메모리 시스템** (`src/hooks/ralph-progress/index.ts`) - 반복 간 메모리 지속성을 위한 추가 전용 `progress.txt` - 통합 학습을 위한 코드베이스 패턴 섹션 - 구현 노트, 변경된 파일, 학습 내용이 포함된 스토리별 진행 항목 - 컨텍스트 삽입을 위한 패턴 추출 및 학습 검색"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**New Commands** - `/oh-my-claudecode:ralph-init <task>` - Scaffold a PRD from task description with auto-generated user stories - `/oh-my-claudecode:ultrawork-ralph <task>` - Maximum intensity mode with completion guarantee (ultrawork + ralph loop) - `/oh-my-claudecode:ultraqa <goal>` - Autonomous QA cycling workflow (test → verify → fix → repeat) - `/oh-my-claudecode:sisyphus-default` - Configure Sisyphus in local project `.claude/CLAUDE.md` - `/oh-my-claudecode:sisyphus-default-global` - Configure Sisyphus globally in `~/.claude/CLAUDE.md` - `/oh-my-claudecode:note <content>` - Save notes to notepad.md for compaction resilience",
+      "translation": "**새로운 명령어** - `/oh-my-claudecode:ralph-init <task>` - 자동 생성된 사용자 스토리로 PRD를 스캐폴딩 - `/oh-my-claudecode:ultrawork-ralph <task>` - 최대 강도 모드로 완료 보장 (ultrawork + ralph 루프) - `/oh-my-claudecode:ultraqa <goal>` - 자율 QA 순환 워크플로우 (테스트 → 검증 → 수정 → 반복) - `/oh-my-claudecode:sisyphus-default` - 로컬 프로젝트 `.claude/CLAUDE.md`에서 Sisyphus 구성 - `/oh-my-claudecode:sisyphus-default-global` - `~/.claude/CLAUDE.md`에서 전역으로 Sisyphus 구성 - `/oh-my-claudecode:note <content>` - 메모장.md에 노트를 저장하여 압축 복원"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**New Agent Tiers** - `qa-tester-high` (Opus) - Complex integration testing",
+      "translation": "**새로운 에이전트 계층** - `qa-tester-high` (Opus) - 복잡한 통합 테스트"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**New Hooks** - `PostToolUse` hook for processing Task agent output - Remember tag detection and notepad integration",
+      "translation": "**새로운 훅** - 작업 에이전트 출력을 처리하기 위한 `PostToolUse` 훅 - 기억 태그 감지 및 메모장 통합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Comprehensive Test Suites** - `src/__tests__/ralph-prd.test.ts` - 29 tests for PRD operations - `src/__tests__/ralph-progress.test.ts` - 30 tests for progress tracking - `src/__tests__/notepad.test.ts` - 40 tests for notepad operations - `src/__tests__/hooks.test.ts` - 18 new tests for design flaw fixes - Total: **358 tests** (up from 231)",
+      "translation": "**포괄적인 테스트 스위트** - `src/__tests__/ralph-prd.test.ts` - PRD 작업에 대한 29개의 테스트 - `src/__tests__/ralph-progress.test.ts` - 진행 추적에 대한 30개의 테스트 - `src/__tests__/notepad.test.ts` - 메모장 작업에 대한 40개의 테스트 - `src/__tests__/hooks.test.ts` - 설계 결함 수정을 위한 18개의 새로운 테스트 - 총: **358개의 테스트** (231개에서 증가)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Ralph Loop Enhanced** - Auto-initializes PRD when user runs `/oh-my-claudecode:ralph-loop` without existing `prd.json` - PRD-based completion: loop ends when ALL stories have `passes: true` - Context injection includes current story, patterns, and recent learnings - Updated continuation prompts with structured story information",
+      "translation": "**Ralph 루프 강화** - 사용자가 기존 `prd.json` 없이 `/oh-my-claudecode:ralph-loop`을 실행할 때 PRD 자동 초기화 - PRD 기반 완료: 모든 스토리가 `passes: true`일 때 루프 종료 - 현재 스토리, 패턴 및 최근 학습 내용을 포함한 컨텍스트 삽입 - 구조화된 스토리 정보를 포함한 업데이트된 연속 프롬프트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Persistent Mode Integration** - `src/hooks/persistent-mode/index.ts` now imports and uses PRD completion checking - Checks PRD status before allowing ralph-loop completion - Clears ultrawork state when PRD loop completes (for ultrawork-ralph)",
+      "translation": "**지속 모드 통합** - `src/hooks/persistent-mode/index.ts`는 이제 PRD 완료 확인을 가져와 사용 - ralph-loop 완료를 허용하기 전에 PRD 상태 확인 - PRD 루프가 완료되면 ultrawork 상태를 지움 (ultrawork-ralph의 경우)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Installer Enhanced** - Now installs `post-tool-use.sh` hook for remember tag processing - Registers `PostToolUse` hook in settings.json - Platform-aware hook installation (bash/node.js)",
+      "translation": "**설치 프로그램 강화** - 이제 기억 태그 처리를 위한 `post-tool-use.sh` 훅을 설치 - 설정.json에 `PostToolUse` 훅 등록 - 플랫폼 인식 훅 설치 (bash/node.js)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Stale position bug in `addPattern`** - Placeholder removal now happens before calculating separator position",
+      "translation": "**`addPattern`의 오래된 위치 버그** - 구분자 위치 계산 전에 플레이스홀더 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Type safety in `createPrd`** - New `UserStoryInput` type with optional priority field",
+      "translation": "**`createPrd`의 타입 안전성** - 선택적 우선순위 필드가 있는 새로운 `UserStoryInput` 타입"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Recursion guard in `addPattern`** - Prevents infinite loops on repeated initialization failures",
+      "translation": "**`addPattern`의 재귀 보호** - 반복 초기화 실패 시 무한 루프 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Todo-continuation infinite loop** - Added max-attempts counter (5) to prevent agent getting stuck",
+      "translation": "**할 일 연속 무한 루프** - 에이전트가 멈추지 않도록 최대 시도 횟수 카운터 (5) 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**UltraQA/Ralph-Loop conflict** - Added mutual exclusion to prevent both loops running simultaneously",
+      "translation": "**UltraQA/Ralph-Loop 충돌** - 두 루프가 동시에 실행되지 않도록 상호 배제 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Agent name prefixing** - Standardized all Task() calls to use `oh-my-claude-sisyphus:` prefix",
+      "translation": "**에이전트 이름 접두사** - 모든 Task() 호출에 `oh-my-claude-sisyphus:` 접두사 표준화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**VERSION constant mismatch** - Fixed installer VERSION from 2.4.1 to 2.6.0",
+      "translation": "**VERSION 상수 불일치** - 설치 프로그램 VERSION을 2.4.1에서 2.6.0으로 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Completion promise inconsistency** - Standardized to `TASK_COMPLETE`",
+      "translation": "**완료 약속 불일치** - `TASK_COMPLETE`로 표준화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Non-existent /start-work command** - Removed references to command that doesn't exist **Notepad.md Structure:** ```markdown <!-- Auto-managed by Sisyphus. Manual edits preserved in MANUAL section. --> <!-- ALWAYS loaded. Keep under 500 chars. Critical discoveries only. --> Project uses pnpm not npm API client at src/api/client.ts <!-- Session notes. Auto-pruned after 7 days. --> Discovered auth middleware in src/middleware/auth.ts Database schema uses PostgreSQL with Prisma ORM <!-- User content. Never auto-pruned. --> User's permanent notes here ``` **Remember Tag Usage:** ``` Agent output: <remember>Project uses TypeScript strict mode</remember> → Saved to Working Memory with timestamp Agent output: <remember priority>API base URL is https://api.example.com</remember> → Saved to Priority Context (replaces previous) ``` **PRD Structure:** ```json { \"project\": \"ProjectName\", \"branchName\": \"ralph/feature-name\", \"description\": \"Feature description\", \"userStories\": [ { \"id\": \"US-001\", \"title\": \"Story title\", \"description\": \"User story description\", \"acceptanceCriteria\": [\"Criterion 1\", \"Criterion 2\"], \"priority\": 1, \"passes\": false } ] } ``` **Progress.txt Structure:** ``` Started: 2026-01-19T...",
+      "translation": "**존재하지 않는 /start-work 명령어** - 존재하지 않는 명령어에 대한 참조 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pattern learned from iteration 1",
+      "translation": "반복 1에서 학습된 패턴"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pattern learned from iteration 2 --- **What was implemented:**",
+      "translation": "반복 2에서 학습된 패턴 --- **구현된 내용:**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feature A",
+      "translation": "기능 A"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feature B **Learnings for future iterations:**",
+      "translation": "기능 B **향후 반복을 위한 학습:**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Important pattern discovered ``` ---",
+      "translation": "중요한 패턴 발견 ``` ---"
+    }
+  ],
+  "translatedAt": "2026-02-06T16:00:29.112Z",
+  "translationEngine": "openai",
+  "translationCharCount": 5834
+}

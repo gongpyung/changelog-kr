@@ -1,0 +1,184 @@
+{
+  "version": "0.96.0",
+  "parsedAt": "2026-02-06T15:16:39.340Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `thread/compact` to the v2 app-server API as an async trigger RPC, so clients can start compaction immediately and track completion separately. (#10445)",
+      "translation": "v2 앱 서버 API에 비동기 트리거 RPC로 `thread/compact`를 추가하여 클라이언트가 즉시 압축을 시작하고 완료를 별도로 추적할 수 있도록 했습니다. (#10445)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added websocket-side rate limit signaling via a new `codex.rate_limits` event, with websocket parity for ETag/reasoning metadata handling. (#10324)",
+      "translation": "새로운 `codex.rate_limits` 이벤트를 통해 웹소켓 측의 속도 제한 신호를 추가하고, ETag/이유 메타데이터 처리를 위한 웹소켓 동등성을 제공했습니다. (#10324)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Enabled `unified_exec` on all non-Windows platforms. (#10641)",
+      "translation": "모든 비-Windows 플랫폼에서 `unified_exec`를 활성화했습니다. (#10641)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Constrained requirement values now include source provenance, enabling source-aware config debugging in UI flows like `/debug-config`. (#10568)",
+      "translation": "요구 사항 값에 소스 출처를 포함하여 `/debug-config`와 같은 UI 흐름에서 소스 인식 구성 디버깅을 가능하게 했습니다. (#10568)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Esc` handling in the TUI `request_user_input` overlay: when notes are open, `Esc` now exits notes mode instead of interrupting the session. (#10569)",
+      "translation": "TUI `request_user_input` 오버레이에서 `Esc` 처리 문제를 수정했습니다: 노트가 열려 있을 때, 이제 `Esc`는 세션을 중단하는 대신 노트 모드를 종료합니다. (#10569)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Thread listing now queries the state DB first (including archived threads) and falls back to filesystem traversal only when needed, improving listing correctness and resilience. (#10544)",
+      "translation": "스레드 목록이 이제 상태 DB를 먼저 쿼리하고(보관된 스레드 포함) 필요할 때만 파일 시스템 탐색으로 돌아가, 목록의 정확성과 복원력을 향상시킵니다. (#10544)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed thread path lookup to require that the resolved file actually exists, preventing invalid thread-id resolutions. (#10618)",
+      "translation": "스레드 경로 조회가 해결된 파일이 실제로 존재해야 한다는 요구 사항을 추가하여 잘못된 스레드 ID 해결을 방지했습니다. (#10618)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dynamic tool injection now runs in a single transaction to avoid partial state updates. (#10614)",
+      "translation": "동적 도구 주입이 부분적인 상태 업데이트를 피하기 위해 단일 트랜잭션에서 실행됩니다. (#10614)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Refined `request_rule` guidance used in approval-policy prompting to correct rule behavior. (#10379, #10598)",
+      "translation": "승인 정책 프롬프트에서 사용되는 `request_rule` 지침을 수정하여 규칙 동작을 올바르게 했습니다. (#10379, #10598)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated app-server docs for `thread/compact` to clarify its asynchronous behavior and thread-busy lifecycle. (#10445)",
+      "translation": "`thread/compact`의 비동기 동작 및 스레드 바쁜 수명 주기를 명확히 하기 위해 앱 서버 문서를 업데이트했습니다. (#10445)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated TUI docs to match the mode-specific `Esc` behavior in `request_user_input`. (#10569)",
+      "translation": "`request_user_input`에서 모드별 `Esc` 동작에 맞춰 TUI 문서를 업데이트했습니다. (#10569)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Migrated state DB helpers to a versioned SQLite filename scheme and cleaned up legacy state files during runtime initialization. (#10623)",
+      "translation": "상태 DB 도우미를 버전이 있는 SQLite 파일 이름 체계로 마이그레이션하고 런타임 초기화 중에 레거시 상태 파일을 정리했습니다. (#10623)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Expanded runtime telemetry with websocket timing metrics and simplified internal metadata flow in core client plumbing. (#10577, #10589)",
+      "translation": "웹소켓 타이밍 메트릭으로 런타임 텔레메트리를 확장하고 핵심 클라이언트 배관에서 내부 메타데이터 흐름을 단순화했습니다. (#10577, #10589)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10569 tui: make Esc clear request_user_input notes while notes are shown @charley-oai",
+      "translation": "#10569 tui: 노트가 표시되는 동안 Esc가 request_user_input 노트를 지우도록 수정 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10577 feat: log webscocket timing into runtime metrics @apanasenko-oai",
+      "translation": "#10577 feat: 웹소켓 타이밍을 런타임 메트릭에 기록 @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10445 Add thread/compact v2  @aibrahim-oai",
+      "translation": "#10445 Add thread/compact v2  @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10589 Move metadata calculation out of client @pakrym-oai",
+      "translation": "#10589 메타데이터 계산을 클라이언트 외부로 이동 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10379 fix(core) updated request_rule guidance @dylan-hurd-oai",
+      "translation": "#10379 fix(core) request_rule 지침 업데이트 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10598 fix(core) Request Rule guidance tweak @dylan-hurd-oai",
+      "translation": "#10598 fix(core) Request Rule 지침 수정 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10544 Prefer state DB thread listings before filesystem @jif-oai",
+      "translation": "#10544 파일 시스템보다 상태 DB 스레드 목록을 우선 사용 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10614 fix: single transaction for dyn tools injection @jif-oai",
+      "translation": "#10614 수정: 동적 도구 삽입을 위한 단일 트랜잭션 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10568 Requirements: add source to constrained requirement values @gt-oai",
+      "translation": "#10568 요구사항: 제약된 요구값에 소스 추가 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10611 chore: simplify user message detection @jif-oai",
+      "translation": "#10611 작업: 사용자 메시지 감지 단순화 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10618 fix: make sure file exist in `find_thread_path_by_id_str_in_subdir` @jif-oai",
+      "translation": "#10618 수정: `find_thread_path_by_id_str_in_subdir`에서 파일 존재 확인 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10619 nit: cleaning @jif-oai",
+      "translation": "#10619 사소한 수정: 정리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10324 Add a codex.rate_limits event for websockets @rasmusrygaard",
+      "translation": "#10324 웹소켓을 위한 codex.rate_limits 이벤트 추가 @rasmusrygaard"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10623 Migrate state DB path helpers to versioned filename @jif-oai",
+      "translation": "#10623 상태 DB 경로 도우미를 버전 파일명으로 마이그레이션 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10638 Update tests to stop using sse_completed fixture @pakrym-oai",
+      "translation": "#10638 sse_completed 픽스처 사용 중지하도록 테스트 업데이트 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10641 feat: land unified_exec @jif-oai",
+      "translation": "#10641 기능: unified_exec 도입 @jif-oai"
+    }
+  ],
+  "translatedAt": "2026-02-06T15:38:31.757Z",
+  "translationEngine": "openai",
+  "translationCharCount": 2648
+}

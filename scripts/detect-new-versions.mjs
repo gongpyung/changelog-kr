@@ -30,7 +30,7 @@ async function fetchMarkdownVersions(url) {
   }
 
   const markdown = await response.text();
-  const versionRegex = /^## (\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)/gm;
+  const versionRegex = /^## \[?(\d+\.\d+\.\d+(?:-[a-z0-9.]+)?)\]?/gm;
   const versions = [];
   let match;
 
