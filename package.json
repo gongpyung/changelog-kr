@@ -1,6 +1,6 @@
 {
   "name": "changelog-kr",
-  "version": "2.0.0",
+  "version": "2.2.1",
   "description": "AI 도구들의 Changelog를 한국어로 번역/표시하는 서비스 (changelog.kr)",
   "type": "module",
   "scripts": {
@@ -10,8 +10,22 @@
     "build": "node scripts/build-site.mjs",
     "notify:telegram": "node scripts/notify-telegram.mjs",
     "notify:email": "node scripts/notify-email.mjs",
-    "test": "node --test tests/"
+    "test": "node --test tests/",
+    "release": "commit-and-tag-version",
+    "release:minor": "commit-and-tag-version --release-as minor",
+    "release:major": "commit-and-tag-version --release-as major"
   },
-  "keywords": ["changelog", "korean", "translation", "claude-code", "codex-cli", "gemini-cli", "ai-tools"],
-  "license": "MIT"
+  "keywords": [
+    "changelog",
+    "korean",
+    "translation",
+    "claude-code",
+    "codex-cli",
+    "gemini-cli",
+    "ai-tools"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "commit-and-tag-version": "^12.6.1"
+  }
 }
