@@ -7,10 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.2.1] - 2026-02-08
 
-### Improved
-- **마크다운 인라인 렌더링** - 번역 텍스트의 `**bold**`가 **bold**로, `` `code` ``가 `code`로 렌더링되도록 개선
+### Added
+- **정적 에셋 content hash 캐시 버스팅** - `app.js` → `app.{hash}.js` 형태로 빌드하여 배포 시 브라우저 캐시 자동 무효화
+- **마크다운 인라인 렌더링** - 번역 텍스트의 `**bold**`를 **bold**로, `` `code` ``를 `code`로 렌더링
   - `renderInlineMarkdown()` 함수 추가 (`app.js`)
   - `.inline-code` 스타일 추가 (`style.css`)
+
+### Fixed
+- **releases-parser `\r\n` 호환성** - Windows 줄 바꿈이 포함된 GitHub Releases 파싱 오류 수정
+- **codex v0.98.0 번역 파일 리셋** - 빈 entries로 파싱된 잘못된 번역 파일 제거
+- **번역 후 자동 빌드 트리거** - translate 워크플로우 완료 후 빌드가 누락되던 문제 수정
+- **parsedAt 불필요 갱신 방지** - 변경 없을 때 불필요한 커밋 발생 방지
+- **모바일 버전명 줄바꿈** - 작은 화면에서 버전명이 잘리던 문제 수정
+
+### Changed
+- **prerelease 버전 제거** - alpha/beta 등 prerelease 버전을 제외하고 소스 타입을 github-releases로 통일
+- **알림 워크플로우 비활성화** - `notify.yml` 임시 비활성화
 
 ## [2.2.0] - 2026-02-07
 
