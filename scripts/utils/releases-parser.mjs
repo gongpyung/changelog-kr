@@ -98,7 +98,7 @@ export function parseReleaseBody(body) {
   if (!body || !body.trim()) return [];
 
   const entries = [];
-  const lines = body.split('\n');
+  const lines = body.split(/\r?\n/);
   let currentSectionCategory = null;
 
   for (const line of lines) {
