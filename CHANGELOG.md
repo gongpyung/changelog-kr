@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - 2026-02-08
+
+### Improved
+- **마크다운 인라인 렌더링** - 번역 텍스트의 `**bold**`가 **bold**로, `` `code` ``가 `code`로 렌더링되도록 개선
+  - `renderInlineMarkdown()` 함수 추가 (`app.js`)
+  - `.inline-code` 스타일 추가 (`style.css`)
+
 ## [2.2.0] - 2026-02-07
 
 ### Fixed
