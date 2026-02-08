@@ -60,11 +60,34 @@ function inferCategory(text) {
 }
 
 /**
+ * Keep a Changelog 형식 섹션 헤딩을 카테고리로 매핑
+ *
+ * changelog-parser.mjs의 mapSectionToCategory()와 동일한 매핑 규칙을 사용합니다.
+ *
+ * @param {string} headingText - 섹션 헤딩 텍스트 (예: "Added", "Fixed")
+ * @returns {string|null} 카테고리 (added, fixed, improved, changed, removed) 또는 null (알 수 없는 헤딩)
+ */
+function mapSectionHeading(headingText) {
+  const normalized = headingText.toLowerCase().trim();
+
+  if (normalized === 'added' || normalized === 'new' || normalized === "what's new") return 'added';
+  if (normalized === 'fixed' || normalized === 'bug fixes') return 'fixed';
+  if (normalized === 'changed' || normalized === "what's changed") return 'changed';
+  if (normalized === 'removed') return 'removed';
+  if (normalized === 'deprecated') return 'removed';
+  if (normalized === 'improved' || normalized === 'performance') return 'improved';
+  if (normalized === 'breaking changes' || normalized === 'refactored' || normalized === 'security') return 'changed';
+
+  return null; // 알 수 없는 헤딩 → inferCategory() 폴백
+}
+
+/**
  * 릴리스 본문 "What's Changed" 섹션을 엔트리 배열로 파싱
  *
  * GitHub 자동 생성 릴리스 노트 형식을 처리합니다:
  * - "* PR title by @author in https://..." 패턴
  * - 일반 리스트 항목 (단, "Full Changelog", "New Contributors" 제외)
+ * - Keep a Changelog 형식 섹션 헤딩 (### Added, ### Fixed 등)
  *
  * changelog-parser.mjs와 호환되는 형식을 반환합니다.
  *
@@ -76,8 +99,16 @@ export function parseReleaseBody(body) {
 
   const entries = [];
   const lines = body.split('\n');
+  let currentSectionCategory = null;
 
   for (const line of lines) {
+    // 섹션 헤딩 감지 (### Added, ### Fixed 등)
+    const sectionMatch = line.match(/^###\s+(.+)$/);
+    if (sectionMatch) {
+      currentSectionCategory = mapSectionHeading(sectionMatch[1]);
+      continue;
+    }
+
     // PR 패턴: "* PR title by @author in https://..."
     const prMatch = line.match(/^\*\s+(.+?)\s+by\s+@\S+\s+in\s+https:\/\/.+$/);
     if (prMatch) {
@@ -86,7 +117,7 @@ export function parseReleaseBody(body) {
       entries.push({
         text,
         scope: null, // GitHub releases don't have scope tags by default
-        category: inferCategory(text),
+        category: currentSectionCategory || inferCategory(text),
         raw
       });
       continue;
@@ -99,7 +130,7 @@ export function parseReleaseBody(body) {
       entries.push({
         text,
         scope: null,
-        category: inferCategory(text),
+        category: currentSectionCategory || inferCategory(text),
         raw: text
       });
     }
