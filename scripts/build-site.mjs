@@ -9,7 +9,8 @@
  *   npm run build
  */
 
-import { readFile, writeFile, readdir, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, readdir, mkdir, copyFile, unlink } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareVersions } from './utils/version-utils.mjs';
@@ -221,9 +222,46 @@ function formatDate(isoString) {
 }
 
 /**
+ * Hash static assets and create versioned copies.
+ * Returns a map of original filename -> hashed filename.
+ */
+async function hashStaticAssets() {
+  const assets = [
+    { source: 'app.js', prefix: 'app', ext: 'js' },
+    { source: 'style.css', prefix: 'style', ext: 'css' },
+  ];
+
+  const hashMap = {};
+
+  for (const asset of assets) {
+    const sourcePath = join(SITE_ASSETS_DIR, asset.source);
+    const content = await readFile(sourcePath);
+    const hash = createHash('sha256').update(content).digest('hex').slice(0, 8);
+    const hashedName = `${asset.prefix}.${hash}.${asset.ext}`;
+
+    // Remove old hashed copies
+    const pattern = new RegExp(`^${asset.prefix}\\.[a-f0-9]{8}\\.${asset.ext}$`);
+    const files = await readdir(SITE_ASSETS_DIR);
+    for (const f of files) {
+      if (pattern.test(f)) {
+        await unlink(join(SITE_ASSETS_DIR, f));
+      }
+    }
+
+    // Copy to hashed filename
+    await copyFile(sourcePath, join(SITE_ASSETS_DIR, hashedName));
+    hashMap[asset.source] = hashedName;
+
+    console.log(`  ${asset.source} → ${hashedName}`);
+  }
+
+  return hashMap;
+}
+
+/**
  * Build index.html from template
  */
-async function buildHtml(translationsData) {
+async function buildHtml(translationsData, assetHashMap) {
   let template;
   try {
     template = await readFile(TEMPLATE_PATH, 'utf-8');
@@ -243,6 +281,12 @@ async function buildHtml(translationsData) {
   html = html.replace(/\{\{VERSION_COUNT\}\}/g, String(versionCount));
   html = html.replace(/\{\{LAST_UPDATED\}\}/g, lastUpdated);
   html = html.replace(/\{\{LATEST_VERSION\}\}/g, latestVersion);
+
+  // Replace asset hash placeholders
+  if (assetHashMap) {
+    html = html.replace(/\{\{APP_JS_FILE\}\}/g, assetHashMap['app.js'] || 'app.js');
+    html = html.replace(/\{\{STYLE_CSS_FILE\}\}/g, assetHashMap['style.css'] || 'style.css');
+  }
 
   await writeFile(OUTPUT_HTML, html, 'utf-8');
 
@@ -271,7 +315,7 @@ async function main() {
   console.log('');
 
   // Step 1: Ensure output directories
-  console.log('[1/4] Preparing output directories...');
+  console.log('[1/5] Preparing output directories...');
   await ensureAssetDirs();
   console.log('  Done');
 
@@ -281,7 +325,7 @@ async function main() {
   let translationsData;
 
   if (services && services.length > 0) {
-    console.log(`[2/4] Building multi-service data (${services.length} services)...`);
+    console.log(`[2/5] Building multi-service data (${services.length} services)...`);
 
     for (const service of services) {
       await buildServiceData(service);
@@ -292,7 +336,7 @@ async function main() {
     console.log('  Copied services.json');
 
     // Build combined all-translations.json from default service for backward compatibility
-    console.log('[3/4] Building all-translations.json (backward compatibility)...');
+    console.log('[3/5] Building all-translations.json (backward compatibility)...');
     let config;
     try {
       config = JSON.parse(await readFile(SERVICES_CONFIG, 'utf-8'));
@@ -322,18 +366,22 @@ async function main() {
     translationsData = await buildTranslationsJson(sorted);
   } else {
     // Legacy mode - use old TRANSLATIONS_DIR
-    console.log('[2/4] Reading translation files (legacy mode)...');
+    console.log('[2/5] Reading translation files (legacy mode)...');
     const rawVersions = await readTranslations();
 
     // Step 3: Sort and build JSON
-    console.log('[3/4] Building all-translations.json...');
+    console.log('[3/5] Building all-translations.json...');
     const sorted = sortVersionsDescending(rawVersions);
     translationsData = await buildTranslationsJson(sorted);
   }
 
-  // Step 4: Build HTML from template
-  console.log('[4/4] Building index.html from template...');
-  await buildHtml(translationsData);
+  // Step 4: Hash static assets for cache busting
+  console.log('[4/5] Hashing static assets...');
+  const assetHashMap = await hashStaticAssets();
+
+  // Step 5: Build HTML from template
+  console.log('[5/5] Building index.html from template...');
+  await buildHtml(translationsData, assetHashMap);
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
 

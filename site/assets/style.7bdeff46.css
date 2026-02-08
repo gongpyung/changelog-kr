@@ -1,0 +1,614 @@
+/* ==========================================================================
+   AI Changelog Hub - Neon Terminal Theme
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   CSS Variables - Theme System
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Dark Mode (Default) */
+  --bg-primary: #0D0D0D;
+  --bg-surface: #1A1A1A;
+  --bg-elevated: #242424;
+  --border-default: #2A2A2A;
+  --border-hover: #3A3A3A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-muted: #666666;
+
+  /* Neon Accents */
+  --neon-cyan: #00D9FF;
+  --neon-cyan-glow: rgba(0, 217, 255, 0.3);
+  --neon-purple: #7B61FF;
+  --neon-purple-glow: rgba(123, 97, 255, 0.3);
+  --neon-green: #10B981;
+  --neon-green-glow: rgba(16, 185, 129, 0.3);
+  --neon-amber: #F59E0B;
+  --neon-amber-glow: rgba(245, 158, 11, 0.3);
+  --neon-red: #EF4444;
+  --neon-red-glow: rgba(239, 68, 68, 0.3);
+}
+
+/* Light Mode */
+html:not(.dark) {
+  --bg-primary: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F5F5F5;
+  --border-default: #E5E5E5;
+  --border-hover: #D4D4D4;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+
+  /* Adjusted neon for light mode (better contrast) */
+  --neon-cyan: #0891B2;
+  --neon-cyan-glow: rgba(8, 145, 178, 0.15);
+  --neon-purple: #7C3AED;
+  --neon-purple-glow: rgba(124, 58, 237, 0.15);
+  --neon-green: #059669;
+  --neon-green-glow: rgba(5, 150, 105, 0.15);
+  --neon-amber: #D97706;
+  --neon-amber-glow: rgba(217, 119, 6, 0.15);
+  --neon-red: #DC2626;
+  --neon-red-glow: rgba(220, 38, 38, 0.15);
+}
+
+/* ---------------------------------------------------------------------------
+   Base Styles
+   --------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Custom Scrollbar - Neon Theme
+   --------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg-surface);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Sidebar Styles
+   --------------------------------------------------------------------------- */
+
+#sidebar {
+  background-color: var(--bg-surface);
+  border-color: var(--border-default);
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.service-item:hover {
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.service-item.active {
+  background-color: var(--neon-cyan-glow);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.service-item .service-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+}
+
+.service-item.active .service-icon {
+  background-color: var(--neon-cyan);
+  color: var(--bg-primary);
+  border-color: var(--neon-cyan);
+}
+
+/* ---------------------------------------------------------------------------
+   Filter Buttons
+   --------------------------------------------------------------------------- */
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text-muted);
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  color: var(--neon-cyan);
+  background-color: var(--neon-cyan-glow);
+}
+
+.filter-btn.active {
+  color: var(--neon-cyan);
+  background-color: var(--neon-cyan-glow);
+  border-color: var(--neon-cyan-glow);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------
+   Timeline & Version Cards
+   --------------------------------------------------------------------------- */
+
+.version-card {
+  position: relative;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.version-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 20px var(--neon-cyan-glow);
+}
+
+html:not(.dark) .version-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(8, 145, 178, 0.2);
+}
+
+/* Timeline dot */
+.version-card::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 1.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.version-card:hover::before {
+  background-color: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan-glow);
+}
+
+.version-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.version-header:hover {
+  background-color: var(--bg-elevated);
+}
+
+.version-header h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.version-header:hover h2 {
+  color: var(--neon-cyan);
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: var(--text-muted);
+}
+
+.chevron.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.version-body {
+  border-top: 1px solid var(--border-default);
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------------
+   Category Badges - Neon Style
+   --------------------------------------------------------------------------- */
+
+.badge-added {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--neon-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-fixed {
+  background-color: rgba(0, 217, 255, 0.15);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.badge-improved {
+  background-color: rgba(123, 97, 255, 0.15);
+  color: var(--neon-purple);
+  border: 1px solid rgba(123, 97, 255, 0.3);
+}
+
+.badge-changed {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--neon-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-removed {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--neon-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-other {
+  background-color: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border-default);
+}
+
+/* Light mode badge enhancements */
+html:not(.dark) .badge-added {
+  background-color: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+html:not(.dark) .badge-fixed {
+  background-color: rgba(8, 145, 178, 0.1);
+  border-color: rgba(8, 145, 178, 0.3);
+}
+
+html:not(.dark) .badge-improved {
+  background-color: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+html:not(.dark) .badge-changed {
+  background-color: rgba(217, 119, 6, 0.1);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+html:not(.dark) .badge-removed {
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.category-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------------------------------------------------------------------------
+   Version Date
+   --------------------------------------------------------------------------- */
+
+.version-date {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.01em;
+}
+
+/* ---------------------------------------------------------------------------
+   Entry Items
+   --------------------------------------------------------------------------- */
+
+.entry-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease;
+}
+
+.entry-item:hover {
+  background-color: var(--bg-elevated);
+}
+
+.entry-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.entry-item:hover .entry-text {
+  color: var(--text-primary);
+}
+
+.toggle-original {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.entry-item:hover .toggle-original {
+  opacity: 1;
+}
+
+.toggle-original:hover {
+  color: var(--neon-cyan);
+}
+
+.original-text {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------------
+   Animations
+   --------------------------------------------------------------------------- */
+
+.fade-in {
+  animation: fadeInUp 0.35s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--neon-cyan-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-cyan-glow);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Search Input
+   --------------------------------------------------------------------------- */
+
+#searchInput {
+  background-color: var(--bg-surface);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+#searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+#searchInput:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 3px var(--neon-cyan-glow);
+}
+
+/* ---------------------------------------------------------------------------
+   Back to Top Button
+   --------------------------------------------------------------------------- */
+
+#backToTop {
+  background-color: var(--neon-cyan);
+  color: var(--bg-primary);
+  box-shadow: 0 4px 20px var(--neon-cyan-glow);
+}
+
+#backToTop:hover {
+  box-shadow: 0 4px 30px rgba(0, 217, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------------
+   Focus Styles (Accessibility)
+   --------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------------
+   Selection
+   --------------------------------------------------------------------------- */
+
+::selection {
+  background-color: rgba(0, 217, 255, 0.3);
+  color: inherit;
+}
+
+html:not(.dark) ::selection {
+  background-color: rgba(8, 145, 178, 0.25);
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive Adjustments
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .version-card {
+    margin-left: 1.5rem;
+  }
+
+  .version-card::before {
+    left: -1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .version-card {
+    margin-left: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .version-card::before {
+    left: -1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .version-header {
+    padding: 0.875rem 1rem;
+  }
+
+  .entry-item {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .category-badge {
+    font-size: 0.5rem;
+    padding: 0.125rem 0.375rem;
+  }
+}
+
+/* Touch devices - always show toggle */
+@media (hover: none) {
+  .toggle-original {
+    opacity: 1 !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Version TOC Navigation
+   --------------------------------------------------------------------------- */
+
+.version-toc-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.version-toc-item:hover {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  background-color: var(--neon-cyan-glow);
+}
+
+.version-card {
+  scroll-margin-top: 12rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Print Styles
+   --------------------------------------------------------------------------- */
+
+@media print {
+  #sidebar,
+  #mobileMenuBtn,
+  #backToTop,
+  #themeToggle,
+  #toggleAllBtn,
+  .toggle-original,
+  .filter-btn {
+    display: none !important;
+  }
+
+  main {
+    margin-left: 0 !important;
+  }
+
+  .version-card {
+    break-inside: avoid;
+    margin-left: 0;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .version-card::before {
+    display: none;
+  }
+
+  .version-body {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
