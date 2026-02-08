@@ -495,7 +495,7 @@
 
     header.innerHTML = `
       <div class="flex items-center gap-3 min-w-0">
-        <h2 class="text-lg font-bold">v${ver.version}</h2>
+        <h2 class="text-sm sm:text-lg font-bold whitespace-nowrap">v${ver.version}</h2>
         ${dateHtml}
         <span class="px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted">${ver.entries.length}개</span>
       </div>

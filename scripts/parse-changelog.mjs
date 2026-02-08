@@ -227,9 +227,10 @@ async function processService(service) {
       // File doesn't exist or is invalid
     }
 
-    // Layer 2 protection: skip if any entry has a non-null translation
-    if (existingData && existingData.entries?.some(e => e.translation !== null)) {
-      console.log(`  - ${versionData.version}: already translated, skipping`);
+    // Layer 2 protection: skip if file already exists (already parsed)
+    if (existingData && existingData.parsedAt) {
+      const reason = existingData.entries?.some(e => e.translation !== null) ? 'translated' : 'already parsed';
+      console.log(`  - ${versionData.version}: ${reason}, skipping`);
       skippedCount++;
       continue;
     }

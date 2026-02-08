@@ -49,6 +49,17 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: add Korean translations for ${{ github.event.inputs.new_versions }}"
           git push
 
+      - name: Trigger build
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'build-deploy.yml',
+              ref: 'main'
+            })
+
       - name: Trigger notification
         if: github.event.inputs.translate_all != 'true'
         uses: actions/github-script@v7
