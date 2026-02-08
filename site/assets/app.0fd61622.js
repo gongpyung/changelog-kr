@@ -559,9 +559,9 @@
       <div class="flex-1 min-w-0">
         <div class="flex items-start gap-2 flex-wrap">
           ${scopeHtml}
-          <p class="entry-text text-sm flex-1">${escapeHtml(translatedText)}</p>
+          <p class="entry-text text-sm flex-1">${renderInlineMarkdown(translatedText)}</p>
         </div>
-        <div class="original-text hidden mt-2 text-xs">${escapeHtml(originalText)}</div>
+        <div class="original-text hidden mt-2 text-xs">${renderInlineMarkdown(originalText)}</div>
         ${hasTranslation ? `<button class="toggle-original mt-1">원문 보기</button>` : ''}
       </div>
     `;
@@ -585,6 +585,16 @@
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+
+  function renderInlineMarkdown(text) {
+    if (!text) return '';
+    let html = escapeHtml(text);
+    // Bold: **text** → <strong>text</strong>
+    html = html.replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>');
+    // Inline code: `text` → <code>text</code>
+    html = html.replace(/`([^`]+?)`/g, '<code class="inline-code">$1</code>');
+    return html;
   }
 
   // ---------------------------------------------------------------------------
