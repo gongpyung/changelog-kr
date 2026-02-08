@@ -1,5 +1,6 @@
-name: Send Notifications
+name: Send Notifications (disabled)
 
+# Disabled: 알림 기능 미사용 중. 시크릿 설정 후 if: false 제거하여 활성화.
 on:
   workflow_dispatch:
     inputs:
@@ -12,6 +13,7 @@ on:
 
 jobs:
   notify:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
