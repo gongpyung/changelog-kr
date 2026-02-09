@@ -28,12 +28,12 @@
 
 | 서비스 | 제공사 | 소스 | 상태 |
 |--------|--------|------|------|
-| **Claude Code** | Anthropic | CHANGELOG.md | ✅ 207개 버전 |
-| **Codex CLI** | OpenAI | GitHub Releases | ✅ 102개 버전 |
-| **Gemini CLI** | Google | GitHub Releases | ✅ 74개 버전 |
-| **oh-my-claudecode** | Yeachan Heo | CHANGELOG.md | ✅ 55개 버전 |
-| Cursor | Anysphere | - | 🔜 준비 중 |
-| Windsurf | Codeium | - | 🔜 준비 중 |
+| **Claude Code** | Anthropic | CHANGELOG.md | ✅ 210개 버전 |
+| **Codex CLI** | OpenAI | GitHub Releases | ✅ 17개 버전 |
+| **Gemini CLI** | Google | GitHub Releases | ✅ 25개 버전 |
+| **oh-my-claudecode** | Yeachan Heo | CHANGELOG.md | ✅ 110개 버전 |
+| **oh-my-opencode** | Yeongyu Kim | GitHub Releases | ✅ 100개 버전 |
+| **OpenClaw** | OpenClaw | GitHub Releases | ✅ 38개 버전 |
 
 > 💡 새로운 서비스 추가를 원하시면 [Issue](https://github.com/gongpyung/changelog-kr/issues)를 열어주세요!
 
@@ -100,14 +100,16 @@ cd site && python -m http.server 8080
 ```
 changelog-kr/
 ├── 📂 data/
-│   ├── services.json                # 서비스 설정 (4개 서비스)
+│   ├── services.json                # 서비스 설정 (6개 서비스)
 │   └── services/
 │       ├── claude-code/
 │       │   ├── versions.json        # 버전 인덱스
 │       │   └── translations/*.json  # 버전별 번역
 │       ├── codex-cli/
 │       ├── gemini-cli/
-│       └── oh-my-claudecode/
+│       ├── oh-my-claudecode/
+│       ├── oh-my-opencode/
+│       └── openclaw/
 ├── 📂 scripts/
 │   ├── build-site.mjs               # 사이트 빌드
 │   ├── detect-new-versions.mjs      # 새 버전 감지
