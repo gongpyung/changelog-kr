@@ -5,8 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.0](https://github.com/gongpyung/changelog-kr/compare/v2.2.1...v2.3.0) (2026-02-09)
+## [2.3.0] - 2026-02-09
 
+
+### Added
+
+* **oh-my-opencode 서비스 추가** - code-yeongyu/oh-my-opencode 전체 100개 버전(v1.1.1~v3.4.0) 한국어 번역
+* **OpenClaw 서비스 추가** - openclaw/openclaw 전체 38개 버전(v0.1.1~v2026.2.6) 한국어 번역
+* 두 서비스 모두 OpenAI gpt-4o로 번역 (총 3,977 entries)
 
 ### Fixed
 
