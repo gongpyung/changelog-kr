@@ -1,0 +1,557 @@
+{
+  "version": "2026.1.16-2",
+  "date": "2026-01-17",
+  "parsedAt": "2026-02-09T10:31:02.374Z",
+  "translationStatus": "completed",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks: add hooks system with bundled hooks, CLI tooling, and docs. (#1028) — thanks @ThomsenDrake. https://docs.clawd.bot/hooks",
+      "translation": "훅: 번들 훅, CLI 도구, 문서와 함께 훅 시스템 추가. (#1028) — @ThomsenDrake에게 감사드립니다. https://docs.clawd.bot/hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Media: add inbound media understanding (image/audio/video) with provider + CLI fallbacks. https://docs.clawd.bot/nodes/media-understanding",
+      "translation": "미디어: 공급자 + CLI 대체 기능과 함께 수신 미디어 이해 (이미지/오디오/비디오) 추가. https://docs.clawd.bot/nodes/media-understanding"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins: add Zalo Personal plugin (`@clawdbot/zalouser`) and unify channel directory for plugins. (#1032) — thanks @suminhthanh. https://docs.clawd.bot/plugins/zalouser",
+      "translation": "플러그인: Zalo 개인 플러그인 (`@clawdbot/zalouser`) 추가 및 플러그인 채널 디렉토리 통합. (#1032) — @suminhthanh에게 감사드립니다. https://docs.clawd.bot/plugins/zalouser"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models: add Vercel AI Gateway auth choice + onboarding updates. (#1016) — thanks @timolins. https://docs.clawd.bot/providers/vercel-ai-gateway",
+      "translation": "모델: Vercel AI Gateway 인증 선택 + 온보딩 업데이트 추가. (#1016) — @timolins에게 감사드립니다. https://docs.clawd.bot/providers/vercel-ai-gateway"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: add `session.identityLinks` for cross-platform DM session linking. (#1033) — thanks @thewilloftheshadow. https://docs.clawd.bot/concepts/session",
+      "translation": "세션: 플랫폼 간 DM 세션 연결을 위한 `session.identityLinks` 추가. (#1033) — @thewilloftheshadow에게 감사드립니다. https://docs.clawd.bot/concepts/session"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Web search: add `country`/`language` parameters (schema + Brave API) and docs. (#1046) — thanks @YuriNachos. https://docs.clawd.bot/tools/web",
+      "translation": "웹 검색: `country`/`language` 매개변수 (스키마 + Brave API) 및 문서 추가. (#1046) — @YuriNachos에게 감사드립니다. https://docs.clawd.bot/tools/web"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** `clawdbot message` and message tool now require `target` (dropping `to`/`channelId` for destinations). (#1034) — thanks @tobalsan.",
+      "translation": "**중대한 변경:** 이제 `clawdbot message`와 메시지 도구는 `target`이 필요하며, 목적지에 대한 `to`/`channelId`는 삭제되었습니다. (#1034) — @tobalsan에게 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** Channel auth now prefers config over env for Discord/Telegram/Matrix (env is fallback only). (#1040) — thanks @thewilloftheshadow.",
+      "translation": "**중대한 변경:** 채널 인증은 이제 Discord/Telegram/Matrix에 대해 환경 설정보다 구성을 우선시합니다 (환경 설정은 대체 옵션입니다). (#1040) — @thewilloftheshadow에게 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** Drop legacy `chatType: \"room\"` support; use `chatType: \"channel\"`.",
+      "translation": "**중대한 변경:** 레거시 `chatType: \"room\"` 지원 삭제; `chatType: \"channel\"` 사용."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** remove legacy provider-specific target resolution fallbacks; target resolution is centralized with plugin hints + directory lookups.",
+      "translation": "**중대한 변경:** 레거시 공급자별 대상 해상도 대체 기능 제거; 대상 해상도는 플러그인 힌트 + 디렉토리 조회로 중앙 집중화됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** `clawdbot hooks` is now `clawdbot webhooks`; hooks live under `clawdbot hooks`. https://docs.clawd.bot/cli/webhooks",
+      "translation": "**중대한 변경:** `clawdbot hooks`는 이제 `clawdbot webhooks`이며, 훅은 `clawdbot hooks` 아래에 있습니다. https://docs.clawd.bot/cli/webhooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** `clawdbot plugins install <path>` now copies into `~/.clawdbot/extensions` (use `--link` to keep path-based loading).",
+      "translation": "**중대한 변경:** `clawdbot plugins install <path>`는 이제 `~/.clawdbot/extensions`에 복사됩니다 (경로 기반 로딩을 유지하려면 `--link`를 사용하세요)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins: ship bundled plugins disabled by default and allow overrides by installed versions. (#1066) — thanks @ItzR3NO.",
+      "translation": "플러그인: 기본적으로 비활성화된 번들 플러그인 제공 및 설치된 버전으로 재정의 허용. (#1066) — @ItzR3NO에게 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins: add bundled Antigravity + Gemini CLI OAuth + Copilot Proxy provider plugins. (#1066) — thanks @ItzR3NO.",
+      "translation": "플러그인: 번들 Antigravity + Gemini CLI OAuth + Copilot Proxy 공급자 플러그인 추가. (#1066) — @ItzR3NO에게 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: improve `web_fetch` extraction using Readability (with fallback).",
+      "translation": "도구: Readability를 사용하여 `web_fetch` 추출 개선 (대체 기능 포함)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: add Firecrawl fallback for `web_fetch` when configured.",
+      "translation": "도구: 구성된 경우 `web_fetch`에 대한 Firecrawl 대체 기능 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: send Chrome-like headers by default for `web_fetch` to improve extraction on bot-sensitive sites.",
+      "translation": "도구: `web_fetch`에 대해 Chrome 유사 헤더를 기본적으로 전송하여 봇 민감 사이트에서의 추출 개선."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: Firecrawl fallback now uses bot-circumvention + cache by default; remove basic HTML fallback when extraction fails.",
+      "translation": "도구: Firecrawl 대체 기능은 이제 기본적으로 봇 우회 + 캐시를 사용하며, 추출 실패 시 기본 HTML 대체 기능 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: default `exec` exit notifications and auto-migrate legacy `tools.bash` to `tools.exec`.",
+      "translation": "도구: 기본 `exec` 종료 알림 및 레거시 `tools.bash`를 `tools.exec`로 자동 마이그레이션."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: add `exec` PTY support for interactive sessions. https://docs.clawd.bot/tools/exec",
+      "translation": "도구: 대화형 세션을 위한 `exec` PTY 지원 추가. https://docs.clawd.bot/tools/exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: add tmux-style `process send-keys` and bracketed paste helpers for PTY sessions.",
+      "translation": "도구: PTY 세션을 위한 tmux 스타일의 `process send-keys` 및 괄호 붙은 붙여넣기 도우미 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: add `process submit` helper to send CR for PTY sessions.",
+      "translation": "도구: PTY 세션에 CR을 보내기 위한 `process submit` 도우미 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: respond to PTY cursor position queries to unblock interactive TUIs.",
+      "translation": "도구: 대화형 TUI를 차단 해제하기 위해 PTY 커서 위치 쿼리에 응답."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: include tool outputs in verbose mode and expand verbose tool feedback.",
+      "translation": "도구: 자세한 모드에서 도구 출력 포함 및 자세한 도구 피드백 확장."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: update coding-agent guidance to prefer PTY-enabled exec runs and simplify tmux usage.",
+      "translation": "스킬: PTY 지원 exec 실행을 선호하도록 코딩 에이전트 지침 업데이트 및 tmux 사용 간소화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "TUI: refresh session token counts after runs complete or fail. (#1079) — thanks @d-ploutarchos.",
+      "translation": "TUI: 실행 완료 또는 실패 후 세션 토큰 수 갱신. (#1079) — 감사 @d-ploutarchos."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Status: trim `/status` to current-provider usage only and drop the OAuth/token block.",
+      "translation": "상태: `/status`를 현재 제공자 사용으로만 축소하고 OAuth/토큰 블록 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Directory: unify `clawdbot directory` across channels and plugin channels.",
+      "translation": "디렉토리: 채널 및 플러그인 채널 전반에 걸쳐 `clawdbot directory` 통합."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "UI: allow deleting sessions from the Control UI.",
+      "translation": "UI: 제어 UI에서 세션 삭제 허용."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: add user-invocable skill commands and expanded skill command registration.",
+      "translation": "스킬: 사용자 호출 가능 스킬 명령 및 확장된 스킬 명령 등록 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: default reaction level to minimal and enable reaction notifications by default.",
+      "translation": "텔레그램: 기본 반응 수준을 최소로 설정하고 기본적으로 반응 알림 활성화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: allow reply-chain messages to bypass mention gating in groups. (#1038) — thanks @adityashaw2.",
+      "translation": "텔레그램: 그룹에서 언급 게이트를 우회할 수 있도록 답장 체인 메시지 허용. (#1038) — 감사 @adityashaw2."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iMessage: add remote attachment support for VM/SSH deployments.",
+      "translation": "iMessage: VM/SSH 배포를 위한 원격 첨부 파일 지원 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: refresh live directory cache results when resolving targets.",
+      "translation": "메시지: 대상 해결 시 라이브 디렉토리 캐시 결과 갱신."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: mirror delivered outbound text/media into session transcripts. (#1031) — thanks @TSavo.",
+      "translation": "메시지: 전달된 발신 텍스트/미디어를 세션 전사에 반영. (#1031) — 감사 @TSavo."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: avoid redundant sender envelopes for iMessage + Signal group chats. (#1080) — thanks @tyler6204.",
+      "translation": "메시지: iMessage + Signal 그룹 채팅에 대한 중복 발신자 봉투 방지. (#1080) — 감사 @tyler6204."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Media: normalize Deepgram audio upload bytes for fetch compatibility.",
+      "translation": "미디어: Deepgram 오디오 업로드 바이트를 가져오기 호환성에 맞게 정규화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cron: isolated cron jobs now start a fresh session id on every run to prevent context buildup.",
+      "translation": "크론: 격리된 크론 작업은 컨텍스트 축적을 방지하기 위해 매 실행마다 새로운 세션 ID 시작."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: add `/help` hub, Node/npm PATH guide, and expand directory CLI docs.",
+      "translation": "문서: `/help` 허브, Node/npm PATH 가이드 추가 및 디렉토리 CLI 문서 확장."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config: support env var substitution in config values. (#1044) — thanks @sebslight.",
+      "translation": "설정: 설정 값에서 환경 변수 대체 지원. (#1044) — 감사 @sebslight."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Health: add per-agent session summaries and account-level health details, and allow selective probes. (#1047) — thanks @gumadeiras.",
+      "translation": "건강: 에이전트별 세션 요약 및 계정 수준의 건강 세부 정보를 추가하고 선택적 프로브를 허용합니다. (#1047) — @gumadeiras 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks: add hook pack installs (npm/path/zip/tar) with `clawdbot.hooks` manifests and `clawdbot hooks install/update`.",
+      "translation": "훅: `clawdbot.hooks` 매니페스트와 `clawdbot hooks install/update`를 사용하여 훅 팩 설치(npm/path/zip/tar)를 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins: add zip installs and `--link` to avoid copying local paths.",
+      "translation": "플러그인: zip 설치와 로컬 경로 복사를 피하기 위한 `--link`를 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: drain subprocess pipes before waiting to avoid deadlocks. (#1081) — thanks @thesash.",
+      "translation": "macOS: 교착 상태를 피하기 위해 대기 전에 하위 프로세스 파이프를 비웁니다. (#1081) — @thesash 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Verbose: wrap tool summaries/output in markdown only for markdown-capable channels.",
+      "translation": "자세한 정보: 마크다운을 지원하는 채널에만 도구 요약/출력을 마크다운으로 감쌉니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: accept tg/group/telegram prefixes + topic targets for inline button validation. (#1072) — thanks @danielz1z.",
+      "translation": "텔레그램: 인라인 버튼 유효성 검사를 위해 tg/group/telegram 접두사 + 주제 대상을 허용합니다. (#1072) — @danielz1z 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: split long captions into follow-up messages.",
+      "translation": "텔레그램: 긴 캡션을 후속 메시지로 분할합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config: block startup on invalid config, preserve best-effort doctor config, and keep rolling config backups. (#1083) — thanks @mukhtharcm.",
+      "translation": "구성: 잘못된 구성 시 시작 차단, 최선의 노력으로 의사 구성 유지, 롤링 구성 백업 유지. (#1083) — @mukhtharcm 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sub-agents: normalize announce delivery origin + queue bucketing by accountId to keep multi-account routing stable. (#1061, #1058) — thanks @adam91holt.",
+      "translation": "하위 에이전트: 멀티 계정 라우팅을 안정적으로 유지하기 위해 announce 전달 출처를 표준화하고 accountId별 큐 버킷화. (#1061, #1058) — @adam91holt 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: include deliveryContext in sessions.list and reuse normalized delivery routing for announce/restart fallbacks. (#1058)",
+      "translation": "세션: 세션 목록에 deliveryContext를 포함하고 announce/restart 대체를 위해 표준화된 전달 라우팅을 재사용합니다. (#1058)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: propagate deliveryContext into last-route updates to keep account/channel routing stable. (#1058)",
+      "translation": "세션: 계정/채널 라우팅을 안정적으로 유지하기 위해 deliveryContext를 마지막 경로 업데이트에 전파합니다. (#1058)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: preserve overrides on `/new` reset.",
+      "translation": "세션: `/new` 재설정 시 오버라이드를 보존합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory: prevent unhandled rejections when watch/interval sync fails. (#1076) — thanks @roshanasingh4.",
+      "translation": "메모리: watch/interval 동기화 실패 시 처리되지 않은 거부를 방지합니다. (#1076) — @roshanasingh4 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory: avoid gateway crash when embeddings return 429/insufficient_quota (disable tool + surface error). (#1004)",
+      "translation": "메모리: 임베딩이 429/insufficient_quota를 반환할 때 게이트웨이 충돌을 방지합니다(도구 비활성화 + 오류 표시). (#1004)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: honor explicit delivery targets without implicit accountId fallback; preserve lastAccountId for implicit routing.",
+      "translation": "게이트웨이: 암시적 accountId 대체 없이 명시적 전달 대상을 존중하고, 암시적 라우팅을 위해 lastAccountId를 보존합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: avoid reusing last-to/accountId when the requested channel differs; sync deliveryContext with last route fields.",
+      "translation": "게이트웨이: 요청된 채널이 다를 때 last-to/accountId 재사용을 피하고, deliveryContext를 마지막 경로 필드와 동기화합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Build: allow `@lydell/node-pty` builds on supported platforms.",
+      "translation": "빌드: 지원되는 플랫폼에서 `@lydell/node-pty` 빌드를 허용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Repo: fix oxlint config filename and move ignore pattern into config. (#1064) — thanks @connorshea.",
+      "translation": "저장소: oxlint 구성 파일 이름을 수정하고 무시 패턴을 구성으로 이동합니다. (#1064) — @connorshea 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: `/stop` now hard-aborts queued followups and sub-agent runs; suppress zero-count stop notes.",
+      "translation": "메시지: `/stop`이 이제 대기 중인 후속 작업과 하위 에이전트 실행을 강제 중단하며, 0개 수의 중지 노트를 억제합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: honor message tool channel when deduping sends.",
+      "translation": "메시지: 전송 중복 제거 시 메시지 도구 채널을 존중합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Messages: include sender labels for live group messages across channels, matching queued/history formatting. (#1059)",
+      "translation": "메시지: 대기열/기록 형식에 맞춰 채널 간 실시간 그룹 메시지에 발신자 레이블 포함. (#1059)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: reset `compactionCount` on `/new` and `/reset`, and preserve `sessions.json` file mode (0600).",
+      "translation": "세션: `/new` 및 `/reset` 시 `compactionCount` 초기화하고, `sessions.json` 파일 모드(0600) 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: repair orphaned user turns before embedded prompts.",
+      "translation": "세션: 내장된 프롬프트 전에 고아가 된 사용자 턴 복구."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: hard-stop `sessions.delete` cleanup.",
+      "translation": "세션: `sessions.delete` 정리 강제 중지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Channels: treat replies to the bot as implicit mentions across supported channels.",
+      "translation": "채널: 봇에 대한 답장을 지원되는 채널 전반에 걸쳐 암시적 멘션으로 처리."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Channels: normalize object-format capabilities in channel capability parsing.",
+      "translation": "채널: 채널 기능 파싱에서 객체 형식 기능을 표준화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: default-deny slash/control commands unless a channel computed `CommandAuthorized` (fixes accidental \"open\" behavior), and ensure WhatsApp + Zalo plugin channels gate inline `/…` tokens correctly. https://docs.clawd.bot/gateway/security",
+      "translation": "보안: 채널이 `CommandAuthorized`를 계산하지 않는 한 슬래시/제어 명령을 기본적으로 거부하고, WhatsApp + Zalo 플러그인 채널이 인라인 `/…` 토큰을 올바르게 차단하도록 보장. https://docs.clawd.bot/gateway/security"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: redact sensitive text in gateway WS logs.",
+      "translation": "보안: 게이트웨이 WS 로그에서 민감한 텍스트 삭제."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools: cap pending `exec` process output to avoid unbounded buffers.",
+      "translation": "도구: 무제한 버퍼를 피하기 위해 대기 중인 `exec` 프로세스 출력을 제한."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: speed up `clawdbot sandbox-explain` by avoiding heavy plugin imports when normalizing channel ids.",
+      "translation": "CLI: 채널 ID를 표준화할 때 무거운 플러그인 가져오기를 피하여 `clawdbot sandbox-explain` 속도 향상."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser: remote profile tab operations prefer persistent Playwright and avoid silent HTTP fallbacks. (#1057) — thanks @mukhtharcm.",
+      "translation": "브라우저: 원격 프로필 탭 작업에서 지속적인 Playwright를 선호하고 조용한 HTTP 대체를 피함. (#1057) — 감사합니다 @mukhtharcm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser: remote profile tab ops follow-up: shared Playwright loader, Playwright-based focus, and more coverage (incl. opt-in live Browserless test). (follow-up to #1057) — thanks @mukhtharcm.",
+      "translation": "브라우저: 원격 프로필 탭 작업 후속 조치: 공유 Playwright 로더, Playwright 기반 포커스 및 더 많은 커버리지(선택적 라이브 Browserless 테스트 포함). (#1057 후속) — 감사합니다 @mukhtharcm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser: refresh extension relay tab metadata after navigation so `/json/list` stays current. (#1073) — thanks @roshanasingh4.",
+      "translation": "브라우저: 탐색 후 확장 릴레이 탭 메타데이터 새로 고침하여 `/json/list`가 최신 상태를 유지. (#1073) — 감사합니다 @roshanasingh4."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WhatsApp: scope self-chat response prefix; inject pending-only group history and clear after any processed message.",
+      "translation": "WhatsApp: 자기 채팅 응답 접두사를 범위 지정하고, 대기 중인 그룹 기록을 주입하며 처리된 메시지 후에 지움."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WhatsApp: include `linked` field in `describeAccount`.",
+      "translation": "WhatsApp: `describeAccount`에 `linked` 필드 포함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents: drop unsigned Gemini tool calls and avoid JSON Schema `format` keyword collisions.",
+      "translation": "에이전트: 서명되지 않은 Gemini 도구 호출 제거 및 JSON Schema `format` 키워드 충돌 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents: hide the image tool when the primary model already supports images.",
+      "translation": "에이전트: 기본 모델이 이미 이미지를 지원하는 경우 이미지 도구 숨김."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents: avoid duplicate sends by replying with `NO_REPLY` after `message` tool sends.",
+      "translation": "에이전트: `message` 도구 전송 후 `NO_REPLY`로 응답하여 중복 전송 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auth: inherit/merge sub-agent auth profiles from the main agent.",
+      "translation": "인증: 메인 에이전트에서 하위 에이전트 인증 프로필 상속/병합."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: resolve local auth for security probe and validate gateway token/password file modes. (#1011, #1022) — thanks @ivanrvpereira, @kkarimi.",
+      "translation": "게이트웨이: 보안 프로브를 위한 로컬 인증 해결 및 게이트웨이 토큰/비밀번호 파일 모드 검증. (#1011, #1022) — 감사합니다 @ivanrvpereira, @kkarimi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Signal/iMessage: bound transport readiness waits to 30s with periodic logging. (#1014) — thanks @Szpadel.",
+      "translation": "Signal/iMessage: 전송 준비 상태를 30초로 제한하고 주기적으로 로그를 기록합니다. (#1014) — @Szpadel님 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iMessage: avoid RPC restart loops.",
+      "translation": "iMessage: RPC 재시작 루프를 방지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenAI image-gen: handle URL + `b64_json` responses and remove deprecated `response_format` (use URL downloads).",
+      "translation": "OpenAI 이미지 생성: URL + `b64_json` 응답을 처리하고, 사용 중단된 `response_format`을 제거합니다 (URL 다운로드 사용)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: auto-update global installs when installed via a package manager.",
+      "translation": "CLI: 패키지 관리자를 통해 설치된 경우 전역 설치를 자동 업데이트합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Routing: migrate legacy `accountID` bindings to `accountId` and remove legacy fallback lookups. (#1047) — thanks @gumadeiras.",
+      "translation": "라우팅: 기존 `accountID` 바인딩을 `accountId`로 마이그레이션하고, 기존 대체 조회를 제거합니다. (#1047) — @gumadeiras님 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: truncate skill command descriptions to 100 chars for slash command limits. (#1018) — thanks @evalexpr.",
+      "translation": "Discord: 슬래시 명령어 제한을 위해 기술 명령어 설명을 100자로 잘라냅니다. (#1018) — @evalexpr님 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: bump `tar` to 7.5.3.",
+      "translation": "보안: `tar`을 7.5.3으로 업데이트합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models: align ZAI thinking toggles.",
+      "translation": "모델: ZAI 사고 전환을 정렬합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iMessage/Signal: include sender metadata for non-queued group messages. (#1059)",
+      "translation": "iMessage/Signal: 대기열에 없는 그룹 메시지에 발신자 메타데이터를 포함합니다. (#1059)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: preserve whitespace when chunking long lines so message splits keep spacing intact.",
+      "translation": "Discord: 긴 줄을 나눌 때 공백을 유지하여 메시지 분할 시 간격이 유지되도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: fix skills watcher ignored list typing (tsc).",
+      "translation": "스킬: 스킬 감시자 무시 목록 타이핑을 수정합니다 (tsc)."
+    }
+  ],
+  "translatedAt": "2026-02-09T11:56:26.561Z",
+  "translationEngine": "openai",
+  "translationCharCount": 8927
+}

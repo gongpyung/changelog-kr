@@ -1,0 +1,1061 @@
+{
+  "version": "2.0.0-beta5",
+  "date": "2026-01-03",
+  "parsedAt": "2026-02-09T10:31:02.385Z",
+  "translationStatus": "completed",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Media: preserve GIF animation when uploading to Discord/other providers (skip JPEG optimization for image/gif).",
+      "translation": "미디어: Discord/다른 제공업체에 업로드할 때 GIF 애니메이션 유지 (이미지/gif에 대해 JPEG 최적화 건너뜀)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agent runtime: update pi-mono dependencies to 0.31.1 (agent-core split).",
+      "translation": "에이전트 런타임: pi-mono 종속성을 0.31.1로 업데이트 (agent-core 분할)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dependencies: bump to latest compatible versions (TypeBox, grammY, Zod, Rolldown, oxlint-tsgolint).",
+      "translation": "종속성: 최신 호환 버전으로 업데이트 (TypeBox, grammY, Zod, Rolldown, oxlint-tsgolint)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests: cover read tool image metadata + text output.",
+      "translation": "테스트: 읽기 도구 이미지 메타데이터 + 텍스트 출력 커버."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests: add queue mode coverage (collect/followup + directive parsing).",
+      "translation": "테스트: 대기열 모드 커버리지 추가 (수집/후속 + 지시어 구문 분석)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills config schema moved under `skills.*`:",
+      "translation": "스킬 구성 스키마가 `skills.*` 아래로 이동됨:"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions: group keys now use `surface:group:<id>` / `surface:channel:<id>`; legacy `group:*` keys migrate on next message; `groupdm` keys are no longer recognized.",
+      "translation": "세션: 그룹 키는 이제 `surface:group:<id>` / `surface:channel:<id>`를 사용; 다음 메시지에서 레거시 `group:*` 키가 마이그레이션됨; `groupdm` 키는 더 이상 인식되지 않음."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: remove legacy `discord.allowFrom`, `discord.guildAllowFrom`, and `discord.requireMention`; use `discord.dm` + `discord.guilds`.",
+      "translation": "Discord: 레거시 `discord.allowFrom`, `discord.guildAllowFrom`, `discord.requireMention` 제거; `discord.dm` + `discord.guilds` 사용."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Providers: Discord/Telegram no longer auto-start from env tokens alone; add `discord: { enabled: true }` / `telegram: { enabled: true }` to your config when using `DISCORD_BOT_TOKEN` / `TELEGRAM_BOT_TOKEN`.",
+      "translation": "제공업체: Discord/Telegram은 이제 환경 토큰만으로 자동 시작되지 않음; `DISCORD_BOT_TOKEN` / `TELEGRAM_BOT_TOKEN`을 사용할 때 구성에 `discord: { enabled: true }` / `telegram: { enabled: true }` 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config: remove `routing.allowFrom`; use `whatsapp.allowFrom` instead (run `clawdis doctor` to migrate).",
+      "translation": "구성: `routing.allowFrom` 제거; 대신 `whatsapp.allowFrom` 사용 (마이그레이션을 위해 `clawdis doctor` 실행)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config: remove `routing.groupChat.requireMention` + `telegram.requireMention`; use `whatsapp.groups`, `imessage.groups`, and `telegram.groups` defaults instead (run `clawdis doctor` to migrate).",
+      "translation": "구성: `routing.groupChat.requireMention` + `telegram.requireMention` 제거; 대신 `whatsapp.groups`, `imessage.groups`, 및 `telegram.groups` 기본값 사용 (마이그레이션을 위해 `clawdis doctor` 실행)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: expand `discord` tool actions (reactions, stickers, polls, threads, search, moderation gates) (#115) — thanks @thewilloftheshadow.",
+      "translation": "Discord: `discord` 도구 작업 확장 (반응, 스티커, 투표, 스레드, 검색, 모더레이션 게이트) (#115) — 감사 @thewilloftheshadow."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord/Telegram: add reply tags (`[[reply_to_current]]`, `[[reply_to:<id>]]`) with per-provider `replyToMode` (off|first|all) for native threaded replies.",
+      "translation": "Discord/Telegram: 네이티브 스레드 응답을 위한 제공업체별 `replyToMode` (off|first|all)와 함께 응답 태그 (`[[reply_to_current]]`, `[[reply_to:<id>]]`) 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk mode: continuous speech conversations (macOS/iOS/Android) with ElevenLabs TTS, reply directives, and optional interrupt-on-speech.",
+      "translation": "대화 모드: ElevenLabs TTS, 응답 지시어, 및 선택적 음성 중단 기능을 갖춘 연속 음성 대화 (macOS/iOS/Android)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto-reply: expand queue modes (steer/followup/collect/steer-backlog) with debounce/cap/drop options and followup backlog handling.",
+      "translation": "자동 응답: 디바운스/캡/드롭 옵션 및 후속 백로그 처리를 포함한 대기열 모드 확장 (조정/후속/수집/조정-백로그)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "UI: add optional `ui.seamColor` accent to tint the Talk Mode side bubble (macOS/iOS/Android).",
+      "translation": "UI: Talk Mode 사이드 버블을 색조로 칠할 수 있는 선택적 `ui.seamColor` 강조 추가 (macOS/iOS/Android)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Nix mode: opt-in declarative config + read-only settings UI when `CLAWDIS_NIX_MODE=1` (thanks @joshp123 for the persistence — earned my trust; I'll merge these going forward).",
+      "translation": "Nix 모드: `CLAWDIS_NIX_MODE=1`일 때 선택적 선언적 구성 + 읽기 전용 설정 UI (감사 @joshp123 — 신뢰를 얻었음; 앞으로 이를 병합할 것임)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add Google Antigravity OAuth auth option for Claude Opus 4.5/Gemini 3 (#88) — thanks @mukhtharcm.",
+      "translation": "CLI: Claude Opus 4.5/Gemini 3를 위한 Google Antigravity OAuth 인증 옵션 추가 (#88) — 감사 @mukhtharcm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent runtime: accept legacy `Z_AI_API_KEY` for Z.AI provider auth (maps to `ZAI_API_KEY`).",
+      "translation": "에이전트 런타임: Z.AI 제공업체 인증을 위한 레거시 `Z_AI_API_KEY` 수락 (`ZAI_API_KEY`로 매핑됨)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Groups: add per-group mention gating defaults/overrides for Telegram/WhatsApp/iMessage via `*.groups` with `\"*\"` defaults; Discord now supports `discord.guilds.\"*\"` as a default.",
+      "translation": "그룹: Telegram/WhatsApp/iMessage에 대해 `*.groups`와 `\"*\"` 기본값을 통해 그룹별 멘션 게이팅 기본값/오버라이드 추가; Discord는 이제 `discord.guilds.\"*\"`를 기본값으로 지원."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: add user-installed slash command handling with per-user sessions and auto-registration (#94) — thanks @thewilloftheshadow.",
+      "translation": "Discord: 사용자 설치 슬래시 명령어 처리를 사용자별 세션 및 자동 등록과 함께 추가 (#94) — @thewilloftheshadow님 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: add DM enable/allowlist plus guild channel/user/guild allowlists with id/name matching.",
+      "translation": "Discord: DM 활성화/허용 목록 및 길드 채널/사용자/길드 허용 목록을 ID/이름 매칭으로 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Signal: add `signal-cli` JSON-RPC support for send/receive via the Signal provider.",
+      "translation": "Signal: Signal 제공자를 통한 송수신을 위한 `signal-cli` JSON-RPC 지원 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iMessage: add imsg JSON-RPC integration (stdio), chat_id routing, and group chat support.",
+      "translation": "iMessage: imsg JSON-RPC 통합(표준 입출력), chat_id 라우팅 및 그룹 채팅 지원 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: add recent-session dropdown switcher (main first) in macOS/iOS/Android + Control UI.",
+      "translation": "채팅 UI: macOS/iOS/Android + 제어 UI에 최근 세션 드롭다운 전환기 추가 (주로 메인)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "UI: add Discord/Signal/iMessage connection panels in macOS + Control UI (thanks @thewilloftheshadow).",
+      "translation": "UI: macOS + 제어 UI에 Discord/Signal/iMessage 연결 패널 추가 (@thewilloftheshadow님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: allow agent-triggered reactions via `clawdis_discord` when enabled, and surface message ids in context.",
+      "translation": "Discord: `clawdis_discord` 활성화 시 에이전트 트리거 반응 허용 및 메시지 ID를 컨텍스트에 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: revamp guild routing config with per-guild/channel rules and slugged display names; add optional group DM support (default off).",
+      "translation": "Discord: 길드 라우팅 구성을 길드별/채널별 규칙 및 슬러그된 표시 이름으로 개편; 선택적 그룹 DM 지원 추가 (기본 비활성화)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: remove legacy guild/channel ignore lists in favor of per-guild allowlists (and proposed per-guild ignore lists).",
+      "translation": "Discord: 길드별 허용 목록(및 제안된 길드별 무시 목록)으로 대체하기 위해 기존 길드/채널 무시 목록 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: add Trello skill for board/list/card management (thanks @clawd).",
+      "translation": "스킬: Trello 보드/리스트/카드 관리를 위한 스킬 추가 (@clawd님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docker: add containerized gateway/CLI setup via Dockerfile, compose, and setup script (thanks @dan-dr).",
+      "translation": "Docker: Dockerfile, compose 및 설정 스크립트를 통한 컨테이너화된 게이트웨이/CLI 설정 추가 (@dan-dr님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: add a Z.AI live test gate for smoke validation when keys are present.",
+      "translation": "테스트: 키가 있을 때 연기 검증을 위한 Z.AI 라이브 테스트 게이트 추가."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS Debug: add app log verbosity and rolling file log toggle for swift-log-backed app logs.",
+      "translation": "macOS 디버그: swift-log 기반 앱 로그를 위한 앱 로그 상세 및 롤링 파일 로그 토글 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add onboarding wizard (gateway + workspace + skills) with daemon installers and Anthropic/Minimax setup paths.",
+      "translation": "CLI: 데몬 설치 프로그램 및 Anthropic/Minimax 설정 경로와 함께 온보딩 마법사(게이트웨이 + 워크스페이스 + 스킬) 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add ASCII banner header to wizard entry points.",
+      "translation": "CLI: 마법사 진입점에 ASCII 배너 헤더 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add `configure`, `doctor`, and `update` wizards for ongoing setup, health checks, and modernization.",
+      "translation": "CLI: 지속적인 설정, 상태 검사 및 현대화를 위한 `configure`, `doctor`, `update` 마법사 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add Signal CLI auto-install from GitHub releases in the wizard and persist wizard run metadata in config.",
+      "translation": "CLI: 마법사에서 GitHub 릴리즈로부터 Signal CLI 자동 설치 추가 및 구성에 마법사 실행 메타데이터 지속."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add remote gateway client config (gateway.remote.*) with Bonjour-assisted discovery.",
+      "translation": "CLI: Bonjour 지원 검색과 함께 원격 게이트웨이 클라이언트 구성(gateway.remote.*) 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add `clawdis tui` gateway-connected terminal UI (local or remote).",
+      "translation": "CLI: 게이트웨이 연결 터미널 UI(로컬 또는 원격)인 `clawdis tui` 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: allow `bun` as a node manager for skill installs.",
+      "translation": "스킬: 스킬 설치를 위한 노드 관리자 `bun` 허용."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: add `things-mac` (Things 3 CLI) for read/search plus add/update via URL scheme.",
+      "translation": "스킬: 읽기/검색을 위한 `things-mac` (Things 3 CLI) 추가 및 URL 스킴을 통한 추가/업데이트 기능 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: add Apple Notes + Reminders skills via memo CLI (thanks @tylerwince).",
+      "translation": "스킬: 메모 CLI를 통해 Apple Notes + Reminders 스킬 추가 (감사합니다 @tylerwince)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: add a Docker-based onboarding E2E harness.",
+      "translation": "테스트: Docker 기반의 온보딩 E2E 하네스 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: harden wizard E2E flows for reset, providers, skills, and remote non-interactive runs.",
+      "translation": "테스트: 리셋, 제공자, 스킬, 원격 비대화식 실행을 위한 마법사 E2E 흐름 강화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser tools: add remote CDP URL support, Linux launcher options (`executablePath`, `noSandbox`), and surface `cdpUrl` in status.",
+      "translation": "브라우저 도구: 원격 CDP URL 지원, Linux 실행기 옵션 (`executablePath`, `noSandbox`) 추가 및 상태에 `cdpUrl` 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: add tmux-first coding-agent skill + `requires.anyBins` gate for multi-CLI setup (thanks @sreekaransrinath).",
+      "translation": "스킬: tmux-first 코딩-에이전트 스킬 추가 + 다중 CLI 설정을 위한 `requires.anyBins` 게이트 추가 (감사합니다 @sreekaransrinath)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gog calendar: format date ranges as RFC 3339 with timezone to satisfy Google Calendar API (thanks @jayhickey).",
+      "translation": "Google 캘린더: Google Calendar API를 만족시키기 위해 날짜 범위를 RFC 3339 형식으로 시간대와 함께 포맷 (감사합니다 @jayhickey)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS onboarding: add scrollable page gutter for overflowing content (#105) — thanks @thewilloftheshadow.",
+      "translation": "macOS 온보딩: 넘치는 콘텐츠를 위한 스크롤 가능한 페이지 여백 추가 (#105) — 감사합니다 @thewilloftheshadow."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: keep the chat scrolled to the latest message after switching sessions.",
+      "translation": "채팅 UI: 세션 전환 후 최신 메시지로 스크롤 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: show rich session display names in Web Chat + SwiftUI + Android.",
+      "translation": "채팅 UI: Web Chat + SwiftUI + Android에서 풍부한 세션 표시 이름 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto-reply: stream completed reply blocks as soon as they finish (configurable default + break); skip empty tool-only blocks unless verbose.",
+      "translation": "자동 응답: 완료된 응답 블록을 완료 즉시 스트리밍 (기본 설정 가능 + 중단); 도구 전용 빈 블록은 자세한 정보가 없으면 건너뜀."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: avoid duplicate sends when block streaming is enabled (race with typing hook).",
+      "translation": "Discord: 블록 스트리밍이 활성화된 경우 중복 전송 방지 (타이핑 훅과의 경쟁)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Providers: make outbound text chunk limits configurable via `*.textChunkLimit` (defaults remain 4000/Discord 2000).",
+      "translation": "제공자: `*.textChunkLimit`을 통해 아웃바운드 텍스트 청크 제한을 구성 가능하게 설정 (기본값은 4000/Discord 2000 유지)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: persist gateway token in config so local CLI auth works; recommend auth Off unless you need multi-machine access.",
+      "translation": "CLI 온보딩: 로컬 CLI 인증이 작동하도록 게이트웨이 토큰을 구성에 지속; 여러 기기 접근이 필요하지 않으면 인증 Off 권장."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: accept a `?token=` URL param to auto-fill Gateway auth; onboarding now opens the dashboard with token auth when configured.",
+      "translation": "제어 UI: 게이트웨이 인증을 자동으로 채우기 위한 `?token=` URL 매개변수 수락; 온보딩 시 토큰 인증으로 대시보드 열기."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent prompt: remove hardcoded user name in system prompt example.",
+      "translation": "에이전트 프롬프트: 시스템 프롬프트 예제에서 하드코딩된 사용자 이름 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: add extra top padding before the first message bubble in Web Chat (macOS/iOS/Android).",
+      "translation": "채팅 UI: Web Chat (macOS/iOS/Android)에서 첫 번째 메시지 버블 전 상단 여백 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: refine Web Chat session selector styling (chevron spacing + background).",
+      "translation": "제어 UI: Web Chat 세션 선택기 스타일링 개선 (갈매기표 간격 + 배경)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WebChat: stream live updates for sessions even when runs start outside the chat UI.",
+      "translation": "WebChat: 채팅 UI 외부에서 실행이 시작될 때도 세션에 대한 실시간 업데이트 스트리밍."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway CLI: read `CLAWDIS_GATEWAY_PASSWORD` from environment in `callGateway()` — allows `doctor`/`health` commands to auth without explicit `--password` flag.",
+      "translation": "게이트웨이 CLI: 환경에서 `CLAWDIS_GATEWAY_PASSWORD`를 `callGateway()`에서 읽음 — 명시적 `--password` 플래그 없이 `doctor`/`health` 명령 인증 가능."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: add password auth support for remote gateway connections (thanks @jeffersonwarrior).",
+      "translation": "게이트웨이: 원격 게이트웨이 연결에 대한 비밀번호 인증 지원 추가 (@jeffersonwarrior님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto-reply: strip stray leading/trailing `HEARTBEAT_OK` from normal replies; drop short (≤ 30 chars) heartbeat acks.",
+      "translation": "자동 응답: 일반 응답에서 잘못된 `HEARTBEAT_OK` 제거; 짧은(≤ 30자) 하트비트 확인 삭제."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WhatsApp auto-reply: default to self-only when no config is present.",
+      "translation": "WhatsApp 자동 응답: 설정이 없을 때 기본적으로 자신만 응답하도록 설정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Logging: trim provider prefix duplication in Discord/Signal/Telegram runtime log lines.",
+      "translation": "로깅: Discord/Signal/Telegram 런타임 로그 라인에서 제공자 접두사 중복 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Logging/Signal: treat signal-cli \"Failed …\" lines as errors in gateway logs.",
+      "translation": "로깅/Signal: gateway 로그에서 signal-cli \"실패 …\" 라인을 오류로 처리."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: include recent guild context when replying to mentions and add `discord.historyLimit` to tune how many messages are captured.",
+      "translation": "Discord: 멘션에 응답할 때 최근 길드 컨텍스트 포함 및 `discord.historyLimit` 추가로 캡처할 메시지 수 조정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: include author tag + id in group context `[from:]` lines for ping-ready replies (thanks @thewilloftheshadow).",
+      "translation": "Discord: 핑 준비된 응답을 위해 그룹 컨텍스트 `[from:]` 라인에 작성자 태그 + ID 포함 (@thewilloftheshadow님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: include replied-to message context when a Discord message references another message (thanks @thewilloftheshadow).",
+      "translation": "Discord: Discord 메시지가 다른 메시지를 참조할 때 응답된 메시지 컨텍스트 포함 (@thewilloftheshadow님 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: preserve newlines when stripping reply tags from agent output.",
+      "translation": "Discord: 에이전트 출력에서 응답 태그를 제거할 때 줄 바꿈 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: fix TypeScript build by aligning hook mapping `channel` types and removing a dead Group DM branch in Discord monitor.",
+      "translation": "게이트웨이: Discord 모니터에서 죽은 그룹 DM 분기를 제거하고 후크 매핑 `channel` 타입을 정렬하여 TypeScript 빌드 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: switch imsg installer to brew tap formula.",
+      "translation": "스킬: imsg 설치 프로그램을 brew tap formula로 전환."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: gate macOS-only skills by OS and surface block reasons in the Skills UI.",
+      "translation": "스킬: macOS 전용 스킬을 OS로 제한하고 스킬 UI에 차단 이유 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Onboarding: show skill descriptions in the macOS setup flow and surface clearer Gateway/skills error messages.",
+      "translation": "온보딩: macOS 설정 흐름에서 스킬 설명 표시 및 게이트웨이/스킬 오류 메시지를 더 명확하게 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Onboarding: auto-verify Claude OAuth tokens, show \"verified\" when detected working, and avoid re-auth prompts unless verification fails.",
+      "translation": "온보딩: Claude OAuth 토큰 자동 검증, 작동 확인 시 \"검증됨\" 표시, 검증 실패 시에만 재인증 프롬프트 회피."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: include exit code + a useful one-line summary when skill dependency installs fail.",
+      "translation": "CLI 온보딩: 스킬 종속성 설치 실패 시 종료 코드 + 유용한 한 줄 요약 포함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: explain Tailscale exposure options (Off/Serve/Funnel) and colorize provider status (linked/configured/needs setup).",
+      "translation": "CLI 온보딩: Tailscale 노출 옵션(Off/Serve/Funnel) 설명 및 제공자 상태(연결됨/구성됨/설정 필요) 색상화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: add provider primers (WhatsApp/Telegram/Discord/Signal) incl. Discord bot token setup steps.",
+      "translation": "CLI 온보딩: 제공자 기본 정보(WhatsApp/Telegram/Discord/Signal) 추가, Discord 봇 토큰 설정 단계 포함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: allow skipping the \"install missing skill dependencies\" selection without canceling the wizard.",
+      "translation": "CLI 온보딩: 마법사를 취소하지 않고 \"누락된 스킬 종속성 설치\" 선택 건너뛰기 허용."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: always prompt for WhatsApp `whatsapp.allowFrom` and print (optionally open) the Control UI URL when done.",
+      "translation": "CLI 온보딩: WhatsApp `whatsapp.allowFrom` 항상 프롬프트하고 완료 시 제어 UI URL 출력(선택적으로 열기)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI onboarding: detect gateway reachability and annotate Local/Remote choices (helps pick the right mode).",
+      "translation": "CLI 온보딩: 게이트웨이 도달 가능성 감지 및 로컬/원격 선택에 주석 추가(올바른 모드 선택에 도움)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS settings: colorize provider status subtitles to distinguish healthy vs degraded states.",
+      "translation": "macOS 설정: 공급자 상태 자막에 색상을 입혀 정상 상태와 저하 상태를 구분합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: keep config writes on the main actor to satisfy Swift concurrency rules.",
+      "translation": "macOS: Swift 동시성 규칙을 만족시키기 위해 메인 액터에서 설정 쓰기를 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: show multi-line gateway error details, add an always-visible gateway row, avoid duplicate gateway status rows, suppress transient `cancelled` device refresh errors, and auto-recover the control channel on disconnect.",
+      "translation": "macOS 메뉴: 다중 라인 게이트웨이 오류 세부 정보를 표시하고, 항상 보이는 게이트웨이 행을 추가하며, 중복된 게이트웨이 상태 행을 피하고, 일시적인 `cancelled` 장치 새로 고침 오류를 억제하며, 연결이 끊어질 때 제어 채널을 자동 복구합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: show session last-used timestamps in the list and add recent-message previews in session submenus.",
+      "translation": "macOS 메뉴: 세션 마지막 사용 타임스탬프를 목록에 표시하고 세션 하위 메뉴에 최근 메시지 미리보기를 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: tighten session row padding and time out session preview loading with cached fallback.",
+      "translation": "macOS 메뉴: 세션 행 패딩을 조정하고 캐시된 대체 항목으로 세션 미리보기 로딩을 시간 초과합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: log health refresh failures and recovery to make gateway issues easier to diagnose.",
+      "translation": "macOS: 게이트웨이 문제를 진단하기 쉽게 하기 위해 상태 새로 고침 실패 및 복구를 기록합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS codesign: skip hardened runtime for ad-hoc signing and avoid empty options args (#70) — thanks @petter-b",
+      "translation": "macOS 코드 서명: 임시 서명에 대해 강화된 런타임을 건너뛰고 빈 옵션 인수를 피합니다 (#70) — 감사합니다 @petter-b"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS codesign: include camera entitlement so permission prompts work in the menu bar app.",
+      "translation": "macOS 코드 서명: 메뉴 바 앱에서 권한 요청이 작동하도록 카메라 권한을 포함합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent tools: bash tool supports real TTY via `stdinMode: \"pty\"` with node-pty, warning + fallback on load/start failure.",
+      "translation": "에이전트 도구: bash 도구는 node-pty를 통해 `stdinMode: \"pty\"`로 실제 TTY를 지원하며, 로드/시작 실패 시 경고와 대체를 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent tools: map `camera.snap` JPEG payloads to `image/jpeg` to avoid MIME mismatch errors.",
+      "translation": "에이전트 도구: `camera.snap` JPEG 페이로드를 `image/jpeg`로 매핑하여 MIME 불일치 오류를 피합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: cover `camera.snap` MIME mapping to prevent image/png vs image/jpeg mismatches.",
+      "translation": "테스트: `camera.snap` MIME 매핑을 다루어 image/png와 image/jpeg 불일치를 방지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS camera: wait for exposure/white balance to settle before capturing a snap to avoid dark images.",
+      "translation": "macOS 카메라: 어두운 이미지를 피하기 위해 스냅을 캡처하기 전에 노출/화이트 밸런스가 안정될 때까지 기다립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Camera snap: add `delayMs` parameter (default 2000ms on macOS) to improve exposure reliability.",
+      "translation": "카메라 스냅: 노출 신뢰성을 향상시키기 위해 `delayMs` 매개변수를 추가합니다 (macOS 기본값 2000ms)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Camera: add `camera.list` and optional `deviceId` selection for snaps/clips.",
+      "translation": "카메라: 스냅/클립을 위한 `camera.list` 및 선택적 `deviceId` 선택을 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: cover camera device selection params in CLI + agent tools.",
+      "translation": "테스트: CLI 및 에이전트 도구에서 카메라 장치 선택 매개변수를 다룹니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS packaging: move rpath config into swift build for reliability (#69) — thanks @petter-b",
+      "translation": "macOS 패키징: 신뢰성을 위해 rpath 구성을 swift 빌드로 이동합니다 (#69) — 감사합니다 @petter-b"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: prioritize main bundle for device resources to prevent crash (#73) — thanks @petter-b",
+      "translation": "macOS: 충돌을 방지하기 위해 장치 리소스에 대해 메인 번들을 우선시합니다 (#73) — 감사합니다 @petter-b"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS remote: route settings through gateway config and avoid local config reads in remote mode.",
+      "translation": "macOS 원격: 게이트웨이 설정을 통해 설정을 라우팅하고 원격 모드에서 로컬 설정 읽기를 피합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: align token resolution for cron/agent/CLI sends (env/config/tokenFile) to prevent isolated delivery failures (#76).",
+      "translation": "텔레그램: 고립된 전송 실패를 방지하기 위해 cron/agent/CLI 전송의 토큰 해석을 (env/config/tokenFile) 정렬합니다 (#76)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram: honor per-group mention gating defaults/overrides via `telegram.groups` and `\"*\"` defaults (thanks @joshp123).",
+      "translation": "텔레그램: `telegram.groups` 및 `\"*\"` 기본값을 통해 그룹별 멘션 게이팅 기본값/재정의를 준수합니다 (감사합니다 @joshp123)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: clear composer input immediately and allow clear while editing to prevent duplicate sends (#72) — thanks @hrdwdmrbl",
+      "translation": "채팅 UI: 중복 전송을 방지하기 위해 작성 중인 내용을 즉시 지우고 편집 중에도 지울 수 있도록 허용 (#72) — 감사의 말씀 @hrdwdmrbl"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Restart: use systemd on Linux (and report actual restart method) instead of always launchctl.",
+      "translation": "재시작: 항상 launchctl 대신 Linux에서 systemd를 사용하고 실제 재시작 방법을 보고합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway relay: detect Bun binaries via execPath to resolve packaged assets on macOS.",
+      "translation": "게이트웨이 릴레이: macOS에서 패키지된 자산을 해결하기 위해 execPath를 통해 Bun 바이너리를 감지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cron: prevent `every` schedules without an anchor from firing in a tight loop (thanks @jamesgroat).",
+      "translation": "크론: 기준점 없이 `every` 스케줄이 빠른 루프에서 실행되지 않도록 방지합니다 (감사합니다 @jamesgroat)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: add manual OAuth setup for remote/headless deployments (#67) — thanks @wstock",
+      "translation": "문서: 원격/헤드리스 배포를 위한 수동 OAuth 설정 추가 (#67) — 감사의 말씀 @wstock"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/agent tools: clarify that browser `wait` should be avoided by default and used only in exceptional cases.",
+      "translation": "문서/에이전트 도구: 기본적으로 브라우저 `wait`를 피하고 예외적인 경우에만 사용해야 함을 명확히 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify self-chat mode and group mention gating config (#111) — thanks @rafaelreis-r.",
+      "translation": "문서: 셀프 채팅 모드와 그룹 멘션 게이팅 설정을 명확히 합니다 (#111) — 감사의 말씀 @rafaelreis-r."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser tools: `upload` supports auto-click refs, direct `inputRef`/`element` file inputs, and emits input/change after `setFiles` so JS-heavy sites pick up attachments.",
+      "translation": "브라우저 도구: `upload`는 자동 클릭 참조, 직접 `inputRef`/`element` 파일 입력을 지원하며, `setFiles` 후 입력/변경을 발생시켜 JS가 많은 사이트에서 첨부 파일을 인식합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser tools: harden CDP readiness (HTTP + WS), retry CDP connects, and auto-restart the clawd browser when the socket handshake stalls.",
+      "translation": "브라우저 도구: CDP 준비 상태 강화(HTTP + WS), CDP 연결 재시도, 소켓 핸드셰이크가 멈출 때 clawd 브라우저 자동 재시작."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser CLI: add `clawdis browser reset-profile` to move the clawd profile to Trash when it gets wedged.",
+      "translation": "브라우저 CLI: `clawdis browser reset-profile`을 추가하여 clawd 프로필이 멈췄을 때 휴지통으로 이동시킵니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Signal: fix daemon startup race (wait for `/api/v1/check`) and normalize JSON-RPC `version` probe parsing.",
+      "translation": "시그널: 데몬 시작 경쟁 상태 수정(`/api/v1/check` 대기) 및 JSON-RPC `version` 프로브 구문 분석 정규화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/Signal: clarify bot-number vs personal-account setup (self-chat loop protection) and add a quickstart config snippet.",
+      "translation": "문서/시그널: 봇 번호와 개인 계정 설정(셀프 채팅 루프 보호) 명확히 하고 빠른 시작 구성 스니펫 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: refresh the CLI wizard guide and highlight onboarding in the README.",
+      "translation": "문서: CLI 마법사 가이드를 새로 고치고 README에서 온보딩을 강조합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: tighten onboarding prompt typing to keep bun builds green.",
+      "translation": "CLI: bun 빌드를 녹색으로 유지하기 위해 온보딩 프롬프트 입력을 강화합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: Voice Wake now fully tears down the Speech pipeline when disabled (cancel pending restarts, drop stale callbacks) to avoid high CPU in the background.",
+      "translation": "macOS: 음성 깨우기가 비활성화될 때 스피치 파이프라인을 완전히 해체하여 백그라운드에서 높은 CPU를 피합니다(대기 중인 재시작 취소, 오래된 콜백 삭제)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: add a Talk Mode action alongside the Open Dashboard/Chat/Canvas entries.",
+      "translation": "macOS 메뉴: 대시보드/채팅/캔버스 열기 항목 옆에 대화 모드 작업 추가."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS Debug: hide \"Restart Gateway\" when the app won't start a local gateway (remote mode / attach-only).",
+      "translation": "macOS 디버그: 앱이 로컬 게이트웨이를 시작하지 않을 때(원격 모드/첨부 전용) \"게이트웨이 재시작\" 숨기기."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS Debug: add an icon for the App Logging submenu.",
+      "translation": "macOS 디버그: 앱 로깅 하위 메뉴에 아이콘 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: orb overlay refresh, ElevenLabs request logging, API key status in settings, and auto-select first voice when none is configured.",
+      "translation": "macOS 대화 모드: 오브 오버레이 새로 고침, ElevenLabs 요청 로깅, 설정에서 API 키 상태, 구성되지 않은 경우 첫 번째 음성 자동 선택."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: add hard timeout around ElevenLabs TTS synthesis to avoid getting stuck \"speaking\" forever on hung requests.",
+      "translation": "macOS 대화 모드: ElevenLabs TTS 합성 주위에 하드 타임아웃 추가하여 요청이 중단될 때 \"영원히 말하기\"에 갇히지 않도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: avoid stuck playback when the audio player never starts (fail-fast + watchdog).",
+      "translation": "macOS 대화 모드: 오디오 플레이어가 시작되지 않을 때 재생 중단 방지 (빠른 실패 + 감시자)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: fix audio stop ordering so disabling Talk Mode always stops in-flight playback.",
+      "translation": "macOS 대화 모드: 오디오 중지 순서를 수정하여 대화 모드 비활성화 시 항상 재생 중단."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: throttle audio-level updates (avoid per-buffer task creation) to reduce CPU/task churn.",
+      "translation": "macOS 대화 모드: CPU/작업 부하를 줄이기 위해 오디오 레벨 업데이트를 조절 (버퍼당 작업 생성 방지)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Talk Mode: increase overlay window size so wave rings don't clip; close button is hover-only and closer to the orb.",
+      "translation": "macOS 대화 모드: 파형 링이 잘리지 않도록 오버레이 창 크기 증가; 닫기 버튼은 호버 전용이며 구체에 더 가까움."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WebChat: preserve chat run ordering per session so concurrent runs don't strand the typing indicator.",
+      "translation": "웹채팅: 동시 실행이 입력 표시기를 방해하지 않도록 세션별 채팅 실행 순서 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: fall back to system TTS when ElevenLabs is unavailable, returns non-audio, or playback fails (macOS/iOS/Android).",
+      "translation": "대화 모드: ElevenLabs가 사용 불가하거나 비오디오를 반환하거나 재생 실패 시 시스템 TTS로 대체 (macOS/iOS/Android)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: stream PCM on macOS/iOS for lower latency (incremental playback); Android continues MP3 streaming.",
+      "translation": "대화 모드: 낮은 지연 시간(점진적 재생)을 위해 macOS/iOS에서 PCM 스트리밍; Android는 MP3 스트리밍 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: validate ElevenLabs v3 stability and latency tier directives before sending requests.",
+      "translation": "대화 모드: 요청 전 ElevenLabs v3 안정성 및 지연 시간 계층 지시문 검증."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android Talk Mode: auto-select the first ElevenLabs voice when none is configured.",
+      "translation": "iOS/Android 대화 모드: 설정된 ElevenLabs 음성이 없을 때 자동으로 첫 번째 음성 선택."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ElevenLabs: add retry/backoff for 429/5xx and include content-type in errors for debugging.",
+      "translation": "ElevenLabs: 429/5xx에 대한 재시도/백오프 추가 및 디버깅을 위한 오류에 콘텐츠 타입 포함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: align to the gateway's main session key and fall back to history polling when chat events drop (prevents stuck \"thinking\" / missing messages).",
+      "translation": "대화 모드: 게이트웨이의 주요 세션 키에 맞추고 채팅 이벤트가 누락될 때 기록 폴링으로 대체 (멈춘 \"생각 중\" / 누락된 메시지 방지)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: treat history timestamps as seconds or milliseconds to avoid stale assistant picks (macOS/iOS/Android).",
+      "translation": "대화 모드: 오래된 어시스턴트 선택을 방지하기 위해 기록 타임스탬프를 초 또는 밀리초로 처리 (macOS/iOS/Android)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: clear streaming/tool bubbles when external runs finish, preventing duplicate assistant bubbles.",
+      "translation": "채팅 UI: 외부 실행이 완료되면 스트리밍/도구 버블을 지워 중복 어시스턴트 버블 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: user bubbles use `ui.seamColor` (fallback to a calmer default blue).",
+      "translation": "채팅 UI: 사용자 버블은 `ui.seamColor` 사용 (차분한 기본 파란색으로 대체)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android Chat UI: use `onPrimary` for user bubble text to preserve contrast (thanks @Syhids).",
+      "translation": "Android 채팅 UI: 대비를 유지하기 위해 사용자 버블 텍스트에 `onPrimary` 사용 (@Syhids 감사)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: sync sidebar navigation with the URL for deep-linking, and auto-scroll chat to the latest message.",
+      "translation": "제어 UI: URL과 사이드바 탐색 동기화하여 딥링크 지원, 최신 메시지로 채팅 자동 스크롤."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: disable Web Chat + Talk when no iOS/Android node is connected; refreshed Web Chat styling and keyboard send.",
+      "translation": "제어 UI: iOS/Android 노드가 연결되지 않은 경우 웹 채팅 + 대화 비활성화; 웹 채팅 스타일링 및 키보드 전송 새로 고침."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: keep chat pinned to the latest message while typing/sending and restore drafts on send failures.",
+      "translation": "제어 UI: 입력/전송 중 최신 메시지에 채팅 고정 유지 및 전송 실패 시 초안 복원."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI: soften chat bubble text opacity for calmer readability.",
+      "translation": "제어 UI: 차분한 가독성을 위해 채팅 버블 텍스트 불투명도 완화."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS Web Chat: improve empty/error states, focus message field on open, keep pill/send inside the input field, and make the composer pill edge-to-edge with square top corners.",
+      "translation": "macOS 웹 채팅: 빈 상태/오류 상태 개선, 열 때 메시지 필드 포커스, 입력 필드 내에 알약/전송 유지, 작곡가 알약을 정사각형 상단 모서리로 가장자리에 맞춤."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: bundle Control UI assets into the app relay so the packaged app can serve them (thanks @mbelinky).",
+      "translation": "macOS: 패키지된 앱이 Control UI 자산을 제공할 수 있도록 앱 릴레이에 번들로 포함합니다 (감사합니다 @mbelinky)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk Mode: wait for chat history to surface the assistant reply before starting TTS (macOS/iOS/Android).",
+      "translation": "대화 모드: TTS를 시작하기 전에 채팅 기록이 보조 응답을 표시할 때까지 대기합니다 (macOS/iOS/Android)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS Talk Mode: fix chat completion wait to time out even if no events arrive (prevents \"Thinking…\" hangs).",
+      "translation": "iOS 대화 모드: 이벤트가 도착하지 않더라도 \"생각 중…\" 멈춤을 방지하기 위해 채팅 완료 대기 시간을 초과하도록 수정합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS Talk Mode: keep recognition running during playback to support interrupt-on-speech.",
+      "translation": "iOS 대화 모드: 인식이 재생 중에도 계속 실행되어 발화 시 중단을 지원합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS Talk Mode: preserve directive voice/model overrides across config reloads and add ElevenLabs request timeouts.",
+      "translation": "iOS 대화 모드: 구성 재로드 시 지시 음성/모델 재정의를 유지하고 ElevenLabs 요청 타임아웃을 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android Talk Mode: explicitly `chat.subscribe` when Talk Mode is active, so completion events arrive even if the Chat UI isn't open.",
+      "translation": "iOS/Android 대화 모드: 대화 모드가 활성화되면 `chat.subscribe`를 명시적으로 수행하여 채팅 UI가 열려 있지 않더라도 완료 이벤트가 도착하도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Chat UI: refresh history when another client finishes a run in the same session, so Talk Mode + Voice Wake transcripts appear consistently.",
+      "translation": "채팅 UI: 동일한 세션에서 다른 클라이언트가 실행을 완료하면 기록을 새로 고쳐 대화 모드 + 음성 깨우기 전사가 일관되게 나타나도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: `voice.transcript` now also maps agent bus output to `chat` events, ensuring chat UIs refresh for voice-triggered runs.",
+      "translation": "게이트웨이: `voice.transcript`가 이제 에이전트 버스 출력을 `chat` 이벤트에 매핑하여 음성으로 트리거된 실행에 대해 채팅 UI가 새로 고쳐지도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: auto-migrate legacy config on startup (non-Nix); Nix mode hard-fails with a clear error when legacy keys are present.",
+      "translation": "게이트웨이: 시작 시 레거시 구성을 자동 마이그레이션합니다 (Nix가 아닌 경우); Nix 모드는 레거시 키가 있을 때 명확한 오류와 함께 강제 실패합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android: show a centered Talk Mode orb overlay while Talk Mode is enabled.",
+      "translation": "iOS/Android: 대화 모드가 활성화된 동안 중앙에 대화 모드 오브 오버레이를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway config: inject `talk.apiKey` from `ELEVENLABS_API_KEY`/shell profile so nodes can fetch it on demand.",
+      "translation": "게이트웨이 구성: `ELEVENLABS_API_KEY`/쉘 프로필에서 `talk.apiKey`를 주입하여 노드가 필요 시 이를 가져올 수 있도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Canvas A2UI: tag requests with `platform=android|ios|macos` and boost Android canvas background contrast.",
+      "translation": "Canvas A2UI: 요청에 `platform=android|ios|macos` 태그를 추가하고 Android 캔버스 배경 대비를 높입니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: enable scrolling for loaded web pages in the Canvas WebView (default scaffold stays touch-first).",
+      "translation": "iOS/Android 노드: Canvas WebView에서 로드된 웹 페이지의 스크롤을 활성화합니다 (기본 스캐폴드는 터치 우선으로 유지)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: device list now uses `node.list` (devices only; no agent/tool presence entries).",
+      "translation": "macOS 메뉴: 장치 목록이 이제 `node.list`를 사용합니다 (장치만; 에이전트/도구 존재 항목 없음)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: device list now shows connected nodes only.",
+      "translation": "macOS 메뉴: 장치 목록이 이제 연결된 노드만 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: device rows now pack platform/version on the first line, and command lists wrap in submenus.",
+      "translation": "macOS 메뉴: 장치 행이 이제 첫 번째 줄에 플랫폼/버전을 배치하고 명령 목록은 하위 메뉴에 래핑됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: split device platform/version across first and second rows for better fit.",
+      "translation": "macOS 메뉴: 더 나은 맞춤을 위해 장치 플랫폼/버전을 첫 번째 및 두 번째 행으로 나눕니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS Canvas: show remote control status in the debug overlay and log A2UI auto-nav decisions.",
+      "translation": "macOS Canvas: 디버그 오버레이에 원격 제어 상태를 표시하고 A2UI 자동 탐색 결정을 기록합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Canvas A2UI: polish the debug status HUD styling.",
+      "translation": "Canvas A2UI: 디버그 상태 HUD 스타일을 다듬습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS node: fix ReplayKit screen recording crash caused by queue isolation assertions during capture.",
+      "translation": "iOS 노드: 캡처 중 큐 격리 주장으로 인해 발생한 ReplayKit 화면 녹화 충돌을 수정합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS Talk Mode: avoid audio tap queue assertions when starting recognition.",
+      "translation": "iOS Talk Mode: 인식 시작 시 오디오 탭 큐 어설션을 피합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: use $HOME/Library/pnpm for SSH PATH exports (thanks @mbelinky).",
+      "translation": "macOS: SSH PATH 내보내기를 위해 $HOME/Library/pnpm 사용 (@mbelinky 감사합니다)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS remote: harden SSH tunnel recovery/logging, honor `gateway.remote.url` port when forwarding, clarify gateway disconnect status, and add Debug menu tunnel reset.",
+      "translation": "macOS 원격: SSH 터널 복구/로깅 강화, 포워딩 시 `gateway.remote.url` 포트 준수, 게이트웨이 연결 끊김 상태 명확화, 디버그 메뉴에 터널 재설정 추가."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: bridge auto-connect refreshes stale tokens and settings now show richer bridge/device details.",
+      "translation": "iOS/Android 노드: 브리지 자동 연결이 만료된 토큰을 새로 고치고, 설정에 더 풍부한 브리지/장치 세부 정보가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: bundle device model resources to prevent Instances crashes (thanks @mbelinky).",
+      "translation": "macOS: 인스턴스 충돌 방지를 위해 장치 모델 리소스 번들링 (@mbelinky 감사합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: status pill now surfaces camera activity instead of overlay toasts.",
+      "translation": "iOS/Android 노드: 상태 표시가 이제 오버레이 토스트 대신 카메라 활동을 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android/macOS nodes: camera snaps recompress to keep base64 payloads under 5 MB.",
+      "translation": "iOS/Android/macOS 노드: 카메라 스냅이 5MB 이하로 base64 페이로드를 유지하도록 재압축됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: status pill now surfaces pairing, screen recording, voice wake, and foreground-required states.",
+      "translation": "iOS/Android 노드: 상태 표시가 이제 페어링, 화면 녹화, 음성 깨우기 및 전경 필수 상태를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: avoid duplicating \"Gateway reconnecting…\" when the bridge is already connecting.",
+      "translation": "iOS/Android 노드: 브리지가 이미 연결 중일 때 \"게이트웨이 다시 연결 중...\" 중복 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/Android nodes: Talk Mode now lives on a side bubble (with an iOS toggle to hide it), and Android settings no longer show the Talk Mode switch.",
+      "translation": "iOS/Android 노드: Talk Mode가 이제 측면 버블에 위치하며, iOS에서는 이를 숨길 수 있는 토글이 제공되고, Android 설정에는 더 이상 Talk Mode 스위치가 표시되지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS menu: top status line now shows pending node pairing approvals (incl. repairs).",
+      "translation": "macOS 메뉴: 상단 상태 줄에 보류 중인 노드 페어링 승인(수리 포함)이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: avoid spurious gateway close errors after successful request/response cycles.",
+      "translation": "CLI: 요청/응답 사이클이 성공한 후 불필요한 게이트웨이 닫기 오류 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent runtime: clamp tool-result images to the 5MB Anthropic limit to avoid hard request rejections.",
+      "translation": "에이전트 런타임: 요청 거부를 피하기 위해 도구 결과 이미지를 5MB Anthropic 제한으로 고정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent runtime: write v2 session headers so Pi session branching stays in the Clawdis sessions dir.",
+      "translation": "에이전트 런타임: Pi 세션 분기가 Clawdis 세션 디렉토리에 남도록 v2 세션 헤더 작성."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tests: add Swift Testing coverage for camera errors and Kotest coverage for Android bridge endpoints.",
+      "translation": "테스트: 카메라 오류에 대한 Swift Testing 커버리지 및 Android 브리지 엔드포인트에 대한 Kotest 커버리지 추가."
+    }
+  ],
+  "translatedAt": "2026-02-09T11:51:24.814Z",
+  "translationEngine": "openai",
+  "translationCharCount": 18296
+}

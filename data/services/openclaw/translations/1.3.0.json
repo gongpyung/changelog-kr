@@ -1,0 +1,149 @@
+{
+  "version": "1.3.0",
+  "date": "2025-12-02",
+  "parsedAt": "2026-02-09T10:31:02.388Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Pluggable agents (Claude, Pi, Codex, Opencode):** New `inbound.reply.agent` block chooses the CLI and parser per command reply; per-agent argv builders inject the right flags/identity/prompt handling and parse NDJSON streams, enabling Pi/Codex swaps without changing templates.",
+      "translation": "**플러그형 에이전트 (Claude, Pi, Codex, Opencode):** 새로운 `inbound.reply.agent` 블록이 명령어 응답마다 CLI와 파서를 선택합니다. 에이전트별 argv 빌더는 적절한 플래그/아이덴티티/프롬프트 처리를 주입하고 NDJSON 스트림을 파싱하여 Pi/Codex 교체 시 템플릿을 변경하지 않고도 가능합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safety stop words for agents:** If an inbound message is exactly `stop`, `esc`, `abort`, `wait`, or `exit`, warelay immediately replies \"Agent was aborted.\", kills the pending agent run, and marks the session so the next prompt is prefixed with a reminder that the previous run was aborted.",
+      "translation": "**에이전트 안전 중지 단어:** 들어오는 메시지가 정확히 `stop`, `esc`, `abort`, `wait`, 또는 `exit`일 경우, warelay는 즉시 \"에이전트가 중지되었습니다.\"라고 응답하고, 대기 중인 에이전트 실행을 중단하며, 다음 프롬프트에 이전 실행이 중단되었음을 알리는 메시지를 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Agent session reliability:** Only Claude currently returns a `session_id` that warelay persists; other agents (Gemini, Opencode, Codex, Pi) don't emit stable session identifiers, so multi-turn continuity may reset between runs for those harnesses.",
+      "translation": "**에이전트 세션 신뢰성:** 현재 Claude만이 warelay가 지속하는 `session_id`를 반환합니다. 다른 에이전트(Gemini, Opencode, Codex, Pi)는 안정적인 세션 식별자를 제공하지 않으므로, 이러한 하네스에서는 실행 간 다중 턴 연속성이 재설정될 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Empty result field handling:** Fixed bug where Claude CLI returning `result: \"\"` (empty string) would cause raw JSON to be sent to WhatsApp instead of being treated as valid empty output. Changed truthy check to explicit type check in `command-reply.ts`.",
+      "translation": "**빈 결과 필드 처리:** Claude CLI가 `result: \"\"` (빈 문자열)을 반환할 때 원시 JSON이 WhatsApp으로 전송되는 버그를 수정했습니다. `command-reply.ts`에서 진리값 검사 대신 명시적인 타입 검사로 변경했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Response prefix on heartbeat replies:** Fixed `responsePrefix` (e.g., `🦞`) not being applied to heartbeat alert messages. The prefix was only applied in the regular message handler, not in `runReplyHeartbeat`.",
+      "translation": "**하트비트 응답의 응답 접두사:** `responsePrefix` (예: `🦞`)가 하트비트 경고 메시지에 적용되지 않는 문제를 수정했습니다. 접두사는 정규 메시지 핸들러에만 적용되었고, `runReplyHeartbeat`에는 적용되지 않았습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**User-visible error messages:** Command failures (non-zero exit, killed processes, exceptions) now return user-friendly error messages to WhatsApp instead of silently failing with empty responses.",
+      "translation": "**사용자에게 보이는 오류 메시지:** 명령 실패(비제로 종료, 중단된 프로세스, 예외)가 이제 빈 응답으로 조용히 실패하는 대신 WhatsApp에 사용자 친화적인 오류 메시지를 반환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Test session isolation:** Fixed tests corrupting production `sessions.json` by mocking session persistence in all test files.",
+      "translation": "**테스트 세션 격리:** 모든 테스트 파일에서 세션 지속성을 모의하여 테스트가 프로덕션 `sessions.json`을 손상시키는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Signal session corruption prevention:** Added IPC mechanism so `warelay send` and `warelay heartbeat` reuse the running relay's WhatsApp connection instead of creating new Baileys sockets. Previously, using these commands while the relay was running could corrupt the Signal session ratchet (both connections wrote to the same auth state), causing the relay's subsequent sends to fail silently.",
+      "translation": "**Signal 세션 손상 방지:** IPC 메커니즘을 추가하여 `warelay send`와 `warelay heartbeat`가 실행 중인 릴레이의 WhatsApp 연결을 재사용하도록 하여 새로운 Baileys 소켓을 생성하지 않도록 했습니다. 이전에는 릴레이 실행 중에 이러한 명령을 사용하면 Signal 세션 래칫을 손상시킬 수 있었고, 이는 릴레이의 후속 전송이 조용히 실패하게 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Web send media kinds:** `sendMessageWeb` now honors media kind when sending via WhatsApp Web: audio → PTT with correct opus mimetype, video → video, image → image, other → document with filename. Previously all media were sent as images, breaking audio/video/doc sends.",
+      "translation": "**웹 전송 미디어 종류:** `sendMessageWeb`이 WhatsApp Web을 통해 전송할 때 미디어 종류를 준수합니다: 오디오 → PTT 및 올바른 opus mimetype, 비디오 → 비디오, 이미지 → 이미지, 기타 → 파일명과 함께 문서. 이전에는 모든 미디어가 이미지로 전송되어 오디오/비디오/문서 전송이 깨졌습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**IPC server for relay:** The web relay now starts a Unix socket server at `~/.warelay/relay.sock`. Commands like `warelay send --provider web` automatically connect via IPC when the relay is running, falling back to direct connection otherwise.",
+      "translation": "**릴레이를 위한 IPC 서버:** 웹 릴레이가 이제 `~/.warelay/relay.sock`에 Unix 소켓 서버를 시작합니다. `warelay send --provider web`과 같은 명령은 릴레이가 실행 중일 때 자동으로 IPC를 통해 연결하고, 그렇지 않으면 직접 연결로 전환합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Batched inbound messaging with timestamps:** When multiple WhatsApp messages queue up, they're sent to the agent in one combined batch, each line timestamped consistently to preserve ordering and context.",
+      "translation": "**타임스탬프가 있는 배치된 수신 메시지:** 여러 WhatsApp 메시지가 대기열에 쌓일 때, 에이전트에게 하나의 결합된 배치로 전송되며, 각 줄에 일관된 타임스탬프가 추가되어 순서와 컨텍스트를 보존합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Typing indicator after IPC send:** After sending a message via IPC (e.g., `warelay send`), the relay now automatically shows the typing indicator (\"composing\") to signal that more messages may be coming.",
+      "translation": "**IPC 전송 후 입력 표시기:** IPC를 통해 메시지를 전송한 후(`warelay send` 등), 릴레이가 자동으로 입력 표시기(\"작성 중\")를 표시하여 더 많은 메시지가 올 수 있음을 신호합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Auto-recovery from stuck WhatsApp sessions:** Added watchdog timer that detects when WhatsApp event emitter stops firing (e.g., after Bad MAC decryption errors) and automatically restarts the connection after 30 minutes of no message activity. Heartbeat logging now includes `minutesSinceLastMessage` and warns when >30 minutes without messages. The 30-minute timeout is intentionally longer than typical `heartbeatMinutes` configs to avoid false positives.",
+      "translation": "**멈춘 WhatsApp 세션의 자동 복구:** WhatsApp 이벤트 발신기가 중지될 때(예: Bad MAC 복호화 오류 후)를 감지하는 감시 타이머를 추가하여 30분 동안 메시지 활동이 없을 때 자동으로 연결을 재시작합니다. 하트비트 로깅은 이제 `minutesSinceLastMessage`를 포함하며, 메시지가 30분 이상 없을 때 경고합니다. 30분 타임아웃은 일반적인 `heartbeatMinutes` 구성보다 의도적으로 길어 잘못된 긍정 오류를 피합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Early allowFrom filtering:** Unauthorized senders are now blocked in `inbound.ts` BEFORE encryption/decryption attempts, preventing Bad MAC errors from corrupting session state. Previously, messages from unauthorized senders would trigger decryption failures that could silently kill the event emitter.",
+      "translation": "**초기 allowFrom 필터링:** 허가되지 않은 발신자는 이제 암호화/복호화 시도 전에 `inbound.ts`에서 차단되어 Bad MAC 오류가 세션 상태를 손상시키지 않도록 합니다. 이전에는 허가되지 않은 발신자의 메시지가 복호화 실패를 유발하여 이벤트 발신기를 조용히 중단시킬 수 있었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Test isolation improvements:** Mock `loadConfig()` in all test files to prevent loading real user config (with emojis/prefixes) during tests. Default test config now has no prefixes/timestamps for cleaner assertions.",
+      "translation": "**테스트 격리 개선:** 모든 테스트 파일에서 `loadConfig()`를 모의하여 테스트 중 실제 사용자 구성(이모지/접두사 포함)을 로드하지 않도록 합니다. 기본 테스트 구성은 더 깔끔한 단언을 위해 접두사/타임스탬프가 없습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Same-phone mode (self-messaging):** warelay now supports running on the same phone number you message from. This enables setups where you chat with yourself to control an AI assistant. Same-phone mode (`from === to`) is always allowed, even without configuring `allowFrom`. Echo detection prevents infinite loops by tracking recently sent message text and skipping auto-replies when incoming messages match.",
+      "translation": "**동일 전화 모드(자체 메시지):** warelay는 이제 메시지를 보내는 동일한 전화번호에서 실행을 지원합니다. 이는 AI 비서를 제어하기 위해 자신과 채팅하는 설정을 가능하게 합니다. 동일 전화 모드(`from === to`)는 `allowFrom`을 구성하지 않아도 항상 허용됩니다. 에코 감지는 최근에 보낸 메시지 텍스트를 추적하고 들어오는 메시지가 일치할 때 자동 응답을 건너뛰어 무한 루프를 방지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Echo detection:** The `fromMe` filter in `inbound.ts` is deliberately removed for same-phone setups; instead, text-based echo detection in `auto-reply.ts` tracks sent messages in a bounded Set (max 100 entries) and skips processing when a match is found.",
+      "translation": "**에코 감지:** 동일 전화 설정을 위해 `inbound.ts`에서 `fromMe` 필터가 의도적으로 제거되었습니다. 대신, `auto-reply.ts`의 텍스트 기반 에코 감지는 제한된 집합(최대 100개 항목)에서 보낸 메시지를 추적하고 일치 항목이 발견되면 처리를 건너뜁니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Same-phone detection logging:** Verbose mode now logs `📱 Same-phone mode detected` when `from === to`.",
+      "translation": "**동일 전화 감지 로깅:** 자세한 모드에서 이제 `from === to`일 때 `📱 동일 전화 모드 감지됨`을 로그로 기록합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Configurable same-phone marker:** New `inbound.samePhoneMarker` config option to customize the prefix added to messages in same-phone mode (default: `[same-phone]`). Set it to something cute like `[🦞 same-phone]` to help distinguish bot replies.",
+      "translation": "**구성 가능한 동일 전화 표시기:** 동일 전화 모드에서 메시지에 추가되는 접두사를 사용자 정의할 수 있는 새로운 `inbound.samePhoneMarker` 구성 옵션(기본값: `[same-phone]`)이 추가되었습니다. `[🦞 same-phone]`과 같은 귀여운 것으로 설정하여 봇 응답을 구별하는 데 도움이 됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@RealSid08 (Sidhaarth Krishnan)",
+      "translation": "@RealSid08 (Sidhaarth Krishnan)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "pnpm lint",
+      "translation": "pnpm 린트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "pnpm test",
+      "translation": "pnpm 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "pnpm build",
+      "translation": "pnpm 빌드"
+    }
+  ],
+  "translatedAt": "2026-02-09T11:48:50.662Z",
+  "translationEngine": "openai",
+  "translationCharCount": 4993
+}
