@@ -1,0 +1,65 @@
+{
+  "version": "4.1.12",
+  "date": "2026-02-11",
+  "parsedAt": "2026-02-11T03:27:23.303Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Codex/Gemini MCP bridges were rejecting all `agent_role` values** with \"Unknown agent_role\" and an empty available roles list",
+      "translation": "**Codex/Gemini MCP 브리지에서 모든 `agent_role` 값을 \"Unknown agent_role\" 및 빈 역할 목록으로 거부했습니다**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Root cause: `getValidAgentRoles()` runtime filesystem scan silently failed in the bundled CJS context",
+      "translation": "근본 원인: 번들된 CJS 컨텍스트에서 `getValidAgentRoles()` 런타임 파일 시스템 스캔이 조용히 실패했습니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent roles list and prompt contents are now **embedded at build time** via esbuild `define`, eliminating the runtime filesystem dependency",
+      "translation": "에이전트 역할 목록과 프롬프트 내용이 이제 esbuild `define`을 통해 **빌드 시에 포함**되어 런타임 파일 시스템 의존성을 제거했습니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dev/test environments still work via the filesystem fallback",
+      "translation": "개발/테스트 환경은 여전히 파일 시스템 폴백을 통해 작동합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "All 30 agent roles and their full prompt content are inlined in the bundle",
+      "translation": "모든 30개의 에이전트 역할과 그들의 전체 프롬프트 내용이 번들에 인라인되어 있습니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/mcp/prompt-injection.ts` - Build-time `__AGENT_ROLES__` injection with runtime fallback",
+      "translation": "`src/mcp/prompt-injection.ts` - 런타임 폴백이 있는 빌드 시 `__AGENT_ROLES__` 주입"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`src/agents/utils.ts` - Build-time `__AGENT_PROMPTS__` injection with runtime fallback",
+      "translation": "`src/agents/utils.ts` - 런타임 폴백이 있는 빌드 시 `__AGENT_PROMPTS__` 주입"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`scripts/build-codex-server.mjs` - Scans `agents/*.md` and passes roles/prompts via esbuild define",
+      "translation": "`scripts/build-codex-server.mjs` - `agents/*.md`를 스캔하고 역할/프롬프트를 esbuild define을 통해 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`scripts/build-gemini-server.mjs` - Same treatment",
+      "translation": "`scripts/build-gemini-server.mjs` - 동일한 처리"
+    }
+  ],
+  "translatedAt": "2026-02-11T03:28:12.212Z",
+  "translationEngine": "openai",
+  "translationCharCount": 827
+}
