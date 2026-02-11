@@ -1,0 +1,83 @@
+{
+  "version": "4.2.1",
+  "date": "2026-02-11",
+  "parsedAt": "2026-02-11T19:30:08.254Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Mention injection prevention**: `validateMention()` regex ensures only valid `<@USER_ID>` or `<@&ROLE_ID>` patterns",
+      "translation": "**멘션 주입 방지**: `validateMention()` 정규식은 유효한 `<@USER_ID>` 또는 `<@&ROLE_ID>` 패턴만 허용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Discord `allowed_mentions`**: All Discord payloads include `parse: []` to block `@everyone`/`@here`, with explicit user/role allowlists",
+      "translation": "**Discord `allowed_mentions`**: 모든 Discord 페이로드는 `parse: []`를 포함하여 `@everyone`/`@here`를 차단하며, 명시적인 사용자/역할 허용 목록을 사용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Discord 2000-char guard**: `composeDiscordContent()` enforces content length limit with smart truncation",
+      "translation": "**Discord 2000자 제한**: `composeDiscordContent()`는 스마트한 잘라내기로 콘텐츠 길이 제한을 적용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Bump `@modelcontextprotocol/sdk`** to `^1.26.0` (fixes GHSA-345p-7cg4-v4c7)",
+      "translation": "**`@modelcontextprotocol/sdk` 버전 업그레이드**: `^1.26.0`으로 (GHSA-345p-7cg4-v4c7 문제 해결)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Config priority deep-merge**: `getNotificationConfig()` deep-merges file config with env-derived platforms (env fills missing blocks, file takes precedence)",
+      "translation": "**설정 우선순위 깊은 병합**: `getNotificationConfig()`는 파일 설정을 환경에서 유도된 플랫폼과 깊게 병합합니다 (환경은 누락된 블록을 채우고, 파일이 우선합니다)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Env mention fallback**: `OMC_DISCORD_MENTION` env var applies to file-based discord configs missing a mention",
+      "translation": "**환경 변수 멘션 대체**: `OMC_DISCORD_MENTION` 환경 변수는 멘션이 없는 파일 기반 Discord 설정에 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Timeout layering**: `DISPATCH_TIMEOUT_MS` (15s) >= `SEND_TIMEOUT_MS` (10s), timer cleared in `finally`",
+      "translation": "**타임아웃 계층화**: `DISPATCH_TIMEOUT_MS` (15초) >= `SEND_TIMEOUT_MS` (10초), 타이머는 `finally`에서 해제됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Single mention resolution**: Removed double resolution from dispatcher; config layer is the single source of truth",
+      "translation": "**단일 멘션 해결**: 디스패처에서 이중 해결 제거; 설정 계층이 단일 진실의 원천입니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Whitespace trimming**: `normalizeOptional()` trims mention strings before truthiness check",
+      "translation": "**공백 제거**: `normalizeOptional()`은 진리값 확인 전에 멘션 문자열의 공백을 제거합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Configure Discord/Telegram skills**: Interactive setup wizards via `/oh-my-claudecode:configure-discord` and `/oh-my-claudecode:configure-telegram`",
+      "translation": "**Discord/Telegram 스킬 구성**: `/oh-my-claudecode:configure-discord` 및 `/oh-my-claudecode:configure-telegram`을 통한 대화형 설정 마법사"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Command redirects**: `commands/configure-discord.md` and `commands/configure-telegram.md`",
+      "translation": "**명령어 리디렉션**: `commands/configure-discord.md` 및 `commands/configure-telegram.md`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "85 new unit tests across 3 test files covering config validation, deep-merge integration, dispatcher behavior, mention separation, and timeout contracts",
+      "translation": "설정 검증, 깊은 병합 통합, 디스패처 동작, 멘션 분리, 타임아웃 계약을 다루는 3개의 테스트 파일에 걸친 85개의 새로운 단위 테스트"
+    }
+  ],
+  "translatedAt": "2026-02-11T19:30:21.737Z",
+  "translationEngine": "openai",
+  "translationCharCount": 1410
+}
