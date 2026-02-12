@@ -1,0 +1,617 @@
+{
+  "version": "0.100.0",
+  "date": "2026-02-12",
+  "parsedAt": "2026-02-12T19:30:45.705Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an experimental, feature-gated JavaScript REPL runtime (`js_repl`) that can persist state across tool calls, with optional runtime path overrides. (#10674)",
+      "translation": "실험적인 기능 게이트가 있는 JavaScript REPL 런타임 (`js_repl`)을 추가하여 도구 호출 간 상태를 유지할 수 있으며, 선택적으로 런타임 경로를 재정의할 수 있습니다. (#10674)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for multiple simultaneous rate limits across the protocol, backend client, and TUI status surfaces. (#11260)",
+      "translation": "프로토콜, 백엔드 클라이언트 및 TUI 상태 표면에서 여러 동시 속도 제한을 지원합니다. (#11260)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reintroduced app-server websocket transport with a split inbound/outbound architecture, plus connection-aware thread resume subscriptions. (#11370, #11474)",
+      "translation": "인바운드/아웃바운드 아키텍처로 분리된 앱 서버 웹소켓 전송을 재도입하고, 연결 인식 스레드 재개 구독을 추가했습니다. (#11370, #11474)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added memory management slash commands in the TUI (`/m_update`, `/m_drop`) and expanded memory-read/metrics plumbing. (#11569, #11459, #11593)",
+      "translation": "TUI에 메모리 관리 슬래시 명령 (`/m_update`, `/m_drop`)을 추가하고 메모리 읽기/메트릭 배관을 확장했습니다. (#11569, #11459, #11593)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Enabled Apps SDK apps in ChatGPT connector handling. (#11486)",
+      "translation": "ChatGPT 커넥터 처리에서 Apps SDK 앱을 활성화했습니다. (#11486)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Promoted sandbox capabilities on both Linux and Windows, and introduced a new `ReadOnlyAccess` policy shape for configurable read access. (#11381, #11341, #11387)",
+      "translation": "Linux와 Windows에서 샌드박스 기능을 강화하고, 구성 가능한 읽기 접근을 위한 새로운 `ReadOnlyAccess` 정책 형태를 도입했습니다. (#11381, #11341, #11387)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed websocket incremental output duplication, prevented appends after `response.completed`, and treated `response.incomplete` as an error path. (#11383, #11402, #11558)",
+      "translation": "웹소켓 증분 출력 중복을 수정하고, `response.completed` 이후 추가를 방지하며, `response.incomplete`를 오류 경로로 처리했습니다. (#11383, #11402, #11558)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved websocket session stability by continuing ping handling when idle and suppressing noisy first-retry errors during quick reconnects. (#11413, #11548)",
+      "translation": "유휴 상태에서도 핑 처리를 계속하고 빠른 재연결 시 시끄러운 첫 번째 재시도 오류를 억제하여 웹소켓 세션 안정성을 개선했습니다. (#11413, #11548)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale thread entries by dropping missing rollout files and cleaning stale DB metadata during thread listing. (#11572)",
+      "translation": "누락된 롤아웃 파일을 삭제하고 스레드 나열 중 오래된 DB 메타데이터를 정리하여 오래된 스레드 항목을 수정했습니다. (#11572)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows multi-line paste reliability in terminals (especially VS Code integrated terminal) by increasing paste burst timing tolerance. (#9348)",
+      "translation": "터미널(특히 VS Code 통합 터미널)에서 Windows 다중 라인 붙여넣기 신뢰성을 향상시키기 위해 붙여넣기 버스트 타이밍 허용치를 늘렸습니다. (#9348)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed incorrect inheritance of `limit_name` when merging partial rate-limit updates. (#11557)",
+      "translation": "부분 속도 제한 업데이트를 병합할 때 `limit_name`의 잘못된 상속을 수정했습니다. (#11557)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced repeated skill parse-error spam during active edits by increasing file-watcher debounce from 1s to 10s. (#11494)",
+      "translation": "파일 감시자 디바운스를 1초에서 10초로 늘려 활성 편집 중 반복되는 스킬 구문 오류 스팸을 줄였습니다. (#11494)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added JS REPL documentation and config/schema guidance for enabling and configuring the feature. (#10674)",
+      "translation": "JS REPL 문서와 기능 활성화 및 구성에 대한 설정/스키마 지침을 추가했습니다. (#10674)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated app-server websocket transport documentation in the app-server README. (#11370)",
+      "translation": "앱 서버 README에 앱 서버 웹소켓 전송 문서를 업데이트했습니다. (#11370)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Split `codex-common` into focused `codex-utils-*` crates to simplify dependency boundaries across Rust workspace components. (#11422)",
+      "translation": "Rust 작업 공간 구성 요소 간의 종속성 경계를 단순화하기 위해 `codex-common`을 `codex-utils-*` 크레이트로 분할했습니다. (#11422)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Rust release pipeline throughput and reliability for Windows and musl targets, including parallel Windows builds and musl link fixes. (#11488, #11500, #11556)",
+      "translation": "Windows 및 musl 대상에 대한 Rust 릴리스 파이프라인 처리량과 신뢰성을 개선하고, 병렬 Windows 빌드 및 musl 링크 수정을 포함했습니다. (#11488, #11500, #11556)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevented GitHub release asset upload collisions by excluding duplicate `cargo-timing.html` artifacts. (#11564)",
+      "translation": "중복 `cargo-timing.html` 아티팩트를 제외하여 GitHub 릴리스 자산 업로드 충돌을 방지했습니다. (#11564)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11383 Do not resend output items in incremental websockets connections @pakrym-oai",
+      "translation": "#11383 증분 웹소켓 연결에서 출력 항목을 다시 보내지 않음 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11246 chore: persist turn_id in rollout session and make turn_id uuid based @celia-oai",
+      "translation": "#11246 작업: 롤아웃 세션에서 turn_id를 유지하고 turn_id를 uuid 기반으로 만듦 @celia-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11260 feat: support multiple rate limits @xl-openai",
+      "translation": "#11260 기능: 여러 속도 제한 지원 @xl-openai"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#11412 tui: show non-file layer content in /debug-config @bolinfest",
+      "translation": "#11412 tui: /debug-config에서 비파일 레이어 콘텐츠 표시 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11405 Remove `test-support` feature from `codex-core` and replace it with explicit test toggles @bolinfest",
+      "translation": "#11405 `codex-core`에서 `test-support` 기능 제거하고 명시적인 테스트 토글로 대체 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11428 fix: flaky test @jif-oai",
+      "translation": "#11428 수정: 불안정한 테스트 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11429 feat: improve thread listing @jif-oai",
+      "translation": "#11429 기능: 스레드 목록 개선 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11422 feat: split codex-common into smaller utils crates @bolinfest",
+      "translation": "#11422 기능: codex-common을 더 작은 유틸리티 크레이트로 분할 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11439 feat: new memory prompts @jif-oai",
+      "translation": "#11439 기능: 새로운 메모리 프롬프트 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11305 Cache cloud requirements @gt-oai",
+      "translation": "#11305 클라우드 요구사항 캐시 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11452 nit: increase max raw memories @jif-oai",
+      "translation": "#11452 사소한 수정: 최대 원시 메모리 증가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11455 feat: close mem agent after consolidation @jif-oai",
+      "translation": "#11455 기능: 통합 후 메모리 에이전트 종료 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11454 fix: optional schema of memories @jif-oai",
+      "translation": "#11454 수정: 선택적 메모리 스키마 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11449 feat: set policy for phase 2 memory @jif-oai",
+      "translation": "#11449 기능: 2단계 메모리 정책 설정 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11420 chore: rename disable_websockets -> websockets_disabled @sayan-oai",
+      "translation": "#11420 작업: disable_websockets -> websockets_disabled로 이름 변경 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11402 Do not attempt to append after response.completed @pakrym-oai",
+      "translation": "#11402 response.completed 후에 추가 시도하지 않음 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11462 clean: memory rollout recorder @jif-oai",
+      "translation": "#11462 정리: 메모리 롤아웃 기록기 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11381 feat(core): promote Linux bubblewrap sandbox to Experimental @viyatb-oai",
+      "translation": "#11381 기능(core): Linux bubblewrap 샌드박스를 실험적으로 승격 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11389 Extract `codex-config` from `codex-core` @bolinfest",
+      "translation": "#11389 `codex-core`에서 `codex-config` 추출 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11370 Reapply \"Add app-server transport layer with websocket support\" @maxj-oai",
+      "translation": "#11370 \"웹소켓 지원을 포함한 앱 서버 전송 계층 추가\" 재적용 @maxj-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11470 feat: panic if Constrained<WebSearchMode> does not support Disabled @bolinfest",
+      "translation": "#11470 기능: Constrained<WebSearchMode>가 Disabled를 지원하지 않으면 패닉 발생 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11475 feat: remove \"cargo check individual crates\" from CI @bolinfest",
+      "translation": "#11475 기능: CI에서 \"cargo check individual crates\" 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11459 feat: memory read path @jif-oai",
+      "translation": "#11459 기능: 메모리 읽기 경로 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11471 chore: clean rollout extraction in memories @jif-oai",
+      "translation": "#11471 작업: 메모리에서 롤아웃 추출 정리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#9348 fix(tui): increase paste burst char interval on Windows to 30ms @yuvrajangadsingh",
+      "translation": "#9348 수정(tui): Windows에서 붙여넣기 버스트 문자 간격을 30ms로 증가 @yuvrajangadsingh"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11464 chore: sub-agent never ask for approval @jif-oai",
+      "translation": "#11464 작업: 하위 에이전트가 승인 요청을 하지 않음 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11414 Linkify feedback link @pakrym-oai",
+      "translation": "#11414 피드백 링크 연결 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11480 chore: update mem prompt @jif-oai",
+      "translation": "#11480 작업: 메모리 프롬프트 업데이트 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11485 fix: Constrained import @owenlin0",
+      "translation": "#11485 수정: 제한된 가져오기 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11341 Promote Windows Sandbox @iceweasel-oai",
+      "translation": "#11341 Windows 샌드박스 홍보 @iceweasel-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10674 Add feature-gated freeform js_repl core runtime @fjord-oai",
+      "translation": "#10674 기능 게이트된 자유형 js_repl 코어 런타임 추가 @fjord-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11419 refactor: codex app-server ThreadState @maxj-oai",
+      "translation": "#11419 리팩터링: codex 앱 서버 ThreadState @maxj-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11413 Pump pings @pakrym-oai",
+      "translation": "#11413 핑 전송 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11488 feat: use more powerful machines for building Windows releases @bolinfest",
+      "translation": "#11488 기능: Windows 릴리스를 빌드하기 위해 더 강력한 머신 사용 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11479 nit: memory truncation @jif-oai",
+      "translation": "#11479 사소한 수정: 메모리 절단 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11494 Increased file watcher debounce duration from 1s to 10s @etraut-openai",
+      "translation": "#11494 파일 감시기 디바운스 지속 시간을 1초에서 10초로 증가 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11335 Add AfterToolUse hook @gt-oai",
+      "translation": "#11335 AfterToolUse 훅 추가 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11500 feat: build windows support binaries in parallel @bolinfest",
+      "translation": "#11500 기능: Windows 지원 바이너리를 병렬로 빌드 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11290 chore(tui) Simplify /status Permissions @dylan-hurd-oai",
+      "translation": "#11290 작업(tui) /status 권한 간소화 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11503 Make codex-sdk depend on openai/codex @pakrym-oai",
+      "translation": "#11503 codex-sdk가 openai/codex에 의존하도록 설정 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11474 app-server: thread resume subscriptions @maxj-oai",
+      "translation": "#11474 앱 서버: 스레드 구독 재개 @maxj-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11277 Added seatbelt policy rule to allow os.cpus @etraut-openai",
+      "translation": "#11277 os.cpus를 허용하는 안전벨트 정책 규칙 추가 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11506 chore: inject originator/residency headers to ws client @apanasenko-oai",
+      "translation": "#11506 작업: ws 클라이언트에 원본/거주지 헤더 주입 @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11497 Hydrate previous model across resume/fork/rollback/task start @aibrahim-oai",
+      "translation": "#11497 이전 모델을 재개/포크/롤백/작업 시작 시 적용 @aibrahim-oai"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#11513 feat: try to fix bugs I saw in the wild in the resource parsing logic @bolinfest",
+      "translation": "#11513 기능: 리소스 구문 분석 로직에서 발견한 버그 수정 시도 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11509 Consolidate search_tool feature into apps @apanasenko-oai",
+      "translation": "#11509 검색 도구 기능을 앱으로 통합 @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11388 change model cap to server overload @willwang-openai",
+      "translation": "#11388 모델 제한을 서버 과부하로 변경 @willwang-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11504 Pre-sampling compact with previous model context @aibrahim-oai",
+      "translation": "#11504 이전 모델 컨텍스트와 함께 사전 샘플링 압축 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11516 Clamp auto-compact limit to context window @aibrahim-oai",
+      "translation": "#11516 자동 압축 한도를 컨텍스트 윈도우로 제한 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11520 Update context window after model switch @aibrahim-oai",
+      "translation": "#11520 모델 전환 후 컨텍스트 윈도우 업데이트 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11519 Use slug in tui @pakrym-oai",
+      "translation": "#11519 tui에서 슬러그 사용 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11522 fix: add --test_verbose_timeout_warnings to bazel.yml @bolinfest",
+      "translation": "#11522 수정: `--test_verbose_timeout_warnings`를 bazel.yml에 추가 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11526 fix: remove errant Cargo.lock files @bolinfest",
+      "translation": "#11526 수정: 잘못된 Cargo.lock 파일 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11521 test(app-server): stabilize app/list thread feature-flag test by using file-backed MCP OAuth creds @bolinfest",
+      "translation": "#11521 테스트(app-server): 파일 기반 MCP OAuth 자격 증명을 사용하여 앱/목록 스레드 기능 플래그 테스트 안정화 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11387 feat: make sandbox read access configurable with `ReadOnlyAccess` @bolinfest",
+      "translation": "#11387 기능: `ReadOnlyAccess`로 샌드박스 읽기 접근 설정 가능하게 하기 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11486 [apps] Allow Apps SDK apps. @mzeng-openai",
+      "translation": "#11486 [앱] Apps SDK 앱 허용 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11532 fix compilation @sayan-oai",
+      "translation": "#11532 컴파일 수정 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11531 Teach codex to test itself @pakrym-oai",
+      "translation": "#11531 Codex가 스스로 테스트하도록 교육 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11540 ci: remove actions/cache from rust release workflows @bolinfest",
+      "translation": "#11540 ci: Rust 릴리스 워크플로에서 actions/cache 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11542 ci(windows): use DotSlash for zstd in rust-release-windows @bolinfest",
+      "translation": "#11542 ci(윈도우): rust-release-windows에서 zstd에 DotSlash 사용 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11498 build(linux-sandbox): always compile vendored bubblewrap on Linux; remove CODEX_BWRAP_ENABLE_FFI @viyatb-oai",
+      "translation": "#11498 빌드(linux-sandbox): Linux에서 항상 벤더된 bubblewrap 컴파일; CODEX_BWRAP_ENABLE_FFI 제거 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11545 fix: make project_doc skill-render tests deterministic @bolinfest",
+      "translation": "#11545 수정: project_doc 스킬 렌더 테스트를 결정론적으로 만들기 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11543 ci: capture cargo timings in Rust CI and release workflows @bolinfest",
+      "translation": "#11543 ci: Rust CI 및 릴리스 워크플로에서 cargo 타이밍 캡처 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11539 Bump rmcp to 0.15 @gpeal",
+      "translation": "#11539 rmcp를 0.15로 업그레이드 @gpeal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11548 Hide the first websocket retry @pakrym-oai",
+      "translation": "#11548 첫 번째 웹소켓 재시도를 숨김 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11551 Add logs to model cache @aibrahim-oai",
+      "translation": "#11551 모델 캐시에 로그 추가 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11556 Fix rust-release failures in musl linking and release asset upload @bolinfest",
+      "translation": "#11556 musl 링크 및 릴리스 자산 업로드에서 rust-release 오류 수정 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11558 Handle response.incomplete @pakrym-oai",
+      "translation": "#11558 response.incomplete 처리 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11557 fix: stop inheriting rate-limit limit_name @xl-openai",
+      "translation": "#11557 수정: rate-limit limit_name 상속 중지 @xl-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11564 rust-release: exclude cargo-timing.html from release assets @bolinfest",
+      "translation": "#11564 rust-release: 릴리스 자산에서 cargo-timing.html 제외 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11546 fix: update memory writing prompt @zuxin-oai",
+      "translation": "#11546 수정: 메모리 쓰기 프롬프트 업데이트 @zuxin-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11448 Fix test flake @gt-oai",
+      "translation": "#11448 테스트 불안정성 수정 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11569 feat: mem slash commands @jif-oai",
+      "translation": "#11569 기능: mem 슬래시 명령어 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11573 Fix flaky pre_sampling_compact switch test @jif-oai",
+      "translation": "#11573 불안정한 pre_sampling_compact 스위치 테스트 수정 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11571 feat: mem drop cot @jif-oai",
+      "translation": "#11571 기능: mem drop cot @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11572 Ensure list_threads drops stale rollout files @jif-oai",
+      "translation": "#11572 list_threads가 오래된 롤아웃 파일을 삭제하도록 보장 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11575 fix: db stuff mem @jif-oai",
+      "translation": "#11575 수정: db 관련 mem @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11581 nit: upgrade DB version @jif-oai",
+      "translation": "#11581 사소한 수정: DB 버전 업그레이드 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11577 feat: truncate with model infos @jif-oai",
+      "translation": "#11577 기능: 모델 정보로 잘라내기 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11590 chore: clean consts @jif-oai",
+      "translation": "#11590 작업: 상수 정리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11593 feat: metrics to memories @jif-oai",
+      "translation": "#11593 기능: 메모리로의 메트릭 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11579 Fix config test on macOS @gt-oai",
+      "translation": "#11579 macOS에서 구성 테스트 수정 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11600 feat: add sanitizer to redact secrets @jif-oai",
+      "translation": "#11600 기능: 비밀을 가리기 위한 sanitizer 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11609 chore: drop mcp validation of dynamic tools @jif-oai",
+      "translation": "#11609 잡일: 동적 도구의 mcp 검증 제거 @jif-oai"
+    }
+  ],
+  "translatedAt": "2026-02-12T19:31:48.066Z",
+  "translationEngine": "openai",
+  "translationCharCount": 7149
+}
