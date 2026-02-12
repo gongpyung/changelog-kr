@@ -1,0 +1,1259 @@
+{
+  "version": "0.99.0",
+  "date": "2026-02-11",
+  "parsedAt": "2026-02-12T03:23:35.210Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Running direct shell commands no longer interrupts an in-flight turn; commands can execute concurrently when a turn is active. (#10513)",
+      "translation": "직접 셸 명령어 실행이 더 이상 진행 중인 턴을 중단시키지 않으며, 턴이 활성화된 상태에서도 명령어가 동시에 실행될 수 있습니다. (#10513)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/statusline` to configure which metadata appears in the TUI footer interactively. (#10546)",
+      "translation": "TUI 하단에 표시되는 메타데이터를 구성하기 위해 `/statusline`이 추가되었습니다. (#10546)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The TUI resume picker can now toggle sort order between creation time and last-updated time with an in-picker mode indicator. (#10752)",
+      "translation": "TUI 재개 선택기에서 생성 시간과 마지막 업데이트 시간을 기준으로 정렬 순서를 전환할 수 있으며, 선택기 모드 표시기가 추가되었습니다. (#10752)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "App-server clients now get dedicated APIs for steering active turns, listing experimental features, resuming agents, and opting out of specific notifications. (#10721, #10821, #10903, #11319)",
+      "translation": "앱 서버 클라이언트는 이제 활성 턴 조정, 실험적 기능 목록, 에이전트 재개, 특정 알림 선택 해제를 위한 전용 API를 사용할 수 있습니다. (#10721, #10821, #10903, #11319)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Enterprise/admin requirements can now restrict web search modes and define network constraints through `requirements.toml`. (#10964, #10958)",
+      "translation": "엔터프라이즈/관리자 요구 사항은 이제 `requirements.toml`을 통해 웹 검색 모드를 제한하고 네트워크 제약 조건을 정의할 수 있습니다. (#10964, #10958)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Image attachments now accept GIF and WebP inputs in addition to existing formats. (#11237)",
+      "translation": "이미지 첨부 파일은 기존 형식 외에도 GIF 및 WebP 입력을 허용합니다. (#11237)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Enable snapshotting of the shell environment and `rc` files (#11172)",
+      "translation": "셸 환경과 `rc` 파일의 스냅샷 기능을 활성화합니다. (#11172)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Windows startup issue where buffered keypresses could cause the TUI sign-in flow to exit immediately. (#10729)",
+      "translation": "Windows 시작 시 버퍼된 키 입력으로 인해 TUI 로그인 흐름이 즉시 종료되는 문제를 수정했습니다. (#10729)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Required MCP servers now fail fast during start/resume flows instead of continuing in a broken state. (#10902)",
+      "translation": "필수 MCP 서버는 이제 시작/재개 흐름에서 비정상 상태로 계속 진행되는 대신 빠르게 실패합니다. (#10902)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a file-watcher bug that emitted spurious skills reload events and could generate very large log files. (#11217)",
+      "translation": "불필요한 스킬 재로드 이벤트를 발생시키고 매우 큰 로그 파일을 생성할 수 있는 파일 감시자 버그를 수정했습니다. (#11217)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved TUI input reliability: long option labels wrap correctly, Tab submits in steer mode when idle, history recall keeps cursor placement consistent, and stashed drafts restore image placeholders correctly. (#11123, #10035, #11295, #9040)",
+      "translation": "TUI 입력 신뢰성을 개선했습니다: 긴 옵션 레이블이 올바르게 줄 바꿈되고, 유휴 상태에서 조정 모드로 Tab이 제출되며, 히스토리 호출 시 커서 위치가 일관되게 유지되고, 저장된 초안이 이미지 플레이스홀더를 올바르게 복원합니다. (#11123, #10035, #11295, #9040)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model-modality edge cases by surfacing clearer `view_image` errors on text-only models and stripping unsupported image history during model switches. (#11336, #11349)",
+      "translation": "모델 모달리티의 경계 사례를 수정하여 텍스트 전용 모델에서 더 명확한 `view_image` 오류를 표시하고 모델 전환 시 지원되지 않는 이미지 히스토리를 제거했습니다. (#11336, #11349)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced false approval mismatches for wrapped/heredoc shell commands and guarded against empty command lists in exec policy evaluation. (#10941, #11397)",
+      "translation": "래핑된/heredoc 셸 명령어에 대한 잘못된 승인 불일치를 줄이고 실행 정책 평가에서 빈 명령어 목록을 방지했습니다. (#10941, #11397)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Expanded app-server docs and protocol references for `turn/steer`, experimental-feature discovery, `resume_agent`, notification opt-outs, and null `developer_instructions` normalization. (#10721, #10821, #10903, #10983, #11319)",
+      "translation": "앱 서버 문서와 프로토콜 참조를 `turn/steer`, 실험적 기능 발견, `resume_agent`, 알림 선택 해제, null `developer_instructions` 정규화에 대해 확장했습니다. (#10721, #10821, #10903, #10983, #11319)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated TUI composer docs to reflect draft/image restoration, steer-mode Tab submit behavior, and history-navigation cursor semantics. (#9040, #10035, #11295)",
+      "translation": "TUI 작곡가 문서를 업데이트하여 초안/이미지 복원, 조정 모드 Tab 제출 동작, 히스토리 탐색 커서 의미를 반영했습니다. (#9040, #10035, #11295)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reworked npm release packaging so platform-specific binaries are distributed via `@openai/codex` dist-tags, reducing package-size pressure while preserving platform-specific installs (including `@alpha`). (#11318, #11339)",
+      "translation": "npm 릴리스 패키징을 재작업하여 플랫폼별 바이너리가 `@openai/codex` 배포 태그를 통해 배포되도록 하여 패키지 크기 압박을 줄이면서 플랫폼별 설치를 유지합니다 (`@alpha` 포함). (#11318, #11339)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pulled in a security-driven dependency update for `time` (RUSTSEC-2026-0009). (#10876)",
+      "translation": "`time`에 대한 보안 중심의 종속성 업데이트를 가져왔습니다 (RUSTSEC-2026-0009). (#10876)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10729 fix(tui): flush input buffer on init to prevent early exit on Windows @Ashutosh0x",
+      "translation": "#10729 fix(tui): Windows에서 조기 종료를 방지하기 위해 초기화 시 입력 버퍼를 플러시합니다 @Ashutosh0x"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10689 fix: flaky landlock @jif-oai",
+      "translation": "#10689 fix: 불안정한 landlock @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10513 Allow user shell commands to run alongside active turns @jif-oai",
+      "translation": "#10513 활성 턴과 함께 사용자 셸 명령어를 실행할 수 있도록 허용합니다 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10738 nit: backfill stronger @jif-oai",
+      "translation": "#10738 사소한 수정: 더 강력한 백필 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10246 adding fork information (UI) when forking @pap-openai",
+      "translation": "#10246 포크 시 포크 정보(UI) 추가 @pap-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10748 Update explorer role default model @jif-oai",
+      "translation": "#10748 탐색자 역할 기본 모델 업데이트 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10425 Include real OS info in metrics. @iceweasel-oai",
+      "translation": "#10425 메트릭에 실제 OS 정보 포함 @iceweasel-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10745 feat: resumable backfill @jif-oai",
+      "translation": "#10745 기능: 재개 가능한 백필 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10758 feat: wire ephemeral in `codex exec` @jif-oai",
+      "translation": "#10758 기능: `codex exec`에 임시 연결 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10756 chore: handle shutdown correctly in tui @jif-oai",
+      "translation": "#10756 작업: tui에서 종료를 올바르게 처리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10637 feat: add memory tool @jif-oai",
+      "translation": "#10637 기능: 메모리 도구 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10751 feat: repair DB in case of missing lines @jif-oai",
+      "translation": "#10751 기능: 누락된 줄이 있을 경우 DB 복구 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10762 nit: add DB version in discrepancy recording @jif-oai",
+      "translation": "#10762 사소한 수정: 불일치 기록에 DB 버전 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10621 Leverage state DB metadata for thread summaries @jif-oai",
+      "translation": "#10621 스레드 요약을 위한 상태 DB 메타데이터 활용 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#9691 Add hooks implementation and wire up to `notify` @gt-oai",
+      "translation": "#9691 훅 구현 추가 및 `notify`에 연결 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10546 feat(tui): add /statusline command for interactive status line configuration @fcoury",
+      "translation": "#10546 기능(tui): 상호작용 상태 라인 구성을 위한 /statusline 명령 추가 @fcoury"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10752 feat(tui): add sortable resume picker with created/updated timestamp toggle @fcoury",
+      "translation": "#10752 기능(tui): 생성/업데이트 타임스탬프 전환 가능한 정렬 가능한 이력 선택기 추가 @fcoury"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10769 fix(tui): fix resume_picker_orders_by_updated_at test @owenlin0",
+      "translation": "#10769 수정(tui): resume_picker_orders_by_updated_at 테스트 수정 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10423 fix(auth): isolate chatgptAuthTokens concept to auth manager and app-server @owenlin0",
+      "translation": "#10423 수정(auth): chatgptAuthTokens 개념을 인증 관리자 및 앱 서버로 분리 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10775 nit: gpt-5.3-codex announcement @jif-oai",
+      "translation": "#10775 사소한 수정: gpt-5.3-codex 발표 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10782 nit: gpt-5.3-codex announcement 2 @jif-oai",
+      "translation": "#10782 사소한 수정: gpt-5.3-codex 발표 2 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10711 add sandbox policy and sandbox name to codex.tool.call metrics @iceweasel-oai",
+      "translation": "#10711 codex.tool.call 메트릭에 샌드박스 정책 및 샌드박스 이름 추가 @iceweasel-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10660 chore: rm web-search-eligible header @sayan-oai",
+      "translation": "#10660 작업: web-search-eligible 헤더 제거 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10783 fix: announcement in prio @jif-oai",
+      "translation": "#10783 수정: 우선순위 공지 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10721 [app-server] Add a method to list experimental features. @mzeng-openai",
+      "translation": "#10721 [app-server] 실험적 기능 목록을 위한 메서드 추가 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10787 chore: limit update to 0.98.0 NUX to < 0.98.0 ver @sayan-oai",
+      "translation": "#10787 작업: 0.98.0 NUX 업데이트를 < 0.98.0 버전으로 제한 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10655 Add analytics for /rename and /fork @pap-openai",
+      "translation": "#10655 /rename 및 /fork에 대한 분석 추가 @pap-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10790 feat: wait for backfill to be ready @jif-oai",
+      "translation": "#10790 기능: 백필 준비 완료 대기 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10693 Add app-server transport layer with websocket support @maxj-oai",
+      "translation": "#10693 웹소켓 지원을 포함한 app-server 전송 계층 추가 @maxj-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10818 other announcement @jif-oai",
+      "translation": "#10818 기타 공지 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10815 Sync app-server requirements API with refreshed cloud loader @xl-openai",
+      "translation": "#10815 새로 고침된 클라우드 로더와 app-server 요구사항 API 동기화 @xl-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10820 go back to auto-enabling web_search for azure @sayan-oai",
+      "translation": "#10820 azure에 대해 web_search 자동 활성화로 복귀 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10727 Send beta header with websocket connects @pakrym-oai",
+      "translation": "#10727 웹소켓 연결 시 베타 헤더 전송 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10809 updates: use brew api for version check @magus",
+      "translation": "#10809 업데이트: 버전 확인에 brew api 사용 @magus"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10793 Add stage field for experimental flags. @mzeng-openai",
+      "translation": "#10793 실험적 플래그를 위한 단계 필드 추가 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10821 feat(app-server): turn/steer API @owenlin0",
+      "translation": "#10821 기능(app-server): 회전/조향 API @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10792 Print warning when config does not meet requirements @gt-oai",
+      "translation": "#10792 구성 요구사항 미충족 시 경고 출력 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10699 feat: expose detailed metrics to runtime metrics @apanasenko-oai",
+      "translation": "#10699 기능: 런타임 메트릭에 상세 메트릭 노출 @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10784 Gate app tooltips to macOS @aibrahim-oai",
+      "translation": "#10784 macOS에 앱 툴팁 제한 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10843 Log an event (info only) when we receive a file watcher event @etraut-openai",
+      "translation": "#10843 파일 감시자 이벤트 수신 시 이벤트(정보 전용) 기록 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10852 Personality setting is no longer available in experimental menu @etraut-openai",
+      "translation": "#10852 실험적 메뉴에서 성격 설정 더 이상 사용 불가 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10840 Removed the \"remote_compaction\" feature flag @etraut-openai",
+      "translation": "#10840 \"remote_compaction\" 기능 플래그 제거 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10876 sec: fix version of `time` to prevent vulnerability @jif-oai",
+      "translation": "#10876 보안: 취약점 방지를 위한 `time` 버전 수정 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10892 nit: test an @jif-oai",
+      "translation": "#10892 사소한 수정: @jif-oai 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10894 feat: backfill async again @jif-oai",
+      "translation": "#10894 기능 추가: 비동기 다시 채우기 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10902 Handle required MCP startup failures across components @jif-oai",
+      "translation": "#10902 필수 MCP 시작 실패 처리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10851 Removed \"exec_policy\" feature flag @etraut-openai",
+      "translation": "#10851 \"exec_policy\" 기능 플래그 제거 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10457 Queue nudges while plan generating @charley-oai",
+      "translation": "#10457 계획 생성 중 큐 알림 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10822 Add app configs to config.toml @canvrno-oai",
+      "translation": "#10822 config.toml에 앱 구성 추가 @canvrno-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10420 feat(network-proxy): add structured policy decision to blocked errors @viyatb-oai",
+      "translation": "#10420 기능(network-proxy): 차단된 오류에 구조화된 정책 결정 추가 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10814 fix(linux-sandbox): block io_uring syscalls in no-network seccomp policy @viyatb-oai",
+      "translation": "#10814 수정(linux-sandbox): 네트워크 없는 seccomp 정책에서 io_uring 시스템 호출 차단 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10698 core: preconnect Responses websocket for first turn @joshka-oai",
+      "translation": "#10698 핵심: 첫 번째 턴을 위해 Responses 웹소켓 사전 연결 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10574 core: refresh developer instructions after compaction replacement history @charley-oai",
+      "translation": "#10574 핵심: 압축 대체 기록 후 개발자 지침 갱신 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10914 chore(app-server): update AGENTS.md for config + optional collection guidance @owenlin0",
+      "translation": "#10914 작업(app-server): 구성 + 선택적 수집 지침을 위한 AGENTS.md 업데이트 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10928 chore(app-server): add experimental annotation to relevant fields @owenlin0",
+      "translation": "#10928 작업(app-server): 관련 필드에 실험적 주석 추가 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10927 Treat compaction failure as failure state @aibrahim-oai",
+      "translation": "#10927 압축 실패를 실패 상태로 처리 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10861 Support alternative websocket API @by-openai",
+      "translation": "#10861 대체 웹소켓 API 지원 @by-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10826 add originator to otel @alexsong-oai",
+      "translation": "#10826 otel에 발신자 추가 @alexsong-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10855 TUI/Core: preserve duplicate skill/app mention selection across submit + resume @daniel-oai",
+      "translation": "#10855 TUI/핵심: 제출 + 재개 시 중복된 기술/앱 언급 선택 유지 @daniel-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10943 app-server: print help message to console when starting websockets server @JaviSoto",
+      "translation": "#10943 앱 서버: 웹소켓 서버 시작 시 콘솔에 도움말 메시지 출력 @JaviSoto"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10938 Mark Config.apps as experimental, correct schema generation issue @canvrno-oai",
+      "translation": "#10938 Config.apps를 실험적으로 표시하고 스키마 생성 문제 수정 @canvrno-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10947 fix(tui): conditionally restore status indicator using message phase @sayan-oai",
+      "translation": "#10947 수정(tui): 메시지 단계를 사용하여 상태 표시기 조건부 복원 @sayan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10965 refactor(network-proxy): flatten network config under [network] @viyatb-oai",
+      "translation": "#10965 리팩터(network-proxy): [network] 아래의 네트워크 구성 평탄화 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10970 Fixed a flaky test @etraut-openai",
+      "translation": "#10970 불안정한 테스트 수정 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10710 Process-group cleanup for stdio MCP servers to prevent orphan process storms @etraut-openai",
+      "translation": "#10710 고아 프로세스 폭풍을 방지하기 위한 stdio MCP 서버의 프로세스 그룹 정리 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10964 feat: add support for allowed_web_search_modes in requirements.toml @bolinfest",
+      "translation": "#10964 기능: requirements.toml에 allowed_web_search_modes 지원 추가 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10977 fix: use expected line ending in codex-rs/core/config.schema.json @bolinfest",
+      "translation": "#10977 수정: codex-rs/core/config.schema.json에서 예상되는 줄 끝 사용 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10973 Do not poll for usage when using API Key auth @etraut-openai",
+      "translation": "#10973 API 키 인증 사용 시 사용량을 폴링하지 않음 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10921 Show left/right arrows to navigate in tui request_user_input @charley-oai",
+      "translation": "#10921 tui request_user_input에서 탐색을 위한 좌/우 화살표 표시 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10988 fix: normalize line endings when reading file on Windows @bolinfest",
+      "translation": "#10988 수정: Windows에서 파일을 읽을 때 줄 끝을 정규화 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10903 Add resume_agent collab tool @jif-oai",
+      "translation": "#10903 resume_agent 협업 도구 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10909 Bootstrap shell commands via user shell snapshot @jif-oai",
+      "translation": "#10909 사용자 셸 스냅샷을 통해 셸 명령 부트스트랩 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10993 Fix flaky windows CI test @etraut-openai",
+      "translation": "#10993 불안정한 Windows CI 테스트 수정 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10987 Fixed a flaky Windows test that is consistently causing a CI failure @etraut-openai",
+      "translation": "#10987 CI 실패를 일으키는 불안정한 Windows 테스트 수정 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10958 feat(core): add network constraints schema to requirements.toml @viyatb-oai",
+      "translation": "#10958 기능(core): requirements.toml에 네트워크 제약 조건 스키마 추가 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10983 app-server: treat null mode developer instructions as built-in defaults @charley-oai",
+      "translation": "#10983 app-server: null 모드 개발자 지침을 내장 기본값으로 처리 @charley-oai"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#11039 feat: include state of [experimental_network] in /debug-config output @bolinfest",
+      "translation": "#11039 기능: /debug-config 출력에 [experimental_network] 상태 포함 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11040 Simplify pre-connect @pakrym-oai",
+      "translation": "#11040 사전 연결 단순화 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10966 feat: enable premessage-deflate for websockets @apanasenko-oai",
+      "translation": "#10966 기능: 웹소켓에 premessage-deflate 활성화 @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#9040 fix(tui): rehydrate drafts and restore image placeholders @Chriss4123",
+      "translation": "#9040 수정(tui): 초안 재활성화 및 이미지 자리 표시자 복원 @Chriss4123"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10824 Fallback to HTTP on UPGRADE_REQUIRED @pakrym-oai",
+      "translation": "#10824 UPGRADE_REQUIRED 시 HTTP로 대체 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11028 Defer persistence of rollout file @etraut-openai",
+      "translation": "#11028 롤아웃 파일의 지속성 연기 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10980 fix: remove config.schema.json from tag check @bolinfest",
+      "translation": "#10980 수정: 태그 검사에서 config.schema.json 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11051 Gate view_image tool by model input_modalities @wiltzius-openai",
+      "translation": "#11051 모델 입력 양식에 따라 view_image 도구 게이트 @wiltzius-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11109 [bazel] Upgrade some rulesets in preparation for enabling windows @zbarsky-openai",
+      "translation": "#11109 [bazel] Windows 활성화를 위한 일부 규칙 세트 업그레이드 준비 @zbarsky-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11114 chore: refactor network-proxy so that ConfigReloader is injectable behavior @bolinfest",
+      "translation": "#11114 작업: ConfigReloader가 주입 가능한 동작이 되도록 network-proxy 리팩터링 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10718 Upgrade rmcp to 0.14 @mzeng-openai",
+      "translation": "#10718 rmcp를 0.14로 업그레이드 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11044 feat: include [experimental_network] in <environment_context> @bolinfest",
+      "translation": "#11044 기능: <environment_context>에 [experimental_network] 포함 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10994 [apps] Improve app loading. @mzeng-openai",
+      "translation": "#10994 [apps] 앱 로딩 개선 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11121 chore: reverse the codex-network-proxy -> codex-core dependency @bolinfest",
+      "translation": "#11121 작업: codex-network-proxy -> codex-core 종속성 역전 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11105 feat: include NetworkConfig through ExecParams @bolinfest",
+      "translation": "#11105 기능: ExecParams를 통해 NetworkConfig 포함 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11155 tui: avoid no-op status-line redraws @rakan-oai",
+      "translation": "#11155 tui: 무의미한 상태 라인 다시 그리기 방지 @rakan-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10799 feat: do not close unified exec processes across turns @jif-oai",
+      "translation": "#10799 기능: 회차 간 통합 실행 프로세스 닫지 않음 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11172 chore: enable shell snapshot @jif-oai",
+      "translation": "#11172 작업: 셸 스냅샷 활성화 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11175 fix: do not show closed agents in `/agent` @jif-oai",
+      "translation": "#11175 수정: `/agent`에서 닫힌 에이전트 표시하지 않음 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11173 chore: enable sub agents @jif-oai",
+      "translation": "#11173 작업: 하위 에이전트 활성화 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11193 Deflake mixed parallel tools timing test @gt-oai",
+      "translation": "#11193 혼합 병렬 도구 타이밍 테스트 안정화 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10770 Load requirements on windows @gt-oai",
+      "translation": "#10770 Windows에서 요구 사항 로드 @gt-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11132 core: account for all post-response items in auto-compact token checks @charley-oai",
+      "translation": "#11132 핵심: 자동 압축 토큰 검사에서 모든 응답 후 항목 고려 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11198 tools: remove get_memory tool and tests @jif-oai",
+      "translation": "#11198 도구: get_memory 도구 및 테스트 제거 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10937 Translate websocket errors @rasmusrygaard",
+      "translation": "#10937 웹소켓 오류 번역 @rasmusrygaard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#11217 Fixed bug in file watcher that results in spurious skills update events and large log files @etraut-openai",
+      "translation": "#11217 파일 감시기에서 불필요한 기술 업데이트 이벤트와 큰 로그 파일을 초래하는 버그 수정 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11216 Move warmup to the task level @pakrym-oai",
+      "translation": "#11216 작업 수준으로 워밍업 이동 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11203 Try to stop small helper methods @pakrym-oai",
+      "translation": "#11203 작은 헬퍼 메서드를 중지하려고 시도 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11197 [bazel] Upgrade some rulesets in preparation for enabling windows, part 2 @zbarsky-openai",
+      "translation": "#11197 [bazel] Windows 활성화를 위한 일부 규칙 세트 업그레이드, 2부 @zbarsky-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11158 chore: remove network-proxy-cli crate @viyatb-oai",
+      "translation": "#11158 작업: network-proxy-cli 크레이트 제거 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11230 Revert \"chore: enable sub agents\" @jif-oai",
+      "translation": "#11230 되돌리기 \"작업: 하위 에이전트 활성화\" @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11123 TUI: fix request_user_input wrapping for long option labels @charley-oai",
+      "translation": "#11123 TUI: 긴 옵션 레이블에 대한 request_user_input 래핑 수정 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11133 core: add focused diagnostics for remote compaction overflows @charley-oai",
+      "translation": "#11133 코어: 원격 압축 오버플로에 대한 집중 진단 추가 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10657 feat: search_tool @apanasenko-oai",
+      "translation": "#10657 기능: search_tool @apanasenko-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11199 state: add memory consolidation lock primitives @jif-oai",
+      "translation": "#11199 상태: 메모리 통합 잠금 원시 자료 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10835 feat: extend skills/list to support additional roots. @xl-openai",
+      "translation": "#10835 기능: 추가 루트를 지원하도록 skills/list 확장 @xl-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10960 skill-creator: Remove invalid reference. @xl-openai",
+      "translation": "#10960 skill-creator: 잘못된 참조 제거 @xl-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11219 feat: use a notify instead of grace to close ue process @jif-oai",
+      "translation": "#11219 기능: ue 프로세스를 닫기 위해 grace 대신 notify 사용 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11231 feat: tie shell snapshot to cwd @jif-oai",
+      "translation": "#11231 기능: 현재 작업 디렉토리에 셸 스냅샷 연결 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10962 fix(tui): keep unified exec summary on working line @joshka-oai",
+      "translation": "#10962 수정(tui): 작업 중인 줄에 통합 실행 요약 유지 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11232 Add originator to otel metadata tags @alexsong-oai",
+      "translation": "#11232 otel 메타데이터 태그에 발신자 추가 @alexsong-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11237 adding image support for gif and webp @natea-oai",
+      "translation": "#11237 gif 및 webp에 대한 이미지 지원 추가 @natea-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10924 [apps] Add gated instructions for Apps. @mzeng-openai",
+      "translation": "#10924 [앱] 앱에 대한 게이트된 지침 추가 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11228 Use longest remote model prefix matching @aibrahim-oai",
+      "translation": "#11228 가장 긴 원격 모델 접두사 매칭 사용 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11242 fix(feature) UnderDevelopment feature must be off @dylan-hurd-oai",
+      "translation": "#11242 수정(기능) UnderDevelopment 기능은 꺼져 있어야 함 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11185 fix: nix build by adding missing dependencies and fix outputHashes @Philipp-M",
+      "translation": "#11185 수정: 누락된 종속성을 추가하고 outputHashes 수정하여 nix 빌드 @Philipp-M"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10035 fix(tui): tab submits when no task running in steer mode @joshka-oai",
+      "translation": "#10035 수정(tui): 스티어 모드에서 작업이 실행되지 않을 때 탭 제출 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11238 Remove offline fallback for models @aibrahim-oai",
+      "translation": "#11238 모델에 대한 오프라인 대체 제거 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#9739 Update models.json @github-actions",
+      "translation": "#9739 models.json 업데이트 @github-actions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11255 Revert \"Update models.json\" @aibrahim-oai",
+      "translation": "#11255 \"models.json 업데이트\" 되돌리기 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11245 deflake linux-sandbox NoNewPrivs timeout @joshka-oai",
+      "translation": "#11245 linux-sandbox NoNewPrivs 시간 초과 문제 해결 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11256 Revert \"Revert \"Update models.json\"\" @aibrahim-oai",
+      "translation": "#11256 \"models.json 업데이트 되돌리기\" 되돌리기 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11262 chore: change ConfigState so it no longer depends on a single config.toml file for reloading @bolinfest",
+      "translation": "#11262 작업: ConfigState를 변경하여 더 이상 단일 config.toml 파일에 의존하지 않도록 수정 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11263 test: deflake nextest child-process leak in MCP harnesses @joshka-oai",
+      "translation": "#11263 테스트: MCP 하네스에서 nextest 자식 프로세스 누출 문제 해결 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11247 Adjust shell command timeouts for Windows @dylan-hurd-oai",
+      "translation": "#11247 Windows용 셸 명령어 시간 초과 조정 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11240 fix(app-server): for external auth, replace id_token with chatgpt_acc… @owenlin0",
+      "translation": "#11240 수정(app-server): 외부 인증을 위해 id_token을 chatgpt_acc로 대체 @owenlin0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11140 chore(deps): bump insta from 1.46.2 to 1.46.3 in /codex-rs @dependabot",
+      "translation": "#11140 작업(종속성): /codex-rs에서 insta를 1.46.2에서 1.46.3으로 업데이트 @dependabot"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11139 chore(deps): bump anyhow from 1.0.100 to 1.0.101 in /codex-rs @dependabot",
+      "translation": "#11139 작업(종속성): /codex-rs에서 anyhow를 1.0.100에서 1.0.101로 업데이트 @dependabot"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11138 chore(deps): bump regex from 1.12.2 to 1.12.3 in /codex-rs @dependabot",
+      "translation": "#11138 작업(종속성): /codex-rs에서 regex를 1.12.2에서 1.12.3으로 업데이트 @dependabot"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11239 Disable dynamic model refresh for custom model providers @etraut-openai",
+      "translation": "#11239 사용자 지정 모델 제공자에 대한 동적 모델 새로 고침 비활성화 @etraut-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11269 feat: reserve loopback ephemeral listeners for managed proxy @bolinfest",
+      "translation": "#11269 기능: 관리형 프록시를 위한 루프백 임시 리스너 예약 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11279 [apps] Add thread_id param to optionally load thread config for apps feature check. @mzeng-openai",
+      "translation": "#11279 [앱] 앱 기능 확인을 위해 스레드 구성을 선택적으로 로드할 수 있는 thread_id 매개변수 추가 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11244 feat: add SkillPolicy to skill metadata and support allow_implicit_invocation @alexsong-oai",
+      "translation": "#11244 기능: 스킬 메타데이터에 SkillPolicy 추가 및 암시적 호출 허용 지원 @alexsong-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10215 chore(tui) cleanup /approvals @dylan-hurd-oai",
+      "translation": "#10215 작업(tui) /approvals 정리 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11113 feat(sandbox): enforce proxy-aware network routing in sandbox @viyatb-oai",
+      "translation": "#11113 기능(샌드박스): 샌드박스에서 프록시 인식 네트워크 라우팅 적용 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10940 feat: support configurable metric_exporter @alexsong-oai",
+      "translation": "#10940 기능: 구성 가능한 metric_exporter 지원 @alexsong-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11294 chore: put crypto provider logic in a shared crate @bolinfest",
+      "translation": "#11294 작업: 암호화 제공자 로직을 공유 크레이트에 배치 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11207 feat: retain NetworkProxy, when appropriate @bolinfest",
+      "translation": "#11207 기능 추가: 적절할 때 NetworkProxy 유지 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11200 memories: add extraction and prompt module foundation @jif-oai",
+      "translation": "#11200 메모리: 추출 및 프롬프트 모듈 기반 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11191 feat: add connector capabilities to sub-agents @jif-oai",
+      "translation": "#11191 기능 추가: 하위 에이전트에 커넥터 기능 추가 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11304 Fix spawn_agent input type @jif-oai",
+      "translation": "#11304 spawn_agent 입력 유형 수정 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11300 feat: align memory phase 1 and make it stronger @jif-oai",
+      "translation": "#11300 기능 추가: 메모리 1단계 정렬 및 강화 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11311 Extract hooks into dedicated crate @jif-oai",
+      "translation": "#11311 전용 크레이트로 훅 추출 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11306 feat: phase 2 consolidation @jif-oai",
+      "translation": "#11306 기능 추가: 2단계 통합 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11318 chore: split NPM packages @jif-oai",
+      "translation": "#11318 작업: NPM 패키지 분리 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11322 Fix pending input test waiting logic @jif-oai",
+      "translation": "#11322 대기 중인 입력 테스트 대기 로직 수정 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11265 Remove ApiPrompt @pakrym-oai",
+      "translation": "#11265 ApiPrompt 제거 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11295 tui: keep history recall cursor at line end @joshka-oai",
+      "translation": "#11295 tui: 히스토리 리콜 커서를 줄 끝에 유지 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11288 fix(protocol): approval policy never prompt @fouad-openai",
+      "translation": "#11288 수정(프로토콜): 승인 정책이 프롬프트를 표시하지 않음 @fouad-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11323 Revert \"Add app-server transport layer with websocket support (#10693)\" @maxj-oai",
+      "translation": "#11323 \"웹소켓 지원을 포함한 앱 서버 전송 계층 추가 (#10693)\" 되돌리기 @maxj-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11162 Fix: update parallel tool call exec approval to approve on request id @shijie-oai",
+      "translation": "#11162 수정: 요청 ID에 따라 병렬 도구 호출 실행 승인을 업데이트 @shijie-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11249 [apps] Improve app installation flow. @mzeng-openai",
+      "translation": "#11249 [앱] 앱 설치 흐름 개선 @mzeng-openai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11319 feat: opt-out of events in the app-server @jif-oai",
+      "translation": "#11319 기능 추가: 앱 서버에서 이벤트 옵트아웃 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11241 Treat first rollout session_meta as canonical thread identity @guinness-oai",
+      "translation": "#11241 첫 롤아웃 session_meta를 표준 스레드 ID로 처리 @guinness-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11339 # Use `@openai/codex` dist-tags for platform binaries instead of separate package names @bolinfest",
+      "translation": "#11339 플랫폼 바이너리에 대해 별도의 패키지 이름 대신 `@openai/codex` dist-tags 사용 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11330 test(core): stabilize ARM bazel remote-model and parallelism tests @dylan-hurd-oai",
+      "translation": "#11330 테스트(코어): ARM bazel 원격 모델 및 병렬 테스트 안정화 @dylan-hurd-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11345 core: remove stale apply_patch SandboxPolicy TODO in seatbelt @bolinfest",
+      "translation": "#11345 코어: seatbelt에서 오래된 apply_patch SandboxPolicy TODO 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11343 Compare full request for websockets incrementality @pakrym-oai",
+      "translation": "#11343 웹소켓 증분성을 위한 전체 요청 비교 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11344 fix: reduce usage of `open_if_present`  @jif-oai",
+      "translation": "#11344 수정: `open_if_present` 사용 줄이기 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11336 Always expose view_image and return unsupported image-input error @aibrahim-oai",
+      "translation": "#11336 항상 view_image 노출 및 지원되지 않는 이미지 입력 오류 반환 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11346 Sanitize MCP image output for text-only models @aibrahim-oai",
+      "translation": "#11346 텍스트 전용 모델을 위한 MCP 이미지 출력 정리 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11337 Extract tool building @pakrym-oai",
+      "translation": "#11337 도구 빌딩 추출 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10941 fix(core): canonicalize wrapper approvals and support heredoc prefix … @viyatb-oai",
+      "translation": "#10941 수정(core): 래퍼 승인 표준화 및 heredoc 접두사 지원 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10946 include sandbox (seatbelt, elevated, etc.) as in turn metadata header @iceweasel-oai",
+      "translation": "#10946 메타데이터 헤더에 샌드박스(시트벨트, 상승 등) 포함 @iceweasel-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11349 Strip unsupported images from prompt history to guard against model switch @aibrahim-oai",
+      "translation": "#11349 모델 전환을 방지하기 위해 프롬프트 기록에서 지원되지 않는 이미지 제거 @aibrahim-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11348 Use thin LTO for alpha Rust release builds @bolinfest",
+      "translation": "#11348 알파 Rust 릴리스 빌드를 위한 얇은 LTO 사용 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11334 chore: unify memory job flow @jif-oai",
+      "translation": "#11334 작업: 메모리 작업 흐름 통합 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11364 feat: mem v2 - PR1 @jif-oai",
+      "translation": "#11364 기능: mem v2 - PR1 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11365 feat: mem v2 - PR2 @jif-oai",
+      "translation": "#11365 기능: mem v2 - PR2 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11366 feat: mem v2 - PR3 @jif-oai",
+      "translation": "#11366 기능: mem v2 - PR3 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11274 Update models.json @github-actions",
+      "translation": "#11274 models.json 업데이트 @github-actions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11361 # Split command parsing/safety out of `codex-core` into new `codex-command` @bolinfest",
+      "translation": "#11361 `codex-core`에서 명령어 구문 분석/안전성을 새로운 `codex-command`로 분리 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11369 feat: mem v2 - PR4 @jif-oai",
+      "translation": "#11369 기능: mem v2 - PR4 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11362 Enable SOCKS defaults for common local network proxy use cases @viyatb-oai",
+      "translation": "#11362 일반적인 로컬 네트워크 프록시 사용 사례를 위한 SOCKS 기본값 활성화 @viyatb-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11359 ci: fall back to local Bazel on forks without BuildBuddy key @joshka-oai",
+      "translation": "#11359 ci: BuildBuddy 키가 없는 포크에서 로컬 Bazel로 대체 @joshka-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11372 feat: mem v2 - PR5 @jif-oai",
+      "translation": "#11372 기능: mem v2 - PR5 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11374 feat: mem v2 - PR6 (consolidation) @jif-oai",
+      "translation": "#11374 기능: mem v2 - PR6 (통합) @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11377 feat: prevent double backfill @jif-oai",
+      "translation": "#11377 기능 추가: 중복 백필 방지 @jif-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11378 chore: rename codex-command to codex-shell-command @bolinfest",
+      "translation": "#11378 작업: codex-command를 codex-shell-command로 이름 변경 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11376 Update models.json @github-actions",
+      "translation": "#11376 models.json 업데이트 @github-actions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11394 Disable very flaky tests @pakrym-oai",
+      "translation": "#11394 매우 불안정한 테스트 비활성화 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11386 Prefer websocket transport when model opts in @pakrym-oai",
+      "translation": "#11386 모델이 선택한 경우 웹소켓 전송을 선호 @pakrym-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11373 tui: queue non-pending rollback trims in app-event order @charley-oai",
+      "translation": "#11373 tui: 앱 이벤트 순서에 따라 대기 중이지 않은 롤백 트림 대기열에 추가 @charley-oai"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11393 Remove `deterministic_process_ids` feature to avoid duplicate `codex-core` builds @bolinfest",
+      "translation": "#11393 중복 `codex-core` 빌드를 방지하기 위해 `deterministic_process_ids` 기능 제거 @bolinfest"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11397 fix(exec-policy) No empty command lists @dylan-hurd-oai",
+      "translation": "#11397 수정(exec-policy) 빈 명령어 목록 없음 @dylan-hurd-oai"
+    }
+  ],
+  "translatedAt": "2026-02-12T03:25:04.426Z",
+  "translationEngine": "openai",
+  "translationCharCount": 14928
+}
