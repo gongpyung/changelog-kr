@@ -1,0 +1,71 @@
+{
+  "version": "4.2.3",
+  "date": "2026-02-12",
+  "parsedAt": "2026-02-12T07:18:53.769Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Worktree state written in subdirectories** (#576): `.omc/state/` was created in agent CWD subdirectories instead of the git worktree root. New `resolveToWorktreeRoot()` ensures all state paths resolve to the repo root.",
+      "translation": "**하위 디렉토리에 기록된 작업 트리 상태** (#576): `.omc/state/`가 git 작업 트리 루트 대신 에이전트 CWD 하위 디렉토리에 생성되었습니다. 새로운 `resolveToWorktreeRoot()`는 모든 상태 경로가 저장소 루트로 해결되도록 보장합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Session duration overreported** (#573): `getSessionStartTime()` now filters state files by `session_id`, skipping stale leftovers from previous sessions.",
+      "translation": "**세션 지속 시간 과다 보고** (#573): `getSessionStartTime()`이 이제 `session_id`로 상태 파일을 필터링하여 이전 세션의 오래된 잔여물을 건너뜁니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Codex 429 rate limit crashes** (#570): Added exponential backoff with jitter for rate limit errors. Configurable via env vars.",
+      "translation": "**Codex 429 속도 제한 충돌** (#570): 속도 제한 오류에 대한 지수 백오프와 지터를 추가했습니다. 환경 변수로 구성 가능합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Daemon crash on ESM require()** (#564): Replaced `require()` with dynamic `import()` in daemon spawn script.",
+      "translation": "**ESM require()에서 데몬 충돌** (#564): 데몬 스폰 스크립트에서 `require()`를 동적 `import()`로 대체했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**LSP spawn fails on Windows** (#569): Added `shell: true` for win32 so npm-installed `.cmd` binaries work correctly.",
+      "translation": "**Windows에서 LSP 스폰 실패** (#569): win32에서 npm으로 설치된 `.cmd` 바이너리가 올바르게 작동하도록 `shell: true`를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Post-tool verifier false positives** (#579): Broadened failure detection patterns to prevent false negatives.",
+      "translation": "**도구 후속 검증기 오탐지** (#579): 오탐지를 방지하기 위해 실패 감지 패턴을 확장했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Team bridge ready detection** (#572): Workers now emit a `ready` outbox message after first successful poll cycle.",
+      "translation": "**팀 브리지 준비 상태 감지** (#572): 작업자들이 첫 번째 성공적인 폴 사이클 후 `ready` 아웃박스 메시지를 전송합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Keyword detector dual-emission**: `ultrapilot` and `swarm` keywords now emit both their original type and `team`.",
+      "translation": "**키워드 감지기 이중 방출**: `ultrapilot` 및 `swarm` 키워드가 이제 원래 유형과 `team` 모두를 방출합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Keyword sanitizer improvements**: More precise file path stripping and XML tag matching.",
+      "translation": "**키워드 정화기 개선**: 파일 경로 제거 및 XML 태그 매칭을 더 정밀하게 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Skills count**: 32 to 34 built-in skills (`configure-discord`, `configure-telegram`).",
+      "translation": "**기술 수**: 내장 기술이 32개에서 34개로 증가했습니다 (`configure-discord`, `configure-telegram`)."
+    }
+  ],
+  "translatedAt": "2026-02-12T07:18:59.233Z",
+  "translationEngine": "openai",
+  "translationCharCount": 1249
+}
