@@ -38,7 +38,9 @@ export function normalizeTagToVersion(tagName) {
  * @returns {string} 엔트리 카테고리 (added, fixed, improved, changed, removed, other)
  */
 function inferCategory(text) {
-  const lower = text.toLowerCase();
+  // 커밋 해시 접두사 제거 (예: "a2bfb5e feat(mcp): ..." → "feat(mcp): ...")
+  const stripped = text.replace(/^[0-9a-f]{7,40}\s+/, '');
+  const lower = stripped.toLowerCase();
 
   // feat → added
   if (lower.startsWith('feat') || lower.startsWith('add')) return 'added';
