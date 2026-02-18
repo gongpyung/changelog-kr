@@ -8,19 +8,19 @@
       "category": "fixed",
       "scope": null,
       "original": "Fix stale timeout from killing actively running background tasks — the core bug that made agents appear to \"hang\"",
-      "translation": "에이전트가 \"멈춘\" 것처럼 보이게 했던 핵심 버그인, 실행 중인 백그라운드 작업을 종료시키는 오래된 타임아웃 수정"
+      "translation": "에이전트가 \"멈춘\" 것처럼 보이게 만든 핵심 버그 — 실행 중인 백그라운드 작업을 종료시키는 오래된 타임아웃 수정"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Detect stale tasks that never received progress updates (true zombies vs. active workers)",
-      "translation": "진행 업데이트를 받지 못한 오래된 작업 감지 (실제 좀비 vs. 활성 작업자)"
+      "translation": "진행 업데이트를 받지 못한 오래된 작업 감지 (진정한 좀비 대 활성 작업자)"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Refresh `lastUpdate` on all `message.part.updated` events, not just tool events",
-      "translation": "도구 이벤트뿐만 아니라 모든 `message.part.updated` 이벤트에서 `lastUpdate` 새로고침"
+      "translation": "모든 `message.part.updated` 이벤트에서 `lastUpdate` 새로 고침, 도구 이벤트에만 국한되지 않음"
     },
     {
       "category": "added",
@@ -32,7 +32,7 @@
       "category": "other",
       "scope": null,
       "original": "Wire `TaskHistory` into `BackgroundManager` and compaction pipeline",
-      "translation": "`TaskHistory`를 `BackgroundManager` 및 압축 파이프라인에 연결"
+      "translation": "`BackgroundManager`와 압축 파이프라인에 `TaskHistory` 연결"
     },
     {
       "category": "added",
@@ -56,7 +56,7 @@
       "category": "other",
       "scope": null,
       "original": "Store tool restrictions at prompt-send sites for consistent enforcement",
-      "translation": "일관된 시행을 위해 프롬프트 전송 사이트에서 도구 제한 저장"
+      "translation": "일관된 시행을 위한 프롬프트 전송 사이트에 도구 제한 저장"
     },
     {
       "category": "other",
@@ -68,25 +68,25 @@
       "category": "other",
       "scope": null,
       "original": "Fire todo continuation for all sessions with incomplete todos, not just the current one",
-      "translation": "현재 세션뿐만 아니라 미완료 할 일이 있는 모든 세션에 대해 할 일 계속 실행"
+      "translation": "완료되지 않은 할 일이 있는 모든 세션에 대해 할 일 연속 실행, 현재 세션만이 아님"
     },
     {
       "category": "added",
       "scope": null,
       "original": "Add cooldown and stagnation cap to prevent re-injection loops",
-      "translation": "재주입 루프를 방지하기 위한 쿨다운 및 정체 상한 추가"
+      "translation": "재주입 루프를 방지하기 위한 쿨다운 및 정체 한도 추가"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Rules injector: mtime-based parse cache and dirty-write gate — skip redundant filesystem writes",
-      "translation": "규칙 인젝터: mtime 기반 파싱 캐시 및 더티-쓰기 게이트 — 불필요한 파일 시스템 쓰기 건너뛰기"
+      "translation": "규칙 인젝터: mtime 기반 구문 캐시 및 더티-쓰기 게이트 — 불필요한 파일 시스템 쓰기 건너뜀"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Directory injectors: skip `writeFileSync` when no new paths injected",
-      "translation": "디렉터리 인젝터: 새로운 경로가 주입되지 않았을 때 `writeFileSync` 건너뛰기"
+      "translation": "디렉토리 인젝터: 새로운 경로가 주입되지 않았을 때 `writeFileSync` 건너뜀"
     },
     {
       "category": "other",
@@ -98,7 +98,7 @@
       "category": "other",
       "scope": null,
       "original": "Comment checker: hard process reap and global semaphore to prevent CPU runaway",
-      "translation": "주석 검사기: CPU 과부하를 방지하기 위한 하드 프로세스 수확 및 전역 세마포어"
+      "translation": "주석 검사기: CPU 폭주를 방지하기 위한 강력한 프로세스 수확 및 글로벌 세마포어"
     },
     {
       "category": "other",
@@ -128,19 +128,19 @@
       "category": "other",
       "scope": null,
       "original": "Parse config sections independently — one invalid field no longer discards the entire config (@kaizen403)",
-      "translation": "구성 섹션을 독립적으로 구문 분석 — 하나의 잘못된 필드가 더 이상 전체 구성을 무효화하지 않음 (@kaizen403)"
+      "translation": "구성 섹션을 독립적으로 구문 분석 — 하나의 잘못된 필드가 더 이상 전체 구성을 폐기하지 않음 (@kaizen403)"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Detect GPT models behind proxy providers like litellm/ollama (@solssak)",
-      "translation": "litellm/ollama와 같은 프록시 제공자 뒤의 GPT 모델 감지 (@solssak)"
+      "translation": "litellm/ollama와 같은 프록시 공급자 뒤에 있는 GPT 모델 감지 (@solssak)"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "Fix `process.cwd()` usage for project skill discovery (@willy-scr)",
-      "translation": "프로젝트 기술 검색을 위한 `process.cwd()` 사용 수정 (@willy-scr)"
+      "translation": "프로젝트 스킬 발견을 위한 `process.cwd()` 사용 수정 (@willy-scr)"
     },
     {
       "category": "other",
@@ -152,7 +152,7 @@
       "category": "other",
       "scope": null,
       "original": "Execute all Stop hooks correctly (@raki-1203)",
-      "translation": "모든 중지 훅을 올바르게 실행 (@raki-1203)"
+      "translation": "모든 Stop 훅을 올바르게 실행 (@raki-1203)"
     },
     {
       "category": "other",
@@ -170,37 +170,37 @@
       "category": "added",
       "scope": null,
       "original": "Add `file://` URI support in `prompt_append` configuration (@devxoul)",
-      "translation": "`prompt_append` 구성에 `file://` URI 지원 추가 (@devxoul)"
+      "translation": "`prompt_append` 구성에서 `file://` URI 지원 추가 (@devxoul)"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "Fix Google Auth docs link (@G36maid)",
-      "translation": "Google 인증 문서 링크 수정 (@G36maid)"
+      "translation": "Google Auth 문서 링크 수정 (@G36maid)"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Parse `load_skills` when passed as JSON string",
-      "translation": "JSON 문자열로 전달될 때 `load_skills` 구문 분석"
+      "translation": "JSON 문자열로 전달된 `load_skills` 구문 분석"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Disable thinking parameter for Z.ai GLM models",
-      "translation": "Z.ai GLM 모델에 대한 생각 매개변수 비활성화"
+      "translation": "Z.ai GLM 모델의 사고 매개변수 비활성화"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Normalize Windows separators for skill source globs",
-      "translation": "기술 소스 글롭에 대한 Windows 구분자 표준화"
+      "translation": "기술 소스 글롭에 대한 Windows 구분자 정규화"
     },
     {
       "category": "other",
       "scope": null,
       "original": "Bounded shutdown wait for event stream processor (`cli-run`)",
-      "translation": "이벤트 스트림 프로세서에 대한 제한된 종료 대기 (`cli-run`)"
+      "translation": "이벤트 스트림 프로세서(`cli-run`)의 제한된 종료 대기"
     },
     {
       "category": "fixed",
@@ -212,7 +212,7 @@
       "category": "other",
       "scope": null,
       "original": "Resolve `subagent_type` for TUI display",
-      "translation": "TUI 디스플레이에 대한 `subagent_type` 해결"
+      "translation": "TUI 디스플레이를 위한 `subagent_type` 해결"
     },
     {
       "category": "added",
@@ -224,19 +224,7 @@
       "category": "fixed",
       "scope": null,
       "original": "6dc8b7b8 fix(ci): sync publish.yml test steps with ci.yml to prevent mock pollution",
-      "translation": "모의 오염을 방지하기 위해 ci.yml과 publish.yml 테스트 단계 동기화"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "361d9a82 @iyoda has signed the CLA in code-yeongyu/oh-my-opencode#1845",
-      "translation": "@iyoda가 code-yeongyu/oh-my-opencode#1845에서 CLA에 서명했습니다"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "d8b4dba9 @liu-qingyuan has signed the CLA in code-yeongyu/oh-my-opencode#1844",
-      "translation": "@liu-qingyuan이 code-yeongyu/oh-my-opencode#1844에서 CLA에 서명했습니다"
+      "translation": "publish.yml 테스트 단계를 ci.yml과 동기화하여 모의 오염 방지"
     },
     {
       "category": "changed",
@@ -248,43 +236,43 @@
       "category": "other",
       "scope": null,
       "original": "dcb76f7e test(directory-readme-injector): use real files instead of fs module mocks",
-      "translation": "`fs` 모듈 모의 객체 대신 실제 파일 사용"
+      "translation": "fs 모듈 모의 대신 실제 파일 사용"
     },
     {
       "category": "other",
       "scope": null,
       "original": "7b62f0c6 test(directory-agents-injector): use real files instead of fs module mocks",
-      "translation": "`fs` 모듈 모의 객체 대신 실제 파일 사용"
+      "translation": "fs 모듈 모의 대신 실제 파일 사용"
     },
     {
       "category": "other",
       "scope": null,
       "original": "2a7dfac5 test(skill-tool): restore bun mocks after tests",
-      "translation": "후 `bun` 모의 객체 복원"
+      "translation": "후 bun 모의 복원"
     },
     {
       "category": "other",
       "scope": null,
       "original": "2b4651e1 test(rules-injector): restore bun mocks after suite",
-      "translation": "스위트 후 `bun` 모의 객체 복원"
+      "translation": "스위트 후 bun 모의 복원"
     },
     {
       "category": "other",
       "scope": null,
       "original": "37d30866 test(atlas): reset session state instead of module mocking",
-      "translation": "모듈 모의 객체 대신 세션 상태 초기화"
+      "translation": "모듈 모의 대신 세션 상태 재설정"
     },
     {
       "category": "other",
       "scope": null,
       "original": "e7dc3721 test(prometheus-md-only): avoid hook-message storage constant mocking",
-      "translation": "후크 메시지 저장 상수 모의 객체 사용 피하기"
+      "translation": "후크 메시지 저장소 상수 모의 방지"
     },
     {
       "category": "improved",
       "scope": null,
       "original": "e9954431 refactor(call-omo-agent): inject executeSync dependencies for tests",
-      "translation": "테스트를 위한 `executeSync` 종속성 주입"
+      "translation": "테스트를 위한 executeSync 종속성 주입"
     },
     {
       "category": "other",
@@ -296,79 +284,31 @@
       "category": "fixed",
       "scope": null,
       "original": "74d2ae10 fix(shared): normalize macOS realpath output",
-      "translation": "MacOS `realpath` 출력 정규화"
+      "translation": "macOS realpath 출력 정규화"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "a0c93816 fix: prevent stale timeout from killing actively running background tasks",
-      "translation": "실행 중인 백그라운드 작업을 종료하지 않도록 오래된 타임아웃 방지"
+      "translation": "오래된 타임아웃이 실행 중인 백그라운드 작업을 중단하지 않도록 방지"
     },
     {
       "category": "other",
       "scope": null,
       "original": "65a06aa2 Merge pull request #1833 from code-yeongyu/fix/inherit-parent-session-tools",
-      "translation": "코드-영유님의 `fix/inherit-parent-session-tools` 브랜치에서 #1833 병합 요청"
+      "translation": "code-yeongyu의 #1833 요청 병합: 상위 세션 도구 상속 수정"
     },
     {
       "category": "other",
       "scope": null,
       "original": "754e6ee0 Merge pull request #1829 from code-yeongyu/fix/issue-1805-lsp-windows-binary",
-      "translation": "코드-영유님의 `fix/issue-1805-lsp-windows-binary` 브랜치에서 #1829 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "affefee1 Merge pull request #1835 from code-yeongyu/fix/issue-1781-tmux-pane-width",
-      "translation": "코드-영유님의 `fix/issue-1781-tmux-pane-width` 브랜치에서 #1835 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "90463baf Merge pull request #1834 from code-yeongyu/fix/issue-1818-agents-skills-path",
-      "translation": "코드-영유님의 `fix/issue-1818-agents-skills-path` 브랜치에서 #1834 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "073a074f Merge pull request #1828 from code-yeongyu/fix/issue-1825-run-never-exits",
-      "translation": "코드-영유님의 `fix/issue-1825-run-never-exits` 브랜치에서 #1828 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "cdda08cd Merge pull request #1832 from code-yeongyu/fix/issue-1691-antigravity-error",
-      "translation": "코드-영유님의 `fix/issue-1691-antigravity-error` 브랜치에서 #1832 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "a8d26e3f Merge pull request #1831 from code-yeongyu/fix/issue-1701-load-skills-string",
-      "translation": "코드-영유님의 `fix/issue-1701-load-skills-string` 브랜치에서 #1831 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "8401f0a9 Merge pull request #1830 from code-yeongyu/fix/issue-980-zai-glm-thinking",
-      "translation": "코드-영유님의 `fix/issue-980-zai-glm-thinking` 브랜치에서 #1830 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "32470f5c Merge pull request #1836 from code-yeongyu/fix/issue-1769-background-staleness",
-      "translation": "코드-영유님의 `fix/issue-1769-background-staleness` 브랜치에서 #1836 병합 요청"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "c3793f77 @code-yeongyu has signed the CLA in code-yeongyu/oh-my-opencode#1699",
-      "translation": "코드-영유님이 code-yeongyu/oh-my-opencode#1699에서 CLA에 서명했습니다."
+      "translation": "code-yeongyu의 #1829 요청 병합: issue-1805 LSP Windows 바이너리 수정"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "3de05f64 fix: apply parentTools in all parent session notification paths",
-      "translation": "모든 상위 세션 알림 경로에 `parentTools` 적용"
+      "translation": "모든 상위 세션 알림 경로에 parentTools 적용"
     },
     {
       "category": "fixed",
@@ -386,7 +326,7 @@
       "category": "added",
       "scope": null,
       "original": "936b51de feat: add parentTools field to BackgroundTask, LaunchInput, ResumeInput",
-      "translation": "`BackgroundTask`, `LaunchInput`, `ResumeInput`에 `parentTools` 필드 추가"
+      "translation": "BackgroundTask, LaunchInput, ResumeInput에 parentTools 필드 추가"
     },
     {
       "category": "added",
@@ -398,19 +338,19 @@
       "category": "fixed",
       "scope": null,
       "original": "7186c368 fix(skill-loader): discover skills from .agents/skills/ directory",
-      "translation": "`.agents/skills/` 디렉토리에서 스킬 검색"
+      "translation": ".agents/skills/ 디렉토리에서 스킬 검색"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "121a3c45 fix(tmux): thread agent_pane_min_width config through pane management",
-      "translation": "에이전트 창 최소 너비 설정을 창 관리에 반영"
+      "translation": "pane 관리에서 agent_pane_min_width 설정 전달"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "072b3059 fix(parser): wrap parseAnthropicTokenLimitError in try/catch",
-      "translation": "`parseAnthropicTokenLimitError`를 try/catch로 감싸기"
+      "translation": "parseAnthropicTokenLimitError를 try/catch로 래핑"
     },
     {
       "category": "other",
@@ -422,13 +362,13 @@
       "category": "fixed",
       "scope": null,
       "original": "3fa543e8 fix(delegate-task): parse load_skills when passed as JSON string",
-      "translation": "JSON 문자열로 전달된 경우 `load_skills` 구문 분석"
+      "translation": "JSON 문자열로 전달된 경우 load_skills 구문 분석"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "9f52e48e fix(think-mode): disable thinking parameter for Z.ai GLM models",
-      "translation": "Z.ai GLM 모델에 대한 생각 매개변수 비활성화"
+      "translation": "Z.ai GLM 모델에 대한 사고 매개변수 비활성화"
     },
     {
       "category": "other",
@@ -446,13 +386,13 @@
       "category": "fixed",
       "scope": null,
       "original": "b7c32e8f fix(test): use string containment check for ANSI-wrapped console.log output",
-      "translation": "ANSI로 래핑된 `console.log` 출력에 대한 문자열 포함 검사 사용"
+      "translation": "ANSI로 감싸진 console.log 출력에 대한 문자열 포함 여부 확인 사용"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "c24c4a85 fix(cli-run): bounded shutdown wait for event stream processor",
-      "translation": "이벤트 스트림 프로세서에 대한 제한된 종료 대기"
+      "translation": "이벤트 스트림 프로세서의 종료 대기 시간 제한"
     },
     {
       "category": "fixed",
@@ -464,7 +404,7 @@
       "category": "fixed",
       "scope": null,
       "original": "daf011c6 fix(ci): isolate loader.test.ts to prevent CWD deletion contamination",
-      "translation": "CWD 삭제 오염 방지를 위해 `loader.test.ts` 격리"
+      "translation": "CWD 삭제 오염 방지를 위해 loader.test.ts 격리"
     },
     {
       "category": "fixed",
@@ -476,187 +416,121 @@
       "category": "other",
       "scope": null,
       "original": "a4a5502e Merge pull request #1799 from bvanderhorn/fix/resolve-symlink-realpath",
-      "translation": "병합: bvanderhorn/fix/resolve-symlink-realpath로부터의 풀 요청 #1799"
+      "translation": "모든 message.part.updated 이벤트에서 lastUpdate 갱신, 도구 이벤트에 국한되지 않음"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "4ab93c0c fix: refresh lastUpdate on all message.part.updated events, not just tool events",
-      "translation": "도구 이벤트뿐만 아니라 모든 `message.part.updated` 이벤트에서 `lastUpdate` 새로 고침"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "a809ac3d @cloudwaddie-agent has signed the CLA in code-yeongyu/oh-my-opencode#1827",
-      "translation": "@cloudwaddie-agent이 code-yeongyu/oh-my-opencode#1827에서 CLA에 서명했습니다."
+      "translation": "에이전트가 더 많은 기술을 로드하도록 함"
     },
     {
       "category": "other",
       "scope": null,
       "original": "ac99f98b make agents to load skills more",
-      "translation": "에이전트가 스킬을 더 많이 로드하도록 수정"
+      "translation": "완료되지 않은 할 일과 함께 모든 세션에 대한 연속 실행"
     },
     {
       "category": "other",
       "scope": null,
       "original": "c8cd6370 Merge pull request #1817 from code-yeongyu/fix/todo-continuation-always-fire",
-      "translation": "Code-yeongyu/fix/todo-continuation-always-fire에서 #1817 요청 병합"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "3a68a891 @Strocs has signed the CLA in code-yeongyu/oh-my-opencode#1822",
-      "translation": "@Strocs가 code-yeongyu/oh-my-opencode#1822에서 CLA에 서명했습니다."
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "32d46979 @professional-ALFIE has signed the CLA in code-yeongyu/oh-my-opencode#1820",
-      "translation": "@professional-ALFIE가 code-yeongyu/oh-my-opencode#1820에서 CLA에 서명했습니다."
+      "translation": "기술 도구와 중복을 피하기 위해 도구 설명에서 기술 제외"
     },
     {
       "category": "other",
       "scope": null,
       "original": "f876d60e Merge pull request #1750 from ojh102/fix/guard-non-string-tool-output",
-      "translation": "Ojh102/fix/guard-non-string-tool-output에서 #1750 요청 병합"
+      "translation": "TaskHistory를 BackgroundManager 및 압축 파이프라인에 연결"
     },
     {
       "category": "other",
       "scope": null,
       "original": "4e5321a9 Merge pull request #1765 from COLDTURNIP/fix/load_lsp_from_jsonc",
-      "translation": "COLDTURNIP/fix/load_lsp_from_jsonc에서 #1765 요청 병합"
+      "translation": "재개 지시문이 포함된 위임된 에이전트 세션 섹션 추가"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "7a3df05e fix(todo-continuation-enforcer): fire continuation for all sessions with incomplete todos",
-      "translation": "완료되지 않은 모든 세션에 대해 연속 실행"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "c6bea11c Merge pull request #1771 from kaizen403/fix/partial-config-parsing",
-      "translation": "Kaizen403/fix/partial-config-parsing에서 #1771 요청 병합"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "9fe48d25 Merge pull request #1787 from popododo0720/fix/memory-leak-session-messages-caching",
-      "translation": "Popododo0720/fix/memory-leak-session-messages-caching에서 #1787 요청 병합"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "adf8049d Merge pull request #1790 from raki-1203/fix/stop-hooks-early-return",
-      "translation": "Raki-1203/fix/stop-hooks-early-return에서 #1790 요청 병합"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "b520eac6 Merge pull request #1791 from G36maid/patch-1",
-      "translation": "G36maid/patch-1에서 #1791 요청 병합"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "f722fe68 Merge pull request #1809 from willy-scr/fix/project-skills-process-cwd",
-      "translation": "Willy-scr/fix/project-skills-process-cwd에서 #1809 요청 병합"
+      "translation": "Fire continuation for all sessions with incomplete todos"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "9742f7d0 fix(slashcommand): exclude skills from tool description to avoid duplication with skill tool",
-      "translation": "중복 방지를 위해 도구 설명에서 스킬 제외"
+      "translation": "Exclude skills from tool description to avoid duplication with skill tool"
     },
     {
       "category": "added",
       "scope": null,
       "original": "e3924437 feat(compaction): wire TaskHistory into BackgroundManager and compaction pipeline",
-      "translation": "TaskHistory를 BackgroundManager와 압축 파이프라인에 연결"
+      "translation": "Wire TaskHistory into BackgroundManager and compaction pipeline"
     },
     {
       "category": "added",
       "scope": null,
       "original": "0946a6c8 feat(compaction): add delegated agent sessions section with resume directive",
-      "translation": "Resume 지시문이 포함된 위임된 에이전트 세션 섹션 추가"
+      "translation": "Add delegated agent sessions section with resume directive"
     },
     {
       "category": "added",
       "scope": null,
       "original": "a413e576 feat(background-agent): add TaskHistory class for persistent task tracking",
-      "translation": "지속적인 작업 추적을 위한 TaskHistory 클래스 추가"
+      "translation": "지속적인 작업 추적을 위한 `TaskHistory` 클래스 추가"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "a7b56a03 fix(doctor): oMoMoMoMo branding, remove providers check, fix comment-checker detection",
-      "translation": "OMoMoMoMo 브랜드화, 공급자 확인 제거, 주석 검사기 감지 수정"
+      "translation": "oMoMoMoMo 브랜드 변경, 공급자 확인 제거, 주석 검사기 감지 수정"
     },
     {
       "category": "improved",
       "scope": null,
       "original": "2ba148be refactor(doctor): redesign with 3-tier output and consolidated checks",
-      "translation": "3단계 출력과 통합된 검사로 재설계"
+      "translation": "3단계 출력과 통합 검사를 통한 재설계"
     },
     {
       "category": "other",
       "scope": null,
       "original": "6df24d35 Merge pull request #1812 from code-yeongyu/refactor/remove-subagent-question-blocker-hook",
-      "translation": "Code-yeongyu/refactor/remove-subagent-question-blocker-hook에서 #1812 요청 병합"
+      "translation": "코드-영유님의 '하위 에이전트 질문 차단기 훅 제거' 요청 병합"
     },
     {
       "category": "improved",
       "scope": null,
       "original": "b58f3edf refactor: remove redundant subagent-question-blocker hook",
-      "translation": "불필요한 subagent-question-blocker 훅 제거"
+      "translation": "불필요한 하위 에이전트 질문 차단기 훅 제거"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "0b1fdd50 fix(publish): make enhanced summary optional for patch, mandatory for minor/major",
-      "translation": "패치에는 선택 사항, 마이너/메이저에는 필수로 향상된 요약 추가"
-    },
-    {
-      "category": "fixed",
-      "scope": null,
-      "original": "4f3371ce fix(publish): use generate-changelog.ts for contributor thanks",
-      "translation": "기여자 감사에 `generate-changelog.ts` 사용"
+      "translation": "패치에서는 선택 사항, 마이너/메이저에서는 필수로 향상된 요약 옵션 추가"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "f9ea9a4e fix(project): use directory param instead of process.cwd() for agents, commands, and slash commands",
-      "translation": "에이전트, 명령어 및 슬래시 명령어에 `process.cwd()` 대신 디렉토리 매개변수 사용"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "b008a570 Merge pull request #1810 from code-yeongyu/fix/resolve-subagent-type-for-tui-display",
-      "translation": "코드-영유님의 #1810 풀 리퀘스트 병합: TUI 표시를 위한 subagent 유형 해결"
+      "translation": "에이전트, 명령어 및 슬래시 명령어에 대해 `process.cwd()` 대신 디렉토리 매개변수 사용"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "1a5c9f22 fix(tool-execute-before): resolve subagent_type for TUI display",
-      "translation": "TUI 표시를 위한 subagent_type 해결"
+      "translation": "TUI 디스플레이를 위한 `subagent_type` 해결"
     },
     {
       "category": "added",
       "scope": null,
       "original": "6fb933f9 feat(plugin): add session agent resolver for subagent_type lookup",
-      "translation": "Subagent_type 조회를 위한 세션 에이전트 리졸버 추가"
+      "translation": "`subagent_type` 조회를 위한 세션 에이전트 해결사 추가"
     },
     {
       "category": "improved",
       "scope": null,
       "original": "f6fbac45 perf(comment-checker): add hard process reap and global semaphore to prevent CPU runaway",
-      "translation": "CPU 과부하 방지를 위한 강력한 프로세스 수확 및 전역 세마포어 추가"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "4c10723b @willy-scr has signed the CLA in code-yeongyu/oh-my-opencode#1809",
-      "translation": "@willy-scr님이 code-yeongyu/oh-my-opencode#1809에서 CLA에 서명하셨습니다"
+      "translation": "CPU 폭주 방지를 위한 강력한 프로세스 수확 및 전역 세마포어 추가"
     },
     {
       "category": "improved",
@@ -665,16 +539,10 @@
       "translation": "재주입 루프 방지를 위한 쿨다운 및 정체 캡 추가"
     },
     {
-      "category": "other",
-      "scope": null,
-      "original": "a6372fea Merge pull request #1794 from solssak/fix/isGptModel-proxy-providers",
-      "translation": "솔싹님의 #1794 풀 리퀘스트 병합: isGptModel 프록시 제공자 수정"
-    },
-    {
       "category": "fixed",
       "scope": null,
       "original": "6914f2fd fix(skills): use directory param instead of process.cwd() for project skill discovery",
-      "translation": "프로젝트 기술 검색에 `process.cwd()` 대신 디렉토리 매개변수 사용"
+      "translation": "프로젝트 스킬 검색에 `process.cwd()` 대신 디렉토리 매개변수 사용"
     },
     {
       "category": "other",
@@ -686,7 +554,7 @@
       "category": "improved",
       "scope": null,
       "original": "75f35f13 perf(rules-injector): add mtime-based parse cache and dirty-write gate",
-      "translation": "Mtime 기반 파싱 캐시 및 더티-쓰기 게이트 추가"
+      "translation": "mtime 기반 구문 캐시 및 더티-라이트 게이트 추가"
     },
     {
       "category": "other",
@@ -698,43 +566,25 @@
       "category": "improved",
       "scope": null,
       "original": "492029ff perf(directory-injectors): skip writeFileSync when no new paths injected",
-      "translation": "새로운 경로가 주입되지 않을 때 `writeFileSync` 건너뜀"
+      "translation": "새로운 경로가 주입되지 않은 경우 `writeFileSync` 건너뜀"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "58b7aff7 fix: detect GPT models behind proxy providers (litellm, ollama) in isGptModel",
-      "translation": "IsGptModel에서 프록시 제공자(litellm, ollama) 뒤의 GPT 모델 감지"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "4a991b5a Merge pull request #821 from devxoul/prompt-append-file-uri",
-      "translation": "Devxoul님의 #821 풀 리퀘스트 병합: 파일 URI 추가"
+      "translation": "`isGptModel`에서 프록시 공급자(리텔름, 올라마) 뒤의 GPT 모델 감지"
     },
     {
       "category": "added",
       "scope": null,
       "original": "60b4d20f feat(agents): add file:// URI support in prompt_append configuration",
-      "translation": "`prompt_append` 구성에 `file://` URI 지원 추가"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "b8c12495 Merge pull request #1807 from code-yeongyu/fix/skills-sources-schema",
-      "translation": "코드-영유님의 #1807 풀 리퀘스트 병합: 기술 소스 스키마 수정"
+      "translation": "`prompt_append` 구성에서 `file://` URI 지원 추가"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "5a83c61d fix(skills): normalize windows separators for source globs",
-      "translation": "소스 글롭에 대한 윈도우 구분자를 정규화"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "ad468ec9 Merge pull request #1758 from devxoul/lookat-remote-block",
-      "translation": "Merge pull request #1758 from devxoul/lookat-remote-block"
+      "translation": "소스 글롭에 대한 윈도우 구분자 정규화"
     },
     {
       "category": "added",
@@ -746,118 +596,58 @@
       "category": "fixed",
       "scope": null,
       "original": "aab8a232 fix(schema): generate full JSON schema with Zod v4",
-      "translation": "Zod v4로 전체 JSON 스키마 생성"
+      "translation": "Zod v4를 사용하여 전체 JSON 스키마 생성"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "1511886c fix: use fs.realpath instead of manual path.resolve for symlink resolution",
-      "translation": "심볼릭 링크 해상도를 위해 수동 path.resolve 대신 fs.realpath 사용"
+      "translation": "symlink 해상도를 위해 `fs.realpath`를 사용하고 수동 `path.resolve`를 대체"
     },
     {
       "category": "other",
       "scope": null,
       "original": "6c7b6115 docs: Fix link in Google Auth section of configurations.md",
-      "translation": "Configurations.md의 Google Auth 섹션에서 링크 수정"
+      "translation": "configurations.md의 Google Auth 섹션에서 링크 수정"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "5c8d6944 fix: execute all Stop hooks instead of returning after first non-blocking result",
-      "translation": "첫 번째 비차단 결과 후 반환하는 대신 모든 Stop 훅 실행"
+      "translation": "첫 번째 비차단 결과 후 반환하지 않고 모든 Stop 훅 실행"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "eb567019 fix: reduce session.messages() calls with event-based caching to prevent memory leaks",
-      "translation": "이벤트 기반 캐싱으로 session.messages() 호출을 줄여 메모리 누수 방지"
+      "translation": "메모리 누수를 방지하기 위해 이벤트 기반 캐싱으로 `session.messages()` 호출 감소"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "d3978ab4 fix: parse config sections independently so one invalid field doesn't discard the entire config",
-      "translation": "하나의 잘못된 필드가 전체 구성을 버리지 않도록 구성 섹션을 독립적으로 파싱"
+      "translation": "하나의 잘못된 필드로 전체 구성이 폐기되지 않도록 구성 섹션을 독립적으로 구문 분석"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "f80b72c2 fix(config): load lsp config from jsonc configuration files",
-      "translation": "Jsonc 구성 파일에서 lsp 구성 로드"
+      "translation": "jsonc 구성 파일에서 lsp 구성 로드"
     },
     {
       "category": "other",
       "scope": null,
       "original": "3eb7dc73 block remote URLs in look-at file_path validation",
-      "translation": "Look-at file_path 유효성 검사에서 원격 URL 차단"
+      "translation": "`file_path` 검증에서 원격 URL 차단"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "bb6a0119 fix(hooks): guard against non-string tool output in afterToolResult hooks",
-      "translation": "AfterToolResult 훅에서 비문자열 도구 출력에 대한 보호"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@ojh102:",
-      "translation": "@ojh102:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@devxoul:",
-      "translation": "@devxoul:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@COLDTURNIP:",
-      "translation": "@COLDTURNIP:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@kaizen403:",
-      "translation": "@kaizen403:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@popododo0720:",
-      "translation": "@popododo0720:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@raki-1203:",
-      "translation": "@raki-1203:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@G36maid:",
-      "translation": "@G36maid:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@bvanderhorn:",
-      "translation": "@bvanderhorn:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@solssak:",
-      "translation": "@solssak:"
-    },
-    {
-      "category": "other",
-      "scope": null,
-      "original": "@willy-scr:",
-      "translation": "@willy-scr:"
+      "translation": "`afterToolResult` 훅에서 비문자열 도구 출력을 방지"
     }
   ],
-  "translatedAt": "2026-02-15T07:10:10.054Z",
+  "translatedAt": "2026-02-18T09:07:53.703Z",
   "translationEngine": "openai",
-  "translationCharCount": 10022
+  "translationCharCount": 8929
 }

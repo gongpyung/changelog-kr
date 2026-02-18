@@ -21,6 +21,7 @@ import { join } from 'path';
 import { translateBatch } from './utils/translation-client.mjs';
 import { translateWithGemini, QuotaExhaustedError } from './utils/gemini-translation-client.mjs';
 import { translateWithOpenAI } from './utils/openai-translation-client.mjs';
+import { stripPrefix } from './fix-translation-prefixes.mjs';
 
 const SERVICES_FILE = join('data', 'services.json');
 
@@ -198,9 +199,9 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
 
   console.log(`    Translating ${textsToTranslate.length} entries with ${usedEngine}...`);
 
-  // Add translations to entries
+  // Add translations to entries (prefix 자동 후처리 적용)
   data.entries.forEach((entry, index) => {
-    entry.translation = result.translations[index];
+    entry.translation = stripPrefix(result.translations[index]);
   });
 
   // Update metadata
@@ -299,8 +300,9 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
   for (const { version, filePath, data, startIdx, count } of sliceMap) {
     const versionTranslations = result.translations.slice(startIdx, startIdx + count);
 
+    // prefix 자동 후처리 적용
     data.entries.forEach((entry, i) => {
-      entry.translation = versionTranslations[i] ?? entry.original;
+      entry.translation = stripPrefix(versionTranslations[i] ?? entry.original);
     });
 
     const versionCharCount = data.entries.reduce((sum, e) => sum + (e.original?.length || 0), 0);

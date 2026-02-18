@@ -128,7 +128,24 @@ export function parseReleaseBody(body) {
     // 일반 리스트 항목 ("Full Changelog", "New Contributors" 링크 제외)
     const listMatch = line.match(/^[-*]\s+(.+)$/);
     if (listMatch && !line.includes('**Full Changelog**') && !line.includes('New Contributors')) {
-      const text = listMatch[1].trim();
+      let text = listMatch[1].trim();
+
+      // CLA 서명 항목 필터
+      if (/@\S+\s+has signed the CLA/i.test(text)) continue;
+
+      // Merge 커밋 필터
+      if (/^Merge pull request #\d+/i.test(text)) continue;
+      if (/^Merge branch\s/i.test(text)) continue;
+
+      // 기여자 감사 항목 필터
+      if (/made their first contribution/i.test(text)) continue;
+
+      // 단독 @username 항목 필터
+      if (/^@\w+[:\s]*$/.test(text)) continue;
+
+      // @username 접미사 제거
+      text = text.replace(/\s+@[\w-]+\s*$/, '').trim();
+
       entries.push({
         text,
         scope: null,
