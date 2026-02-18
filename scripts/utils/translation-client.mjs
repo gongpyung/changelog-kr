@@ -4,6 +4,13 @@
  */
 
 const API_ENDPOINT = 'https://translation.googleapis.com/language/translate/v2';
+
+// Strip conventional commit prefixes (feat:, fix(scope):, etc.) from source text
+const EN_PREFIX = /^(feat|fix|chore|docs|test|refactor|perf|style|build|ci|revert)(\([^)]*\))?[!]?:\s*/i;
+
+function stripConventionalPrefix(text) {
+  return text.replace(EN_PREFIX, '');
+}
 const MAX_BATCH_SIZE = 50;
 const MAX_CHARS_PER_BATCH = 5000;
 const BATCH_DELAY_MS = 100;
@@ -142,9 +149,12 @@ export async function translateBatch(texts, sourceLang = 'en', targetLang = 'ko'
     return { translations: [], charCount: 0 };
   }
 
+  // Strip conventional commit prefixes before translation
+  const strippedTexts = texts.map(stripConventionalPrefix);
+
   // Protect code, URLs, and paths
-  const managers = texts.map(() => new PlaceholderManager());
-  const protectedTexts = texts.map((text, i) => managers[i].protect(text));
+  const managers = strippedTexts.map(() => new PlaceholderManager());
+  const protectedTexts = strippedTexts.map((text, i) => managers[i].protect(text));
 
   // Create batches
   const batches = createBatches(protectedTexts);
