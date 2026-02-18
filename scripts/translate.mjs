@@ -44,6 +44,32 @@ function getServicePaths(serviceId) {
 }
 
 /**
+ * Load multiple version files for a service.
+ * Returns array of { version, filePath, data } for versions that have entries.
+ */
+async function loadVersionFiles(serviceId, versions) {
+  const { translationsDir } = getServicePaths(serviceId);
+  const loaded = [];
+
+  for (const version of versions) {
+    const filePath = join(translationsDir, `${version}.json`);
+    try {
+      const content = await readFile(filePath, 'utf-8');
+      const data = JSON.parse(content);
+      if (data.entries && data.entries.length > 0) {
+        loaded.push({ version, filePath, data });
+      } else {
+        console.log(`    [${version}] No entries, skipping`);
+      }
+    } catch (error) {
+      console.error(`    [${version}] Failed to read ${filePath}: ${error.message}`);
+    }
+  }
+
+  return loaded;
+}
+
+/**
  * Load enabled services from services.json
  */
 async function loadServices() {
@@ -192,6 +218,103 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
     charCount: result.charCount,
     entryCount: result.translations.length,
   };
+}
+
+/**
+ * Translate multiple versions of a service in a single API request.
+ *
+ * Collects all entries across versions into one flat array, sends a single
+ * API call, then splits the results back by version and writes each file.
+ *
+ * @param {string} serviceId
+ * @param {string} serviceName
+ * @param {string[]} versions
+ * @param {'mock' | 'google' | 'gemini' | 'openai'} primaryEngine
+ * @param {Set<string>} exhaustedGeminiModels
+ * @returns {Promise<Array|null>} results array, or null if batch failed (caller should fall back)
+ */
+async function translateServiceVersionsBatch(serviceId, serviceName, versions, primaryEngine, exhaustedGeminiModels) {
+  const loadedVersions = await loadVersionFiles(serviceId, versions);
+
+  if (loadedVersions.length === 0) return [];
+
+  // Build flat array of all texts + slice map to reconstruct per-version results
+  const flatTexts = [];
+  const sliceMap = []; // [{ version, filePath, data, startIdx, count }]
+
+  for (const { version, filePath, data } of loadedVersions) {
+    const texts = data.entries.map(e => e.original);
+    sliceMap.push({ version, filePath, data, startIdx: flatTexts.length, count: texts.length });
+    flatTexts.push(...texts);
+  }
+
+  console.log(`\n  [${serviceName}] Batch: ${loadedVersions.length} versions, ${flatTexts.length} entries total`);
+
+  // Single API call for all versions combined
+  let result;
+  let usedEngine = primaryEngine;
+
+  try {
+    if (primaryEngine === 'gemini') {
+      const geminiResult = await translateWithGeminiChain(flatTexts, exhaustedGeminiModels);
+
+      if (geminiResult === null) {
+        if (process.env.OPENAI_API_KEY) {
+          console.log(`    All Gemini models exhausted, falling back to OpenAI...`);
+          result = await translateWithOpenAI(flatTexts);
+          usedEngine = 'openai';
+        } else if (process.env.GOOGLE_TRANSLATE_API_KEY) {
+          console.log(`    All Gemini models exhausted, falling back to Google Translate...`);
+          result = await translateBatch(flatTexts);
+          usedEngine = 'google';
+        } else {
+          console.log(`    All Gemini models exhausted, using mock translations`);
+          result = createMockTranslations(flatTexts);
+          usedEngine = 'mock';
+        }
+      } else {
+        result = geminiResult.result;
+        usedEngine = geminiResult.usedModel === GEMINI_MODELS[0].model
+          ? 'gemini'
+          : geminiResult.usedModel;
+      }
+    } else if (primaryEngine === 'openai') {
+      result = await translateWithOpenAI(flatTexts);
+    } else if (primaryEngine === 'google') {
+      result = await translateBatch(flatTexts);
+    } else {
+      console.log('    Using mock translations (no API key)');
+      result = createMockTranslations(flatTexts);
+    }
+  } catch (error) {
+    console.error(`    Batch translation failed: ${error.message}`);
+    return null; // signal caller to fall back to per-version
+  }
+
+  console.log(`    Translated ${flatTexts.length} entries with ${usedEngine}`);
+
+  // Split results back by version and write each file
+  const results = [];
+
+  for (const { version, filePath, data, startIdx, count } of sliceMap) {
+    const versionTranslations = result.translations.slice(startIdx, startIdx + count);
+
+    data.entries.forEach((entry, i) => {
+      entry.translation = versionTranslations[i] ?? entry.original;
+    });
+
+    const versionCharCount = data.entries.reduce((sum, e) => sum + (e.original?.length || 0), 0);
+    data.translatedAt = new Date().toISOString();
+    data.translationEngine = usedEngine;
+    data.translationCharCount = versionCharCount;
+
+    await writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+    console.log(`    [${version}] Saved ${count} translations (${versionCharCount} chars)`);
+
+    results.push({ version, charCount: versionCharCount, entryCount: count });
+  }
+
+  return results;
 }
 
 /**
@@ -367,12 +490,28 @@ async function main() {
     console.log(`\n--- ${serviceName} (${serviceId}) ---`);
     console.log(`  ${versions.length} version(s) to translate`);
 
-    const results = [];
-    for (const version of versions) {
-      const result = await translateVersion(serviceId, serviceName, version, engine, exhaustedGeminiModels);
-      if (result) {
-        results.push(result);
+    let results = [];
+
+    if (versions.length >= 2) {
+      // Batch: translate all versions for this service in one API call
+      const batchResults = await translateServiceVersionsBatch(
+        serviceId, serviceName, versions, engine, exhaustedGeminiModels
+      );
+
+      if (batchResults !== null) {
+        results = batchResults;
+      } else {
+        // Batch failed - fall back to per-version
+        console.log(`  Falling back to per-version translation...`);
+        for (const version of versions) {
+          const result = await translateVersion(serviceId, serviceName, version, engine, exhaustedGeminiModels);
+          if (result) results.push(result);
+        }
       }
+    } else {
+      // Single version: use existing per-version translation
+      const result = await translateVersion(serviceId, serviceName, versions[0], engine, exhaustedGeminiModels);
+      if (result) results.push(result);
     }
 
     // Update versions.json for this service
