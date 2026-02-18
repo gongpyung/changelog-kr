@@ -22,13 +22,28 @@ const EN_PREFIX = /^(feat|fix|chore|docs|test|refactor|perf|style|build|ci|rever
 // Matches: 기능:, 기능(scope):, 수정:, 작업(릴리스):, 버그(UX) etc.
 const KO_PREFIX = /^(기능|수정|작업|문서|테스트|리팩터|성능|버그|스타일|빌드|되돌리기)(\([^)]*\))?[!]?[:\s]+/;
 
+// Commit hash + English prefix: "a7507ab feat(scope): description"
+const HASH_EN_PREFIX = /^[0-9a-f]{6,10}\s+(feat|fix|chore|docs|test|refactor|perf|style|build|ci|revert)(\([^)]*\))?[!]?:\s*/i;
+
+// Commit hash + Korean prefix: "c21e0b09 수정(scope): description"
+const HASH_KO_PREFIX = /^[0-9a-f]{6,10}\s+(기능|수정|작업|문서|테스트|리팩터|성능|버그|스타일|빌드|되돌리기)(\([^)]*\))?[!]?[:\s]+/;
+
+// Commit hash only (no prefix): "9cda5eb README.md 다시 작성"
+const HASH_ONLY = /^[0-9a-f]{6,10}\s+/;
+
 /**
  * Strip prefix from a translation string.
  * Returns the cleaned string, or the original if no prefix found.
+ * Order matters: hash+prefix patterns first, then plain prefix, then hash-only last.
  */
 function stripPrefix(text) {
   if (!text) return text;
-  const stripped = text.replace(EN_PREFIX, '').replace(KO_PREFIX, '');
+  const stripped = text
+    .replace(HASH_EN_PREFIX, '')
+    .replace(HASH_KO_PREFIX, '')
+    .replace(EN_PREFIX, '')
+    .replace(KO_PREFIX, '')
+    .replace(HASH_ONLY, '');
   // Capitalize first letter if it was lowercased after stripping
   if (stripped !== text && stripped.length > 0) {
     return stripped.charAt(0).toUpperCase() + stripped.slice(1);
