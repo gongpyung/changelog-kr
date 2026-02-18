@@ -9,18 +9,28 @@
  * Environment variables:
  *   NEW_VERSIONS_MAP  - JSON object: {"service-id": ["version1", "version2"]}
  *   NEW_VERSIONS      - JSON array (backward compat, defaults to claude-code service)
+ *   TRANSLATION_ENGINE - 'auto' (default), 'gemini', 'openai', 'google', 'mock'
+ *                        'auto': tries Gemini model chain → OpenAI → Google → Mock
  *   OPENAI_API_KEY    - Use OpenAI (model via OPENAI_MODEL env, default: gpt-4o)
- *   GEMINI_API_KEY    - Use Gemini API
+ *   GEMINI_API_KEY    - Use Gemini API (multi-model fallback chain)
  *   GOOGLE_TRANSLATE_API_KEY - Use Google Translate v2
  */
 
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { translateBatch } from './utils/translation-client.mjs';
-import { translateWithGemini } from './utils/gemini-translation-client.mjs';
+import { translateWithGemini, QuotaExhaustedError } from './utils/gemini-translation-client.mjs';
 import { translateWithOpenAI } from './utils/openai-translation-client.mjs';
 
 const SERVICES_FILE = join('data', 'services.json');
+
+/**
+ * Gemini model fallback chain (tried in order on QuotaExhaustedError)
+ */
+const GEMINI_MODELS = [
+  { model: 'gemini-3-flash-preview', label: 'Gemini 3 Flash' },
+  { model: 'gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+];
 
 /**
  * Get per-service data paths
@@ -53,13 +63,47 @@ function createMockTranslations(texts) {
 }
 
 /**
- * Translate a single version's changelog entries
- * @param {string} serviceId - Service ID
- * @param {string} serviceName - Service display name (for logging)
- * @param {string} version - Version to translate
- * @param {'mock' | 'google' | 'gemini' | 'openai'} engine - Translation engine to use
+ * Translate texts with Gemini, trying each model in GEMINI_MODELS order.
+ * Models exhausted within this run are tracked in exhaustedModels.
+ *
+ * @param {string[]} texts
+ * @param {Set<string>} exhaustedModels - models already exhausted in this run
+ * @returns {Promise<{result: object, usedModel: string} | null>} null if all models exhausted
  */
-async function translateVersion(serviceId, serviceName, version, engine = 'mock') {
+async function translateWithGeminiChain(texts, exhaustedModels) {
+  for (const { model, label } of GEMINI_MODELS) {
+    if (exhaustedModels.has(model)) {
+      console.log(`    [${label}] Skipped (daily quota exhausted this run)`);
+      continue;
+    }
+
+    try {
+      const result = await translateWithGemini(texts, { model });
+      return { result, usedModel: model };
+    } catch (error) {
+      if (error instanceof QuotaExhaustedError) {
+        console.warn(`    [${label}] Daily quota (RPD) exhausted — switching to next model`);
+        exhaustedModels.add(model);
+        // Continue to next model in chain
+      } else {
+        throw error; // Non-quota errors propagate up
+      }
+    }
+  }
+
+  return null; // All Gemini models exhausted
+}
+
+/**
+ * Translate a single version's changelog entries
+ *
+ * @param {string} serviceId
+ * @param {string} serviceName
+ * @param {string} version
+ * @param {'mock' | 'google' | 'gemini' | 'openai'} primaryEngine
+ * @param {Set<string>} exhaustedGeminiModels - tracks spent Gemini models across versions
+ */
+async function translateVersion(serviceId, serviceName, version, primaryEngine, exhaustedGeminiModels) {
   const { translationsDir } = getServicePaths(serviceId);
   const filePath = join(translationsDir, `${version}.json`);
 
@@ -83,18 +127,39 @@ async function translateVersion(serviceId, serviceName, version, engine = 'mock'
     return null;
   }
 
-  console.log(`    Translating ${textsToTranslate.length} entries with ${engine}...`);
-
-  // Translate
+  // Translate with engine chain
   let result;
+  let usedEngine = primaryEngine;
+
   try {
-    if (engine === 'openai') {
-      // NOTE: Translation clients currently have hardcoded "Claude Code" in prompts.
-      // Dynamic service name injection requires updating translation-client files (separate task).
+    if (primaryEngine === 'gemini') {
+      const geminiResult = await translateWithGeminiChain(textsToTranslate, exhaustedGeminiModels);
+
+      if (geminiResult === null) {
+        // All Gemini models exhausted — fall back to OpenAI if available
+        if (process.env.OPENAI_API_KEY) {
+          console.log(`    All Gemini models exhausted, falling back to OpenAI...`);
+          result = await translateWithOpenAI(textsToTranslate);
+          usedEngine = 'openai';
+        } else if (process.env.GOOGLE_TRANSLATE_API_KEY) {
+          console.log(`    All Gemini models exhausted, falling back to Google Translate...`);
+          result = await translateBatch(textsToTranslate);
+          usedEngine = 'google';
+        } else {
+          console.log(`    All Gemini models exhausted, using mock translations`);
+          result = createMockTranslations(textsToTranslate);
+          usedEngine = 'mock';
+        }
+      } else {
+        result = geminiResult.result;
+        // Record which specific Gemini model was used
+        usedEngine = geminiResult.usedModel === GEMINI_MODELS[0].model
+          ? 'gemini'
+          : geminiResult.usedModel;
+      }
+    } else if (primaryEngine === 'openai') {
       result = await translateWithOpenAI(textsToTranslate);
-    } else if (engine === 'gemini') {
-      result = await translateWithGemini(textsToTranslate);
-    } else if (engine === 'google') {
+    } else if (primaryEngine === 'google') {
       result = await translateBatch(textsToTranslate);
     } else {
       console.log('    Using mock translations (no API key)');
@@ -105,6 +170,8 @@ async function translateVersion(serviceId, serviceName, version, engine = 'mock'
     return null;
   }
 
+  console.log(`    Translating ${textsToTranslate.length} entries with ${usedEngine}...`);
+
   // Add translations to entries
   data.entries.forEach((entry, index) => {
     entry.translation = result.translations[index];
@@ -112,7 +179,7 @@ async function translateVersion(serviceId, serviceName, version, engine = 'mock'
 
   // Update metadata
   data.translatedAt = new Date().toISOString();
-  data.translationEngine = engine;
+  data.translationEngine = usedEngine;
   data.translationCharCount = result.charCount;
 
   // Write back
@@ -215,18 +282,27 @@ async function updateVersionsMetadata(serviceId, translatedVersions) {
 }
 
 /**
- * Determine which translation engine to use
+ * Determine which translation engine to use as primary.
+ *
+ * TRANSLATION_ENGINE env var (default: 'auto'):
+ *   'auto'   - Gemini chain → OpenAI → Google → Mock (based on available keys)
+ *   'gemini' - Use Gemini model chain only
+ *   'openai' - Use OpenAI only
+ *   'google' - Use Google Translate only
+ *   'mock'   - Mock translations (for testing)
  */
 function getTranslationEngine() {
-  if (process.env.OPENAI_API_KEY) {
-    return 'openai';
-  }
-  if (process.env.GEMINI_API_KEY) {
-    return 'gemini';
-  }
-  if (process.env.GOOGLE_TRANSLATE_API_KEY) {
-    return 'google';
-  }
+  const engineEnv = (process.env.TRANSLATION_ENGINE || 'auto').toLowerCase();
+
+  if (engineEnv === 'mock') return 'mock';
+  if (engineEnv === 'openai') return 'openai';
+  if (engineEnv === 'google') return 'google';
+  if (engineEnv === 'gemini') return 'gemini';
+
+  // 'auto' mode: prefer Gemini > OpenAI > Google > Mock
+  if (process.env.GEMINI_API_KEY) return 'gemini';
+  if (process.env.OPENAI_API_KEY) return 'openai';
+  if (process.env.GOOGLE_TRANSLATE_API_KEY) return 'google';
   return 'mock';
 }
 
@@ -261,19 +337,25 @@ async function main() {
   // Determine translation engine
   const engine = getTranslationEngine();
 
-  if (engine === 'openai') {
+  if (engine === 'gemini') {
+    const geminiModels = GEMINI_MODELS.map(m => m.label).join(' → ');
+    console.log(`\nUsing Gemini model chain for translation: ${geminiModels}`);
+    console.log('  Fallback order on quota exhaustion: Gemini → OpenAI → Google → Mock\n');
+  } else if (engine === 'openai') {
     console.log(`\nUsing OpenAI ${process.env.OPENAI_MODEL || 'gpt-4o'} for translation\n`);
-  } else if (engine === 'gemini') {
-    console.log('\nUsing Gemini API for translation\n');
   } else if (engine === 'google') {
     console.log('\nUsing Google Translate API\n');
   } else {
     console.log('\nNo API key set - using mock translations');
-    console.log('  Set OPENAI_API_KEY, GEMINI_API_KEY, or GOOGLE_TRANSLATE_API_KEY\n');
+    console.log('  Set GEMINI_API_KEY, OPENAI_API_KEY, or GOOGLE_TRANSLATE_API_KEY\n');
+    console.log('  Or set TRANSLATION_ENGINE=gemini|openai|google|mock\n');
   }
 
   // Load service names for logging
   const serviceNames = await loadServiceNameMap();
+
+  // Track exhausted Gemini models across all versions in this run
+  const exhaustedGeminiModels = new Set();
 
   // Translate each service's versions
   let grandTotalChars = 0;
@@ -287,7 +369,7 @@ async function main() {
 
     const results = [];
     for (const version of versions) {
-      const result = await translateVersion(serviceId, serviceName, version, engine);
+      const result = await translateVersion(serviceId, serviceName, version, engine, exhaustedGeminiModels);
       if (result) {
         results.push(result);
       }
@@ -317,6 +399,13 @@ async function main() {
     console.log(`  Versions: ${grandTotalVersions}`);
     console.log(`  Entries: ${grandTotalEntries}`);
     console.log(`  Characters: ${grandTotalChars.toLocaleString()}`);
+    if (exhaustedGeminiModels.size > 0) {
+      const exhaustedLabels = [...exhaustedGeminiModels].map(m => {
+        const found = GEMINI_MODELS.find(g => g.model === m);
+        return found ? found.label : m;
+      });
+      console.log(`  Note: Gemini models exhausted this run: ${exhaustedLabels.join(', ')}`);
+    }
   } else {
     console.log('No translations were performed.');
   }
