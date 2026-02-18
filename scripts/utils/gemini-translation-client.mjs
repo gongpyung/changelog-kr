@@ -38,6 +38,10 @@ RULES:
 - DO NOT translate: code in backticks (\`code\`), file paths, URLs, CLI commands, technical terms like API names
 - Keep the same numbering format
 - Output ONLY the translations, one per line, with the same numbering
+- REMOVE conventional commit prefixes before translating: strip patterns like "feat:", "feat(scope):",
+  "fix:", "chore:", "docs:", "test:", "refactor:", "perf:", "style:", "build:", "ci:", "revert:"
+  from the START of each entry. Translate ONLY the description after the prefix.
+  Example: "feat(cli): add new command" → "새 명령어 추가" (NOT "기능(cli): 새 명령어 추가")
 
 ENTRIES TO TRANSLATE:
 ${numbered}
