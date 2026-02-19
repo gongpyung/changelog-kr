@@ -6,7 +6,8 @@
  *
  * Usage:
  *   DRY_RUN=true node scripts/fix-categories.mjs    # Preview only
- *   node scripts/fix-categories.mjs                   # Apply changes
+ *   node scripts/fix-categories.mjs                 # Apply changes to all services
+ *   node scripts/fix-categories.mjs --service oh-my-claudecode  # Single service only
  */
 
 import { readFile, writeFile, readdir } from 'node:fs/promises';
@@ -19,6 +20,18 @@ const PROJECT_ROOT = join(__dirname, '..');
 const SERVICES_CONFIG = join(PROJECT_ROOT, 'data', 'services.json');
 const SERVICES_DIR = join(PROJECT_ROOT, 'data', 'services');
 const DRY_RUN = process.env.DRY_RUN === 'true';
+
+// Parse --service <id> argument
+function getServiceFilter() {
+  const args = process.argv.slice(2);
+  const serviceIdx = args.indexOf('--service');
+  if (serviceIdx !== -1 && args[serviceIdx + 1]) {
+    return args[serviceIdx + 1];
+  }
+  return null;
+}
+
+const SERVICE_FILTER = getServiceFilter();
 
 async function processService(serviceId) {
   const translationsDir = join(SERVICES_DIR, serviceId, 'translations');
@@ -100,11 +113,25 @@ async function processService(serviceId) {
 }
 
 async function main() {
-  console.log(`Mode: ${DRY_RUN ? 'DRY RUN (no files written)' : 'APPLY changes'}\n`);
+  console.log(`Mode: ${DRY_RUN ? 'DRY RUN (no files written)' : 'APPLY changes'}`);
+  if (SERVICE_FILTER) {
+    console.log(`Filter: --service ${SERVICE_FILTER}\n`);
+  } else {
+    console.log('Filter: all services\n');
+  }
 
   const configRaw = await readFile(SERVICES_CONFIG, 'utf-8');
   const { services } = JSON.parse(configRaw);
-  const enabled = services.filter(s => s.enabled);
+  let enabled = services.filter(s => s.enabled);
+
+  // Apply --service filter if specified
+  if (SERVICE_FILTER) {
+    enabled = enabled.filter(s => s.id === SERVICE_FILTER);
+    if (enabled.length === 0) {
+      console.error(`Service "${SERVICE_FILTER}" not found or not enabled.`);
+      process.exit(1);
+    }
+  }
 
   let totalChangedFiles = 0;
   let totalChangedEntries = 0;

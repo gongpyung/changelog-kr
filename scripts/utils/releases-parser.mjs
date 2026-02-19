@@ -37,8 +37,10 @@ function classifyByKeyword(lower) {
   if (lower.startsWith('feat') || lower.startsWith('add') || lower.startsWith('new')) return 'added';
   if (lower.startsWith('fix') || lower.includes('bug')) return 'fixed';
   if (lower.startsWith('perf') || lower.startsWith('refactor') || lower.startsWith('improve') || lower.startsWith('enhance')) return 'improved';
-  if (lower.startsWith('update') || lower.startsWith('change') || lower.startsWith('rename') || lower.startsWith('chore')) return 'changed';
+  if (lower.startsWith('update') || lower.startsWith('change') || lower.startsWith('rename') || lower.startsWith('chore') ||
+      lower.startsWith('ci') || lower.startsWith('build') || lower.startsWith('test') || lower.startsWith('style')) return 'changed';
   if (lower.startsWith('remove') || lower.startsWith('deprecate')) return 'removed';
+  // docs → other 유지 (카테고리 오염 방지)
   return 'other';
 }
 
@@ -75,25 +77,51 @@ export function inferCategory(text) {
 }
 
 /**
+ * 섹션 헤딩 정규화 (이모지 접두사 제거)
+ * @param {string} text - 원본 헤딩 텍스트
+ * @returns {string} 정규화된 텍스트
+ */
+function normalizeHeading(text) {
+  return text.toLowerCase().trim()
+    .replace(/^[\u{1F300}-\u{1F9FF}]+\s*/u, '') // 이모지 제거
+    .replace(/^[^\w\s]+/, '') // 기타 특수문자 제거
+    .trim();
+}
+
+/**
+ * 섹션 헤딩 → 카테고리 매핑 테이블
+ */
+const SECTION_HEADING_MAP = {
+  // Added
+  'added': 'added', 'new': 'added', "what's new": 'added',
+  'new features': 'added', 'features': 'added',
+  // Fixed
+  'fixed': 'fixed', 'bug fixes': 'fixed', 'bugfixes': 'fixed', 'fixes': 'fixed',
+  // Changed (명시적 항목만)
+  'changed': 'changed', 'chores': 'changed', 'maintenance': 'changed',
+  'breaking changes': 'changed', 'refactored': 'changed', 'security': 'changed',
+  // Removed
+  'removed': 'removed', 'deprecated': 'removed',
+  // Improved
+  'improved': 'improved', 'performance': 'improved', 'improvements': 'improved',
+};
+
+/**
  * Keep a Changelog 형식 섹션 헤딩을 카테고리로 매핑
  *
  * changelog-parser.mjs의 mapSectionToCategory()와 동일한 매핑 규칙을 사용합니다.
+ * 이모지 접두사가 있는 헤딩도 처리합니다 (예: "✨ Features" → "features" → "added")
  *
- * @param {string} headingText - 섹션 헤딩 텍스트 (예: "Added", "Fixed")
+ * @param {string} headingText - 섹션 헤딩 텍스트 (예: "Added", "Fixed", "✨ Features")
  * @returns {string|null} 카테고리 (added, fixed, improved, changed, removed) 또는 null (알 수 없는 헤딩)
  */
 function mapSectionHeading(headingText) {
-  const normalized = headingText.toLowerCase().trim();
+  const normalized = normalizeHeading(headingText);
 
-  if (normalized === 'added' || normalized === 'new' || normalized === "what's new") return 'added';
-  if (normalized === 'fixed' || normalized === 'bug fixes') return 'fixed';
-  if (normalized === 'changed' || normalized === "what's changed") return 'changed';
-  if (normalized === 'removed') return 'removed';
-  if (normalized === 'deprecated') return 'removed';
-  if (normalized === 'improved' || normalized === 'performance') return 'improved';
-  if (normalized === 'breaking changes' || normalized === 'refactored' || normalized === 'security') return 'changed';
+  // "what's changed", "changelog"는 범용/메타 헤딩이므로 null 반환 → inferCategory에 위임
+  if (normalized === "what's changed" || normalized === 'changelog') return null;
 
-  return null; // 알 수 없는 헤딩 → inferCategory() 폴백
+  return SECTION_HEADING_MAP[normalized] || null;
 }
 
 /**
@@ -117,8 +145,8 @@ export function parseReleaseBody(body) {
   let currentSectionCategory = null;
 
   for (const line of lines) {
-    // 섹션 헤딩 감지 (### Added, ### Fixed 등)
-    const sectionMatch = line.match(/^###\s+(.+)$/);
+    // 섹션 헤딩 감지 (##, ###, #### 모두 지원)
+    const sectionMatch = line.match(/^#{2,4}\s+(.+)$/);
     if (sectionMatch) {
       currentSectionCategory = mapSectionHeading(sectionMatch[1]);
       continue;

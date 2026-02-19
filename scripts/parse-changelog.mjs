@@ -228,7 +228,9 @@ async function processService(service) {
     }
 
     // Layer 2 protection: skip if file already exists (already parsed)
-    if (existingData && existingData.parsedAt) {
+    // Use --force flag to override and re-parse from source
+    const forceReparse = process.argv.includes('--force');
+    if (!forceReparse && existingData && existingData.parsedAt) {
       const reason = existingData.entries?.some(e => e.translation !== null) ? 'translated' : 'already parsed';
       console.log(`  - ${versionData.version}: ${reason}, skipping`);
       skippedCount++;
