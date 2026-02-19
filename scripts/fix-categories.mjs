@@ -1,148 +1,145 @@
+#!/usr/bin/env node
+
 /**
- * One-time script to fix category fields in oh-my-claudecode translation files
+ * Retroactive category re-classification for all enabled services.
+ * Uses the updated inferCategory() Two-Phase Bold Label algorithm.
  *
- * Problem: Existing translation files have all entries with category: "other" because
- * the parser didn't recognize ### Added/Fixed/Changed headings initially.
- *
- * Solution: Re-parse the raw CHANGELOG.md and update ONLY the category fields
- * in existing translation files, preserving all translations.
- *
- * Usage: node scripts/fix-categories.mjs
+ * Usage:
+ *   DRY_RUN=true node scripts/fix-categories.mjs    # Preview only
+ *   node scripts/fix-categories.mjs                   # Apply changes
  */
 
-import { readFile, writeFile } from 'fs/promises';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { parseChangelog } from './utils/changelog-parser.mjs';
+import { readFile, writeFile, readdir } from 'node:fs/promises';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { inferCategory } from './utils/releases-parser.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
+const SERVICES_CONFIG = join(PROJECT_ROOT, 'data', 'services.json');
+const SERVICES_DIR = join(PROJECT_ROOT, 'data', 'services');
+const DRY_RUN = process.env.DRY_RUN === 'true';
 
-const RAW_CHANGELOG_PATH = join(PROJECT_ROOT, 'data/services/oh-my-claudecode/raw/CHANGELOG.md');
-const TRANSLATIONS_DIR = join(PROJECT_ROOT, 'data/services/oh-my-claudecode/translations');
+async function processService(serviceId) {
+  const translationsDir = join(SERVICES_DIR, serviceId, 'translations');
 
-/**
- * Match entry by exact text comparison (original text should match parsed text)
- */
-function matchByText(translationEntry, parsedEntries) {
-  return parsedEntries.find(p => p.text === translationEntry.original);
-}
-
-/**
- * Match entry by index position (fallback when text doesn't match exactly)
- */
-function matchByIndex(index, parsedEntries) {
-  return parsedEntries[index] || null;
-}
-
-/**
- * Update category fields in a translation file
- */
-async function updateTranslationFile(version, parsedVersion) {
-  const filePath = join(TRANSLATIONS_DIR, `${version}.json`);
-
+  let files;
   try {
-    const content = await readFile(filePath, 'utf-8');
-    const translationData = JSON.parse(content);
-
-    let updatedCount = 0;
-    let exactMatches = 0;
-    let indexMatches = 0;
-
-    // Update each entry's category
-    translationData.entries = translationData.entries.map((entry, index) => {
-      // Try exact text match first
-      let parsedEntry = matchByText(entry, parsedVersion.entries);
-
-      if (parsedEntry) {
-        exactMatches++;
-      } else {
-        // Fallback to index-based matching
-        parsedEntry = matchByIndex(index, parsedVersion.entries);
-        if (parsedEntry) {
-          indexMatches++;
-        }
-      }
-
-      // Update category if we found a match and it's different
-      if (parsedEntry && entry.category !== parsedEntry.category) {
-        updatedCount++;
-        return {
-          ...entry,
-          category: parsedEntry.category
-        };
-      }
-
-      return entry;
-    });
-
-    // Write back the updated file
-    await writeFile(filePath, JSON.stringify(translationData, null, 2) + '\n', 'utf-8');
-
-    return {
-      version,
-      updated: updatedCount,
-      exactMatches,
-      indexMatches,
-      total: translationData.entries.length
-    };
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      return null; // File doesn't exist, skip
-    }
-    throw error;
+    files = await readdir(translationsDir);
+  } catch {
+    // No translations directory
+    return { changedFiles: 0, changedEntries: 0, before: {}, after: {} };
   }
+
+  const jsonFiles = files.filter(f => f.endsWith('.json'));
+  if (jsonFiles.length === 0) {
+    return { changedFiles: 0, changedEntries: 0, before: {}, after: {} };
+  }
+
+  let changedFiles = 0;
+  let changedEntries = 0;
+  const before = {};
+  const after = {};
+
+  for (const filename of jsonFiles) {
+    const filePath = join(translationsDir, filename);
+    const raw = await readFile(filePath, 'utf-8');
+    const data = JSON.parse(raw);
+
+    if (!Array.isArray(data.entries)) continue;
+
+    let fileChanged = false;
+    for (const entry of data.entries) {
+      const text = entry.original || entry.text || '';
+      const oldCat = entry.category || 'other';
+
+      // Track before distribution
+      before[oldCat] = (before[oldCat] || 0) + 1;
+
+      // Only re-classify entries currently categorized as 'other'.
+      // Entries classified by section headings (### Added, ### Fixed, etc.)
+      // are already correct and should NOT be overridden by inferCategory().
+      if (oldCat !== 'other') continue;
+
+      const newCat = inferCategory(text);
+      if (newCat !== 'other') {
+        entry.category = newCat;
+        fileChanged = true;
+        changedEntries++;
+      }
+    }
+
+    if (fileChanged) {
+      changedFiles++;
+      if (!DRY_RUN) {
+        await writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+      }
+    }
+  }
+
+  // Compute after distribution: start from before, apply changes
+  const afterDist = { ...before };
+  for (const filename of jsonFiles) {
+    const filePath = join(translationsDir, filename);
+    const raw = await readFile(filePath, 'utf-8');
+    const data = JSON.parse(raw);
+    if (!Array.isArray(data.entries)) continue;
+    for (const entry of data.entries) {
+      const text = entry.original || entry.text || '';
+      const oldCat = entry.category || 'other';
+      if (oldCat !== 'other') continue;
+      const newCat = inferCategory(text);
+      if (newCat !== 'other') {
+        afterDist['other'] = (afterDist['other'] || 0) - 1;
+        afterDist[newCat] = (afterDist[newCat] || 0) + 1;
+      }
+    }
+  }
+
+  return { changedFiles, changedEntries, before, after: afterDist };
 }
 
-/**
- * Main execution
- */
 async function main() {
-  console.log('🔧 Fixing category fields in oh-my-claudecode translation files...\n');
+  console.log(`Mode: ${DRY_RUN ? 'DRY RUN (no files written)' : 'APPLY changes'}\n`);
 
-  // Read and parse the raw CHANGELOG
-  console.log('📖 Reading raw CHANGELOG.md...');
-  const rawChangelog = await readFile(RAW_CHANGELOG_PATH, 'utf-8');
+  const configRaw = await readFile(SERVICES_CONFIG, 'utf-8');
+  const { services } = JSON.parse(configRaw);
+  const enabled = services.filter(s => s.enabled);
 
-  console.log('🔍 Parsing changelog...');
-  const parsedVersions = parseChangelog(rawChangelog);
-  console.log(`   Found ${parsedVersions.length} versions\n`);
+  let totalChangedFiles = 0;
+  let totalChangedEntries = 0;
 
-  // Update each version's translation file
-  console.log('📝 Updating translation files...\n');
+  for (const service of enabled) {
+    const { changedFiles, changedEntries, before, after } = await processService(service.id);
 
-  let totalFilesUpdated = 0;
-  let totalEntriesUpdated = 0;
-  let totalExactMatches = 0;
-  let totalIndexMatches = 0;
+    console.log(`=== ${service.name} (${service.id}) ===`);
+    console.log(`  Changed files:   ${changedFiles}`);
+    console.log(`  Changed entries: ${changedEntries}`);
 
-  for (const parsedVersion of parsedVersions) {
-    const result = await updateTranslationFile(parsedVersion.version, parsedVersion);
-
-    if (result) {
-      if (result.updated > 0) {
-        console.log(`✅ ${result.version}: Updated ${result.updated}/${result.total} entries (${result.exactMatches} exact, ${result.indexMatches} by index)`);
-        totalFilesUpdated++;
-        totalEntriesUpdated += result.updated;
-      } else {
-        console.log(`⏭️  ${result.version}: No updates needed (${result.exactMatches} exact, ${result.indexMatches} by index)`);
+    // Print category distribution table
+    const allCats = new Set([...Object.keys(before), ...Object.keys(after)]);
+    if (allCats.size > 0) {
+      console.log('  Category distribution:');
+      for (const cat of ['added', 'fixed', 'improved', 'changed', 'removed', 'other']) {
+        if (!allCats.has(cat)) continue;
+        const b = before[cat] || 0;
+        const a = after[cat] || 0;
+        const marker = b !== a ? ' *' : '';
+        console.log(`    ${cat.padEnd(10)}: ${String(b).padStart(4)} → ${String(a).padStart(4)}${marker}`);
       }
-      totalExactMatches += result.exactMatches;
-      totalIndexMatches += result.indexMatches;
-    } else {
-      console.log(`⚠️  ${parsedVersion.version}: Translation file not found, skipping`);
     }
+    console.log();
+
+    totalChangedFiles += changedFiles;
+    totalChangedEntries += changedEntries;
   }
 
-  console.log('\n' + '='.repeat(60));
-  console.log(`✨ Complete!`);
-  console.log(`   Files updated: ${totalFilesUpdated}`);
-  console.log(`   Entries updated: ${totalEntriesUpdated}`);
-  console.log(`   Matching: ${totalExactMatches} exact, ${totalIndexMatches} by index`);
-  console.log('='.repeat(60));
+  console.log('=== Grand Total ===');
+  console.log(`  Changed files:   ${totalChangedFiles}`);
+  console.log(`  Changed entries: ${totalChangedEntries}`);
+  if (DRY_RUN) {
+    console.log('\n[DRY RUN] No files were modified. Run without DRY_RUN=true to apply.');
+  }
 }
 
-main().catch(error => {
-  console.error('❌ Error:', error);
-  process.exit(1);
-});
+main().catch(err => { console.error(err); process.exit(1); });
