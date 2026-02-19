@@ -29,36 +29,49 @@ export function normalizeTagToVersion(tagName) {
 }
 
 /**
- * 릴리스 본문에서 엔트리 카테고리 추론
+ * 키워드 기반 카테고리 분류 (내부 헬퍼)
+ * @param {string} lower - 소문자로 변환된 텍스트
+ * @returns {string} 카테고리
+ */
+function classifyByKeyword(lower) {
+  if (lower.startsWith('feat') || lower.startsWith('add') || lower.startsWith('new')) return 'added';
+  if (lower.startsWith('fix') || lower.includes('bug')) return 'fixed';
+  if (lower.startsWith('perf') || lower.startsWith('refactor') || lower.startsWith('improve') || lower.startsWith('enhance')) return 'improved';
+  if (lower.startsWith('update') || lower.startsWith('change') || lower.startsWith('rename') || lower.startsWith('chore')) return 'changed';
+  if (lower.startsWith('remove') || lower.startsWith('deprecate')) return 'removed';
+  return 'other';
+}
+
+/**
+ * 릴리스 본문에서 엔트리 카테고리 추론 (Two-Phase Bold Label 알고리즘)
  *
- * Conventional Commits 접두사 또는 키워드를 기반으로 카테고리를 결정합니다.
- * changelog-parser.mjs의 category 필드와 호환됩니다.
+ * Phase 0: 커밋 해시 접두사 제거
+ * Phase 1: Bold 레이블 추출 → 레이블 자체로 분류 시도 → 실패 시 나머지 텍스트로 재시도
+ * Phase 2: 기존 키워드 매칭 (bold가 없는 경우)
  *
  * @param {string} text - 릴리스 엔트리 내용
  * @returns {string} 엔트리 카테고리 (added, fixed, improved, changed, removed, other)
  */
-function inferCategory(text) {
-  // 커밋 해시 접두사 제거 (예: "a2bfb5e feat(mcp): ..." → "feat(mcp): ...")
+export function inferCategory(text) {
+  // Phase 0: 커밋 해시 접두사 제거
   const stripped = text.replace(/^[0-9a-f]{7,40}\s+/, '');
-  const lower = stripped.toLowerCase();
 
-  // feat → added
-  if (lower.startsWith('feat') || lower.startsWith('add')) return 'added';
+  // Phase 1: Bold 레이블 추출 및 레이블 자체로 분류 시도
+  const boldMatch = stripped.match(/^\*\*([^*]+)\*\*\s*:?\s*/);
+  if (boldMatch) {
+    const label = boldMatch[1].toLowerCase();
+    const labelResult = classifyByKeyword(label);
+    if (labelResult !== 'other') return labelResult;
+    const remainder = stripped.slice(boldMatch[0].length);
+    if (remainder.trim()) {
+      const remainderResult = classifyByKeyword(remainder.toLowerCase());
+      if (remainderResult !== 'other') return remainderResult;
+    }
+    return 'other';
+  }
 
-  // fix → fixed
-  if (lower.startsWith('fix') || lower.includes('bug')) return 'fixed';
-
-  // perf, refactor → improved
-  if (lower.startsWith('perf') || lower.startsWith('refactor') || lower.startsWith('improve') || lower.startsWith('enhance')) return 'improved';
-
-  // update, change, rename → changed
-  if (lower.startsWith('update') || lower.startsWith('change') || lower.startsWith('rename') || lower.startsWith('chore')) return 'changed';
-
-  // remove, deprecate → removed
-  if (lower.startsWith('remove') || lower.startsWith('deprecate')) return 'removed';
-
-  // docs, test 등 → other
-  return 'other';
+  // Phase 2: 기존 키워드 매칭
+  return classifyByKeyword(stripped.toLowerCase());
 }
 
 /**

@@ -2,9 +2,9 @@
  * Tests for releases-parser.mjs
  */
 
-import { describe, it } from 'node:test';
+import { describe, it, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseReleaseBody, normalizeTagToVersion } from '../scripts/utils/releases-parser.mjs';
+import { parseReleaseBody, normalizeTagToVersion, inferCategory } from '../scripts/utils/releases-parser.mjs';
 
 describe('parseReleaseBody', () => {
   it('should parse "What\'s Changed" body with PR links', () => {
@@ -134,5 +134,56 @@ describe('normalizeTagToVersion', () => {
 
   it('should fallback to original tag if no match', () => {
     assert.equal(normalizeTagToVersion('invalid-tag'), 'invalid-tag');
+  });
+});
+
+describe('inferCategory', () => {
+  test('feat prefix → added', () => {
+    assert.strictEqual(inferCategory('feat: add new feature'), 'added');
+  });
+  test('fix prefix → fixed', () => {
+    assert.strictEqual(inferCategory('fix: resolve crash'), 'fixed');
+  });
+  test('new keyword → added', () => {
+    assert.strictEqual(inferCategory('New hooks: persistent-mode'), 'added');
+  });
+  test('commit hash stripping preserved', () => {
+    assert.strictEqual(inferCategory('a2bfb5e feat(mcp): add tool'), 'added');
+  });
+  test('**feat** bold prefix → added', () => {
+    assert.strictEqual(inferCategory('**feat**: Use fully-qualified command names'), 'added');
+  });
+  test('**fix** bold prefix → fixed', () => {
+    assert.strictEqual(inferCategory('**fix**: Resolve startup crash'), 'fixed');
+  });
+  test('**Fixed** bold capitalized → fixed', () => {
+    assert.strictEqual(inferCategory('**Fixed**: Codex crashed on startup'), 'fixed');
+  });
+  test('**New Commands** bold new → added', () => {
+    assert.strictEqual(inferCategory('**New Commands**: 5 new slash commands'), 'added');
+  });
+  test('**improve** bold → improved', () => {
+    assert.strictEqual(inferCategory('**improve**: Better error messages'), 'improved');
+  });
+  test('**chore** bold → changed', () => {
+    assert.strictEqual(inferCategory('**chore**: Update dependencies'), 'changed');
+  });
+  test('**remove** bold → removed', () => {
+    assert.strictEqual(inferCategory('**remove**: Deprecated API endpoints'), 'removed');
+  });
+  test('**HUD Naming** non-keyword label → other', () => {
+    assert.strictEqual(inferCategory('**HUD Naming**: All Sisyphus references renamed'), 'other');
+  });
+  test('**Plugin Setup** non-keyword label → other', () => {
+    assert.strictEqual(inferCategory('**Plugin Setup**: Auto-migrates old HUD path'), 'other');
+  });
+  test('**Setup wizard** remainder with fix → fixed', () => {
+    assert.strictEqual(inferCategory('**Setup wizard**: fix stale config'), 'fixed');
+  });
+  test('plain text without keywords → other', () => {
+    assert.strictEqual(inferCategory('Reduced layout jitter in the terminal'), 'other');
+  });
+  test('empty string → other', () => {
+    assert.strictEqual(inferCategory(''), 'other');
   });
 });
