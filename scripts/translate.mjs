@@ -90,6 +90,33 @@ function createMockTranslations(texts) {
 }
 
 /**
+ * Log quality warnings after a translation batch.
+ * Warns when a translation is empty/null or identical to the original English text.
+ * Returns count of potentially poor-quality translations.
+ *
+ * @param {string[]} originals - Source texts (same order as translations)
+ * @param {string[]} translations - Translated texts
+ * @param {string} context - Label for log messages (e.g. version or service name)
+ */
+function logQualityWarnings(originals, translations, context) {
+  let warnings = 0;
+  for (let i = 0; i < translations.length; i++) {
+    const t = translations[i];
+    const orig = originals[i] || '';
+    if (!t || t.trim() === '') {
+      warnings++;
+    } else if (t === orig && orig.length > 20 && /[a-zA-Z]{3,}/.test(orig)) {
+      warnings++;
+    }
+  }
+  if (warnings > 0) {
+    console.warn(`    ⚠ [${context}] ${warnings}/${translations.length} entries may be poorly translated (same as original or empty)`);
+    console.warn(`      Run: node scripts/retranslate-poor-quality.mjs`);
+  }
+  return warnings;
+}
+
+/**
  * Translate texts with Gemini, trying each model in GEMINI_MODELS order.
  * Models exhausted within this run are tracked in exhaustedModels.
  *
@@ -199,9 +226,12 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
 
   console.log(`    Translating ${textsToTranslate.length} entries with ${usedEngine}...`);
 
-  // Add translations to entries (prefix 자동 후처리 적용)
+  // Quality check: warn on empty or unchanged translations
+  logQualityWarnings(textsToTranslate, result.translations, version);
+
+  // Add translations to entries (prefix 자동 후처리 적용, null → original fallback)
   data.entries.forEach((entry, index) => {
-    entry.translation = stripPrefix(result.translations[index]);
+    entry.translation = stripPrefix(result.translations[index] ?? entry.original);
   });
 
   // Update metadata
@@ -293,6 +323,9 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
   }
 
   console.log(`    Translated ${flatTexts.length} entries with ${usedEngine}`);
+
+  // Quality check: warn on empty or unchanged translations
+  logQualityWarnings(flatTexts, result.translations, `${serviceId} batch`);
 
   // Split results back by version and write each file
   const results = [];
