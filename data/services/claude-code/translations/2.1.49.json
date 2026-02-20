@@ -1,0 +1,131 @@
+{
+  "version": "2.1.49",
+  "date": "2026-02-19",
+  "parsedAt": "2026-02-20T03:12:26.719Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+C and ESC being silently ignored when background agents are running and the main thread is idle. Pressing twice within 3 seconds now kills all background agents.",
+      "translation": "백그라운드 에이전트가 실행 중이고 메인 스레드가 유휴 상태일 때 Ctrl+C 및 ESC 입력이 무시되던 문제를 수정했습니다. 3초 이내에 두 번 누르면 모든 백그라운드 에이전트가 종료됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt suggestion cache regression that reduced cache hit rates.",
+      "translation": "캐시 히트율을 저하시키는 프롬프트 제안 캐시 회귀 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `plugin enable` and `plugin disable` to auto-detect the correct scope when `--scope` is not specified, instead of always defaulting to user scope",
+      "translation": "`--scope`가 지정되지 않은 경우 항상 사용자 스코프로 기본 설정되는 대신, `plugin enable` 및 `plugin disable`이 올바른 스코프를 자동으로 감지하도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Simple mode (`CLAUDE_CODE_SIMPLE`) now includes the file edit tool in addition to the Bash tool, allowing direct file editing in simple mode.",
+      "translation": "단순 모드(`CLAUDE_CODE_SIMPLE`)에 Bash 도구 외에 파일 편집 도구가 추가되어, 단순"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options",
+      "translation": "Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model.",
+      "translation": "Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed verbose mode not updating thinking block display when toggled via `/config` — memo comparators now correctly detect verbose changes",
+      "translation": "Fixed verbose mode not updating thinking block display when toggled via `/config` — memo comparators now correctly detect verbose changes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded WASM memory growth during long sessions by periodically resetting the tree-sitter parser",
+      "translation": "Fixed unbounded WASM memory growth during long sessions by periodically resetting the tree-sitter parser"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed potential rendering issues caused by stale yoga layout references",
+      "translation": "Fixed potential rendering issues caused by stale yoga layout references"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance in non-interactive mode (`-p`) by skipping unnecessary API calls during startup",
+      "translation": "Improved performance in non-interactive mode (`-p`) by skipping unnecessary API calls during startup"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance by caching authentication failures for HTTP and SSE MCP servers, avoiding repeated connection attempts to servers requiring auth",
+      "translation": "Improved performance by caching authentication failures for HTTP and SSE MCP servers, avoiding repeated connection attempts to servers requiring auth"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth during long-running sessions caused by Yoga WASM linear memory never shrinking",
+      "translation": "Fixed unbounded memory growth during long-running sessions caused by Yoga WASM linear memory never shrinking"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SDK model info now includes `supportsEffort`, `supportedEffortLevels`, and `supportsAdaptiveThinking` fields so consumers can discover model capabilities.",
+      "translation": "SDK model info now includes `supportsEffort`, `supportedEffortLevels`, and `supportsAdaptiveThinking` fields so consumers can discover model capabilities."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ConfigChange` hook event that fires when configuration files change during a session, enabling enterprise security auditing and optional blocking of settings changes.",
+      "translation": "Added `ConfigChange` hook event that fires when configuration files change during a session, enabling enterprise security auditing and optional blocking of settings changes."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup performance by caching MCP auth failures to avoid redundant connection attempts",
+      "translation": "Improved startup performance by caching MCP auth failures to avoid redundant connection attempts"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup performance by reducing HTTP calls for analytics token counting",
+      "translation": "Improved startup performance by reducing HTTP calls for analytics token counting"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup performance by batching MCP tool token counting into a single API call",
+      "translation": "Improved startup performance by batching MCP tool token counting into a single API call"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `disableAllHooks` setting to respect managed settings hierarchy — non-managed settings can no longer disable managed hooks set by policy (#26637)",
+      "translation": "Fixed `disableAllHooks` setting to respect managed settings hierarchy — non-managed settings can no longer disable managed hooks set by policy (#26637)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` session picker showing raw XML tags for sessions that start with commands like `/clear`. Now correctly falls through to the session ID fallback.",
+      "translation": "Fixed `--resume` session picker showing raw XML tags for sessions that start with commands like `/clear`. Now correctly falls through to the session ID fallback."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved permission prompts for path safety and working directory blocks to show the reason for the restriction instead of a bare prompt with no context",
+      "translation": "Improved permission prompts for path safety and working directory blocks to show the reason for the restriction instead of a bare prompt with no context"
+    }
+  ],
+  "translatedAt": "2026-02-20T03:13:19.839Z",
+  "translationEngine": "gemini",
+  "translationCharCount": 2549
+}
