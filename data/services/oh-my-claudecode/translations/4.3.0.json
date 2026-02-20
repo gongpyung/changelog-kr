@@ -1,0 +1,107 @@
+{
+  "version": "4.3.0",
+  "date": "2026-02-20",
+  "parsedAt": "2026-02-20T13:35:02.380Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Context Safety** (#779): Threshold-based context usage blocking — warns before hitting context limits mid-task",
+      "translation": "**Context Safety** (#779): 임계값 기반 컨텍스트 사용 차단 — 작업 도중 컨텍스트 제한에 도달하기 전에 경고를 표시합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Deliverable Gates** (#782): Automated deliverable verification at SubagentStop — ensures agents ship what they promised",
+      "translation": "**Deliverable Gates** (#782): `SubagentStop` 시 자동 결과물 검증 — 에이전트가 약속한 결과물을 제대로 전달하는지 확인합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Blocking Shutdown** (#780): Structured team shutdown protocol with orphan detection — cleaner agent lifecycle",
+      "translation": "**Blocking Shutdown** (#780): 고아 프로세스 탐지 기능이 포함된 구조화된 팀 종료 프로토콜 — 더욱 깔끔한 에이전트 수명 주기 관리."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Handoff Convention** (#784): Structured handoff messages for stage transitions in team mode",
+      "translation": "**Handoff Convention** (#784): 팀 모드에서 단계 전환을 위한 구조화된 핸드오프 메시지."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Code Simplifier** (#753): Opt-in Stop hook that delegates recently modified files to code-simplifier agent for cleanup",
+      "translation": "**Code Simplifier** (#753): 최근 수정된 파일의 정리를 `code-simplifier` 에이전트에게 위임하는 선택형 `Stop` 훅."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Notifications Verbosity** (#761): Configurable notification verbosity levels — reduce noise for routine tool calls",
+      "translation": "**Notifications Verbosity** (#761): 알림 상세 수준 설정 기능 — 일상적인 도구 호출에 대한 노이즈 감소."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Karpathy Guidelines** (#783): New template `rules/karpathy-guidelines.md` for coding best practices",
+      "translation": "**Karpathy Guidelines** (#783): 코딩 모범 사례를 위한 새로운 템플릿 `rules/karpathy-guidelines.md`."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Configure Slack**: New skill for Slack webhook notification setup",
+      "translation": "**Configure Slack**: Slack 웹훅 알림 설정을 위한 새로운 스킬."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**ralph rate-limit loop** (#777, #778): Prevent infinite retry when rate limited/overloaded; add capacity pattern docs",
+      "translation": "**ralph rate-limit loop** (#777, #778): 속도 제한 또는 과부하 시 무한 재시도 방지 및 용량 패턴 문서 추가."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**stdin timeout** (scripts/lib/stdin.mjs): Fix default timeout mismatch — was 5s, now correctly 2s to match hook external timeout",
+      "translation": "**stdin timeout** (`scripts/lib/stdin.mjs`): 기본 타임아웃 불일치 수정 — 외부 훅 타임아웃에 맞춰 기존 5초에서 2초로 변경."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Hooks deduplication** (#793): Removed `~/.claude/hooks/` installer path entirely. All hooks now delivered exclusively via plugin's `hooks/hooks.json` + `scripts/` — no more double execution",
+      "translation": "**Hooks deduplication** (#793): `~/.claude/hooks/` 설치 경로를 완전히 제거했습니다. 이제 모든 훅은 플러그인의 `hooks/hooks.json` 및 `scripts/`를 통해서만 제공되어 중복 실행을 방지합니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "**Remove `claud` binary** (#792): Removed separate `claud` launcher. `omc [flags...]` now forwards all arguments directly to Claude launch",
+      "translation": "**Remove claud binary** (#792): 별도의 `claud` 런처를 제거했습니다. 이제 `omc [flags...]`가 모든 인자를 Claude 실행 시 직접 전달합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Remove /omc:* shorthand** (#789): Reverted shorthand prefix alias — too complex for minimal benefit, docs updated to use `oh-my-claudecode:` prefix",
+      "translation": "**Remove /omc:* shorthand** (#789): 단축 접두사 별칭을 되돌렸습니다. 이득에 비해 복잡성이 너무 높았으며, 문서는 `oh-my-claudecode:` 접두사를 사용하도록 업데이트되었습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "**Remove ecomode** (#787): Removed deprecated ecomode from mode registry",
+      "translation": "**Remove ecomode** (#787): 모드 레지스트리에서 더 이상 사용되지 않는 `ecomode`를 제거했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Run `omc setup` to migrate: removes old `~/.claude/settings.json` hook entries (now handled by plugin)",
+      "translation": "마이그레이션을 위해 `omc setup` 실행: 기존 `~/.claude/settings.json`의 훅 항목을 제거합니다 (이제 플러그인에서 처리됨)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `claud` binary is removed; use `omc` directly — all Claude CLI flags are forwarded",
+      "translation": "`claud` 바이너리가 제거되었습니다. `omc`를 직접 사용하세요. 모든 Claude CLI 플래그가 전달됩니다."
+    }
+  ],
+  "translatedAt": "2026-02-20T13:36:30.342Z",
+  "translationEngine": "gemini",
+  "translationCharCount": 1826
+}
