@@ -206,7 +206,8 @@ function stripForFrontend(versions) {
       category: entry.category || 'other',
       scope: entry.scope || null,
       original: entry.original || entry.text || '',
-      translated: entry.translated || null,
+      // Compatibility fallback: some committed data still uses legacy `translation` key.
+      translated: entry.translated || entry.translation || null,
     })),
   }));
 }
