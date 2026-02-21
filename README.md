@@ -70,17 +70,6 @@ Neon Terminal 다크 테마 + 깔끔한 라이트 테마
 
 </td>
 </tr>
-<tr>
-<td width="50%">
-
-### 🔔 알림 지원
-Telegram, Email로 새 버전 알림
-
-</td>
-<td width="50%">
-
-</td>
-</tr>
 </table>
 
 ---
@@ -167,7 +156,6 @@ changelog-kr/
 | **Hosting** | GitHub Pages |
 | **CI/CD** | GitHub Actions (6시간 주기 자동 감지/번역/배포) |
 | **Testing** | Node.js 내장 테스트 (`node --test`) |
-| **Notifications** | Telegram Bot, Resend (Email) |
 
 ---
 
