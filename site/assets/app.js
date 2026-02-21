@@ -68,6 +68,9 @@
   let activeMajor = 'all';
   let searchQuery = '';
 
+  // Auth state
+  let currentUser = null;
+
   // ---------------------------------------------------------------------------
   // DOM References
   // ---------------------------------------------------------------------------
@@ -362,6 +365,7 @@
     renderVersions();
     renderVersionToc();
     updateResultsSummary();
+    updateCheckinSummary();
   }
 
   function updateResultsSummary() {
@@ -476,6 +480,15 @@
     article.id = `v${ver.version}`;
     article.style.animationDelay = `${Math.min(index * 30, 300)}ms`;
 
+    // Check if this version is new (unseen by user)
+    const isNew = window.CheckInManager && currentService &&
+                  window.CheckInManager.isNewVersion(currentService, ver.version);
+
+    // Add checked class if not new
+    if (!isNew && window.CheckInManager?.isInitialized()) {
+      article.classList.add('checked');
+    }
+
     let isExpanded;
     if (manualToggleState === true) {
       isExpanded = true;
@@ -493,15 +506,24 @@
       ? `<span class="version-date text-xs font-medium text-gray-400 dark:text-terminal-muted">${formatVersionDate(ver.date)}</span>`
       : '';
 
+    // NEW badge HTML
+    const newBadgeHtml = isNew ? '<span class="badge-new"></span>' : '';
+
     header.innerHTML = `
-      <div class="flex items-center gap-3 min-w-0">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 overflow-hidden">
         <h2 class="text-sm sm:text-lg font-bold whitespace-nowrap">v${ver.version}</h2>
+        ${newBadgeHtml}
         ${dateHtml}
-        <span class="px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted">${ver.entries.length}개</span>
+        <span class="hidden sm:inline-flex px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted whitespace-nowrap">${ver.entries.length}개</span>
       </div>
-      <svg class="chevron w-5 h-5 ${isExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-      </svg>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button class="checkin-btn ${isNew ? '' : 'hidden'}" title="확인 완료로 표시" data-version="${ver.version}">
+          확인
+        </button>
+        <svg class="chevron w-5 h-5 ${isExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
     `;
 
     // Body
@@ -517,6 +539,15 @@
     });
 
     body.appendChild(entriesContainer);
+
+    // Checkin button handler
+    const checkinBtn = header.querySelector('.checkin-btn');
+    if (checkinBtn) {
+      checkinBtn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        await handleVersionCheckin(ver.version, article, checkinBtn);
+      });
+    }
 
     // Toggle
     header.addEventListener('click', () => {
@@ -536,6 +567,146 @@
     article.appendChild(body);
 
     return article;
+  }
+
+  async function handleVersionCheckin(version, article, checkinBtn) {
+    if (!window.CheckInManager) {
+      console.warn('[Checkin] CheckInManager not available');
+      return;
+    }
+
+    // Check if user is authenticated
+    const isAuthenticated = window.SupabaseClient?.isAuthenticated?.();
+    if (!isAuthenticated) {
+      // Show login prompt
+      const authModal = $('#authModal');
+      if (authModal) {
+        authModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      return;
+    }
+
+    // Save checkin
+    try {
+      checkinBtn.disabled = true;
+      checkinBtn.textContent = '처리중...';
+
+      const success = await window.CheckInManager.saveCheckIn(currentService, version);
+
+      if (success) {
+        // Update UI
+        article.classList.remove('is-new');
+        article.classList.add('checked');
+
+        // Remove NEW badge
+        const newBadge = article.querySelector('.badge-new');
+        if (newBadge) newBadge.remove();
+
+        // Hide checkin button
+        checkinBtn.classList.add('hidden');
+
+        // Update checkin summary if exists
+        updateCheckinSummary();
+      } else {
+        checkinBtn.textContent = '확인';
+        checkinBtn.disabled = false;
+      }
+    } catch (error) {
+      console.error('[Checkin] Failed to save checkin:', error);
+      checkinBtn.textContent = '확인';
+      checkinBtn.disabled = false;
+    }
+  }
+
+  function updateCheckinSummary() {
+    const summaryPanel = $('#checkinSummary');
+    if (!summaryPanel) return;
+
+    // Hide panel if not authenticated or CheckInManager not ready
+    const isAuthenticated = window.SupabaseClient?.isAuthenticated?.();
+    if (!isAuthenticated || !window.CheckInManager || !currentService) {
+      summaryPanel.classList.add('hidden');
+      return;
+    }
+
+    const unseenCount = window.CheckInManager.getUnseenCount(currentService, allVersions);
+
+    // Hide panel if no new versions
+    if (unseenCount === 0) {
+      summaryPanel.classList.add('hidden');
+      return;
+    }
+
+    // Update count text
+    const checkinCount = $('#checkinCount');
+    if (checkinCount) {
+      checkinCount.textContent = `${unseenCount}개 새 버전`;
+    }
+
+    // Update stats: list unseen versions
+    const checkinStats = $('#checkinStats');
+    if (checkinStats) {
+      const unseenVersions = window.CheckInManager.getUnseenVersions(currentService, allVersions);
+      checkinStats.innerHTML = unseenVersions.slice(0, 5).map(v =>
+        `<span class="checkin-stat-item">v${escapeHtml(v.version)}</span>`
+      ).join('');
+      if (unseenVersions.length > 5) {
+        checkinStats.innerHTML += `<span class="checkin-stat-item">+${unseenVersions.length - 5}개</span>`;
+      }
+    }
+
+    summaryPanel.classList.remove('hidden');
+  }
+
+  function setupCheckinSummary() {
+    const checkinAllBtn = $('#checkinAllBtn');
+    if (checkinAllBtn && !checkinAllBtn._checkinSetup) {
+      checkinAllBtn._checkinSetup = true;
+      checkinAllBtn.addEventListener('click', async () => {
+        if (!window.CheckInManager || !currentService) return;
+
+        const isAuthenticated = window.SupabaseClient?.isAuthenticated?.();
+        if (!isAuthenticated) {
+          const authModal = $('#authModal');
+          if (authModal) {
+            authModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          }
+          return;
+        }
+
+        const latestVersion = allVersions[0]?.version;
+        if (!latestVersion) return;
+
+        checkinAllBtn.disabled = true;
+        checkinAllBtn.textContent = '처리중...';
+
+        const success = await window.CheckInManager.markAllAsSeen(currentService, latestVersion);
+
+        if (success) {
+          applyFilters();
+        } else {
+          checkinAllBtn.textContent = '모두 확인';
+          checkinAllBtn.disabled = false;
+        }
+      });
+    }
+
+    const scrollToLatestBtn = $('#scrollToLatestBtn');
+    if (scrollToLatestBtn && !scrollToLatestBtn._scrollSetup) {
+      scrollToLatestBtn._scrollSetup = true;
+      scrollToLatestBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const latestVersion = filteredVersions[0]?.version;
+        if (latestVersion) {
+          const target = document.getElementById(`v${latestVersion}`);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
   }
 
   function createEntryItem(entry) {
@@ -800,6 +971,182 @@
   });
 
   // ---------------------------------------------------------------------------
+  // Auth Management
+  // ---------------------------------------------------------------------------
+
+  async function initAuth() {
+    if (!window.SupabaseClient) {
+      console.warn('[Auth] SupabaseClient not available');
+      return;
+    }
+
+    const configured = await window.SupabaseClient.init();
+    if (!configured) {
+      console.warn('[Auth] Supabase not configured, auth features disabled');
+      updateAuthUI(null);
+      return;
+    }
+
+    // Register auth state change listener
+    window.SupabaseClient.onAuthStateChange(handleAuthStateChange);
+
+    // Get initial user state
+    currentUser = window.SupabaseClient.getCurrentUser();
+    updateAuthUI(currentUser);
+
+    // Initialize CheckInManager
+    if (window.CheckInManager) {
+      await window.CheckInManager.init();
+    }
+  }
+
+  async function handleAuthStateChange(event, user) {
+    console.log('[Auth] State changed:', event, user?.email || 'signed out');
+    currentUser = user;
+    updateAuthUI(user);
+
+    // Re-initialize CheckInManager on auth change
+    if (window.CheckInManager) {
+      await window.CheckInManager.onAuthChange(!!user);
+    }
+
+    // Re-render to update checkin markers
+    applyFilters();
+  }
+
+  function updateAuthUI(user) {
+    const authLoginBtn = $('#authLoginBtn');
+    const authUserInfo = $('#authUserInfo');
+    const authUserAvatar = $('#authUserAvatar');
+    const authUserName = $('#authUserName');
+    const authUserEmail = $('#authUserEmail');
+    const authLogoutBtn = $('#authLogoutBtn');
+
+    if (user) {
+      // Logged in state
+      if (authLoginBtn) authLoginBtn.classList.add('hidden');
+      if (authUserInfo) authUserInfo.classList.remove('hidden');
+
+      const displayName = user.user_metadata?.full_name || user.user_metadata?.name || user.email?.split('@')[0] || 'User';
+      const avatarUrl = user.user_metadata?.avatar_url || user.user_metadata?.picture ||
+        `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=00D9FF&color=0D0D0D`;
+
+      if (authUserAvatar) authUserAvatar.src = avatarUrl;
+      if (authUserName) authUserName.textContent = displayName;
+      if (authUserEmail) authUserEmail.textContent = user.email;
+
+      // Setup logout handler
+      if (authLogoutBtn) {
+        authLogoutBtn.onclick = async () => {
+          try {
+            await window.SupabaseClient.signOut();
+          } catch (error) {
+            console.error('[Auth] Sign out failed:', error);
+          }
+        };
+      }
+    } else {
+      // Logged out state
+      if (authLoginBtn) authLoginBtn.classList.remove('hidden');
+      if (authUserInfo) authUserInfo.classList.add('hidden');
+
+      // Setup login modal handlers
+      setupAuthModal();
+    }
+  }
+
+  function setupAuthModal() {
+    const authLoginBtn = $('#authLoginBtn');
+    const authModal = $('#authModal');
+    const authModalClose = $('#authModalClose');
+    const authModalOverlay = authModal?.querySelector('.auth-modal-overlay');
+    const authGithubBtn = $('#authGithubBtn');
+    const authGoogleBtn = $('#authGoogleBtn');
+
+    if (!authModal) return;
+
+    // Remove existing listeners by cloning
+    if (authLoginBtn && !authLoginBtn._modalSetup) {
+      authLoginBtn._modalSetup = true;
+      authLoginBtn.addEventListener('click', () => openAuthModal());
+    }
+
+    if (authModalClose && !authModalClose._modalSetup) {
+      authModalClose._modalSetup = true;
+      authModalClose.addEventListener('click', closeAuthModal);
+    }
+
+    if (authModalOverlay && !authModalOverlay._modalSetup) {
+      authModalOverlay._modalSetup = true;
+      authModalOverlay.addEventListener('click', closeAuthModal);
+    }
+
+    // ESC to close
+    if (!document._authModalEsc) {
+      document._authModalEsc = true;
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && authModal && !authModal.classList.contains('hidden')) {
+          closeAuthModal();
+        }
+      });
+    }
+
+    // OAuth handlers
+    if (authGithubBtn && !authGithubBtn._modalSetup) {
+      authGithubBtn._modalSetup = true;
+      authGithubBtn.addEventListener('click', async () => {
+        try {
+          await window.SupabaseClient.signInWithGitHub();
+        } catch (error) {
+          showAuthError(error.message || '로그인 중 오류가 발생했습니다.');
+        }
+      });
+    }
+
+    if (authGoogleBtn && !authGoogleBtn._modalSetup) {
+      authGoogleBtn._modalSetup = true;
+      authGoogleBtn.addEventListener('click', async () => {
+        try {
+          await window.SupabaseClient.signInWithGoogle();
+        } catch (error) {
+          showAuthError(error.message || '로그인 중 오류가 발생했습니다.');
+        }
+      });
+    }
+
+  }
+
+  let isAuthModalSetup = false;
+
+  function openAuthModal() {
+    const authModal = $('#authModal');
+    const authError = $('#authError');
+
+    if (authModal) {
+      authModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    if (authError) authError.classList.add('hidden');
+  }
+
+  function closeAuthModal() {
+    const authModal = $('#authModal');
+    if (authModal) {
+      authModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function showAuthError(message) {
+    const authError = $('#authError');
+    if (authError) {
+      const errorP = authError.querySelector('p');
+      if (errorP) errorP.textContent = message;
+      authError.classList.remove('hidden');
+    }
+  }
+
+  // ---------------------------------------------------------------------------
   // Init
   // ---------------------------------------------------------------------------
 
@@ -815,6 +1162,10 @@
     setupToggleAll();
     setupClearFilters();
     setupBackToTop();
+    setupCheckinSummary();
+
+    // Initialize auth
+    await initAuth();
 
     // Load services config
     const hasServices = await loadServicesConfig();

@@ -14,6 +14,28 @@ import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareVersions } from './utils/version-utils.mjs';
+import { existsSync } from 'node:fs';
+
+// Load environment variables from .env file
+function loadEnv() {
+  const envPath = join(PROJECT_ROOT, '.env');
+  if (existsSync(envPath)) {
+    const content = readFile(envPath, 'utf-8');
+    return content.then(data => {
+      const env = {};
+      for (const line of data.split('\n')) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const [key, ...valueParts] = trimmed.split('=');
+        if (key && valueParts.length > 0) {
+          env[key.trim()] = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
+        }
+      }
+      return env;
+    });
+  }
+  return Promise.resolve({});
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
@@ -261,7 +283,7 @@ async function hashStaticAssets() {
 /**
  * Build index.html from template
  */
-async function buildHtml(translationsData, assetHashMap) {
+async function buildHtml(translationsData, assetHashMap, envConfig) {
   let template;
   try {
     template = await readFile(TEMPLATE_PATH, 'utf-8');
@@ -288,6 +310,13 @@ async function buildHtml(translationsData, assetHashMap) {
     html = html.replace(/\{\{STYLE_CSS_FILE\}\}/g, assetHashMap['style.css'] || 'style.css');
   }
 
+  // Replace Supabase config placeholder
+  const supabaseConfig = {
+    url: envConfig.SUPABASE_URL || '',
+    anonKey: envConfig.SUPABASE_ANON_KEY || ''
+  };
+  html = html.replace(/\{\{SUPABASE_CONFIG\}\}/g, JSON.stringify(supabaseConfig));
+
   await writeFile(OUTPUT_HTML, html, 'utf-8');
 
   const sizeKB = (Buffer.byteLength(html) / 1024).toFixed(1);
@@ -313,6 +342,12 @@ async function main() {
   console.log('  ChangeLog.kr - Site Builder');
   console.log('========================================');
   console.log('');
+
+  // Load environment variables
+  const envConfig = await loadEnv();
+  if (envConfig.SUPABASE_URL) {
+    console.log('  Supabase config found');
+  }
 
   // Step 1: Ensure output directories
   console.log('[1/5] Preparing output directories...');
@@ -381,7 +416,7 @@ async function main() {
 
   // Step 5: Build HTML from template
   console.log('[5/5] Building index.html from template...');
-  await buildHtml(translationsData, assetHashMap);
+  await buildHtml(translationsData, assetHashMap, envConfig);
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
 

@@ -586,6 +586,235 @@ html:not(.dark) ::selection {
 }
 
 /* ---------------------------------------------------------------------------
+   New Version Badge
+   --------------------------------------------------------------------------- */
+
+.badge-new {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  color: var(--bg-primary);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.badge-new::before {
+  content: "NEW";
+}
+
+/* ---------------------------------------------------------------------------
+   Check-in Summary Panel
+   --------------------------------------------------------------------------- */
+
+.checkin-summary {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--neon-cyan);
+  background: var(--neon-cyan-glow);
+}
+
+.checkin-summary.hidden {
+  display: none;
+}
+
+.checkin-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.checkin-summary-title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.checkin-summary-count {
+  font-size: 0.875rem;
+  color: var(--neon-cyan);
+}
+
+.checkin-summary-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.checkin-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.checkin-stat-badge {
+  display: inline-flex;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Light mode adjustments for checkin summary */
+html:not(.dark) .checkin-summary {
+  background: rgba(8, 145, 178, 0.08);
+}
+
+/* ---------------------------------------------------------------------------
+   Check-in Buttons
+   --------------------------------------------------------------------------- */
+
+.checkin-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkin-btn:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-primary);
+}
+
+.checkin-btn:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.checkin-all-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  border: none;
+  color: var(--bg-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkin-all-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--neon-cyan-glow);
+}
+
+.checkin-all-btn:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.checkin-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Checked state for version card */
+.version-card.checked {
+  opacity: 0.7;
+}
+
+.version-card.checked .version-header::after {
+  content: "확인완료";
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  background: var(--neon-green-glow);
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+}
+
+/* ---------------------------------------------------------------------------
+   Auth Modal Styles
+   --------------------------------------------------------------------------- */
+
+.auth-modal {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.auth-modal.hidden {
+  display: none;
+}
+
+.auth-modal-overlay {
+  transition: opacity 0.2s ease;
+}
+
+.auth-modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-oauth-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-oauth-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.auth-oauth-btn:hover::after {
+  transform: translateX(100%);
+}
+
+/* Auth loading state */
+.auth-oauth-btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.auth-oauth-btn.loading::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  left: 50%;
+  top: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.auth-oauth-btn.loading span {
+  visibility: hidden;
+}
+
+/* ---------------------------------------------------------------------------
    Print Styles
    --------------------------------------------------------------------------- */
 
