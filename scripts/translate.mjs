@@ -3,12 +3,10 @@
  *
  * Usage:
  *   NEW_VERSIONS_MAP='{"claude-code":["2.1.31"],"gemini-cli":["0.27.2"]}' node scripts/translate.mjs
- *   NEW_VERSIONS='["2.1.31","2.1.32"]' node scripts/translate.mjs  (backward compat: defaults to claude-code)
  *   node scripts/translate.mjs  (translates all untranslated versions across all services)
  *
  * Environment variables:
  *   NEW_VERSIONS_MAP  - JSON object: {"service-id": ["version1", "version2"]}
- *   NEW_VERSIONS      - JSON array (backward compat, defaults to claude-code service)
  *   TRANSLATION_ENGINE - 'auto' (default), 'gemini', 'openai', 'google', 'mock'
  *                        'auto': tries Gemini model chain → OpenAI → Google → Mock
  *   OPENAI_API_KEY    - Use OpenAI (model via OPENAI_MODEL env, default: gpt-4o)
@@ -292,7 +290,7 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
 
   // Add translations to entries (prefix 자동 후처리 적용, null → original fallback)
   data.entries.forEach((entry, index) => {
-    entry.translation = stripPrefix(result.translations[index] ?? entry.original);
+    entry.translated = stripPrefix(result.translations[index] ?? entry.original);
   });
 
   // Update metadata
@@ -444,7 +442,7 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
 
     // prefix 자동 후처리 적용
     data.entries.forEach((entry, i) => {
-      entry.translation = stripPrefix(versionTranslations[i] ?? entry.original);
+      entry.translated = stripPrefix(versionTranslations[i] ?? entry.original);
     });
 
     const versionCharCount = data.entries.reduce((sum, e) => sum + (e.original?.length || 0), 0);
@@ -465,8 +463,7 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
  * Build the service-to-versions map to translate.
  * Priority:
  *   1. NEW_VERSIONS_MAP env: {"service-id": ["v1", "v2"]}
- *   2. NEW_VERSIONS env: ["v1", "v2"] (backward compat, defaults to claude-code)
- *   3. Scan all enabled services for untranslated versions
+ *   2. Scan all enabled services for untranslated versions
  */
 async function getVersionsMap() {
   // Priority 1: NEW_VERSIONS_MAP
@@ -487,22 +484,7 @@ async function getVersionsMap() {
     }
   }
 
-  // Priority 2: NEW_VERSIONS (backward compat -> claude-code)
-  if (process.env.NEW_VERSIONS) {
-    try {
-      const versions = JSON.parse(process.env.NEW_VERSIONS);
-      if (!Array.isArray(versions)) {
-        throw new Error('NEW_VERSIONS must be a JSON array');
-      }
-      console.log(`Using NEW_VERSIONS from environment (defaulting to claude-code): ${versions.join(', ')}`);
-      return { 'claude-code': versions };
-    } catch (error) {
-      console.error(`Error parsing NEW_VERSIONS: ${error.message}`);
-      process.exit(1);
-    }
-  }
-
-  // Priority 3: Scan all services for untranslated versions
+  // Priority 2: Scan all services for untranslated versions
   console.log('No version env vars specified, scanning all services for untranslated versions...\n');
   const services = await loadServices();
   const map = {};

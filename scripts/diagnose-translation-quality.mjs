@@ -62,7 +62,7 @@ async function main() {
     let totalEntries = 0;
     let otherCount = 0;
     let untranslated = 0;
-    const fieldUsage = { translation: 0, translated: 0, both: 0, neither: 0 };
+    const fieldUsage = { translated: 0, neither: 0 };
     const categoryDist = {};
     const untranslatedExamples = [];
 
@@ -77,15 +77,12 @@ async function main() {
         if (cat === 'other') otherCount++;
 
         // Field usage
-        const hasTr = e.translation !== undefined && e.translation !== null && e.translation !== '';
         const hasTd = e.translated !== undefined && e.translated !== null && e.translated !== '';
-        if (hasTr && hasTd) fieldUsage.both++;
-        else if (hasTr) fieldUsage.translation++;
-        else if (hasTd) fieldUsage.translated++;
+        if (hasTd) fieldUsage.translated++;
         else fieldUsage.neither++;
 
         // Untranslated check
-        const val = e.translated || e.translation || '';
+        const val = e.translated || '';
         const koreanChars = (val.match(/[가-힣]/g) || []).length;
         if (val === '' || val === e.original || koreanChars === 0) {
           untranslated++;
@@ -104,7 +101,7 @@ async function main() {
         console.log(`      - v${ex.version}: "${ex.original}..."`);
       }
     }
-    console.log(`    Field usage: translation=${fieldUsage.translation}, translated=${fieldUsage.translated}, both=${fieldUsage.both}, neither=${fieldUsage.neither}`);
+    console.log(`    Field usage: translated=${fieldUsage.translated}, neither=${fieldUsage.neither}`);
     console.log(`    Category distribution:`);
     const sortedCats = Object.entries(categoryDist).sort((a, b) => b[1] - a[1]);
     for (const [cat, count] of sortedCats) {

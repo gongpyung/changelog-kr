@@ -66,7 +66,7 @@ function formatEntriesHtml(entries) {
     const scope = entry.scope
       ? `<span style="display:inline-block;background:#e5e7eb;color:#374151;padding:2px 6px;border-radius:3px;font-size:11px;margin-left:8px;">${escapeHtml(entry.scope)}</span>`
       : '';
-    const description = escapeHtml(entry.translation || entry.original || '');
+    const description = escapeHtml(entry.translated || entry.original || '');
 
     return `
       <div style="margin-bottom:16px;padding-left:8px;border-left:3px solid ${color};">
@@ -131,7 +131,6 @@ async function main() {
   const from = process.env.NOTIFY_EMAIL_FROM;
   const toList = process.env.NOTIFY_EMAIL_TO;
   const versionsMap = process.env.NEW_VERSIONS_MAP;
-  const legacyVersions = process.env.NEW_VERSIONS;
   const siteUrl = process.env.SITE_URL || 'https://claude-code-changelog-ko.pages.dev';
 
   if (!apiKey) {
@@ -149,23 +148,13 @@ async function main() {
     return;
   }
 
-  // Parse input - support both formats
+  // Parse input
   let serviceVersions;
   if (versionsMap) {
-    // New format: {"claude-code": ["2.1.33"], "gemini-cli": ["0.27.2"]}
     try {
       serviceVersions = JSON.parse(versionsMap);
     } catch (error) {
       console.error('Failed to parse NEW_VERSIONS_MAP:', error.message);
-      process.exit(1);
-    }
-  } else if (legacyVersions) {
-    // Legacy format: ["2.1.33"] -> default to claude-code
-    try {
-      const versions = JSON.parse(legacyVersions);
-      serviceVersions = { 'claude-code': versions };
-    } catch (error) {
-      console.error('Failed to parse NEW_VERSIONS:', error.message);
       process.exit(1);
     }
   } else {
