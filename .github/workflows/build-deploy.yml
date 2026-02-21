@@ -23,6 +23,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Guard legacy translation key
+        run: |
+          if rg -n '"translation"\s*:' data/services/*/translations/*.json; then
+            echo "Found legacy 'translation' key in translation JSON files. Use 'translated' key only."
+            exit 1
+          fi
+          echo "No legacy translation keys found."
       - name: Build site
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

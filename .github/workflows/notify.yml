@@ -7,9 +7,6 @@ on:
       new_versions_map:
         description: 'JSON map of service ID to version arrays'
         required: false
-      new_versions:
-        description: '(deprecated) JSON array for claude-code backward compat'
-        required: false
 
 jobs:
   notify:
@@ -31,7 +28,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
-          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
           SITE_URL: ${{ vars.SITE_URL }}
         run: node scripts/notify-telegram.mjs
         continue-on-error: true
@@ -42,7 +38,6 @@ jobs:
           NOTIFY_EMAIL_FROM: ${{ vars.NOTIFY_EMAIL_FROM }}
           NOTIFY_EMAIL_TO: ${{ vars.NOTIFY_EMAIL_TO }}
           NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
-          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
           SITE_URL: ${{ vars.SITE_URL }}
         run: node scripts/notify-email.mjs
         continue-on-error: true

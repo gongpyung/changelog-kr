@@ -6,9 +6,6 @@ on:
       new_versions_map:
         description: 'JSON map of service ID to version arrays'
         required: false
-      new_versions:
-        description: '(deprecated) JSON array for claude-code backward compat'
-        required: false
       translate_all:
         description: 'Translate all untranslated versions'
         required: false
@@ -37,17 +34,45 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
-          NEW_VERSIONS: ${{ github.event.inputs.new_versions }}
         run: |
-          node scripts/parse-changelog.mjs
+          if [ "${{ github.event.inputs.translate_all }}" = "true" ] || [ -z "$NEW_VERSIONS_MAP" ] || [ "$NEW_VERSIONS_MAP" = "{}" ]; then
+            node scripts/parse-changelog.mjs
+          else
+            SERVICES=$(node -e "const m=JSON.parse(process.env.NEW_VERSIONS_MAP||'{}');console.log(Object.keys(m).join(' '))")
+            for SERVICE in $SERVICES; do
+              node scripts/parse-changelog.mjs --service "$SERVICE"
+            done
+          fi
           node scripts/translate.mjs
+
+      - name: Guard legacy translation key
+        run: |
+          if rg -n '"translation"\s*:' data/services/*/translations/*.json; then
+            echo "Found legacy 'translation' key in translation JSON files. Use 'translated' key only."
+            exit 1
+          fi
+          echo "No legacy translation keys found."
+
+      - name: Generate commit message
+        id: commit_message
+        env:
+          NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
+        run: |
+          MSG=$(node -e "
+            const map = JSON.parse(process.env.NEW_VERSIONS_MAP || '{}');
+            const parts = Object.entries(map)
+              .flatMap(([id, versions]) => versions.map(v => id + '@' + v))
+              .join(', ');
+            console.log(parts ? 'chore: add Korean translations for ' + parts : 'chore: add Korean translations');
+          ")
+          echo "message=$MSG" >> $GITHUB_OUTPUT
 
       - name: Commit translated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "chore: add Korean translations for ${{ github.event.inputs.new_versions }}"
+          git diff --staged --quiet || git commit -m "${{ steps.commit_message.outputs.message }}"
           git push
 
       - name: Trigger build
@@ -72,7 +97,6 @@ jobs:
       #         workflow_id: 'notify.yml',
       #         ref: 'main',
       #         inputs: {
-      #           new_versions_map: '${{ github.event.inputs.new_versions_map }}',
-      #           new_versions: '${{ github.event.inputs.new_versions }}'
+      #           new_versions_map: '${{ github.event.inputs.new_versions_map }}'
       #         }
       #       })
