@@ -43,10 +43,10 @@
      * 인증 상태 변경 시 재초기화
      */
     async onAuthChange(isAuthenticated) {
+      // Always clear existing data first to prevent cross-account leaking
+      this._checkins = {};
       if (isAuthenticated) {
         await this._loadFromServer();
-      } else {
-        this._checkins = {};
       }
     },
 

@@ -48,8 +48,10 @@
 
       // Listen for auth changes
       supabase.auth.onAuthStateChange((event, session) => {
+        const previousUserId = currentUser?.id;
         currentUser = session?.user || null;
-        notifyAuthStateListeners(event, currentUser);
+        // Pass previous user ID so listeners can detect user switch
+        notifyAuthStateListeners(event, currentUser, previousUserId);
       });
 
       console.log('[Supabase] Client initialized successfully');
@@ -122,10 +124,10 @@
     };
   }
 
-  function notifyAuthStateListeners(event, user) {
+  function notifyAuthStateListeners(event, user, previousUserId) {
     authStateListeners.forEach(callback => {
       try {
-        callback(event, user);
+        callback(event, user, previousUserId);
       } catch (e) {
         console.error('[Supabase] Auth listener error:', e);
       }
