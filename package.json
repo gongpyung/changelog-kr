@@ -11,6 +11,10 @@
     "notify:telegram": "node scripts/notify-telegram.mjs",
     "notify:email": "node scripts/notify-email.mjs",
     "test": "node --test tests/",
+    "test:e2e": "npx playwright test",
+    "test:e2e:desktop": "npx playwright test --project=desktop",
+    "test:e2e:mobile": "npx playwright test --project=mobile",
+    "test:all": "npm test && npm run test:e2e",
     "release": "commit-and-tag-version",
     "release:minor": "commit-and-tag-version --release-as minor",
     "release:major": "commit-and-tag-version --release-as major"
@@ -26,6 +30,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "commit-and-tag-version": "^12.6.1"
   }
 }

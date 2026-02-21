@@ -10,6 +10,8 @@ changelog-kr/
 │   ├── index.html                 # 빌드 결과물 (직접 편집 X)
 │   ├── assets/
 │   │   ├── app.js                 # 클라이언트 JS (vanilla JS, IIFE)
+│   │   ├── supabase-client.js     # Supabase Auth + Check-in 클라이언트
+│   │   ├── checkin.js             # CheckInManager (버전 확인 기록)
 │   │   ├── style.css              # 스타일 (CSS 변수 + Tailwind CDN)
 │   │   └── favicon.svg
 │   └── data/                      # 빌드 결과물 (직접 편집 X)
@@ -23,6 +25,8 @@ changelog-kr/
 │       └── translations/*.json    # 버전별 한국어 번역 파일
 ├── templates/
 │   └── index.html.template        # HTML 템플릿 ({{PLACEHOLDERS}})
+├── supabase/
+│   └── schema.sql                 # DB 스키마 (user_checkins + RLS)
 ├── scripts/
 │   ├── build-site.mjs             # 빌드: 번역 JSON → site/ 생성
 │   ├── detect-new-versions.mjs    # 새 버전 감지
@@ -38,6 +42,7 @@ changelog-kr/
 ## Tech Stack
 
 - **프론트엔드**: Vanilla JS (IIFE 패턴), Tailwind CDN, CSS 변수
+- **인증/DB**: Supabase (PostgreSQL + Auth, GitHub/Google OAuth)
 - **빌드**: Node.js 20+, ESM (`"type": "module"`)
 - **배포**: GitHub Pages (GitHub Actions)
 - **번역**: OpenAI API, Gemini API, Google Translate API
@@ -113,6 +118,20 @@ html:not(.dark) { --bg-primary: #FAFAFA; } /* 라이트 오버라이드 */
   ]
 }
 ```
+
+### User Check-in (확인 기록)
+
+Supabase 기반 사용자 인증 + 버전 확인 기록 기능:
+
+- **인증**: GitHub OAuth, Google OAuth (Supabase Auth)
+- **모듈 구조**:
+  - `site/assets/supabase-client.js` - Supabase 클라이언트 (Auth + DB 쿼리)
+  - `site/assets/checkin.js` - CheckInManager (버전 비교, unseen 관리)
+  - `supabase/schema.sql` - DB 스키마 (user_checkins 테이블 + RLS)
+- **환경 변수**: `.env`에 `SUPABASE_URL`, `SUPABASE_ANON_KEY` 설정 필요
+- **빌드 시 주입**: `scripts/build-site.mjs`가 `.env`를 읽어 `{{SUPABASE_CONFIG}}`로 주입
+- **상태 소유권**: `CheckInManager`가 유일한 상태 관리자 (중복 상태 없음)
+- **스크립트 로드 순서**: `supabase-client.js` → `checkin.js` → `app.js`
 
 ## MCP 활용 규칙
 
