@@ -59,7 +59,7 @@ async function discoverServices() {
   try {
     config = JSON.parse(await readFile(SERVICES_CONFIG, 'utf-8'));
   } catch (error) {
-    console.warn('  ⚠ No services.json found, falling back to legacy mode');
+    console.warn('  ⚠ No services.json found, falling back to single-service compatibility mode');
     return null;
   }
 
@@ -206,7 +206,7 @@ function stripForFrontend(versions) {
       category: entry.category || 'other',
       scope: entry.scope || null,
       original: entry.original || entry.text || '',
-      translated: entry.translated || entry.translation || null,
+      translated: entry.translated || null,
     })),
   }));
 }
@@ -402,8 +402,8 @@ async function main() {
     const sorted = sortVersionsDescending(versions);
     translationsData = await buildTranslationsJson(sorted);
   } else {
-    // Legacy mode - use old TRANSLATIONS_DIR
-    console.log('[2/5] Reading translation files (legacy mode)...');
+    // Single-service compatibility mode (for repositories still using data/translations)
+    console.log('[2/5] Reading translation files (single-service compatibility mode)...');
     const rawVersions = await readTranslations();
 
     // Step 3: Sort and build JSON

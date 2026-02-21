@@ -30,10 +30,10 @@ const KO_PREFIXES = [
 ];
 
 /**
- * entry에서 번역문 필드값을 가져옴 (translation 또는 translated 필드 모두 지원)
+ * entry에서 번역문 필드값을 가져옴 (translated 필드 사용)
  */
 function getTranslation(entry) {
-  return entry.translated || entry.translation || '';
+  return entry.translated || '';
 }
 
 /**
@@ -204,10 +204,7 @@ async function cleanFile(filePath) {
   // 각 항목 정리
   const cleaned = filtered.map(entry => {
     const origOriginal = entry.original;
-    // translation 또는 translated 필드 모두 지원
-    const hasTranslated = 'translated' in entry;
-    const hasTranslation = 'translation' in entry;
-    const origTranslated = hasTranslated ? entry.translated : entry.translation;
+    const origTranslated = entry.translated;
 
     const newOriginal = cleanText(entry.original);
     const newTranslated = cleanTranslated(origTranslated);
@@ -216,9 +213,7 @@ async function cleanFile(filePath) {
       cleanedCount++;
     }
 
-    const result = { ...entry, original: newOriginal };
-    if (hasTranslated) result.translated = newTranslated;
-    if (hasTranslation) result.translation = newTranslated;
+    const result = { ...entry, original: newOriginal, translated: newTranslated };
     return result;
   });
 
