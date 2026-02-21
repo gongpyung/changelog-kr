@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2026-02-21
+
+### Added
+
+* **사용자 체크인 기능** - Supabase Auth(GitHub/Google OAuth) 연동으로 버전별 확인 기록 저장
+  - `CheckInManager` 모듈: 버전 비교, unseen 관리, 서버 동기화
+  - `SupabaseClient` 모듈: 인증 + DB 쿼리 (user_checkins 테이블)
+  - NEW 뱃지 및 확인 버튼으로 미확인 버전 표시
+  - "새로운 업데이트" 요약 패널 (모두 확인 기능 포함)
+* **e2e 테스트 환경** - Playwright 기반 체크인 기능 e2e 테스트 추가
+* **Supabase 설정 가이드** - 초보자용 단계별 설정 문서 및 수동 테스트 체크리스트
+
+### Fixed
+
+* **비로그인 시 NEW/확인 버튼 숨기기** - 로그인하지 않은 상태에서 모든 버전이 NEW로 표시되던 문제 수정
+* **계정 전환 시 데이터 누출 방지** - OAuth 계정 전환 시 이전 사용자의 체크인 데이터가 남던 문제 수정
+
+### Changed
+
+* **새로운 업데이트 영역 sticky 고정** - 체크인 요약 패널을 sticky header 내부로 이동하여 스크롤 시에도 표시
+* **CI에 Supabase 환경 변수 전달** - `build-deploy.yml`에 `SUPABASE_URL`, `SUPABASE_ANON_KEY` 시크릿 주입 추가
+
 ## [2.3.0] - 2026-02-09
 
 
