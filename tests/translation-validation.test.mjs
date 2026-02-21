@@ -16,21 +16,24 @@ import { execSync } from 'node:child_process';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
 
-// 활성 서비스 목록
-const ACTIVE_SERVICES = [
-  'claude-code',
-  'codex-cli',
-  'gemini-cli',
-  'oh-my-claudecode',
-  'oh-my-opencode',
-  'openclaw',
-];
+// 활성 서비스 목록 - data/services.json에서 동적으로 로드
+const _servicesJson = JSON.parse(readFileSync(join(PROJECT_ROOT, 'data', 'services.json'), 'utf8'));
+const ACTIVE_SERVICES = _servicesJson.services.filter(s => s.enabled === true).map(s => s.id);
 
 // 유효한 카테고리
 const VALID_CATEGORIES = ['added', 'fixed', 'improved', 'changed', 'removed', 'other'];
 
 // 영문 prefix 패턴 (제거되어야 함)
 const ENGLISH_PREFIX_PATTERN = /^(feat|fix|chore|docs|style|refactor|test|build|ci|perf|revert)(\([^)]+\))?:\s*/i;
+
+// 품질 게이트 임계치
+// Hard gate: 초과 시 CI 차단 (assert.strictEqual/assert.ok with condition)
+// Soft-to-Hard gate: 임계치 초과 시 실패
+const QUALITY_THRESHOLDS = {
+  UNTRANSLATED_RATIO: 0.05,    // Hard: 미번역 5% 초과 시 실패
+  NO_KOREAN_RATIO: 0.10,       // Soft-to-Hard: 한글 미포함 10% 초과 시 실패
+  TOO_SHORT_RATIO: 0.03,       // Soft-to-Hard: 짧은 번역 3% 초과 시 실패
+};
 
 // 모든 번역 파일 경로 수집
 function collectTranslationFiles() {
@@ -81,7 +84,7 @@ describe('JSON 스키마 검증', () => {
     console.log(`  ${checked}개 파일 검증 완료`);
   });
 
-  it('schema: entry 필수 필드 - category, original, translation 존재', () => {
+  it('schema: entry 필수 필드 - category, original, translated 존재', () => {
     let totalEntries = 0;
     for (const { filepath, serviceId, filename } of files) {
       const data = readTranslationFile(filepath);
@@ -98,8 +101,8 @@ describe('JSON 스키마 검증', () => {
           `${serviceId}/${filename} entries[${i}]: original 없음`
         );
         assert.ok(
-          typeof entry.translation === 'string' || typeof entry.translated === 'string',
-          `${serviceId}/${filename} entries[${i}]: translation/translated 없음`
+          typeof entry.translated === 'string',
+          `${serviceId}/${filename} entries[${i}]: translated 없음`
         );
         totalEntries++;
       }
@@ -144,7 +147,7 @@ describe('JSON 스키마 검증', () => {
 describe('번역 품질 검증', () => {
   const files = collectTranslationFiles();
 
-  it('quality: 미번역 감지 - original === translation (전체 5% 미만)', () => {
+  it('quality: 미번역 감지 - original === translated (전체 5% 미만)', () => {
     let totalEntries = 0;
     let untranslated = 0;
     const untranslatedSamples = [];
@@ -155,8 +158,8 @@ describe('번역 품질 검증', () => {
 
       for (const entry of data.entries) {
         totalEntries++;
-        const translation = entry.translation || entry.translated || '';
-        if (entry.original === translation) {
+        const translated = entry.translated || '';
+        if (entry.original === translated) {
           untranslated++;
           if (untranslatedSamples.length < 5) {
             untranslatedSamples.push(`${serviceId}/${filename}: "${entry.original.substring(0, 50)}..."`);
@@ -173,13 +176,14 @@ describe('번역 품질 검증', () => {
     }
 
     assert.ok(
-      ratio < 0.05,
-      `미번역 비율 ${(ratio * 100).toFixed(2)}%가 5%를 초과함`
+      ratio < QUALITY_THRESHOLDS.UNTRANSLATED_RATIO,
+      `미번역 비율 ${(ratio * 100).toFixed(2)}%가 ${QUALITY_THRESHOLDS.UNTRANSLATED_RATIO * 100}%를 초과함`
     );
   });
 
-  it('quality: 한글 포함 여부 - /[가-힣]/ 매칭 확인', () => {
+  it(`quality: 한글 포함 여부 - /[가-힣]/ 매칭 확인 (미포함 ${QUALITY_THRESHOLDS.NO_KOREAN_RATIO * 100}% 초과 시 실패)`, () => {
     const KOREAN_PATTERN = /[가-힣]/;
+    let totalEntries = 0;
     let noKoreanCount = 0;
     const noKoreanSamples = [];
 
@@ -188,7 +192,8 @@ describe('번역 품질 검증', () => {
       if (!data || !Array.isArray(data.entries)) continue;
 
       for (const entry of data.entries) {
-        const translation = entry.translation || entry.translated || '';
+        totalEntries++;
+        const translation = entry.translated || '';
         if (!KOREAN_PATTERN.test(translation)) {
           noKoreanCount++;
           if (noKoreanSamples.length < 5) {
@@ -198,13 +203,16 @@ describe('번역 품질 검증', () => {
       }
     }
 
-    console.log(`  한글 미포함: ${noKoreanCount}개`);
+    const ratio = totalEntries > 0 ? noKoreanCount / totalEntries : 0;
+    console.log(`  한글 미포함: ${noKoreanCount}/${totalEntries} (${(ratio * 100).toFixed(2)}%)`);
     if (noKoreanSamples.length > 0) {
       console.log(`  샘플:\n    ${noKoreanSamples.join('\n    ')}`);
     }
 
-    // 한글 미포함 entry는 허용하되 로그만 남김 (일부는 영어 유지 가능)
-    assert.ok(true, '한글 포함 여부 확인 완료');
+    assert.ok(
+      ratio <= QUALITY_THRESHOLDS.NO_KOREAN_RATIO,
+      `한글 미포함 비율 ${(ratio * 100).toFixed(2)}%가 ${QUALITY_THRESHOLDS.NO_KOREAN_RATIO * 100}%를 초과함`
+    );
   });
 
   it('quality: 영문 prefix 잔존 없음 - feat:/fix:/chore: 등 제거됨', () => {
@@ -216,7 +224,7 @@ describe('번역 품질 검증', () => {
       if (!data || !Array.isArray(data.entries)) continue;
 
       for (const entry of data.entries) {
-        const translation = entry.translation || entry.translated || '';
+        const translation = entry.translated || '';
         if (ENGLISH_PREFIX_PATTERN.test(translation)) {
           prefixRemainCount++;
           if (prefixRemainSamples.length < 5) {
@@ -238,7 +246,8 @@ describe('번역 품질 검증', () => {
     );
   });
 
-  it('quality: 번역 길이 합리성 - 너무 짧은 번역 감지', () => {
+  it(`quality: 번역 길이 합리성 - 너무 짧은 번역 감지 (${QUALITY_THRESHOLDS.TOO_SHORT_RATIO * 100}% 초과 시 실패)`, () => {
+    let totalLongOriginals = 0;
     let tooShortCount = 0;
     const tooShortSamples = [];
 
@@ -247,30 +256,32 @@ describe('번역 품질 검증', () => {
       if (!data || !Array.isArray(data.entries)) continue;
 
       for (const entry of data.entries) {
-        const translation = entry.translation || entry.translated || '';
-        // 원문이 50자 이상인데 번역이 10자 미만인 경우
-        if (entry.original.length >= 50 && translation.length < 10) {
-          tooShortCount++;
-          if (tooShortSamples.length < 5) {
-            tooShortSamples.push(
-              `${serviceId}/${filename}: original(${entry.original.length}자) -> translation(${translation.length}자)`
-            );
+        // 원문이 50자 이상인 경우만 검사
+        if (entry.original.length >= 50) {
+          totalLongOriginals++;
+          const translation = entry.translated || '';
+          if (translation.length < 10) {
+            tooShortCount++;
+            if (tooShortSamples.length < 5) {
+              tooShortSamples.push(
+                `${serviceId}/${filename}: original(${entry.original.length}자) -> translated(${translation.length}자)`
+              );
+            }
           }
         }
       }
     }
 
-    console.log(`  너무 짧은 번역: ${tooShortCount}개`);
+    const ratio = totalLongOriginals > 0 ? tooShortCount / totalLongOriginals : 0;
+    console.log(`  너무 짧은 번역: ${tooShortCount}/${totalLongOriginals} (${(ratio * 100).toFixed(2)}%)`);
     if (tooShortSamples.length > 0) {
       console.log(`  샘플:\n    ${tooShortSamples.join('\n    ')}`);
     }
 
-    // 빈 번역이나 너무 짧은 번역은 경고만 하고 테스트는 통과
-    // 실제 번역 데이터 수정은 별도 작업에서 처리
-    if (tooShortCount > 0) {
-      console.log(`  [WARNING] 너무 짧은 번역 ${tooShortCount}개 발견 - 번역 보완 필요`);
-    }
-    assert.ok(true, '번역 길이 확인 완료');
+    assert.ok(
+      ratio <= QUALITY_THRESHOLDS.TOO_SHORT_RATIO,
+      `짧은 번역 비율 ${(ratio * 100).toFixed(2)}%가 ${QUALITY_THRESHOLDS.TOO_SHORT_RATIO * 100}%를 초과함`
+    );
   });
 });
 
@@ -317,7 +328,7 @@ describe('빌드 무결성 검증', () => {
     );
   });
 
-  it('build: 서비스별 translations.json 생성 - 6개 활성 서비스 파일 존재', () => {
+  it(`build: 서비스별 translations.json 생성 - ${ACTIVE_SERVICES.length}개 활성 서비스 파일 존재`, () => {
     const siteDataDir = join(PROJECT_ROOT, 'site', 'data', 'services');
     assert.ok(existsSync(siteDataDir), 'site/data/services 디렉토리가 없음');
 
