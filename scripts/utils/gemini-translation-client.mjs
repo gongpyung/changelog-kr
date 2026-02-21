@@ -25,6 +25,19 @@ export class QuotaExhaustedError extends Error {
 }
 
 /**
+ * Custom error thrown when Gemini returns fewer translations than expected.
+ * Contains the partial results so the caller can complete them with a fallback.
+ */
+export class PartialTranslationError extends Error {
+  constructor(partialTranslations, expectedCount) {
+    super(`Expected ${expectedCount} translations, got ${partialTranslations.length}`);
+    this.name = 'PartialTranslationError';
+    this.partialTranslations = partialTranslations;
+    this.expectedCount = expectedCount;
+  }
+}
+
+/**
  * Build translation prompt for Gemini
  */
 function buildPrompt(texts) {
@@ -122,7 +135,7 @@ async function callGeminiAPI(texts, apiKey, model) {
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
       temperature: 0.3,
-      maxOutputTokens: 4096,
+      maxOutputTokens: 8192,
     },
   });
 
@@ -151,10 +164,7 @@ async function callGeminiAPI(texts, apiKey, model) {
       const translations = parseResponse(responseText, texts.length);
 
       if (translations.length !== texts.length) {
-        console.warn(`Warning: Expected ${texts.length} translations, got ${translations.length}`);
-        while (translations.length < texts.length) {
-          translations.push(texts[translations.length]);
-        }
+        throw new PartialTranslationError(translations, texts.length);
       }
 
       return translations;

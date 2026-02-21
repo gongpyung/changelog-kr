@@ -3,6 +3,8 @@
  * Uses GPT-4o for high-quality changelog translations
  */
 
+import { PartialTranslationError } from './gemini-translation-client.mjs';
+
 const API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 const MAX_BATCH_SIZE = 20;
@@ -83,7 +85,7 @@ async function callOpenAIAPI(texts, apiKey) {
         }
       ],
       temperature: 0.3,
-      max_tokens: 4096,
+      max_tokens: 8192,
     }),
   });
 
@@ -102,10 +104,7 @@ async function callOpenAIAPI(texts, apiKey) {
   const translations = parseResponse(responseText, texts.length);
 
   if (translations.length !== texts.length) {
-    console.warn(`Warning: Expected ${texts.length} translations, got ${translations.length}`);
-    while (translations.length < texts.length) {
-      translations.push(texts[translations.length]);
-    }
+    throw new PartialTranslationError(translations, texts.length);
   }
 
   return translations;

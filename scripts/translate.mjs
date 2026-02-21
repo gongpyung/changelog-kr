@@ -19,7 +19,7 @@
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { translateBatch } from './utils/translation-client.mjs';
-import { translateWithGemini, QuotaExhaustedError } from './utils/gemini-translation-client.mjs';
+import { translateWithGemini, QuotaExhaustedError, PartialTranslationError } from './utils/gemini-translation-client.mjs';
 import { translateWithOpenAI } from './utils/openai-translation-client.mjs';
 import { stripPrefix } from './fix-translation-prefixes.mjs';
 
@@ -92,14 +92,18 @@ function createMockTranslations(texts) {
 /**
  * Log quality warnings after a translation batch.
  * Warns when a translation is empty/null or identical to the original English text.
- * Returns count of potentially poor-quality translations.
+ * Returns { warnings: number, isPoorQuality: boolean }.
+ * isPoorQuality is true if >10% of translations are problematic.
  *
  * @param {string[]} originals - Source texts (same order as translations)
  * @param {string[]} translations - Translated texts
  * @param {string} context - Label for log messages (e.g. version or service name)
+ * @returns {{ warnings: number, isPoorQuality: boolean }}
  */
-function logQualityWarnings(originals, translations, context) {
+function checkTranslationQuality(originals, translations, context) {
+  const POOR_QUALITY_THRESHOLD = 0.05; // 5% 이상 문제 시 poor quality
   let warnings = 0;
+
   for (let i = 0; i < translations.length; i++) {
     const t = translations[i];
     const orig = originals[i] || '';
@@ -109,11 +113,20 @@ function logQualityWarnings(originals, translations, context) {
       warnings++;
     }
   }
+
+  const ratio = warnings / translations.length;
+  const isPoorQuality = translations.length > 0 && ratio > POOR_QUALITY_THRESHOLD;
+
   if (warnings > 0) {
-    console.warn(`    ⚠ [${context}] ${warnings}/${translations.length} entries may be poorly translated (same as original or empty)`);
-    console.warn(`      Run: node scripts/retranslate-poor-quality.mjs`);
+    console.warn(`    ⚠ [${context}] ${warnings}/${translations.length} entries (${(ratio * 100).toFixed(1)}%) may be poorly translated`);
+    if (isPoorQuality) {
+      console.warn(`    ⚠ Poor quality threshold exceeded (${(POOR_QUALITY_THRESHOLD * 100)}%) - will retry with fallback`);
+    } else {
+      console.warn(`      Run: node scripts/retranslate-poor-quality.mjs`);
+    }
   }
-  return warnings;
+
+  return { warnings, isPoorQuality };
 }
 
 /**
@@ -210,6 +223,14 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
         usedEngine = geminiResult.usedModel === GEMINI_MODELS[0].model
           ? 'gemini'
           : geminiResult.usedModel;
+
+        // Quality check: if Gemini produced poor quality, retry with OpenAI
+        const quality = checkTranslationQuality(textsToTranslate, result.translations, `${version} (Gemini)`);
+        if (quality.isPoorQuality && process.env.OPENAI_API_KEY) {
+          console.log(`    Gemini quality poor, retrying with OpenAI...`);
+          result = await translateWithOpenAI(textsToTranslate);
+          usedEngine = 'openai';
+        }
       }
     } else if (primaryEngine === 'openai') {
       result = await translateWithOpenAI(textsToTranslate);
@@ -220,14 +241,54 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
       result = createMockTranslations(textsToTranslate);
     }
   } catch (error) {
-    console.error(`    Translation failed: ${error.message}`);
-    return null;
+    if (error instanceof PartialTranslationError && process.env.OPENAI_API_KEY) {
+      console.log(`    Partial Gemini result (${error.partialTranslations?.length || 0}/${textsToTranslate.length}), completing missing entries with OpenAI...`);
+      try {
+        const partial = error.partialTranslations || [];
+        const missingIndices = [];
+        const missingTexts = [];
+        for (let i = 0; i < textsToTranslate.length; i++) {
+          if (!partial[i]) {
+            missingIndices.push(i);
+            missingTexts.push(textsToTranslate[i]);
+          }
+        }
+        if (missingTexts.length > 0) {
+          const openaiResult = await translateWithOpenAI(missingTexts);
+          const merged = [...partial];
+          missingIndices.forEach((idx, i) => {
+            merged[idx] = openaiResult.translations[i] ?? textsToTranslate[idx];
+          });
+          result = { translations: merged, charCount: openaiResult.charCount };
+        } else {
+          result = { translations: partial, charCount: partial.reduce((s, t) => s + (t?.length || 0), 0) };
+        }
+        usedEngine = 'openai';
+      } catch (openaiError) {
+        console.error(`    OpenAI completion also failed: ${openaiError.message}`);
+        return null;
+      }
+    } else if (process.env.OPENAI_API_KEY && primaryEngine !== 'openai') {
+      console.log(`    Translation failed (${error.message}), retrying with OpenAI...`);
+      try {
+        result = await translateWithOpenAI(textsToTranslate);
+        usedEngine = 'openai';
+      } catch (openaiError) {
+        console.error(`    OpenAI fallback also failed: ${openaiError.message}`);
+        return null;
+      }
+    } else {
+      console.error(`    Translation failed: ${error.message}`);
+      return null;
+    }
   }
 
-  console.log(`    Translating ${textsToTranslate.length} entries with ${usedEngine}...`);
+  console.log(`    Translated ${textsToTranslate.length} entries with ${usedEngine}`);
 
-  // Quality check: warn on empty or unchanged translations
-  logQualityWarnings(textsToTranslate, result.translations, version);
+  // Final quality check (for non-Gemini engines or if OpenAI fallback also failed)
+  if (usedEngine !== 'gemini') {
+    checkTranslationQuality(textsToTranslate, result.translations, version);
+  }
 
   // Add translations to entries (prefix 자동 후처리 적용, null → original fallback)
   data.entries.forEach((entry, index) => {
@@ -308,6 +369,14 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
         usedEngine = geminiResult.usedModel === GEMINI_MODELS[0].model
           ? 'gemini'
           : geminiResult.usedModel;
+
+        // Quality check: if Gemini produced poor quality, retry with OpenAI
+        const quality = checkTranslationQuality(flatTexts, result.translations, `${serviceId} batch (Gemini)`);
+        if (quality.isPoorQuality && process.env.OPENAI_API_KEY) {
+          console.log(`    Gemini quality poor, retrying with OpenAI...`);
+          result = await translateWithOpenAI(flatTexts);
+          usedEngine = 'openai';
+        }
       }
     } else if (primaryEngine === 'openai') {
       result = await translateWithOpenAI(flatTexts);
@@ -318,14 +387,54 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
       result = createMockTranslations(flatTexts);
     }
   } catch (error) {
-    console.error(`    Batch translation failed: ${error.message}`);
-    return null; // signal caller to fall back to per-version
+    if (error instanceof PartialTranslationError && process.env.OPENAI_API_KEY) {
+      console.log(`    Partial batch translation, completing missing entries with OpenAI...`);
+      try {
+        const partial = error.partialTranslations || [];
+        const missingIndices = [];
+        const missingTexts = [];
+        for (let i = 0; i < flatTexts.length; i++) {
+          if (!partial[i]) {
+            missingIndices.push(i);
+            missingTexts.push(flatTexts[i]);
+          }
+        }
+        if (missingTexts.length > 0) {
+          const openaiResult = await translateWithOpenAI(missingTexts);
+          const merged = [...partial];
+          missingIndices.forEach((idx, i) => {
+            merged[idx] = openaiResult.translations[i] ?? flatTexts[idx];
+          });
+          result = { translations: merged, charCount: openaiResult.charCount };
+        } else {
+          result = { translations: partial, charCount: partial.reduce((s, t) => s + (t?.length || 0), 0) };
+        }
+        usedEngine = 'openai';
+      } catch (openaiError) {
+        console.error(`    OpenAI completion also failed: ${openaiError.message}`);
+        return null; // signal caller to fall back to per-version
+      }
+    } else if (process.env.OPENAI_API_KEY && primaryEngine !== 'openai') {
+      console.log(`    Batch translation failed (${error.message}), retrying with OpenAI...`);
+      try {
+        result = await translateWithOpenAI(flatTexts);
+        usedEngine = 'openai';
+      } catch (openaiError) {
+        console.error(`    OpenAI fallback also failed: ${openaiError.message}`);
+        return null; // signal caller to fall back to per-version
+      }
+    } else {
+      console.error(`    Batch translation failed: ${error.message}`);
+      return null; // signal caller to fall back to per-version
+    }
   }
 
   console.log(`    Translated ${flatTexts.length} entries with ${usedEngine}`);
 
-  // Quality check: warn on empty or unchanged translations
-  logQualityWarnings(flatTexts, result.translations, `${serviceId} batch`);
+  // Final quality check (for non-Gemini engines)
+  if (usedEngine !== 'gemini') {
+    checkTranslationQuality(flatTexts, result.translations, `${serviceId} batch`);
+  }
 
   // Split results back by version and write each file
   const results = [];
