@@ -4,10 +4,10 @@
 
 **AI 도구 업데이트, 한국어로**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00D9FF?style=for-the-badge&logo=github)](https://gongpyung.github.io/changelog-kr)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00D9FF?style=for-the-badge&logo=github)](https://changelog.kr)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-[사이트 바로가기](https://gongpyung.github.io/changelog-kr) · [기능 요청](https://github.com/gongpyung/changelog-kr/issues)
+[사이트 바로가기](https://changelog.kr) · [기능 요청](https://github.com/gongpyung/changelog-kr/issues)
 
 </div>
 
@@ -28,12 +28,12 @@
 
 | 서비스 | 제공사 | 소스 | 상태 |
 |--------|--------|------|------|
-| **Claude Code** | Anthropic | CHANGELOG.md | ✅ 210개 버전 |
-| **Codex CLI** | OpenAI | GitHub Releases | ✅ 17개 버전 |
-| **Gemini CLI** | Google | GitHub Releases | ✅ 25개 버전 |
-| **oh-my-claudecode** | Yeachan Heo | CHANGELOG.md | ✅ 110개 버전 |
-| **oh-my-opencode** | Yeongyu Kim | GitHub Releases | ✅ 100개 버전 |
-| **OpenClaw** | OpenClaw | GitHub Releases | ✅ 38개 버전 |
+| **Claude Code** | Anthropic | GitHub Releases | ✅ |
+| **Codex CLI** | OpenAI | GitHub Releases | ✅ |
+| **Gemini CLI** | Google | GitHub Releases | ✅ |
+| **oh-my-claudecode** | Yeachan Heo | GitHub Releases | ✅ |
+| **oh-my-opencode** | Yeongyu Kim | GitHub Releases | ✅ |
+| **OpenClaw** | OpenClaw | GitHub Releases | ✅ |
 
 > 💡 새로운 서비스 추가를 원하시면 [Issue](https://github.com/gongpyung/changelog-kr/issues)를 열어주세요!
 
@@ -65,8 +65,19 @@ Neon Terminal 다크 테마 + 깔끔한 라이트 테마
 </td>
 <td width="50%">
 
+### ✅ 사용자 체크인
+로그인 후 확인한 버전을 기록하고 NEW 배지로 미확인 업데이트 파악
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
 ### 🔔 알림 지원
 Telegram, Email로 새 버전 알림
+
+</td>
+<td width="50%">
 
 </td>
 </tr>
@@ -93,6 +104,17 @@ cd site && python -m http.server 8080
 
 브라우저에서 http://localhost:8080 접속
 
+### Supabase 로그인/체크인 기능 설정 (선택)
+
+로그인 및 버전 확인 기록 기능을 로컬에서 사용하려면 `.env` 파일을 생성하세요.
+설정하지 않아도 사이트는 정상 동작하며, 로그인/체크인 기능만 비활성화됩니다.
+
+```bash
+# .env 파일 생성
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+```
+
 ---
 
 ## 📁 프로젝트 구조
@@ -103,7 +125,6 @@ changelog-kr/
 │   ├── services.json                # 서비스 설정 (6개 서비스)
 │   └── services/
 │       ├── claude-code/
-│       │   ├── versions.json        # 버전 인덱스
 │       │   └── translations/*.json  # 버전별 번역
 │       ├── codex-cli/
 │       ├── gemini-cli/
@@ -114,18 +135,21 @@ changelog-kr/
 │   ├── build-site.mjs               # 사이트 빌드
 │   ├── detect-new-versions.mjs      # 새 버전 감지
 │   ├── parse-changelog.mjs          # Changelog 파싱
-│   ├── translate.mjs                # AI 번역 (다중 서비스)
-│   └── utils/
-│       ├── changelog-parser.mjs     # Markdown 파서
-│       ├── releases-parser.mjs      # GitHub Releases 파서
-│       └── version-utils.mjs        # 버전 정렬
+│   └── translate.mjs                # AI 번역 (다중 서비스)
 ├── 📂 site/                         # 빌드 출력 (정적 사이트)
 │   ├── index.html
-│   ├── assets/                      # JS, CSS, favicon
+│   ├── assets/
+│   │   ├── app.js                   # 클라이언트 JS (IIFE 패턴)
+│   │   ├── supabase-client.js       # Supabase Auth + DB 쿼리
+│   │   ├── checkin.js               # 버전 확인 기록 관리
+│   │   ├── style.css                # CSS 변수 + Tailwind CDN
+│   │   └── favicon.svg
 │   └── data/services/               # 서비스별 번역 데이터
+├── 📂 supabase/
+│   └── schema.sql                   # DB 스키마 (user_checkins + RLS)
 ├── 📂 templates/
 │   └── index.html.template          # HTML 템플릿
-├── 📂 tests/                        # 단위 테스트 (50+)
+├── 📂 tests/                        # 단위 테스트
 └── 📂 .github/workflows/            # CI/CD 자동화
 ```
 
@@ -136,12 +160,13 @@ changelog-kr/
 | 영역 | 기술 |
 |------|------|
 | **Frontend** | Vanilla JS, Tailwind CSS (CDN) |
+| **인증/DB** | Supabase (PostgreSQL + Auth, GitHub/Google OAuth) |
 | **Design** | Neon Terminal Theme (CSS 변수 + dark/light 모드) |
 | **Translation** | OpenAI GPT-4o / Gemini API / Google Translate |
 | **Parsing** | Markdown 파서 + GitHub Releases API 파서 |
 | **Hosting** | GitHub Pages |
 | **CI/CD** | GitHub Actions (6시간 주기 자동 감지/번역/배포) |
-| **Testing** | Vitest (50+ 단위 테스트) |
+| **Testing** | Node.js 내장 테스트 (`node --test`) |
 | **Notifications** | Telegram Bot, Resend (Email) |
 
 ---

@@ -16,25 +16,27 @@ import { fileURLToPath } from 'node:url';
 import { compareVersions } from './utils/version-utils.mjs';
 import { existsSync } from 'node:fs';
 
-// Load environment variables from .env file
-function loadEnv() {
+// Load environment variables from .env file, with process.env taking precedence
+async function loadEnv() {
   const envPath = join(PROJECT_ROOT, '.env');
+  let fileEnv = {};
   if (existsSync(envPath)) {
-    const content = readFile(envPath, 'utf-8');
-    return content.then(data => {
-      const env = {};
-      for (const line of data.split('\n')) {
-        const trimmed = line.trim();
-        if (!trimmed || trimmed.startsWith('#')) continue;
-        const [key, ...valueParts] = trimmed.split('=');
-        if (key && valueParts.length > 0) {
-          env[key.trim()] = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
-        }
+    const data = await readFile(envPath, 'utf-8');
+    for (const line of data.split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const [key, ...valueParts] = trimmed.split('=');
+      if (key && valueParts.length > 0) {
+        fileEnv[key.trim()] = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
       }
-      return env;
-    });
+    }
   }
-  return Promise.resolve({});
+  // process.env overrides .env file values (CI secrets take precedence)
+  return {
+    ...fileEnv,
+    ...(process.env.SUPABASE_URL && { SUPABASE_URL: process.env.SUPABASE_URL }),
+    ...(process.env.SUPABASE_ANON_KEY && { SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY }),
+  };
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
