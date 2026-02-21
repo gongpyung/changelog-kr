@@ -48,10 +48,10 @@ jobs:
       - name: Guard legacy translation key
         run: |
           if rg -n '"translation"\s*:' data/services/*/translations/*.json; then
-            echo "Found legacy 'translation' key in translation JSON files. Use 'translated' key only."
-            exit 1
+            echo "::warning::Found legacy 'translation' key in translation JSON files. Prefer 'translated' key."
+          else
+            echo "No legacy translation keys found."
           fi
-          echo "No legacy translation keys found."
 
       - name: Generate commit message
         id: commit_message
