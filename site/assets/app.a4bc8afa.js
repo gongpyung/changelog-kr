@@ -193,12 +193,12 @@
         const item = document.createElement('div');
         item.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg opacity-40 cursor-not-allowed';
         item.innerHTML = `
-          <div class="w-8 h-8 rounded-md bg-gray-100 dark:bg-terminal-elevated border border-gray-200 dark:border-terminal-border flex items-center justify-center text-sm">
-            <span class="text-xs font-bold text-gray-500 dark:text-terminal-muted">${escapeHtml(service.shortName.charAt(0).toUpperCase())}</span>
+          <div class="w-8 h-8 rounded-md bg-light-elevated dark:bg-terminal-elevated border border-light-border dark:border-terminal-border flex items-center justify-center text-sm">
+            <span class="text-xs font-bold text-light-muted dark:text-terminal-muted">${escapeHtml(service.shortName.charAt(0).toUpperCase())}</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">${escapeHtml(service.name)}</p>
-            <p class="text-[10px] text-gray-500 dark:text-terminal-muted">${escapeHtml(service.vendor)} &middot; Coming soon</p>
+            <p class="text-sm font-medium text-light-muted dark:text-gray-400 truncate">${escapeHtml(service.name)}</p>
+            <p class="text-[10px] text-light-muted dark:text-terminal-muted">${escapeHtml(service.vendor)} &middot; Coming soon</p>
           </div>
         `;
         serviceList.appendChild(item);
@@ -218,12 +218,12 @@
       const letterStyle = isActive ? '' : `color: ${service.color};`;
 
       item.innerHTML = `
-        <div class="w-8 h-8 rounded-md bg-gray-100 dark:bg-terminal-elevated border flex items-center justify-center text-sm group-hover:border-opacity-60 transition-colors" style="${iconStyle}">
+        <div class="w-8 h-8 rounded-md bg-light-elevated dark:bg-terminal-elevated border flex items-center justify-center text-sm group-hover:border-opacity-60 transition-colors" style="${iconStyle}">
           <span class="text-xs font-bold" style="${letterStyle}">${iconLetter}</span>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white truncate">${escapeHtml(service.name)}</p>
-          <p class="text-[10px] text-gray-500 dark:text-terminal-muted">${escapeHtml(service.vendor)}</p>
+          <p class="text-sm font-medium text-[#3D3D3A] dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white truncate">${escapeHtml(service.name)}</p>
+          <p class="text-[10px] text-light-muted dark:text-terminal-muted">${escapeHtml(service.vendor)}</p>
         </div>
       `;
 
@@ -261,7 +261,7 @@
 
     // Show loading
     if (loadingState) loadingState.classList.remove('hidden');
-    if (versionList) versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-terminal-border"></div>';
+    if (versionList) versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-light-border dark:bg-terminal-border"></div>';
 
     // Load new data
     await loadServiceData(serviceId);
@@ -293,13 +293,13 @@
       if (loadingState) {
         loadingState.innerHTML = `
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gray-100 dark:bg-terminal-surface border border-gray-200 dark:border-terminal-border flex items-center justify-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-light-elevated dark:bg-terminal-surface border border-light-border dark:border-terminal-border flex items-center justify-center">
               <svg class="w-8 h-8 text-neon-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
               </svg>
             </div>
-            <p class="text-gray-700 dark:text-gray-300 font-medium">데이터를 불러올 수 없습니다</p>
-            <p class="text-sm text-gray-500 dark:text-terminal-muted mt-1">${error.message}</p>
+            <p class="text-[#3D3D3A] dark:text-gray-300 font-medium">데이터를 불러올 수 없습니다</p>
+            <p class="text-sm text-light-muted dark:text-terminal-muted mt-1">${error.message}</p>
           </div>
         `;
       }
@@ -426,7 +426,7 @@
     if (!versionList) return;
 
     // Keep timeline line
-    versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-terminal-border"></div>';
+    versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-light-border dark:bg-terminal-border"></div>';
 
     if (filteredVersions.length === 0) {
       // Check if this is a service with no data at all vs. filter producing no results
@@ -504,7 +504,7 @@
     header.className = 'version-header w-full';
 
     const dateHtml = ver.date
-      ? `<span class="version-date text-xs font-medium text-gray-400 dark:text-terminal-muted">${formatVersionDate(ver.date)}</span>`
+      ? `<span class="version-date text-xs font-medium text-light-muted dark:text-terminal-muted">${formatVersionDate(ver.date)}</span>`
       : '';
 
     // NEW badge HTML
@@ -515,7 +515,7 @@
         <h2 class="text-sm sm:text-lg font-bold whitespace-nowrap">v${ver.version}</h2>
         ${newBadgeHtml}
         ${dateHtml}
-        <span class="hidden sm:inline-flex px-2 py-0.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted whitespace-nowrap">${ver.entries.length}개</span>
+        <span class="hidden sm:inline-flex px-2 py-0.5 rounded-md text-xs font-medium bg-light-elevated dark:bg-terminal-elevated text-light-muted dark:text-terminal-muted whitespace-nowrap">${ver.entries.length}개</span>
       </div>
       <div class="flex items-center gap-2 flex-shrink-0">
         <button class="checkin-btn ${isNew ? '' : 'hidden'}" title="확인 완료로 표시" data-version="${ver.version}">
@@ -697,7 +697,7 @@
 
     let scopeHtml = '';
     if (entry.scope) {
-      scopeHtml = `<span class="px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 dark:bg-terminal-elevated text-gray-500 dark:text-terminal-muted shrink-0">${escapeHtml(entry.scope)}</span>`;
+      scopeHtml = `<span class="px-1.5 py-0.5 rounded text-xs font-medium bg-light-elevated dark:bg-terminal-elevated text-light-muted dark:text-terminal-muted shrink-0">${escapeHtml(entry.scope)}</span>`;
     }
 
     div.innerHTML = `

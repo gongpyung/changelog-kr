@@ -32,14 +32,14 @@
 
 /* Light Mode */
 html:not(.dark) {
-  --bg-primary: #FAFAFA;
-  --bg-surface: #FFFFFF;
-  --bg-elevated: #F5F5F5;
-  --border-default: #E5E5E5;
-  --border-hover: #D4D4D4;
-  --text-primary: #171717;
-  --text-secondary: #525252;
-  --text-muted: #737373;
+  --bg-primary: #FAF9F5;
+  --bg-surface: #F5F4ED;
+  --bg-elevated: #F0EEE6;
+  --border-default: #E8E6DC;
+  --border-hover: #D4D0C4;
+  --text-primary: #141413;
+  --text-secondary: #3D3D3A;
+  --text-muted: #73726C;
 
   /* Adjusted neon for light mode (better contrast) */
   --neon-cyan: #0891B2;
@@ -53,6 +53,15 @@ html:not(.dark) {
   --neon-red: #DC2626;
   --neon-red-glow: rgba(220, 38, 38, 0.15);
 }
+
+/* ---------------------------------------------------------------------------
+   Light Mode - Tailwind neon-cyan utility overrides
+   Tailwind CDN uses static #00D9FF; light mode needs #0891B2
+   --------------------------------------------------------------------------- */
+
+html:not(.dark) .text-neon-cyan { color: #0891B2; }
+html:not(.dark) .bg-neon-cyan { background-color: #0891B2; }
+html:not(.dark) .border-neon-cyan { border-color: #0891B2; }
 
 /* ---------------------------------------------------------------------------
    Base Styles
@@ -157,6 +166,18 @@ body {
   border-color: var(--neon-cyan);
 }
 
+/* Claude brand accent for active service in light mode */
+html:not(.dark) .service-item.active {
+  background-color: rgba(217, 119, 87, 0.08);
+  border-color: #D97757;
+  color: #D97757;
+}
+
+html:not(.dark) .service-item.active .service-icon {
+  background-color: #D97757;
+  border-color: #D97757;
+}
+
 /* ---------------------------------------------------------------------------
    Filter Buttons
    --------------------------------------------------------------------------- */
@@ -210,7 +231,7 @@ body {
 }
 
 html:not(.dark) .version-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(8, 145, 178, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(8, 145, 178, 0.12);
 }
 
 /* Timeline dot */
@@ -428,6 +449,19 @@ html:not(.dark) .badge-removed {
   }
 }
 
+@keyframes pulse-glow-light {
+  0%, 100% {
+    box-shadow: 0 0 3px rgba(8, 145, 178, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(8, 145, 178, 0.2);
+  }
+}
+
+html:not(.dark) .badge-new {
+  animation: pulse-glow-light 2s ease-in-out infinite;
+}
+
 .animate-spin {
   animation: spin 1s linear infinite;
 }
@@ -457,6 +491,20 @@ html:not(.dark) .badge-removed {
   box-shadow: 0 0 0 3px var(--neon-cyan-glow);
 }
 
+html:not(.dark) #searchInput {
+  background-color: #FFFFFF;
+}
+
+html:not(.dark) #versionBadge {
+  background-color: rgba(8, 145, 178, 0.1);
+  color: #0891B2;
+  border-color: rgba(8, 145, 178, 0.3);
+}
+
+html:not(.dark) #searchInput:focus {
+  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.15);
+}
+
 /* ---------------------------------------------------------------------------
    Back to Top Button
    --------------------------------------------------------------------------- */
@@ -470,6 +518,14 @@ html:not(.dark) .badge-removed {
 #backToTop:hover {
   box-shadow: 0 4px 30px rgba(0, 217, 255, 0.5);
   transform: translateY(-2px);
+}
+
+html:not(.dark) #backToTop {
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.2);
+}
+
+html:not(.dark) #backToTop:hover {
+  box-shadow: 0 4px 20px rgba(8, 145, 178, 0.3);
 }
 
 /* ---------------------------------------------------------------------------
@@ -709,6 +765,10 @@ html:not(.dark) .checkin-summary {
 .checkin-all-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--neon-cyan-glow);
+}
+
+html:not(.dark) .checkin-all-btn:hover {
+  box-shadow: 0 4px 8px rgba(8, 145, 178, 0.18);
 }
 
 .checkin-all-btn:focus-visible {
