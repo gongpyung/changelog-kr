@@ -1,0 +1,611 @@
+{
+  "version": "0.78.0",
+  "date": "2026-01-06",
+  "parsedAt": "2026-02-22T03:18:33.846Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add `Ctrl+G` to open the current prompt in your configured external editor (`$VISUAL`/`$EDITOR`) and sync edits back into the TUI. (#7606)",
+      "translated": "`Ctrl+G`를 사용하여 현재 프롬프트를 설정된 외부 편집기(`$VISUAL`/`$EDITOR`)에서 열고 수정 내용을 TUI에 다시 동기화하는 기능 추가 (#7606)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Support project-aware config layering: load repo-local `.codex/config.toml`, honor configurable `project_root_markers`, and merge that with system config like `/etc/codex/config.toml`. (#8354, #8359, #8461)",
+      "translated": "프로젝트 인식 설정 레이어링 지원: 저장소 로컬의 `.codex/config.toml` 로드, 설정 가능한 `project_root_markers` 준수, 시스템 설정(`/etc/codex/config.toml`)과 병합 (#8354, #8359, #8461)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Support enterprise-managed configuration requirements on macOS via an MDM-provided TOML payload. (#8743)",
+      "translated": "MDM에서 제공하는 TOML 페이로드를 통해 macOS의 기업 관리 설정 요구 사항 지원 (#8743)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Improve `tui2` transcript navigation with multi-click selection, a copy shortcut/affordance, and a draggable auto-hiding scrollbar. (#8462, #8471, #8728)",
+      "translated": "다중 클릭 선택, 복사 단축키/기능, 드래그 가능한 자동 숨김 스크롤바를 통해 `tui2` 트랜스크립트 탐색 기능 개선 (#8462, #8471, #8728)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Start Windows PowerShell sessions in UTF-8 mode to reduce encoding-related prompt/output issues. (#7902)",
+      "translated": "인코딩 관련 프롬프트 및 출력 문제를 줄이기 위해 Windows PowerShell 세션을 UTF-8 모드로 시작 (#7902)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Exec policy rules can now include human-readable justifications, and policy loading follows the unified config-layer stack. (#8349, #8453, #8751)",
+      "translated": "실행 정책 규칙에 사람이 읽을 수 있는 근거(justification) 포함 가능 및 통합 설정 레이어 스택을 따르는 정책 로딩 (#8349, #8453, #8751)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fix failures when the model returns multiple tool calls in a single turn by emitting tool calls in the format the Chat Completions API expects. (#8556)",
+      "translated": "모델이 한 번의 턴에 여러 도구 호출을 반환할 때 발생하는 오류 수정: Chat Completions API가 기대하는 형식으로 도구 호출 전송 (#8556)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Make `/review` compute diffs from the session’s working directory so base-branch detection works correctly with runtime cwd overrides. (#8738)",
+      "translated": "`/review`가 세션의 작업 디렉토리에서 diff를 계산하도록 하여, 런타임 cwd 오버라이드 시에도 베이스 브랜치 감지가 올바르게 작동하도록 개선 (#8738)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Handle the legacy Chat Completions streaming terminator cleanly to avoid spurious SSE parse errors. (#8708)",
+      "translated": "레거시 Chat Completions 스트리밍 종료자를 깔끔하게 처리하여 불필요한 SSE 파싱 오류 방지 (#8708)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fix a set of `tui2` rendering/input edge cases (screen corruption, scroll stickiness, and selection/copy correctness). (#8463, #8695, #8449)",
+      "translated": "`tui2` 렌더링 및 입력 관련 예외 상황 수정(화면 깨짐, 스크롤 고정, 선택 및 복사 정확도) (#8463, #8695, #8449)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improve diagnostics when `ripgrep` download fails during CLI packaging so failures are easier to debug. (#8486)",
+      "translated": "CLI 패키징 중 `ripgrep` 다운로드 실패 시 진단 기능을 개선하여 디버깅 용이성 향상 (#8486)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Avoid a panic when parsing alpha/stable version strings. (#8406)",
+      "translated": "알파/스테이블 버전 문자열 파싱 시 발생하는 패닉(panic) 방지 (#8406)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Replace and de-duplicate user docs with links to the developer documentation site (including skills docs). (#8662, #8407)",
+      "translated": "사용자 문서를 개발자 문서 사이트(스킬 문서 포함) 링크로 대체 및 중복 제거 (#8662, #8407)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarify configuration documentation, including the `developer_instructions` option. (#8376, #8701)",
+      "translated": "`developer_instructions` 옵션을 포함한 설정 문서 설명 명확화 (#8376, #8701)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fix broken README links. (#8682)",
+      "translated": "README의 깨진 링크 수정 (#8682)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Performance tuning for TUIs: cap redraw scheduling and reduce unnecessary rerenders during streaming to lower CPU usage. (#8499, #8681, #8693)",
+      "translated": "TUI 성능 최적화: CPU 사용량을 낮추기 위해 재그리기 예약 제한 및 스트리밍 중 불필요한 재렌더링 감소 (#8499, #8681, #8693)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Update Rust dependencies across `codex-rs`. (#8414, #8596, #8597)",
+      "translated": "`codex-rs` 전반의 Rust 의존성 패키지 업데이트 (#8414, #8596, #8597)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8407 Point skills docs to developer documentation site",
+      "translated": "스킬 문서를 개발자 문서 사이트로 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8406 fix: do not panic on alphas",
+      "translated": "알파 버전에서 패닉이 발생하지 않도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8091 Update ghost_commit flag reference to undo",
+      "translated": "`ghost_commit` 플래그 참조를 undo로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8423 test(tui2): re-enable ANSI for VT100 tests",
+      "translated": "VT100 테스트를 위해 ANSI 다시 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8419 fix(tui2): constrain transcript mouse selection bounds",
+      "translated": "트랜스크립트 마우스 선택 범위 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8424 chore: un-ship undo",
+      "translated": "Undo 기능 출시 취소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8376 docs: add `developer_instructions` config option and update descriptions",
+      "translated": "`developer_instructions` 설정 옵션 추가 및 설명 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8431 chore: drop undo from the docs",
+      "translated": "문서에서 undo 관련 내용 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8410 chore(deps): bump peter-evans/create-pull-request from 7 to 8",
+      "translated": "Peter-evans/create-pull-request 버전을 7에서 8로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8412 chore(deps): bump test-log from 0.2.18 to 0.2.19 in /codex-rs",
+      "translated": "/codex-rs의 test-log 버전을 0.2.18에서 0.2.19로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8413 chore(deps): bump landlock from 0.4.2 to 0.4.4 in /codex-rs",
+      "translated": "/codex-rs의 landlock 버전을 0.4.2에서 0.4.4로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8414 chore(deps): bump clap from 4.5.47 to 4.5.53 in /codex-rs",
+      "translated": "/codex-rs의 clap 버전을 4.5.47에서 4.5.53으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8416 chore(deps): bump openssl-sys from 0.9.109 to 0.9.111 in /codex-rs",
+      "translated": "/codex-rs의 openssl-sys 버전을 0.9.109에서 0.9.111로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7902 feat(windows) start powershell in utf-8 mode",
+      "translated": "PowerShell을 UTF-8 모드로 시작"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8349 Add ExecPolicyManager",
+      "translated": "ExecPolicyManager 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8354 feat: support in-repo .codex/config.toml entries as sources of config info",
+      "translated": "저장소 내 `.codex/config.toml` 항목을 설정 정보 소스로 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8359 feat: add support for project_root_markers in config.toml",
+      "translated": "`config.toml`에 `project_root_markers` 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8395 Handle concatenation nodes in bash command parser for exec policy",
+      "translated": "실행 정책을 위한 bash 명령 파서에서 연결 노드 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8446 Update models.json",
+      "translated": "`models.json` 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8444 use a junction for the cwd while read ACLs are being applied",
+      "translated": "읽기 ACL이 적용되는 동안 cwd에 junction 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8447 remove minimal client version",
+      "translated": "최소 클라이언트 버전 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8448 chore: add ConfigLayerStack as a field of Config",
+      "translated": "`Config`의 필드로 `ConfigLayerStack` 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7606 feat: open prompt in configured external editor",
+      "translated": "설정된 외부 편집기에서 프롬프트 열기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8449 fix(tui2): copy transcript selection outside viewport",
+      "translated": "뷰포트 외부의 트랜스크립트 선택 영역 복사"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8418 chore(tui): include tracing targets in file logs",
+      "translated": "파일 로그에 트레이싱 대상 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8456 chore: include User layer in ConfigLayerStack even if config.toml is empty",
+      "translated": "`config.toml`이 비어 있어도 `ConfigLayerStack`에 User 레이어 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8453 feat: load ExecPolicyManager from ConfigLayerStack",
+      "translated": "`ConfigLayerStack`에서 `ExecPolicyManager` 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8462 feat(tui2): add copy selection shortcut + UI affordance",
+      "translated": "선택 영역 복사 단축키 및 UI 어포던스 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8461 feat: honor /etc/codex/config.toml",
+      "translated": "`/etc/codex/config.toml` 설정 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8463 fix(tui2): fix screen corruption",
+      "translated": "화면 깨짐 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8458 chore: save more about turn context in rollout log file",
+      "translated": "롤아웃 로그 파일에 턴 컨텍스트 관련 정보 추가 저장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8466 fix(tui2): start transcript selection on drag",
+      "translated": "드래그 시 트랜스크립트 선택 시작"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8293 [tui] add optional details to TUI status header",
+      "translated": "TUI 상태 헤더에 선택적 세부 정보 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8471 feat(tui2): add multi-click transcript selection",
+      "translated": "다중 클릭을 통한 트랜스크립트 선택 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8486 fix(codex-cli): improve ripgrep download diagnostics",
+      "translated": "Ripgrep 다운로드 진단 기능 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8460 fix: limit output size for exec command in unified exec",
+      "translated": "통합 실행 내 `exec` 명령어의 출력 크기 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8493 fix: fix test that was writing temp file to cwd instead of TMPDIR",
+      "translated": "임시 파일을 `TMPDIR` 대신 현재 작업 디렉토리에 쓰던 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8484 Remove reasoning format",
+      "translated": "추론 형식 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8499 perf(tui): cap redraw scheduling to 60fps",
+      "translated": "재그리기 예약 주기를 60fps로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8496 feat: introduce codex-utils-cargo-bin as an alternative to assert_cmd::Command",
+      "translated": "`assert_cmd::Command`의 대안으로 `codex-utils-cargo-bin` 도입"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8498 fix: declare test path relative to `$CARGO_MANIFEST_DIR`",
+      "translated": "테스트 경로를 `$CARGO_MANIFEST_DIR` 기준 상대 경로로 선언"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8307 [chore] add additional_details to StreamErrorEvent + wire through",
+      "translated": "`StreamErrorEvent`에 `additional_details` 추가 및 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8522 fix: restrict windows-sys to Windows target",
+      "translated": "`windows-sys`를 Windows 타겟으로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8595 chore(deps): bump toml_edit from 0.23.7 to 0.24.0+spec-1.1.0 in /codex-rs",
+      "translated": "/codex-rs 내 toml_edit 버전을 0.23.7에서 0.24.0+spec-1.1.0으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8596 chore(deps): bump tracing-subscriber from 0.3.20 to 0.3.22 in /codex-rs",
+      "translated": "/codex-rs 내 tracing-subscriber 버전을 0.3.20에서 0.3.22로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8597 chore(deps): bump tokio from 1.47.1 to 1.48.0 in /codex-rs",
+      "translated": "/codex-rs 내 tokio 버전을 1.47.1에서 1.48.0으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8598 chore(deps): bump regex-lite from 0.1.7 to 0.1.8 in /codex-rs",
+      "translated": "/codex-rs 내 regex-lite 버전을 0.1.7에서 0.1.8로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8491 Refresh on models etag mismatch",
+      "translated": "모델 etag 불일치 시 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8483 use a SandboxUsers group for ACLs instead of granting to each sandbox user separately",
+      "translated": "각 샌드박스 사용자에게 개별적으로 권한을 부여하는 대신 ACL에 SandboxUsers 그룹 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8676 Log compaction request bodies",
+      "translated": "압축 요청 본문 로깅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8488 Remove model family from tui",
+      "translated": "Tui에서 모델 패밀리 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8662 Replaced user documentation with links to developers docs site",
+      "translated": "사용자 문서를 개발자 문서 사이트 링크로 대체"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8681 perf(tui2): reduce unnecessary redraws",
+      "translated": "불필요한 다시 그리기 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8682 Fixed broken link in README",
+      "translated": "README의 깨진 링크 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8677 Account for last token count on resume",
+      "translated": "재개 시 마지막 토큰 개수 반영"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8687 hard disable remote models refresh when feature is disabled",
+      "translated": "기능 비활성화 시 원격 모델 새로고침을 강제로 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8415 chore(deps): bump tracing-opentelemetry from 0.31.0 to 0.32.0 in /codex-rs",
+      "translated": "/codex-rs 내 tracing-opentelemetry 버전을 0.31.0에서 0.32.0으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8688 Attach more tags to feedback submissions",
+      "translated": "피드백 제출 시 더 많은 태그 첨부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8701 chore: update outdated docs",
+      "translated": "오래된 문서 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8693 perf(tui2): cache transcript view rendering",
+      "translated": "Transcript 뷰 렌더링 캐싱"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8697 fix: brighten transcript copy affordance",
+      "translated": "Transcript 복사 어포던스를 더 밝게 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8629 ci: prevent workflows from running on forks",
+      "translated": "포크(fork)된 저장소에서 워크플로가 실행되지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8695 fix(tui2): avoid scroll stickiness at cell boundaries",
+      "translated": "셀 경계에서의 스크롤 고착 현상 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8716 fix(tui2): render copy pill at viewport bottom",
+      "translated": "뷰포트 하단에 복사 알림(copy pill) 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8718 tui2: copy selection dismisses highlight",
+      "translated": "선택 영역 복사 시 하이라이트 해제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8721 chore(deps): bump clap_complete from 4.5.57 to 4.5.64 in /codex-rs",
+      "translated": "`/codex-rs`에서 `clap_complete` 버전을 4.5.57에서 4.5.64로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8723 chore(deps): bump tokio-stream from 0.1.17 to 0.1.18 in /codex-rs",
+      "translated": "`/codex-rs`에서 `tokio-stream` 버전을 0.1.17에서 0.1.18로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8724 chore(deps): bump derive_more from 2.0.1 to 2.1.1 in /codex-rs",
+      "translated": "`/codex-rs`에서 `derive_more` 버전을 2.0.1에서 2.1.1로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8725 chore(deps): bump insta from 1.44.3 to 1.46.0 in /codex-rs",
+      "translated": "`/codex-rs`에서 `insta` 버전을 1.44.3에서 1.46.0으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8556 fix: chat multiple tool calls",
+      "translated": "채팅의 다중 도구 호출 기능 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8738 fix: /review to respect session cwd",
+      "translated": "`/review`가 세션의 `cwd`를 따르도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8694 [MCP] Sanitize MCP tool names to ensure they are compatible with the Responses APO",
+      "translated": "`Responses APO`와 호환되도록 MCP 도구 이름 정제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8728 feat(tui2): transcript scrollbar (auto-hide + drag)",
+      "translated": "트랜스크립트 스크롤바 추가 (자동 숨김 및 드래그 기능)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8708 fix(codex-api): handle Chat Completions DONE sentinel",
+      "translated": "Chat Completions의 `DONE` 센티널 처리 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8743 (MacOS) Load config requirements from MDM",
+      "translated": "MDM에서 구성 요구 사항 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8377 feat: expose outputSchema to user_turn/turn_start app_server API",
+      "translated": "`user_turn`/`turn_start` `app_server` API에 `outputSchema` 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8747 chore: GH pager",
+      "translated": "GitHub 페이저 관련 작업"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8686 better idempotency for creating/updating firewall rules during setup.",
+      "translated": "설정 중 방화벽 규칙 생성 및 업데이트 시 멱등성 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8683 never let sandbox write to .codex/ or .codex/.sandbox/",
+      "translated": "샌드박스가 `.codex/` 또는 `.codex/.sandbox/`에 쓰기 작업을 수행하지 못하도록 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8459 chore: improve skills render section",
+      "translated": "스킬 렌더링 섹션 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7858 Use issuer URL in device auth prompt link",
+      "translated": "기기 인증 프롬프트 링크에 발급자(issuer) URL 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8492 best effort to \"hide\" Sandbox users",
+      "translated": "샌드박스 사용자를 \"숨기기\" 위한 최선의 처리 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8751 feat: add justification arg to prefix_rule() in *.rules",
+      "translated": "`*.rules`의 `prefix_rule()`에 `justification` 인자 추가"
+    }
+  ],
+  "translatedAt": "2026-02-22T03:29:33.124Z",
+  "translationEngine": "gemini",
+  "translationCharCount": 6619
+}

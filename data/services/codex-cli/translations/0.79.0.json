@@ -1,0 +1,263 @@
+{
+  "version": "0.79.0",
+  "date": "2026-01-07",
+  "parsedAt": "2026-02-22T03:18:33.846Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add multi-conversation “agent control” so a session can spawn or message other conversations programmatically (#8783, #8788)",
+      "translated": "세션이 프로그래밍 방식으로 다른 대화를 생성하거나 메시지를 보낼 수 있도록 다중 대화 “agent control” 기능 추가 (#8783, #8788)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add app-server `thread/rollback` so IDE clients can undo the last N turns without rewriting history (#8454)",
+      "translated": "IDE 클라이언트가 히스토리를 다시 작성하지 않고도 마지막 N개의 턴을 취소할 수 있도록 app-server `thread/rollback` 추가 (#8454)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add `web_search_cached` to enable cached-only Web Search results as a safer alternative to live requests (#8795)",
+      "translated": "실시간 요청의 안전한 대안으로 캐시된 웹 검색 결과만 사용할 수 있는 `web_search_cached` 추가 (#8795)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Allow global exec flags (model/json/sandbox toggles, etc.) to be passed after `codex exec resume` (#8440)",
+      "translated": "`codex exec resume` 뒤에 전역 실행 플래그(model/json/sandbox 토글 등)를 전달할 수 있도록 허용 (#8440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Show time/version-targeted announcement tips in the TUI, driven by a TOML file in the repo (#8752)",
+      "translated": "저장소의 TOML 파일을 기반으로 TUI에 시간 및 버전별 공지 팁 표시 (#8752)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add an `[analytics] enabled=...` config section to control analytics behavior (#8350)",
+      "translated": "분석 동작을 제어하기 위한 `[analytics] enabled=...` 설정 섹션 추가 (#8350)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fix TUI2 transcripts so streamed markdown reflows on resize and copy/paste preserves soft wraps (#8761)",
+      "translated": "TUI2 트랜스크립트에서 크기 조정 시 스트리밍된 마크다운의 줄 바꿈이 재조정되고, 복사 및 붙여넣기 시 소프트 랩이 유지되도록 수정 (#8761)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Make `apply_patch` parsing tolerant of whitespace-padded `*** Begin Patch` / `*** End Patch` markers (#8746)",
+      "translated": "`apply_patch` 파싱 시 공백이 포함된 `*** Begin Patch` / `*** End Patch` 마커를 허용하도록 개선 (#8746)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Render paths relative to the current working directory before checking git roots, improving output in non-git workspaces (#8771)",
+      "translated": "git 루트를 확인하기 전에 현재 작업 디렉토리를 기준으로 경로를 렌더링하여 non-git 워크스페이스에서의 출력 개선 (#8771)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prevent `CODEX_MANAGED_CONFIG_PATH` from overriding managed config in production, closing a policy bypass (#8762)",
+      "translated": "프로덕션 환경에서 `CODEX_MANAGED_CONFIG_PATH`가 관리형 설정을 덮어쓰지 못하도록 방지하여 정책 우회 문제 해결 (#8762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ensure app-server conversations respect the config passed in by the client (#8765)",
+      "translated": "app-server 대화가 클라이언트에서 전달한 설정을 준수하도록 보장 (#8765)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Reduce TUI UX glitches: suppress popups when browsing input history, fix copy “pill” rendering, and clear background terminals on interrupt (#8772, #8777, #8786)",
+      "translated": "TUI UX 오류 감소: 입력 히스토리 탐색 시 팝업 억제, 복사 “pill” 렌더링 수정, 인터럽트 시 백그라운드 터미널 정리 (#8772, #8777, #8786)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarify onboarding/login guidance for headless/remote setups by steering users to `codex login --device-auth` (#8753)",
+      "translated": "헤드리스 및 원격 환경 사용자를 `codex login --device-auth`로 안내하여 온보딩 및 로그인 가이드 명확화 (#8753)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Update model examples used in tooling/config to current `gpt-5.2` naming (#8566)",
+      "translated": "도구 및 설정에 사용되는 모델 예시를 최신 `gpt-5.2` 명칭으로 업데이트 (#8566)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Refactor skills discovery to use the config layer stack so all configured skill folders are considered (#8497)",
+      "translated": "설정된 모든 스킬 폴더가 고려되도록 설정 레이어 스택을 사용하여 스킬 검색 로직 리팩토링 (#8497)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Auto-populate GitHub release notes at release creation time (#8799)",
+      "translated": "릴리스 생성 시 GitHub 릴리스 노트를 자동으로 생성 (#8799)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Add more `apply_patch` test scenarios to harden coverage (#8230)",
+      "translated": "커버리지를 강화하기 위해 `apply_patch` 테스트 시나리오 추가 (#8230)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Tweak unified exec event emission to only send “begin” when a PTY is present (#8780)",
+      "translated": "PTY가 있을 때만 “begin”을 전송하도록 통합 실행 이벤트 방출 로직 조정 (#8780)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8753 [device-auth] Update login instruction for headless environments.",
+      "translated": "[device-auth] 헤드리스 환경을 위한 로그인 안내 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8497 Use ConfigLayerStack for skills discovery.",
+      "translated": "스킬 검색에 ConfigLayerStack 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8440 Allow global exec flags after `resume` and fix CI codex build/timeout",
+      "translated": "`resume` 이후 글로벌 exec 플래그 허용 및 CI codex 빌드/타임아웃 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8230 chore(apply-patch) additional scenarios",
+      "translated": "추가 시나리오 반영"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8746 fix: accept whitespace-padded patch markers",
+      "translated": "공백이 포함된 패치 마커 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8761 tui2: stop baking streaming wraps; reflow agent markdown",
+      "translated": "Tui2: 스트리밍 래핑 중단 및 에이전트 마크다운 리플로우"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8771 fix: render cwd-relative paths in tui",
+      "translated": "Tui에서 cwd 기준 상대 경로 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8770 fix: fix readiness subscribe token wrap-around",
+      "translated": "Readiness subscribe 토큰의 래핑(wrap-around) 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8780 chore: emit unified exec begin only when PTY exist",
+      "translated": "PTY가 존재할 때만 unified exec 시작 이벤트 발생"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8762 fix: stop honoring CODEX_MANAGED_CONFIG_PATH environment variable in production",
+      "translated": "프로덕션 환경에서 CODEX_MANAGED_CONFIG_PATH 환경 변수 무시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8566 fix: update model examples to gpt-5.2",
+      "translated": "모델 예시를 gpt-5.2로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8735 feat: add head-tail buffer for `unified_exec`",
+      "translated": "`unified_exec`을 위한 head-tail 버퍼 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8331 chore: add model/list call to app-server-test-client",
+      "translated": "App-server-test-client에 model/list 호출 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8752 feat: forced tool tips",
+      "translated": "툴팁 강제 표시 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8786 chore: clear background terminals on interrupt",
+      "translated": "인터럽트 발생 시 백그라운드 터미널 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8350 feat: add analytics config setting",
+      "translated": "분석 설정 항목 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8783 feat: agent controller",
+      "translated": "에이전트 컨트롤러 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8772 suppress popups while browsing input history",
+      "translated": "입력 기록 탐색 중 팝업 표시 억제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8777 Clear copy pill background and add snapshot test",
+      "translated": "복사 알림(copy pill) 배경 제거 및 스냅샷 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8788 feat: drop agent bus and store the agent status in codex directly",
+      "translated": "에이전트 버스를 제거하고 에이전트 상태를 codex에 직접 저장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8454 feat(app-server): thread/rollback API",
+      "translated": "Thread/rollback API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8765 [app-server] fix config loading for conversations",
+      "translated": "대화(conversations) 설정 로드 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8795 add web_search_cached flag",
+      "translated": "`web_search_cached` 플래그 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#8799 fix: populate the release notes when the release is created",
+      "translated": "릴리스 생성 시 릴리스 노트 내용 채우기"
+    }
+  ],
+  "translatedAt": "2026-02-22T03:25:26.001Z",
+  "translationEngine": "gemini",
+  "translationCharCount": 3104
+}
