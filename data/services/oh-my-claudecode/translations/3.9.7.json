@@ -7,31 +7,31 @@
       "category": "fixed",
       "scope": null,
       "original": "**Stop Hook Freeze on Bash Errors** (#321, fixes #319) - Fixed persistent-mode hook causing session freezes when bash commands encounter errors. The root cause was cascading errors in the catch block when stdout/stderr streams were broken: - Replaced `console.log`/`console.error` with `process.stdout.write`/`process.stderr.write` in error handlers - Added nested try-catch blocks to handle EPIPE and broken pipe errors gracefully - Added global `uncaughtException` and `unhandledRejection` handlers to prevent hook hangs - Added 10-second safety timeout to force exit if hook doesn't complete - Added early return for invalid JSON input to prevent unnecessary processing - Hook now guarantees to return `{ continue: true }` even on catastrophic errors",
-      "translation": "**Bash 오류 시 Hook 멈춤 현상 해결** (#321, #319 수정) - bash 명령어가 오류를 만날 때 세션이 멈추는 문제를 일으키던 지속 모드 hook을 수정했습니다. 원인은 stdout/stderr 스트림이 깨졌을 때 catch 블록에서 발생하는 연쇄 오류였습니다: - 오류 처리기에서 `console.log`/`console.error`를 `process.stdout.write`/`process.stderr.write`로 대체 - EPIPE 및 파이프 깨짐 오류를 우아하게 처리하기 위해 중첩된 try-catch 블록 추가 - hook 멈춤을 방지하기 위해 전역 `uncaughtException` 및 `unhandledRejection` 처리기 추가 - hook이 완료되지 않을 경우 강제 종료를 위한 10초 안전 타임아웃 추가 - 불필요한 처리를 방지하기 위해 잘못된 JSON 입력에 대한 조기 반환 추가 - 치명적인 오류가 발생해도 `{ continue: true }`를 반환하도록 hook 보장"
+      "translated": "**Bash 오류 시 Hook 멈춤 현상 해결** (#321, #319 수정) - bash 명령어가 오류를 만날 때 세션이 멈추는 문제를 일으키던 지속 모드 hook을 수정했습니다. 원인은 stdout/stderr 스트림이 깨졌을 때 catch 블록에서 발생하는 연쇄 오류였습니다: - 오류 처리기에서 `console.log`/`console.error`를 `process.stdout.write`/`process.stderr.write`로 대체 - EPIPE 및 파이프 깨짐 오류를 우아하게 처리하기 위해 중첩된 try-catch 블록 추가 - hook 멈춤을 방지하기 위해 전역 `uncaughtException` 및 `unhandledRejection` 처리기 추가 - hook이 완료되지 않을 경우 강제 종료를 위한 10초 안전 타임아웃 추가 - 불필요한 처리를 방지하기 위해 잘못된 JSON 입력에 대한 조기 반환 추가 - 치명적인 오류가 발생해도 `{ continue: true }`를 반환하도록 hook 보장"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Invalid Hook Event Type** (#322, fixes #320) - Renamed invalid 'Setup' hook event to 'SessionStart' in hooks.json. The 'Setup' event type is not recognized by Claude Code's hook system. All hooks moved into SessionStart where they belong.",
-      "translation": "**잘못된 Hook 이벤트 유형** (#322, #320 수정) - hooks.json에서 잘못된 'Setup' hook 이벤트를 'SessionStart'로 이름 변경했습니다. 'Setup' 이벤트 유형은 Claude Code의 hook 시스템에서 인식되지 않습니다. 모든 hook이 적절한 위치인 SessionStart로 이동되었습니다."
+      "translated": "**잘못된 Hook 이벤트 유형** (#322, #320 수정) - hooks.json에서 잘못된 'Setup' hook 이벤트를 'SessionStart'로 이름 변경했습니다. 'Setup' 이벤트 유형은 Claude Code의 hook 시스템에서 인식되지 않습니다. 모든 hook이 적절한 위치인 SessionStart로 이동되었습니다."
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Project-Scoped Plugin Isolation** (#315, fixes #314) - Fixed project-scoped plugin installations incorrectly modifying global scope. When installing OMC as a project-scoped plugin (in `.claude/plugins/`), the installer was incorrectly modifying global `~/.claude/settings.json` and `~/.claude/hud/`, causing the statusline and plugin to appear in all projects: - Added `isProjectScopedPlugin()` detection function - Skip HUD statusline installation for project-scoped plugins - Skip settings.json modification for project-scoped plugins - Skip version metadata file for project-scoped plugins - Skip global config directory creation for project-scoped plugins - Added comprehensive tests for project-scoped detection",
-      "translation": "**프로젝트 범위 플러그인 격리** (#315, #314 수정) - 프로젝트 범위 플러그인 설치가 전역 범위를 잘못 수정하는 문제를 해결했습니다. OMC를 프로젝트 범위 플러그인으로 설치할 때(`.claude/plugins/`), 설치 프로그램이 전역 `~/.claude/settings.json` 및 `~/.claude/hud/`를 잘못 수정하여 모든 프로젝트에 상태줄과 플러그인이 나타나는 문제를 해결했습니다: - `isProjectScopedPlugin()` 감지 함수 추가 - 프로젝트 범위 플러그인에 대해 HUD 상태줄 설치 건너뜀 - 프로젝트 범위 플러그인에 대해 settings.json 수정 건너뜀 - 프로젝트 범위 플러그인에 대해 버전 메타데이터 파일 건너뜀 - 프로젝트 범위 플러그인에 대해 전역 설정 디렉토리 생성 건너뜀 - 프로젝트 범위 감지를 위한 포괄적인 테스트 추가"
+      "translated": "**프로젝트 범위 플러그인 격리** (#315, #314 수정) - 프로젝트 범위 플러그인 설치가 전역 범위를 잘못 수정하는 문제를 해결했습니다. OMC를 프로젝트 범위 플러그인으로 설치할 때(`.claude/plugins/`), 설치 프로그램이 전역 `~/.claude/settings.json` 및 `~/.claude/hud/`를 잘못 수정하여 모든 프로젝트에 상태줄과 플러그인이 나타나는 문제를 해결했습니다: - `isProjectScopedPlugin()` 감지 함수 추가 - 프로젝트 범위 플러그인에 대해 HUD 상태줄 설치 건너뜀 - 프로젝트 범위 플러그인에 대해 settings.json 수정 건너뜀 - 프로젝트 범위 플러그인에 대해 버전 메타데이터 파일 건너뜀 - 프로젝트 범위 플러그인에 대해 전역 설정 디렉토리 생성 건너뜀 - 프로젝트 범위 감지를 위한 포괄적인 테스트 추가"
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Auto-Update Trigger on Session Start** (#316, fixes #298) - Fixed silent auto-update feature not being triggered. The `silentAutoUpdate()` function existed but was never called. Now properly imports and calls `initSilentAutoUpdate()` in `processSessionStart()` so update checks run on session start when the user has opted in.",
-      "translation": "**세션 시작 시 자동 업데이트 트리거** (#316, #298 수정) - 조용한 자동 업데이트 기능이 트리거되지 않는 문제를 해결했습니다. `silentAutoUpdate()` 함수는 존재했지만 호출되지 않았습니다. 이제 `processSessionStart()`에서 `initSilentAutoUpdate()`를 올바르게 가져와 호출하여 사용자가 선택한 경우 세션 시작 시 업데이트 확인이 실행됩니다."
+      "translated": "**세션 시작 시 자동 업데이트 트리거** (#316, #298 수정) - 조용한 자동 업데이트 기능이 트리거되지 않는 문제를 해결했습니다. `silentAutoUpdate()` 함수는 존재했지만 호출되지 않았습니다. 이제 `processSessionStart()`에서 `initSilentAutoUpdate()`를 올바르게 가져와 호출하여 사용자가 선택한 경우 세션 시작 시 업데이트 확인이 실행됩니다."
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Session Isolation + Windows Path Handling** (#317) - Fixed session isolation and Windows path compatibility issues. Improved session ID handling across 14 files to prevent state conflicts between concurrent sessions, with proper Windows path normalization (contributed by @MeroZemory). ---",
-      "translation": "**세션 격리 + Windows 경로 처리** (#317) - 세션 격리 및 Windows 경로 호환성 문제를 해결했습니다. 동시 세션 간의 상태 충돌을 방지하기 위해 14개 파일에서 세션 ID 처리를 개선하고, 적절한 Windows 경로 정규화를 적용했습니다 (@MeroZemory 기여)."
+      "translated": "**세션 격리 + Windows 경로 처리** (#317) - 세션 격리 및 Windows 경로 호환성 문제를 해결했습니다. 동시 세션 간의 상태 충돌을 방지하기 위해 14개 파일에서 세션 ID 처리를 개선하고, 적절한 Windows 경로 정규화를 적용했습니다 (@MeroZemory 기여)."
     }
   ],
   "translatedAt": "2026-02-06T15:56:44.372Z",

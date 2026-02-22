@@ -7,67 +7,67 @@
       "category": "changed",
       "scope": null,
       "original": "**Local-Only State Management** - All execution mode state (ralph, ultrawork, ecomode) is now stored exclusively in `.omc/state/` per project/worktree. Global state in `~/.claude/` and `~/.omc/state/` is no longer written for mode state, enabling multiple git worktrees to run OMC simultaneously without state conflicts. Existing global state is migrated on first read.",
-      "translation": "**로컬 전용 상태 관리** - 모든 실행 모드 상태(ralph, ultrawork, ecomode)는 이제 프로젝트/작업 트리별로 `.omc/state/`에만 저장됩니다. 모드 상태에 대한 글로벌 상태는 `~/.claude/` 및 `~/.omc/state/`에 더 이상 기록되지 않아 여러 git 작업 트리가 상태 충돌 없이 OMC를 동시에 실행할 수 있습니다. 기존 글로벌 상태는 처음 읽을 때 마이그레이션됩니다."
+      "translated": "**로컬 전용 상태 관리** - 모든 실행 모드 상태(ralph, ultrawork, ecomode)는 이제 프로젝트/작업 트리별로 `.omc/state/`에만 저장됩니다. 모드 상태에 대한 글로벌 상태는 `~/.claude/` 및 `~/.omc/state/`에 더 이상 기록되지 않아 여러 git 작업 트리가 상태 충돌 없이 OMC를 동시에 실행할 수 있습니다. 기존 글로벌 상태는 처음 읽을 때 마이그레이션됩니다."
     },
     {
       "category": "changed",
       "scope": null,
       "original": "**Promise Pattern Removal** - Fully removed `<promise>` completion pattern from ralph and verification workflows. Completion now uses architect verification + `/oh-my-claudecode:cancel` for clean exit.",
-      "translation": "**프라미스 패턴 제거** - ralph 및 검증 워크플로우에서 `<promise>` 완료 패턴을 완전히 제거했습니다. 완료는 이제 아키텍트 검증 + `/oh-my-claudecode:cancel`을 사용하여 깨끗하게 종료됩니다."
+      "translated": "**프라미스 패턴 제거** - ralph 및 검증 워크플로우에서 `<promise>` 완료 패턴을 완전히 제거했습니다. 완료는 이제 아키텍트 검증 + `/oh-my-claudecode:cancel`을 사용하여 깨끗하게 종료됩니다."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**HUD CWD Element** (#229) - Configurable working directory display in HUD with three formats: relative, absolute, folder.",
-      "translation": "**HUD CWD 요소** (#229) - HUD에서 작업 디렉토리 표시를 상대, 절대, 폴더 세 가지 형식으로 구성할 수 있습니다."
+      "translated": "**HUD CWD 요소** (#229) - HUD에서 작업 디렉토리 표시를 상대, 절대, 폴더 세 가지 형식으로 구성할 수 있습니다."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**HUD Thinking Indicator** (#229) - Configurable thinking indicator with four formats: bubble, brain, face, text.",
-      "translation": "**HUD 사고 표시기** (#229) - HUD에서 사고 표시기를 버블, 뇌, 얼굴, 텍스트 네 가지 형식으로 구성할 수 있습니다."
+      "translated": "**HUD 사고 표시기** (#229) - HUD에서 사고 표시기를 버블, 뇌, 얼굴, 텍스트 네 가지 형식으로 구성할 수 있습니다."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**HUD Line Limiting** (#228) - Prevents HUD output from shrinking the input field.",
-      "translation": "**HUD 줄 제한** (#228) - HUD 출력이 입력 필드를 축소하지 않도록 방지합니다."
+      "translated": "**HUD 줄 제한** (#228) - HUD 출력이 입력 필드를 축소하지 않도록 방지합니다."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**HUD Stale Task Threshold** (#236) - Configurable `staleTaskThresholdMinutes` option.",
-      "translation": "**HUD 오래된 작업 임계값** (#236) - 구성 가능한 `staleTaskThresholdMinutes` 옵션."
+      "translated": "**HUD 오래된 작업 임계값** (#236) - 구성 가능한 `staleTaskThresholdMinutes` 옵션."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**Session End Hook** - New hook for proper state cleanup on session termination, preventing stale state from causing stop hook malfunctions.",
-      "translation": "**세션 종료 후크** - 세션 종료 시 적절한 상태 정리를 위한 새로운 후크로, 오래된 상태가 정지 후크 오작동을 유발하지 않도록 방지합니다."
+      "translated": "**세션 종료 후크** - 세션 종료 시 적절한 상태 정리를 위한 새로운 후크로, 오래된 상태가 정지 후크 오작동을 유발하지 않도록 방지합니다."
     },
     {
       "category": "added",
       "scope": null,
       "original": "**Learner Parser Backward Compatibility** (#227) - Backward-compatible parser for legacy skill files with auto-generated IDs and default source field.",
-      "translation": "**학습자 파서 하위 호환성** (#227) - 자동 생성된 ID와 기본 소스 필드가 있는 레거시 스킬 파일을 위한 하위 호환 파서."
+      "translated": "**학습자 파서 하위 호환성** (#227) - 자동 생성된 ID와 기본 소스 필드가 있는 레거시 스킬 파일을 위한 하위 호환 파서."
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Stop Hook Not Blocking** (PR #237, fixes #233) - Fixed persistent-mode Stop hook using `{ continue: true }` instead of `{ decision: \"block\" }`.",
-      "translation": "**정지 후크 차단 안 함** (PR #237, #233 수정) - 지속 모드 정지 후크가 `{ continue: true }`를 사용하여 `{ decision: \"block\" }` 대신 수정되었습니다."
+      "translated": "**정지 후크 차단 안 함** (PR #237, #233 수정) - 지속 모드 정지 후크가 `{ continue: true }`를 사용하여 `{ decision: \"block\" }` 대신 수정되었습니다."
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Completion Promise Checking** (#239) - Added completion promise checking to Ultrawork and Ecomode stop hooks.",
-      "translation": "**완료 프라미스 확인** (#239) - Ultrawork 및 Ecomode 정지 후크에 완료 프라미스 확인을 추가했습니다."
+      "translated": "**완료 프라미스 확인** (#239) - Ultrawork 및 Ecomode 정지 후크에 완료 프라미스 확인을 추가했습니다."
     },
     {
       "category": "fixed",
       "scope": null,
       "original": "**Staleness Check** - Added staleness check and session-end cleanup for mode states. ---",
-      "translation": "**오래된 상태 확인** - 모드 상태에 대한 오래된 상태 확인 및 세션 종료 정리를 추가했습니다."
+      "translated": "**오래된 상태 확인** - 모드 상태에 대한 오래된 상태 확인 및 세션 종료 정리를 추가했습니다."
     }
   ],
   "translatedAt": "2026-02-06T15:56:57.478Z",

@@ -127,7 +127,7 @@ async function auditService(serviceId) {
     for (let i = 0; i < entries.length; i++) {
       const entry = {
         original: entries[i].original || entries[i].text || '',
-        translated: entries[i].translated || entries[i].translation || '',
+        translated: entries[i].translated || '',
         category: entries[i].category || 'other',
       };
       const issues = detectIssues(entry);

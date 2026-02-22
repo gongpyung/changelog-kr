@@ -231,7 +231,7 @@ async function processService(service) {
     // Use --force flag to override and re-parse from source
     const forceReparse = process.argv.includes('--force');
     if (!forceReparse && existingData && existingData.parsedAt) {
-      const reason = existingData.entries?.some(e => e.translation !== null) ? 'translated' : 'already parsed';
+      const reason = existingData.entries?.some(e => e.translated !== null) ? 'translated' : 'already parsed';
       console.log(`  - ${versionData.version}: ${reason}, skipping`);
       skippedCount++;
       continue;
@@ -247,7 +247,7 @@ async function processService(service) {
         category: entry.category,
         scope: entry.scope,
         original: entry.text,
-        translation: null
+        translated: null
       }))
     };
 

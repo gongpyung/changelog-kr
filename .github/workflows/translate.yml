@@ -48,7 +48,8 @@ jobs:
       - name: Guard legacy translation key
         run: |
           if rg -n '"translation"\s*:' data/services/*/translations/*.json; then
-            echo "::warning::Found legacy 'translation' key in translation JSON files. Prefer 'translated' key."
+            echo "::error::Found legacy 'translation' key. All entries must use 'translated' key."
+            exit 1
           else
             echo "No legacy translation keys found."
           fi

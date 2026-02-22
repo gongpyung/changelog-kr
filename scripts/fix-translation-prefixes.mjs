@@ -74,14 +74,15 @@ async function processFile(filePath) {
 
   let fixedCount = 0;
   for (const entry of data.entries) {
-    if (!entry.translation) continue;
-    const cleaned = stripPrefix(entry.translation);
-    if (cleaned !== entry.translation) {
+    const val = entry.translated;
+    if (!val) continue;
+    const cleaned = stripPrefix(val);
+    if (cleaned !== val) {
       if (DRY_RUN) {
-        console.log(`  [DRY] ${entry.translation}`);
+        console.log(`  [DRY] ${val}`);
         console.log(`     → ${cleaned}`);
       }
-      entry.translation = cleaned;
+      entry.translated = cleaned;
       fixedCount++;
     }
   }

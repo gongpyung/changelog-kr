@@ -119,6 +119,7 @@ async function main() {
 
   const newVersionsMap = {};
   let totalNew = 0;
+  let errorCount = 0;
 
   // Check each service
   for (const service of services) {
@@ -145,7 +146,8 @@ async function main() {
         console.log('  No new versions.');
       }
     } catch (error) {
-      console.error(`  Error checking ${service.name}: ${error.message}`);
+      console.error(`  [WARNING] Error checking ${service.name}: ${error.message}`);
+      errorCount++;
     }
   }
 
@@ -167,17 +169,29 @@ async function main() {
   }
   console.log('='.repeat(60));
 
-  // Always exit 0
+  // All services failed → signal CI failure
+  if (errorCount > 0 && errorCount === services.length) {
+    console.error(`\n[ERROR] All ${services.length} service(s) failed to fetch. Check network/API access.`);
+    setGitHubOutput('has_new', 'false');
+    setGitHubOutput('new_versions_map', '{}');
+    process.exit(1);
+  }
+
+  // Partial failure is a warning, not an error
+  if (errorCount > 0) {
+    console.warn(`\n[WARNING] ${errorCount}/${services.length} service(s) failed; results may be incomplete.`);
+  }
+
   process.exit(0);
 }
 
 main().catch(error => {
-  console.error('\nError:', error.message);
+  console.error('\n[ERROR] Unexpected crash:', error.message);
 
   // Set GitHub Actions outputs for error case
   setGitHubOutput('has_new', 'false');
   setGitHubOutput('new_versions_map', '{}');
 
-  // Still exit 0 (don't fail the workflow)
-  process.exit(0);
+  // Total crash = failure
+  process.exit(1);
 });

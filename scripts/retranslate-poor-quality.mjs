@@ -106,7 +106,7 @@ function isTechnicalTerm(text) {
  * Returns reason string if yes, null if the entry is OK.
  */
 function needsRetranslation(entry) {
-  const val = (entry.translation || entry.translated || '').trim();
+  const val = (entry.translated || '').trim();
   const orig = (entry.original || '').trim();
 
   // If the original already contains Korean, it was written in Korean — no translation needed
@@ -286,7 +286,7 @@ async function main() {
           stillPoor++;
           grandTotal.stillPoor++;
         }
-        data.entries[idx].translation = newTranslation;
+        data.entries[idx].translated = newTranslation;
       }
 
       data.retranslatedAt = new Date().toISOString();

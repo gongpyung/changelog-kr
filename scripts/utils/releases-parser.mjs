@@ -217,32 +217,53 @@ export function parseReleaseBody(body) {
  *   excludePattern: 'nightly'
  * });
  * // result.versions[0] = { version: '0.27.2', date: '2024-01-15', entries: [...] }
- *
- * @note
- * 현재 구현은 per_page=100으로 제한됩니다.
- * 고빈도 nightly 릴리스를 하는 저장소의 경우 오래된 stable 릴리스를 놓칠 수 있습니다.
- * 향후 개선: Link 헤더를 통한 페이지네이션 지원
  */
 export async function fetchAndParseReleases(source) {
   const { owner, repo, includePrerelease = true, excludePattern = null } = source;
 
-  const url = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=100`;
-  const response = await fetch(url, {
-    headers: {
-      'Accept': 'application/vnd.github+json',
-      'User-Agent': 'changelog-kr'
-    }
-  });
+  const maxPages = 10;
+  const perPage = 100;
+  const allReleases = [];
 
-  if (!response.ok) {
-    console.warn(`Failed to fetch releases for ${owner}/${repo}: ${response.status}`);
-    return { versions: [] };
+  const headers = {
+    'Accept': 'application/vnd.github+json',
+    'User-Agent': 'changelog-kr'
+  };
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
   }
 
-  const releases = await response.json();
+  for (let page = 1; page <= maxPages; page++) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=${perPage}&page=${page}`;
+    const response = await fetch(url, { headers });
+
+    if (!response.ok) {
+      console.warn(`Failed to fetch releases for ${owner}/${repo}: ${response.status}`);
+      if (page === 1) return { versions: [] };
+      break;
+    }
+
+    const releases = await response.json();
+    allReleases.push(...releases);
+
+    // Link 헤더에서 다음 페이지 존재 여부 확인
+    const linkHeader = response.headers.get('Link');
+    const hasNextPage = linkHeader && linkHeader.includes('rel="next"');
+
+    // 다음 페이지 없음 (Link 헤더 기반 조기 종료)
+    if (!hasNextPage) break;
+
+    // fallback: 응답이 페이지 크기보다 작으면 마지막 페이지
+    if (releases.length < perPage) break;
+
+    // maxPages 상한 도달 시 경고
+    if (page === maxPages) {
+      console.warn(`Warning: reached maxPages limit (${maxPages}). Some releases may be missing.`);
+    }
+  }
 
   // 필터링: draft, prerelease, excludePattern
-  const filtered = releases.filter(release => {
+  const filtered = allReleases.filter(release => {
     if (release.draft) return false;
     if (!includePrerelease && release.prerelease) return false;
     if (excludePattern && release.tag_name.includes(excludePattern)) return false;
