@@ -1,0 +1,89 @@
+{
+  "version": "4.4.0",
+  "date": "2026-02-23",
+  "parsedAt": "2026-02-23T13:43:39.454Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**`/omc-teams` skill** — spawn `claude`, `codex`, or `gemini` CLI processes in tmux split-panes for parallel task execution",
+      "translated": "**`/omc-teams` 스킬** — 병렬 작업 실행을 위해 tmux 분할 창(split-panes)에서 `claude`, `codex` 또는 `gemini` CLI 프로세스 생성"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**On-demand worker lifecycle** (#904) — workers spawn when a task arrives and die immediately when done; no more idle workers",
+      "translated": "**온디맨드 워커 수명 주기** (#904) — 작업이 들어올 때 워커가 생성되고 완료 즉시 종료되어 유휴 워커 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**`/ccg` skill** — Claude-Codex-Gemini tri-model orchestration; fans out backend tasks to Codex + UI tasks to Gemini simultaneously",
+      "translated": "**`/ccg` 스킬** — Claude-Codex-Gemini 3중 모델 오케스트레이션; 백엔드 작업은 Codex로, UI 작업은 Gemini로 동시에 분산 처리"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**`omc_run_team_cleanup` MCP tool** — kills only worker panes, never `kill-session`",
+      "translated": "**`omc_run_team_cleanup` MCP 도구** — `kill-session`을 호출하지 않고 워커 창(pane)만 종료"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Team session cleanup hardened — never kills the user's shell (SIGTERM → grace → SIGKILL per pane)",
+      "translated": "팀 세션 정리 기능 강화 — 사용자 쉘을 종료하지 않도록 개선 (창별로 SIGTERM → 대기 시간 → SIGKILL 적용)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omc_run_team_wait` timeout no longer kills workers (#903)",
+      "translated": "`omc_run_team_wait` 타임아웃 시 더 이상 워커를 종료하지 않음 (#903)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows: false \"hook error\" labels eliminated (#899, #902)",
+      "translated": "Windows: 잘못된 \"hook error\" 레이블 제거 (#899, #902)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "HUD respects `CLAUDE_CONFIG_DIR` (#897)",
+      "translated": "HUD에서 `CLAUDE_CONFIG_DIR` 설정을 준수함 (#897)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hard-kill backstop and orphan PID detection (#901)",
+      "translated": "강제 종료 백스탑(backstop) 및 고립된(orphan) PID 탐지 (#901)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Exit-code propagation from CLI workers",
+      "translated": "CLI 워커의 종료 코드(Exit-code) 전파"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`docs/CLAUDE.md` and `skills/ccg/SKILL.md` fully synced with tmux worker architecture",
+      "translated": "`docs/CLAUDE.md` 및 `skills/ccg/SKILL.md` 문서를 tmux 워커 아키텍처에 맞춰 완전히 동기화"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`validateJobId()` enforces `/^omc-[a-z0-9]{1,12}$/` on all MCP tool inputs — prevents path traversal via forged job IDs",
+      "translated": "`validateJobId()`가 모든 MCP 도구 입력에 `/^omc-[a-z0-9]{1,12}$/` 형식을 강제 적용하여 위조된 작업 ID를 통한 경로 탐색 방지"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Removed `context_files` path traversal vector from deleted Codex/Gemini MCP servers",
+      "translated": "삭제된 Codex/Gemini MCP 서버에서 `context_files` 경로 탐색 취약점 제거"
+    }
+  ],
+  "translatedAt": "2026-02-23T13:44:10.157Z",
+  "translationEngine": "gemini",
+  "translationCharCount": 1089
+}
