@@ -231,3 +231,22 @@ Supabase 기반 사용자 인증 + 버전 확인 기록 기능:
 - 빌드 결과물(`site/index.html`, `site/data/`)은 커밋하지 않아도 됨 (CI가 빌드)
 - 번역 시 합니다체(존댓말) 사용, 기술 용어는 영어 유지
 - PR 생성 시 빌드 성공 여부 반드시 확인: `node scripts/build-site.mjs`
+
+### Git 커밋/푸시 규칙
+
+CI(`build-deploy.yml`)가 main push 시 자동 빌드 → 커밋 → push하므로, 로컬과 remote가 분기할 수 있습니다.
+
+**커밋 전**: 빌드 검증(`npm run build`) 후 `site/` 변경사항 되돌리기
+```bash
+git checkout -- site/
+```
+
+**푸시 순서**: 항상 pull 먼저, push 나중에
+```bash
+git pull --rebase && git push
+```
+
+**dirty tree로 pull 실패 시**:
+```bash
+git stash && git pull --rebase && git push && git stash pop
+```
