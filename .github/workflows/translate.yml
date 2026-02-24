@@ -44,6 +44,9 @@ jobs:
           GLM_BASE_URL: ${{ vars.GLM_BASE_URL || 'https://api.z.ai/api/coding/paas/v4' }}
           TRANSLATION_FALLBACK_CHAIN: ${{ vars.TRANSLATION_FALLBACK_CHAIN || 'gemini,glm,openai,google,mock' }}
           NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
+          TRANSLATION_DEBUG_ENABLED: 'true'
+          TRANSLATION_DEBUG_LOG_DIR: 'logs/translation'
+          TRANSLATION_DEBUG_REDACT_TEXT: 'true'
         run: |
           if [ "${{ github.event.inputs.translate_all }}" = "true" ] || [ -z "$NEW_VERSIONS_MAP" ] || [ "$NEW_VERSIONS_MAP" = "{}" ]; then
             node scripts/parse-changelog.mjs
@@ -54,6 +57,25 @@ jobs:
             done
           fi
           node scripts/translate.mjs
+
+      - name: Generate debug report
+        if: always()
+        env:
+          TRANSLATION_DEBUG_LOG_DIR: 'logs/translation'
+        run: |
+          RUN_DATE=$(date +%Y-%m-%d)
+          node scripts/report-translation-debug.mjs --date "$RUN_DATE" || echo "Report generation skipped (no logs)"
+
+      - name: Upload debug artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-debug-${{ github.run_id }}
+          path: |
+            logs/translation/**
+            reports/translation-debug/**
+          retention-days: 14
+          if-no-files-found: ignore
 
       - name: Guard legacy translation key
         run: |

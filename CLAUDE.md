@@ -31,7 +31,8 @@ changelog-kr/
 │   ├── build-site.mjs             # 빌드: 번역 JSON → site/ 생성
 │   ├── detect-new-versions.mjs    # 새 버전 감지
 │   ├── parse-changelog.mjs        # 체인지로그 파싱
-│   └── translate.mjs              # 번역 실행
+│   ├── translate.mjs              # 번역 실행
+│   └── report-translation-debug.mjs  # 디버그 리포트 생성
 └── .github/workflows/
     ├── build-deploy.yml           # main push → 빌드 → GitHub Pages 배포
     ├── check-updates.yml          # 새 버전 감지 → 번역 트리거
@@ -56,6 +57,7 @@ npm run parse        # 체인지로그 파싱
 npm run translate    # 번역 실행 (API 키 필요)
 npm run detect       # 새 버전 감지
 npm test             # 테스트 실행
+npm run report:debug # 번역 디버그 리포트 생성
 ```
 
 ## Translation Engine Configuration
@@ -79,6 +81,62 @@ npm test             # 테스트 실행
 2. **비용 절감**: `TRANSLATION_FALLBACK_CHAIN=gemini,glm,google,mock` (OpenAI 제외)
 3. **GLM 전용 테스트**: `TRANSLATION_ENGINE=glm`
 4. **긴급 롤백**: `TRANSLATION_FALLBACK_CHAIN=openai,gemini,google,mock` (OpenAI 우선)
+
+## Translation Debug System
+
+번역 파이프라인의 모델 사용 현황, 오류, fallback, 품질을 정량 추적하는 계측 시스템입니다.
+
+### 활성화/비활성화
+
+| 환경 변수 | 값 | 설명 |
+|-----------|-----|------|
+| `TRANSLATION_DEBUG_ENABLED` | `true`/`false` | 디버그 로깅 활성화 (기본값: 비활성) |
+| `TRANSLATION_DEBUG_LOG_DIR` | 경로 | 로그 저장 디렉토리 (기본값: `logs/translation`) |
+| `TRANSLATION_DEBUG_REDACT_TEXT` | `true`/`false` | 텍스트 내용 마스킹 (기본값: `true`) |
+
+비활성 시 모든 로깅 함수는 no-op으로 동작하며, 성능 저하가 없습니다.
+
+### 리포트 생성
+
+```bash
+npm run report:debug                           # 오늘 날짜 리포트
+node scripts/report-translation-debug.mjs --date 2026-02-24  # 특정 날짜
+node scripts/report-translation-debug.mjs --days 7           # 최근 7일
+```
+
+출력 파일 (reports/translation-debug/):
+- `YYYY-MM-DD-summary.json` - 기계 판독용 지표
+- `YYYY-MM-DD-summary.md` - 사람 판독용 리포트
+- `YYYY-MM-DD-samples.csv` - 문제 항목 샘플
+
+### 핵심 지표 해석
+
+| 지표 | 정상 범위 | 주의 | 대응 |
+|------|----------|------|------|
+| 성공률 (success_rate) | >95% | <90% | provider 상태 확인, fallback chain 조정 |
+| fallback 비율 | <5% | >10% | 주 엔진 할당량/장애 확인 |
+| mock fallback | 0 | >0 | 모든 provider API 키 확인 |
+| p95 지연시간 | <10s | >30s | rate limit, 배치 크기 조정 |
+| poor_quality_rate | <5% | >10% | 프롬프트 품질, 모델 변경 검토 |
+
+### CI/CD 통합
+
+translate.yml 워크플로우에서 자동 실행:
+1. 번역 시 `TRANSLATION_DEBUG_ENABLED=true`로 로그 수집
+2. 번역 완료 후 리포트 자동 생성
+3. 로그+리포트를 GitHub Actions 아티팩트로 업로드 (14일 보관)
+
+### 파일 구조
+
+```
+scripts/utils/
+├── translation-debug-schema.mjs   # 이벤트 스키마 (14 이벤트 타입, 7 에러 클래스)
+└── translation-debug-logger.mjs   # 로거 (createDebugSession/logEvent/logProviderCall/closeDebugSession)
+scripts/
+└── report-translation-debug.mjs   # 리포트 생성 CLI
+logs/translation/                  # JSONL 로그 파일 (.gitignore)
+reports/translation-debug/         # 리포트 출력 (.gitignore)
+```
 
 ## Services
 
