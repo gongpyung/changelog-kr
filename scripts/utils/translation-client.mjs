@@ -3,6 +3,8 @@
  * Translates text batches while preserving code, URLs, and file paths
  */
 
+import { registerProvider } from './translation-provider.mjs';
+
 const API_ENDPOINT = 'https://translation.googleapis.com/language/translate/v2';
 
 // Strip conventional commit prefixes (feat:, fix(scope):, etc.) from source text
@@ -146,7 +148,7 @@ export async function translateBatch(texts, sourceLang = 'en', targetLang = 'ko'
   }
 
   if (!texts || texts.length === 0) {
-    return { translations: [], charCount: 0 };
+    return { translations: [], charCount: 0, meta: { provider: 'google', model: 'translate-v2', endpointType: 'rest-v2' } };
   }
 
   // Strip conventional commit prefixes before translation
@@ -185,5 +187,9 @@ export async function translateBatch(texts, sourceLang = 'en', targetLang = 'ko'
   return {
     translations: restoredTranslations,
     charCount: totalCharCount,
+    meta: { provider: 'google', model: 'translate-v2', endpointType: 'rest-v2' },
   };
 }
+
+// Register as a provider
+registerProvider('google', { translate: translateBatch });

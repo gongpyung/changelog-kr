@@ -58,6 +58,28 @@ npm run detect       # 새 버전 감지
 npm test             # 테스트 실행
 ```
 
+## Translation Engine Configuration
+
+번역 엔진은 환경 변수로 제어합니다:
+
+| 환경 변수 | 값 | 설명 |
+|-----------|-----|------|
+| `TRANSLATION_ENGINE` | `auto\|gemini\|glm\|openai\|google\|mock` | 기본 엔진 선택 (기본값: `auto`) |
+| `TRANSLATION_FALLBACK_CHAIN` | 콤마 구분 | 장애 시 시도 순서 (기본값: `gemini,glm,openai,google,mock`) |
+| `GEMINI_API_KEY` | API 키 | Google Gemini API |
+| `GLM_API_KEY` | API 키 | GLM-5 API (ZAI_API_KEY alias 가능) |
+| `GLM_MODEL` | 모델명 | GLM 모델 (기본값: `glm-5`) |
+| `GLM_BASE_URL` | URL | GLM API 엔드포인트 (기본값: `https://api.z.ai/api/coding/paas/v4`) |
+| `OPENAI_API_KEY` | API 키 | OpenAI API |
+| `GOOGLE_TRANSLATE_API_KEY` | API 키 | Google Translate v2 |
+
+### 엔진 전환/롤백 가이드
+
+1. **안정 운영 (권장)**: `TRANSLATION_FALLBACK_CHAIN=gemini,glm,openai,google,mock`
+2. **비용 절감**: `TRANSLATION_FALLBACK_CHAIN=gemini,glm,google,mock` (OpenAI 제외)
+3. **GLM 전용 테스트**: `TRANSLATION_ENGINE=glm`
+4. **긴급 롤백**: `TRANSLATION_FALLBACK_CHAIN=openai,gemini,google,mock` (OpenAI 우선)
+
 ## Services
 
 현재 지원 서비스 (`data/services.json`):

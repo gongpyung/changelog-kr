@@ -3,68 +3,25 @@
  * Uses GPT-4o for high-quality changelog translations
  */
 
-import { PartialTranslationError } from './gemini-translation-client.mjs';
+import {
+  buildTranslationPrompt,
+  parseNumberedResponse,
+  createBatches,
+  PartialTranslationError,
+  registerProvider,
+} from './translation-provider.mjs';
 
 const API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
-const MAX_BATCH_SIZE = 20;
 const BATCH_DELAY_MS = 300;
 
-/**
- * Build translation prompt for OpenAI
- */
-function buildPrompt(texts) {
-  const numbered = texts.map((text, i) => `${i + 1}. ${text}`).join('\n');
-
-  return `You are a professional translator specializing in software documentation.
-Translate the following software changelog entries from English to Korean.
-
-RULES:
-- Translate naturally into Korean, not word-by-word
-- DO NOT translate: code in backticks (\`code\`), file paths, URLs, CLI commands, technical terms like API names
-- Keep the same numbering format
-- Output ONLY the translations, one per line, with the same numbering
-- REMOVE conventional commit prefixes before translating: strip patterns like "feat:", "feat(scope):",
-  "fix:", "chore:", "docs:", "test:", "refactor:", "perf:", "style:", "build:", "ci:", "revert:"
-  from the START of each entry. Translate ONLY the description after the prefix.
-  Example: "feat(cli): add new command" → "새 명령어 추가" (NOT "기능(cli): 새 명령어 추가")
-
-ENTRIES TO TRANSLATE:
-${numbered}`;
-}
-
-/**
- * Parse response to extract translations
- */
-function parseResponse(responseText, expectedCount) {
-  const lines = responseText.trim().split('\n');
-  const translations = [];
-
-  for (const line of lines) {
-    const match = line.match(/^\d+\.\s*(.+)$/);
-    if (match) {
-      translations.push(match[1].trim());
-    }
-  }
-
-  if (translations.length !== expectedCount) {
-    const fallback = responseText.trim().split('\n')
-      .filter(line => line.trim())
-      .map(line => line.replace(/^\d+\.\s*/, '').trim());
-
-    if (fallback.length === expectedCount) {
-      return fallback;
-    }
-  }
-
-  return translations;
-}
+// buildPrompt, parseResponse, createBatches are now shared via translation-provider.mjs
 
 /**
  * Call OpenAI API for translation
  */
 async function callOpenAIAPI(texts, apiKey) {
-  const prompt = buildPrompt(texts);
+  const prompt = buildTranslationPrompt(texts);
 
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
@@ -101,7 +58,7 @@ async function callOpenAIAPI(texts, apiKey) {
   }
 
   const responseText = data.choices[0].message.content;
-  const translations = parseResponse(responseText, texts.length);
+  const translations = parseNumberedResponse(responseText, texts.length);
 
   if (translations.length !== texts.length) {
     throw new PartialTranslationError(translations, texts.length);
@@ -110,16 +67,7 @@ async function callOpenAIAPI(texts, apiKey) {
   return translations;
 }
 
-/**
- * Split texts into batches
- */
-function createBatches(texts) {
-  const batches = [];
-  for (let i = 0; i < texts.length; i += MAX_BATCH_SIZE) {
-    batches.push(texts.slice(i, i + MAX_BATCH_SIZE));
-  }
-  return batches;
-}
+// createBatches is now shared via translation-provider.mjs
 
 /**
  * Translate a batch of texts using OpenAI
@@ -137,7 +85,7 @@ export async function translateWithOpenAI(texts) {
   }
 
   if (!texts || texts.length === 0) {
-    return { translations: [], charCount: 0 };
+    return { translations: [], charCount: 0, meta: { provider: 'openai', model: MODEL, endpointType: 'openai-compatible' } };
   }
 
   const batches = createBatches(texts);
@@ -162,5 +110,9 @@ export async function translateWithOpenAI(texts) {
   return {
     translations: allTranslations,
     charCount: totalCharCount,
+    meta: { provider: 'openai', model: MODEL, endpointType: 'openai-compatible' },
   };
 }
+
+// Register as a provider
+registerProvider('openai', { translate: translateWithOpenAI });

@@ -27,12 +27,22 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Show translation config
+        run: |
+          echo "TRANSLATION_ENGINE=${{ vars.TRANSLATION_ENGINE || 'auto' }}"
+          echo "TRANSLATION_FALLBACK_CHAIN=${{ vars.TRANSLATION_FALLBACK_CHAIN || 'gemini,glm,openai,google,mock' }}"
+          echo "GLM_MODEL=${{ vars.GLM_MODEL || 'glm-5' }}"
+
       - name: Parse and translate
         env:
-          TRANSLATION_ENGINE: auto
+          TRANSLATION_ENGINE: ${{ vars.TRANSLATION_ENGINE || 'auto' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+          GLM_MODEL: ${{ vars.GLM_MODEL || 'glm-5' }}
+          GLM_BASE_URL: ${{ vars.GLM_BASE_URL || 'https://api.z.ai/api/coding/paas/v4' }}
+          TRANSLATION_FALLBACK_CHAIN: ${{ vars.TRANSLATION_FALLBACK_CHAIN || 'gemini,glm,openai,google,mock' }}
           NEW_VERSIONS_MAP: ${{ github.event.inputs.new_versions_map }}
         run: |
           if [ "${{ github.event.inputs.translate_all }}" = "true" ] || [ -z "$NEW_VERSIONS_MAP" ] || [ "$NEW_VERSIONS_MAP" = "{}" ]; then

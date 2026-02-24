@@ -7,89 +7,27 @@
  * allowing the caller to switch to a fallback model.
  */
 
+import {
+  buildTranslationPrompt,
+  parseNumberedResponse,
+  createBatches,
+  sleep,
+  registerProvider,
+  QuotaExhaustedError,
+  PartialTranslationError,
+} from './translation-provider.mjs';
+
+// Re-export error classes for backward compatibility
+// (canonical definitions are now in translation-provider.mjs)
+export { QuotaExhaustedError, PartialTranslationError };
+
 const DEFAULT_MODEL = 'gemini-3-flash-preview';
 const BATCH_DELAY_MS = 13000; // 13s between batches (conservative for RPM 5)
 const MAX_RETRIES = 3;
 const RETRY_BASE_MS = 15000; // 15s base for exponential backoff
 
-/**
- * Custom error thrown when the daily quota (RPD) is exhausted.
- * Unlike a transient rate limit, this signals the caller should switch models.
- */
-export class QuotaExhaustedError extends Error {
-  constructor(model, message) {
-    super(message);
-    this.name = 'QuotaExhaustedError';
-    this.model = model;
-  }
-}
-
-/**
- * Custom error thrown when Gemini returns fewer translations than expected.
- * Contains the partial results so the caller can complete them with a fallback.
- */
-export class PartialTranslationError extends Error {
-  constructor(partialTranslations, expectedCount) {
-    super(`Expected ${expectedCount} translations, got ${partialTranslations.length}`);
-    this.name = 'PartialTranslationError';
-    this.partialTranslations = partialTranslations;
-    this.expectedCount = expectedCount;
-  }
-}
-
-/**
- * Build translation prompt for Gemini
- */
-function buildPrompt(texts) {
-  const numbered = texts.map((text, i) => `${i + 1}. ${text}`).join('\n');
-
-  return `You are a professional translator specializing in software documentation.
-Translate the following software changelog entries from English to Korean.
-
-RULES:
-- Translate naturally into Korean, not word-by-word
-- DO NOT translate: code in backticks (\`code\`), file paths, URLs, CLI commands, technical terms like API names
-- Keep the same numbering format
-- Output ONLY the translations, one per line, with the same numbering
-- REMOVE conventional commit prefixes before translating: strip patterns like "feat:", "feat(scope):",
-  "fix:", "chore:", "docs:", "test:", "refactor:", "perf:", "style:", "build:", "ci:", "revert:"
-  from the START of each entry. Translate ONLY the description after the prefix.
-  Example: "feat(cli): add new command" → "새 명령어 추가" (NOT "기능(cli): 새 명령어 추가")
-
-ENTRIES TO TRANSLATE:
-${numbered}
-
-KOREAN TRANSLATIONS:`;
-}
-
-/**
- * Parse Gemini response to extract translations
- */
-function parseResponse(responseText, expectedCount) {
-  const lines = responseText.trim().split('\n');
-  const translations = [];
-
-  for (const line of lines) {
-    // Match lines starting with number and dot
-    const match = line.match(/^\d+\.\s*(.+)$/);
-    if (match) {
-      translations.push(match[1].trim());
-    }
-  }
-
-  // If parsing failed, try to split by newlines
-  if (translations.length !== expectedCount) {
-    const fallback = responseText.trim().split('\n')
-      .filter(line => line.trim())
-      .map(line => line.replace(/^\d+\.\s*/, '').trim());
-
-    if (fallback.length === expectedCount) {
-      return fallback;
-    }
-  }
-
-  return translations;
-}
+// buildPrompt and parseResponse are now shared via translation-provider.mjs
+// (buildTranslationPrompt, parseNumberedResponse)
 
 /**
  * Check if a 429 error is a daily quota exhaustion (RPD) vs transient rate limit (RPM).
@@ -116,13 +54,7 @@ function isDailyQuotaExhausted(errorBody) {
   return false;
 }
 
-/**
- * Sleep for the given milliseconds with optional jitter.
- */
-function sleep(ms, jitterMs = 0) {
-  const actual = ms + Math.floor((Math.random() * 2 - 1) * jitterMs);
-  return new Promise(resolve => setTimeout(resolve, Math.max(0, actual)));
-}
+// sleep is now shared via translation-provider.mjs
 
 /**
  * Call Gemini API for a single batch of texts, with retry logic.
@@ -130,7 +62,7 @@ function sleep(ms, jitterMs = 0) {
  */
 async function callGeminiAPI(texts, apiKey, model) {
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-  const prompt = buildPrompt(texts);
+  const prompt = buildTranslationPrompt(texts);
   const body = JSON.stringify({
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
@@ -161,7 +93,7 @@ async function callGeminiAPI(texts, apiKey, model) {
       }
 
       const responseText = data.candidates[0].content.parts[0].text;
-      const translations = parseResponse(responseText, texts.length);
+      const translations = parseNumberedResponse(responseText, texts.length);
 
       if (translations.length !== texts.length) {
         throw new PartialTranslationError(translations, texts.length);
@@ -200,16 +132,7 @@ async function callGeminiAPI(texts, apiKey, model) {
   throw lastError || new Error('Gemini API call failed after retries');
 }
 
-/**
- * Split texts into batches of MAX_BATCH_SIZE
- */
-function createBatches(texts, batchSize = 20) {
-  const batches = [];
-  for (let i = 0; i < texts.length; i += batchSize) {
-    batches.push(texts.slice(i, i + batchSize));
-  }
-  return batches;
-}
+// createBatches is now shared via translation-provider.mjs
 
 /**
  * Translate a batch of texts using Gemini.
@@ -231,7 +154,7 @@ export async function translateWithGemini(texts, options = {}) {
   }
 
   if (!texts || texts.length === 0) {
-    return { translations: [], charCount: 0 };
+    return { translations: [], charCount: 0, meta: { provider: 'gemini', model: options.model || process.env.GEMINI_MODEL || DEFAULT_MODEL, endpointType: 'native' } };
   }
 
   const model = options.model || process.env.GEMINI_MODEL || DEFAULT_MODEL;
@@ -261,5 +184,9 @@ export async function translateWithGemini(texts, options = {}) {
   return {
     translations: allTranslations,
     charCount: totalCharCount,
+    meta: { provider: 'gemini', model, endpointType: 'native' },
   };
 }
+
+// Register as a provider
+registerProvider('gemini', { translate: translateWithGemini });

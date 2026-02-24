@@ -15,9 +15,20 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { translateWithGemini, QuotaExhaustedError } from './utils/gemini-translation-client.mjs';
+import { translateWithGemini } from './utils/gemini-translation-client.mjs';
 import { translateWithOpenAI } from './utils/openai-translation-client.mjs';
+import { translateBatch as translateWithGoogle } from './utils/translation-client.mjs';
+import { translateWithGeminiChain } from './utils/translation-provider.mjs';
 import { stripPrefix } from './fix-translation-prefixes.mjs';
+import { selectPrimaryEngine, getFallbackProviders, isProviderAvailable } from './utils/fallback-chain.mjs';
+
+let translateWithGlm;
+try {
+  const glmModule = await import('./utils/glm-translation-client.mjs');
+  translateWithGlm = glmModule.translateWithGlm;
+} catch {
+  // GLM provider not available
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
@@ -26,11 +37,6 @@ const SERVICES_DIR = join(PROJECT_ROOT, 'data', 'services');
 
 const DRY_RUN = process.env.DRY_RUN === 'true';
 const SERVICE_FILTER = process.env.SERVICE || null;
-
-const GEMINI_MODELS = [
-  { model: 'gemini-3-flash-preview', label: 'Gemini 3 Flash' },
-  { model: 'gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
-];
 
 /**
  * Check if text is a technical term that should NOT be translated
@@ -139,29 +145,7 @@ function needsRetranslation(entry) {
   return null; // OK
 }
 
-/**
- * Translate texts using Gemini model chain, falling back to OpenAI
- */
-async function translateWithGeminiChain(texts, exhaustedModels) {
-  for (const { model, label } of GEMINI_MODELS) {
-    if (exhaustedModels.has(model)) {
-      console.log(`    [${label}] Skipped (quota exhausted)`);
-      continue;
-    }
-    try {
-      const result = await translateWithGemini(texts, { model });
-      return { result, usedModel: model };
-    } catch (error) {
-      if (error instanceof QuotaExhaustedError) {
-        console.warn(`    [${label}] Quota exhausted, trying next model...`);
-        exhaustedModels.add(model);
-      } else {
-        throw error;
-      }
-    }
-  }
-  return null;
-}
+// translateWithGeminiChain is now imported from translation-provider.mjs
 
 /**
  * Check if translations have poor quality (>10% empty or same as original)
@@ -182,31 +166,102 @@ function isPoorQuality(originals, translations) {
 }
 
 /**
- * Translate a batch of texts using the available engine
- * If Gemini produces poor quality, automatically retries with OpenAI
+ * Try fallback providers in chain order.
+ * Returns translations array or null if all fallbacks failed.
+ *
+ * @param {string[]} texts
+ * @param {string} failedEngine
+ * @param {Set<string>} exhaustedModels
+ * @returns {Promise<string[]|null>}
  */
-async function translateTexts(texts, exhaustedModels) {
-  if (process.env.GEMINI_API_KEY) {
-    const r = await translateWithGeminiChain(texts, exhaustedModels);
-    if (r) {
-      // Quality check: if Gemini produced poor quality, retry with OpenAI
-      if (isPoorQuality(texts, r.result.translations) && process.env.OPENAI_API_KEY) {
-        console.log('    Gemini quality poor, retrying with OpenAI...');
+async function tryRetranslateFallbacks(texts, failedEngine, exhaustedModels) {
+  const fallbacks = getFallbackProviders(failedEngine);
+  for (const fb of fallbacks) {
+    if (!isProviderAvailable(fb) || fb === 'mock') continue;
+    try {
+      if (fb === 'gemini') {
+        const r = await translateWithGeminiChain(texts, exhaustedModels, translateWithGemini);
+        if (r) return r.result.translations;
+        continue; // all Gemini models exhausted, try next
+      } else if (fb === 'glm' && translateWithGlm) {
+        const result = await translateWithGlm(texts);
+        return result.translations;
+      } else if (fb === 'openai') {
         const result = await translateWithOpenAI(texts);
         return result.translations;
+      } else if (fb === 'google') {
+        const result = await translateWithGoogle(texts);
+        return result.translations;
+      }
+    } catch (e) {
+      console.warn(`    Fallback ${fb} failed: ${e.message}`);
+    }
+  }
+  return null;
+}
+
+/**
+ * Translate a batch of texts using the policy-based fallback chain.
+ * If primary engine produces poor quality, automatically retries with fallback chain.
+ */
+async function translateTexts(texts, exhaustedModels) {
+  const engine = selectPrimaryEngine();
+
+  if (engine === 'gemini' && process.env.GEMINI_API_KEY) {
+    const r = await translateWithGeminiChain(texts, exhaustedModels, translateWithGemini);
+    if (r) {
+      // Quality check: if Gemini produced poor quality, retry with fallback chain
+      if (isPoorQuality(texts, r.result.translations)) {
+        console.log('    Gemini quality poor, retrying with fallback chain...');
+        const fallbackTranslations = await tryRetranslateFallbacks(texts, 'gemini', exhaustedModels);
+        if (fallbackTranslations) return fallbackTranslations;
       }
       return r.result.translations;
     }
-    // All Gemini models exhausted — fall back to OpenAI
-    if (process.env.OPENAI_API_KEY) {
-      console.log('    All Gemini models exhausted, falling back to OpenAI...');
-      const result = await translateWithOpenAI(texts);
+    // All Gemini models exhausted — fall back to chain
+    console.log('    All Gemini models exhausted, trying fallback chain...');
+    const fallbackTranslations = await tryRetranslateFallbacks(texts, 'gemini', exhaustedModels);
+    if (fallbackTranslations) return fallbackTranslations;
+  } else if (engine === 'glm' && translateWithGlm) {
+    try {
+      const result = await translateWithGlm(texts);
       return result.translations;
+    } catch (e) {
+      console.warn(`    GLM failed: ${e.message}, trying fallback chain...`);
+      const fallbackTranslations = await tryRetranslateFallbacks(texts, 'glm', exhaustedModels);
+      if (fallbackTranslations) return fallbackTranslations;
     }
-  } else if (process.env.OPENAI_API_KEY) {
+  } else if (engine === 'openai' && process.env.OPENAI_API_KEY) {
     const result = await translateWithOpenAI(texts);
     return result.translations;
+  } else if (engine === 'google' && process.env.GOOGLE_TRANSLATE_API_KEY) {
+    try {
+      const result = await translateWithGoogle(texts);
+      return result.translations;
+    } catch (e) {
+      console.warn(`    Google failed: ${e.message}, trying fallback chain...`);
+      const fallbackTranslations = await tryRetranslateFallbacks(texts, 'google', exhaustedModels);
+      if (fallbackTranslations) return fallbackTranslations;
+    }
+  } else {
+    // Non-gemini primary: try from the start of the fallback chain for this engine
+    const fallbacks = [engine, ...getFallbackProviders(engine)];
+    for (const fb of fallbacks) {
+      if (!isProviderAvailable(fb) || fb === 'mock') continue;
+      try {
+        if (fb === 'glm' && translateWithGlm) {
+          return (await translateWithGlm(texts)).translations;
+        } else if (fb === 'openai') {
+          return (await translateWithOpenAI(texts)).translations;
+        } else if (fb === 'google') {
+          return (await translateWithGoogle(texts)).translations;
+        }
+      } catch (e) {
+        console.warn(`    ${fb} failed: ${e.message}`);
+      }
+    }
   }
+
   console.warn('    No API key available — cannot retranslate');
   return texts; // mock fallback
 }
@@ -218,7 +273,7 @@ async function main() {
   const services = config.services.filter(s => s.enabled);
   const exhaustedModels = new Set();
 
-  const engine = process.env.GEMINI_API_KEY ? 'gemini' : process.env.OPENAI_API_KEY ? 'openai' : 'mock';
+  const engine = selectPrimaryEngine();
   console.log(`Engine: ${engine}`);
   if (SERVICE_FILTER) console.log(`Service filter: ${SERVICE_FILTER}`);
   console.log('');
