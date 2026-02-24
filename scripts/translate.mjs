@@ -100,14 +100,22 @@ async function loadServices() {
 function checkTranslationQuality(originals, translations, context) {
   const POOR_QUALITY_THRESHOLD = 0.05; // 5% 이상 문제 시 poor quality
   let warnings = 0;
+  let sameAsOriginal = 0;
+  let noKorean = 0;
+  let tooShort = 0;
 
   for (let i = 0; i < translations.length; i++) {
     const t = translations[i];
     const orig = originals[i] || '';
     if (!t || t.trim() === '') {
       warnings++;
+      tooShort++;
     } else if (t === orig && orig.length > 20 && /[a-zA-Z]{3,}/.test(orig)) {
       warnings++;
+      sameAsOriginal++;
+    } else if (!/[가-힣]/.test(t) && orig.length > 20 && /[a-zA-Z]{3,}/.test(orig)) {
+      warnings++;
+      noKorean++;
     }
   }
 
@@ -123,7 +131,7 @@ function checkTranslationQuality(originals, translations, context) {
     }
   }
 
-  return { warnings, isPoorQuality };
+  return { warnings, isPoorQuality, sameAsOriginal, noKorean, tooShort };
 }
 
 /**
@@ -168,12 +176,6 @@ async function tryFallbackChain(texts, failedEngine, exhaustedGeminiModels) {
       }
     } catch (e) {
       console.warn(`    Fallback ${fb} failed: ${e.message}`);
-      await logEvent(EVENT_TYPES.FALLBACK, {
-        from_provider: failedEngine,
-        to_provider: fb,
-        reason: e.message,
-        error_class: ERROR_CLASSES.UNKNOWN,
-      });
     }
   }
   return null;
@@ -249,6 +251,9 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
           warning_count: quality.warnings,
           ratio: quality.warnings / (textsToTranslate.length || 1),
           is_poor_quality: quality.isPoorQuality,
+          same_as_original_count: quality.sameAsOriginal,
+          no_korean_count: quality.noKorean,
+          too_short_count: quality.tooShort,
         });
         if (quality.isPoorQuality) {
           console.log(`    Gemini quality poor, retrying with fallback chain...`);
@@ -335,6 +340,9 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
       warning_count: finalQuality.warnings,
       ratio: finalQuality.warnings / (textsToTranslate.length || 1),
       is_poor_quality: finalQuality.isPoorQuality,
+      same_as_original_count: finalQuality.sameAsOriginal,
+      no_korean_count: finalQuality.noKorean,
+      too_short_count: finalQuality.tooShort,
     });
   }
 
@@ -436,6 +444,9 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
           warning_count: quality.warnings,
           ratio: quality.warnings / (flatTexts.length || 1),
           is_poor_quality: quality.isPoorQuality,
+          same_as_original_count: quality.sameAsOriginal,
+          no_korean_count: quality.noKorean,
+          too_short_count: quality.tooShort,
         });
         if (quality.isPoorQuality) {
           console.log(`    Gemini quality poor, retrying with fallback chain...`);
@@ -522,6 +533,9 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
       warning_count: batchQuality.warnings,
       ratio: batchQuality.warnings / (flatTexts.length || 1),
       is_poor_quality: batchQuality.isPoorQuality,
+      same_as_original_count: batchQuality.sameAsOriginal,
+      no_korean_count: batchQuality.noKorean,
+      too_short_count: batchQuality.tooShort,
     });
   }
 
@@ -678,6 +692,13 @@ async function main() {
   const totalVersions = Object.values(versionsMap).reduce((sum, arr) => sum + arr.length, 0);
   if (totalVersions === 0) {
     console.log('No versions to translate.');
+    await logEvent(EVENT_TYPES.RUN_START, {
+      engine: getTranslationEngine(),
+      fallback_chain: getDefaultFallbackChain(),
+      total_services: 0,
+      total_versions: 0,
+    });
+    await closeDebugSession({ total_services: 0, total_versions: 0, total_entries: 0, total_chars: 0 });
     return;
   }
 

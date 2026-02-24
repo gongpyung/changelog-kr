@@ -229,9 +229,9 @@ export function computeMetrics(events) {
       case 'quality_check':
         qualityChecks++;
         if (event.is_poor_quality) poorBatches++;
-        if (event.same_as_original) sameAsOriginalCount++;
-        if (event.no_korean) noKoreanCount++;
-        if (event.too_short) tooShortCount++;
+        sameAsOriginalCount += event.same_as_original_count || 0;
+        noKoreanCount += event.no_korean_count || 0;
+        tooShortCount += event.too_short_count || 0;
         break;
     }
   }

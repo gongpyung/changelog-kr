@@ -21,7 +21,7 @@ import { translateBatch as translateWithGoogle } from './utils/translation-clien
 import { translateWithGeminiChain } from './utils/translation-provider.mjs';
 import { stripPrefix } from './fix-translation-prefixes.mjs';
 import { selectPrimaryEngine, getFallbackProviders, isProviderAvailable } from './utils/fallback-chain.mjs';
-import { createDebugSession, logEvent, logProviderCall, closeDebugSession } from './utils/translation-debug-logger.mjs';
+import { createDebugSession, logEvent, closeDebugSession } from './utils/translation-debug-logger.mjs';
 import { EVENT_TYPES, ERROR_CLASSES } from './utils/translation-debug-schema.mjs';
 
 let translateWithGlm;
@@ -186,35 +186,24 @@ async function tryRetranslateFallbacks(texts, failedEngine, exhaustedModels) {
       reason: 'primary_failed',
       error_class: ERROR_CLASSES.UNKNOWN,
     });
-    const _callKey = `${failedEngine}-to-${fb}`;
-    const _charCount = texts.reduce((s, t) => s + t.length, 0);
     try {
       if (fb === 'gemini') {
-        await logProviderCall('request', { provider: fb, model: 'gemini-chain', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: _callKey });
         const r = await translateWithGeminiChain(texts, exhaustedModels, translateWithGemini);
         if (r) {
-          await logProviderCall('success', { provider: fb, model: 'gemini-chain', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
           return r.result.translations;
         }
         continue; // all Gemini models exhausted, try next
       } else if (fb === 'glm' && translateWithGlm) {
-        await logProviderCall('request', { provider: fb, model: 'glm', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: _callKey });
         const result = await translateWithGlm(texts);
-        await logProviderCall('success', { provider: fb, model: 'glm', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
         return result.translations;
       } else if (fb === 'openai') {
-        await logProviderCall('request', { provider: fb, model: 'openai', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: _callKey });
         const result = await translateWithOpenAI(texts);
-        await logProviderCall('success', { provider: fb, model: 'openai', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
         return result.translations;
       } else if (fb === 'google') {
-        await logProviderCall('request', { provider: fb, model: 'google-translate', endpoint_type: 'translate', batch_size: texts.length, char_count: _charCount, call_key: _callKey });
         const result = await translateWithGoogle(texts);
-        await logProviderCall('success', { provider: fb, model: 'google-translate', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
         return result.translations;
       }
     } catch (e) {
-      await logProviderCall('error', { provider: fb, model: fb, error_class: ERROR_CLASSES.UNKNOWN, error_message: e.message, http_status: 0, retry_count: 0, call_key: _callKey });
       console.warn(`    Fallback ${fb} failed: ${e.message}`);
     }
   }
@@ -227,13 +216,10 @@ async function tryRetranslateFallbacks(texts, failedEngine, exhaustedModels) {
  */
 async function translateTexts(texts, exhaustedModels) {
   const engine = selectPrimaryEngine();
-  const _charCount = texts.reduce((s, t) => s + t.length, 0);
 
   if (engine === 'gemini' && process.env.GEMINI_API_KEY) {
-    await logProviderCall('request', { provider: 'gemini', model: 'gemini-chain', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: 'gemini-primary' });
     const r = await translateWithGeminiChain(texts, exhaustedModels, translateWithGemini);
     if (r) {
-      await logProviderCall('success', { provider: 'gemini', model: 'gemini-chain', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: 'gemini-primary' });
       // Quality check: if Gemini produced poor quality, retry with fallback chain
       if (isPoorQuality(texts, r.result.translations)) {
         console.log('    Gemini quality poor, retrying with fallback chain...');
@@ -243,35 +229,26 @@ async function translateTexts(texts, exhaustedModels) {
       return r.result.translations;
     }
     // All Gemini models exhausted — fall back to chain
-    await logProviderCall('error', { provider: 'gemini', model: 'gemini-chain', error_class: ERROR_CLASSES.UNKNOWN, error_message: 'all Gemini models exhausted', http_status: 0, retry_count: 0, call_key: 'gemini-primary' });
     console.log('    All Gemini models exhausted, trying fallback chain...');
     const fallbackTranslations = await tryRetranslateFallbacks(texts, 'gemini', exhaustedModels);
     if (fallbackTranslations) return fallbackTranslations;
   } else if (engine === 'glm' && translateWithGlm) {
     try {
-      await logProviderCall('request', { provider: 'glm', model: 'glm', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: 'glm-primary' });
       const result = await translateWithGlm(texts);
-      await logProviderCall('success', { provider: 'glm', model: 'glm', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: 'glm-primary' });
       return result.translations;
     } catch (e) {
-      await logProviderCall('error', { provider: 'glm', model: 'glm', error_class: ERROR_CLASSES.UNKNOWN, error_message: e.message, http_status: 0, retry_count: 0, call_key: 'glm-primary' });
       console.warn(`    GLM failed: ${e.message}, trying fallback chain...`);
       const fallbackTranslations = await tryRetranslateFallbacks(texts, 'glm', exhaustedModels);
       if (fallbackTranslations) return fallbackTranslations;
     }
   } else if (engine === 'openai' && process.env.OPENAI_API_KEY) {
-    await logProviderCall('request', { provider: 'openai', model: 'openai', endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: 'openai-primary' });
     const result = await translateWithOpenAI(texts);
-    await logProviderCall('success', { provider: 'openai', model: 'openai', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: 'openai-primary' });
     return result.translations;
   } else if (engine === 'google' && process.env.GOOGLE_TRANSLATE_API_KEY) {
     try {
-      await logProviderCall('request', { provider: 'google', model: 'google-translate', endpoint_type: 'translate', batch_size: texts.length, char_count: _charCount, call_key: 'google-primary' });
       const result = await translateWithGoogle(texts);
-      await logProviderCall('success', { provider: 'google', model: 'google-translate', batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: 'google-primary' });
       return result.translations;
     } catch (e) {
-      await logProviderCall('error', { provider: 'google', model: 'google-translate', error_class: ERROR_CLASSES.UNKNOWN, error_message: e.message, http_status: 0, retry_count: 0, call_key: 'google-primary' });
       console.warn(`    Google failed: ${e.message}, trying fallback chain...`);
       const fallbackTranslations = await tryRetranslateFallbacks(texts, 'google', exhaustedModels);
       if (fallbackTranslations) return fallbackTranslations;
@@ -281,24 +258,15 @@ async function translateTexts(texts, exhaustedModels) {
     const fallbacks = [engine, ...getFallbackProviders(engine)];
     for (const fb of fallbacks) {
       if (!isProviderAvailable(fb) || fb === 'mock') continue;
-      const _callKey = `${fb}-fallback`;
       try {
-        await logProviderCall('request', { provider: fb, model: fb, endpoint_type: 'chat', batch_size: texts.length, char_count: _charCount, call_key: _callKey });
         if (fb === 'glm' && translateWithGlm) {
-          const _r = (await translateWithGlm(texts)).translations;
-          await logProviderCall('success', { provider: fb, model: fb, batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
-          return _r;
+          return (await translateWithGlm(texts)).translations;
         } else if (fb === 'openai') {
-          const _r = (await translateWithOpenAI(texts)).translations;
-          await logProviderCall('success', { provider: fb, model: fb, batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
-          return _r;
+          return (await translateWithOpenAI(texts)).translations;
         } else if (fb === 'google') {
-          const _r = (await translateWithGoogle(texts)).translations;
-          await logProviderCall('success', { provider: fb, model: fb, batch_size: texts.length, char_count: _charCount, http_status: 200, call_key: _callKey });
-          return _r;
+          return (await translateWithGoogle(texts)).translations;
         }
       } catch (e) {
-        await logProviderCall('error', { provider: fb, model: fb, error_class: ERROR_CLASSES.UNKNOWN, error_message: e.message, http_status: 0, retry_count: 0, call_key: _callKey });
         console.warn(`    ${fb} failed: ${e.message}`);
       }
     }
@@ -321,6 +289,14 @@ async function main() {
   console.log(`Engine: ${engine}`);
   if (SERVICE_FILTER) console.log(`Service filter: ${SERVICE_FILTER}`);
   console.log('');
+
+  await logEvent(EVENT_TYPES.RUN_START, {
+    engine,
+    fallback_chain: [],
+    total_services: services.length,
+    total_versions: 0,
+    context: 'retranslate-poor-quality',
+  });
 
   await logEvent(EVENT_TYPES.RETRANSLATE_START, {
     context: 'retranslate-poor-quality',
@@ -440,6 +416,10 @@ async function main() {
     still_poor_count: grandTotal.stillPoor,
   });
   await closeDebugSession({
+    total_services: services.filter(s => !SERVICE_FILTER || s.id === SERVICE_FILTER).length,
+    total_versions: 0,
+    total_entries: grandTotal.retranslated,
+    total_chars: 0,
     found_count: grandTotal.found,
     retranslated_count: grandTotal.retranslated,
     still_poor_count: grandTotal.stillPoor,
