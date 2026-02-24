@@ -613,7 +613,7 @@ async function getVersionsMap() {
     const { versionsFile } = getServicePaths(service.id);
     try {
       const versionsData = JSON.parse(await readFile(versionsFile, 'utf-8'));
-      const untranslated = (versionsData.versions || []).filter(v => v.translationStatus !== 'completed');
+      const untranslated = (versionsData.versions || []).filter(v => v.translationStatus !== 'completed' && v.entryCount > 0);
 
       if (untranslated.length > 0) {
         map[service.id] = untranslated.map(v => v.version);

@@ -50,7 +50,7 @@ async function getRemoteVersions(service) {
   }
 
   if (service.changelogType === 'github-releases') {
-    const result = await fetchAndParseReleases(service.changelogSource);
+    const result = await fetchAndParseReleases(service.changelogSource, { maxPages: 1 });
     return result.versions.map(v => v.version);
   }
 

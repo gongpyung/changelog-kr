@@ -218,10 +218,10 @@ export function parseReleaseBody(body) {
  * });
  * // result.versions[0] = { version: '0.27.2', date: '2024-01-15', entries: [...] }
  */
-export async function fetchAndParseReleases(source) {
+export async function fetchAndParseReleases(source, options = {}) {
   const { owner, repo, includePrerelease = true, excludePattern = null } = source;
 
-  const maxPages = 10;
+  const maxPages = options.maxPages ?? 10;
   const perPage = 100;
   const allReleases = [];
 

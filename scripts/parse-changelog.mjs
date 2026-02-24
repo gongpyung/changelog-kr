@@ -39,7 +39,7 @@ async function loadServices() {
  * Fetch and parse versions for a service based on its changelogType
  * Returns array of { version, date?, entries, entryCount }
  */
-async function fetchAndParseService(service) {
+async function fetchAndParseService(service, options = {}) {
   if (service.changelogType === 'markdown') {
     const url = service.changelogSource.url;
     console.log(`  Fetching markdown from ${url}...`);
@@ -61,7 +61,9 @@ async function fetchAndParseService(service) {
 
   if (service.changelogType === 'github-releases') {
     console.log(`  Fetching GitHub releases for ${service.changelogSource.owner}/${service.changelogSource.repo}...`);
-    const result = await fetchAndParseReleases(service.changelogSource);
+    const fetchOptions = {};
+    if (options.maxPages) fetchOptions.maxPages = options.maxPages;
+    const result = await fetchAndParseReleases(service.changelogSource, fetchOptions);
     return result.versions;
   }
 
@@ -153,7 +155,7 @@ function mergeVersions(existingVersions, parsedVersions) {
 /**
  * Process a single service: fetch, parse, merge, write
  */
-async function processService(service) {
+async function processService(service, options = {}) {
   console.log(`\n=== ${service.name} (${service.id}) ===`);
 
   const serviceDir = join(PROJECT_ROOT, 'data', 'services', service.id);
@@ -161,7 +163,7 @@ async function processService(service) {
   const translationsDir = join(serviceDir, 'translations');
 
   // Fetch and parse versions from source
-  const parsedVersions = await fetchAndParseService(service);
+  const parsedVersions = await fetchAndParseService(service, options);
   console.log(`  Parsed ${parsedVersions.length} version(s) from source`);
 
   // Fetch dates from external source if configured
@@ -282,6 +284,19 @@ function getServiceFilter() {
 }
 
 /**
+ * Parse --max-pages CLI argument (limits GitHub API pagination)
+ */
+function getMaxPages() {
+  const args = process.argv.slice(2);
+  const idx = args.indexOf('--max-pages');
+  if (idx !== -1 && args[idx + 1]) {
+    const val = parseInt(args[idx + 1], 10);
+    if (val > 0) return val;
+  }
+  return null;
+}
+
+/**
  * Main parse function
  */
 async function main() {
@@ -304,10 +319,16 @@ async function main() {
     }
 
     // Process each service
+    const maxPages = getMaxPages();
+    const processOptions = maxPages ? { maxPages } : {};
+    if (maxPages) {
+      console.log(`Limiting GitHub API pagination to ${maxPages} page(s)`);
+    }
+
     const results = [];
     for (const service of services) {
       try {
-        const result = await processService(service);
+        const result = await processService(service, processOptions);
         results.push(result);
       } catch (error) {
         console.error(`\nError processing ${service.name}: ${error.message}`);

@@ -53,7 +53,7 @@ jobs:
           else
             SERVICES=$(node -e "const m=JSON.parse(process.env.NEW_VERSIONS_MAP||'{}');console.log(Object.keys(m).join(' '))")
             for SERVICE in $SERVICES; do
-              node scripts/parse-changelog.mjs --service "$SERVICE"
+              node scripts/parse-changelog.mjs --service "$SERVICE" --max-pages 2
             done
           fi
           node scripts/translate.mjs
