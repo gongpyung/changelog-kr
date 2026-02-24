@@ -1,0 +1,320 @@
+{
+  "version": "2026.2.23",
+  "date": "2026-02-24",
+  "parsedAt": "2026-02-24T07:18:18.446Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Providers/Kilo Gateway: add first-class `kilocode` provider support (auth, onboarding, implicit provider detection, model defaults, transcript/cache-ttl handling, and docs), with default model `kilocode/anthropic/claude-opus-4.6`. (#20212) Thanks @jrf0110 and @markijbema.",
+      "translated": "Providers/Kilo Gateway: `kilocode` 프로바이더 기본 지원 추가(인증, 온보딩, 암시적 프로바이더 감지, 모델 기본값, 트랜스크립트/cache-ttl 처리 및 문서 포함), 기본 모델은 `kilocode/anthropic/claude-opus-4.6`으로 설정. (#20212) @jrf0110 및 @markijbema님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Providers/Vercel AI Gateway: accept Claude shorthand model refs (`vercel-ai-gateway/claude-*`) by normalizing to canonical Anthropic-routed model ids. (#23985) Thanks @sallyom, @markbooch, and @vincentkoc.",
+      "translated": "Providers/Vercel AI Gateway: Claude 단축 모델 참조(`vercel-ai-gateway/claude-*`)를 표준 Anthropic 라우팅 모델 ID로 정규화하여 수용하도록 개선. (#23985) @sallyom, @markbooch, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/Prompt caching: add a dedicated prompt-caching reference covering `cacheRetention`, per-agent `params` merge precedence, Bedrock/OpenRouter behavior, and cache-ttl + heartbeat tuning. Thanks @svenssonaxel.",
+      "translated": "Docs/Prompt caching: `cacheRetention`, 에이전트별 `params` 병합 우선순위, Bedrock/OpenRouter 동작, cache-ttl 및 heartbeat 튜닝을 다루는 전용 프롬프트 캐싱 레퍼런스 추가. @svenssonaxel님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/HTTP security headers: add optional `gateway.http.securityHeaders.strictTransportSecurity` support to emit `Strict-Transport-Security` for direct HTTPS deployments, with runtime wiring, validation, tests, and hardening docs.",
+      "translated": "Gateway/HTTP security headers: 직접 HTTPS 배포 시 `Strict-Transport-Security`를 전송할 수 있도록 선택적 `gateway.http.securityHeaders.strictTransportSecurity` 지원 추가(런타임 연결, 검증, 테스트 및 보안 강화 문서 포함)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions/Cron: harden session maintenance with `openclaw sessions cleanup`, per-agent store targeting, disk-budget controls (`session.maintenance.maxDiskBytes` / `highWaterBytes`), and safer transcript/archive cleanup + run-log retention behavior. (#24753) thanks @gumadeiras.",
+      "translated": "Sessions/Cron: `openclaw sessions cleanup`, 에이전트별 저장소 타겟팅, 디스크 예산 제어(`session.maintenance.maxDiskBytes` / `highWaterBytes`), 더 안전한 트랜스크립트/아카이브 정리 및 실행 로그 보존 동작을 통해 세션 유지 관리 강화. (#24753) @gumadeiras님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools/web_search: add `provider: \"kimi\"` (Moonshot) support with key/config schema wiring and a corrected two-step `$web_search` tool flow that echoes tool results before final synthesis, including citation extraction from search results. (#16616, #18822) Thanks @adshine.",
+      "translated": "Tools/web_search: `provider: \"kimi\"` (Moonshot) 지원 추가(키/설정 스키마 연결 포함) 및 최종 합성 전 도구 결과를 에코하는 수정된 2단계 `$web_search` 도구 흐름 적용(검색 결과에서의 인용 추출 포함). (#16616, #18822) @adshine님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Media understanding/Video: add a native Moonshot video provider and include Moonshot in auto video key detection, plus refactor video execution to honor `entry/config/provider` baseUrl+header precedence (matching audio behavior). (#12063) Thanks @xiaoyaner0201.",
+      "translated": "Media understanding/Video: 네이티브 Moonshot 비디오 프로바이더 추가 및 자동 비디오 키 감지에 Moonshot 포함, 오디오 동작과 일치하도록 `entry/config/provider`의 baseUrl+header 우선순위를 준수하도록 비디오 실행 로직 리팩토링. (#12063) @xiaoyaner0201님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/Config: support per-agent `params` overrides merged on top of model defaults (including `cacheRetention`) so mixed-traffic agents can tune cache behavior independently. (#17470, #17112) Thanks @rrenamed.",
+      "translated": "Agents/Config: 모델 기본값 위에 병합되는 에이전트별 `params` 재정의(`cacheRetention` 포함)를 지원하여, 혼합 트래픽 에이전트가 캐시 동작을 독립적으로 튜닝할 수 있도록 개선. (#17470, #17112) @rrenamed님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/Bootstrap: cache bootstrap file snapshots per session key and clear them on session reset/delete, reducing prompt-cache invalidations from in-session `AGENTS.md`/`MEMORY.md` writes. (#22220) Thanks @anisoptera.",
+      "translated": "Agents/Bootstrap: 세션 키별로 부트스트랩 파일 스냅샷을 캐싱하고 세션 초기화/삭제 시 이를 제거하여, 세션 내 `AGENTS.md`/`MEMORY.md` 쓰기로 인한 프롬프트 캐시 무효화 감소. (#22220) @anisoptera님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** browser SSRF policy now defaults to trusted-network mode (`browser.ssrfPolicy.dangerouslyAllowPrivateNetwork=true` when unset), and canonical config uses `browser.ssrfPolicy.dangerouslyAllowPrivateNetwork` instead of `browser.ssrfPolicy.allowPrivateNetwork`. `openclaw doctor --fix` migrates the legacy key automatically.",
+      "translated": "**중요 변경 사항:** 브라우저 SSRF 정책의 기본값이 신뢰할 수 있는 네트워크 모드로 변경되었으며(설정되지 않은 경우 `browser.ssrfPolicy.dangerouslyAllowPrivateNetwork=true`), 표준 설정에서 `browser.ssrfPolicy.allowPrivateNetwork` 대신 `browser.ssrfPolicy.dangerouslyAllowPrivateNetwork`를 사용합니다. `openclaw doctor --fix`를 통해 기존 키를 자동으로 마이그레이션할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Config: redact sensitive-looking dynamic catchall keys in `config.get` snapshots (for example `env.*` and `skills.entries.*.env.*`) and preserve round-trip restore behavior for those redacted sentinels. Thanks @merc1305.",
+      "translated": "Security/Config: `config.get` 스냅샷에서 민감해 보이는 동적 포괄 키(예: `env.*` 및 `skills.entries.*.env.*`)를 마스킹하고, 마스킹된 표식에 대한 왕복 복원 동작을 유지. @merc1305님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/Vitest: tier local parallel worker defaults by host memory, keep gateway serial by default on non-high-memory hosts, and document a low-profile fallback command for memory-constrained land/gate runs to prevent local OOMs. (#24719) Thanks @ngutman.",
+      "translated": "Tests/Vitest: 호스트 메모리에 따라 로컬 병렬 워커 기본값을 계층화하고, 고사양 메모리가 아닌 호스트에서는 게이트웨이를 기본적으로 직렬로 유지하며, 로컬 OOM 방지를 위해 메모리가 제한된 환경에서의 실행을 위한 저사양 폴백 명령어를 문서화. (#24719) @ngutman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/Group policy: fix `groupAllowFrom` sender filtering when `groupPolicy: \"allowlist\"` is set without explicit `groups` — previously all group messages were blocked even for allowlisted senders. (#24670)",
+      "translated": "WhatsApp/Group policy: 명시적인 `groups` 없이 `groupPolicy: \"allowlist\"`가 설정된 경우의 `groupAllowFrom` 발신자 필터링 수정 — 이전에는 허용 목록에 있는 발신자라도 모든 그룹 메시지가 차단되었습니다. (#24670)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Context pruning: extend `cache-ttl` eligibility to Moonshot/Kimi and ZAI/GLM providers (including OpenRouter model refs), so `contextPruning.mode: \"cache-ttl\"` is no longer silently skipped for those sessions. (#24497) Thanks @lailoo.",
+      "translated": "Agents/Context pruning: `cache-ttl` 적용 대상을 Moonshot/Kimi 및 ZAI/GLM 프로바이더(OpenRouter 모델 참조 포함)로 확장하여, 해당 세션에서 `contextPruning.mode: \"cache-ttl\"`이 더 이상 자동으로 건너뛰어지지 않도록 수정. (#24497) @lailoo님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Memory: query gateway-side default-agent memory embedding readiness during `openclaw doctor` (instead of inferring from generic gateway health), and warn when the gateway memory probe is unavailable or not ready while keeping `openclaw configure` remediation guidance. (#22327) thanks @therk.",
+      "translated": "Doctor/Memory: `openclaw doctor` 실행 시 (일반적인 게이트웨이 상태에서 추론하는 대신) 게이트웨이 측 기본 에이전트 메모리 임베딩 준비 상태를 쿼리하고, 게이트웨이 메모리 프로브를 사용할 수 없거나 준비되지 않은 경우 경고를 표시하며 `openclaw configure` 해결 지침을 유지. (#22327) @therk님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/Store: canonicalize inbound mixed-case session keys for metadata and route updates, and migrate legacy case-variant entries to a single lowercase key to prevent duplicate sessions and missing TUI/WebUI history. (#9561) Thanks @hillghost86.",
+      "translated": "Sessions/Store: 메타데이터 및 라우트 업데이트를 위해 유입되는 대소문자 혼용 세션 키를 표준화하고, 중복 세션 및 TUI/WebUI 기록 누락을 방지하기 위해 기존의 대소문자 변형 항목들을 단일 소문자 키로 마이그레이션. (#9561) @hillghost86님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Reactions: soft-fail reaction action errors (policy/token/emoji/API), accept snake_case `message_id`, and fallback to inbound message-id context when explicit `messageId` is omitted so DM reactions stay stable without regeneration loops. (#20236, #21001) Thanks @PeterShanxin and @vincentkoc.",
+      "translated": "Telegram/Reactions: 리액션 동작 오류(정책/토큰/이모지/API)를 소프트 실패로 처리하고, snake_case 형태의 `message_id`를 수용하며, 명시적인 `messageId`가 누락된 경우 유입된 메시지 ID 컨텍스트로 폴백하여 재생성 루프 없이 DM 리액션이 안정적으로 유지되도록 수정. (#20236, #21001) @PeterShanxin 및 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Polling: scope persisted polling offsets to bot identity and reuse a single awaited runner-stop path on abort/retry, preventing cross-token offset bleed and overlapping pollers during restart/error recovery. (#10850, #11347) Thanks @talhaorak, @anooprdawar, and @vincentkoc.",
+      "translated": "Telegram/Polling: 지속되는 폴링 오프셋의 범위를 봇 식별자로 제한하고 중단/재시도 시 대기된 단일 러너 정지 경로를 재사용하여, 재시작/오류 복구 중 토큰 간 오프셋 간섭 및 폴러 중복 발생을 방지. (#10850, #11347) @talhaorak, @anooprdawar, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Reasoning: when `/reasoning off` is active, suppress reasoning-only delivery segments and block raw fallback resend of suppressed `Reasoning:`/`<think>` text, preventing internal reasoning leakage in legacy sessions while preserving answer delivery. (#24626, #24518)",
+      "translated": "Telegram/Reasoning: `/reasoning off`가 활성화된 경우 추론 전용 전달 세그먼트를 억제하고 차단된 `Reasoning:`/`<think>` 텍스트의 원본 폴백 재전송을 막아, 답변 전달은 유지하면서 기존 세션에서의 내부 추론 유출을 방지. (#24626, #24518)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Reasoning: when model-default thinking is active (for example `thinking=low`), keep auto-reasoning disabled unless explicitly enabled, preventing `Reasoning:` thinking-block leakage in channel replies. (#24335, #24290) thanks @Kay-051.",
+      "translated": "Agents/Reasoning: 모델 기본 생각 기능이 활성화된 경우(예: `thinking=low`), 명시적으로 활성화하지 않는 한 자동 추론을 비활성 상태로 유지하여 채널 답장에서 `Reasoning:` 생각 블록이 유출되는 것을 방지. (#24335, #24290) @Kay-051님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Reasoning: avoid classifying provider reasoning-required errors as context overflows so these failures no longer trigger compaction-style overflow recovery. (#24593) Thanks @vincentkoc.",
+      "translated": "Agents/Reasoning: 공급자의 추론 필요 오류를 컨텍스트 초과로 분류하지 않도록 수정하여, 이러한 실패가 더 이상 압축 방식의 초과 복구 로직을 트리거하지 않게 했습니다. (#24593)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Models: codify `agents.defaults.model` / `agents.defaults.imageModel` config-boundary input as `string | {primary,fallbacks}`, split explicit vs effective model resolution, and fix `models status --agent` source attribution so defaults-inherited agents are labeled as `defaults` while runtime selection still honors defaults fallback. (#24210) thanks @bianbiandashen.",
+      "translated": "Agents/Models: `agents.defaults.model` 및 `agents.defaults.imageModel` 설정 입력을 `string | {primary,fallbacks}` 형식으로 체계화하고, 명시적 모델 해석과 실질적 모델 해석을 분리했습니다. 또한 `models status --agent`의 소스 속성을 수정하여 기본값을 상속받은 에이전트가 `defaults`로 표시되게 하고, 런타임 선택 시에도 기본 폴백이 적용되도록 했습니다. (#24210)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Compaction: pass `agentDir` into manual `/compact` command runs so compaction auth/profile resolution stays scoped to the active agent. (#24133) thanks @Glucksberg.",
+      "translated": "Agents/Compaction: 수동 `/compact` 명령어 실행 시 `agentDir`을 전달하여 압축 권한 및 프로필 해석이 활성 에이전트 범위 내에서 유지되도록 했습니다. (#24133)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Compaction: pass model metadata through the embedded runtime so safeguard summarization can run when `ctx.model` is unavailable, avoiding repeated `\"Summary unavailable due to context limits\"` fallback summaries. (#3479) Thanks @battman21, @hanxiao and @vincentkoc.",
+      "translated": "Agents/Compaction: `ctx.model`을 사용할 수 없는 경우에도 세이프가드 요약이 실행될 수 있도록 임베디드 런타임을 통해 모델 메타데이터를 전달하여, `\"Summary unavailable due to context limits\"`와 같은 폴백 요약이 반복되는 문제를 방지했습니다. (#3479)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Compaction: cancel safeguard compaction when summary generation cannot run (missing model/API key or summarization failure), preserving history instead of truncating to fallback `\"Summary unavailable\"` text. (#10711) Thanks @DukeDeSouth and @vincentkoc.",
+      "translated": "Agents/Compaction: 모델 또는 API 키 누락이나 요약 실패 등으로 요약 생성이 불가능할 때 세이프가드 압축을 취소하여, 히스토리를 `\"Summary unavailable\"` 텍스트로 자르는 대신 그대로 보존하도록 했습니다. (#10711)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Tools: make `session_status` read transcript-derived usage mid-turn and tail-read session logs for cache-aware context reporting without full-log scans. (#22387) Thanks @1ucian.",
+      "translated": "Agents/Tools: `session_status`가 턴 중간에 트랜스크립트 기반 사용량을 읽고 세션 로그의 끝부분을 읽도록 하여, 전체 로그 스캔 없이 캐시를 고려한 컨텍스트 보고가 가능하게 했습니다. (#22387)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Overflow: detect additional provider context-overflow error shapes (including `input length` + `max_tokens` exceed-context variants) so failures route through compaction/recovery paths instead of leaking raw provider errors to users. (#9951) Thanks @echoVic and @Glucksberg.",
+      "translated": "Agents/Overflow: `input length` 및 `max_tokens` 초과 변종을 포함한 추가적인 공급자 컨텍스트 초과 오류 형태를 감지하여, 실패 시 원시 오류가 사용자에게 노출되는 대신 압축 및 복구 경로를 통해 처리되도록 했습니다. (#9951)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Overflow: add Chinese context-overflow pattern detection in `isContextOverflowError` so localized provider errors route through overflow recovery paths. (#22855) Thanks @Clawborn.",
+      "translated": "Agents/Overflow: `isContextOverflowError`에 중국어 컨텍스트 초과 패턴 감지 기능을 추가하여, 현지화된 공급자 오류가 초과 복구 경로를 통해 처리되도록 했습니다. (#22855)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Failover: treat HTTP 502/503/504 errors as failover-eligible transient timeouts so fallback chains can switch providers/models during upstream outages instead of retrying the same failing target. (#20999) Thanks @taw0002 and @vincentkoc.",
+      "translated": "Agents/Failover: HTTP 502/503/504 오류를 장애 조치가 가능한 일시적 타임아웃으로 처리하여, 업스트림 장애 발생 시 동일한 대상을 재시도하는 대신 폴백 체인이 공급자나 모델을 전환할 수 있도록 했습니다. (#20999)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/Inbound metadata: hide direct-chat `message_id`/`message_id_full` and sender metadata only from normalized chat type (not sender-id sentinels), preserving group metadata visibility and preventing sender-id spoofed direct-mode classification. (#24373) thanks @jd316.",
+      "translated": "Auto-reply/Inbound metadata: 정규화된 채팅 유형에서만 다이렉트 채팅의 `message_id`, `message_id_full` 및 발신자 메타데이터를 숨겨(sender-id sentinels 제외), 그룹 메타데이터 가시성을 유지하고 sender-id 스푸핑을 통한 다이렉트 모드 분류를 방지했습니다. (#24373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/Inbound metadata: move dynamic inbound `flags` (reply/forward/thread/history) from system metadata to user-context conversation info, preventing turn-by-turn prompt-cache invalidation from flag toggles. (#21785) Thanks @aidiffuser.",
+      "translated": "Auto-reply/Inbound metadata: 동적 인바운드 `flags`(reply/forward/thread/history)를 시스템 메타데이터에서 사용자 컨텍스트 대화 정보로 이동하여, 플래그 전환으로 인한 턴별 프롬프트 캐시 무효화를 방지했습니다. (#21785)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/Sessions: remove auth-key labels from `/new` and `/reset` confirmation messages so session reset notices never expose API key prefixes or env-key labels in chat output. (#24384, #24409) Thanks @Clawborn.",
+      "translated": "Auto-reply/Sessions: `/new` 및 `/reset` 확인 메시지에서 인증 키 라벨을 제거하여, 세션 초기화 알림 시 채팅 출력에 API 키 접두사나 환경 키 라벨이 노출되지 않도록 했습니다. (#24384, #24409)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Group policy: move Slack account `groupPolicy` defaulting to provider-level schema defaults so multi-account configs inherit top-level `channels.slack.groupPolicy` instead of silently overriding inheritance with per-account `allowlist`. (#17579) Thanks @ZetiMente.",
+      "translated": "Slack/Group policy: Slack 계정의 `groupPolicy` 기본값 설정을 공급자 수준 스키마 기본값으로 이동하여, 다중 계정 설정 시 계정별 `allowlist`로 상속을 덮어쓰는 대신 최상위 `channels.slack.groupPolicy`를 상속받도록 했습니다. (#17579)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Anthropic: skip `context-1m-*` beta injection for OAuth/subscription tokens (`sk-ant-oat-*`) while preserving OAuth-required betas, avoiding Anthropic 401 auth failures when `params.context1m` is enabled. (#10647, #20354) Thanks @ClumsyWizardHands and @dcruver.",
+      "translated": "Providers/Anthropic: OAuth/구독 토큰(`sk-ant-oat-*`)에 대해 `context-1m-*` 베타 주입을 건너뛰되 OAuth에 필요한 베타는 유지하여, `params.context1m` 활성화 시 발생하는 Anthropic 401 인증 실패를 방지했습니다. (#10647, #20354)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/DashScope: mark DashScope-compatible `openai-completions` endpoints as `supportsDeveloperRole=false` so OpenClaw sends `system` instead of unsupported `developer` role on Qwen/DashScope APIs. (#19130) Thanks @Putzhuawa and @vincentkoc.",
+      "translated": "Providers/DashScope: DashScope 호환 `openai-completions` 엔드포인트를 `supportsDeveloperRole=false`로 표시하여, OpenClaw가 Qwen/DashScope API에서 지원되지 않는 `developer` 역할 대신 `system` 역할을 전송하도록 했습니다. (#19130)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Bedrock: disable prompt-cache retention for non-Anthropic Bedrock models so Nova/Mistral requests do not send unsupported cache metadata. (#20866) Thanks @pierreeurope.",
+      "translated": "Providers/Bedrock: Anthropic 이외의 Bedrock 모델에 대해 프롬프트 캐시 유지를 비활성화하여, Nova/Mistral 요청 시 지원되지 않는 캐시 메타데이터가 전송되지 않도록 했습니다. (#20866)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Bedrock: apply Anthropic-Claude cacheRetention defaults and runtime pass-through for `amazon-bedrock/*anthropic.claude*` model refs, while keeping non-Anthropic Bedrock models excluded. (#22303) Thanks @snese.",
+      "translated": "Providers/Bedrock: `amazon-bedrock/*anthropic.claude*` 모델 참조에 대해 Anthropic-Claude의 cacheRetention 기본값 및 런타임 패스스루를 적용하고, Anthropic 이외의 Bedrock 모델은 제외 상태를 유지했습니다. (#22303)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/OpenRouter: remove conflicting top-level `reasoning_effort` when injecting nested `reasoning.effort`, preventing OpenRouter 400 payload-validation failures for reasoning models. (#24120) thanks @tenequm.",
+      "translated": "Providers/OpenRouter: 중첩된 `reasoning.effort`를 주입할 때 충돌하는 최상위 `reasoning_effort`를 제거하여, 추론 모델 사용 시 OpenRouter 400 페이로드 유효성 검사 실패가 발생하는 것을 방지했습니다. (#24120)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Groq: avoid classifying Groq TPM limit errors as context overflow so throttling paths no longer trigger overflow recovery logic. (#16176) Thanks @dddabtc.",
+      "translated": "Providers/Groq: Groq의 TPM 제한 오류를 컨텍스트 초과로 분류하지 않도록 하여, 스로틀링 경로가 더 이상 초과 복구 로직을 트리거하지 않게 했습니다. (#16176)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/WS: close repeated post-handshake `unauthorized role:*` request floods per connection and sample duplicate rejection logs, preventing a single misbehaving client from degrading gateway responsiveness. (#20168) Thanks @acy103, @vibecodooor, and @vincentkoc.",
+      "translated": "Gateway/WS: 연결당 반복되는 핸드셰이크 이후의 `unauthorized role:*` 요청 플러드를 차단하고 중복 거부 로그를 샘플링하여, 오작동하는 단일 클라이언트로 인해 게이트웨이 응답성이 저하되는 것을 방지했습니다. (#20168)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Restart: treat child listener PIDs as owned by the service runtime PID during restart health checks to avoid false stale-process kills and restart timeouts on launchd/systemd. (#24696) Thanks @gumadeiras.",
+      "translated": "Gateway/Restart: 재시작 상태 확인 중 하위 리스너 PID를 서비스 런타임 PID 소유로 처리하여, launchd/systemd에서 잘못된 좀비 프로세스 종료 및 재시작 타임아웃이 발생하는 문제를 방지합니다. (#24696) @gumadeiras님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/Write: apply `unsetPaths` with immutable path-copy updates so config writes never mutate caller-provided objects, and harden `openclaw config get/set/unset` path traversal by rejecting prototype-key segments and inherited-property traversal. (#24134) thanks @frankekn.",
+      "translated": "Config/Write: `unsetPaths`를 불변 경로 복사 업데이트 방식으로 적용하여 설정 쓰기 시 호출자가 제공한 객체가 변형되지 않도록 하고, 프로토타입 키 세그먼트 및 상속된 속성 탐색을 거부하여 `openclaw config get/set/unset`의 경로 탐색 보안을 강화했습니다. (#24134) @frankekn님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels/WhatsApp: accept `channels.whatsapp.enabled` in config validation to match built-in channel auto-enable behavior, preventing `Unrecognized key: \"enabled\"` failures during channel setup. (#24263)",
+      "translated": "Channels/WhatsApp: 설정 검증 시 `channels.whatsapp.enabled`를 허용하여 내장 채널 자동 활성화 동작과 일치시키고, 채널 설정 중 `Unrecognized key: \"enabled\"` 오류가 발생하는 현상을 방지합니다. (#24263)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec: detect obfuscated commands before exec allowlist decisions and require explicit approval for obfuscation patterns. (#8592) Thanks @CornBrother0x and @vincentkoc.",
+      "translated": "Security/Exec: 실행 허용 목록(allowlist) 결정 전에 난독화된 명령을 감지하고, 난독화 패턴에 대해 명시적인 승인을 요구하도록 개선했습니다. (#8592) @CornBrother0x님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/ACP: harden ACP client permission auto-approval to require trusted core tool IDs, ignore untrusted `toolCall.kind` hints, and scope `read` auto-approval to the active working directory so unknown tool names and out-of-scope file reads always prompt. This ships in the next npm release. Thanks @nedlir for reporting.",
+      "translated": "Security/ACP: ACP 클라이언트 권한 자동 승인 시 신뢰할 수 있는 코어 도구 ID를 요구하고, 신뢰할 수 없는 `toolCall.kind` 힌트를 무시하며, `read` 자동 승인 범위를 활성 작업 디렉토리로 제한하여 알 수 없는 도구 이름이나 범위를 벗어난 파일 읽기 시 항상 확인 메시지가 표시되도록 강화했습니다. 이 변경 사항은 다음 npm 릴리스에 포함됩니다. 제보해 주신 @nedlir님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Skills: escape user-controlled prompt, filename, and output-path values in `openai-image-gen` HTML gallery generation to prevent stored XSS in generated `index.html` output. (#12538) Thanks @CornBrother0x.",
+      "translated": "Security/Skills: `openai-image-gen` HTML 갤러리 생성 시 사용자 제어 프롬프트, 파일 이름, 출력 경로 값을 이스케이프 처리하여 생성된 `index.html` 출력물에서 저장형 XSS가 발생하는 것을 방지했습니다. (#12538) @CornBrother0x님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Skills: harden `skill-creator` packaging by skipping symlink entries and rejecting files whose resolved paths escape the selected skill root. (#24260, #16959) Thanks @CornBrother0x and @vincentkoc.",
+      "translated": "Security/Skills: 심볼릭 링크 항목을 건너뛰고 확인된 경로가 선택된 스킬 루트를 벗어나는 파일을 거부하도록 `skill-creator` 패키징 보안을 강화했습니다. (#24260, #16959) @CornBrother0x님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/OTEL: redact sensitive values (API keys, tokens, credential fields) from diagnostics-otel log bodies, log attributes, and error/reason span fields before OTLP export. (#12542) Thanks @brandonwise.",
+      "translated": "Security/OTEL: OTLP 내보내기 전에 diagnostics-otel 로그 본문, 로그 속성 및 오류/이유 스팬 필드에서 민감한 값(API 키, 토큰, 자격 증명 필드)을 마스킹 처리합니다. (#12542) @brandonwise님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/CI: add pre-commit security hook coverage for private-key detection and production dependency auditing, and enforce those checks in CI alongside baseline secret scanning. Thanks @vincentkoc.",
+      "translated": "Security/CI: 개인 키 감지 및 프로덕션 의존성 감사를 위한 pre-commit 보안 훅을 추가하고, 기본 시크릿 스캔과 함께 CI에서 해당 검사를 강제 적용합니다. @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills/Python: harden skill script packaging and validation edge cases (self-including `.skill` outputs, CRLF frontmatter parsing, strict `--days` validation, and safer image file loading), with expanded Python regression coverage. Thanks @vincentkoc.",
+      "translated": "Skills/Python: 스킬 스크립트 패키징 및 검증 예외 케이스(`.skill` 출력 자체 포함, CRLF 프론트매터 파싱, 엄격한 `--days` 검증, 더 안전한 이미지 파일 로딩)를 강화하고 Python 회귀 테스트 범위를 확장했습니다. @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills/Python: add CI + pre-commit linting (`ruff`) and pytest discovery coverage for Python scripts/tests under `skills/`, including package test execution from repo root. Thanks @vincentkoc.",
+      "translated": "Skills/Python: `skills/` 하위의 Python 스크립트 및 테스트에 대해 CI 및 pre-commit 린팅(`ruff`)과 pytest 탐색 범위를 추가하고, 저장소 루트에서의 패키지 테스트 실행을 포함했습니다. @vincentkoc님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-02-24T07:25:37.490Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 12247
+}
