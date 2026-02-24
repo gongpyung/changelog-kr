@@ -11,6 +11,9 @@ import {
   registerProvider,
 } from './translation-provider.mjs';
 
+import { logProviderCall } from './translation-debug-logger.mjs';
+import { ERROR_CLASSES } from './translation-debug-schema.mjs';
+
 const API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 const BATCH_DELAY_MS = 300;
@@ -22,6 +25,10 @@ const BATCH_DELAY_MS = 300;
  */
 async function callOpenAIAPI(texts, apiKey) {
   const prompt = buildTranslationPrompt(texts);
+  const charCount = texts.reduce((sum, text) => sum + text.length, 0);
+  const callKey = 'openai-batch';
+
+  await logProviderCall('request', { provider: 'openai', model: MODEL, endpoint_type: 'openai-compatible', batch_size: texts.length, char_count: charCount, call_key: callKey });
 
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
@@ -48,8 +55,16 @@ async function callOpenAIAPI(texts, apiKey) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`OpenAI API error (${response.status}): ${errorText}`);
+    const status = response.status;
+    const errorClass = (status === 401 || status === 403) ? ERROR_CLASSES.AUTH
+      : status === 429 ? ERROR_CLASSES.RATE_LIMIT
+      : (status >= 500 && status <= 504) ? ERROR_CLASSES.SERVER
+      : ERROR_CLASSES.CLIENT;
+    await logProviderCall('error', { provider: 'openai', model: MODEL, error_class: errorClass, error_message: errorText, http_status: status, retry_count: 0, call_key: callKey });
+    throw new Error(`OpenAI API error (${status}): ${errorText}`);
   }
+
+  await logProviderCall('success', { provider: 'openai', model: MODEL, batch_size: texts.length, char_count: charCount, http_status: response.status, call_key: callKey });
 
   const data = await response.json();
 

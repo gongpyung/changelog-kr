@@ -25,6 +25,8 @@ import { translateWithOpenAI } from './utils/openai-translation-client.mjs';
 import { createMockTranslations, translateWithGeminiChain, GEMINI_MODELS } from './utils/translation-provider.mjs';
 import { stripPrefix } from './fix-translation-prefixes.mjs';
 import { parseFallbackChain, getDefaultFallbackChain, selectPrimaryEngine, getFallbackProviders, isProviderAvailable } from './utils/fallback-chain.mjs';
+import { createDebugSession, logEvent, closeDebugSession } from './utils/translation-debug-logger.mjs';
+import { EVENT_TYPES, ERROR_CLASSES } from './utils/translation-debug-schema.mjs';
 
 let translateWithGlm;
 try {
@@ -136,6 +138,12 @@ async function tryFallbackChain(texts, failedEngine, exhaustedGeminiModels) {
   const fallbacks = getFallbackProviders(failedEngine);
   for (const fb of fallbacks) {
     if (!isProviderAvailable(fb)) continue;
+    await logEvent(EVENT_TYPES.FALLBACK, {
+      from_provider: failedEngine,
+      to_provider: fb,
+      reason: 'primary_failed',
+      error_class: ERROR_CLASSES.UNKNOWN,
+    });
     try {
       if (fb === 'gemini') {
         const gr = await translateWithGeminiChain(texts, exhaustedGeminiModels, translateWithGemini);
@@ -160,6 +168,12 @@ async function tryFallbackChain(texts, failedEngine, exhaustedGeminiModels) {
       }
     } catch (e) {
       console.warn(`    Fallback ${fb} failed: ${e.message}`);
+      await logEvent(EVENT_TYPES.FALLBACK, {
+        from_provider: failedEngine,
+        to_provider: fb,
+        reason: e.message,
+        error_class: ERROR_CLASSES.UNKNOWN,
+      });
     }
   }
   return null;
@@ -179,6 +193,8 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
   const filePath = join(translationsDir, `${version}.json`);
 
   console.log(`\n  [${serviceName}] Processing version ${version}...`);
+  const versionStartTime = Date.now();
+  await logEvent(EVENT_TYPES.VERSION_START, { service_id: serviceId, version });
 
   // Read existing translation file
   let data;
@@ -227,6 +243,13 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
 
         // Quality check: if Gemini produced poor quality, retry with fallback chain
         const quality = checkTranslationQuality(textsToTranslate, result.translations, `${version} (Gemini)`);
+        await logEvent(EVENT_TYPES.QUALITY_CHECK, {
+          context: `${version} (Gemini)`,
+          total_count: textsToTranslate.length,
+          warning_count: quality.warnings,
+          ratio: quality.warnings / (textsToTranslate.length || 1),
+          is_poor_quality: quality.isPoorQuality,
+        });
         if (quality.isPoorQuality) {
           console.log(`    Gemini quality poor, retrying with fallback chain...`);
           const fb = await tryFallbackChain(textsToTranslate, 'gemini', exhaustedGeminiModels);
@@ -305,7 +328,14 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
 
   // Final quality check (for non-Gemini engines or if OpenAI fallback also failed)
   if (usedEngine !== 'gemini') {
-    checkTranslationQuality(textsToTranslate, result.translations, version);
+    const finalQuality = checkTranslationQuality(textsToTranslate, result.translations, version);
+    await logEvent(EVENT_TYPES.QUALITY_CHECK, {
+      context: version,
+      total_count: textsToTranslate.length,
+      warning_count: finalQuality.warnings,
+      ratio: finalQuality.warnings / (textsToTranslate.length || 1),
+      is_poor_quality: finalQuality.isPoorQuality,
+    });
   }
 
   // Add translations to entries (prefix 자동 후처리 적용, null → original fallback)
@@ -325,6 +355,15 @@ async function translateVersion(serviceId, serviceName, version, primaryEngine, 
   await writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
 
   console.log(`    Translated ${result.translations.length} entries (${result.charCount} chars)`);
+
+  await logEvent(EVENT_TYPES.VERSION_END, {
+    service_id: serviceId,
+    version,
+    entry_count: result.translations.length,
+    char_count: result.charCount,
+    used_engine: usedEngine,
+    duration_ms: Date.now() - versionStartTime,
+  });
 
   return {
     version,
@@ -391,6 +430,13 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
 
         // Quality check: if Gemini produced poor quality, retry with fallback chain
         const quality = checkTranslationQuality(flatTexts, result.translations, `${serviceId} batch (Gemini)`);
+        await logEvent(EVENT_TYPES.QUALITY_CHECK, {
+          context: `${serviceId} batch (Gemini)`,
+          total_count: flatTexts.length,
+          warning_count: quality.warnings,
+          ratio: quality.warnings / (flatTexts.length || 1),
+          is_poor_quality: quality.isPoorQuality,
+        });
         if (quality.isPoorQuality) {
           console.log(`    Gemini quality poor, retrying with fallback chain...`);
           const fb = await tryFallbackChain(flatTexts, 'gemini', exhaustedGeminiModels);
@@ -469,13 +515,23 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
 
   // Final quality check (for non-Gemini engines)
   if (usedEngine !== 'gemini') {
-    checkTranslationQuality(flatTexts, result.translations, `${serviceId} batch`);
+    const batchQuality = checkTranslationQuality(flatTexts, result.translations, `${serviceId} batch`);
+    await logEvent(EVENT_TYPES.QUALITY_CHECK, {
+      context: `${serviceId} batch`,
+      total_count: flatTexts.length,
+      warning_count: batchQuality.warnings,
+      ratio: batchQuality.warnings / (flatTexts.length || 1),
+      is_poor_quality: batchQuality.isPoorQuality,
+    });
   }
 
   // Split results back by version and write each file
   const results = [];
 
   for (const { version, filePath, data, startIdx, count } of sliceMap) {
+    const versionStartTime = Date.now();
+    await logEvent(EVENT_TYPES.VERSION_START, { service_id: serviceId, version });
+
     const versionTranslations = result.translations.slice(startIdx, startIdx + count);
 
     // prefix 자동 후처리 적용
@@ -493,6 +549,15 @@ async function translateServiceVersionsBatch(serviceId, serviceName, versions, p
 
     await writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
     console.log(`    [${version}] Saved ${count} translations (${versionCharCount} chars)`);
+
+    await logEvent(EVENT_TYPES.VERSION_END, {
+      service_id: serviceId,
+      version,
+      entry_count: count,
+      char_count: versionCharCount,
+      used_engine: usedEngine,
+      duration_ms: Date.now() - versionStartTime,
+    });
 
     results.push({ version, charCount: versionCharCount, entryCount: count });
   }
@@ -605,6 +670,8 @@ async function loadServiceNameMap() {
 async function main() {
   console.log('Multi-Service Changelog Translator\n');
 
+  await createDebugSession();
+
   const versionsMap = await getVersionsMap();
 
   // Check if there's anything to translate
@@ -620,6 +687,13 @@ async function main() {
   const chain = getDefaultFallbackChain();
   console.log(`\nTranslation engine: ${engine}`);
   console.log(`Fallback chain: ${chain.join(' → ')}\n`);
+
+  await logEvent(EVENT_TYPES.RUN_START, {
+    engine,
+    fallback_chain: chain,
+    total_services: Object.keys(versionsMap).length,
+    total_versions: totalVersions,
+  });
 
   if (engine === 'gemini') {
     const geminiModels = GEMINI_MODELS.map(m => m.label).join(' → ');
@@ -648,6 +722,12 @@ async function main() {
     const serviceName = serviceNames[serviceId] || serviceId;
     console.log(`\n--- ${serviceName} (${serviceId}) ---`);
     console.log(`  ${versions.length} version(s) to translate`);
+
+    await logEvent(EVENT_TYPES.SERVICE_START, {
+      service_id: serviceId,
+      service_name: serviceName,
+      version_count: versions.length,
+    });
 
     let results = [];
 
@@ -690,6 +770,12 @@ async function main() {
   }
 
   // Grand summary
+  await closeDebugSession({
+    total_services: Object.keys(versionsMap).length,
+    total_versions: grandTotalVersions,
+    total_entries: grandTotalEntries,
+    total_chars: grandTotalChars,
+  });
   console.log('\n' + '='.repeat(60));
   if (grandTotalVersions > 0) {
     console.log('Translation complete!');
@@ -710,7 +796,8 @@ async function main() {
   console.log('='.repeat(60));
 }
 
-main().catch(error => {
+main().catch(async error => {
+  await logEvent(EVENT_TYPES.RUN_ERROR, { error_class: ERROR_CLASSES.UNKNOWN, error_message: error.message });
   console.error('\nFatal error:', error.message);
   process.exit(1);
 });

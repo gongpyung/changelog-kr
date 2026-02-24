@@ -17,6 +17,9 @@ import {
   PartialTranslationError,
 } from './translation-provider.mjs';
 
+import { logProviderCall } from './translation-debug-logger.mjs';
+import { ERROR_CLASSES } from './translation-debug-schema.mjs';
+
 // Re-export error classes for backward compatibility
 // (canonical definitions are now in translation-provider.mjs)
 export { QuotaExhaustedError, PartialTranslationError };
@@ -71,6 +74,7 @@ async function callGeminiAPI(texts, apiKey, model) {
     },
   });
 
+  const charCount = texts.reduce((sum, text) => sum + text.length, 0);
   let lastError;
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     if (attempt > 0) {
@@ -79,6 +83,9 @@ async function callGeminiAPI(texts, apiKey, model) {
       await sleep(backoffMs, 2000);
     }
 
+    const callKey = `gemini-${model}-attempt-${attempt}`;
+    await logProviderCall('request', { provider: 'gemini', model, endpoint_type: 'native', batch_size: texts.length, char_count: charCount, call_key: callKey });
+
     const response = await fetch(`${endpoint}?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -86,6 +93,7 @@ async function callGeminiAPI(texts, apiKey, model) {
     });
 
     if (response.ok) {
+      await logProviderCall('success', { provider: 'gemini', model, batch_size: texts.length, char_count: charCount, http_status: response.status, call_key: callKey });
       const data = await response.json();
 
       if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
@@ -107,12 +115,14 @@ async function callGeminiAPI(texts, apiKey, model) {
     // Handle 429: distinguish RPD exhaustion from RPM rate limit
     if (response.status === 429) {
       if (isDailyQuotaExhausted(errorText)) {
+        await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.QUOTA, error_message: errorText, http_status: 429, retry_count: attempt, call_key: callKey });
         throw new QuotaExhaustedError(
           model,
           `[${model}] Daily quota (RPD) exhausted: ${errorText}`
         );
       }
       // RPM exceeded — retryable
+      await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.RATE_LIMIT, error_message: 'Rate limited (RPM)', http_status: 429, retry_count: attempt, call_key: callKey });
       lastError = new Error(`Gemini API rate limit (${response.status}): ${errorText}`);
       console.warn(`    Rate limited (RPM), will retry...`);
       continue;
@@ -120,12 +130,14 @@ async function callGeminiAPI(texts, apiKey, model) {
 
     // Handle transient server errors: retryable
     if ([500, 502, 503, 504].includes(response.status)) {
+      await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.SERVER, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
       lastError = new Error(`Gemini API server error (${response.status}): ${errorText}`);
       console.warn(`    Server error ${response.status}, will retry...`);
       continue;
     }
 
     // Non-retryable errors (400, 403, etc.)
+    await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.CLIENT, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
     throw new Error(`Gemini API error (${response.status}): ${errorText}`);
   }
 

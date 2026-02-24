@@ -4,6 +4,8 @@
  */
 
 import { registerProvider } from './translation-provider.mjs';
+import { logProviderCall } from './translation-debug-logger.mjs';
+import { ERROR_CLASSES } from './translation-debug-schema.mjs';
 
 const API_ENDPOINT = 'https://translation.googleapis.com/language/translate/v2';
 
@@ -107,6 +109,10 @@ function createBatches(texts) {
  */
 async function callTranslationAPI(texts, apiKey, sourceLang, targetLang) {
   const url = `${API_ENDPOINT}?key=${apiKey}`;
+  const charCount = texts.reduce((sum, text) => sum + text.length, 0);
+  const callKey = `google-${Date.now()}`;
+
+  await logProviderCall('request', { provider: 'google', model: 'translate-v2', endpoint_type: 'rest-v2', batch_size: texts.length, char_count: charCount, call_key: callKey });
 
   const response = await fetch(url, {
     method: 'POST',
@@ -123,8 +129,16 @@ async function callTranslationAPI(texts, apiKey, sourceLang, targetLang) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`Translation API error (${response.status}): ${errorText}`);
+    const status = response.status;
+    const errorClass = (status === 401 || status === 403) ? ERROR_CLASSES.AUTH
+      : status === 429 ? ERROR_CLASSES.RATE_LIMIT
+      : (status >= 500 && status <= 504) ? ERROR_CLASSES.SERVER
+      : ERROR_CLASSES.CLIENT;
+    await logProviderCall('error', { provider: 'google', model: 'translate-v2', error_class: errorClass, error_message: errorText, http_status: status, retry_count: 0, call_key: callKey });
+    throw new Error(`Translation API error (${status}): ${errorText}`);
   }
+
+  await logProviderCall('success', { provider: 'google', model: 'translate-v2', batch_size: texts.length, char_count: charCount, http_status: response.status, call_key: callKey });
 
   const data = await response.json();
   return data.data.translations.map(t => t.translatedText);

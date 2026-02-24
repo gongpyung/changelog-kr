@@ -17,6 +17,9 @@ import {
   PartialTranslationError,
 } from './translation-provider.mjs';
 
+import { logProviderCall } from './translation-debug-logger.mjs';
+import { ERROR_CLASSES } from './translation-debug-schema.mjs';
+
 const DEFAULT_MODEL = 'glm-5';
 const DEFAULT_BASE_URL = 'https://api.z.ai/api/coding/paas/v4';
 const BATCH_DELAY_MS = 500;
@@ -105,6 +108,8 @@ async function callGlmAPI(texts, apiKey, model, baseUrl) {
     max_tokens: 8192,
   });
 
+  const charCount = texts.reduce((sum, text) => sum + text.length, 0);
+  const endpointType = baseUrl.includes('coding') ? 'coding' : 'general';
   let lastError;
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     if (attempt > 0) {
@@ -112,6 +117,9 @@ async function callGlmAPI(texts, apiKey, model, baseUrl) {
       console.log(`    GLM retry attempt ${attempt}/${MAX_RETRIES} after ${backoffMs / 1000}s...`);
       await sleep(backoffMs, 1000);
     }
+
+    const callKey = `glm-${model}-attempt-${attempt}`;
+    await logProviderCall('request', { provider: 'glm', model, endpoint_type: endpointType, batch_size: texts.length, char_count: charCount, call_key: callKey });
 
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -123,6 +131,7 @@ async function callGlmAPI(texts, apiKey, model, baseUrl) {
     });
 
     if (response.ok) {
+      await logProviderCall('success', { provider: 'glm', model, batch_size: texts.length, char_count: charCount, http_status: response.status, call_key: callKey });
       const data = await response.json();
 
       if (!data.choices || !data.choices[0]?.message?.content) {
@@ -143,6 +152,7 @@ async function callGlmAPI(texts, apiKey, model, baseUrl) {
     const errorClass = classifyGlmError(response.status, errorText);
 
     if (errorClass === 'quota') {
+      await logProviderCall('error', { provider: 'glm', model, error_class: ERROR_CLASSES.QUOTA, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
       throw new QuotaExhaustedError(
         model,
         `[${model}] GLM quota exhausted (${response.status}): ${errorText}`
@@ -150,12 +160,14 @@ async function callGlmAPI(texts, apiKey, model, baseUrl) {
     }
 
     if (errorClass === 'server') {
+      await logProviderCall('error', { provider: 'glm', model, error_class: ERROR_CLASSES.SERVER, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
       lastError = new Error(`GLM API server error (${response.status}): ${errorText}`);
       console.warn(`    GLM server error ${response.status}, will retry...`);
       continue;
     }
 
     // auth, model_unsupported, client — non-retryable
+    await logProviderCall('error', { provider: 'glm', model, error_class: errorClass === 'auth' ? ERROR_CLASSES.AUTH : ERROR_CLASSES.CLIENT, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
     throw new Error(`GLM API error (${response.status}) [${errorClass}]: ${errorText}`);
   }
 
