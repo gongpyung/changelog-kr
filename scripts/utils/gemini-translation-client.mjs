@@ -26,8 +26,20 @@ export { QuotaExhaustedError, PartialTranslationError };
 
 const DEFAULT_MODEL = 'gemini-3-flash-preview';
 const BATCH_DELAY_MS = 13000; // 13s between batches (conservative for RPM 5)
-const MAX_RETRIES = 3;
-const RETRY_BASE_MS = 15000; // 15s base for exponential backoff
+
+function readPositiveIntEnv(name, fallback) {
+  const raw = process.env[name];
+  if (!raw) return fallback;
+  const parsed = Number.parseInt(raw, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+// Faster failover defaults (tunable via env)
+const MAX_RETRIES = readPositiveIntEnv('GEMINI_MAX_RETRIES', 2); // retry count after first attempt
+const RETRY_BASE_MS = readPositiveIntEnv('GEMINI_RETRY_BASE_MS', 5000); // 5s, then exponential
+const RETRY_MAX_MS = readPositiveIntEnv('GEMINI_RETRY_MAX_MS', 10000); // cap retry delay at 10s
+const REQUEST_TIMEOUT_MS = readPositiveIntEnv('GEMINI_REQUEST_TIMEOUT_MS', 40000); // 40s request timeout
+const MAX_CONSECUTIVE_503 = readPositiveIntEnv('GEMINI_MAX_CONSECUTIVE_503', 2); // fast fallback on sustained overload
 
 // buildPrompt and parseResponse are now shared via translation-provider.mjs
 // (buildTranslationPrompt, parseNumberedResponse)
@@ -76,24 +88,81 @@ async function callGeminiAPI(texts, apiKey, model) {
 
   const charCount = texts.reduce((sum, text) => sum + text.length, 0);
   let lastError;
+  let consecutive503 = 0;
+
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     if (attempt > 0) {
-      const backoffMs = RETRY_BASE_MS * Math.pow(2, attempt - 1);
+      const backoffMs = Math.min(RETRY_BASE_MS * Math.pow(2, attempt - 1), RETRY_MAX_MS);
       console.log(`    Retry attempt ${attempt}/${MAX_RETRIES} after ${backoffMs / 1000}s...`);
-      await sleep(backoffMs, 2000);
+      await sleep(backoffMs, 1000);
     }
 
     const callKey = `gemini-${model}-attempt-${attempt}`;
-    await logProviderCall('request', { provider: 'gemini', model, endpoint_type: 'native', batch_size: texts.length, char_count: charCount, call_key: callKey });
-
-    const response = await fetch(`${endpoint}?key=${apiKey}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body,
+    await logProviderCall('request', {
+      provider: 'gemini',
+      model,
+      endpoint_type: 'native',
+      batch_size: texts.length,
+      char_count: charCount,
+      call_key: callKey,
     });
 
+    let response;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+    try {
+      response = await fetch(`${endpoint}?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+        signal: controller.signal,
+      });
+    } catch (error) {
+      clearTimeout(timeoutId);
+
+      if (error?.name === 'AbortError') {
+        const timeoutMessage = `Gemini request timeout after ${REQUEST_TIMEOUT_MS}ms`;
+        await logProviderCall('error', {
+          provider: 'gemini',
+          model,
+          error_class: ERROR_CLASSES.SERVER,
+          error_message: timeoutMessage,
+          http_status: 0,
+          retry_count: attempt,
+          call_key: callKey,
+        });
+        lastError = new Error(timeoutMessage);
+        console.warn(`    ${timeoutMessage}, will retry...`);
+        continue;
+      }
+
+      await logProviderCall('error', {
+        provider: 'gemini',
+        model,
+        error_class: ERROR_CLASSES.SERVER,
+        error_message: error?.message || String(error),
+        http_status: 0,
+        retry_count: attempt,
+        call_key: callKey,
+      });
+      lastError = error instanceof Error ? error : new Error(String(error));
+      console.warn(`    Gemini request failed (${lastError.message}), will retry...`);
+      continue;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+
     if (response.ok) {
-      await logProviderCall('success', { provider: 'gemini', model, batch_size: texts.length, char_count: charCount, http_status: response.status, call_key: callKey });
+      consecutive503 = 0;
+      await logProviderCall('success', {
+        provider: 'gemini',
+        model,
+        batch_size: texts.length,
+        char_count: charCount,
+        http_status: response.status,
+        call_key: callKey,
+      });
       const data = await response.json();
 
       if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
@@ -114,6 +183,7 @@ async function callGeminiAPI(texts, apiKey, model) {
 
     // Handle 429: distinguish RPD exhaustion from RPM rate limit
     if (response.status === 429) {
+      consecutive503 = 0;
       if (isDailyQuotaExhausted(errorText)) {
         await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.QUOTA, error_message: errorText, http_status: 429, retry_count: attempt, call_key: callKey });
         throw new QuotaExhaustedError(
@@ -124,19 +194,31 @@ async function callGeminiAPI(texts, apiKey, model) {
       // RPM exceeded — retryable
       await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.RATE_LIMIT, error_message: 'Rate limited (RPM)', http_status: 429, retry_count: attempt, call_key: callKey });
       lastError = new Error(`Gemini API rate limit (${response.status}): ${errorText}`);
-      console.warn(`    Rate limited (RPM), will retry...`);
+      console.warn('    Rate limited (RPM), will retry...');
       continue;
     }
 
-    // Handle transient server errors: retryable
+    // Handle transient server errors: retryable (with fast failover for repeated 503)
     if ([500, 502, 503, 504].includes(response.status)) {
+      if (response.status === 503) {
+        consecutive503 += 1;
+      } else {
+        consecutive503 = 0;
+      }
+
       await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.SERVER, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
       lastError = new Error(`Gemini API server error (${response.status}): ${errorText}`);
+
+      if (response.status === 503 && consecutive503 >= MAX_CONSECUTIVE_503) {
+        throw new Error(`[${model}] repeated 503 overload (${consecutive503}x), failing fast to fallback`);
+      }
+
       console.warn(`    Server error ${response.status}, will retry...`);
       continue;
     }
 
     // Non-retryable errors (400, 403, etc.)
+    consecutive503 = 0;
     await logProviderCall('error', { provider: 'gemini', model, error_class: ERROR_CLASSES.CLIENT, error_message: errorText, http_status: response.status, retry_count: attempt, call_key: callKey });
     throw new Error(`Gemini API error (${response.status}): ${errorText}`);
   }
