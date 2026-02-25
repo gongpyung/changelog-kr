@@ -1,0 +1,500 @@
+{
+  "version": "2026.2.24",
+  "date": "2026-02-25",
+  "parsedAt": "2026-02-25T07:18:36.043Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto-reply/Abort shortcuts: expand standalone stop phrases (`stop openclaw`, `stop action`, `stop run`, `stop agent`, `please stop`, and related variants), accept trailing punctuation (for example `STOP OPENCLAW!!!`), add multilingual stop keywords (including ES/FR/ZH/HI/AR/JP/DE/PT/RU forms), and treat exact `do not do that` as a stop trigger while preserving strict standalone matching. (#25103) Thanks @steipete and @vincentkoc.",
+      "translated": "자동 응답/중단 단축어: `stop openclaw`, `stop action`, `stop run`, `stop agent`, `please stop` 및 관련 변형을 포함한 독립형 중단 문구를 확장하고, `STOP OPENCLAW!!!`와 같이 뒤에 붙는 문장 부호를 허용하며, 다양한 언어(ES/FR/ZH/HI/AR/JP/DE/PT/RU)의 중단 키워드를 추가했습니다. 또한 엄격한 독립형 매칭을 유지하면서 `do not do that` 문구를 중단 트리거로 처리합니다. (#25103) @steipete님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android/App UX: ship a native four-step onboarding flow, move post-onboarding into a five-tab shell (Connect, Chat, Voice, Screen, Settings), add a full Connect setup/manual mode screen, and refresh Android chat/settings surfaces for the new navigation model.",
+      "translated": "Android/앱 UX: 네이티브 4단계 온보딩 플로우를 출시하고, 온보딩 이후 단계를 5개 탭(Connect, Chat, Voice, Screen, Settings)으로 구성된 쉘로 이동했으며, 전체 Connect 설정/수동 모드 화면을 추가하고 새로운 내비게이션 모델에 맞춰 Android 채팅/설정 화면을 쇄신했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Talk/Gateway config: add provider-agnostic Talk configuration with legacy compatibility, and expose gateway Talk ElevenLabs config metadata for setup/status surfaces.",
+      "translated": "Talk/Gateway 설정: 기존 버전 호환성을 갖춘 제공자 중립적인 Talk 설정을 추가하고, 설정/상태 화면을 위해 게이트웨이 Talk ElevenLabs 설정 메타데이터를 노출합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security/Audit: add `security.trust_model.multi_user_heuristic` to flag likely shared-user ingress and clarify the personal-assistant trust model, with hardening guidance for intentional multi-user setups (`sandbox.mode=\"all\"`, workspace-scoped FS, reduced tool surface, no personal/private identities on shared runtimes).",
+      "translated": "보안/감사: 공유 사용자 유입 가능성을 표시하고 개인 비서 신뢰 모델을 명확히 하기 위해 `security.trust_model.multi_user_heuristic`을 추가했습니다. 또한 의도적인 다중 사용자 설정(`sandbox.mode=\"all\"`, 워크스페이스 범위 파일 시스템, 도구 노출 축소, 공유 런타임 내 개인/비공개 식별자 제외)에 대한 보안 강화 가이드를 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dependencies: refresh key runtime and tooling packages across the workspace (Bedrock SDK, pi runtime stack, OpenAI, Google auth, and oxlint/oxfmt), while intentionally keeping `@buape/carbon` pinned.",
+      "translated": "종속성: 워크스페이스 전반의 주요 런타임 및 툴링 패키지(Bedrock SDK, pi runtime stack, OpenAI, Google auth, oxlint/oxfmt)를 갱신했으며, `@buape/carbon`은 의도적으로 버전을 고정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** Heartbeat delivery now blocks direct/DM targets when destination parsing identifies a direct chat (for example `user:<id>`, Telegram user chat IDs, or WhatsApp direct numbers/JIDs). Heartbeat runs still execute, but direct-message delivery is skipped and only non-DM destinations (for example channel/group targets) can receive outbound heartbeat messages.",
+      "translated": "**중요 변경 사항:** 대상 파싱 결과가 다이렉트 채팅(예: `user:<id>`, Telegram 사용자 채팅 ID, WhatsApp 다이렉트 번호/JIDs)으로 식별될 경우 하트비트 전송을 차단합니다. 하트비트 실행은 계속되지만 다이렉트 메시지 전송은 건너뛰며, 비 DM 대상(예: 채널/그룹 대상)만 아웃바운드 하트비트 메시지를 받을 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** Security/Sandbox: block Docker `network: \"container:<id>\"` namespace-join mode by default for sandbox and sandbox-browser containers. To keep that behavior intentionally, set `agents.defaults.sandbox.docker.dangerouslyAllowContainerNamespaceJoin: true` (break-glass). Thanks @tdjackey for reporting.",
+      "translated": "**중요 변경 사항:** 보안/샌드박스: 샌드박스 및 샌드박스 브라우저 컨테이너에 대해 Docker `network: \"container:<id>\"` 네임스페이스 조인 모드를 기본적으로 차단합니다. 이 동작을 의도적으로 유지하려면 `agents.defaults.sandbox.docker.dangerouslyAllowContainerNamespaceJoin: true`를 설정하십시오. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Routing/Session isolation: harden followup routing so explicit cross-channel origin replies never fall back to the active dispatcher on route failure, preserve queued overflow summary routing metadata (`channel`/`to`/`thread`) across followup drain, and prefer originating channel context over internal provider tags for embedded followup runs. This prevents webchat/control-ui context from hijacking Discord-targeted replies in shared sessions. (#25864) Thanks @Gamedesigner.",
+      "translated": "라우팅/세션 격리: 라우팅 실패 시 명시적인 교차 채널 원본 답장이 활성 디스패처로 폴백되지 않도록 후속 라우팅을 강화했습니다. 후속 작업 처리 과정에서 대기 중인 오버플로 요약 라우팅 메타데이터(`channel`/`to`/`thread`)를 보존하며, 임베디드 후속 실행 시 내부 제공자 태그보다 원본 채널 컨텍스트를 우선시합니다. 이를 통해 공유 세션에서 webchat/control-ui 컨텍스트가 Discord 대상 답장을 가로채는 문제를 방지합니다. (#25864) @Gamedesigner님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Routing: fail closed for shared-session cross-channel replies by binding outbound target resolution to the current turn’s source channel metadata (instead of stale session route fallbacks), and wire those turn-source fields through gateway + command delivery planners with regression coverage. (#24571) Thanks @brandonwise.",
+      "translated": "보안/라우팅: 아웃바운드 대상 확인을 (오래된 세션 라우트 폴백 대신) 현재 턴의 소스 채널 메타데이터에 바인딩하여 공유 세션의 교차 채널 답장이 실패 시 차단되도록 처리했습니다. 또한 이러한 턴 소스 필드를 게이트웨이 및 명령 전송 플래너에 연결하고 회귀 테스트 커버리지를 확보했습니다. (#24571) @brandonwise님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat routing: prevent heartbeat leakage/spam into Discord and other direct-message destinations by blocking direct-chat heartbeat delivery targets and keeping blocked-delivery cron/exec prompts internal-only. (#25871)",
+      "translated": "하트비트 라우팅: 다이렉트 채팅 하트비트 전송 대상을 차단하고 전송이 차단된 cron/exec 프롬프트를 내부 전용으로 유지하여, Discord 및 기타 다이렉트 메시지 대상으로의 하트비트 유출 및 스팸을 방지합니다. (#25871)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat defaults/prompts: switch the implicit heartbeat delivery target from `last` to `none` (opt-in for external delivery), and use internal-only cron/exec heartbeat prompt wording when delivery is disabled so background checks do not nudge user-facing relay behavior. (#25871, #24638, #25851)",
+      "translated": "하트비트 기본값/프롬프트: 암시적 하트비트 전송 대상을 `last`에서 `none`으로 변경(외부 전송은 옵트인 방식)하고, 전송이 비활성화된 경우 내부 전용 cron/exec 하트비트 프롬프트 문구를 사용하여 백그라운드 체크가 사용자 대상 릴레이 동작에 영향을 주지 않도록 했습니다. (#25871, #24638, #25851)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/Heartbeat queueing: drop heartbeat runs when a session already has an active run instead of enqueueing a stale followup, preventing duplicate heartbeat response branches after queue drain. (#25610, #25606) Thanks @mcaxtr.",
+      "translated": "자동 응답/하트비트 큐잉: 세션에 이미 활성 실행이 있는 경우 오래된 후속 작업을 대기열에 추가하는 대신 하트비트 실행을 삭제하여, 큐 처리 후 중복된 하트비트 응답 브랜치가 생성되는 것을 방지합니다. (#25610, #25606) @mcaxtr님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Heartbeat delivery: stop inheriting cached session `lastThreadId` for heartbeat-mode target resolution unless a thread/topic is explicitly requested, so announce-mode cron and heartbeat deliveries stay on top-level destinations instead of leaking into active conversation threads. (#25730) Thanks @markshields-tl.",
+      "translated": "Cron/하트비트 전송: 스레드/토픽이 명시적으로 요청되지 않은 경우 하트비트 모드 대상 확인 시 캐시된 세션의 `lastThreadId` 상속을 중단했습니다. 이를 통해 알림 모드 cron 및 하트비트 전송이 활성 대화 스레드로 유출되지 않고 최상위 대상에 유지되도록 합니다. (#25730) @markshields-tl님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Messaging tool dedupe: treat originating channel metadata as authoritative for same-target `message.send` suppression in proactive runs (heartbeat/cron/exec-event), including synthetic-provider contexts, so `delivery-mirror` transcript entries no longer cause duplicate Telegram sends. (#25835) Thanks @jadeathena84-arch.",
+      "translated": "메시징 도구 중복 제거: 가상 제공자 컨텍스트를 포함하여 선제적 실행(하트비트/cron/exec-event) 시 동일 대상에 대한 `message.send` 중복 방지를 위해 원본 채널 메타데이터를 기준으로 처리합니다. 이를 통해 `delivery-mirror` 기록 항목으로 인한 Telegram 중복 전송 문제를 해결했습니다. (#25835) @jadeathena84-arch님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels/Typing keepalive: refresh channel typing callbacks on a keepalive interval during long replies and clear keepalive timers on idle/cleanup across core + extension dispatcher callsites so typing indicators do not expire mid-inference. (#25886, #25882) Thanks @stakeswky.",
+      "translated": "채널/입력 활성 유지: 긴 응답이 진행되는 동안 활성 유지 간격에 맞춰 채널 입력 콜백을 갱신하고, 코어 및 확장 디스패처 호출 지점 전반에서 유휴/정리 시 활성 유지 타이머를 해제하여 추론 도중에 입력 중 표시가 사라지지 않도록 했습니다. (#25886, #25882) @stakeswky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Model fallback: when a run is currently on a configured fallback model, keep traversing the configured fallback chain instead of collapsing straight to primary-only, preventing dead-end failures when primary stays in cooldown. (#25922, #25912) Thanks @Taskle.",
+      "translated": "에이전트/모델 폴백: 실행이 현재 설정된 폴백 모델에서 진행 중인 경우, 기본 모델로만 바로 돌아가는 대신 설정된 폴백 체인을 계속 탐색하여 기본 모델이 쿨다운 상태일 때 발생하는 중단 오류를 방지합니다. (#25922, #25912) @Taskle님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Models: honor explicit `agents.defaults.models` allowlist refs even when bundled model catalog data is stale, synthesize missing allowlist entries in `models.list`, and allow `sessions.patch`/`/model` selection for those refs without false `model not allowed` errors. (#20291) Thanks @kensipe, @nikolasdehor, and @vincentkoc.",
+      "translated": "Gateway/모델: 번들된 모델 카탈로그 데이터가 오래된 경우에도 명시적인 `agents.defaults.models` 허용 목록 참조를 준수하고, `models.list`에서 누락된 허용 목록 항목을 생성하며, 해당 참조에 대해 `model not allowed` 오류 없이 `sessions.patch`/`/model` 선택이 가능하도록 허용합니다. (#20291) @kensipe, @nikolasdehor, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/Agents: inherit `agents.defaults.model.fallbacks` in the Overview fallback input when no per-agent model entry exists, while preserving explicit per-agent fallback overrides (including empty lists). (#25729, #25710) Thanks @Suko.",
+      "translated": "Control UI/에이전트: 에이전트별 모델 항목이 없는 경우 개요(Overview) 폴백 입력에서 `agents.defaults.model.fallbacks`를 상속하며, 명시적인 에이전트별 폴백 재정의(빈 목록 포함)는 그대로 유지합니다. (#25729, #25710) @Suko님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Automation/Subagent/Cron reliability: honor `ANNOUNCE_SKIP` in `sessions_spawn` completion/direct announce flows (no user-visible token leaks), add transient direct-announce retries for channel unavailability (for example WhatsApp listener reconnect windows), and include `cron` in the `coding` tool profile so `/tools/invoke` can execute cron actions when explicitly allowed by gateway policy. (#25800, #25656, #25842, #25813, #25822, #25821) Thanks @astra-fer, @aaajiao, @dwight11232-coder, @kevinWangSheng, @widingmarcus-cyber, and @stakeswky.",
+      "translated": "자동화/서브 에이전트/Cron 안정성: `sessions_spawn` 완료/직접 알림 플로우에서 `ANNOUNCE_SKIP`을 준수하여 사용자에게 토큰이 유출되지 않도록 하고, 채널을 사용할 수 없는 경우(예: WhatsApp 리스너 재연결 대기 시간)에 대비해 일시적인 직접 알림 재시도 기능을 추가했습니다. 또한 `coding` 도구 프로필에 `cron`을 포함하여 게이트웨이 정책에서 명시적으로 허용된 경우 `/tools/invoke`가 cron 액션을 실행할 수 있도록 했습니다. (#25800, #25656, #25842, #25813, #25822, #25821) @astra-fer, @aaajiao, @dwight11232-coder, @kevinWangSheng, @widingmarcus-cyber, @stakeswky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Voice reliability: restore runtime DAVE dependency (`@snazzah/davey`), add configurable DAVE join options (`channels.discord.voice.daveEncryption` and `channels.discord.voice.decryptionFailureTolerance`), clean up voice listeners/session teardown, guard against stale connection events, and trigger controlled rejoin recovery after repeated decrypt failures to improve inbound STT stability under DAVE receive errors. (#25861, #25372, #24883, #24825, #23890, #23105, #22961, #23421, #23278, #23032)",
+      "translated": "Discord/음성 안정성: 런타임 DAVE 종속성(`@snazzah/davey`)을 복구하고, 구성 가능한 DAVE 참여 옵션(`channels.discord.voice.daveEncryption` 및 `channels.discord.voice.decryptionFailureTolerance`)을 추가했으며, 음성 리스너/세션 종료 프로세스를 정리했습니다. 오래된 연결 이벤트를 방지하고 반복적인 복호화 실패 시 제어된 재참여 복구를 트리거하여 DAVE 수신 오류 상황에서의 인바운드 STT 안정성을 개선했습니다. (#25861, #25372, #24883, #24825, #23890, #23105, #22961, #23421, #23278, #23032)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Block streaming: restore block-streamed reply delivery by suppressing only reasoning payloads (instead of all `block` payloads), fixing missing Discord replies in `channels.discord.streaming=block` mode. (#25839, #25836, #25792) Thanks @pewallin.",
+      "translated": "Discord/블록 스트리밍: 모든 `block` 페이로드가 아닌 추론 페이로드만 억제하여 블록 스트리밍 방식의 답장 전달을 복구하고, `channels.discord.streaming=block` 모드에서 Discord 답장이 누락되는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Proxy + reactions + model picker: thread channel proxy fetch into inbound media/sticker downloads, use proxy-aware gateway metadata fetch for WSL/corporate proxy setups, wire `messages.statusReactions.{emojis,timing}` into Discord reaction lifecycle control, and compact model-picker `custom_id` keys to stay under Discord's 100-char limit while keeping backward-compatible parsing. (#25232, #25507, #25564, #25695) Thanks @openperf, @chilu18, @Yipsh, @lbo728, and @s1korrrr.",
+      "translated": "Discord/프록시 + 반응 + 모델 선택기: 인바운드 미디어/스티커 다운로드에 채널 프록시 페치를 연결하고, WSL/기업 프록시 환경을 위해 프록시 인식 게이트웨이 메타데이터 페치를 사용하며, `messages.statusReactions.{emojis,timing}`을 Discord 반응 라이프사이클 제어에 연결했습니다. 또한 하위 호환성을 유지하면서 Discord의 100자 제한을 넘지 않도록 모델 선택기의 `custom_id` 키를 압축했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/Web reconnect: treat close status `440` as non-retryable (including string-form status values), stop reconnect loops immediately, and emit operator guidance to relink after resolving session conflicts. (#25858) Thanks @markmusson.",
+      "translated": "WhatsApp/웹 재연결: 종료 상태 `440`(문자열 형태 포함)을 재시도 불가로 처리하여 재연결 루프를 즉시 중단하고, 세션 충돌 해결 후 다시 연결하도록 운영자 가이드를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/Reasoning safety: suppress outbound payloads marked as reasoning and hard-drop text payloads that begin with `Reasoning:` before WhatsApp delivery, preventing hidden thinking blocks from leaking to end users through final-message paths. (#25804, #25214, #24328)",
+      "translated": "WhatsApp/추론 안전성: WhatsApp 전달 전 추론으로 표시된 아웃바운드 페이로드를 억제하고 `Reasoning:`으로 시작하는 텍스트 페이로드를 강제로 삭제하여, 숨겨진 생각 블록이 최종 메시지 경로를 통해 최종 사용자에게 유출되는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/Read receipts: send read receipts as soon as Matrix messages arrive (before handler pipeline work), so clients no longer show long-lived unread/sent states while replies are processing. (#25841, #25840) Thanks @joshjhall.",
+      "translated": "Matrix/읽음 확인: Matrix 메시지가 도착하는 즉시(핸들러 파이프라인 작업 전) 읽음 확인을 전송하여, 답장 처리 중에 클라이언트가 읽지 않음 또는 전송됨 상태로 오래 머물지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Replies: when markdown formatting renders to empty HTML (for example syntax-only chunks in threaded replies), retry delivery with plain text, and fail loud when both formatted and plain payloads are empty to avoid false delivered states. (#25096, #25091) Thanks @Glucksberg.",
+      "translated": "Telegram/답장: 마크다운 서식이 빈 HTML로 렌더링되는 경우(예: 스레드 답장의 구문 전용 청크) 일반 텍스트로 전달을 재시도하며, 서식 있는 페이로드와 일반 페이로드가 모두 비어 있을 때는 명확하게 오류를 발생시켜 잘못된 전달 상태가 표시되지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Media fetch: prioritize IPv4 before IPv6 in SSRF pinned DNS address ordering so media downloads still work on hosts with broken IPv6 routing. (#24295, #23975) Thanks @Glucksberg.",
+      "translated": "Telegram/미디어 페치: SSRF 고정 DNS 주소 순서에서 IPv6보다 IPv4를 우선시하여, IPv6 라우팅이 원활하지 않은 호스트에서도 미디어 다운로드가 작동하도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Outbound API: replace Node 22's global undici dispatcher when applying Telegram `autoSelectFamily` decisions so outbound `fetch` calls inherit IPv4 fallback instead of staying pinned to stale dispatcher settings. (#25682, #25676) Thanks @lairtonlelis.",
+      "translated": "Telegram/아웃바운드 API: Telegram `autoSelectFamily` 결정 적용 시 Node 22의 전역 undici 디스패처를 교체하여, 아웃바운드 `fetch` 호출이 이전 디스패처 설정에 고정되지 않고 IPv4 폴백을 상속받도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Onboarding/Telegram: keep core-channel onboarding available when plugin registry population is missing by falling back to built-in adapters and continuing wizard setup with actionable recovery guidance. (#25803) Thanks @Suko.",
+      "translated": "온보딩/Telegram: 플러그인 레지스트리 데이터가 누락된 경우에도 내장 어댑터로 폴백하여 핵심 채널 온보딩을 유지하고, 조치 가능한 복구 가이드와 함께 마법사 설정을 계속 진행합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Gateway auth: preserve Android gateway auth state across onboarding, use the native client id for operator sessions, retry with shared-token fallback after device-token auth failures, and avoid clearing tokens on transient connect errors.",
+      "translated": "Android/게이트웨이 인증: 온보딩 과정에서 Android 게이트웨이 인증 상태를 유지하고, 운영자 세션에 네이티브 클라이언트 ID를 사용하며, 디바이스 토큰 인증 실패 시 공유 토큰 폴백으로 재시도하고 일시적인 연결 오류 시 토큰이 삭제되지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/DM routing: treat `D*` channel IDs as direct messages even when Slack sends an incorrect `channel_type`, preventing DM traffic from being misclassified as channel/group chats. (#25479) Thanks @mcaxtr.",
+      "translated": "Slack/DM 라우팅: Slack에서 잘못된 `channel_type`을 보내더라도 `D*` 채널 ID를 다이렉트 메시지로 처리하여, DM 트래픽이 채널 또는 그룹 채팅으로 오분류되는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Zalo/Group policy: enforce sender authorization for group messages with `groupPolicy` + `groupAllowFrom` (fallback to `allowFrom`), default runtime group behavior to fail-closed allowlist, and block unauthorized non-command group messages before dispatch. Thanks @tdjackey for reporting.",
+      "translated": "Zalo/그룹 정책: `groupPolicy` 및 `groupAllowFrom`(`allowFrom`으로 폴백)을 통해 그룹 메시지에 대한 발신자 권한 부여를 강제하고, 런타임 그룹 동작을 기본적으로 허용 목록 기반의 차단 모드로 설정하며, 발송 전 권한이 없는 비명령어 그룹 메시지를 차단합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/Voice input: guard all audio-input startup paths against missing default microphones (Voice Wake, Talk Mode, Push-to-Talk, mic-level monitor, tester) to avoid launch/runtime crashes on mic-less Macs and fail gracefully until input becomes available. (#25817) Thanks @sfo2001.",
+      "translated": "macOS/음성 입력: 마이크가 없는 Mac에서 실행 또는 런타임 충돌이 발생하지 않도록 모든 오디오 입력 시작 경로(Voice Wake, Talk Mode, Push-to-Talk, 마이크 레벨 모니터, 테스터)에서 기본 마이크 누락 여부를 확인하고, 입력을 사용할 수 있을 때까지 안전하게 예외 처리합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/IME input: when marked text is active, treat Return as IME candidate confirmation first in both the voice overlay composer and shared chat composer to prevent accidental sends while composing CJK text. (#25178) Thanks @bottotl.",
+      "translated": "macOS/IME 입력: 조합 중인 텍스트가 활성화된 상태에서 한중일(CJK) 텍스트 작성 중 실수로 메시지가 전송되지 않도록, 음성 오버레이 작성기와 공유 채팅 작성기 모두에서 Return 키를 IME 후보 확인으로 우선 처리합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/Voice wake routing: default forwarded voice-wake transcripts to the `webchat` channel (instead of ambiguous `last` routing) so local voice prompts stay pinned to the control chat surface unless explicitly overridden. (#25440) Thanks @chilu18.",
+      "translated": "macOS/Voice wake 라우팅: 전달된 Voice wake 텍스트 변환 결과를 모호한 `last` 라우팅 대신 기본적으로 `webchat` 채널로 보내, 명시적으로 재설정하지 않는 한 로컬 음성 프롬프트가 제어 채팅 화면에 고정되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/Gateway launch: prefer an available `openclaw` binary before pnpm/node runtime fallback when resolving local gateway commands, so local startup no longer fails on hosts with broken runtime discovery. (#25512) Thanks @chilu18.",
+      "translated": "macOS/게이트웨이 실행: 로컬 게이트웨이 명령을 확인할 때 pnpm/node 런타임 폴백보다 사용 가능한 `openclaw` 바이너리를 우선하여, 런타임 검색에 문제가 있는 호스트에서도 로컬 시작이 실패하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/Menu bar: stop reusing the injector delegate for the \"Usage cost (30 days)\" submenu to prevent recursive submenu injection loops when opening cost history. (#25341) Thanks @yingchunbai.",
+      "translated": "macOS/메뉴 막대: 비용 내역을 열 때 하위 메뉴 주입 루프가 재귀적으로 발생하는 것을 방지하기 위해 \"사용 비용(30일)\" 하위 메뉴에 인젝터 델리게이트를 재사용하지 않도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/WebChat panel: fix rounded-corner clipping by using panel-specific visual-effect blending and matching corner masking on both effect and hosting layers. (#22458) Thanks @apethree and @agisilaos.",
+      "translated": "macOS/WebChat 패널: 패널 전용 시각 효과 블렌딩을 사용하고 효과 레이어와 호스팅 레이어 모두에서 모서리 마스킹을 일치시켜 둥근 모서리 잘림 현상을 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/Exec shell selection: prefer PowerShell 7 (`pwsh`) discovery (Program Files, ProgramW6432, PATH) before falling back to Windows PowerShell 5.1, fixing `&&` command chaining failures on Windows hosts with PS7 installed. (#25684, #25638) Thanks @zerone0x.",
+      "translated": "Windows/실행 셸 선택: Windows PowerShell 5.1로 폴백하기 전에 PowerShell 7(`pwsh`) 검색(Program Files, ProgramW6432, PATH)을 우선하여, PS7이 설치된 Windows 호스트에서 `&&` 명령 체이닝이 실패하는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/Media safety checks: align async local-file identity validation with sync-safe-open behavior by treating win32 `dev=0` stats as unknown-device fallbacks (while keeping strict dev checks when both sides are non-zero), fixing false `Local media path is not safe to read` drops for local attachments/TTS/images. (#25708, #21989, #25699, #25878) Thanks @kevinWangSheng.",
+      "translated": "Windows/미디어 안전 검사: 비동기 로컬 파일 ID 검증을 동기식 안전 열기 동작과 일치시켰습니다. win32 `dev=0` 통계를 알 수 없는 장치 폴백으로 처리하여(양쪽이 0이 아닐 때는 엄격한 장치 검사 유지), 로컬 첨부 파일/TTS/이미지에 대해 `Local media path is not safe to read` 오류가 잘못 발생하며 삭제되는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iMessage/Reasoning safety: harden iMessage echo suppression with outbound `messageId` matching (plus scoped text fallback), and enforce reasoning-payload suppression on routed outbound delivery paths to prevent hidden thinking text from being sent as user-visible channel messages. (#25897, #1649, #25757) Thanks @rmarr and @Iranb.",
+      "translated": "iMessage/추론 보안: 아웃바운드 `messageId` 매칭(및 범위 지정 텍스트 폴백)을 통해 iMessage 에코 억제를 강화하고, 라우팅된 발신 경로에서 추론 페이로드 억제를 강제하여 숨겨진 생각 텍스트가 사용자에게 보이는 채널 메시지로 전송되는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/OpenRouter/Auth profiles: bypass auth-profile cooldown/disable windows for OpenRouter, so provider failures no longer put OpenRouter profiles into local cooldown and stale legacy cooldown markers are ignored in fallback and status selection paths. (#25892) Thanks @alexanderatallah for raising this and @vincentkoc for the fix.",
+      "translated": "제공자/OpenRouter/인증 프로필: OpenRouter의 인증 프로필 쿨다운/비활성화 기간을 우회하여, 제공자 장애가 더 이상 OpenRouter 프로필을 로컬 쿨다운 상태로 만들지 않도록 하고 폴백 및 상태 선택 경로에서 오래된 레거시 쿨다운 마커를 무시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Google reasoning: sanitize invalid negative `thinkingBudget` payloads for Gemini 3.1 requests by dropping `-1` budgets and mapping configured reasoning effort to `thinkingLevel`, preventing malformed reasoning payloads on `google-generative-ai`. (#25900)",
+      "translated": "제공자/Google 추론: Gemini 3.1 요청 시 `-1` 예산을 제외하고 설정된 추론 노력을 `thinkingLevel`에 매핑하여 유효하지 않은 음수 `thinkingBudget` 페이로드를 정리함으로써, `google-generative-ai`에서 잘못된 형식의 추론 페이로드가 발생하는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/SiliconFlow: normalize `thinking=\"off\"` to `thinking: null` for `Pro/*` model payloads to avoid provider-side 400 loops and misleading compaction retries. (#25435) Thanks @Zjianru.",
+      "translated": "제공자/SiliconFlow: `Pro/*` 모델 페이로드에서 `thinking=\"off\"`를 `thinking: null`로 정규화하여 제공자 측의 400 루프 및 오해의 소지가 있는 압축 재시도를 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/Bedrock auth: normalize additional Bedrock provider aliases (`bedrock`, `aws-bedrock`, `aws_bedrock`, `amazon bedrock`) to canonical `amazon-bedrock`, ensuring auth-mode resolution consistently selects AWS SDK fallback. (#25756) Thanks @fwhite13.",
+      "translated": "모델/Bedrock 인증: 추가적인 Bedrock 제공자 별칭(`bedrock`, `aws-bedrock`, `aws_bedrock`, `amazon bedrock`)을 표준인 `amazon-bedrock`으로 정규화하여 인증 모드 확인 시 일관되게 AWS SDK 폴백이 선택되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/Providers: preserve explicit user `reasoning` overrides when merging provider model config with built-in catalog metadata, so `reasoning: false` is no longer overwritten by catalog defaults. (#25314) Thanks @lbo728.",
+      "translated": "모델/제공자: 제공자 모델 설정과 내장 카탈로그 메타데이터를 병합할 때 사용자의 명시적인 `reasoning` 재정의를 유지하여, `reasoning: false` 설정이 카탈로그 기본값에 의해 덮어쓰여지지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Auth: allow trusted-proxy authenticated Control UI websocket sessions to skip device pairing when device identity is absent, preventing false `pairing required` failures behind trusted reverse proxies. (#25428) Thanks @SidQin-cyber.",
+      "translated": "게이트웨이/인증: 신뢰할 수 있는 프록시를 통해 인증된 Control UI 웹소켓 세션에서 기기 식별 정보가 없을 때 기기 페어링을 건너뛸 수 있도록 허용하여, 신뢰할 수 있는 리버스 프록시 뒤에서 발생하는 잘못된 `pairing required` 오류를 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/Memory search: accept `--query <text>` for `openclaw memory search` (while keeping positional query support), and emit a clear error when neither form is provided. (#25904, #25857) Thanks @niceysam and @stakeswky.",
+      "translated": "CLI/메모리 검색: `openclaw memory search` 실행 시 `--query <text>` 인자를 허용하고(위치 기반 쿼리 지원은 유지), 두 형식 모두 제공되지 않을 경우 명확한 오류 메시지를 출력합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/Doctor: correct stale recovery hints to use valid commands (`openclaw gateway status --deep` and `openclaw configure --section model`). (#24485) Thanks @chilu18.",
+      "translated": "CLI/Doctor: 유효한 명령어(`openclaw gateway status --deep` 및 `openclaw configure --section model`)를 사용하도록 오래된 복구 힌트를 수정합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Sandbox: when sandbox mode is enabled but Docker is unavailable, surface a clear actionable warning (including failure impact and remediation) instead of a mild “skip checks” note. (#25438) Thanks @mcaxtr.",
+      "translated": "Doctor/샌드박스: 샌드박스 모드가 활성화되어 있지만 Docker를 사용할 수 없는 경우, 단순한 \"검사 건너뛰기\" 알림 대신 실패 영향 및 해결 방법을 포함한 명확하고 조치 가능한 경고를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Plugins: auto-enable now resolves third-party channel plugins by manifest plugin id (not channel id), preventing invalid `plugins.entries.<channelId>` writes when ids differ. (#25275) Thanks @zerone0x.",
+      "translated": "Doctor/플러그인: 자동 활성화 시 이제 채널 ID가 아닌 매니페스트 플러그인 ID로 서드파티 채널 플러그인을 식별하여, ID가 서로 다를 때 잘못된 `plugins.entries.<channelId>` 값이 작성되는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/Plugins: treat stale removed `google-antigravity-auth` plugin references as compatibility warnings (not hard validation errors) across `plugins.entries`, `plugins.allow`, `plugins.deny`, and `plugins.slots.memory`, so startup no longer fails after antigravity removal. (#25538, #25862) Thanks @chilu18.",
+      "translated": "설정/플러그인: `plugins.entries`, `plugins.allow`, `plugins.deny`, `plugins.slots.memory` 전체에서 제거된 `google-antigravity-auth` 플러그인에 대한 오래된 참조를 엄격한 유효성 검사 오류가 아닌 호환성 경고로 처리하여, antigravity 제거 후에도 시작 시 오류가 발생하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/Meta: accept numeric `meta.lastTouchedAt` timestamps and coerce them to ISO strings, preserving compatibility with agent edits that write `Date.now()` values. (#25491) Thanks @mcaxtr.",
+      "translated": "설정/메타: 숫자 형식의 `meta.lastTouchedAt` 타임스탬프를 허용하고 이를 ISO 문자열로 강제 변환하여, `Date.now()` 값을 기록하는 에이전트 편집과의 호환성을 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Usage accounting: parse Moonshot/Kimi `cached_tokens` fields (including `prompt_tokens_details.cached_tokens`) into normalized cache-read usage metrics. (#25436) Thanks @Elarwei001.",
+      "translated": "사용량 집계: Moonshot/Kimi의 `cached_tokens` 필드(`prompt_tokens_details.cached_tokens` 포함)를 분석하여 정규화된 캐시 읽기 사용량 지표로 변환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Tool dispatch: await block-reply flush before tool execution starts so buffered block replies preserve message ordering around tool calls. (#25427) Thanks @SidQin-cyber.",
+      "translated": "에이전트/도구 호출: 도구 실행이 시작되기 전에 블록 응답 플러시를 대기하여, 버퍼링된 블록 응답이 도구 호출 전후의 메시지 순서를 유지하도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Billing classification: prevent long assistant/user-facing text from being rewritten as billing failures while preserving explicit `status/code/http 402` detection for oversized structured error payloads. (#25680, #25661) Thanks @lairtonlelis.",
+      "translated": "에이전트/결제 분류: 크기가 큰 구조화된 오류 페이로드에 대한 명시적인 `status/code/http 402` 감지는 유지하면서, 긴 어시스턴트/사용자용 텍스트가 결제 실패로 잘못 처리되는 것을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/Tool-result guard: avoid generating synthetic `toolResult` entries for assistant turns that ended with `stopReason: \"aborted\"` or `\"error\"`, preventing orphaned tool-use IDs from triggering downstream API validation errors. (#25429) Thanks @mikaeldiakhate-cell.",
+      "translated": "세션/도구 결과 가드: `stopReason: \"aborted\"` 또는 `\"error\"`로 종료된 어시스턴트 차례에 대해 가상의 `toolResult` 항목 생성을 방지하여, 연결되지 않은 도구 사용 ID가 하위 API 유효성 검사 오류를 유발하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/Reset hooks: guarantee native `/new` and `/reset` flows emit command/reset hooks even on early-return command paths, with dedupe protection to avoid double hook emission. (#25459) Thanks @chilu18.",
+      "translated": "자동 응답/리셋 훅: 네이티브 `/new` 및 `/reset` 흐름에서 조기 반환되는 명령어 경로에서도 명령/리셋 훅이 실행되도록 보장하며, 중복 방지 처리를 통해 훅이 두 번 실행되지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hooks/Slug generator: resolve session slug model from the agent’s effective model (including defaults/fallback resolution) instead of raw agent-primary config only. (#25485) Thanks @SudeepMalipeddi.",
+      "translated": "훅/슬러그 생성기: 세션 슬러그 모델을 원시 에이전트 기본 설정뿐만 아니라 에이전트의 유효 모델(기본값/폴백 확인 포함)에서 확인하도록 수정합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox/FS bridge tests: add regression coverage for dash-leading basenames to confirm sandbox file reads resolve to absolute container paths (and avoid shell-option misdiagnosis for dashed filenames). (#25891) Thanks @albertlieyingadrian.",
+      "translated": "샌드박스/FS 브리지 테스트: 대시(-)로 시작하는 파일명에 대한 회귀 테스트 커버리지를 추가하여, 샌드박스 파일 읽기가 컨테이너의 절대 경로로 확인되는지 확인하고 대시가 포함된 파일명에 대한 셸 옵션 오진을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox/FS bridge: build canonical-path shell scripts with newline separators (not `; ` joins) to avoid POSIX `sh` `do;` syntax errors that broke sandbox file/image read-write operations. (#25737, #25824, #25868) Thanks @DennisGoldfinger and @peteragility.",
+      "translated": "Sandbox/FS bridge: 샌드박스 파일/이미지 읽기-쓰기 작업을 중단시켰던 POSIX `sh` `do;` 구문 오류를 방지하기 위해, `; ` 연결 대신 줄바꿈 구분자를 사용하여 canonical-path 쉘 스크립트를 빌드합니다. (#25737, #25824, #25868) @DennisGoldfinger 및 @peteragility님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox/Config: preserve `dangerouslyAllowReservedContainerTargets` and `dangerouslyAllowExternalBindSources` during sandbox docker config resolution so explicit bind-mount break-glass overrides reach runtime validation. (#25410) Thanks @skyer-jian.",
+      "translated": "Sandbox/Config: 명시적인 bind-mount 비상용(break-glass) 오버라이드가 런타임 검증에 도달할 수 있도록, 샌드박스 docker 설정 확인 중에 `dangerouslyAllowReservedContainerTargets` 및 `dangerouslyAllowExternalBindSources`를 유지합니다. (#25410) @skyer-jian님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Security: enforce gateway auth for the exact `/api/channels` plugin root path (plus `/api/channels/` descendants), with regression coverage for query/trailing-slash variants and near-miss paths that must remain plugin-owned. (#25753) Thanks @bmendonca3.",
+      "translated": "Gateway/Security: 정확한 `/api/channels` 플러그인 루트 경로(및 `/api/channels/` 하위 경로)에 대해 게이트웨이 인증을 강제하며, 쿼리/트레일링 슬래시 변형 및 플러그인 소유로 유지되어야 하는 유사 경로에 대한 회귀 테스트 범위를 추가했습니다. (#25753) @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Exec approvals: treat bare allowlist `*` as a true wildcard for parsed executables, including unresolved PATH lookups, so global opt-in allowlists work as configured. (#25250) Thanks @widingmarcus-cyber.",
+      "translated": "Exec approvals: 확인되지 않은 PATH 조회를 포함하여 파싱된 실행 파일에 대해 단순 허용 목록 `*`를 실제 와일드카드로 처리하여, 글로벌 옵트인 허용 목록이 설정된 대로 작동하도록 합니다. (#25250) @widingmarcus-cyber님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iOS/Signing: improve `scripts/ios-team-id.sh` for Xcode 16+ by falling back to Xcode-managed provisioning profiles, add actionable guidance when an Apple account exists but no Team ID can be resolved, and ignore Xcode `xcodebuild` output directories (`apps/ios/build`, `apps/shared/OpenClawKit/build`, `Swabble/build`). (#22773) Thanks @brianleach.",
+      "translated": "iOS/Signing: Xcode 16 이상을 위해 Xcode 관리 프로비저닝 프로필로 폴백하여 `scripts/ios-team-id.sh`를 개선하고, Apple 계정은 존재하지만 Team ID를 확인할 수 없는 경우 실행 가능한 가이드를 추가했으며, Xcode `xcodebuild` 출력 디렉토리(`apps/ios/build`, `apps/shared/OpenClawKit/build`, `Swabble/build`)를 무시합니다. (#22773) @brianleach님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/Chat images: route image-click opens through a shared safe-open helper (allowing only safe URL schemes) and open new tabs with opener isolation to block tabnabbing. (#18685, #25444, #25847) Thanks @Mariana-Codebase and @shakkernerd.",
+      "translated": "Control UI/Chat images: 이미지 클릭 시 열기 동작을 공유 안전 열기 헬퍼(안전한 URL 스킴만 허용)를 통해 라우팅하고, 탭내빙(tabnabbing)을 차단하기 위해 opener 격리를 적용하여 새 탭을 엽니다. (#18685, #25444, #25847) @Mariana-Codebase 및 @shakkernerd님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec: sanitize inherited host execution environment before merge, canonicalize inherited PATH handling, and strip dangerous keys (`LD_*`, `DYLD_*`, `SSLKEYLOGFILE`, and related injection vectors) from non-sandboxed exec runs. (#25755) Thanks @bmendonca3.",
+      "translated": "Security/Exec: 병합 전 상속된 호스트 실행 환경을 정리(sanitize)하고, 상속된 PATH 처리를 정규화하며, 샌드박스화되지 않은 실행 시 위험한 키(`LD_*`, `DYLD_*`, `SSLKEYLOGFILE` 및 관련 인젝션 벡터)를 제거합니다. (#25755) @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Hooks: normalize hook session-key classification with trim/lowercase plus Unicode NFKC folding (for example full-width `ＨＯＯＫ：...`) so external-content wrapping cannot be bypassed by mixed-case or lookalike prefixes. (#25750) Thanks @bmendonca3.",
+      "translated": "Security/Hooks: 대소문자 혼용이나 유사한 접두사로 외부 콘텐츠 래핑을 우회할 수 없도록, trim/소문자 변환 및 유니코드 NFKC 폴딩(예: 전각 문자 `ＨＯＯＫ：...`)을 사용하여 훅 세션 키 분류를 정규화합니다. (#25750) @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Voice Call: add Telnyx webhook replay detection and canonicalize replay-key signature encoding (Base64/Base64URL equivalent forms dedupe together), so duplicate signed webhook deliveries no longer re-trigger side effects. (#25832) Thanks @bmendonca3.",
+      "translated": "Security/Voice Call: Telnyx 웹훅 재전송(replay) 탐지 기능을 추가하고 재전송 키 서명 인코딩(Base64/Base64URL 등가 형태를 함께 중복 제거)을 정규화하여, 중복 서명된 웹훅 전달이 더 이상 부수 효과를 재발생시키지 않도록 합니다. (#25832) @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Sandbox media: restrict sandbox media tmp-path allowances to OpenClaw-managed tmp roots instead of broad host `os.tmpdir()` trust, and add outbound/channel guardrails (tmp-path lint + media-root smoke tests) to prevent regressions in local media attachment reads. Thanks @tdjackey for reporting.",
+      "translated": "Security/Sandbox media: 샌드박스 미디어 임시 경로 허용 범위를 광범위한 호스트 `os.tmpdir()` 신뢰 대신 OpenClaw 관리 임시 루트로 제한하고, 로컬 미디어 첨부 파일 읽기에서 회귀 오류를 방지하기 위해 아웃바운드/채널 가드레일(임시 경로 린트 + 미디어 루트 스모크 테스트)을 추가했습니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Sandbox media: reject hard-linked OpenClaw tmp media aliases (including symlink-to-hardlink chains) during sandbox media path resolution to prevent out-of-sandbox inode alias reads. (#25820) Thanks @bmendonca3.",
+      "translated": "Security/Sandbox media: 샌드박스 외부의 inode 별칭 읽기를 방지하기 위해, 샌드박스 미디어 경로 확인 중 하드 링크된 OpenClaw 임시 미디어 별칭(심볼릭 링크-하드 링크 체인 포함)을 거부합니다. (#25820) @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Message actions: enforce local media root checks for `sendAttachment` and `setGroupIcon` when `sandboxRoot` is unset, preventing attachment hydration from reading arbitrary host files via local absolute paths. Thanks @GCXWLP for reporting.",
+      "translated": "Security/Message actions: `sandboxRoot`가 설정되지 않은 경우 `sendAttachment` 및 `setGroupIcon`에 대해 로컬 미디어 루트 검사를 강제하여, 첨부 파일 하이드레이션(hydration)이 로컬 절대 경로를 통해 임의의 호스트 파일을 읽는 것을 방지합니다. 제보해주신 @GCXWLP님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Telegram: enforce DM authorization before media download/write (including media groups) and move telegram inbound activity tracking after DM authorization, preventing unauthorized sender-triggered inbound media disk writes. Thanks @v8hid for reporting.",
+      "translated": "Security/Telegram: 미디어 다운로드/쓰기(미디어 그룹 포함) 전에 DM 권한 부여를 강제하고, 텔레그램 인바운드 활동 추적을 DM 권한 부여 이후로 이동하여, 권한 없는 발신자가 트리거하는 인바운드 미디어 디스크 쓰기를 방지합니다. 제보해주신 @v8hid님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Workspace FS: normalize `@`-prefixed paths before workspace-boundary checks (including workspace-only read/write/edit and sandbox mount path guards), preventing absolute-path escape attempts from bypassing guard validation. Thanks @tdjackey for reporting.",
+      "translated": "Security/Workspace FS: 워크스페이스 경계 검사(워크스페이스 전용 읽기/쓰기/수정 및 샌드박스 마운트 경로 가드 포함) 전에 `@` 접두사가 붙은 경로를 정규화하여, 절대 경로 탈출 시도가 가드 검증을 우회하는 것을 방지합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Synology Chat: enforce fail-closed allowlist behavior for DM ingress so `dmPolicy: \"allowlist\"` with empty `allowedUserIds` rejects all senders instead of allowing unauthorized dispatch. (#25827) Thanks @bmendonca3 for the contribution and @tdjackey for reporting.",
+      "translated": "Security/Synology Chat: DM 수신 시 fail-closed 허용 목록 동작을 강제하여, `allowedUserIds`가 비어 있는 `dmPolicy: \"allowlist\"` 설정이 권한 없는 발송을 허용하는 대신 모든 발신자를 거부하도록 합니다. (#25827) 기여해주신 @bmendonca3님과 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Native images: enforce `tools.fs.workspaceOnly` for native prompt image auto-load (including history refs), preventing out-of-workspace sandbox mounts from being implicitly ingested as vision input. Thanks @tdjackey for reporting.",
+      "translated": "Security/Native images: 네이티브 프롬프트 이미지 자동 로드(기록 참조 포함)에 대해 `tools.fs.workspaceOnly`를 강제하여, 워크스페이스 외부의 샌드박스 마운트가 비전 입력으로 암시적으로 수집되는 것을 방지합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec approvals: bind `system.run` command display/approval text to full argv when shell-wrapper inline payloads carry positional argv values, and reject payload-only `rawCommand` mismatches for those wrapper-carrier forms, preventing hidden command execution under misleading approval text. Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec approvals: 쉘 래퍼 인라인 페이로드가 위치 인자(argv) 값을 포함할 때 `system.run` 명령 표시/승인 텍스트를 전체 argv에 바인딩하고, 해당 래퍼 캐리어 형태에 대해 페이로드 전용 `rawCommand` 불일치를 거부하여, 오해의 소지가 있는 승인 텍스트 아래에서 숨겨진 명령이 실행되는 것을 방지합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec companion host: forward canonical `system.run` display text (not payload-only shell snippets) to the macOS exec host, and enforce rawCommand/argv consistency there for shell-wrapper positional-argv carriers and env-modifier preludes, preventing companion-side approval/display drift. Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec companion host: 페이로드 전용 쉘 스니펫이 아닌 정규화된 `system.run` 표시 텍스트를 macOS 실행 호스트로 전달하고, 쉘 래퍼 위치 인자 캐리어 및 환경 변수 수정 서두(prelude)에 대해 rawCommand/argv 일관성을 강제하여 컴패니언 측의 승인/표시 불일치를 방지합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec approvals: fail closed when transparent dispatch-wrapper unwrapping exceeds the depth cap, so nested `/usr/bin/env` chains cannot bypass shell-wrapper approval gating in `allowlist` + `ask=on-miss` mode. Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec approvals: 투명 디스패치 래퍼의 언래핑(unwrapping)이 깊이 제한을 초과할 경우 실패 시 차단(fail closed) 처리하여, 중첩된 `/usr/bin/env` 체인이 `allowlist` + `ask=on-miss` 모드에서 쉘 래퍼 승인 게이팅을 우회할 수 없도록 합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec: limit default safe-bin trusted directories to immutable system paths (`/bin`, `/usr/bin`) and require explicit opt-in (`tools.exec.safeBinTrustedDirs`) for package-manager/user bin paths (for example Homebrew), add security-audit findings for risky trusted-dir choices, warn at runtime when explicitly trusted dirs are group/world writable, and add doctor hints when configured `safeBins` resolve outside trusted dirs. Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec: 기본 safe-bin 신뢰 디렉토리를 불변 시스템 경로(`/bin`, `/usr/bin`)로 제한하고 패키지 관리자/사용자 bin 경로(예: Homebrew)에 대해 명시적 옵트인(`tools.exec.safeBinTrustedDirs`)을 요구하며, 위험한 신뢰 디렉토리 선택에 대한 보안 감사 결과를 추가하고, 명시적으로 신뢰된 디렉토리가 그룹/전체 쓰기 가능할 때 런타임 경고를 표시하며, 설정된 `safeBins`가 신뢰 디렉토리 외부에서 확인될 때 doctor 힌트를 추가합니다. 제보해주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Sandbox: canonicalize bind-mount source paths via existing-ancestor realpath so symlink-parent + non-existent-leaf paths cannot bypass allowed-source-roots or blocked-path checks. Thanks @tdjackey.",
+      "translated": "보안/샌드박스: 심볼릭 링크 부모와 존재하지 않는 리프 경로가 `allowed-source-roots` 또는 `blocked-path` 검사를 우회할 수 없도록, 기존 상위 요소의 realpath를 통해 바인드 마운트 소스 경로를 정규화합니다. @tdjackey 님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-02-25T07:27:15.087Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 21996
+}
