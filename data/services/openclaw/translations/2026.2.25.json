@@ -1,0 +1,374 @@
+{
+  "version": "2026.2.25",
+  "date": "2026-02-26",
+  "parsedAt": "2026-02-26T07:17:59.489Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android/Chat: improve streaming delivery handling and markdown rendering quality in the native Android chat UI, including better GitHub-flavored markdown behavior. (#26079) Thanks @obviyus.",
+      "translated": "Android/Chat: 네이티브 Android 채팅 UI에서 스트리밍 전송 처리 및 마크다운 렌더링 품질을 개선하고, GitHub 스타일의 마크다운 동작을 향상시켰습니다. (#26079) 감사합니다 @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Startup perf: defer foreground-service startup, move WebView debugging init out of critical startup, and add startup macrobenchmark + low-noise perf CLI scripts for deterministic cold-start tracking. (#26659) Thanks @obviyus.",
+      "translated": "Android/Startup 성능: 포그라운드 서비스 시작을 지연하고, WebView 디버깅 초기화를 중요한 시작 과정에서 분리하며, 결정론적 콜드 스타트 추적을 위한 시작 매크로 벤치마크와 저소음 성능 CLI 스크립트를 추가했습니다. (#26659) 감사합니다 @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "UI/Chat compose: add mobile stacked layout for compose action buttons on small screens to improve send/session controls usability. (#11167) Thanks @junyiz.",
+      "translated": "UI/Chat 작성: 작은 화면에서 전송/세션 제어 사용성을 개선하기 위해 작성 작업 버튼에 모바일 스택 레이아웃을 추가했습니다. (#11167) 감사합니다 @junyiz."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Heartbeat/Config: replace heartbeat DM toggle with `agents.defaults.heartbeat.directPolicy` (`allow` | `block`; also supported per-agent via `agents.list[].heartbeat.directPolicy`) for clearer delivery semantics.",
+      "translated": "Heartbeat/Config: 명확한 전송 의미를 위해 heartbeat DM 토글을 `agents.defaults.heartbeat.directPolicy` (`allow` | `block`; 에이전트별로 `agents.list[].heartbeat.directPolicy` 지원)로 대체했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Onboarding/Security: clarify onboarding security notices that OpenClaw is personal-by-default (single trusted operator boundary) and shared/multi-user setups require explicit lock-down/hardening.",
+      "translated": "Onboarding/Security: OpenClaw가 기본적으로 개인용(단일 신뢰 운영자 경계)이며, 공유/다중 사용자 설정에는 명시적인 잠금/강화가 필요하다는 온보딩 보안 공지를 명확히 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Branding/Docs + Apple surfaces: replace remaining `bot.molt` launchd label, bundle-id, logging subsystem, and command examples with `ai.openclaw` across docs, iOS app surfaces, helper scripts, and CLI test fixtures.",
+      "translated": "Branding/Docs + Apple 표면: 문서, iOS 앱 표면, 도우미 스크립트 및 CLI 테스트 픽스처 전반에 걸쳐 남아 있는 `bot.molt` launchd 레이블, 번들 ID, 로깅 서브시스템 및 명령 예제를 `ai.openclaw`로 교체했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/Config: remind agents to call `config.schema` before config edits or config-field questions to avoid guessing. Thanks @thewilloftheshadow.",
+      "translated": "Agents/Config: 에이전트가 구성 편집 또는 구성 필드 질문 전에 `config.schema`를 호출하도록 상기시켜 추측을 피하도록 했습니다. 감사합니다 @thewilloftheshadow."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dependencies: update workspace dependency pins and lockfile (Bedrock SDK `3.998.0`, `@mariozechner/pi-*` `0.55.1`, TypeScript native preview `7.0.0-dev.20260225.1`) while keeping `@buape/carbon` pinned.",
+      "translated": "Dependencies: 작업 공간 종속성 고정 및 잠금 파일을 업데이트했습니다 (Bedrock SDK `3.998.0`, `@mariozechner/pi-*` `0.55.1`, TypeScript 네이티브 프리뷰 `7.0.0-dev.20260225.1`) `@buape/carbon`은 고정 상태를 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**BREAKING:** Heartbeat direct/DM delivery default is now `allow` again. To keep DM-blocked behavior from `2026.2.24`, set `agents.defaults.heartbeat.directPolicy: \"block\"` (or per-agent override).",
+      "translated": "**중대한 변경:** Heartbeat 직접/DM 전송 기본값이 다시 `allow`로 변경되었습니다. `2026.2.24`의 DM 차단 동작을 유지하려면 `agents.defaults.heartbeat.directPolicy: \"block\"`을 설정하세요 (또는 에이전트별로 재정의)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Subagents delivery: refactor subagent completion announce dispatch into an explicit queue/direct/fallback state machine, recover outbound channel-plugin resolution in cold/stale plugin-registry states across announce/message/gateway send paths, finalize cleanup bookkeeping when announce flow rejects, and treat Telegram sends without `message_id` as delivery failures (instead of false-success `\"unknown\"` IDs). (#26867, #25961, #26803, #25069, #26741) Thanks @SmithLabsLLC and @docaohieu2808.",
+      "translated": "Agents/Subagents 전송: 하위 에이전트 완료 발표 전송을 명시적인 큐/직접/대체 상태 기계로 리팩터링하고, 발표/메시지/게이트웨이 전송 경로 전반에 걸쳐 콜드/오래된 플러그인 레지스트리 상태에서 아웃바운드 채널 플러그인 해상도를 복구하며, 발표 흐름이 거부될 때 정리 부기 작업을 완료하고, `message_id` 없이 Telegram 전송을 실패로 처리합니다 (잘못된 성공 `\"unknown\"` ID 대신). (#26867, #25961, #26803, #25069, #26741) 감사합니다 @SmithLabsLLC 및 @docaohieu2808."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Webhook: pre-initialize webhook bots, switch webhook processing to callback-mode JSON handling, and preserve full near-limit payload reads under delayed handlers to prevent webhook request hangs and dropped updates. (#26156)",
+      "translated": "Telegram/Webhook: 웹훅 봇을 사전 초기화하고, 웹훅 처리를 콜백 모드 JSON 처리로 전환하며, 지연된 핸들러에서 전체 근접 제한 페이로드 읽기를 유지하여 웹훅 요청 지연 및 업데이트 누락을 방지합니다. (#26156)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Session threads: prevent oversized parent-session inheritance from silently bricking new thread sessions, surface embedded context-overflow empty-result failures to users, and add configurable `session.parentForkMaxTokens` (default `100000`, `0` disables). (#26912) Thanks @markshields-tl.",
+      "translated": "Slack/Session 스레드: 과도한 부모 세션 상속이 새 스레드 세션을 조용히 중단하지 않도록 방지하고, 사용자에게 임베디드 컨텍스트 오버플로 빈 결과 실패를 표시하며, 구성 가능한 `session.parentForkMaxTokens` (기본값 `100000`, `0` 비활성화)를 추가했습니다. (#26912) 감사합니다 @markshields-tl."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Message multi-account routing: honor explicit `delivery.accountId` for isolated cron delivery resolution, and when `message.send` omits `accountId`, fall back to the sending agent's bound channel account instead of defaulting to the global account. (#27015, #26975) Thanks @lbo728 and @stakeswky.",
+      "translated": "Cron/Message 다중 계정 라우팅: 격리된 cron 전송 해상도를 위해 명시적인 `delivery.accountId`를 준수하고, `message.send`가 `accountId`를 생략할 때 전역 계정 대신 전송 에이전트의 바운드 채널 계정을 사용합니다. (#27015, #26975) 감사합니다 @lbo728 및 @stakeswky."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Message media roots: thread `agentId` through gateway `send` RPC and prefer explicit `agentId` over session/default resolution so non-default agent workspace media sends no longer fail with `LocalMediaAccessError`; added regression coverage for agent precedence and blank-agent fallback. (#23249) Thanks @Sid-Qin.",
+      "translated": "Gateway/Message 미디어 루트: 게이트웨이 `send` RPC를 통해 `agentId`를 전달하고, 세션/기본 해상도보다 명시적인 `agentId`를 선호하여 비기본 에이전트 작업 공간 미디어 전송이 더 이상 `LocalMediaAccessError`로 실패하지 않도록 하며, 에이전트 우선순위 및 빈 에이전트 대체에 대한 회귀 커버리지를 추가했습니다. (#23249) 감사합니다 @Sid-Qin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Followups/Routing: when explicit origin routing fails, allow same-channel fallback dispatch (while still blocking cross-channel fallback) so followup replies do not get dropped on transient origin-adapter failures. (#26109) Thanks @Sid-Qin.",
+      "translated": "Followups/Routing: 명시적인 출처 라우팅이 실패할 때 동일한 채널 대체 전송을 허용하여 후속 응답이 일시적인 출처 어댑터 실패로 인해 누락되지 않도록 했습니다 (여전히 교차 채널 대체는 차단). (#26109) 감사합니다 @Sid-Qin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Announce duplicate guard: track attempted announce/direct delivery separately from confirmed `delivered`, and suppress fallback main-session cron summaries when delivery was already attempted to avoid duplicate end-user sends in uncertain-ack paths. (#27018)",
+      "translated": "Cron/Announce 중복 방지: 시도된 발표/직접 전송을 확인된 `delivered`와 별도로 추적하고, 불확실한 확인 경로에서 중복 최종 사용자 전송을 방지하기 위해 전송이 이미 시도된 경우 대체 메인 세션 cron 요약을 억제합니다. (#27018)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "LINE/Lifecycle: keep LINE `startAccount` pending until abort so webhook startup is no longer misread as immediate channel exit, preventing restart-loop storms on LINE provider boot. (#26528) Thanks @Sid-Qin.",
+      "translated": "LINE/Lifecycle: LINE `startAccount`를 중단될 때까지 보류 상태로 유지하여 웹훅 시작이 더 이상 즉각적인 채널 종료로 잘못 해석되지 않도록 하여 LINE 제공자 부팅 시 재시작 루프 폭풍을 방지합니다. (#26528) 감사합니다 @Sid-Qin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Gateway: capture and drain startup-time gateway `error` events before lifecycle listeners attach so early `Fatal Gateway error: 4014` closes surface as actionable intent guidance instead of uncaught gateway crashes. (#23832) Thanks @theotarr.",
+      "translated": "Discord/Gateway: 수명 주기 리스너가 연결되기 전에 시작 시간 게이트웨이 `error` 이벤트를 캡처하고 배출하여 초기 `Fatal Gateway error: 4014` 종료가 처리 가능한 의도 지침으로 표시되도록 하여 잡히지 않은 게이트웨이 충돌 대신 처리합니다. (#23832) 감사합니다 @theotarr."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Inbound text: preserve embed `title` + `description` fallback text in message and forwarded snapshot parsing so embed titles are not silently dropped from agent input. (#26946) Thanks @stakeswky.",
+      "translated": "Discord/Inbound 텍스트: 메시지 및 전달된 스냅샷 구문 분석에서 임베드 `title` + `description` 대체 텍스트를 보존하여 에이전트 입력에서 임베드 제목이 조용히 누락되지 않도록 합니다. (#26946) 감사합니다 @stakeswky."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Inbound media fallback: deliver file-only messages even when Slack media downloads fail by adding a filename placeholder fallback, capping fallback names to the shared media-file limit, and normalizing empty filenames to `file` so attachment-only messages are not silently dropped. (#25181) Thanks @justinhuangcode.",
+      "translated": "Slack/Inbound 미디어 대체: 파일 이름 자리 표시자 대체를 추가하여 Slack 미디어 다운로드가 실패할 때도 파일 전용 메시지를 전송하고, 대체 이름을 공유 미디어 파일 제한으로 제한하며, 빈 파일 이름을 `file`로 정규화하여 첨부 파일 전용 메시지가 조용히 누락되지 않도록 합니다. (#25181) 감사합니다 @justinhuangcode."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Preview cleanup: keep finalized text previews when a later assistant message is media-only (for example mixed text plus voice turns) by skipping finalized preview archival at assistant-message boundaries, preventing cleanup from deleting already-visible final text messages. (#27042)",
+      "translated": "Telegram/미리보기 정리: 보조 메시지가 미디어 전용일 때 최종 텍스트 미리보기를 유지하여 보조 메시지 경계에서 최종 미리보기 아카이브를 건너뛰고, 정리가 이미 표시된 최종 텍스트 메시지를 삭제하지 않도록 방지합니다. (#27042)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Markdown spoilers: keep valid `||spoiler||` pairs while leaving unmatched trailing `||` delimiters as literal text, avoiding false all-or-nothing spoiler suppression. (#26105) Thanks @Sid-Qin.",
+      "translated": "Telegram/Markdown 스포일러: 유효한 `||spoiler||` 쌍을 유지하면서 일치하지 않는 후행 `||` 구분자를 문자 그대로 남겨두어 잘못된 전체 스포일러 억제를 방지합니다. (#26105) 감사합니다 @Sid-Qin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Allowlist channels: match channel IDs case-insensitively during channel allowlist resolution so lowercase config keys (for example `c0abc12345`) correctly match Slack runtime IDs (`C0ABC12345`) under `groupPolicy: \"allowlist\"`, preventing silent channel-event drops. (#26878) Thanks @lbo728.",
+      "translated": "Slack/허용 목록 채널: 채널 허용 목록 해결 시 채널 ID를 대소문자 구분 없이 일치시켜 소문자 구성 키(예: `c0abc12345`)가 Slack 런타임 ID(`C0ABC12345`)와 올바르게 일치하도록 하여 `groupPolicy: \"allowlist\"`에서 채널 이벤트가 조용히 누락되지 않도록 합니다. (#26878) 감사합니다 @lbo728."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Typing indicator: prevent stuck typing indicators by sealing channel typing keepalive callbacks after idle/cleanup and ensuring Discord dispatch always marks typing idle even if preview-stream cleanup fails. (#26295) Thanks @ngutman.",
+      "translated": "Discord/타이핑 표시기: 유휴/정리 후 채널 타이핑 유지 콜백을 봉인하고 Discord 디스패치가 미리보기 스트림 정리가 실패하더라도 항상 타이핑 유휴 상태를 표시하도록 하여 고착된 타이핑 표시기를 방지합니다. (#26295) 감사합니다 @ngutman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels/Typing indicator: guard typing keepalive start callbacks after idle/cleanup close so post-close ticks cannot re-trigger stale typing indicators. (#26325) Thanks @win4r.",
+      "translated": "채널/타이핑 표시기: 유휴/정리 후 타이핑 유지 시작 콜백을 보호하여 닫힌 후 틱이 오래된 타이핑 표시기를 다시 트리거할 수 없도록 합니다. (#26325) 감사합니다 @win4r."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Followups/Typing indicator: ensure followup turns mark dispatch idle on every exit path (including `NO_REPLY`, empty payloads, and agent errors) so typing keepalive cleanup always runs and channel typing indicators do not get stuck after queued/silent followups. (#26881) Thanks @codexGW.",
+      "translated": "후속/타이핑 표시기: 후속 턴이 모든 종료 경로(예: `NO_REPLY`, 빈 페이로드, 에이전트 오류)에서 디스패치 유휴 상태를 표시하여 타이핑 유지 정리가 항상 실행되고 대기/조용한 후속 후 채널 타이핑 표시기가 고착되지 않도록 합니다. (#26881) 감사합니다 @codexGW."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Voice-call/TTS tools: hide the `tts` tool when the message provider is `voice`, preventing voice-call runs from selecting self-playback TTS and falling into silent no-output loops. (#27025)",
+      "translated": "음성 통화/TTS 도구: 메시지 제공자가 `voice`일 때 `tts` 도구를 숨겨 음성 통화 실행 시 자체 재생 TTS를 선택하고 무음 무출력 루프에 빠지지 않도록 합니다. (#27025)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Tools: normalize non-standard plugin tool results that omit `content` so embedded runs no longer crash with `Cannot read properties of undefined (reading 'filter')` after tool completion (including `tesseramemo_query`). (#27007)",
+      "translated": "에이전트/도구: `content`를 생략하는 비표준 플러그인 도구 결과를 표준화하여 도구 완료 후(예: `tesseramemo_query`) 내장 실행이 더 이상 `Cannot read properties of undefined (reading 'filter')`로 충돌하지 않도록 합니다. (#27007)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Model overrides: when isolated `payload.model` is no longer allowlisted, fall back to default model selection instead of failing the job, while still returning explicit errors for invalid model strings. (#26717) Thanks @Youyou972.",
+      "translated": "Cron/모델 재정의: 격리된 `payload.model`이 더 이상 허용 목록에 없을 때 작업이 실패하는 대신 기본 모델 선택으로 되돌리며, 잘못된 모델 문자열에 대해서는 명시적인 오류를 반환합니다. (#26717) 감사합니다 @Youyou972."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Model fallback: keep explicit text + image fallback chains reachable even when `agents.defaults.models` allowlists are present, prefer explicit run `agentId` over session-key parsing for followup fallback override resolution (with session-key fallback), treat agent-level fallback overrides as configured in embedded runner preflight, and classify `model_cooldown` / `cooling down` errors as `rate_limit` so failover continues. (#11972, #24137, #17231)",
+      "translated": "에이전트/모델 폴백: `agents.defaults.models` 허용 목록이 있을 때도 명시적인 텍스트 + 이미지 폴백 체인이 도달 가능하도록 유지하고, 후속 폴백 재정의 해결을 위해 세션 키 구문 분석보다 명시적인 실행 `agentId`를 선호하며(세션 키 폴백 포함), 에이전트 수준 폴백 재정의를 내장 러너 사전 비행에서 구성된 대로 처리하고, `model_cooldown` / `cooling down` 오류를 `rate_limit`로 분류하여 장애 조치가 계속되도록 합니다. (#11972, #24137, #17231)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Model fallback: keep same-provider fallback chains active when session model differs from configured primary, infer cooldown reason from provider profile state (instead of `disabledReason` only), keep no-profile fallback providers eligible (env/models.json paths), and only relax same-provider cooldown fallback attempts for `rate_limit`. (#23816) thanks @ramezgaberiel.",
+      "translated": "에이전트/모델 폴백: 세션 모델이 구성된 기본 모델과 다를 때 동일 제공자 폴백 체인을 활성 상태로 유지하고, 제공자 프로필 상태에서 냉각 이유를 추론하며(단순히 `disabledReason`만이 아님), 프로필이 없는 폴백 제공자를 적격으로 유지하고(env/models.json 경로), 동일 제공자 냉각 폴백 시도는 `rate_limit`에 대해서만 완화합니다. (#23816) 감사합니다 @ramezgaberiel."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Model fallback: continue fallback traversal on unrecognized errors when candidates remain, while still throwing the original unknown error on the last candidate. (#26106) Thanks @Sid-Qin.",
+      "translated": "에이전트/모델 폴백: 후보가 남아 있을 때 인식되지 않은 오류에 대한 폴백 탐색을 계속하면서 마지막 후보에서 원래의 알 수 없는 오류를 여전히 던집니다. (#26106) 감사합니다 @Sid-Qin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/Auth probes: map permanent auth failover reasons (`auth_permanent`, for example revoked keys) into probe auth status instead of `unknown`, so `openclaw models status --probe` reports actionable auth failures. (#25754) thanks @rrenamed.",
+      "translated": "모델/인증 프로브: 영구 인증 장애 이유(`auth_permanent`, 예: 취소된 키)를 프로브 인증 상태로 매핑하여 `openclaw models status --probe`가 실행 가능한 인증 실패를 보고하도록 합니다. (#25754) 감사합니다 @rrenamed."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hooks/Inbound metadata: include `guildId` and `channelName` in `message_received` metadata for both plugin and internal hook paths. (#26115) Thanks @davidrudduck.",
+      "translated": "훅/수신 메타데이터: 플러그인 및 내부 훅 경로 모두에 대해 `message_received` 메타데이터에 `guildId` 및 `channelName`을 포함합니다. (#26115) 감사합니다 @davidrudduck."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Component auth: evaluate guild component interactions with command-gating authorizers so unauthorized users no longer get `CommandAuthorized: true` on modal/button events. (#26119) Thanks @bmendonca3.",
+      "translated": "Discord/구성 요소 인증: 명령 게이트 인증자와 함께 길드 구성 요소 상호 작용을 평가하여 권한이 없는 사용자가 모달/버튼 이벤트에서 `CommandAuthorized: true`를 더 이상 받지 않도록 합니다. (#26119) 감사합니다 @bmendonca3."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Gateway auth: require pairing for operator device-identity sessions authenticated with shared token auth so unpaired devices cannot self-assign operator scopes. Thanks @tdjackey for reporting.",
+      "translated": "보안/게이트웨이 인증: 공유 토큰 인증으로 인증된 운영자 디바이스 ID 세션에 페어링을 요구하여 페어링되지 않은 디바이스가 운영자 범위를 자체 할당할 수 없도록 합니다. 보고해 주신 @tdjackey께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Gateway WebSocket auth: enforce origin checks for direct browser WebSocket clients beyond Control UI/Webchat, apply password-auth failure throttling to browser-origin loopback attempts (including localhost), and block silent auto-pairing for non-Control-UI browser clients to prevent cross-origin brute-force and session takeover chains. This ships in the next npm release (`2026.2.25`). Thanks @luz-oasis for reporting.",
+      "translated": "보안/게이트웨이 WebSocket 인증: Control UI/Webchat을 넘어 직접 브라우저 WebSocket 클라이언트에 대한 출처 검사를 시행하고, 브라우저 출처 루프백 시도(로컬호스트 포함)에 비밀번호 인증 실패 제한을 적용하며, 비제어 UI 브라우저 클라이언트에 대한 자동 페어링을 차단하여 교차 출처 무차별 대입 및 세션 탈취 체인을 방지합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @luz-oasis께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Gateway trusted proxy: require `operator` role for the Control UI trusted-proxy pairing bypass so unpaired `node` sessions can no longer connect via `client.id=control-ui` and invoke node event methods. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "보안/게이트웨이 신뢰할 수 있는 프록시: Control UI 신뢰할 수 있는 프록시 페어링 우회를 위해 `operator` 역할을 요구하여 페어링되지 않은 `node` 세션이 더 이상 `client.id=control-ui`를 통해 연결하고 노드 이벤트 메서드를 호출할 수 없도록 합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/macOS beta onboarding: remove Anthropic OAuth sign-in and the legacy `oauth.json` onboarding path that exposed the PKCE verifier via OAuth `state`; this impacted the macOS beta onboarding path only. Anthropic subscription auth is now setup-token-only and will ship in the next npm release (`2026.2.25`). Thanks @zdi-disclosures for reporting.",
+      "translated": "보안/macOS 베타 온보딩: Anthropic OAuth 로그인 및 OAuth `state`를 통해 PKCE 검증기를 노출한 레거시 `oauth.json` 온보딩 경로를 제거합니다. 이는 macOS 베타 온보딩 경로에만 영향을 미쳤습니다. Anthropic 구독 인증은 이제 설정 토큰 전용이며 다음 npm 릴리스(`2026.2.25`)에 포함될 예정입니다. 보고해 주신 @zdi-disclosures께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Microsoft Teams file consent: bind `fileConsent/invoke` upload acceptance/decline to the originating conversation before consuming pending uploads, preventing cross-conversation pending-file upload or cancellation via leaked `uploadId` values; includes regression coverage for match/mismatch invoke handling. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "보안/Microsoft Teams 파일 동의: `fileConsent/invoke` 업로드 수락/거부를 원래 대화에 바인딩하여 누출된 `uploadId` 값을 통한 교차 대화 대기 파일 업로드 또는 취소를 방지합니다. 일치/불일치 호출 처리에 대한 회귀 커버리지가 포함됩니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Gateway: harden `agents.files` path handling to block out-of-workspace symlink targets for `agents.files.get`/`agents.files.set`, keep in-workspace symlink targets supported, and add gateway regression coverage for both blocked escapes and allowed in-workspace symlinks. Thanks @tdjackey for reporting.",
+      "translated": "Security/Gateway: `agents.files` 경로 처리를 강화하여 `agents.files.get`/`agents.files.set`의 작업 공간 외부 심볼릭 링크 대상은 차단하고, 작업 공간 내부 심볼릭 링크 대상은 지원하며, 차단된 탈출과 허용된 작업 공간 심볼릭 링크 모두에 대한 게이트웨이 회귀 테스트를 추가했습니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Workspace FS: reject hardlinked workspace file aliases in `tools.fs.workspaceOnly` and `tools.exec.applyPatch.workspaceOnly` boundary checks (including sandbox mount-root guards) to prevent out-of-workspace read/write via in-workspace hardlink paths. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Workspace FS: `tools.fs.workspaceOnly` 및 `tools.exec.applyPatch.workspaceOnly` 경계 검사(샌드박스 마운트 루트 보호 포함)에서 하드링크된 작업 공간 파일 별칭을 거부하여 작업 공간 내부 하드링크 경로를 통한 작업 공간 외부 읽기/쓰기를 방지합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Browser temp paths: harden trace/download output-path handling against symlink-root and symlink-parent escapes with realpath-based write-path checks plus secure fallback tmp-dir validation that fails closed on unsafe fallback links. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Browser temp paths: 실경로 기반 쓰기 경로 검사와 안전하지 않은 대체 링크에 대해 닫힌 상태로 실패하는 안전한 대체 임시 디렉토리 검증을 통해 심볼릭 링크 루트 및 심볼릭 링크 부모 탈출에 대한 추적/다운로드 출력 경로 처리를 강화했습니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Browser uploads: revalidate upload paths at use-time in Playwright file-chooser and direct-input flows so missing/rebound paths are rejected before `setFiles`, with regression coverage for strict missing-path handling.",
+      "translated": "Security/Browser uploads: Playwright 파일 선택기 및 직접 입력 흐름에서 사용 시 업로드 경로를 재검증하여 누락되거나 재결합된 경로가 `setFiles` 전에 거부되도록 하고, 엄격한 누락 경로 처리를 위한 회귀 테스트를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec approvals: bind `system.run` approval matching to exact argv identity and preserve argv whitespace in rendered command text, preventing trailing-space executable path swaps from reusing a mismatched approval. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec approvals: `system.run` 승인 매칭을 정확한 argv 식별에 바인딩하고 렌더링된 명령 텍스트에서 argv 공백을 유지하여 잘못된 승인을 재사용하지 않도록 후행 공백 실행 파일 경로 교체를 방지합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Exec approvals: harden approval-bound `system.run` execution on node hosts by rejecting symlink `cwd` paths and canonicalizing path-like executable argv before spawn, blocking mutable-cwd symlink retarget chains between approval and execution. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Exec approvals: 노드 호스트에서 승인에 바인딩된 `system.run` 실행을 강화하여 심볼릭 링크 `cwd` 경로를 거부하고 스폰 전에 경로 유사 실행 파일 argv를 정규화하여 승인과 실행 사이의 가변 cwd 심볼릭 링크 재타겟 체인을 차단합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Signal: enforce DM/group authorization before reaction-only notification enqueue so unauthorized senders can no longer inject Signal reaction system events under `dmPolicy`/`groupPolicy`; reaction notifications now require channel access checks first. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Signal: 반응 전용 알림 대기열에 DM/그룹 권한을 강제하여 승인되지 않은 발신자가 더 이상 `dmPolicy`/`groupPolicy` 하에 Signal 반응 시스템 이벤트를 주입할 수 없도록 합니다. 반응 알림은 이제 채널 접근 검사를 먼저 요구합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Discord reactions: enforce DM policy/allowlist authorization before reaction-event system enqueue in direct messages; Discord reaction handling now also honors DM/group-DM enablement and guild `groupPolicy` channel gating to keep reaction ingress aligned with normal message preflight. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Discord reactions: 직접 메시지에서 반응 이벤트 시스템 대기열 전에 DM 정책/허용 목록 권한을 강제합니다. Discord 반응 처리는 이제 DM/그룹 DM 활성화 및 길드 `groupPolicy` 채널 게이팅을 준수하여 반응 입력이 일반 메시지 사전 비행과 일치하도록 합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Slack reactions + pins: gate `reaction_*` and `pin_*` system-event enqueue through shared sender authorization so DM `dmPolicy`/`allowFrom` and channel `users` allowlists are enforced consistently for non-message ingress, with regression coverage for denied/allowed sender paths. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Slack reactions + pins: `reaction_*` 및 `pin_*` 시스템 이벤트 대기열을 공유 발신자 권한을 통해 게이트하여 DM `dmPolicy`/`allowFrom` 및 채널 `users` 허용 목록이 비메시지 입력에 대해 일관되게 적용되도록 하고, 거부/허용된 발신자 경로에 대한 회귀 테스트를 추가했습니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Telegram reactions: enforce `dmPolicy`/`allowFrom` and group allowlist authorization on `message_reaction` events before enqueueing reaction system events, preventing unauthorized reaction-triggered input in DMs and groups; ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Telegram reactions: `dmPolicy`/`allowFrom` 및 그룹 허용 목록 권한을 `message_reaction` 이벤트에 대해 반응 시스템 이벤트를 대기열에 추가하기 전에 강제하여 승인되지 않은 반응 트리거 입력이 DM 및 그룹에서 발생하지 않도록 합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Telegram group allowlist: fail closed for group sender authorization by removing DM pairing-store fallback from group allowlist evaluation; group sender access now requires explicit `groupAllowFrom` or per-group/per-topic `allowFrom`. (#25988) Thanks @bmendonca3.",
+      "translated": "Security/Telegram group allowlist: 그룹 발신자 권한에 대해 DM 페어링 저장소 대체를 그룹 허용 목록 평가에서 제거하여 실패를 닫습니다. 이제 그룹 발신자 접근은 명시적인 `groupAllowFrom` 또는 그룹/주제별 `allowFrom`이 필요합니다. (#25988) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Slack interactions: enforce channel/DM authorization and modal actor binding (`private_metadata.userId`) before enqueueing `block_action`/`view_submission`/`view_closed` system events, with regression coverage for unauthorized senders and missing/mismatched actor metadata. This ships in the next npm release (`2026.2.25`). Thanks @tdjackey for reporting.",
+      "translated": "Security/Slack interactions: `block_action`/`view_submission`/`view_closed` 시스템 이벤트를 대기열에 추가하기 전에 채널/DM 권한 및 모달 액터 바인딩(`private_metadata.userId`)을 강제하여 승인되지 않은 발신자 및 누락/불일치 액터 메타데이터에 대한 회귀 테스트를 추가했습니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @tdjackey님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Nextcloud Talk: drop replayed signed webhook events with persistent per-account replay dedupe across restarts, and reject unexpected webhook backend origins when account base URL is configured. Thanks @aristorechina for reporting.",
+      "translated": "Security/Nextcloud Talk: 재시작 시에도 지속적인 계정별 재생 중복 제거로 재생된 서명된 웹훅 이벤트를 삭제하고, 계정 기본 URL이 구성된 경우 예기치 않은 웹훅 백엔드 출처를 거부합니다. 보고해 주신 @aristorechina님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Nextcloud Talk: reject unsigned webhook traffic before full body reads, reducing unauthenticated request-body exposure, with auth-order regression coverage. (#26118) Thanks @bmendonca3.",
+      "translated": "Security/Nextcloud Talk: 전체 본문 읽기 전에 서명되지 않은 웹훅 트래픽을 거부하여 인증되지 않은 요청 본문 노출을 줄이고, 인증 순서 회귀 테스트를 추가했습니다. (#26118) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Nextcloud Talk: stop treating DM pairing-store entries as group allowlist senders, so group authorization remains bounded to configured group allowlists. (#26116) Thanks @bmendonca3.",
+      "translated": "Security/Nextcloud Talk: DM 페어링 저장소 항목을 그룹 허용 목록 발신자로 취급하는 것을 중지하여 그룹 권한이 구성된 그룹 허용 목록에 제한되도록 합니다. (#26116) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/LINE: cap unsigned webhook body reads before auth/signature handling to bound unauthenticated body processing. (#26095) Thanks @bmendonca3.",
+      "translated": "Security/LINE: 인증/서명 처리 전에 서명되지 않은 웹훅 본문 읽기를 제한하여 인증되지 않은 본문 처리를 제한합니다. (#26095) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/IRC: keep pairing-store approvals DM-only and out of IRC group allowlist authorization, with policy regression tests for allowlist resolution. (#26112) Thanks @bmendonca3.",
+      "translated": "Security/IRC: 페어링 저장소 승인을 DM 전용으로 유지하고 IRC 그룹 허용 목록 권한에서 제외하여 허용 목록 해결에 대한 정책 회귀 테스트를 추가했습니다. (#26112) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Microsoft Teams: isolate group allowlist and command authorization from DM pairing-store entries to prevent cross-context authorization bleed. (#26111) Thanks @bmendonca3.",
+      "translated": "Security/Microsoft Teams: 그룹 허용 목록 및 명령 권한을 DM 페어링 저장소 항목에서 분리하여 교차 컨텍스트 권한 누출을 방지합니다. (#26111) 보고해 주신 @bmendonca3님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/SSRF guard: classify IPv6 multicast literals (`ff00::/8`) as blocked/private-internal targets in shared SSRF IP checks, preventing multicast literals from bypassing URL-host preflight and DNS answer validation. This ships in the next npm release (`2026.2.25`). Thanks @zpbrent for reporting.",
+      "translated": "Security/SSRF guard: IPv6 멀티캐스트 리터럴(`ff00::/8`)을 공유 SSRF IP 검사에서 차단/비공개 내부 대상으로 분류하여 멀티캐스트 리터럴이 URL 호스트 사전 비행 및 DNS 응답 검증을 우회하지 못하도록 합니다. 이는 다음 npm 릴리스(`2026.2.25`)에 포함됩니다. 보고해 주신 @zpbrent님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/Low-memory stability: disable Vitest `vmForks` by default on low-memory local hosts (`<64 GiB`), keep low-profile extension lane parallelism at 4 workers, and align cron isolated-agent tests with `setSessionRuntimeModel` usage to avoid deterministic suite failures. (#26324) Thanks @ngutman.",
+      "translated": "Tests/Low-memory stability: 로컬 호스트의 낮은 메모리(`<64 GiB`)에서 Vitest `vmForks`를 기본적으로 비활성화하고, 저프로파일 확장 레인 병렬 처리를 4명의 작업자로 유지하며, `setSessionRuntimeModel` 사용과 크론 격리 에이전트 테스트를 정렬하여 결정론적 스위트 실패를 방지합니다. (#26324) 보고해 주신 @ngutman님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-02-26T07:27:32.540Z",
+  "translationEngine": "openai",
+  "translationProvider": "openai",
+  "translationModel": "gpt-4o",
+  "translationEndpointType": "openai-compatible",
+  "translationCharCount": 15950
+}
