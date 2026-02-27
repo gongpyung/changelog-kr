@@ -1,0 +1,392 @@
+{
+  "version": "0.106.0",
+  "date": "2026-02-26",
+  "parsedAt": "2026-02-27T03:10:26.083Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a direct install script for macOS and Linux and publish it as a GitHub release asset, using the existing platform payload (including `codex` and `rg`) (#12740)",
+      "translated": "macOS 및 Linux용 직접 설치 스크립트를 추가하고, 기존 플랫폼 페이로드(`codex` 및 `rg` 포함)를 사용하여 GitHub 릴리스 에셋으로 게시 (#12740)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Expanded the app-server v2 thread API with experimental thread-scoped realtime endpoints/notifications and a `thread/unsubscribe` flow to unload live threads without archiving them (#12715, #10954)",
+      "translated": "실험적인 스레드 범위 실시간 엔드포인트/알림 및 아카이브 없이 활성 스레드를 언로드하는 `thread/unsubscribe` 흐름을 통해 app-server v2 스레드 API 확장 (#12715, #10954)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Promoted `js_repl` to `/experimental`, added startup compatibility checks with user-visible warnings, and lowered the validated minimum Node version to `22.22.0` (#12712, #12824, #12857)",
+      "translated": "`js_repl`을 `/experimental`로 승격하고, 사용자에게 표시되는 경고와 함께 시작 시 호환성 검사를 추가했으며, 검증된 최소 Node 버전을 `22.22.0`으로 하향 조정 (#12712, #12824, #12857)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Enabled `request_user_input` in Default collaboration mode (not just Plan mode) (#12735)",
+      "translated": "Default 협업 모드(Plan 모드뿐만 아니라)에서 `request_user_input` 활성화 (#12735)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Made `5.3-codex` visible in the CLI model list for API users (#12808)",
+      "translated": "API 사용자를 위해 CLI 모델 목록에 `5.3-codex`가 표시되도록 수정 (#12808)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Improved memory behavior with diff-based forgetting and usage-aware memory selection (#12900, #12909)",
+      "translated": "diff 기반 망각 및 사용량 인식 메모리 선택을 통해 메모리 동작 개선 (#12900, #12909)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved realtime websocket reliability by retrying timeout-related HTTP 400 handshake failures and preferring WebSocket v2 when supported by the selected model (#12791, #12838)",
+      "translated": "타임아웃 관련 HTTP 400 핸드셰이크 실패 시 재시도하고, 선택한 모델이 지원하는 경우 WebSocket v2를 우선 사용하여 실시간 웹소켓 안정성 개선 (#12791, #12838)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a zsh-fork shell execution path that could drop sandbox wrappers and bypass expected filesystem restrictions (#12800)",
+      "translated": "샌드박스 래퍼가 누락되어 예상된 파일 시스템 제한을 우회할 수 있었던 zsh-fork 셸 실행 경로 수정 (#12800)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Added a shared ~1M-character input size cap in the TUI and app-server to prevent hangs/crashes on oversized pastes, with explicit error responses (#12823)",
+      "translated": "대용량 붙여넣기 시 멈춤/충돌을 방지하기 위해 TUI 및 app-server에 약 100만 자의 공유 입력 크기 제한 및 명시적 에러 응답 추가 (#12823)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved TUI local file-link rendering to hide absolute paths while preserving visible line/column references (#12705, #12870)",
+      "translated": "행/열 참조는 유지하면서 절대 경로는 숨기도록 TUI 로컬 파일 링크 렌더링 개선 (#12705, #12870)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Ctrl-C` handling for sub-agents in the TUI (#12911)",
+      "translated": "TUI 내 서브 에이전트의 `Ctrl-C` 처리 수정 (#12911)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a stale sign-in success link in the auth/onboarding flow (#12805)",
+      "translated": "인증/온보딩 흐름에서 만료된 로그인 성공 링크 수정 (#12805)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarified the CLI login hint for remote/device-auth login scenarios (#12813)",
+      "translated": "원격/기기 인증 로그인 시나리오에 대한 CLI 로그인 힌트 명확화 (#12813)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Added structured OTEL audit logging for embedded `codex-network-proxy` policy decisions and blocks (#12046)",
+      "translated": "내장된 `codex-network-proxy` 정책 결정 및 차단에 대한 구조화된 OTEL 감사 로깅 추가 (#12046)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Removed the `steer` feature flag and standardized on the always-on steer path in the TUI composer (#12026)",
+      "translated": "`steer` 기능 플래그를 제거하고 TUI composer에서 항상 켜져 있는 steer 경로로 표준화 (#12026)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reduced sub-agent startup overhead by skipping expensive history metadata scans for subagent spawns (#12918)",
+      "translated": "서브 에이전트 생성 시 비용이 많이 드는 히스토리 메타데이터 스캔을 건너뛰어 서브 에이전트 시작 오버헤드 감소 (#12918)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12046 feat(network-proxy): add embedded OTEL policy audit logging",
+      "translated": "내장된 OTEL 정책 감사 로깅 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12712 Promote js_repl to experimental with Node requirement",
+      "translated": "Node 요구 사항과 함께 js_repl을 experimental로 승격"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12715 Add app-server v2 thread realtime API",
+      "translated": "App-server v2 스레드 실시간 API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12795 Revert \"fix(bazel): replace askama templates with include_str! in memories\"",
+      "translated": "\"memories에서 askama 템플릿을 include_str!로 교체\" 사항 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12791 Handle websocket timeout",
+      "translated": "Websocket 타임아웃 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12800 fix: enforce sandbox envelope for zsh fork execution",
+      "translated": "Zsh 포크 실행 시 샌드박스 엔벨로프 강제 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12802 Propagate session ID when compacting",
+      "translated": "압축(compacting) 시 세션 ID 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12732 feat(app-server): add ThreadItem::DynamicToolCall",
+      "translated": "`ThreadItem::DynamicToolCall` 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12807 Add simple realtime text logs",
+      "translated": "단순 실시간 텍스트 로그 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12805 Update Codex docs success link",
+      "translated": "Codex 문서 성공 링크 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12809 fix: harden zsh fork tests and keep subcommand approvals deterministic",
+      "translated": "Zsh 포크 테스트 강화 및 하위 명령 승인의 결정론적 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12808 make 5.3-codex visible in cli for api users",
+      "translated": "API 사용자가 CLI에서 5.3-codex를 볼 수 있도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#10954 feat(app-server): thread/unsubscribe API",
+      "translated": "Thread/unsubscribe API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12806 only use preambles for realtime",
+      "translated": "실시간 통신에만 프리앰블 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12830 Revert \"only use preambles for realtime\"",
+      "translated": "\"실시간 통신에만 프리앰블 사용\" 변경 사항 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12721 Revert \"Ensure shell command skills trigger approval (#12697)\"",
+      "translated": "\"쉘 명령 스킬이 승인을 트리거하도록 보장(#12697)\" 변경 사항 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12831 only use preambles for realtime",
+      "translated": "실시간 통신에만 프리앰블 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12735 Enable request_user_input in Default mode",
+      "translated": "Default 모드에서 `request_user_input` 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12814 feat: scope execve session approvals by approved skill metadata",
+      "translated": "승인된 스킬 메타데이터를 기반으로 execve 세션 승인 범위 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12026 Remove steer feature flag",
+      "translated": "Steer 기능 플래그 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12740 Add macOS and Linux direct install script",
+      "translated": "MacOS 및 Linux 직접 설치 스크립트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12838 Use websocket v2 as model-preferred websocket protocol",
+      "translated": "모델 권장 websocket 프로토콜로 websocket v2 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12811 Revert \"Add skill approval event/response (#12633)\"",
+      "translated": "\"스킬 승인 이벤트/응답 추가(#12633)\" 변경 사항 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12758 feat: include available decisions in command approval requests",
+      "translated": "명령 승인 요청에 선택 가능한 결정 사항 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12824 Disable js_repl when Node is incompatible at startup",
+      "translated": "시작 시 Node 버전이 호환되지 않는 경우 `js_repl` 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12813 Clarify device auth login hint",
+      "translated": "기기 인증 로그인 힌트 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12848 Try fixing windows pipeline",
+      "translated": "Windows 파이프라인 수정 시도"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12856 Attempt 2 to fix release",
+      "translated": "릴리스 수정을 위한 두 번째 시도"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12744 Skip system skills for extra roots",
+      "translated": "추가 루트에 대한 시스템 스킬 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12857 Reduce js_repl Node version requirement to 22.22.0",
+      "translated": "`js_repl`의 Node 버전 요구 사항을 22.22.0으로 하향 조정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12865 Fix release build take",
+      "translated": "릴리스 빌드 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12705 Hide local file link destinations in TUI markdown",
+      "translated": "TUI 마크다운에서 로컬 파일 링크 대상 숨기기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12823 Enforce user input length cap",
+      "translated": "사용자 입력 길이 제한 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12417 core: bundle settings diff updates into one dev/user envelope",
+      "translated": "설정 변경 사항 업데이트를 하나의 dev/user envelope로 통합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12884 chore: new agents name",
+      "translated": "새로운 에이전트 이름"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12885 nit: captial",
+      "translated": "대문자 표기 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12870 tui: restore visible line numbers for hidden file links",
+      "translated": "숨겨진 파일 링크에 대한 줄 번호 표시 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12684 Add rollout path to memory files and search for them during read",
+      "translated": "메모리 파일에 rollout 경로를 추가하고 읽기 시 해당 경로 검색"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12901 chore: better awaiter description",
+      "translated": "Awaiter 설명 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12900 feat: memories forgetting",
+      "translated": "메모리 망각 기능"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12905 chore: clean DB runtime",
+      "translated": "DB 런타임 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12918 Skip history metadata scan for subagents",
+      "translated": "하위 에이전트의 히스토리 메타데이터 스캔 건너뛰기"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#12871 split-debuginfo",
+      "translated": "Split-debuginfo"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12909 feat: use memory usage for selection",
+      "translated": "선택 시 메모리 사용량 활용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12887 fix: do not apply turn cwd to metadata",
+      "translated": "Turn cwd를 metadata에 적용하지 않도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12911 fix: ctrl c sub agent",
+      "translated": "Sub agent의 ctrl c 처리 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12873 Use model catalog default for reasoning summary fallback",
+      "translated": "Reasoning summary fallback 시 model catalog 기본값 사용"
+    }
+  ],
+  "translatedAt": "2026-02-27T03:13:44.833Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4157
+}

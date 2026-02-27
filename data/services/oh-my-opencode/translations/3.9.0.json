@@ -1,0 +1,632 @@
+{
+  "version": "3.9.0",
+  "date": "2026-02-26",
+  "parsedAt": "2026-02-27T03:10:26.857Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Ralph Loop**: Completion detection scoped to messages since loop start. In-flight guard prevents infinite re-trigger. Race condition between session reset and TUI switch eliminated.",
+      "translated": "**Ralph Loop**: 완료 감지 범위를 루프 시작 이후 메시지로 제한. 진행 중 가드(In-flight guard)가 무한 재트리거를 방지. 세션 초기화와 TUI 전환 사이의 경쟁 상태 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Todo Continuation**: Blocked todos excluded from incomplete count — no more infinite loops on dependent tasks.",
+      "translated": "**Todo Continuation**: 차단된 할 일을 미완료 개수에서 제외 — 종속 작업에서 더 이상 무한 루프 발생하지 않음."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Background Agent**: Notification queue for idle sessions. Pending notifications cleaned on session delete.",
+      "translated": "**Background Agent**: 유휴 세션을 위한 알림 큐. 세션 삭제 시 대기 중인 알림 정리."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Token Limiter**: Truncation now respects newline boundaries. No more mid-line cuts in delegated prompts.",
+      "translated": "**Token Limiter**: 이제 잘라내기 시 개행 문자 경계를 준수함. 위임된 프롬프트에서 줄 중간 잘림 현상 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Compaction**: Timeout + cleanup prevents indefinite hangs during rate limiting.",
+      "translated": "**Compaction**: 타임아웃 및 정리 기능 추가로 레이트 리미팅 중 무한 대기 방지."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bdd86b14 fix(hephaestus): remove auto-commit policy to prevent surprise commits",
+      "translated": "예기치 않은 커밋을 방지하기 위해 auto-commit 정책 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "76cba9b2 Merge pull request #2159 from code-yeongyu/fix/ralph-loop-completion-scoping",
+      "translated": "풀 리퀘스트 #2159 병합 (code-yeongyu/fix/ralph-loop-completion-scoping)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2955dc86 Merge pull request #2158 from code-yeongyu/fix/hashline-diff-format-compat",
+      "translated": "풀 리퀘스트 #2158 병합 (code-yeongyu/fix/hashline-diff-format-compat)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3ab4b7f7 Merge pull request #2157 from code-yeongyu/fix/token-limiter-safe-truncation",
+      "translated": "풀 리퀘스트 #2157 병합 (code-yeongyu/fix/token-limiter-safe-truncation)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3540d1c5 Merge pull request #2156 from code-yeongyu/fix/background-pending-notif-leak",
+      "translated": "풀 리퀘스트 #2156 병합 (code-yeongyu/fix/background-pending-notif-leak)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9bc9dcaa Merge pull request #2155 from code-yeongyu/fix/ultrawork-thinking-db-write",
+      "translated": "풀 리퀘스트 #2155 병합 (code-yeongyu/fix/ultrawork-thinking-db-write)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f2a1412b test(ralph-loop): harden completion detector PluginInput mock",
+      "translated": "Completion detector PluginInput mock 강화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "190c6991 fix(ralph-loop): persist session message count at loop start",
+      "translated": "루프 시작 시 세션 메시지 수 저장"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e17a00a9 fix(ralph-loop): scope completion detection to messages since loop start",
+      "translated": "완료 감지 범위를 루프 시작 이후 메시지로 제한"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c8aa1bbc test(hashline-edit): add diff format compatibility tests",
+      "translated": "Diff 형식 호환성 테스트 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "911710e4 fix(token-limiter): truncate at newline boundaries instead of raw slice",
+      "translated": "Raw slice 대신 개행 문자 경계에서 잘라내기"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "050b93be fix(background-agent): clean pendingNotifications on session.deleted",
+      "translated": "Session.deleted 시 pendingNotifications 정리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ffa803b fix(ultrawork-db): write $.thinking alongside $.variant in deferred model override",
+      "translated": "Deferred model override 시 `$.thinking`을 `$.variant`와 함께 작성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cf974940 Merge pull request #2154 from minpeter/feat/hashline-benchmark",
+      "translated": "풀 리퀘스트 #2154 병합 (minpeter/feat/hashline-benchmark)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8fb5949a fix(benchmarks): address review feedback on error handling and validation",
+      "translated": "오류 처리 및 유효성 검사 관련 리뷰 피드백 반영"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "04f50bac feat(benchmarks): add hashline-edit test suites (46 tests)",
+      "translated": "`hashline-edit` 테스트 스위트 추가 (46개 테스트)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d1a0a66d feat(benchmarks): add hashline-edit benchmark agent and deps",
+      "translated": "`hashline-edit` 벤치마크 에이전트 및 의존성 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b1203b95 Fix hashline-edit deduplication and validation",
+      "translated": "`hashline-edit` 중복 제거 및 유효성 검사 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "58201220 Merge pull request #2093 from code-yeongyu/fix/issue-1966-ultrawork-variant",
+      "translated": "`code-yeongyu/fix/issue-1966-ultrawork-variant`에서 Pull request #2093 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4efad491 Merge pull request #2149 from code-yeongyu/fix/issue-1815-1733-prompt-token-count",
+      "translated": "`code-yeongyu/fix/issue-1815-1733-prompt-token-count`에서 Pull request #2149 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4df69c58 fix(keyword-detector): respect ultrawork config variant instead of hardcoding \"max\"",
+      "translated": "`\"max\"` 하드코딩 대신 `ultrawork` 설정 variant 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2ece7c3d Merge pull request #1963 from MoerAI/fix/multi-issue-1888-1693-1891",
+      "translated": "`MoerAI/fix/multi-issue-1888-1693-1891`에서 Pull request #1963 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "decff315 Merge pull request #2145 from code-yeongyu/fix/issue-1915-windows-spawn-hide",
+      "translated": "`code-yeongyu/fix/issue-1915-windows-spawn-hide`에서 Pull request #2145 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0526bac8 Merge pull request #2148 from code-yeongyu/fix/issue-2121-legacy-hardware-baseline",
+      "translated": "`code-yeongyu/fix/issue-2121-legacy-hardware-baseline`에서 Pull request #2148 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0c62656c Merge pull request #2146 from code-yeongyu/fix/issue-2065-1968-model-updates",
+      "translated": "`code-yeongyu/fix/issue-2065-1968-model-updates`에서 Pull request #2146 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aff43bfc Merge pull request #2143 from code-yeongyu/fix/issue-2017-stop-continuation-cancel",
+      "translated": "`code-yeongyu/fix/issue-2017-stop-continuation-cancel`에서 Pull request #2143 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6865cee8 Merge pull request #2141 from code-yeongyu/fix/issue-2084-ralph-loop-inflight",
+      "translated": "`code-yeongyu/fix/issue-2084-ralph-loop-inflight`에서 Pull request #2141 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8721ba47 Merge pull request #2140 from code-yeongyu/fix/issue-2025-blocked-todo-continuation",
+      "translated": "`code-yeongyu/fix/issue-2025-blocked-todo-continuation`에서 Pull request #2140 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "96d27ff5 Merge pull request #2134 from code-yeongyu/fix/issue-2064-config-overwrite",
+      "translated": "`code-yeongyu/fix/issue-2064-config-overwrite`에서 Pull request #2134 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "017c18c1 Merge pull request #2138 from code-yeongyu/fix/issue-2062-compaction-timeout",
+      "translated": "`code-yeongyu/fix/issue-2062-compaction-timeout`에서 Pull request #2138 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fb194fc9 Merge pull request #2147 from code-yeongyu/fix/issue-2117-preserve-formatter-config",
+      "translated": "`code-yeongyu/fix/issue-2117-preserve-formatter-config`에서 Pull request #2147 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "10c25d1d Merge pull request #2144 from code-yeongyu/fix/issue-2087-look-at-hang",
+      "translated": "`code-yeongyu/fix/issue-2087-look-at-hang`에서 Pull request #2144 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "86fcade9 Merge pull request #2142 from code-yeongyu/fix/issue-1922-retain-agent-keys",
+      "translated": "`code-yeongyu/fix/issue-1922-retain-agent-keys`에서 Pull request #2142 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5bc3a9e0 Merge pull request #2137 from code-yeongyu/fix/issue-2051-diff-context-limit",
+      "translated": "`code-yeongyu/fix/issue-2051-diff-context-limit`에서 Pull request #2137 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "810ebec1 Merge pull request #2136 from code-yeongyu/fix/issue-2044-atlas-task-tool",
+      "translated": "`code-yeongyu/fix/issue-2044-atlas-task-tool`에서 Pull request #2136 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8f7ed298 Merge pull request #2135 from code-yeongyu/fix/issue-2115-background-output-block",
+      "translated": "code-yeongyu/fix/issue-2115-background-output-block에서 풀 리퀘스트 #2135 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7ff8352a fix(config): preserve formatter config from opencode settings",
+      "translated": "opencode 설정에서 포매터 설정 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d425f9bb fix(models): update Gemini 3 to 3.1 Pro and add Kimi to writing category fallback",
+      "translated": "Gemini 3을 3.1 Pro로 업데이트하고 글쓰기 카테고리 폴백에 Kimi 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cc5e9d1e fix(ci): add baseline CPU variant binaries for legacy hardware support",
+      "translated": "레거시 하드웨어 지원을 위한 기본 CPU 바이너리 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "269f37af fix(windows): add windowsHide to Bun.spawn calls to prevent stray terminal windows",
+      "translated": "불필요한 터미널 창 방지를 위해 `Bun.spawn` 호출에 `windowsHide` 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e060e90 fix(look-at): add timeout to sync model retry to prevent process hang",
+      "translated": "프로세스 정지 방지를 위해 모델 동기화 재시도에 타임아웃 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ccb789e5 fix(stop-continuation): wire backgroundManager to cancel running tasks on stop",
+      "translated": "중지 시 실행 중인 작업을 취소하도록 `backgroundManager` 연결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a6617d93 fix(ralph-loop): add inFlight guard and improve completion detection to prevent infinite loops",
+      "translated": "무한 루프 방지를 위해 `inFlight` 가드 추가 및 완료 감지 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "22951610 fix(ralph-loop): add inFlight guard and improve completion detection to prevent infinite loops",
+      "translated": "무한 루프 방지를 위해 `inFlight` 가드 추가 및 완료 감지 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0516f2fe fix(todo-continuation): exclude blocked todos from incomplete count to prevent infinite loops",
+      "translated": "무한 루프 방지를 위해 차단된 할 일을 미완료 개수에서 제외"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "df02c73a fix(agents): retain original agent keys in remapAgentKeysToDisplayNames to prevent crash",
+      "translated": "비정상 종료 방지를 위해 `remapAgentKeysToDisplayNames`에서 원본 에이전트 키 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "52658ac1 fix(config): preserve existing user config when writing new defaults",
+      "translated": "새 기본값을 쓸 때 기존 사용자 설정 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fab820e9 fix(compaction): add timeout and ensure cleanup to prevent indefinite hangs on rate limit",
+      "translated": "속도 제한 시 무한 대기 방지를 위해 타임아웃 추가 및 정리 보장"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6f54404a fix(hephaestus): add explicit auto-commit instructions to agent prompt",
+      "translated": "에이전트 프롬프트에 명시적인 자동 커밋 지침 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3169c92 fix(hashline-edit): limit diff context to 3 lines to prevent oversized hunks",
+      "translated": "덩어리(hunk)가 너무 커지는 것을 방지하기 위해 diff 컨텍스트를 3줄로 제한"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0639ce8d fix(atlas): allow task and call_omo_agent tools for subagent dispatch",
+      "translated": "하위 에이전트 파견을 위해 `task` 및 `call_omo_agent` 도구 허용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "685b8023 fix(background-task): make background_output block=true actually wait for task completion",
+      "translated": "`background_output`의 `block=true`가 실제로 작업 완료를 대기하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "07e8d965 fix(atlas): allow task and call_omo_agent tools for subagent dispatch",
+      "translated": "하위 에이전트 파견을 위해 `task` 및 `call_omo_agent` 도구 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c505989a Merge pull request #2095 from code-yeongyu/fix/issue-1934-exit-code-130-timeout",
+      "translated": "code-yeongyu/fix/issue-1934-exit-code-130-timeout에서 풀 리퀘스트 #2095 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "088984a8 fix: remove Current date from env context since OpenCode already provides it",
+      "translated": "OpenCode에서 이미 제공하므로 env 컨텍스트에서 현재 날짜 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b69a6c5 fix(atlas): replace permanent failure lockout with 5-minute backoff",
+      "translated": "영구 실패 잠금을 5분 백오프로 대체"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5fe1640f fix(boulder): count indented checkboxes in plan progress",
+      "translated": "계획 진행률 계산에 들여쓰기된 체크박스 포함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ad01f60e fix: remove seconds-precision time from env context to stop breaking token cache",
+      "translated": "토큰 캐시 손상 방지를 위해 env 컨텍스트에서 초 단위 시간 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "87d6b2b5 feat(agents): simplify GPT detection to name-based check, add hephaestus providers (venice uses gpt-5.3-codex)",
+      "translated": "GPT 감지를 이름 기반 확인으로 단순화하고 hephaestus 프로바이더 추가 (venice는 gpt-5.3-codex 사용)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b7b67217 refactor(think-mode): migrate hook from chat.params to chat.message and remove thinking config injection",
+      "translated": "훅을 chat.params에서 chat.message로 마이그레이션하고 thinking config 주입 제거"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "0c59d2db refactor(ultrawork): remove thinking config injection from model override",
+      "translated": "모델 오버라이드에서 thinking config 주입 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "52d366e8 feat(start-work): update template with --worktree flag documentation",
+      "translated": "--worktree 플래그 문서가 포함되도록 템플릿 업데이트"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9cd6fc61 feat(atlas): inject worktree_path into boulder continuation",
+      "translated": "boulder 연속 작업(continuation)에 worktree_path 주입"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f872f5e1 feat(start-work): add --worktree flag support in hook",
+      "translated": "훅에 --worktree 플래그 지원 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f500fb02 feat(start-work): add --worktree flag parsing from user request",
+      "translated": "사용자 요청에서 --worktree 플래그 파싱 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9a94e120 feat(start-work): add worktree path detection",
+      "translated": "worktree 경로 감지 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "808a50d8 feat(boulder-state): add worktree_path field to BoulderState",
+      "translated": "BoulderState에 worktree_path 필드 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2ab40124 Merge pull request #2111 from code-yeongyu/fix/background-notification-idle-queue",
+      "translated": "code-yeongyu/fix/background-notification-idle-queue에서 Pull Request #2111 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "840c612b fix(background-agent): queue notifications for idle parent sessions",
+      "translated": "유휴 상태의 부모 세션에 대한 알림을 큐에 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "235bb587 Merge pull request #2110 from code-yeongyu/fix/boulder-continuation-agent-check",
+      "translated": "code-yeongyu/fix/boulder-continuation-agent-check에서 Pull Request #2110 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ace1790c test(atlas): update agent check tests to match fixed behavior",
+      "translated": "수정된 동작에 맞게 에이전트 확인 테스트 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "31eb7f5d Merge pull request #2108 from code-yeongyu/fix/issue-2100-reset-strategy-race-condition",
+      "translated": "code-yeongyu/fix/issue-2100-reset-strategy-race-condition에서 Pull Request #2108 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6b5622c6 Merge pull request #2107 from code-yeongyu/fix/issue-2054-hephaestus-model-opt-out",
+      "translated": "code-yeongyu/fix/issue-2054-hephaestus-model-opt-out에서 Pull Request #2107 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cf0d1576 Merge pull request #2106 from code-yeongyu/fix/issue-2049-ultrawork-thinking-config",
+      "translated": "code-yeongyu/fix/issue-2049-ultrawork-thinking-config에서 Pull Request #2106 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "adf62267 fix(agents/utils.test): correct hephaestus github-copilot provider test expectation",
+      "translated": "hephaestus github-copilot 프로바이더 테스트 기대값 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f64e2a8 fix(agents/utils.test): correct hephaestus github-copilot provider test expectation",
+      "translated": "hephaestus github-copilot 프로바이더 테스트 기대 값 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e00f461e fix(agents/utils.test): correct hephaestus github-copilot provider test expectation",
+      "translated": "hephaestus github-copilot 프로바이더 테스트 기대 값 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "da6c54ed Revert \"fix(model-requirements): add github-copilot to hephaestus requiresProvider\"",
+      "translated": "\"fix(model-requirements): hephaestus requiresProvider에 github-copilot 추가\" 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1d99fdf8 Revert \"fix(model-requirements): add github-copilot to hephaestus requiresProvider\"",
+      "translated": "\"fix(model-requirements): hephaestus requiresProvider에 github-copilot 추가\" 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "de70c3a3 Revert \"fix(model-requirements): add github-copilot to hephaestus requiresProvider\"",
+      "translated": "\"fix(model-requirements): hephaestus requiresProvider에 github-copilot 추가\" 되돌리기"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e07dfe1 fix(atlas): allow Sisyphus as last agent when boulder targets atlas explicitly",
+      "translated": "boulder가 atlas를 명시적으로 타겟팅할 때 Sisyphus를 마지막 에이전트로 허용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2acf6fa1 fix(model-requirements): add github-copilot to hephaestus requiresProvider",
+      "translated": "hephaestus requiresProvider에 github-copilot 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7e587293 fix(model-requirements): add github-copilot to hephaestus requiresProvider",
+      "translated": "hephaestus requiresProvider에 github-copilot 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6458fe9f fix(model-requirements): add github-copilot to hephaestus requiresProvider",
+      "translated": "hephaestus requiresProvider에 github-copilot 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "640d9fb7 Merge pull request #2109 from code-yeongyu/fix/issue-1815-1733-prompt-token-count",
+      "translated": "Pull Request #2109 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc1b6e49 fix(delegate-task): add token counting and truncation to prevent context overflow",
+      "translated": "컨텍스트 오버플로 방지를 위한 토큰 계산 및 잘라내기 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a0e57c13 fix(ralph-loop): prevent race condition in reset strategy between session ID update and TUI switch",
+      "translated": "세션 ID 업데이트와 TUI 전환 사이의 초기화 전략에서 레이스 컨디션 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "997db0e0 fix(no-hephaestus-non-gpt): add allow_non_gpt_model config opt-out",
+      "translated": "allow_non_gpt_model 설정 옵트아웃 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "565ab8c1 fix(ultrawork-model-override): set thinking config object instead of variant string",
+      "translated": "variant 문자열 대신 thinking config 객체 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b1745137 Merge pull request #2099 from code-yeongyu/fix/gpt-5-3-codex-github-copilot-provider",
+      "translated": "Pull Request #2099 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "465f5e13 fix: remove github-copilot from gpt-5.3-codex provider list",
+      "translated": "gpt-5.3-codex 프로바이더 목록에서 github-copilot 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "73453a71 docs(agents): update hook counts 44→46, add hashline-edit documentation",
+      "translated": "훅 수 44→46으로 업데이트, hashline-edit 문서 추가"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fcb90d92 refactor(hashline-edit): replace custom diff with diff library",
+      "translated": "커스텀 diff를 diff 라이브러리로 교체"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dab2f900 test(run): make completion metadata timing assertion deterministic",
+      "translated": "완료 메타데이터 타이밍 assertion 결정론적으로 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "99f4c7e2 fix(hooks): stabilize session notification checks in parallel tests",
+      "translated": "병렬 테스트에서 세션 알림 검사 안정화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "54d0dcde fix: address code review feedback on PR #1988",
+      "translated": "PR #1988에 대한 코드 리뷰 피드백 반영"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "159ade05 fix(run): add event watchdog and secondary timeout for hasReceivedMeaningfulWork",
+      "translated": "HasReceivedMeaningfulWork을 위한 이벤트 와치독 및 2차 타임아웃 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "71888421 fix: resolve issues #1888, #1693, #1891",
+      "translated": "이슈 #1888, #1693, #1891 해결"
+    }
+  ],
+  "translatedAt": "2026-02-27T03:30:01.350Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "glm-5",
+  "translationEndpointType": "coding",
+  "translationCharCount": 8730
+}
