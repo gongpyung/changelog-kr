@@ -1,0 +1,662 @@
+{
+  "version": "2026.3.1",
+  "date": "2026-03-02",
+  "parsedAt": "2026-03-02T07:17:03.435Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/Thinking defaults: set `adaptive` as the default thinking level for Anthropic Claude 4.6 models (including Bedrock Claude 4.6 refs) while keeping other reasoning-capable models at `low` unless explicitly configured.",
+      "translated": "Agents/Thinking 기본값: Anthropic Claude 4.6 모델(Bedrock Claude 4.6 참조 포함)의 기본 사고 수준을 `adaptive`로 설정하고, 명시적으로 구성되지 않은 다른 추론 가능 모델은 `low`로 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/Container probes: add built-in HTTP liveness/readiness endpoints (`/health`, `/healthz`, `/ready`, `/readyz`) for Docker/Kubernetes health checks, with fallback routing so existing handlers on those paths are not shadowed. (#31272) Thanks @vincentkoc.",
+      "translated": "Gateway/Container 프로브: Docker/Kubernetes 상태 확인을 위한 내장 HTTP liveness/readiness 엔드포인트(`/health`, `/healthz`, `/ready`, `/readyz`)를 추가하고, 해당 경로의 기존 핸들러가 가려지지 않도록 폴백 라우팅을 적용했습니다. (#31272) @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android/Nodes: add `camera.list`, `device.permissions`, `device.health`, and `notifications.actions` (`open`/`dismiss`/`reply`) on Android nodes, plus first-class node-tool actions for the new device/notification commands. (#28260) Thanks @obviyus.",
+      "translated": "Android/Nodes: Android 노드에 `camera.list`, `device.permissions`, `device.health`, `notifications.actions`(`open`/`dismiss`/`reply`)를 추가하고, 새로운 디바이스/알림 명령을 위한 일급 노드 도구 액션을 추가했습니다. (#28260) @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord/Thread bindings: replace fixed TTL lifecycle with inactivity (`idleHours`, default 24h) plus optional hard `maxAgeHours` lifecycle controls, and add `/session idle` + `/session max-age` commands for focused thread-bound sessions. (#27845) Thanks @osolmaz.",
+      "translated": "Discord/Thread 바인딩: 고정 TTL 수명 주기를 비활성 상태 기반(`idleHours`, 기본 24시간) 및 선택적 `maxAgeHours` 수명 주기 제어로 교체하고, 집중된 스레드 기반 세션을 위한 `/session idle` 및 `/session max-age` 명령을 추가했습니다. (#27845) @osolmaz님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telegram/DM topics: add per-DM `direct` + topic config (allowlists, `dmPolicy`, `skills`, `systemPrompt`, `requireTopic`), route DM topics as distinct inbound/outbound sessions, and enforce topic-aware authorization/debounce for messages, callbacks, commands, and reactions. Landed from contributor PR #30579 by @kesor. Thanks @kesor.",
+      "translated": "Telegram/DM 토픽: DM별 `direct` 및 토픽 설정(허용 목록, `dmPolicy`, `skills`, `systemPrompt`, `requireTopic`)을 추가하고, DM 토픽을 별도의 인바운드/아웃바운드 세션으로 라우팅하며, 메시지, 콜백, 명령, 리액션에 대해 토픽 인식 권한 부여 및 디바운스를 적용했습니다. 기여자 @kesor의 PR #30579를 통해 반영되었습니다. @kesor님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Web UI/Cron i18n: localize cron page labels, filters, form help text, and validation/error messaging in English and zh-CN. (#29315) Thanks @BUGKillerKing.",
+      "translated": "Web UI/Cron i18n: 크론 페이지 레이블, 필터, 폼 도움말 텍스트, 유효성 검사/오류 메시지를 영어와 zh-CN으로 현지화했습니다. (#29315) @BUGKillerKing님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenAI/Streaming transport: make `openai` Responses WebSocket-first by default (`transport: \"auto\"` with SSE fallback), add shared OpenAI WS stream/connection runtime wiring with per-session cleanup, and preserve server-side compaction payload mutation (`store` + `context_management`) on the WS path.",
+      "translated": "OpenAI/Streaming 전송: `openai` 응답을 기본적으로 WebSocket 우선으로 설정하고(`transport: \"auto\"`, SSE 폴백 포함), 세션별 정리 기능이 포함된 공유 OpenAI WS 스트림/연결 런타임 와이어링을 추가했으며, WS 경로에서 서버 측 압축 페이로드 변이(`store` + `context_management`)를 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Gateway capability refresh: add live Android capability integration coverage and node canvas capability refresh wiring, plus runtime hardening for A2UI readiness retries, scoped canvas URL normalization, debug diagnostics JSON, and JavaScript MIME delivery. (#28388) Thanks @obviyus.",
+      "translated": "Android/Gateway 기능 새로고침: 실시간 Android 기능 통합 범위 및 노드 캔버스 기능 새로고침 와이어링을 추가하고, A2UI 준비 재시도, 스코프 캔버스 URL 정규화, 디버그 진단 JSON, JavaScript MIME 전달에 대한 런타임 강화 작업을 수행했습니다. (#28388) @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android/Nodes parity: add `system.notify`, `photos.latest`, `contacts.search`/`contacts.add`, `calendar.events`/`calendar.add`, and `motion.activity`/`motion.pedometer`, with motion sensor-aware command gating and improved activity sampling reliability. (#29398) Thanks @obviyus.",
+      "translated": "Android/Nodes 기능 동등성: `system.notify`, `photos.latest`, `contacts.search`/`contacts.add`, `calendar.events`/`calendar.add`, `motion.activity`/`motion.pedometer`를 추가하고, 모션 센서 인식 명령 게이팅 및 활동 샘플링 안정성을 개선했습니다. (#29398) @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI/Config: add `openclaw config file` to print the active config file path resolved from `OPENCLAW_CONFIG_PATH` or the default location. (#26256) thanks @cyb1278588254.",
+      "translated": "CLI/Config: `OPENCLAW_CONFIG_PATH` 또는 기본 위치에서 확인된 활성 설정 파일 경로를 출력하는 `openclaw config file`을 추가했습니다. (#26256) @cyb1278588254님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feishu/Docx tables + uploads: add `feishu_doc` actions for Docx table creation/cell writing (`create_table`, `write_table_cells`, `create_table_with_values`) and image/file uploads (`upload_image`, `upload_file`) with stricter create/upload error handling for missing `document_id` and placeholder cleanup failures. (#20304) Thanks @xuhao1.",
+      "translated": "Feishu/Docx 표 및 업로드: Docx 표 생성/셀 작성(`create_table`, `write_table_cells`, `create_table_with_values`) 및 이미지/파일 업로드(`upload_image`, `upload_file`)를 위한 `feishu_doc` 액션을 추가하고, `document_id` 누락 및 플레이스홀더 정리 실패에 대한 생성/업로드 오류 처리를 강화했습니다. (#20304) @xuhao1님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feishu/Reactions: add inbound `im.message.reaction.created_v1` handling, route verified reactions through synthetic inbound turns, and harden verification with timeout + fail-closed filtering so non-bot or unverified reactions are dropped. (#16716) Thanks @schumilin.",
+      "translated": "Feishu/Reactions: 인바운드 `im.message.reaction.created_v1` 처리를 추가하고, 검증된 리액션을 합성 인바운드 턴으로 라우팅하며, 타임아웃 및 fail-closed 필터링을 통해 봇이 아니거나 검증되지 않은 리액션이 삭제되도록 검증을 강화했습니다. (#16716) @schumilin님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feishu/Chat tooling: add `feishu_chat` tool actions for chat info and member queries, with configurable enablement under `channels.feishu.tools.chat`. (#14674) Thanks @liuweifly.",
+      "translated": "Feishu/Chat 도구: 채팅 정보 및 멤버 조회를 위한 `feishu_chat` 도구 액션을 추가했으며, `channels.feishu.tools.chat`에서 활성화 여부를 설정할 수 있습니다. (#14674) @liuweifly님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feishu/Doc permissions: support optional owner permission grant fields on `feishu_doc` create and report permission metadata only when the grant call succeeds, with regression coverage for success/failure/omitted-owner paths. (#28295) Thanks @zhoulongchao77.",
+      "translated": "Feishu/Doc 권한: `feishu_doc` 생성 시 선택적인 소유자 권한 부여 필드를 지원하고, 권한 부여 호출이 성공한 경우에만 권한 메타데이터를 보고하며, 성공/실패/소유자 생략 경로에 대한 회귀 테스트 범위를 확보했습니다. (#28295) @zhoulongchao77님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Web UI/i18n: add German (`de`) locale support and auto-render language options from supported locale constants in Overview settings. (#28495) thanks @dsantoreis.",
+      "translated": "Web UI/i18n: 독일어(`de`) 로케일 지원을 추가하고, 개요 설정에서 지원되는 로케일 상수를 기반으로 언어 옵션이 자동 렌더링되도록 했습니다. (#28495) @dsantoreis님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools/Diffs: add a new optional `diffs` plugin tool for read-only diff rendering from before/after text or unified patches, with gateway viewer URLs for canvas and PNG image output. Thanks @gumadeiras.",
+      "translated": "Tools/Diffs: 전/후 텍스트 또는 통합 패치로부터 읽기 전용 diff 렌더링을 위한 새로운 선택적 `diffs` 플러그인 도구를 추가하고, 캔버스 및 PNG 이미지 출력을 위한 게이트웨이 뷰어 URL을 지원합니다. @gumadeiras님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory/LanceDB: support custom OpenAI `baseUrl` and embedding dimensions for LanceDB memory. (#17874) Thanks @rish2jain and @vincentkoc.",
+      "translated": "Memory/LanceDB: LanceDB 메모리에 대해 사용자 정의 OpenAI `baseUrl` 및 임베딩 차원을 지원합니다. (#17874) @rish2jain님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ACP/ACPX streaming: pin ACPX plugin support to `0.1.15`, add configurable ACPX command/version probing, and streamline ACP stream delivery (`final_only` default + reduced tool-event noise) with matching runtime and test updates. (#30036) Thanks @osolmaz.",
+      "translated": "ACP/ACPX 스트리밍: ACPX 플러그인 지원 버전을 `0.1.15`로 고정하고, 구성 가능한 ACPX 명령/버전 프로빙을 추가했으며, 일치하는 런타임 및 테스트 업데이트와 함께 ACP 스트림 전달(`final_only` 기본값 및 도구 이벤트 노이즈 감소)을 간소화했습니다. (#30036) @osolmaz님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Shell env markers: set `OPENCLAW_SHELL` across shell-like runtimes (`exec`, `acp`, `acp-client`, `tui-local`) so shell startup/config rules can target OpenClaw contexts consistently, and document the markers in env/exec/acp/TUI docs. Thanks @vincentkoc.",
+      "translated": "Shell 환경 마커: 쉘과 유사한 런타임(`exec`, `acp`, `acp-client`, `tui-local`) 전반에 `OPENCLAW_SHELL`을 설정하여 쉘 시작/구성 규칙이 OpenClaw 컨텍스트를 일관되게 타겟팅할 수 있도록 하고, env/exec/acp/TUI 문서에 해당 마커를 명시했습니다. @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cron/Heartbeat light bootstrap context: add opt-in lightweight bootstrap mode for automation runs (`--light-context` for cron agent turns and `agents.*.heartbeat.lightContext` for heartbeat), keeping only `HEARTBEAT.md` for heartbeat runs and skipping bootstrap-file injection for cron lightweight runs. (#26064) Thanks @jose-velez.",
+      "translated": "Cron/Heartbeat 경량 부트스트랩 컨텍스트: 자동화 실행을 위한 선택적 경량 부트스트랩 모드(크론 에이전트 턴의 경우 `--light-context`, 하트비트의 경우 `agents.*.heartbeat.lightContext`)를 추가하여, 하트비트 실행 시 `HEARTBEAT.md`만 유지하고 크론 경량 실행 시 부트스트랩 파일 주입을 건너뜁니다. (#26064) @jose-velez님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenAI/WebSocket warm-up: add optional OpenAI Responses WebSocket warm-up (`response.create` with `generate:false`), enable it by default for `openai/*`, and expose `params.openaiWsWarmup` for per-model enable/disable control.",
+      "translated": "OpenAI/WebSocket 워밍업: 선택적 OpenAI Responses WebSocket 워밍업(`generate:false`가 포함된 `response.create`)을 추가하고, `openai/*`에 대해 기본으로 활성화하며, 모델별 활성화/비활성화 제어를 위해 `params.openaiWsWarmup`을 노출합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/Subagents runtime events: replace ad-hoc subagent completion system-message handoff with typed internal completion events (`task_completion`) that are rendered consistently across direct and queued announce paths, with gateway/CLI plumbing for structured `internalEvents`.",
+      "translated": "에이전트/서브에이전트 런타임 이벤트: 임시 서브에이전트 완료 시스템 메시지 전달 방식을 직접 및 대기열 공지 경로에서 일관되게 렌더링되는 타입이 지정된 내부 완료 이벤트(`task_completion`)로 교체하고, 구조화된 `internalEvents`를 위한 게이트웨이/CLI 연결을 추가합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Nodes reliability: reject `facing=both` when `deviceId` is set to avoid mislabeled duplicate captures, allow notification `open`/`reply` on non-clearable entries while still gating dismiss, trigger listener rebind before notification actions, and scale invoke-result ack timeout to invoke budget for large clip payloads. (#28260) Thanks @obviyus.",
+      "translated": "Android/노드 안정성: 잘못된 레이블의 중복 캡처를 방지하기 위해 `deviceId`가 설정된 경우 `facing=both`를 거부하고, 삭제 불가능한 항목에서 알림 `open`/`reply`를 허용하면서도 삭제는 계속 제한하며, 알림 동작 전에 리스너 재바인딩을 트리거하고, 대용량 클립 페이로드에 대해 호출 결과 ack 타임아웃을 호출 예산에 맞춰 조정합니다. (#28260) @obviyus님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/Plugin install: avoid `spawn EINVAL` on Windows npm/npx invocations by resolving to `node` + npm CLI scripts instead of spawning `.cmd` directly. Landed from contributor PR #31147 by @codertony. Thanks @codertony.",
+      "translated": "Windows/플러그인 설치: `.cmd`를 직접 실행하는 대신 `node` + npm CLI 스크립트로 해석하여 Windows npm/npx 호출 시 `spawn EINVAL` 오류를 방지합니다. 기여자 @codertony의 PR #31147에서 반영되었습니다. @codertony님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "LINE/Voice transcription: classify M4A voice media as `audio/mp4` (not `video/mp4`) by checking the MPEG-4 `ftyp` major brand (`M4A ` / `M4B `), restoring voice transcription for LINE voice messages. Landed from contributor PR #31151 by @scoootscooob. Thanks @scoootscooob.",
+      "translated": "LINE/음성 전사: MPEG-4 `ftyp` 주 브랜드(`M4A ` / `M4B `)를 확인하여 M4A 음성 미디어를 `video/mp4`가 아닌 `audio/mp4`로 분류하고, LINE 음성 메시지에 대한 음성 전사 기능을 복구합니다. 기여자 @scoootscooob의 PR #31151에서 반영되었습니다. @scoootscooob님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Announce target account routing: enable session-backed announce-target lookup for Slack so multi-account announces resolve the correct `accountId` instead of defaulting to bot-token context. Landed from contributor PR #31028 by @taw0002. Thanks @taw0002.",
+      "translated": "Slack/공지 대상 계정 라우팅: Slack에 대해 세션 기반 공지 대상 조회를 활성화하여 다중 계정 공지 시 봇 토큰 컨텍스트를 기본값으로 사용하는 대신 올바른 `accountId`를 찾도록 합니다. 기여자 @taw0002의 PR #31028에서 반영되었습니다. @taw0002님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Voice screen TTS: stream assistant speech via ElevenLabs WebSocket in Talk Mode, stop cleanly on speaker mute/barge-in, and ignore stale out-of-order stream events. (#29521) Thanks @gregmousseau.",
+      "translated": "Android/음성 화면 TTS: 대화 모드에서 ElevenLabs WebSocket을 통해 어시스턴트 음성을 스트리밍하고, 스피커 음소거 또는 끼어들기 시 깔끔하게 중지하며, 오래된 순서가 맞지 않는 스트림 이벤트를 무시합니다. (#29521) @gregmousseau님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Photos permissions: declare Android 14+ selected-photo access permission (`READ_MEDIA_VISUAL_USER_SELECTED`) and align Android permission/settings paths with current minSdk behavior for more reliable permission state handling.",
+      "translated": "Android/사진 권한: Android 14 이상의 선택적 사진 액세스 권한(`READ_MEDIA_VISUAL_USER_SELECTED`)을 선언하고, 더 안정적인 권한 상태 처리를 위해 Android 권한/설정 경로를 현재 minSdk 동작에 맞게 조정합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Web UI/Cron: include configured agent model defaults/fallbacks in cron model suggestions so scheduled-job model autocomplete reflects configured models. (#29709) Thanks @Sid-Qin.",
+      "translated": "Web UI/Cron: 예약된 작업의 모델 자동 완성이 설정된 모델을 반영하도록 cron 모델 제안에 설정된 에이전트 모델 기본값 및 폴백을 포함합니다. (#29709) @Sid-Qin님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Delivery: disable the agent messaging tool when `delivery.mode` is `\"none\"` so cron output is not sent to Telegram or other channels. (#21808) Thanks @lailoo.",
+      "translated": "Cron/전송: `delivery.mode`가 `\"none\"`인 경우 에이전트 메시징 도구를 비활성화하여 cron 출력이 텔레그램이나 다른 채널로 전송되지 않도록 합니다. (#21808) @lailoo님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/Cron: clarify `cron list` output by renaming `Agent` to `Agent ID` and adding a `Model` column for isolated agent-turn jobs. (#26259) Thanks @openperf.",
+      "translated": "CLI/Cron: `Agent`를 `Agent ID`로 이름을 변경하고 격리된 에이전트 턴 작업에 대한 `Model` 열을 추가하여 `cron list` 출력을 명확하게 개선합니다. (#26259) @openperf님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Reply media attachments: send Feishu reply `mediaUrl`/`mediaUrls` payloads as attachments alongside text/streamed replies in the reply dispatcher, including legacy fallback when `mediaUrls` is empty. (#28959) Thanks @icesword0760.",
+      "translated": "Feishu/답장 미디어 첨부 파일: 답장 디스패처에서 텍스트/스트리밍 답장과 함께 Feishu 답장 `mediaUrl`/`mediaUrls` 페이로드를 첨부 파일로 전송하며, `mediaUrls`가 비어 있는 경우의 레거시 폴백을 포함합니다. (#28959) @icesword0760님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/User-token resolution: normalize Slack account user-token sourcing through resolved account metadata (`SLACK_USER_TOKEN` env + config) so monitor reads, Slack actions, directory lookups, onboarding allow-from resolution, and capabilities probing consistently use the effective user token. (#28103) Thanks @Glucksberg.",
+      "translated": "Slack/사용자 토큰 확인: 모니터 읽기, Slack 액션, 디렉토리 조회, 온보딩 allow-from 확인 및 기능 조사가 일관되게 유효한 사용자 토큰을 사용하도록 확인된 계정 메타데이터(`SLACK_USER_TOKEN` 환경 변수 + 설정)를 통해 Slack 계정 사용자 토큰 소싱을 정규화합니다. (#28103) @Glucksberg님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Outbound session routing: stop assuming bare `oc_` identifiers are always group chats, honor explicit `dm:`/`group:` prefixes for `oc_` chat IDs, and default ambiguous bare `oc_` targets to direct routing to avoid DM session misclassification. (#10407) Thanks @Bermudarat.",
+      "translated": "Feishu/아웃바운드 세션 라우팅: 순수 `oc_` 식별자가 항상 그룹 채팅이라고 가정하는 것을 중단하고, `oc_` 채팅 ID에 대한 명시적인 `dm:`/`group:` 접두사를 준수하며, DM 세션 오분류를 방지하기 위해 모호한 순수 `oc_` 대상을 기본적으로 다이렉트 라우팅으로 설정합니다. (#10407) @Bermudarat님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Group session routing: add configurable group session scopes (`group`, `group_sender`, `group_topic`, `group_topic_sender`) with legacy `topicSessionMode=enabled` compatibility so Feishu group conversations can isolate sessions by sender/topic as configured. (#17798) Thanks @yfge.",
+      "translated": "Feishu/그룹 세션 라우팅: Feishu 그룹 대화가 설정에 따라 발신자/주제별로 세션을 격리할 수 있도록 레거시 `topicSessionMode=enabled` 호환성을 포함한 구성 가능한 그룹 세션 범위(`group`, `group_sender`, `group_topic`, `group_topic_sender`)를 추가합니다. (#17798) @yfge님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Reply-in-thread routing: add `replyInThread` config (`disabled|enabled`) for group replies, propagate `reply_in_thread` across text/card/media/streaming sends, and align topic-scoped session routing so newly created reply threads stay on the same session root. (#27325) Thanks @kcinzgg.",
+      "translated": "Feishu/스레드 답장 라우팅: 그룹 답장에 대한 `replyInThread` 설정(`disabled|enabled`)을 추가하고, 텍스트/카드/미디어/스트리밍 전송 전반에 `reply_in_thread`를 전파하며, 새로 생성된 답장 스레드가 동일한 세션 루트에 유지되도록 주제 범위 세션 라우팅을 조정합니다. (#27325) @kcinzgg님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Probe status caching: cache successful `probeFeishu()` bot-info results for 10 minutes (bounded cache with per-account keying) to reduce repeated status/onboarding probe API calls, while bypassing cache for failures and exceptions. (#28907) Thanks @Glucksberg.",
+      "translated": "Feishu/프로브 상태 캐싱: 반복적인 상태/온보딩 프로브 API 호출을 줄이기 위해 성공적인 `probeFeishu()` 봇 정보 결과를 10분 동안 캐싱(계정별 키 지정이 포함된 제한된 캐시)하며, 실패 및 예외의 경우 캐시를 우회합니다. (#28907) @Glucksberg님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Opus media send type: send `.opus` attachments with `msg_type: \"audio\"` (instead of `\"media\"`) so Feishu voice messages deliver correctly while `.mp4` remains `msg_type: \"media\"` and documents remain `msg_type: \"file\"`. (#28269) Thanks @Glucksberg.",
+      "translated": "Feishu/Opus 미디어 전송 유형: `.mp4`는 `msg_type: \"media\"`로, 문서는 `msg_type: \"file\"`로 유지하면서 Feishu 음성 메시지가 올바르게 전달되도록 `.opus` 첨부 파일을 `msg_type: \"audio\"`(`\"media\"` 대신)로 전송합니다. (#28269) @Glucksberg님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Mobile video media type: treat inbound `message_type: \"media\"` as video-equivalent for media key extraction, placeholder inference, and media download resolution so mobile-app video sends ingest correctly. (#25502) Thanks @4ier.",
+      "translated": "Feishu/모바일 비디오 미디어 유형: 모바일 앱 비디오 전송이 올바르게 수집되도록 미디어 키 추출, 플레이스홀더 추론 및 미디어 다운로드 확인 시 인바운드 `message_type: \"media\"`를 비디오와 동일하게 처리합니다. (#25502) @4ier님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Inbound sender fallback: fall back to `sender_id.user_id` when `sender_id.open_id` is missing on inbound events, and use ID-type-aware sender lookup so mobile-delivered messages keep stable sender identity/routing. (#26703) Thanks @NewdlDewdl.",
+      "translated": "Feishu/인바운드 발신자 폴백: 인바운드 이벤트에서 `sender_id.open_id`가 누락된 경우 `sender_id.user_id`로 폴백하고, 모바일로 전달된 메시지가 안정적인 발신자 ID 및 라우팅을 유지하도록 ID 유형 인식 발신자 조회를 사용합니다. (#26703) @NewdlDewdl님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Reply context metadata: include inbound `parent_id` and `root_id` as `ReplyToId`/`RootMessageId` in inbound context, and parse interactive-card quote bodies into readable text when fetching replied messages. (#18529) Thanks @qiangu.",
+      "translated": "Feishu/답장 컨텍스트 메타데이터: 인바운드 컨텍스트에 인바운드 `parent_id` 및 `root_id`를 `ReplyToId`/`RootMessageId`로 포함하고, 답장 메시지를 가져올 때 대화형 카드 인용 본문을 읽기 가능한 텍스트로 파싱합니다. (#18529) @qiangu 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Post embedded media: extract `media` tags from inbound rich-text (`post`) messages and download embedded video/audio files alongside existing embedded-image handling, with regression coverage. (#21786) Thanks @laopuhuluwa.",
+      "translated": "Feishu/Post 임베디드 미디어: 인바운드 서식 있는 텍스트(`post`) 메시지에서 `media` 태그를 추출하고, 기존 임베디드 이미지 처리와 함께 임베디드 비디오/오디오 파일을 다운로드하며 회귀 테스트를 추가했습니다. (#21786) @laopuhuluwa 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Local media sends: propagate `mediaLocalRoots` through Feishu outbound media sending into `loadWebMedia` so local path attachments work with post-CVE local-root enforcement. (#27884) Thanks @joelnishanth.",
+      "translated": "Feishu/로컬 미디어 전송: Feishu 아웃바운드 미디어 전송 시 `mediaLocalRoots`를 `loadWebMedia`로 전달하여, CVE 이후의 로컬 루트 강제 적용 환경에서도 로컬 경로 첨부 파일이 작동하도록 개선했습니다. (#27884) @joelnishanth 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Group wildcard policy fallback: honor `channels.feishu.groups[\"*\"]` when no explicit group match exists so unmatched groups inherit wildcard reply-policy settings instead of falling back to global defaults. (#29456) Thanks @WaynePika.",
+      "translated": "Feishu/그룹 와일드카드 정책 폴백: 명시적인 그룹 매칭이 없을 때 `channels.feishu.groups[\"*\"]` 설정을 준수하여, 매칭되지 않은 그룹이 글로벌 기본값 대신 와일드카드 답장 정책 설정을 상속받도록 했습니다. (#29456) @WaynePika 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Inbound media regression coverage: add explicit tests for message resource type mapping (`image` stays `image`, non-image maps to `file`) to prevent reintroducing unsupported Feishu `type=audio` fetches. (#16311, #8746) Thanks @Yaxuan42.",
+      "translated": "Feishu/인바운드 미디어 회귀 테스트: 지원되지 않는 Feishu `type=audio` 호출이 다시 발생하지 않도록 메시지 리소스 유형 매핑(`image`는 `image`로 유지, 이미지가 아닌 경우 `file`로 매핑)에 대한 명시적인 테스트를 추가했습니다. (#16311, #8746) @Yaxuan42 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TTS/Voice bubbles: use opus output and enable `audioAsVoice` routing for Feishu and WhatsApp (in addition to Telegram) so supported channels receive voice-bubble playback instead of file-style audio attachments. (#27366) Thanks @smthfoxy.",
+      "translated": "TTS/음성 버블: opus 출력을 사용하고 Feishu 및 WhatsApp(Telegram 포함)에 `audioAsVoice` 라우팅을 활성화하여, 지원되는 채널에서 파일 형태의 오디오 첨부 대신 음성 버블 재생이 가능하도록 했습니다. (#27366) @smthfoxy 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Reply media context: include replied media files in inbound context when replying to media, defer reply-media downloads to debounce flush, gate reply-media fetch behind DM authorization, and preserve replied media when non-vision sticker fallback runs (including cached-sticker paths). (#28488) Thanks @obviyus.",
+      "translated": "Telegram/답장 미디어 컨텍스트: 미디어에 답장할 때 인바운드 컨텍스트에 답장된 미디어 파일을 포함하고, 미디어 다운로드를 디바운스 플러시까지 지연시키며, DM 권한 확인 후 미디어를 가져오도록 제한하고, 비전 미지원 스티커 폴백 시(캐시된 스티커 경로 포함) 답장된 미디어를 보존합니다. (#28488) @obviyus 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Nodes notification wake flow: enable Android `system.notify` default allowlist, emit `notifications.changed` events for posted/removed notifications (excluding OpenClaw app-owned notifications), canonicalize notification session keys before enqueue/wake routing, and skip heartbeat wakes when consecutive notification summaries dedupe. (#29440) Thanks @obviyus.",
+      "translated": "Android/노드 알림 웨이크 플로우: Android `system.notify` 기본 허용 목록을 활성화하고, 알림 게시/삭제 시(OpenClaw 앱 소유 알림 제외) `notifications.changed` 이벤트를 발생시키며, 큐 삽입/웨이크 라우팅 전 알림 세션 키를 정규화하고, 연속된 알림 요약이 중복될 경우 하트비트 웨이크를 건너뜁니다. (#29440) @obviyus 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Voice fallback reply chunking: apply reply reference, quote text, and inline buttons only to the first fallback text chunk when voice delivery is blocked, preventing over-quoted multi-chunk replies. Landed from contributor PR #31067 by @xdanger. Thanks @xdanger.",
+      "translated": "Telegram/음성 폴백 답장 청킹: 음성 전송이 차단된 경우 답장 참조, 인용 텍스트, 인라인 버튼을 첫 번째 폴백 텍스트 청크에만 적용하여 여러 청크에 과도하게 인용되는 현상을 방지했습니다. 기여자 @xdanger 님의 PR #31067을 통해 반영되었습니다. @xdanger 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Multi-account + reply reliability: add `channels.feishu.defaultAccount` outbound routing support with schema validation, keep quoted-message extraction text-first (post/interactive/file placeholders instead of raw JSON), route Feishu video sends as `msg_type: \"file\"`, and avoid websocket event blocking by using non-blocking event handling in monitor dispatch. Landed from contributor PRs #29610, #30432, #30331, and #29501. Thanks @hclsys, @bmendonca3, @patrick-yingxi-pan, and @zwffff.",
+      "translated": "Feishu/다중 계정 및 답장 안정성: 스키마 검증을 포함한 `channels.feishu.defaultAccount` 아웃바운드 라우팅 지원을 추가하고, 인용 메시지 추출 시 텍스트 우선 방식(원시 JSON 대신 post/interactive/file 플레이스홀더 사용)을 유지하며, Feishu 비디오 전송을 `msg_type: \"file\"`로 라우팅하고, 모니터 디스패치에서 비차단형 이벤트 처리를 사용하여 웹소켓 이벤트 차단을 방지했습니다. 기여자 @hclsys, @bmendonca3, @patrick-yingxi-pan, @zwffff 님의 PR #29610, #30432, #30331, #29501을 통해 반영되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Inbound rich-text parsing: preserve `share_chat` payload summaries when available and add explicit parsing for rich-text `code`/`code_block`/`pre` tags so forwarded and code-heavy messages keep useful context in agent input. (#28591) Thanks @kevinWangSheng.",
+      "translated": "Feishu/인바운드 서식 있는 텍스트 파싱: `share_chat` 페이로드 요약이 있는 경우 이를 보존하고, 서식 있는 텍스트의 `code`/`code_block`/`pre` 태그에 대한 명시적 파싱을 추가하여 전달된 메시지나 코드가 많은 메시지가 에이전트 입력에서 유용한 컨텍스트를 유지하도록 했습니다. (#28591) @kevinWangSheng 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Post markdown parsing: parse rich-text `post` payloads through a shared markdown-aware parser with locale-wrapper support, preserved mention/image metadata extraction, and inline/fenced code fidelity for agent input rendering. (#12755) Thanks @WilsonLiu95.",
+      "translated": "Feishu/Post 마크다운 파싱: 로케일 래퍼 지원, 멘션/이미지 메타데이터 추출 보존, 에이전트 입력 렌더링을 위한 인라인/펜스 코드 무결성을 갖춘 공유 마크다운 인식 파서를 통해 서식 있는 텍스트 `post` 페이로드를 파싱합니다. (#12755) @WilsonLiu95 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/Outbound chunking: route oversize splitting through the shared outbound pipeline (including subagents), retry Telegram sends when escaped HTML exceeds limits, and preserve boundary whitespace when retry re-splitting rendered chunks so plain-text/transcript fidelity is retained. (#29342, #27317; follow-up to #27461) Thanks @obviyus.",
+      "translated": "Telegram/아웃바운드 청킹: 크기 초과 분할을 공유 아웃바운드 파이프라인(서브 에이전트 포함)을 통해 라우팅하고, 이스케이프된 HTML이 제한을 초과할 때 Telegram 전송을 재시도하며, 렌더링된 청크를 재분할할 때 경계 공백을 보존하여 일반 텍스트/트랜스크립트의 무결성을 유지합니다. (#29342, #27317; #27461 후속 작업) @obviyus 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/Native commands: register Slack native status as `/agentstatus` (Slack-reserved `/status`) so manifest slash command registration stays valid while text `/status` still works. Landed from contributor PR #29032 by @maloqab. Thanks @maloqab.",
+      "translated": "Slack/네이티브 명령어: Slack 네이티브 상태를 `/agentstatus`로 등록하여(Slack 예약어인 `/status` 대신), 텍스트 기반의 `/status`가 계속 작동하면서도 매니페스트 슬래시 명령어 등록이 유효하도록 했습니다. 기여자 @maloqab 님의 PR #29032를 통해 반영되었습니다. @maloqab 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Camera clip: remove `camera.clip` HTTP-upload fallback to base64 so clip transport is deterministic and fail-loud, and reject non-positive `maxWidth` values so invalid inputs fall back to the safe resize default. (#28229) Thanks @obviyus.",
+      "translated": "Android/카메라 클립: `camera.clip` HTTP 업로드의 base64 폴백을 제거하여 클립 전송이 결정론적으로 작동하고 명확하게 실패하도록 했으며, 0 이하의 `maxWidth` 값을 거부하여 잘못된 입력 시 안전한 크기 조정 기본값으로 폴백되도록 했습니다. (#28229) @obviyus 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/Gateway canvas capability refresh: send `node.canvas.capability.refresh` with object `params` (`{}`) from Android node runtime so gateway object-schema validation accepts refresh retries and A2UI host recovery works after scoped capability expiry. (#28413) Thanks @obviyus.",
+      "translated": "Android/게이트웨이 캔버스 기능 새로고침: Android 노드 런타임에서 객체 `params`(`{}`)와 함께 `node.canvas.capability.refresh`를 전송하여, 게이트웨이 객체 스키마 검증이 새로고침 재시도를 수락하고 스코프 기능 만료 후 A2UI 호스트 복구가 작동하도록 했습니다. (#28413) @obviyus 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Control UI origins: honor `gateway.controlUi.allowedOrigins: [\"*\"]` wildcard entries (including trimmed values) and lock behavior with regression tests. Landed from contributor PR #31058 by @byungsker. Thanks @byungsker.",
+      "translated": "Gateway/제어 UI 오리진: `gateway.controlUi.allowedOrigins: [\"*\"]` 와일드카드 항목(공백 제거된 값 포함)을 준수하고 회귀 테스트를 통해 동작을 확정했습니다. 기여자 @byungsker 님의 PR #31058을 통해 반영되었습니다. @byungsker 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Sessions list transcript paths: handle missing/non-string/relative `sessions.list.path` values and per-agent `{agentId}` templates when deriving `transcriptPath`, so cross-agent session listings resolve to concrete agent session files instead of workspace-relative paths. (#24775) Thanks @martinfrancois.",
+      "translated": "Agents/Sessions list transcript paths: `transcriptPath`를 도출할 때 누락되었거나 문자열이 아닌 경우, 또는 상대 경로인 `sessions.list.path` 값과 에이전트별 `{agentId}` 템플릿을 처리하여, 교차 에이전트 세션 목록이 워크스페이스 상대 경로 대신 구체적인 에이전트 세션 파일로 확인되도록 했습니다. (#24775) @martinfrancois 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Control UI CSP: allow required Google Fonts origins in Control UI CSP. (#29279) Thanks @Glucksberg and @vincentkoc.",
+      "translated": "Gateway/제어 UI CSP: 제어 UI CSP에서 필요한 Google Fonts 오리진을 허용했습니다. (#29279) @Glucksberg, @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/Install: add an npm-link fallback to fix CLI startup `Permission denied` failures (`exit 127`) on affected installs. (#17151) Thanks @sskyu and @vincentkoc.",
+      "translated": "CLI/설치: 일부 설치 환경에서 발생하는 CLI 시작 시의 `Permission denied` 오류(`exit 127`)를 해결하기 위해 npm-link 폴백을 추가했습니다. (#17151) @sskyu, @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Onboarding/Custom providers: improve verification reliability for slower local endpoints (for example Ollama) during setup. (#27380) Thanks @Sid-Qin.",
+      "translated": "온보딩/사용자 정의 제공자: 설정 중 Ollama와 같이 속도가 느린 로컬 엔드포인트에 대한 검증 신뢰성을 개선했습니다. (#27380) @Sid-Qin님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/NPM spec install: fix npm-spec plugin installs when `npm pack` output is empty by detecting newly created `.tgz` archives in the pack directory. (#21039) Thanks @graysurf and @vincentkoc.",
+      "translated": "플러그인/NPM spec 설치: `npm pack` 출력이 비어 있을 때 pack 디렉토리에서 새로 생성된 `.tgz` 아카이브를 감지하여 npm-spec 플러그인 설치 문제를 수정했습니다. (#21039) @graysurf님과 @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Install: clear stale install errors when an npm package is not found so follow-up install attempts report current state correctly. (#25073) Thanks @dalefrieswthat.",
+      "translated": "플러그인/설치: npm 패키지를 찾을 수 없을 때 오래된 설치 오류를 제거하여, 이후의 설치 시도에서 현재 상태가 올바르게 보고되도록 했습니다. (#25073) @dalefrieswthat님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Feishu webhook ingress: bound unauthenticated webhook rate-limit state with stale-window pruning and a hard key cap to prevent unbounded pre-auth memory growth from rotating source keys. (#26050) Thanks @bmendonca3.",
+      "translated": "보안/Feishu 웹훅 수신: 소스 키 순환으로 인한 인증 전 메모리의 무제한 증가를 방지하기 위해, 만료 창 정리(stale-window pruning) 및 하드 키 캡(hard key cap)을 사용하여 인증되지 않은 웹훅의 속도 제한 상태를 제한했습니다. (#26050) @bmendonca3님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/macOS supervised restart: actively `launchctl kickstart -k` during intentional supervised restarts to bypass LaunchAgent `ThrottleInterval` delays, and fall back to in-process restart when kickstart fails. Landed from contributor PR #29078 by @cathrynlavery. Thanks @cathrynlavery.",
+      "translated": "게이트웨이/macOS 관리형 재시작: 의도적인 관리형 재시작 시 LaunchAgent의 `ThrottleInterval` 지연을 우회하기 위해 `launchctl kickstart -k`를 적극적으로 수행하며, kickstart 실패 시 프로세스 내 재시작으로 전환합니다. 기여자 @cathrynlavery님의 PR #29078에서 반영되었습니다. @cathrynlavery님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/macOS TLS certs: default LaunchAgent service env `NODE_EXTRA_CA_CERTS` to `/etc/ssl/cert.pem` (while preserving explicit overrides) so HTTPS clients no longer fail with local-issuer errors under launchd. (#27915) Thanks @Lukavyi.",
+      "translated": "데몬/macOS TLS 인증서: LaunchAgent 서비스 환경 변수인 `NODE_EXTRA_CA_CERTS`의 기본값을 `/etc/ssl/cert.pem`으로 설정하여(명시적 재정의는 유지), launchd 환경에서 HTTPS 클라이언트가 로컬 발급자 오류로 실패하지 않도록 했습니다. (#27915) @Lukavyi님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Components wildcard handlers: use distinct internal registration sentinel IDs and parse those sentinels as wildcard keys so select/user/role/channel/mentionable/modal interactions are not dropped by raw customId dedupe paths. Landed from contributor PR #29459 by @Sid-Qin. Thanks @Sid-Qin.",
+      "translated": "Discord/컴포넌트 와일드카드 핸들러: 별도의 내부 등록 센티널(sentinel) ID를 사용하고 이를 와일드카드 키로 파싱하여, select/user/role/channel/mentionable/modal 상호작용이 원시 customId 중복 제거 경로에서 누락되지 않도록 했습니다. 기여자 @Sid-Qin님의 PR #29459에서 반영되었습니다. @Sid-Qin님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Reaction notifications: add `channels.feishu.reactionNotifications` (`off | own | all`, default `own`) so operators can disable reaction ingress or allow all verified reaction events (not only bot-authored message reactions). (#28529) Thanks @cowboy129.",
+      "translated": "Feishu/리액션 알림: `channels.feishu.reactionNotifications` (`off | own | all`, 기본값 `own`) 설정을 추가하여, 운영자가 리액션 수신을 비활성화하거나 (봇이 작성한 메시지 리액션뿐만 아니라) 모든 확인된 리액션 이벤트를 허용할 수 있도록 했습니다. (#28529) @cowboy129님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Typing backoff: re-throw Feishu typing add/remove rate-limit and quota errors (`429`, `99991400`, `99991403`) and detect SDK non-throwing backoff responses so the typing keepalive circuit breaker can stop retries instead of looping indefinitely. (#28494) Thanks @guoqunabc.",
+      "translated": "Feishu/입력 중 표시 백오프: Feishu 입력 중 표시 추가/제거 시의 속도 제한 및 할당량 오류(`429`, `99991400`, `99991403`)를 다시 던지고(re-throw), SDK의 예외 미발생 백오프 응답을 감지하여 입력 중 표시 keepalive 서킷 브레이커가 무한 루프 대신 재시도를 중단할 수 있도록 했습니다. (#28494) @guoqunabc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Zalo runtime logging: replace direct `console.log/error` usage in Feishu typing-indicator paths and Zalo monitor paths with runtime-gated logger calls so verbosity controls are respected while preserving typing backoff behavior. (#18841) Thanks @Clawborn.",
+      "translated": "Feishu/Zalo 런타임 로깅: Feishu 입력 표시 경로 및 Zalo 모니터 경로에서 직접적인 `console.log/error` 사용을 런타임 제어 로거 호출로 교체하여, 입력 백오프 동작을 유지하면서 상세도 제어(verbosity controls)가 적용되도록 했습니다. (#18841) @Clawborn님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Group sender allowlist fallback: add global `channels.feishu.groupSenderAllowFrom` sender authorization for group chats, with per-group `groups.<id>.allowFrom` precedence and regression coverage for allow/block/precedence behavior. (#29174) Thanks @1MoreBuild.",
+      "translated": "Feishu/그룹 발신자 허용 목록 폴백: 그룹 채팅을 위한 전역 `channels.feishu.groupSenderAllowFrom` 발신자 권한 부여를 추가하고, 그룹별 `groups.<id>.allowFrom` 우선순위 적용 및 허용/차단/우선순위 동작에 대한 회귀 테스트를 포함했습니다. (#29174) @1MoreBuild님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Docx append/write ordering: insert converted Docx blocks sequentially (single-block creates) so Feishu append/write preserves markdown block order instead of returning shuffled sections in asynchronous batch inserts. (#26172, #26022) Thanks @echoVic.",
+      "translated": "Feishu/Docx 추가 및 쓰기 순서: 변환된 Docx 블록을 순차적으로 삽입(단일 블록 생성)하여, Feishu 추가/쓰기 시 비동기 일괄 삽입으로 인해 섹션 순서가 섞이지 않고 마크다운 블록 순서가 유지되도록 했습니다. (#26172, #26022) @echoVic님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Docx convert fallback chunking: recursively split oversized markdown chunks (including long no-heading sections) when `document.convert` hits content limits, while keeping fenced-code-aware split boundaries whenever possible. (#14402) Thanks @lml2468.",
+      "translated": "Feishu/Docx 변환 폴백 청킹: `document.convert`가 콘텐츠 제한에 도달할 경우, 제목이 없는 긴 섹션을 포함하여 크기가 초과된 마크다운 청크를 재귀적으로 분할하며, 가능한 경우 코드 펜스(fenced-code)를 고려하여 분할 경계를 유지합니다. (#14402) @lml2468님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/API quota controls: add `typingIndicator` and `resolveSenderNames` config flags (top-level and per-account) so operators can disable typing reactions and sender-name lookup requests while keeping default behavior unchanged. (#10513) Thanks @BigUncle.",
+      "translated": "Feishu/API 할당량 제어: `typingIndicator` 및 `resolveSenderNames` 설정 플래그(최상위 및 계정별)를 추가하여, 기본 동작은 유지하면서 운영자가 입력 리액션 및 발신자 이름 조회 요청을 비활성화할 수 있도록 했습니다. (#10513) @BigUncle님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/System preview prompt leakage: stop enqueuing inbound Feishu message previews as system events so user preview text is not injected into later turns as trusted `System:` context. Landed from contributor PR #31209 by @stakeswky. Thanks @stakeswky.",
+      "translated": "Feishu/시스템 미리보기 프롬프트 유출: 수신된 Feishu 메시지 미리보기를 시스템 이벤트로 큐에 추가하는 것을 중단하여, 사용자 미리보기 텍스트가 이후 대화에서 신뢰할 수 있는 `System:` 컨텍스트로 주입되지 않도록 했습니다. 기여자 @stakeswky님의 PR #31209에서 반영되었습니다. @stakeswky님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/Typing replay suppression: skip typing indicators for stale replayed inbound messages after compaction using message-age checks with second/millisecond timestamp normalization, preventing old-message reaction floods while preserving typing for fresh messages. Landed from contributor PR #30709 by @arkyu2077. Thanks @arkyu2077.",
+      "translated": "Feishu/입력 표시 재생 억제: 초/밀리초 타임스탬프 정규화를 통한 메시지 경과 시간 확인을 사용하여, 컴팩션(compaction) 후 재생된 오래된 수신 메시지에 대한 입력 표시를 건너뜁니다. 이를 통해 최신 메시지에 대한 입력 표시는 유지하면서 오래된 메시지로 인한 리액션 폭주를 방지합니다. 기여자 @arkyu2077님의 PR #30709에서 반영되었습니다. @arkyu2077님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/Internal routing: preserve established external `lastTo`/`lastChannel` routes for internal/non-deliverable turns, with added coverage for no-fallback internal routing behavior. Landed from contributor PR #30941 by @graysurf. Thanks @graysurf.",
+      "translated": "세션/내부 라우팅: 내부 또는 전달 불가능한 턴(turn)에 대해 설정된 외부 `lastTo`/`lastChannel` 경로를 유지하며, 폴백 없는 내부 라우팅 동작에 대한 테스트 범위를 추가했습니다. 기여자 @graysurf님의 PR #30941에서 반영되었습니다. @graysurf님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/Debug log layout: render Debug Event Log payloads at full width to prevent payload JSON from being squeezed into a narrow side column. Landed from contributor PR #30978 by @stozo04. Thanks @stozo04.",
+      "translated": "제어 UI/디버그 로그 레이아웃: 디버그 이벤트 로그 페이로드를 전체 너비로 렌더링하여 페이로드 JSON이 좁은 측면 열에 압축되어 표시되지 않도록 했습니다. 기여자 @stozo04님의 PR #30978에서 반영되었습니다. @stozo04님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/NO_REPLY: strip `NO_REPLY` token from mixed-content messages instead of leaking raw control text to end users. Landed from contributor PR #31080 by @scoootscooob. Thanks @scoootscooob.",
+      "translated": "자동 응답/NO_REPLY: 혼합 콘텐츠 메시지에서 `NO_REPLY` 토큰을 제거하여 원시 제어 텍스트가 최종 사용자에게 노출되지 않도록 했습니다. 기여자 @scoootscooob님의 PR #31080에서 반영되었습니다. @scoootscooob님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Install/npm: fix npm global install deprecation warnings. (#28318) Thanks @vincentkoc.",
+      "translated": "설치/npm: npm 전역 설치 시의 지원 중단(deprecation) 경고를 수정했습니다. (#28318) @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Update/Global npm: fallback to `--omit=optional` when global `npm update` fails so optional dependency install failures no longer abort update flows. (#24896) Thanks @xinhuagu and @vincentkoc.",
+      "translated": "Update/Global npm: 글로벌 `npm update` 실패 시 `--omit=optional`로 대체하여 선택적 의존성 설치 실패가 업데이트 흐름을 중단하지 않도록 수정했습니다. (#24896) @xinhuagu님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Inbound metadata/Multi-account routing: include `account_id` in trusted inbound metadata so multi-account channel sessions can reliably disambiguate the receiving account in prompt context. Landed from contributor PR #30984 by @Stxle2. Thanks @Stxle2.",
+      "translated": "Inbound metadata/Multi-account routing: 신뢰할 수 있는 인바운드 메타데이터에 `account_id`를 포함하여, 다중 계정 채널 세션이 프롬프트 컨텍스트에서 수신 계정을 안정적으로 식별할 수 있게 했습니다. 기여자 @Stxle2님의 PR #30984를 통해 반영되었습니다. @Stxle2님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Model directives/Auth profiles: split `/model` profile suffixes at the first `@` after the last slash so email-based auth profile IDs (for example OAuth profile IDs) resolve correctly. Landed from contributor PR #30932 by @haosenwang1018. Thanks @haosenwang1018.",
+      "translated": "Model directives/Auth profiles: `/model` 프로필 접미사를 마지막 슬래시 이후의 첫 번째 `@`에서 분리하여, 이메일 기반 인증 프로필 ID(예: OAuth 프로필 ID)가 올바르게 확인되도록 했습니다. 기여자 @haosenwang1018님의 PR #30932를 통해 반영되었습니다. @haosenwang1018님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Delivery mode none: send explicit `delivery: { mode: \"none\" }` from cron editor for both add and update flows so previous announce delivery is actually cleared. Landed from contributor PR #31145 by @byungsker. Thanks @byungsker.",
+      "translated": "Cron/Delivery mode none: 크론 에디터의 추가 및 업데이트 흐름 모두에서 명시적인 `delivery: { mode: \"none\" }`을 전송하여 이전의 공지 전달 설정이 실제로 제거되도록 했습니다. 기여자 @byungsker님의 PR #31145를 통해 반영되었습니다. @byungsker님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron editor viewport: make the sticky cron edit form independently scrollable with viewport-bounded height so lower fields/actions are reachable on shorter screens. Landed from contributor PR #31133 by @Sid-Qin. Thanks @Sid-Qin.",
+      "translated": "Cron editor viewport: 고정된 크론 편집 폼을 뷰포트 높이에 맞춰 독립적으로 스크롤할 수 있게 하여, 작은 화면에서도 하단 필드와 작업 버튼에 접근할 수 있도록 개선했습니다. 기여자 @Sid-Qin님의 PR #31133를 통해 반영되었습니다. @Sid-Qin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Thinking fallback: when providers reject unsupported thinking levels without enumerating alternatives, retry with `think=off` to avoid hard failure during model/provider fallback chains. Landed from contributor PR #31002 by @yfge. Thanks @yfge.",
+      "translated": "Agents/Thinking fallback: 프로바이더가 대안을 제시하지 않고 지원되지 않는 사고 수준(thinking levels)을 거부할 때, 모델/프로바이더 폴백 체인 중 치명적 오류가 발생하지 않도록 `think=off`로 재시도합니다. 기여자 @yfge님의 PR #31002를 통해 반영되었습니다. @yfge님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama/Embedded runner base URL precedence: prioritize configured provider `baseUrl` over model defaults for embedded Ollama runs so Docker and remote-host setups avoid localhost fetch failures. (#30964) Thanks @stakeswky.",
+      "translated": "Ollama/Embedded runner base URL precedence: 임베디드 Ollama 실행 시 모델 기본값보다 설정된 프로바이더의 `baseUrl`을 우선시하여, Docker 및 원격 호스트 환경에서 localhost 호출 실패가 발생하지 않도록 했습니다. (#30964) @stakeswky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Failover reason classification: avoid false rate-limit classification from incidental `tpm` substrings by matching TPM as a standalone token/phrase and keeping auth-context errors on the auth path. Landed from contributor PR #31007 by @HOYALIM. Thanks @HOYALIM.",
+      "translated": "Agents/Failover reason classification: `tpm` 문자열 포함 여부로 인한 잘못된 속도 제한(rate-limit) 분류를 방지하기 위해 TPM을 독립된 토큰/구문으로 매칭하고, 인증 컨텍스트 오류는 인증 경로로 유지하도록 수정했습니다. 기여자 @HOYALIM님의 PR #31007을 통해 반영되었습니다. @HOYALIM님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/WS: close repeated post-handshake `unauthorized role:*` request floods per connection and sample duplicate rejection logs, preventing a single misbehaving client from degrading gateway responsiveness. (#20168) Thanks @acy103, @vibecodooor, and @vincentkoc.",
+      "translated": "Gateway/WS: 핸드셰이크 이후 반복되는 연결당 `unauthorized role:*` 요청 플러딩을 차단하고 중복 거부 로그를 샘플링하여, 특정 클라이언트의 오작동으로 인한 게이트웨이 응답성 저하를 방지합니다. (#20168) @acy103님, @vibecodooor님, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Auth: improve device-auth v2 migration diagnostics so operators get clearer guidance when legacy clients connect. (#28305) Thanks @vincentkoc.",
+      "translated": "Gateway/Auth: device-auth v2 마이그레이션 진단 기능을 개선하여 레거시 클라이언트 연결 시 운영자에게 더 명확한 가이드를 제공합니다. (#28305) @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/Ollama config: allow `config set` for Ollama `apiKey` without predeclared provider config. (#29299) Thanks @vincentkoc.",
+      "translated": "CLI/Ollama config: 사전 선언된 프로바이더 설정 없이도 Ollama `apiKey`에 대해 `config set`을 사용할 수 있도록 허용했습니다. (#29299) @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama/Autodiscovery: harden autodiscovery and warning behavior. (#29201) Thanks @marcodelpin and @vincentkoc.",
+      "translated": "Ollama/Autodiscovery: 자동 감지(autodiscovery) 및 경고 동작을 강화했습니다. (#29201) @marcodelpin님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama/Context window: unify context window handling across discovery, merge, and OpenAI-compatible transport paths. (#29205) Thanks @Sid-Qin, @jimmielightner, and @vincentkoc.",
+      "translated": "Ollama/Context window: 감지, 병합 및 OpenAI 호환 전송 경로 전반에서 컨텍스트 창(context window) 처리를 통합했습니다. (#29205) @Sid-Qin님, @jimmielightner님, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Ollama: demote empty-discovery logging from `warn` to `debug` to reduce noisy warnings in normal edge-case discovery flows. (#26379) Thanks @byungsker.",
+      "translated": "Agents/Ollama: 일반적인 엣지 케이스 감지 흐름에서 불필요한 경고를 줄이기 위해 빈 감지(empty-discovery) 로그 레벨을 `warn`에서 `debug`로 하향 조정했습니다. (#26379) @byungsker님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(model): preserve reasoning in provider fallback resolution. (#29285) Fixes #25636. Thanks @vincentkoc.",
+      "translated": "모델: 프로바이더 폴백 해결 시 추론(reasoning) 과정을 보존하도록 수정했습니다. (#29285) #25636 해결. @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docker/Image permissions: normalize `/app/extensions`, `/app/.agent`, and `/app/.agents` to directory mode `755` and file mode `644` during image build so plugin discovery does not block inherited world-writable paths. (#30191) Fixes #30139. Thanks @edincampara.",
+      "translated": "Docker/Image permissions: 이미지 빌드 중 `/app/extensions`, `/app/.agent`, 및 `/app/.agents`의 권한을 디렉토리 `755`, 파일 `644` 모드로 정규화하여, 플러그인 감지 시 상속된 쓰기 가능 경로가 차단되지 않도록 했습니다. (#30191) #30139 해결. @edincampara님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI Responses/Compaction: rewrite and unify the OpenAI Responses store patches to treat empty `baseUrl` as non-direct, honor `compat.supportsStore=false`, and auto-inject server-side compaction `context_management` for compatible direct OpenAI models (with per-model opt-out/threshold overrides). Landed from contributor PRs #16930 (@OiPunk), #22441 (@EdwardWu7), and #25088 (@MoerAI). Thanks @OiPunk, @EdwardWu7, and @MoerAI.",
+      "translated": "OpenAI Responses/Compaction: OpenAI Responses 저장소 패치를 재작성 및 통합하여 빈 `baseUrl`을 비직접 연결로 처리하고, `compat.supportsStore=false` 설정을 준수하며, 호환되는 직접 OpenAI 모델에 대해 서버 측 압축 `context_management`를 자동 주입합니다(모델별 옵트아웃/임계값 재설정 가능). 기여자 @OiPunk님의 PR #16930, @EdwardWu7님의 PR #22441, @MoerAI님의 PR #25088을 통해 반영되었습니다. @OiPunk님, @EdwardWu7님, @MoerAI님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox/Browser Docker: pass `OPENCLAW_BROWSER_NO_SANDBOX=1` to sandbox browser containers and bump sandbox browser security hash epoch so existing containers are recreated and pick up the env on upgrade. (#29879) Thanks @Lukavyi.",
+      "translated": "Sandbox/Browser Docker: 샌드박스 브라우저 컨테이너에 `OPENCLAW_BROWSER_NO_SANDBOX=1`을 전달하고 샌드박스 브라우저 보안 해시 에포크를 높여, 업그레이드 시 기존 컨테이너가 재생성되어 환경 변수를 적용받도록 했습니다. (#29879) @Lukavyi님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Usage normalization: clamp negative prompt/input token values to zero (including `prompt_tokens` alias inputs) so `/usage` and TUI usage displays cannot show nonsensical negative counts. Landed from contributor PR #31211 by @scoootscooob. Thanks @scoootscooob.",
+      "translated": "Usage normalization: 음수 프롬프트/입력 토큰 값(`prompt_tokens` 별칭 입력 포함)을 0으로 고정하여, `/usage` 및 TUI 사용량 표시에서 비정상적인 음수 카운트가 나타나지 않도록 했습니다. 기여자 @scoootscooob님의 PR #31211을 통해 반영되었습니다. @scoootscooob님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Secrets/Auth profiles: normalize inline SecretRef `token`/`key` values to canonical `tokenRef`/`keyRef` before persistence, and keep explicit `keyRef` precedence when inline refs are also present. Landed from contributor PR #31047 by @minupla. Thanks @minupla.",
+      "translated": "Secrets/Auth profiles: 인라인 SecretRef의 `token`/`key` 값을 영속화하기 전에 표준 `tokenRef`/`keyRef`로 정규화하고, 인라인 참조가 함께 존재하는 경우 명시적인 `keyRef`를 우선하도록 수정했습니다. 기여자 @minupla님의 PR #31047을 통해 반영되었습니다. @minupla님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tools/Edit workspace boundary errors: preserve the real `Path escapes workspace root` failure path instead of surfacing a misleading access/file-not-found error when editing outside workspace roots. Landed from contributor PR #31015 by @haosenwang1018. Thanks @haosenwang1018.",
+      "translated": "도구/워크스페이스 경계 편집 오류: 워크스페이스 루트 외부에서 편집할 때 오해의 소지가 있는 접근/파일 미찾음 오류 대신 실제 `Path escapes workspace root` 실패 경로를 유지합니다. 기여자 @haosenwang1018의 PR #31015를 통해 반영되었습니다. @haosenwang1018님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/Open & navigate: accept `url` as an alias parameter for `open` and `navigate`. (#29260) Thanks @vincentkoc.",
+      "translated": "브라우저/열기 및 탐색: `open` 및 `navigate`의 별칭 파라미터로 `url`을 허용합니다. (#29260) @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/Usage window: label weekly usage window as `Week` instead of `Day`. (#26267) Thanks @Sid-Qin.",
+      "translated": "Codex/사용 기간: 주간 사용 기간 레이블을 `Day` 대신 `Week`로 표시합니다. (#26267) @Sid-Qin님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Signal/Sync message null-handling: treat `syncMessage` presence (including `null`) as sync envelope traffic so replayed sentTranscript payloads cannot bypass loop guards after daemon restart. Landed from contributor PR #31138 by @Sid-Qin. Thanks @Sid-Qin.",
+      "translated": "Signal/동기화 메시지 null 처리: `syncMessage`의 존재(`null` 포함)를 동기화 엔벨로프 트래픽으로 처리하여, 데몬 재시작 후 재생된 sentTranscript 페이로드가 루프 가드를 우회하지 못하도록 합니다. 기여자 @Sid-Qin의 PR #31138을 통해 반영되었습니다. @Sid-Qin님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Infra/fs-safe: sanitize directory-read failures so raw `EISDIR` text never leaks to messaging surfaces, with regression tests for both root-scoped and direct safe reads. Landed from contributor PR #31205 by @polooooo. Thanks @polooooo.",
+      "translated": "Infra/fs-safe: 디렉터리 읽기 실패를 정제하여 원시 `EISDIR` 텍스트가 메시징 표면에 노출되지 않도록 하고, 루트 범위 및 직접 안전 읽기 모두에 대한 회귀 테스트를 추가했습니다. 기여자 @polooooo의 PR #31205를 통해 반영되었습니다. @polooooo님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox/mkdirp boundary checks: allow directory-safe boundary validation for existing in-boundary subdirectories, preventing false `cannot create directories` failures in sandbox write mode. (#30610) Thanks @glitch418x.",
+      "translated": "Sandbox/mkdirp 경계 확인: 경계 내에 이미 존재하는 하위 디렉터리에 대해 디렉터리 안전 경계 검증을 허용하여, 샌드박스 쓰기 모드에서 잘못된 `cannot create directories` 실패가 발생하는 것을 방지합니다. (#30610) @glitch418x님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Compaction audit: remove the post-compaction audit injection message. (#28507) Thanks @fuller-stack-dev and @vincentkoc.",
+      "translated": "보안/압축 감사: 압축 후 감사 주입 메시지를 제거합니다. (#28507) @fuller-stack-dev님과 @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Web tools/RFC2544 fake-IP compatibility: allow RFC2544 benchmark range (`198.18.0.0/15`) for trusted web-tool fetch endpoints so proxy fake-IP networking modes do not trigger false SSRF blocks. Landed from contributor PR #31176 by @sunkinux. Thanks @sunkinux.",
+      "translated": "웹 도구/RFC2544 가짜 IP 호환성: 신뢰할 수 있는 웹 도구 fetch 엔드포인트에 RFC2544 벤치마크 범위(`198.18.0.0/15`)를 허용하여, 프록시 가짜 IP 네트워킹 모드에서 잘못된 SSRF 차단이 발생하지 않도록 합니다. 기여자 @sunkinux의 PR #31176을 통해 반영되었습니다. @sunkinux님 감사합니다."
+    }
+  ],
+  "translatedAt": "2026-03-02T07:24:47.463Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 25945
+}
