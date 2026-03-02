@@ -1,0 +1,404 @@
+{
+  "version": "0.107.0",
+  "date": "2026-03-02",
+  "parsedAt": "2026-03-02T19:07:55.208Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "You can now fork a thread into sub-agents, making it easier to branch work without leaving the current conversation. (#12499)",
+      "translated": "~/.ssh 및 기타 일부 디렉터리에 대한 샌드박스 읽기 권한 부여하지 않음"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Realtime voice sessions now let you pick microphone and speaker devices, persist those choices, and send audio in a format better aligned with transcription. (#12849, #12850, #13030)",
+      "translated": "권한 상승 요청 시 샌드박스 설정 포함"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Custom tools can now return multimodal output, including structured content like images, instead of being limited to plain text. (#12948)",
+      "translated": "Memories에 git 정보 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The app server now exposes richer model availability and upgrade metadata, and the TUI uses it to explain plan-gated models with limited-run tooltips. (#12958, #12972, #13021)",
+      "translated": "Resume/fork 시 cwd 확인을 위해 `thread_id` 사용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Memories are now configurable, and there is a new `codex debug clear-memories` command to fully reset saved memory state when needed. (#12997, #12999, #13002, #13085)",
+      "translated": "클라이언트가 옵션으로 요약을 보내지 않도록 허용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Reconnecting with `thread/resume` now restores pending approval and input requests instead of leaving clients out of sync. (#12560)",
+      "translated": "Codex 기능 목록을 알파벳순으로 정렬"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread/start` no longer blocks unrelated app-server requests, reducing stalls during slow startup paths such as MCP auth checks. (#13033)",
+      "translated": "실시간 오디오 장치 설정 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Interactive terminal sessions no longer print the final assistant response twice. (#13082)",
+      "translated": "`unix_escalation` 테스트를 형제 파일로 이동"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Large pasted-content placeholders now survive file completion correctly, fixing a regression from `0.106.0`. (#13070)",
+      "translated": "Turn 환경 컨텍스트에 로컬 날짜 및 시간대 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ChatGPT accounts that arrive without plan info now handle account reads correctly instead of triggering repeated login issues. (#13072)",
+      "translated": "실시간 오디오 테스트를 결정론적으로 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diff rendering in the TUI now respects theme colors better and displays more cleanly in Windows Terminal and other low-color environments. (#13016, #13037)",
+      "translated": "Cxa-1833 model/list 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP OAuth login flows now forward configured `oauth_resource` values correctly for servers that require a `resource` parameter. (#12866)",
+      "translated": "실시간 오디오 장치 선택기 추가"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated sandbox escalation guidance so dependency-install failures caused by sandboxed network access are more clearly treated as escalation candidates. (#13051)",
+      "translated": "멀티모달 커스텀 도구 출력 지원"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Tightened sandbox filesystem behavior by improving restricted read-only handling on Linux and avoiding sensitive directories like `~/.ssh` on Windows. (#12369, #12835)",
+      "translated": "`force_fetch=true`를 사용하여 app/list 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Escalated shell commands now keep their sandbox configuration when rerun, closing a gap where approvals could lose the intended restrictions. (#12839)",
+      "translated": "MCP 로그인 흐름에 대한 `oauth_resource` 처리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12925 chore: calm down awaiter",
+      "translated": "#"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12499 feat: fork thread multi agent",
+      "translated": "스레드 멀티 에이전트 포크"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12837 Log js_repl nested tool responses in rollout history",
+      "translated": "`js_repl` 중첩 도구 응답을 롤아웃 기록에 로그"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12774 feat: add post-compaction sub-agent infos",
+      "translated": "Compaction 후 서브 에이전트 정보 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12929 Remove noisy log",
+      "translated": "불필요한 로그 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12835 don't grant sandbox read access to ~/.ssh and a few other dirs.",
+      "translated": "`~/.ssh` 및 일부 디렉터리에 대한 샌드박스 읽기 권한 부여하지 않음"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12839 feat: include sandbox config with escalation request",
+      "translated": "에스컬레이션 요청에 샌드박스 설정 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12940 feat: add git info to memories",
+      "translated": "메모리에 git 정보 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12727 tui: use thread_id for resume/fork cwd resolution",
+      "translated": "Tui: resume/fork cwd 해결에 thread_id 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12950 Allow clients not to send summary as an option",
+      "translated": "클라이언트가 요약을 전송하지 않는 것을 옵션으로 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12944 fix: sort codex features list alphabetically",
+      "translated": "Codex 기능 목록 알파벳순 정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12849 Add realtime audio device config",
+      "translated": "실시간 오디오 장치 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12957 test: move unix_escalation tests into sibling file",
+      "translated": "`unix_escalation` 테스트를 형제 파일로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12947 feat: add local date/timezone to turn environment context",
+      "translated": "Turn 환경 컨텍스트에 로컬 날짜/시간대 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12959 Make realtime audio test deterministic",
+      "translated": "실시간 오디오 테스트 결정적으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12958 Feat: cxa-1833 update model/list",
+      "translated": "`cxa-1833` model/list 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12850 Add realtime audio device picker",
+      "translated": "실시간 오디오 장치 선택기 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12948 Support multimodal custom tool outputs",
+      "translated": "멀티모달 커스텀 도구 출력 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12745 [apps] Improve app/list with force_fetch=true",
+      "translated": "[apps] `force_fetch=true`로 `app/list` 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12866 Add oauth_resource handling for MCP login flows",
+      "translated": "MCP 로그인 플로우에 `oauth_resource` 처리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12936 Add a background job to refresh the requirements local cache",
+      "translated": "Requirements 로컬 캐시를 새로고침하는 백그라운드 작업 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12972 Add model availability NUX metadata",
+      "translated": "모델 가용성 NUX 메타데이터 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12981 Add realtime websocket tracing",
+      "translated": "실시간 웹소켓 추적 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12968 notify: include client in legacy hook payload",
+      "translated": "Notify: 레거시 훅 페이로드에 클라이언트 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12997 feat: add use memories config",
+      "translated": "메모리 사용 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12999 feat: gen memories config",
+      "translated": "메모리 생성 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13002 feat: use the memory mode for phase 1 extraction",
+      "translated": "1단계 추출에 메모리 모드 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13001 chore: tmp remove awaiter",
+      "translated": "Awaiter 임시 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13011 fix: more stable notify script",
+      "translated": "더 안정적인 알림 스크립트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12970 fix: use AbsolutePathBuf for permission profile file roots",
+      "translated": "권한 프로필 파일 루트에 `AbsolutePathBuf` 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13016 fix(tui): promote windows terminal diff ansi16 to truecolor",
+      "translated": "윈도우 터미널 diff ansi16을 truecolor로 승격"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13030 Align TUI voice transcription audio with 4o ASR",
+      "translated": "TUI 음성 전사 오디오를 4o ASR에 맞춤"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13047 app-server: deflake running thread resume tests",
+      "translated": "App-server: 실행 중인 스레드 재개 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12560 app-server: Replay pending item requests on `thread/resume`",
+      "translated": "App-server: `thread/resume`에서 대기 중인 항목 요청 재생"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13055 fix: disable Bazel builds in CI on ubuntu-24.04-arm until we can stabilize them",
+      "translated": "안정화될 때까지 ubuntu-24.04-arm CI에서 Bazel 빌드 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12964 execpolicy: add host_executable() path mappings",
+      "translated": "Execpolicy: `host_executable()` 경로 매핑 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13051 Clarify escalation guidance for sandbox-related network failures",
+      "translated": "샌드박스 관련 네트워크 오류에 대한 에스컬레이션 가이드 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12612 Unify rollout reconstruction with resume/fork TurnContext hydration",
+      "translated": "롤아웃 재구성을 resume/fork TurnContext 하이드레이션과 통합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13067 [apps] Stablize app list updated event.",
+      "translated": "[apps] 앱 목록 업데이트 이벤트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12369 feat(linux-sandbox): support restricted ReadOnlyAccess in bwrap",
+      "translated": "Bwrap에서 제한된 ReadOnlyAccess 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13037 fix(tui): theme-aware diff backgrounds with fallback behavior",
+      "translated": "폴백 동작을 적용한 테마 인식 diff 배경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13070 Keep large-paste placeholders intact during file completion",
+      "translated": "파일 자동 완성 중 대용량 붙여넣기 플레이스홀더 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13072 Handle missing plan info for ChatGPT accounts",
+      "translated": "ChatGPT 계정의 누락된 플랜 정보 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13021 Add model availability NUX tooltips",
+      "translated": "모델 가용성 NUX 툴팁 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13080 app-server: Add an ability to watch events in the test client",
+      "translated": "App-server: 테스트 클라이언트에서 이벤트 감시 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13082 Suppress duplicate assistant output on stdout in interactive sessions",
+      "translated": "대화형 세션에서 stdout으로 중복되는 어시스턴트 출력 억제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13033 fix(app-server): make thread/start non-blocking",
+      "translated": "`thread/start` 논블로킹으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13046 core: adopt host_executable() rules in zsh-fork",
+      "translated": "Core: zsh-fork에 `host_executable()` 규칙 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13084 app-server: Add `ephemeral` field to `Thread` object",
+      "translated": "App-server: `Thread` 객체에 `ephemeral` 필드 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#13085 feat: add debug clear-memories command to hard-wipe memories state",
+      "translated": "메모리 상태를 완전히 초기화하는 디버그용 `clear-memories` 명령어 추가"
+    }
+  ],
+  "translatedAt": "2026-03-02T19:15:06.546Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 2634
+}
