@@ -1,0 +1,152 @@
+{
+  "version": "4.6.0",
+  "date": "2026-03-03",
+  "parsedAt": "2026-03-03T07:11:35.093Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Deep Interview Skill** (#1215): Ouroboros-inspired Socratic questioning skill for requirements elicitation and problem decomposition.",
+      "translated": "**Deep Interview Skill** (#1215): 요구사항 도출 및 문제 분해를 위한 우로보로스(Ouroboros) 기반 소크라테스식 질문 기술."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Ralph PRD Mode Mandatory** (#1219): Ralph now auto-generates `prd.json` when none exists, making PRD-driven iteration the default behavior. Stories iterate until all acceptance criteria pass. Opt-out via `--no-prd`.",
+      "translated": "**Ralph PRD Mode Mandatory** (#1219): Ralph가 `prd.json`이 없을 때 이를 자동 생성하도록 하여 PRD 기반 반복 작업을 기본 동작으로 설정했습니다. 모든 수락 기준을 통과할 때까지 스토리가 반복됩니다. `--no-prd`를 통해 제외할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Factcheck Sentinel Readiness Gate** (#1210): Wired factcheck sentinel readiness gate into team pipeline for improved verification reliability.",
+      "translated": "**Factcheck Sentinel Readiness Gate** (#1210): 검증 신뢰도 향상을 위해 team pipeline에 factcheck sentinel readiness gate를 연결했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Model Aliases Configuration** (#1211, #1213): Added `modelAliases` config to override agent definition defaults for flexible model routing.",
+      "translated": "**Model Aliases Configuration** (#1211, #1213): 유연한 모델 라우팅을 위해 에이전트 정의 기본값을 재정의할 수 있는 `modelAliases` 설정을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**CLI Path Trust & RC-Loading** (#1230): Tightened CLI path trust validation and restored explicit RC-loading opt-out via `OMC_TEAM_NO_RC` for team worker runtime hardening. Pinned validated absolute CLI binary paths across preflight/spawn.",
+      "translated": "**CLI Path Trust & RC-Loading** (#1230): CLI 경로 신뢰 유효성 검사를 강화하고, 팀 워커 런타임 보안을 위해 `OMC_TEAM_NO_RC`를 통한 명시적 RC 로딩 제외 기능을 복구했습니다. preflight 및 spawn 전반에 걸쳐 검증된 절대 CLI 바이너리 경로를 고정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Binary Path Validation** (#1228): Hardened CLI binary validation and launch safety with proper `normalize` imports for binary path compatibility checks.",
+      "translated": "**Binary Path Validation** (#1228): 바이너리 경로 호환성 확인을 위한 적절한 `normalize` 임포트를 통해 CLI 바이너리 유효성 검사 및 실행 안전성을 강화했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Transient Failure Retry** (#1209, #1243): Added retry logic for dead worker panes with proper failure retry accounting atomicity. Skip `done.json` retry backoff on `ENOENT` errors.",
+      "translated": "**Transient Failure Retry** (#1209, #1243): 실패 재시도 카운팅의 원자성을 보장하며 중단된 워커 창에 대한 재시도 로직을 추가했습니다. `ENOENT` 오류 발생 시 `done.json` 재시도 백오프를 건너뜁니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Watchdog Improvements** (#1234, #1229): Restored `done.json` parse recovery in watchdog path and retry pending-task read on transient gaps.",
+      "translated": "**Watchdog Improvements** (#1234, #1229): watchdog 경로에서 `done.json` 파싱 복구 기능을 복원하고, 일시적인 간극 발생 시 대기 중인 작업 읽기를 재시도합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Startup Reliability** (#1228): Restored readiness-based startup for non-prompt workers and preserved team context on pane-ready rollback.",
+      "translated": "**Startup Reliability** (#1228): non-prompt 워커에 대해 준비 상태 기반 시작 기능을 복원하고, 창 준비 롤백 시 팀 컨텍스트를 유지하도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Binary Path Handling** (#1236): Allow absolute `launchBinary` paths containing spaces.",
+      "translated": "**Binary Path Handling** (#1236): 공백을 포함하는 절대 `launchBinary` 경로를 허용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Leader Pane Stability** (#1205): Prevent leader pane crash when `omc-teams` workers are active.",
+      "translated": "**Leader Pane Stability** (#1205): `omc-teams` 워커가 활성화되어 있을 때 리더 창이 충돌하는 문제를 방지했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Artifact Convergence** (#1241): Prevent wait hang in team MCP via artifact convergence.",
+      "translated": "**Artifact Convergence** (#1241): 아티팩트 수렴을 통해 팀 MCP에서 대기 중단 현상이 발생하는 것을 방지했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Python REPL Orphan Process** (#1239): Resolved orphan process leak on Windows caused by inline `require` in `killProcessGroup`.",
+      "translated": "**Python REPL Orphan Process** (#1239): `killProcessGroup` 내의 인라인 `require`로 인해 Windows에서 발생하는 고립된 프로세스 누수 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Shell RC Sourcing** (#1207): Source shell RC files when launching tmux sessions for proper environment inheritance.",
+      "translated": "**Shell RC Sourcing** (#1207): 적절한 환경 상속을 위해 tmux 세션을 시작할 때 쉘 RC 파일을 소싱합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Stop Hook Blocking** (#1216): Return `continue: false` when stop hook should block execution.",
+      "translated": "**Stop Hook Blocking** (#1216): stop hook이 실행을 차단해야 할 때 `continue: false`를 반환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**State Mode Alignment** (#1233, #1235): Aligned deep-interview state mode with state tools enum.",
+      "translated": "**State Mode Alignment** (#1233, #1235): deep-interview 상태 모드를 state tools 열거형(enum)과 일치시켰습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Test Fix**: Stub TMUX env in create-team test for tmux-in-tmux environments (#1248)",
+      "translated": "tmux-in-tmux 환경을 위해 create-team 테스트에서 TMUX 환경을 스텁(stub) 처리했습니다 (#1248)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Dead Code Removal** (#1220): Removed deprecated agents/skills, synchronized PluginConfig, renamed `plan` to `omc-plan` for consistency.",
+      "translated": "**Dead Code Removal** (#1220): 더 이상 사용되지 않는 에이전트 및 기술을 제거하고, PluginConfig를 동기화했으며, 일관성을 위해 `plan`을 `omc-plan`으로 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Watchdog Retry Tests**: Hardened test suite for watchdog retry functionality with deterministic wait helpers.",
+      "translated": "Watchdog Retry Tests: 결정론적 대기 헬퍼를 사용하여 watchdog 재시도 기능에 대한 테스트 스위트를 강화했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Runtime CLI Tests**: Added comprehensive CLI path resolution and prompt-mode test coverage.",
+      "translated": "Runtime CLI Tests: 포괄적인 CLI 경로 확인 및 prompt-mode 테스트 커버리지를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**Done Recovery Tests**: Added tests for `done.json` recovery scenarios.",
+      "translated": "**완료 복구 테스트**: `done.json` 복구 시나리오를 위한 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Execution Mode Guide** (#1221, #1222): Updated mode selection guide to recommend Team mode first.",
+      "translated": "**실행 모드 가이드** (#1221, #1222): Team 모드를 우선 권장하도록 모드 선택 가이드 업데이트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Skill Documentation**: Updated all skill READMEs to reflect new naming and capabilities.",
+      "translated": "**스킬 문서**: 새로운 명칭과 기능을 반영하여 모든 스킬 README 업데이트"
+    }
+  ],
+  "translatedAt": "2026-03-03T07:12:52.930Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2892
+}
