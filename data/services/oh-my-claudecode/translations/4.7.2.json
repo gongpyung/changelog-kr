@@ -1,0 +1,62 @@
+{
+  "version": "4.7.2",
+  "date": "2026-03-05",
+  "parsedAt": "2026-03-05T19:36:53.922Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(hud): handle 429 rate limit responses in Usage API** — The HUD now distinguishes HTTP 429 from other errors: serves stale cached data when available, applies exponential backoff (2m→4m→8m→10m cap) instead of the 15s retry loop, and shows a dimmed `[API 429]` indicator instead of the alarming yellow `[API err]`. Also fixes a cache bug where `no_credentials` was misreported as `[API err]` on cache hits. (#1368, closes #1366)",
+      "translated": "**Usage API의 429 속도 제한 응답 처리** — HUD가 이제 HTTP 429를 다른 오류와 구분합니다. 가능한 경우 만료된 캐시 데이터를 제공하고, 15초 재시도 루프 대신 지수 백오프(2분→4분→8분→최대 10분 제한)를 적용하며, 경고성 노란색 `[API err]` 대신 흐릿하게 표시되는 `[API 429]` 표시기를 보여줍니다. 또한 캐시 히트 시 `no_credentials`가 `[API err]`로 잘못 보고되던 캐시 버그를 수정했습니다. (#1368, #1366 해결)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): gemini worker interactive mode flag** — Fixed Gemini CLI worker spawning by using `-i` flag instead of `-p` for interactive mode. (#1367)",
+      "translated": "**Gemini 워커 대화형 모드 플래그** — 대화형 모드에 `-p` 대신 `-i` 플래그를 사용하여 Gemini CLI 워커 생성을 수정했습니다. (#1367)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): remove -i flag from gemini worker launch args** — Cleaned up redundant flags in gemini worker configuration. (#1362)",
+      "translated": "**Gemini 워커 실행 인수에서 -i 플래그 제거** — Gemini 워커 설정에서 불필요한 플래그를 정리했습니다. (#1362)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(harsh-critic): add Realist Check phase** — Added severity calibration phase to harsh-critic agent for more balanced and actionable reviews. (#1365)",
+      "translated": "**Realist Check 단계 추가** — 더 균형 잡히고 실행 가능한 리뷰를 위해 harsh-critic 에이전트에 심각도 보정 단계를 추가했습니다. (#1365)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**docs(ko): align Team CLI docs with canonical omc team route** — Updated Korean documentation to match the CLI-first `omc team` command pattern. (#1361, closes #1359)",
+      "translated": "**Team CLI 문서를 표준 omc team 경로에 맞게 조정** — CLI 우선 `omc team` 명령 패턴에 맞게 한국어 문서를 업데이트했습니다. (#1361, #1359 해결)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#1366 — `[API err]` persists when Usage API returns 429 (rate limited)",
+      "translated": "— Usage API가 429(속도 제한)를 반환할 때 `[API err]`가 지속되는 문제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#1360 — gemini worker `-i` flag requires prompt string argument",
+      "translated": "— Gemini 워커 `-i` 플래그에 프롬프트 문자열 인수가 필요한 문제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#1359 — README.ko inconsistent with CLI-first omc team docs",
+      "translated": "— README.ko가 CLI 우선 omc team 문서와 일치하지 않는 문제"
+    }
+  ],
+  "translatedAt": "2026-03-05T19:39:23.598Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1224
+}
