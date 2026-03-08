@@ -1,0 +1,146 @@
+{
+  "version": "4.7.8",
+  "date": "2026-03-08",
+  "parsedAt": "2026-03-08T07:03:08.070Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Stop-hook hardening for persistent flows** — Adds standalone protection for `team` and `ralplan`, fixes false-blocking after skill completion, and extends protection coverage to `deep-interview`. (#1424, #1432, #1435)",
+      "translated": "**지속적 흐름을 위한 Stop-hook 강화** — `team` 및 `ralplan`에 대한 독립적인 보호 기능을 추가하고, 스킬 완료 후의 오차단 문제를 수정하며, 보호 범위를 `deep-interview`까지 확장합니다. (#1424, #1432, #1435)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Agent consolidation follow-up** — Consolidates 4 overlapping agent pairs (22→18 agents), removes 5 thin wrapper skills, and adds benchmark coverage for all 4 consolidated agents to make prompt tuning measurable. (#1425, #1426, #1437)",
+      "translated": "**에이전트 통합 후속 작업** — 중복되는 4쌍의 에이전트를 통합(22개 → 18개)하고, 5개의 단순 래퍼 스킬을 제거하며, 통합된 4개 에이전트 모두에 벤치마크를 추가하여 프롬프트 튜닝을 측정 가능하게 개선합니다. (#1425, #1426, #1437)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Runtime cleanup and stability** — Cleans session-scoped mode state on exit and force-kills orphaned LSP server processes when the MCP bridge shuts down. (#1428, #1429)",
+      "translated": "**런타임 정리 및 안정성 개선** — 종료 시 세션 범위의 모드 상태를 정리하고, MCP 브리지 종료 시 고립된 LSP 서버 프로세스를 강제 종료합니다. (#1428, #1429)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**CLI and environment reliability** — Preserves `ask-codex` / `ask-gemini` behavior inside Claude Code sessions, makes `statusLine` paths portable across machines, and fixes Team worker pane launch commands for Fish shell users. (#1438, #1404, #1377)",
+      "translated": "**CLI 및 환경 안정성** — Claude Code 세션 내에서 `ask-codex` / `ask-gemini` 동작을 유지하고, `statusLine` 경로를 여러 기기에서 호환되도록 수정하며, Fish 쉘 사용자를 위한 Team 워커 패널 실행 명령어를 수정합니다. (#1438, #1404, #1377)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(platform): replace win32 hard-blocks with tmux capability checks** — Removes platform-level hard denial in favor of capability detection so supported Windows environments can proceed when tmux interoperability is available. (#1423)",
+      "translated": "win32 하드 차단을 tmux 기능 확인으로 대체 — 플랫폼 수준의 강제 거부를 제거하고 기능 감지 방식을 도입하여, tmux 상호 운용이 가능한 지원 대상 Windows 환경에서 작업을 진행할 수 있도록 합니다. (#1423)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(stop-hook): add hard-blocking for standalone team and ralplan** — Adds first-class protection paths for standalone Team and Ralplan flows to prevent premature interruption of long-running orchestration. (#1424)",
+      "translated": "독립형 team 및 ralplan에 대한 하드 차단 추가 — 장시간 실행되는 오케스트레이션이 조기에 중단되지 않도록 독립형 Team 및 Ralplan 흐름에 대한 우선 보호 경로를 추가합니다. (#1424)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(session-end): clean session-scoped mode state on exit** — Ensures session-local state is removed when execution ends so stale mode markers do not leak into later sessions. (#1428)",
+      "translated": "종료 시 세션 범위의 모드 상태 정리 — 실행 종료 시 세션 로컬 상태가 제거되도록 하여, 오래된 모드 마커가 이후 세션으로 유출되지 않도록 보장합니다. (#1428)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(lsp): kill orphaned LSP server processes on MCP bridge exit** — Terminates managed child language servers during bridge shutdown to prevent orphan buildup and memory pressure. (#1429)",
+      "translated": "MCP 브리지 종료 시 고립된 LSP 서버 프로세스 종료 — 브리지 종료 중에 관리되는 하위 언어 서버를 종료하여 고립된 프로세스 누적 및 메모리 압박을 방지합니다. (#1429)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(routing): respect env-configured Claude family models** — Keeps runtime model selection aligned with environment overrides instead of falling back to stale defaults. (#1430)",
+      "translated": "환경 변수로 설정된 Claude 제품군 모델 준수 — 런타임 모델 선택 시 오래된 기본값으로 돌아가는 대신 환경 변수 설정값을 따르도록 유지합니다. (#1430)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(notifications): pass tmuxTailLines config to formatter parseTmuxTail** — Makes notification tail rendering honor the configured tmux line limit end to end. (#1431)",
+      "translated": "tmuxTailLines 설정을 포매터 parseTmuxTail에 전달 — 알림 테일 렌더링이 설정된 tmux 라인 제한을 전체 과정에서 준수하도록 수정합니다. (#1431)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(hud): reduce usage API polling to avoid 429s** — Lowers polling pressure and improves stale-cache behavior under rate limiting. (#1418)",
+      "translated": "429 오류 방지를 위해 사용량 API 폴링 감소 — 폴링 부하를 낮추고 속도 제한 상황에서의 오래된 캐시 동작을 개선합니다. (#1418)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(wait): handle stale cached rate limit status** — Prevents misleading wait-state behavior when cached rate-limit data has expired. (#1433)",
+      "translated": "오래된 캐시 속도 제한 상태 처리 — 캐시된 속도 제한 데이터가 만료되었을 때 잘못된 대기 상태 동작이 발생하는 것을 방지합니다. (#1433)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix: preserve ask-codex and ask-gemini inside Claude Code sessions** — Keeps ask-skill flows working correctly when invoked from inside Claude Code sessions instead of losing behavior to session context drift. (#1438)",
+      "translated": "Claude Code 세션 내에서 ask-codex 및 ask-gemini 유지 — Claude Code 세션 내부에서 호출될 때 세션 컨텍스트 이탈로 인해 동작이 소실되지 않고 ask-skill 흐름이 올바르게 작동하도록 유지합니다. (#1438)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix: use portable \\$HOME path in statusLine for multi-machine sync** — Replaces machine-specific status line paths with a portable home-based path better suited for synced dotfiles and multi-machine setups. (#1404)",
+      "translated": "다중 기기 동기화를 위해 statusLine에 이식 가능한 $HOME 경로 사용 — 기기별로 다른 상태 표시줄 경로를 동기화된 dotfile 및 다중 기기 설정에 더 적합한 이식 가능한 홈 기반 경로로 대체합니다. (#1404)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): support fish shell in worker pane launch commands** — Corrects Team worker pane launch behavior for Fish shell environments. (#1377)",
+      "translated": "워커 패널 실행 명령어에서 Fish 쉘 지원 — Fish 쉘 환경에 맞게 Team 워커 패널 실행 동작을 수정합니다. (#1377)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "**refactor(skills): eliminate 5 thin wrapper skills + CLAUDE.md diet** — Removes redundant thin wrappers and trims docs to reduce maintenance overhead. (#1425)",
+      "translated": "5개의 단순 래퍼 스킬 제거 및 CLAUDE.md 정리 — 불필요한 단순 래퍼를 제거하고 문서를 다듬어 유지 관리 비용을 줄입니다. (#1425)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "**refactor(agents): consolidate 4 overlapping agent pairs (22→18 agents)** — Simplifies the registry while preserving compatibility aliases and downstream routing behavior. (#1426)",
+      "translated": "중복되는 4쌍의 에이전트 통합(22개 → 18개) — 호환성 별칭 및 다운스트림 라우팅 동작을 유지하면서 레지스트리를 단순화합니다. (#1426)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**test(skill-state): align ralplan expectations with stop-hook** — Updates test expectations to match the hardened stop-hook enforcement model. (#1435)",
+      "translated": "ralplan 기대 결과를 stop-hook에 맞춰 조정 — 강화된 stop-hook 적용 모델에 맞게 테스트 기대 결과를 업데이트합니다. (#1435)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(benchmarks): add per-agent prompt benchmark suite for all 4 consolidated agents** — Extends prompt benchmarking infrastructure so merged agents can be compared against archived pre-consolidation prompts. (#1437)",
+      "translated": "통합된 4개 에이전트 모두에 에이전트별 프롬프트 벤치마크 세트 추가 — 통합된 에이전트를 기존의 통합 전 프롬프트와 비교할 수 있도록 프롬프트 벤치마크 인프라를 확장합니다. (#1437)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(release): add marketplace.json and docs/CLAUDE.md to version checklist** — Closes the release-process gap that allowed version drift in non-package metadata files.",
+      "translated": "버전 체크리스트에 marketplace.json 및 docs/CLAUDE.md 추가 — 패키지 이외의 메타데이터 파일에서 버전 불일치가 발생하던 릴리스 프로세스의 공백을 메웁니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix: bump marketplace.json version to 4.7.7** — Corrects the missed marketplace version bump required by version consistency checks.",
+      "translated": "**marketplace.json 버전을 4.7.7로 업데이트** — 버전 일관성 검사에서 누락되었던 마켓플레이스 버전 업데이트를 수정합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**chore: bump version to 4.7.7** — Final version cut from the previous release lineage before this patch cycle.",
+      "translated": "**버전을 4.7.7로 업데이트** — 이번 패치 주기 이전의 릴리스 계보에서 확정된 최종 버전입니다."
+    }
+  ],
+  "translatedAt": "2026-03-08T07:03:44.895Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4034
+}
