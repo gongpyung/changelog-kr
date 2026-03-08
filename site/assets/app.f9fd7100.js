@@ -11,7 +11,7 @@
   // ---------------------------------------------------------------------------
 
   const DEBOUNCE_MS = 300;
-  const DEFAULT_EXPANDED_COUNT = 5;
+  const DEFAULT_EXPANDED_COUNT = 3;
   const SERVICES_URL = 'data/services.json';
   const LEGACY_DATA_URL = 'data/all-translations.json';
 
@@ -59,6 +59,7 @@
   let servicesConfig = null;
   let currentService = null;
   let allVersions = [];
+  let serviceDataCache = new Map();
   let filteredVersions = [];
   let expandedSet = new Set();
   let manualToggleState = null; // null=기본(상위N개), true=모두펼침, false=모두접기
@@ -259,8 +260,9 @@
     // Re-render service list to update active state
     renderServiceList();
 
-    // Show loading
-    if (loadingState) loadingState.classList.remove('hidden');
+    const hasCachedData = serviceDataCache.has(serviceId);
+
+    if (loadingState && !hasCachedData) loadingState.classList.remove('hidden');
     if (versionList) versionList.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-px bg-light-border dark:bg-terminal-border"></div>';
 
     // Load new data
@@ -277,10 +279,22 @@
   async function loadServiceData(serviceId) {
     try {
       const url = servicesConfig ? getServiceDataURL(serviceId) : LEGACY_DATA_URL;
+      const cachedVersions = serviceDataCache.get(serviceId);
+
+      if (cachedVersions) {
+        allVersions = cachedVersions;
+
+        if (versionBadge) {
+          versionBadge.textContent = `${allVersions.length} versions`;
+        }
+        return true;
+      }
+
       const response = await fetch(url, { cache: 'no-cache' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       allVersions = data.versions || [];
+      serviceDataCache.set(serviceId, allVersions);
 
       // Update version count
       if (versionBadge) {
@@ -364,6 +378,7 @@
 
     renderVersions();
     renderVersionToc();
+
     updateResultsSummary();
     updateCheckinSummary();
   }
@@ -474,6 +489,18 @@
     versionList.appendChild(fragment);
   }
 
+  function populateVersionEntries(entriesContainer, entries) {
+    if (entriesContainer.dataset.rendered === 'true') return;
+
+    const fragment = document.createDocumentFragment();
+    entries.forEach((entry) => {
+      fragment.appendChild(createEntryItem(entry));
+    });
+
+    entriesContainer.appendChild(fragment);
+    entriesContainer.dataset.rendered = 'true';
+  }
+
   function createVersionCard(ver, index) {
     const article = document.createElement('article');
     article.className = 'version-card fade-in';
@@ -534,10 +561,11 @@
 
     const entriesContainer = document.createElement('div');
     entriesContainer.className = 'p-4 space-y-1';
+    entriesContainer.dataset.rendered = 'false';
 
-    ver.entries.forEach((entry) => {
-      entriesContainer.appendChild(createEntryItem(entry));
-    });
+    if (isExpanded) {
+      populateVersionEntries(entriesContainer, ver.entries);
+    }
 
     body.appendChild(entriesContainer);
 
@@ -558,6 +586,7 @@
         header.querySelector('.chevron').classList.remove('rotate-180');
         expandedSet.delete(ver.version);
       } else {
+        populateVersionEntries(entriesContainer, ver.entries);
         body.style.display = 'block';
         header.querySelector('.chevron').classList.add('rotate-180');
         expandedSet.add(ver.version);
