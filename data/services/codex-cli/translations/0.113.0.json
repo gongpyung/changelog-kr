@@ -1,0 +1,746 @@
+{
+  "version": "0.113.0",
+  "date": "2026-03-10",
+  "parsedAt": "2026-03-10T07:10:13.535Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a built-in `request_permissions` tool so running turns can request additional permissions at runtime, with new TUI rendering for those approval calls. (#13092, #14004)",
+      "translated": "`OtelManager`를 `SessionTelemetry`로 이름 변경"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Expanded plugin workflows with curated marketplace discovery, richer `plugin/list` metadata, install-time auth checks, and a `plugin/uninstall` endpoint. (#13712, #13540, #13685, #14111)",
+      "translated": "큐레이션된 플러그인 마켓플레이스 추가 및 메타데이터 정리"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Upgraded app-server command execution with streaming stdin/stdout/stderr plus TTY/PTY support, and wired `exec` to the new in-process app server path. (#13640, #14005)",
+      "translated": "권한이 없는 스킬 스크립트의 실행 승인 건너뛰기"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Web search settings now support full tool configuration (for example filters and location), not just on/off. (#13675)",
+      "translated": "웹 검색 도구의 전체 설정 허용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the new permission-profile config language and split filesystem/network sandbox policy plumbing for more precise policy control. (#13434, #13439, #13440, #13448, #13449, #13453)",
+      "translated": "`app-server`: `command/exec`에 스트리밍 및 tty/pty 기능 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Image generation now saves output files into the current working directory. (#13607)",
+      "translated": "`json schema exporter`의 이름 충돌 문제 해결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auth error handling for cloud requirements fetch so 401s trigger the normal auth-recovery messaging instead of a generic workspace-config failure. (#14049)",
+      "translated": "프로젝트 신뢰가 구축되기 전 git 호출 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed trust bootstrap to avoid running `git` commands before project trust is established. (#13804)",
+      "translated": "관리형 네트워크 `allowlist` 제어 지원"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows execution edge cases, including incorrect PTY `TerminateProcess` success handling and stricter sandbox startup cwd validation. (#13989, #13833, #13742)",
+      "translated": "`sandboxing`: 런타임을 통해 분리된 샌드박스 정책 연결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin startup behavior so curated plugins are loaded in TUI sessions as expected. (#14050)",
+      "translated": "`protocol`: 파일 시스템 정책으로부터 유효 파일 액세스 권한 도출"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hardened network proxy policy parsing by rejecting global wildcard (`*`) domains while preserving scoped wildcard support. (#13789)",
+      "translated": "스킬 스크립트에 대해 승인 소스별 거부 정책 준수"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed approval payload compatibility for macOS automation permissions by accepting both supported input shapes. (#13683)",
+      "translated": "`app-server`: `windowsSandbox/setupStart`에 절대 경로 `cwd` 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarified `js_repl` guidance for persistent bindings and redeclaration recovery to reduce avoidable REPL errors. (#13803)",
+      "translated": "`Fast mode` 상태 표시줄 표시기 추가"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reduced log/storage overhead by moving logs to a dedicated SQLite DB, adding timestamps to feedback logs, pruning old data, and tightening retention/row limits. (#13645, #13688, #13734, #13763, #13772, #13781)",
+      "translated": "`safety`: `"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Improved Windows distribution automation by publishing CLI releases to winget. (#12943)",
+      "translated": "CLI 릴리스를 winget에 게시하여 Windows 배포 자동화 개선 (#12943)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13626 feat(otel): safe tracing",
+      "translated": "안전한 트레이싱 #13626"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13560 Refine realtime startup context formatting",
+      "translated": "실시간 시작 컨텍스트 서식 다듬기 #13560"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13615 Replay thread rollback from rollout history",
+      "translated": "롤아웃 기록에서 스레드 롤백 재생 #13615"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13642 fix(tui): clean up pending steer preview wrapping",
+      "translated": "대기 중인 steer 미리보기 래핑 정리 #13642"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13645 Add timestamped SQLite /feedback logs without schema changes",
+      "translated": "스키마 변경 없이 타임스탬프가 있는 SQLite /feedback 로그 추가 #13645"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13654 tui: sort resume picker by last updated time",
+      "translated": "재개 선택기를 마지막 업데이트 시간 기준으로 정렬 #13654"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13540 support plugin/list.",
+      "translated": "plugin/list 지원 #13540"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13677 chore: remove unused legacy macOS permission types",
+      "translated": "사용하지 않는 레거시 macOS 권한 유형 제거 #13677"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13683 fix: accept two macOS automation input shapes  for approval payload compatibility",
+      "translated": "승인 페이로드 호환성을 위해 두 가지 macOS 자동화 입력 형태 허용 #13683"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13687 refactor: remove proxy admin endpoint",
+      "translated": "프록시 관리 엔드포인트 제거 #13687"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13669 copy current exe to CODEX_HOME/.sandbox-bin for apply_patch",
+      "translated": "apply_patch를 위해 현재 실행 파일을 CODEX_HOME/.sandbox-bin으로 복사 #13669"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#11874 fix(tui) remove config check for trusted setting",
+      "translated": "신뢰된 설정에 대한 구성 검사 제거 #11874"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13685 check app auth in plugin/install",
+      "translated": "plugin/install에서 앱 인증 확인 #13685"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13697 change sound",
+      "translated": "사운드 변경 #13697"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13607 Enabling CWD Saving for Image-Gen",
+      "translated": "Image-Gen을 위한 CWD 저장 활성화 #13607"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13621 [elicitations] Switch to use MCP style elicitation payload for mcp tool approvals.",
+      "translated": "[elicitations] MCP 도구 승인을 위해 MCP 스타일 elicitation 페이로드 사용으로 전환 #13621"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13619 feat: status line with real data",
+      "translated": "실제 데이터가 포함된 상태 표시줄 #13619"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13734 feat: prune old memories in DB",
+      "translated": "DB에서 오래된 메모리 정리 #13734"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13688 Add timestamps to feedback log lines",
+      "translated": "피드백 로그 라인에 타임스탬프 추가 #13688"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13742 fix: windows normalization",
+      "translated": "윈도우 정규화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13514 [rmcp-client] Recover from streamable HTTP 404 sessions",
+      "translated": "[rmcp-client] streamable HTTP 404 세션 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13750 feat: drop sqlite db feature flag",
+      "translated": "Sqlite db 기능 플래그 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13753 feat: drop discrepency metrics",
+      "translated": "불일치 메트릭 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13763 feat: limit number of rows per log",
+      "translated": "로그당 행 수 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13703 Clarify sandbox permission override helper semantics",
+      "translated": "샌드박스 권한 재정의 헬퍼 의미 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13770 fix(app-server): fix turn_start_shell_zsh_fork_executes_command_v2 flake",
+      "translated": "Turn_start_shell_zsh_fork_executes_command_v2 플레이크 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13630 feat(otel, core): record turn TTFT and TTFM metrics in codex-core",
+      "translated": "Codex-core에서 턴 TTFT 및 TTFM 메트릭 기록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13674 app-server: Emit `thread/name/updated` event globally",
+      "translated": "Thread/name/updated 이벤트 전역 방출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13772 Move sqlite logs to a dedicated database",
+      "translated": "SQLite 로그를 전용 데이터베이스로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13620 chore: improve DB flushing",
+      "translated": "DB 플러싱 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13711 feat: structured plugin parsing",
+      "translated": "구조화된 플러그인 파싱"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13781 Reduce SQLite log retention to 10 days",
+      "translated": "SQLite 로그 보존 기간을 10일로 단축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13780 fix: move unit tests in codex-rs/core/src/config/mod.rs into their own file",
+      "translated": "Codex-rs/core/src/config/mod.rs의 유닛 테스트를 별도 파일로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13783 fix: move unit tests in codex-rs/core/src/codex.rs into their own file",
+      "translated": "Codex-rs/core/src/codex.rs의 유닛 테스트를 별도 파일로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13787 fix bazel build",
+      "translated": "Bazel 빌드 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13789 fix: reject global wildcard network proxy domains",
+      "translated": "전역 와일드카드 네트워크 프록시 도메인 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12943 Codex/winget auto update",
+      "translated": "Codex/winget 자동 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13800 chore(otel): reorganize codex-otel crate",
+      "translated": "Codex-otel 크레이트 재구성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13797 feat: add auth login diagnostics",
+      "translated": "인증 로그인 진단 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13695 utils/pty: add streaming spawn and terminal sizing primitives",
+      "translated": "utils/pty: 스트리밍 spawn 및 터미널 크기 조정 프리미티브 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13803 Clarify js_repl binding reuse guidance",
+      "translated": "js_repl 바인딩 재사용 가이드라인 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13810 docs: remove auth login logging plan",
+      "translated": "auth login 로깅 계획 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13434 config: add initial support for the new permission profile config language in config.toml",
+      "translated": "config: config.toml의 새로운 권한 프로필 설정 언어에 대한 초기 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13796 Add realtime startup context override",
+      "translated": "실시간 시작 컨텍스트 재정의 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13814 fix: include libcap-dev dependency when creating a devcontainer for building Codex",
+      "translated": "Codex 빌드를 위한 devcontainer 생성 시 libcap-dev 종속성 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13808 chore(otel): rename OtelManager to SessionTelemetry",
+      "translated": "OtelManager 이름을 SessionTelemetry로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13712 feat: Add curated plugin marketplace + Metadata Cleanup.",
+      "translated": "엄선된 플러그인 마켓플레이스 및 메타데이터 정리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13791 fix(core): skip exec approval for permissionless skill scripts",
+      "translated": "권한 없는 스킬 스크립트에 대한 실행 승인 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13675 Allow full web search tool config",
+      "translated": "전체 웹 검색 도구 설정 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13640 app-server: Add streaming and tty/pty capabilities to `command/exec`",
+      "translated": "app-server: `command/exec`에 스트리밍 및 tty/pty 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13819 feat(app-server-protocol): address naming conflicts in json schema exporter",
+      "translated": "json schema exporter의 이름 충돌 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13804 fix: avoid invoking git before project trust is established",
+      "translated": "프로젝트 신뢰 설정 전 git 호출 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12752 fix: support managed network allowlist controls",
+      "translated": "관리형 네트워크 allowlist 제어 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13439 sandboxing: plumb split sandbox policies through runtime",
+      "translated": "sandboxing: 런타임 전반에 분할된 샌드박스 정책 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13440 protocol: derive effective file access from filesystem policies",
+      "translated": "protocol: 파일 시스템 정책에서 유효한 파일 액세스 도출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13816 fix(core): respect reject policy by approval source for skill scripts",
+      "translated": "스킬 스크립트에 대한 승인 소스별 거부 정책 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13833 app-server: require absolute cwd for windowsSandbox/setupStart",
+      "translated": "app-server: windowsSandbox/setupStart에 절대 경로 cwd 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13670 Add Fast mode status-line indicator",
+      "translated": "Fast 모드 상태 표시줄 표시기 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13445 safety: honor filesystem policy carveouts in apply_patch",
+      "translated": "safety: apply_patch 시 파일 시스템 정책 예외 사항 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13771 feat: simplify DB further",
+      "translated": "DB 더욱 간소화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13692 Add guardian approval MVP",
+      "translated": "Guardian 승인 MVP 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13851 tmp: drop artifact skills",
+      "translated": "Artifact skills 삭제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13910 fix(core) rm guardian snapshot test",
+      "translated": "Guardian 스냅샷 테스트 삭제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13911 fix(ci) fix guardian ci",
+      "translated": "Guardian CI 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13896 Fix TUI context window display before first TokenCount",
+      "translated": "첫 번째 TokenCount 전 TUI 컨텍스트 창 표시 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13448 seatbelt: honor split filesystem sandbox policies",
+      "translated": "Seatbelt: 분할 파일 시스템 샌드박스 정책 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13921 chore: use @plugin instead of $plugin for plaintext mentions",
+      "translated": "일반 텍스트 멘션에 $plugin 대신 @plugin 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13807 [elicitations] Support always allow option for mcp tool calls.",
+      "translated": "[elicitations] mcp 도구 호출에 대한 항상 허용 옵션 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13449 linux-sandbox: plumb split sandbox policies through helper",
+      "translated": "Linux-sandbox: 헬퍼를 통해 분할 샌드박스 정책 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13451 sandboxing: preserve denied paths when widening permissions",
+      "translated": "Sandboxing: 권한 확장 시 거부된 경로 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13452 protocol: keep root carveouts sandboxed",
+      "translated": "Protocol: 루트 carveouts 샌드박스 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13874 Stabilize abort task follow-up handling",
+      "translated": "중단 작업 후속 처리 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13453 linux-sandbox: honor split filesystem policies in bwrap",
+      "translated": "Linux-sandbox: bwrap에서 분할 파일 시스템 정책 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13989 Fix inverted Windows PTY `TerminateProcess` handling",
+      "translated": "반전된 Windows PTY `TerminateProcess` 처리 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13912 fix(ci): restore guardian coverage and bazel unit tests",
+      "translated": "Guardian 커버리지 및 bazel 유닛 테스트 복원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13877 Stabilize shell serialization tests",
+      "translated": "셸 직렬화 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13839 [app-server] Support hot-reload user config when batch writing config.",
+      "translated": "[app-server] 설정 일괄 쓰기 시 사용자 설정 핫 리로드 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14005 Add in-process app server and wire up exec to use it",
+      "translated": "인프로세스 앱 서버 추가 및 exec 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13929 app-server: include experimental skill metadata in exec approval requests",
+      "translated": "App-server: exec 승인 요청에 실험적 skill 메타데이터 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14014 fix(core) patch otel test",
+      "translated": "otel 테스트 패치"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13841 tui: clarify pending steer follow-ups",
+      "translated": "대기 중인 Steer 후속 작업 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13092 Add request permissions tool",
+      "translated": "요청 권한 도구 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14027 fix(bazel) add missing app-server-client BUILD.bazel",
+      "translated": "누락된 app-server-client BUILD.bazel 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14004 feat(tui) render request_permissions calls",
+      "translated": "request_permissions 호출 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14052 Stabilize app list update ordering test",
+      "translated": "앱 목록 업데이트 순서 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13897 guardian initial feedback / tweaks",
+      "translated": "Guardian 초기 피드백 및 수정 사항"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13884 Reduce app-server test timeout pressure",
+      "translated": "app-server 테스트 타임아웃 부담 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13872 Stabilize zsh fork app-server tests",
+      "translated": "zsh fork app-server 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13881 Stabilize RMCP pid file cleanup test",
+      "translated": "RMCP pid 파일 정리 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13883 Stabilize PTY Python REPL test",
+      "translated": "PTY Python REPL 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14058 Stabilize plan item app-server tests",
+      "translated": "계획 항목 app-server 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13943 Order websocket initialize after handshake",
+      "translated": "핸드셰이크 후 웹소켓 초기화 순서 지정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13885 Stabilize thread resume replay tests",
+      "translated": "스레드 재개 리플레이 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13878 Serialize shell snapshot stdin test",
+      "translated": "셸 스냅샷 stdin 테스트 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13876 Stabilize realtime startup context tests",
+      "translated": "실시간 시작 컨텍스트 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14050 fix(plugin): Also load curated plugins for TUI.",
+      "translated": "TUI용 큐레이션된 플러그인도 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14049 fix: properly handle 401 error in clound requirement fetch.",
+      "translated": "클라우드 요구 사항 가져오기 시 401 에러 올바르게 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14101 Stabilize shell approval MCP test",
+      "translated": "셸 승인 MCP 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14102 Stabilize interrupted task approval cleanup",
+      "translated": "중단된 작업 승인 정리 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14103 Stabilize guardian approval coverage",
+      "translated": "Guardian 승인 커버리지 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14060 Stabilize resumed rollout messages",
+      "translated": "재개된 롤아웃 메시지 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14114 fix(ci) Faster shell_command::unicode_output test",
+      "translated": "`shell_command::unicode_output` 테스트 속도 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14111 chore: plugin/uninstall endpoint",
+      "translated": "`plugin/uninstall` 엔드포인트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14117 feat(otel): Centralize OTEL metric names and shared tag builders",
+      "translated": "OTEL 메트릭 이름 및 공유 태그 빌더 중앙화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13880 Stabilize RMCP streamable HTTP readiness tests",
+      "translated": "RMCP streamable HTTP 준비 상태 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14123 pass on save info to model + ui tweaks",
+      "translated": "모델에 저장 정보 전달 + UI 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13886 Stabilize protocol schema fixture generation",
+      "translated": "프로토콜 스키마 픽스처 생성 안정화"
+    }
+  ],
+  "translatedAt": "2026-03-10T07:25:54.637Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 5701
+}
