@@ -1,0 +1,170 @@
+{
+  "version": "2.1.73",
+  "date": "2026-03-11",
+  "parsedAt": "2026-03-11T19:11:46.600Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `modelOverrides` setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs)",
+      "translated": "모델 선택기 항목을 사용자 지정 공급자 모델 ID(예: Bedrock 추론 프로필 ARN)에 매핑하는 `modelOverrides` 설정 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added actionable guidance when OAuth login or connectivity checks fail due to SSL certificate errors (corporate proxies, `NODE_EXTRA_CA_CERTS`)",
+      "translated": "SSL 인증서 오류(기업 프록시, `NODE_EXTRA_CA_CERTS`)로 인해 OAuth 로그인 또는 연결 확인에 실패할 경우 조치 가능한 가이드 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed freezes and 100% CPU loops triggered by permission prompts for complex bash commands",
+      "translated": "복잡한 bash 명령어에 대한 권한 요청 시 발생하던 멈춤 현상 및 100% CPU 루프 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a deadlock that could freeze Claude Code when many skill files changed at once (e.g. during `git pull` in a repo with a large `.claude/skills/` directory)",
+      "translated": "다수의 스킬 파일이 동시에 변경될 때 Claude Code가 멈추던 교착 상태(Deadlock) 문제 수정 (예: `.claude/skills/` 디렉토리가 큰 저장소에서 `git pull` 시)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool output being lost when running multiple Claude Code sessions in the same project directory",
+      "translated": "동일한 프로젝트 디렉토리에서 여러 Claude Code 세션을 실행할 때 Bash 도구 출력이 사라지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents with `model: opus`/`sonnet`/`haiku` being silently downgraded to older model versions on Bedrock, Vertex, and Microsoft Foundry",
+      "translated": "Bedrock, Vertex, Microsoft Foundry에서 `model: opus`/`sonnet`/`haiku`를 사용하는 하위 에이전트가 알림 없이 구버전 모델로 다운그레이드되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background bash processes spawned by subagents not being cleaned up when the agent exits",
+      "translated": "하위 에이전트가 생성한 백그라운드 bash 프로세스가 에이전트 종료 시 정리되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/resume` showing the current session in the picker",
+      "translated": "`/resume` 선택 목록에 현재 세션이 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ide` crashing with `onInstall is not defined` when auto-installing the extension",
+      "translated": "확장 프로그램 자동 설치 시 `onInstall is not defined` 오류로 `/ide`가 중단되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/loop` not being available on Bedrock/Vertex/Foundry and when telemetry was disabled",
+      "translated": "Bedrock/Vertex/Foundry 사용 시 또는 원격 분석이 비활성화되었을 때 `/loop`를 사용할 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SessionStart hooks firing twice when resuming a session via `--resume` or `--continue`",
+      "translated": "`--resume` 또는 `--continue`로 세션을 재개할 때 SessionStart 훅이 두 번 실행되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed JSON-output hooks injecting no-op system-reminder messages into the model's context on every turn",
+      "translated": "JSON 출력 훅이 매 턴마다 모델 컨텍스트에 no-op 시스템 리마인더 메시지를 주입하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode session corruption when a slow connection overlaps a new recording",
+      "translated": "느린 연결 환경에서 새 녹음이 시작될 때 음성 모드 세션이 손상되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Linux sandbox failing to start with \"ripgrep (rg) not found\" on native builds",
+      "translated": "네이티브 빌드에서 \"ripgrep (rg) not found\" 오류로 Linux 샌드박스가 시작되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Linux native modules not loading on Amazon Linux 2 and other glibc 2.26 systems",
+      "translated": "Amazon Linux 2 및 기타 glibc 2.26 시스템에서 Linux 네이티브 모듈이 로드되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"media_type: Field required\" API error when receiving images via Remote Control",
+      "translated": "Remote Control을 통해 이미지를 수신할 때 발생하던 \"media_type: Field required\" API 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/heapdump` failing on Windows with `EEXIST` error when the Desktop folder already exists",
+      "translated": "Desktop 폴더가 이미 존재할 때 `EEXIST` 오류로 `/heapdump`가 실패하던 Windows 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Up arrow after interrupting Claude — now restores the interrupted prompt and rewinds the conversation in one step",
+      "translated": "Claude 중단 후 위쪽 화살표 키 기능 개선 — 중단된 프롬프트를 복원하고 대화를 되감는 작업을 한 번에 수행"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved IDE detection speed at startup",
+      "translated": "시작 시 IDE 감지 속도 향상"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved clipboard image pasting performance on macOS",
+      "translated": "macOS에서 클립보드 이미지 붙여넣기 성능 향상"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/effort` to work while Claude is responding, matching `/model` behavior",
+      "translated": "`/model` 동작과 동일하게 Claude가 응답 중일 때도 `/effort`가 작동하도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved voice mode to automatically retry transient connection failures during rapid push-to-talk re-press",
+      "translated": "빠르게 눌러서 말하기(Push-to-talk)를 반복할 때 발생하는 일시적인 연결 오류를 자동으로 재시도하도록 음성 모드를 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Remote Control spawn mode selection prompt with better context",
+      "translated": "더 나은 맥락을 제공하도록 Remote Control 생성 모드 선택 프롬프트를 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed default Opus model on Bedrock, Vertex, and Microsoft Foundry to Opus 4.6 (was Opus 4.1)",
+      "translated": "Bedrock, Vertex, Microsoft Foundry에서 기본 Opus 모델을 Opus 4.6으로 변경했습니다 (기존 Opus 4.1)."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Deprecated `/output-style` command — use `/config` instead. Output style is now fixed at session start for better prompt caching",
+      "translated": "`/output-style` 명령어가 지원 중단되었습니다. 대신 `/config`를 사용하세요. 프롬프트 캐싱 향상을 위해 출력 스타일은 이제 세션 시작 시 고정됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "VSCode: Fixed HTTP 400 errors for users behind proxies or on Bedrock/Vertex with Claude 4.5 models",
+      "translated": "VSCode: 프록시 환경이나 Bedrock/Vertex에서 Claude 4.5 모델을 사용할 때 발생하던 HTTP 400 오류를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-03-11T19:15:06.455Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "glm-5",
+  "translationEndpointType": "coding",
+  "translationCharCount": 2521
+}
