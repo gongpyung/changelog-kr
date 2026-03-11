@@ -1,0 +1,290 @@
+{
+  "version": "0.114.0",
+  "date": "2026-03-11",
+  "parsedAt": "2026-03-11T03:07:06.867Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an experimental code mode for more isolated coding workflows. (#13418)",
+      "translated": "더 격리된 코딩 워크플로우를 위한 실험적 코드 모드를 추가했습니다. (#13418)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an experimental hooks engine with `SessionStart` and `Stop` hook events. (#13276)",
+      "translated": "`SessionStart` 및 `Stop` 훅 이벤트를 포함한 실험적 훅 엔진을 추가했습니다. (#13276)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "WebSocket app-server deployments now expose `GET /readyz` and `GET /healthz` on the same listener for easier health checks. (#13782)",
+      "translated": "WebSocket 앱 서버 배포 시 더 쉬운 상태 확인을 위해 동일한 리스너에서 `GET /readyz` 및 `GET /healthz`를 노출합니다. (#13782)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a config switch to disable bundled system skills entirely. (#13792)",
+      "translated": "번들된 시스템 스킬을 완전히 비활성화할 수 있는 설정 스위치를 추가했습니다. (#13792)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Handoffs now carry realtime transcript context, which improves continuity when work is transferred between turns. (#14132)",
+      "translated": "핸드오프 시 실시간 트랜스크립트 컨텍스트를 포함하여, 턴 간 작업 전달 시의 연속성을 개선했습니다. (#14132)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Improved the `$` mention picker by clearly labeling Skills, Apps, and Plugins, and by surfacing plugins first. (#14147, #14163)",
+      "translated": "스킬, 앱, 플러그인을 명확하게 라벨링하고 플러그인을 먼저 표시하도록 `$` 멘션 피커를 개선했습니다. (#14147, #14163)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Linux `tmux` crash caused by concurrent user-shell lookups. (#13900)",
+      "translated": "동시 사용자 셸 조회로 인해 발생하던 Linux `tmux` 충돌 문제를 수정했습니다. (#13900)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed apps being enabled in unsupported sessions by tightening the enablement check. (#14011)",
+      "translated": "활성화 확인 절차를 강화하여 지원되지 않는 세션에서 앱이 활성화되는 문제를 수정했습니다. (#14011)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed reopened threads getting stuck as in-progress after quitting mid-run and then resuming later. (#14125)",
+      "translated": "실행 도중 종료 후 나중에 재개했을 때 다시 열린 스레드가 '진행 중' 상태로 멈춰 있는 문제를 수정했습니다. (#14125)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission handling so legacy `workspace-write` behavior is preserved and newer permission profiles degrade more safely on older builds. (#13957, #14107)",
+      "translated": "레거시 `workspace-write` 동작을 유지하고, 최신 권한 프로필이 이전 빌드에서 더 안전하게 하위 호환되도록 권한 처리를 수정했습니다. (#13957, #14107)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed approval flows so granted permissions persist across turns, work with reject-style configs, and are honored by `apply_patch`. (#14009, #14055, #14118, #14165)",
+      "translated": "승인된 권한이 턴 간에 유지되고, 거부 스타일 설정과 함께 작동하며, `apply_patch`에서 준수되도록 승인 흐름을 수정했습니다. (#14009, #14055, #14118, #14165)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Laid the groundwork for the Python SDK’s generated v2 schema types and pinned platform-specific runtime binaries. (#13953)",
+      "translated": "Python SDK의 생성된 v2 스키마 유형을 위한 기반을 마련하고 플랫폼별 런타임 바이너리를 고정했습니다. (#13953)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14009 feat(core) Persist request_permission data across turns",
+      "translated": "턴 간 `request_permission` 데이터 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14136 fix(core): use dedicated types for responsesapi web search tool config",
+      "translated": "`responsesapi` 웹 검색 도구 설정을 위한 전용 유형 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13782 codex-rs/app-server: add health endpoints for --listen websocket server",
+      "translated": "`codex-rs/app-server`: `--listen` WebSocket 서버를 위한 상태 확인 엔드포인트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14055 fix(core) RequestPermissions + ApplyPatch",
+      "translated": "`RequestPermissions` + `ApplyPatch`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14118 feat(approvals) RejectConfig for request_permissions",
+      "translated": "`request_permissions`를 위한 `RejectConfig`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13957 fix(protocol): preserve legacy workspace-write semantics",
+      "translated": "레거시 `workspace-write` 시맨틱 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14107 fix: keep permissions profiles forward compatible",
+      "translated": "권한 프로필의 전방 호환성 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14147 make dollar-mention always clarify item category (skill, app, plugin)",
+      "translated": "달러($) 멘션 시 항상 항목 카테고리(스킬, 앱, 플러그인)를 명확히 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14152 Refactor tool output into trait implementations",
+      "translated": "도구 출력을 trait 구현체로 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14163 sort plugins first in  menu",
+      "translated": "메뉴에서 플러그인을 먼저 정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13418 Add code_mode experimental feature",
+      "translated": "`code_mode` 실험적 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13276 start of hooks engine",
+      "translated": "Hooks 엔진 시작"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14135 tui: only show fast status for gpt-5.4",
+      "translated": "Tui: gpt-5.4에 대해서만 빠른 상태 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14157 Enforce single tool output type in codex handlers",
+      "translated": "Codex 핸들러에서 단일 도구 출력 유형 강제 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14165 fix(core) default RejectConfig.request_permissions",
+      "translated": "`RejectConfig.request_permissions` 기본값 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14167 Export tools module into code mode runner",
+      "translated": "Tools 모듈을 code mode runner로 내보내기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13792 feat: support disabling bundled system skills",
+      "translated": "번들 시스템 스킬 비활성화 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14169 Move exec command truncation into ExecCommandToolOutput",
+      "translated": "Exec 명령 잘림 처리를 `ExecCommandToolOutput`으로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14011 [apps] Fix apps enablement condition.",
+      "translated": "앱 활성화 조건 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14000 Delay pending cleanup until task aborts",
+      "translated": "작업이 중단될 때까지 보류 중인 정리 작업 지연"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12296 Implemented thread-level atomic elicitation counter for stopwatch pausing",
+      "translated": "스톱워치 일시 정지를 위한 스레드 수준의 원자적 도출 카운터 구현"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14132 Use realtime transcript for handoff context",
+      "translated": "핸드오프 컨텍스트에 실시간 트랜스크립트 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13879 Stabilize incomplete SSE retry test",
+      "translated": "불완전한 SSE 재시도 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14184 Fix unified exec test output assertion",
+      "translated": "통합 exec 테스트 출력 어설션 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14002 Stabilize websocket test server binding",
+      "translated": "Websocket 테스트 서버 바인딩 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13939 Stabilize app-server notify initialize test",
+      "translated": "App-server 알림 초기화 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13953 python-sdk: generated type foundation (all v2 schemas)",
+      "translated": "Python-sdk: 생성된 타입 기초 (모든 v2 스키마)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13603 Fix release-mode integration test compiler failure",
+      "translated": "릴리스 모드 통합 테스트 컴파일러 오류 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13900 Fix Linux tmux segfault in user shell lookup",
+      "translated": "리눅스 tmux의 사용자 쉘 조회 중 발생하는 세그멘테이션 오류(segfault) 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13901 Log ChatGPT user ID for feedback tags",
+      "translated": "피드백 태그를 위한 ChatGPT 사용자 ID 기록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14183 Expose strongly-typed result for exec_command",
+      "translated": "`exec_command`에 대해 강타입(strongly-typed) 결과 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14003 Stabilize split PTY output on Windows",
+      "translated": "Windows에서 분할된 PTY 출력 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14229 Reuse McpToolOutput in McpHandler",
+      "translated": "`McpHandler`에서 `McpToolOutput` 재사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14125 Mark incomplete resumed turns interrupted when idle",
+      "translated": "유휴 상태 시 완료되지 않은 재개된 턴을 중단됨으로 표시"
+    }
+  ],
+  "translatedAt": "2026-03-11T03:08:28.120Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3145
+}
