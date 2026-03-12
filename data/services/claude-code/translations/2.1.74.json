@@ -1,0 +1,116 @@
+{
+  "version": "2.1.74",
+  "date": "2026-03-12",
+  "parsedAt": "2026-03-12T07:14:33.228Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added actionable suggestions to `/context` command — identifies context-heavy tools, memory bloat, and capacity warnings with specific optimization tips",
+      "translated": "`/context` 명령어에 실행 가능한 제안 추가 — 컨텍스트 부하가 큰 도구, 메모리 비대화, 용량 경고를 식별하고 구체적인 최적화 팁을 제공합니다"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `autoMemoryDirectory` setting to configure a custom directory for auto-memory storage",
+      "translated": "자동 메모리 저장소를 위한 사용자 지정 디렉터리를 설정할 수 있는 `autoMemoryDirectory` 설정 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory leak where streaming API response buffers were not released when the generator was terminated early, causing unbounded RSS growth on the Node.js/npm code path",
+      "translated": "제너레이터가 조기에 종료될 때 스트리밍 API 응답 버퍼가 해제되지 않아 Node.js/npm 코드 경로에서 RSS가 무제한으로 증가하던 메모리 누수 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed policy `ask` rules being bypassed by user `allow` rules or skill `allowed-tools`",
+      "translated": "관리형 정책의 `ask` 규칙이 사용자의 `allow` 규칙이나 스킬의 `allowed-tools`에 의해 우회되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed full model IDs (e.g., `claude-opus-4-5`) being silently ignored in agent frontmatter `model:` field and `--agents` JSON config — agents now accept the same model values as `--model`",
+      "translated": "에이전트 frontmatter의 `model:` 필드 및 `--agents` JSON 설정에서 전체 모델 ID(예: `claude-opus-4-5`)가 무시되던 문제 수정 — 이제 에이전트에서도 `--model`과 동일한 모델 값을 사용할 수 있습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth authentication hanging when the callback port is already in use",
+      "translated": "콜백 포트가 이미 사용 중일 때 MCP OAuth 인증이 중단되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth refresh never prompting for re-auth after the refresh token expires, for OAuth servers that return errors with HTTP 200 (e.g. Slack)",
+      "translated": "HTTP 200과 함께 오류를 반환하는 OAuth 서버(예: Slack)에서 리프레시 토큰 만료 후 재인증을 요청하지 않는 MCP OAuth 리프레시 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode silently failing on the macOS native binary for users whose terminal had never been granted microphone permission — the binary now includes the `audio-input` entitlement so macOS prompts correctly",
+      "translated": "터미널에 마이크 권한이 부여되지 않은 사용자의 macOS 네이티브 바이너리에서 음성 모드가 오류 없이 실패하던 문제 수정 — 이제 바이너리에 `audio-input` 권한이 포함되어 macOS에서 정상적으로 권한 요청 팝업이 표시됩니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SessionEnd` hooks being killed after 1.5 s on exit regardless of `hook.timeout` — now configurable via `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS`",
+      "translated": "종료 시 `hook.timeout` 설정과 관계없이 `SessionEnd` 훅이 1.5초 후에 강제 종료되는 문제 수정 — 이제 `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS`를 통해 설정 가능합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin install` failing inside the REPL for marketplace plugins with local sources",
+      "translated": "로컬 소스가 있는 마켓플레이스 플러그인의 경우 REPL 내에서 `/plugin install`이 실패하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed marketplace update not syncing git submodules — plugin sources in submodules no longer break after update",
+      "translated": "마켓플레이스 업데이트 시 git 서브모듈이 동기화되지 않는 문제 수정 — 이제 업데이트 후에도 서브모듈의 플러그인 소스가 깨지지 않습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unknown slash commands with arguments silently dropping input — now shows your input as a warning",
+      "translated": "인자가 포함된 알 수 없는 슬래시 명령어를 입력했을 때 입력 내용이 무시되던 문제 수정 — 이제 입력 내용을 경고로 표시합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Hebrew, Arabic, and other RTL text not rendering correctly in Windows Terminal, conhost, and VS Code integrated terminal",
+      "translated": "Windows Terminal, conhost 및 VS Code 통합 터미널에서 히브리어, 아랍어 등 우측에서 좌측으로 쓰는(RTL) 텍스트가 올바르게 렌더링되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed LSP servers not working on Windows due to malformed file URIs",
+      "translated": "잘못된 형식의 파일 URI로 인해 Windows에서 LSP 서버가 작동하지 않는 문제 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `--plugin-dir` so local dev copies now override installed marketplace plugins with the same name (unless that plugin is force-enabled by managed settings)",
+      "translated": "`--plugin-dir` 동작 변경 — 이제 로컬 개발용 복사본이 동일한 이름의 설치된 마켓플레이스 플러그인보다 우선 적용됩니다 (관리형 설정에 의해 강제로 활성화된 플러그인 제외)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed delete button not working for Untitled sessions",
+      "translated": "[VSCode] 제목 없는(Untitled) 세션에서 삭제 버튼이 작동하지 않는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Improved scroll wheel responsiveness in the integrated terminal with terminal-aware acceleration",
+      "translated": "[VSCode] 터미널 인식 가속 기능을 통해 통합 터미널의 스크롤 휠 반응성 개선"
+    }
+  ],
+  "translatedAt": "2026-03-12T07:15:04.551Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2112
+}
