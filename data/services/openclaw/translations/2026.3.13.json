@@ -1,0 +1,362 @@
+{
+  "version": "2026.3.13",
+  "date": "2026-03-14",
+  "parsedAt": "2026-03-14T07:07:31.351Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android/chat settings: redesign the chat settings sheet with grouped device and media sections, refresh the Connect and Voice tabs, and tighten the chat composer/session header for a denser mobile layout. (#44894) Thanks @obviyus.",
+      "translated": "Perl `-M` 및 `-I` 승인 흐름에 fail closed를 적용하여, 운영자가 더 넓은 명시적 신뢰 경로를 사용하지 않는 한 프리로드 및 로드 경로 모듈 확인이 승인 기반 런타임 실행 외부에서 유지되도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "iOS/onboarding: add a first-run welcome pager before gateway setup, stop auto-opening the QR scanner, and show `/pair qr` instructions on the connect step. (#45054) Thanks @ngutman.",
+      "translated": "인라인 명령 추출 시 PowerShell `-File` 및 `-f` 래퍼 형식을 인식하여, 승인 및 명령 분석 경로가 파일 기반 PowerShell 실행을 기존 `-Command` 변체와 동일하게 처리하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/existing-session: add an official Chrome DevTools MCP attach mode for signed-in live Chrome sessions, with docs for `chrome://inspect/#remote-debugging` enablement and direct backlinks to Chrome’s own setup guides.",
+      "translated": "macOS의 셸 세그먼트 허용 목록 확인 시 `env` 디스패치 래퍼를 해제하여, `env FOO=bar /path/to/bin`이 래퍼 토큰 대신 실제 실행 파일을 대상으로 확인되도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser/agents: add built-in `profile=\"user\"` for the logged-in host browser and `profile=\"chrome-relay\"` for the extension relay, so agent browser calls can prefer the real signed-in browser without the extra `browserSession` selector.",
+      "translated": "macOS 셸 체인 파싱 중 백슬래시-개행을 셸 줄 바꿈으로 처리하여, 줄 바꿈된 `$(` 치환이 명령 치환 검사를 우회하지 않고 fail closed되도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Browser/act automation: add batched actions, selector targeting, and delayed clicks for browser act requests with normalized batch dispatch. Thanks @vincentkoc.",
+      "translated": "macOS 스킬 자동 허용 신뢰를 실행 파일 이름과 확인된 경로 모두에 바인딩하여, 동일한 기본 이름을 가진 바이너리가 관련 없는 스킬 바이너리의 신뢰를 상속받지 않도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docker/timezone override: add `OPENCLAW_TZ` so `docker-setup.sh` can pin gateway and CLI containers to a chosen IANA timezone instead of inheriting the daemon default. (#34119) Thanks @Lanfei.",
+      "translated": "`plugin-sdk` 하위 경로 항목을 하나의 공유 빌드 패스로 번들링하여, 배포된 패키지에서 공유 청크 중복을 방지하고 최근 발생한 `plugin-sdk` 메모리 급증 문제를 해결 (#45426) @TarasShyn님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dependencies/pi: bump `@mariozechner/pi-agent-core`, `@mariozechner/pi-ai`, `@mariozechner/pi-coding-agent`, and `@mariozechner/pi-tui` to `0.58.0`.",
+      "translated": "중첩된 크론 트리거 임베디드 러너 작업을 중첩 레인으로 라우팅하여, 컴팩션이나 기타 대기 중인 내부 작업 실행 시 격리된 크론 작업이 더 이상 데드락에 빠지지 않도록 수정 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dashboard/chat UI: stop reloading full chat history on every live tool result in dashboard v2 so tool-heavy runs no longer trigger UI freeze/re-render storms while the final event still refreshes persisted history. (#45541) Thanks @BunsDev.",
+      "translated": "비네이티브 `openai-completions` 엔드포인트에 대해 사용자의 명시적인 `models[].compat` 선택 사항을 준수하여, 엔드포인트가 실제로 지원하는 경우 스트리밍 중 사용 기능 재정의가 강제로 해제되지 않도록 수정 (#44432) @cheapestinference님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/client requests: reject unanswered gateway RPC calls after a bounded timeout and clear their pending state, so stalled connections no longer leak hanging `GatewayClient.request()` promises indefinitely.",
+      "translated": "내장된 `/new`, `/reset` 및 컴팩션 후 시작 지침의 문구를 수정하여, Azure OpenAI 배포 시 콘텐츠 필터로 인한 HTTP 400 오탐이 발생하지 않도록 개선 (#43403) @xingsy97님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Build/plugin-sdk bundling: bundle plugin-sdk subpath entries in one shared build pass so published packages stop duplicating shared chunks and avoid the recent plugin-sdk memory blow-up. (#45426) Thanks @TarasShyn.",
+      "translated": "`MEMORY.md`를 우선하고 `memory.md`를 폴백으로 사용하여 하나의 루트 메모리 파일만 로드함으로써, 대소문자를 구분하지 않는 Docker 마운트에서 메모리 컨텍스트가 중복 주입되지 않도록 수정 (#26054) @Lanfei님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama/reasoning visibility: stop promoting native `thinking` and `reasoning` fields into final assistant text so local reasoning models no longer leak internal thoughts in normal replies. (#45330) Thanks @xi7ang.",
+      "translated": "컴팩션 후 토큰 무결성 검사를 전체 세션의 컴팩션 전 합계와 비교하고 토큰 추정 실패 시 검사를 건너뛰어, 대규모 부트스트랩 컨텍스트가 있는 세션에서 실제 토큰 수가 `unknown`으로 대체되지 않고 유지되도록 수정 (#28347) @efe-arv님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Android/onboarding QR scan: switch setup QR scanning to Google Code Scanner so onboarding uses a more reliable scanner instead of the legacy embedded ZXing flow. (#45021) Thanks @obviyus.",
+      "translated": "기본 및 구성 가능한 사용자 정의 지침을 통해 세이프가드 컴팩션 요약 언어의 연속성을 유지하여, 자동 컴팩션 후의 페르소나 이탈을 줄임 (#10456) @keepitmello님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/existing-session: harden driver validation and session lifecycle so transport errors trigger reconnects while tool-level errors preserve the session, and extract shared ARIA role sets to deduplicate Playwright and Chrome MCP snapshot paths. (#45682) Thanks @odysseus0.",
+      "translated": "`tools.profile` 경고에서 `apply_patch`와 같은 제한된 핵심 도구를 플러그인 전용 알 수 없는 항목과 구분하여, 사용 불가능한 핵심 도구가 누락된 플러그인을 제안하는 대신 현재 런타임/제공자/모델/구성 제한 상태를 보고하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/existing-session: accept text-only `list_pages` and `new_page` responses from Chrome DevTools MCP so live-session tab discovery and new-tab open flows keep working when the server omits structured page metadata.",
+      "translated": "엄격한 구성 검증 시 문서화된 `agents.list[].params` 에이전트별 재정의를 허용하여, `openclaw config validate`가 런타임에서 지원되는 `cacheRetention`, `temperature`, `maxTokens` 설정을 거부하지 않도록 수정 (#41171) @atian8179님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/insecure auth: preserve explicit shared token and password auth on plain-HTTP Control UI connects so LAN and reverse-proxy sessions no longer drop shared auth before the first WebSocket handshake. (#45088) Thanks @velvet-shark.",
+      "translated": "문서화된 `tools.web.fetch.readability` 및 `tools.web.fetch.fire"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/session reset: preserve `lastAccountId` and `lastThreadId` across gateway session resets so replies keep routing back to the same account and thread after `/reset`. (#44773) Thanks @Lanfei.",
+      "translated": "게이트웨이/세션 재설정: `/reset` 후에도 동일한 계정과 스레드로 응답이 계속 라우팅되도록 게이트웨이 세션 재설정 시 `lastAccountId`와 `lastThreadId`를 유지합니다. (#44773) @Lanfei 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/onboarding: avoid self-restarting freshly bootstrapped launchd gateways and give new daemon installs longer to become healthy, so `openclaw onboard --install-daemon` no longer false-fails on slower Macs and fresh VM snapshots.",
+      "translated": "macOS/온보딩: 새로 부트스트랩된 launchd 게이트웨이가 자체 재시작되지 않도록 하고, 새로운 데몬 설치가 정상적으로 작동할 시간을 더 주어, 느린 Mac과 새로운 VM 스냅샷에서 `openclaw onboard --install-daemon`이 더 이상 잘못 실패하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/status: add `openclaw gateway status --require-rpc` and clearer Linux non-interactive daemon-install failure reporting so automation can fail hard on probe misses instead of treating a printed RPC error as green.",
+      "translated": "게이트웨이/상태: `openclaw gateway status --require-rpc`와 더 명확한 Linux 비대화형 데몬 설치 실패 보고를 추가하여, 자동화가 인쇄된 RPC 오류를 정상으로 처리하는 대신 프로브 누락 시 강하게 실패할 수 있도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/exec approvals: respect per-agent exec approval settings in the gateway prompter, including allowlist fallback when the native prompt cannot be shown, so gateway-triggered `system.run` requests follow configured policy instead of always prompting or denying unexpectedly. (#13707) Thanks @sliekens.",
+      "translated": "macOS/실행 승인: 게이트웨이 프롬프터에서 에이전트별 실행 승인 설정을 존중하며, 기본 프롬프트를 표시할 수 없는 경우 허용 목록을 대체하여 게이트웨이 트리거된 `system.run` 요청이 항상 예기치 않게 프롬프트를 표시하거나 거부하는 대신 구성된 정책을 따르도록 합니다. (#13707) @sliekens 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/media downloads: thread the same direct or proxy transport policy into SSRF-guarded file fetches so inbound attachments keep working when Telegram falls back between env-proxy and direct networking. (#44639) Thanks @obviyus.",
+      "translated": "Telegram/미디어 다운로드: 동일한 직접 또는 프록시 전송 정책을 SSRF 보호 파일 가져오기에 적용하여, Telegram이 env-proxy와 직접 네트워킹 간에 전환할 때 수신 첨부 파일이 계속 작동하도록 합니다. (#44639) @obviyus 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/inbound media IPv4 fallback: retry SSRF-guarded Telegram file downloads once with the same IPv4 fallback policy as Bot API calls so fresh installs on IPv6-broken hosts no longer fail to download inbound images.",
+      "translated": "Telegram/수신 미디어 IPv4 대체: IPv6이 손상된 호스트에서 새로운 설치가 수신 이미지를 다운로드하지 못하는 문제가 발생하지 않도록, Bot API 호출과 동일한 IPv4 대체 정책으로 SSRF 보호 Telegram 파일 다운로드를 한 번 재시도합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/gateway install: bound `schtasks` calls and fall back to the Startup-folder login item when task creation hangs, so native `openclaw gateway install` fails fast instead of wedging forever on broken Scheduled Task setups.",
+      "translated": "Windows/게이트웨이 설치: `schtasks` 호출을 제한하고 작업 생성이 중단될 때 시작 폴더 로그인 항목으로 대체하여, 손상된 예약 작업 설정에서 `openclaw gateway install`이 영원히 멈추는 대신 빠르게 실패하도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/gateway stop: resolve Startup-folder fallback listeners from the installed `gateway.cmd` port, so `openclaw gateway stop` now actually kills fallback-launched gateway processes before restart.",
+      "translated": "Windows/게이트웨이 중지: 설치된 `gateway.cmd` 포트에서 시작 폴더 대체 리스너를 해결하여, `openclaw gateway stop`이 이제 재시작 전에 대체로 시작된 게이트웨이 프로세스를 실제로 종료합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/gateway status: reuse the installed service command environment when reading runtime status, so startup-fallback gateways keep reporting the configured port and running state in `gateway status --json` instead of falling back to `gateway port unknown`.",
+      "translated": "Windows/게이트웨이 상태: 런타임 상태를 읽을 때 설치된 서비스 명령 환경을 재사용하여, 시작 대체 게이트웨이가 `gateway status --json`에서 구성된 포트와 실행 상태를 계속 보고하도록 하고 `gateway port unknown`으로 대체되지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/gateway auth: stop attaching device identity on local loopback shared-token and password gateway calls, so native Windows agent replies no longer log stale `device signature expired` fallback noise before succeeding.",
+      "translated": "Windows/게이트웨이 인증: 로컬 루프백 공유 토큰 및 비밀번호 게이트웨이 호출에서 장치 식별을 첨부하지 않도록 하여, 기본 Windows 에이전트 응답이 성공하기 전에 더 이상 오래된 `device signature expired` 대체 소음을 기록하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/gateway startup: treat plain-text and transient `/gateway/bot` metadata fetch failures as transient startup errors so Discord gateway boot no longer crashes on unhandled rejections. (#44397) Thanks @jalehman.",
+      "translated": "Discord/게이트웨이 시작: 일반 텍스트 및 일시적인 `/gateway/bot` 메타데이터 가져오기 실패를 일시적인 시작 오류로 처리하여, Discord 게이트웨이 부팅이 처리되지 않은 거부로 인해 더 이상 충돌하지 않도록 합니다. (#44397) @jalehman 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/probe: keep `auth.test()` bot and team metadata mapping stable while simplifying the probe result path. (#44775) Thanks @Cafexss.",
+      "translated": "Slack/프로브: 프로브 결과 경로를 단순화하면서 `auth.test()` 봇 및 팀 메타데이터 매핑을 안정적으로 유지합니다. (#44775) @Cafexss 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dashboard/chat UI: render oversized plain-text replies as normal paragraphs instead of capped gray code blocks, so long desktop chat responses stay readable without tab-switching refreshes.",
+      "translated": "대시보드/채팅 UI: 너무 큰 일반 텍스트 응답을 제한된 회색 코드 블록 대신 일반 단락으로 렌더링하여, 긴 데스크톱 채팅 응답이 탭 전환 새로 고침 없이 읽기 쉽게 유지되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dashboard/chat UI: restore the `chat-new-messages` class on the New messages scroll pill so the button uses its existing compact styling instead of rendering as a full-screen SVG overlay. (#44856) Thanks @Astro-Han.",
+      "translated": "대시보드/채팅 UI: 새 메시지 스크롤 알약에서 `chat-new-messages` 클래스를 복원하여 버튼이 전체 화면 SVG 오버레이로 렌더링되는 대신 기존의 컴팩트한 스타일을 사용하도록 합니다. (#44856) @Astro-Han 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Control UI: restore the operator-only device-auth bypass and classify browser connect failures so origin and device-identity problems no longer show up as auth errors in the Control UI and web chat. (#45512) thanks @sallyom.",
+      "translated": "게이트웨이/제어 UI: 운영자 전용 장치 인증 우회를 복원하고 브라우저 연결 실패를 분류하여, 원본 및 장치 식별 문제가 더 이상 제어 UI 및 웹 채팅에서 인증 오류로 표시되지 않도록 합니다. (#45512) @sallyom 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/voice wake: stop crashing wake-word command extraction when speech segment ranges come from a different transcript instance.",
+      "translated": "macOS/음성 깨우기: 음성 세그먼트 범위가 다른 전사 인스턴스에서 올 때 웨이크 워드 명령 추출이 충돌하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/allowlists: honor raw `guild_id` when hydrated guild objects are missing so allowlisted channels and threads like `#maintainers` no longer get false-dropped before channel allowlist checks.",
+      "translated": "Discord/허용 목록: 하이드레이션된 길드 객체가 없을 때 원시 `guild_id`를 존중하여, `#maintainers`와 같은 허용된 채널 및 스레드가 채널 허용 목록 검사를 받기 전에 잘못 삭제되지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS/runtime locator: require Node >=22.16.0 during macOS runtime discovery so the app no longer accepts Node versions that the main runtime guard rejects later. Thanks @sumleo.",
+      "translated": "macOS/런타임 로케이터: macOS 런타임 검색 중 Node >=22.16.0을 요구하여, 앱이 나중에 주요 런타임 가드에서 거부하는 Node 버전을 더 이상 수용하지 않도록 합니다. @sumleo 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/custom providers: preserve blank API keys for loopback OpenAI-compatible custom providers by clearing the synthetic Authorization header at runtime, while keeping explicit apiKey and oauth/token config from silently downgrading into fake bearer auth. (#45631) Thanks @xinhuagu.",
+      "translated": "에이전트/사용자 정의 제공자: 루프백 OpenAI 호환 사용자 정의 제공자에 대한 빈 API 키를 유지하여 런타임에 합성 Authorization 헤더를 지우고, 명시적인 apiKey 및 oauth/token 구성이 가짜 베어러 인증으로 조용히 강등되지 않도록 합니다. (#45631) @xinhuagu 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/google-vertex Gemini flash-lite normalization: apply existing bare-ID preview normalization to `google-vertex` model refs and provider configs so `google-vertex/gemini-3.1-flash-lite` resolves as `gemini-3.1-flash-lite-preview`. (#42435) thanks @scoootscooob.",
+      "translated": "모델/google-vertex Gemini flash-lite 정규화: 기존의 베어 ID 미리보기 정규화를 `google-vertex` 모델 참조 및 제공자 구성에 적용하여 `google-vertex/gemini-3.1-flash-lite`가 `gemini-3.1-flash-lite-preview`로 해결되도록 합니다. (#42435) @scoootscooob 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iMessage/remote attachments: reject unsafe remote attachment paths before spawning SCP, so sender-controlled filenames can no longer inject shell metacharacters into remote media staging. Thanks @lintsinghua.",
+      "translated": "iMessage/원격 첨부 파일: SCP를 실행하기 전에 안전하지 않은 원격 첨부 파일 경로를 거부하여 발신자가 제어하는 파일 이름이 더 이상 원격 미디어 스테이징에 셸 메타 문자를 주입할 수 없도록 했습니다. 감사합니다 @lintsinghua."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/webhook auth: validate the Telegram webhook secret before reading or parsing request bodies, so unauthenticated requests are rejected immediately instead of consuming up to 1 MB first. Thanks @space08.",
+      "translated": "Telegram/webhook 인증: Telegram webhook 비밀을 읽거나 요청 본문을 구문 분석하기 전에 검증하여 인증되지 않은 요청이 최대 1MB를 소비하기 전에 즉시 거부되도록 했습니다. 감사합니다 @space08."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/device pairing: make bootstrap setup codes single-use so pending device pairing requests cannot be silently replayed and widened to admin before approval. Thanks @tdjackey.",
+      "translated": "보안/장치 페어링: 부트스트랩 설정 코드를 단일 사용으로 만들어 대기 중인 장치 페어링 요청이 승인 전에 관리자에게 조용히 재생되고 확대되지 않도록 했습니다. 감사합니다 @tdjackey."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/external content: strip zero-width and soft-hyphen marker-splitting characters during boundary sanitization so spoofed `EXTERNAL_UNTRUSTED_CONTENT` markers fall back to the existing hardening path instead of bypassing marker normalization.",
+      "translated": "보안/외부 콘텐츠: 경계 위생 처리 중에 폭 넓은 `EXTERNAL_UNTRUSTED_CONTENT` 마커가 마커 정규화 우회를 방지하고 기존 강화 경로로 되돌아가도록 폭 넓은 및 소프트 하이픈 마커 분할 문자를 제거했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: unwrap more `pnpm` runtime forms during approval binding, including `pnpm --reporter ... exec` and direct `pnpm node` file runs, with matching regression coverage and docs updates.",
+      "translated": "보안/실행 승인: `pnpm --reporter ... exec` 및 직접 `pnpm node` 파일 실행을 포함하여 승인 바인딩 중에 더 많은 `pnpm` 런타임 형식을 해제하고, 일치하는 회귀 커버리지 및 문서 업데이트를 수행했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: fail closed for Perl `-M` and `-I` approval flows so preload and load-path module resolution stays outside approval-backed runtime execution unless the operator uses a broader explicit trust path.",
+      "translated": "보안/실행 승인: Perl `-M` 및 `-I` 승인 흐름에 대해 실패를 닫아 사전 로드 및 로드 경로 모듈 해석이 승인 기반 런타임 실행 외부에 유지되도록 했습니다. 운영자가 더 넓은 명시적 신뢰 경로를 사용하지 않는 한."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: recognize PowerShell `-File` and `-f` wrapper forms during inline-command extraction so approval and command-analysis paths treat file-based PowerShell launches like the existing `-Command` variants.",
+      "translated": "보안/실행 승인: 인라인 명령 추출 중 PowerShell `-File` 및 `-f` 래퍼 형식을 인식하여 승인 및 명령 분석 경로가 파일 기반 PowerShell 실행을 기존 `-Command` 변형처럼 처리하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: unwrap `env` dispatch wrappers inside shell-segment allowlist resolution on macOS so `env FOO=bar /path/to/bin` resolves against the effective executable instead of the wrapper token.",
+      "translated": "보안/실행 승인: macOS에서 셸 세그먼트 허용 목록 해상도 내에서 `env` 디스패치 래퍼를 해제하여 `env FOO=bar /path/to/bin`이 래퍼 토큰 대신 효과적인 실행 파일에 대해 해상되도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: treat backslash-newline as shell line continuation during macOS shell-chain parsing so line-continued `$(` substitutions fail closed instead of slipping past command-substitution checks.",
+      "translated": "보안/실행 승인: macOS 셸 체인 구문 분석 중 백슬래시-줄 바꿈을 셸 줄 연속으로 처리하여 줄이 계속된 `$(` 대체가 명령 대체 검사를 통과하지 못하도록 실패하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: bind macOS skill auto-allow trust to both executable name and resolved path so same-basename binaries no longer inherit trust from unrelated skill bins.",
+      "translated": "보안/실행 승인: macOS 기술 자동 허용 신뢰를 실행 파일 이름과 해상된 경로 모두에 바인딩하여 동일한 기본 이름 바이너리가 관련 없는 기술 바이너리에서 신뢰를 상속하지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Build/plugin-sdk bundling: bundle plugin-sdk subpath entries in one shared build pass so published packages stop duplicating shared chunks and avoid the recent plugin-sdk memory blow-up. (#45426) Thanks @TarasShyn.",
+      "translated": "빌드/플러그인 SDK 번들링: 플러그인 SDK 하위 경로 항목을 하나의 공유 빌드 패스에서 번들링하여 게시된 패키지가 공유 청크를 중복하지 않고 최근 플러그인 SDK 메모리 폭발을 피하도록 했습니다. (#45426) 감사합니다 @TarasShyn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/isolated sessions: route nested cron-triggered embedded runner work onto the nested lane so isolated cron jobs no longer deadlock when compaction or other queued inner work runs. Thanks @vincentkoc.",
+      "translated": "크론/격리된 세션: 중첩된 크론 트리거된 임베디드 러너 작업을 중첩된 레인으로 라우팅하여 격리된 크론 작업이 압축 또는 다른 대기 중인 내부 작업이 실행될 때 교착 상태에 빠지지 않도록 했습니다. 감사합니다 @vincentkoc."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI-compatible compat overrides: respect explicit user `models[].compat` opt-ins for non-native `openai-completions` endpoints so usage-in-streaming capability overrides no longer get forced off when the endpoint actually supports them. (#44432) Thanks @cheapestinference.",
+      "translated": "에이전트/OpenAI 호환성 재정의: 비원주형 `openai-completions` 엔드포인트에 대한 명시적 사용자 `models[].compat` 옵트인을 존중하여 스트리밍 중 사용 기능 재정의가 엔드포인트가 실제로 지원할 때 강제로 해제되지 않도록 했습니다. (#44432) 감사합니다 @cheapestinference."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Azure OpenAI startup prompts: rephrase the built-in `/new`, `/reset`, and post-compaction startup instruction so Azure OpenAI deployments no longer hit HTTP 400 false positives from the content filter. (#43403) Thanks @xingsy97.",
+      "translated": "에이전트/Azure OpenAI 시작 프롬프트: 내장된 `/new`, `/reset`, 및 압축 후 시작 지침을 재구성하여 Azure OpenAI 배포가 콘텐츠 필터로 인해 HTTP 400 오탐지에 걸리지 않도록 했습니다. (#43403) 감사합니다 @xingsy97."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/memory bootstrap: load only one root memory file, preferring `MEMORY.md` and using `memory.md` as a fallback, so case-insensitive Docker mounts no longer inject duplicate memory context. (#26054) Thanks @Lanfei.",
+      "translated": "에이전트/메모리 부트스트랩: `MEMORY.md`를 선호하고 `memory.md`를 대체로 사용하여 하나의 루트 메모리 파일만 로드하여 대소문자 구분 없는 Docker 마운트가 중복 메모리 컨텍스트를 주입하지 않도록 했습니다. (#26054) 감사합니다 @Lanfei."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: compare post-compaction token sanity checks against full-session pre-compaction totals and skip the check when token estimation fails, so sessions with large bootstrap context keep real token counts instead of falling back to unknown. (#28347) thanks @efe-arv.",
+      "translated": "에이전트/압축: 압축 후 토큰 건전성 검사를 전체 세션 사전 압축 총계와 비교하고 토큰 추정이 실패할 때 검사를 건너뛰어 대형 부트스트랩 컨텍스트가 있는 세션이 실제 토큰 수를 유지하도록 했습니다. (#28347) 감사합니다 @efe-arv."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: preserve safeguard compaction summary language continuity via default and configurable custom instructions so persona drift is reduced after auto-compaction. (#10456) Thanks @keepitmello.",
+      "translated": "에이전트/압축: 기본 및 구성 가능한 사용자 정의 지침을 통해 보호 압축 요약 언어 연속성을 유지하여 자동 압축 후 페르소나 드리프트를 줄였습니다. (#10456) 감사합니다 @keepitmello."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/tool warnings: distinguish gated core tools like `apply_patch` from plugin-only unknown entries in `tools.profile` warnings, so unavailable core tools now report current runtime/provider/model/config gating instead of suggesting a missing plugin.",
+      "translated": "에이전트/도구 경고: `apply_patch`와 같은 게이트된 핵심 도구를 `tools.profile` 경고에서 플러그인 전용 알 수 없는 항목과 구별하여 사용 불가능한 핵심 도구가 누락된 플러그인을 제안하는 대신 현재 런타임/제공자/모델/구성 게이팅을 보고하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/validation: accept documented `agents.list[].params` per-agent overrides in strict config validation so `openclaw config validate` no longer rejects runtime-supported `cacheRetention`, `temperature`, and `maxTokens` settings. (#41171) Thanks @atian8179.",
+      "translated": "구성/검증: 엄격한 구성 검증에서 문서화된 `agents.list[].params` 에이전트별 재정의를 수락하여 `openclaw config validate`가 런타임 지원 `cacheRetention`, `temperature`, 및 `maxTokens` 설정을 더 이상 거부하지 않도록 했습니다. (#41171) 감사합니다 @atian8179."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/web fetch: restore runtime validation for documented `tools.web.fetch.readability` and `tools.web.fetch.firecrawl` settings so valid web fetch configs no longer fail with unrecognized-key errors. (#42583) Thanks @stim64045-spec.",
+      "translated": "구성/웹 가져오기: 문서화된 `tools.web.fetch.readability` 및 `tools.web.fetch.firecrawl` 설정에 대한 런타임 검증을 복원하여 유효한 웹 가져오기 구성이 인식되지 않는 키 오류로 실패하지 않도록 했습니다. (#42583) 감사합니다 @stim64045-spec."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Signal/config validation: add `channels.signal.groups` schema support so per-group `requireMention`, `tools`, and `toolsBySender` overrides no longer get rejected during config validation. (#27199) Thanks @unisone.",
+      "translated": "Signal/구성 검증: `channels.signal.groups` 스키마 지원을 추가하여 그룹별 `requireMention`, `tools`, 및 `toolsBySender` 재정의가 구성 검증 중에 더 이상 거부되지 않도록 했습니다. (#27199) @unisone님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/discovery: accept `discovery.wideArea.domain` in strict config validation so unicast DNS-SD gateway configs no longer fail with an unrecognized-key error. (#35615) Thanks @ingyukoh.",
+      "translated": "구성/발견: 엄격한 구성 검증에서 `discovery.wideArea.domain`을 허용하여 유니캐스트 DNS-SD 게이트웨이 구성에서 더 이상 인식되지 않는 키 오류로 실패하지 않도록 했습니다. (#35615) @ingyukoh님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/media errors: redact Telegram file URLs before building media fetch errors so failed inbound downloads do not leak bot tokens into logs. Thanks @space08.",
+      "translated": "Telegram/미디어 오류: 미디어 가져오기 오류를 생성하기 전에 Telegram 파일 URL을 수정하여 실패한 인바운드 다운로드가 로그에 봇 토큰을 누출하지 않도록 했습니다. @space08님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-03-14T07:12:25.855Z",
+  "translationEngine": "openai",
+  "translationProvider": "openai",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 9401
+}
