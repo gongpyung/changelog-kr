@@ -1,0 +1,800 @@
+{
+  "version": "0.115.0",
+  "date": "2026-03-16",
+  "parsedAt": "2026-03-17T03:14:41.176Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Supported models can now request full-resolution image inspection through both `view_image` and `codex.emitImage(..., detail: \"original\")`, which helps with precision visual tasks. (#14175)",
+      "translated": "App-server: v2 filesystem API 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`js_repl` now exposes `codex.cwd` and `codex.homeDir`, and saved `codex.tool(...)` / `codex.emitImage(...)` references keep working across cells. (#14385, #14503)",
+      "translated": "MCP 도구 이름을 code-mode에 안전한 형식으로 정규화"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Realtime websocket sessions gained a dedicated transcription mode, plus v2 handoff support through the `codex` tool, with a unified `[realtime]` session config. (#14554, #14556, #14606)",
+      "translated": "Core 테스트의 wait_agent 기대 결과 수정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The v2 app-server now exposes filesystem RPCs for file reads, writes, copies, directory operations, and path watching, and there is a new Python SDK for integrating with that API. (#14245, #14435)",
+      "translated": "Core, app-server, TUI 전반에 Smart Approvals guardian 리뷰 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Smart Approvals can now route review requests through a guardian subagent in core, app-server, and TUI, reducing repeated setup work on follow-up approvals. (#13860, #14668)",
+      "translated": "오래된 create_wait_tool 참조 수정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App integrations now use the Responses API tool-search flow, can suggest missing tools, and fall back cleanly when the active model does not support search-based lookup. (#14274, #14287, #14732)",
+      "translated": "[hooks] continuation 중지 및 stop_hook_active 메커니즘"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Spawned subagents now inherit sandbox and network rules more reliably, including project-profile layering, persisted host approvals, and symlinked writable roots. (#14619, #14650, #14674, #14807)",
+      "translated": "실시간 트랜스크립션 session.update tools 페이로드 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`js_repl` no longer hangs when dynamic tool responses contain literal U+2028 or U+2029 characters. (#14421)",
+      "translated": "파서 전용 실시간 음성 enum 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The TUI no longer stalls on exit after creating subagents, and interrupting a turn no longer tears down background terminals by default. (#14816, #14602)",
+      "translated": "Unified-exec zsh-fork 상태를 명시적으로 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`codex exec --profile` once again preserves profile-scoped settings when starting or resuming a thread. (#14524)",
+      "translated": "내장 프로바이더를 위한 openai_base_url 설정 재정의 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP and elicitation flows are more robust, with safer tool-name normalization and preserved `tool_params` in approval prompts. (#14491, #14605, #14769)",
+      "translated": "Guardian 및 Smart Approvals에 대한 Windows CI 어설션 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The local network proxy now serves CONNECT traffic as explicit HTTP/1, improving compatibility with HTTP proxy clients. (#14395)",
+      "translated": "백트래킹 후 턴 컨텍스트 재구성 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The subagent wait tool is now consistently named `wait_agent`, aligning it with `spawn_agent` and `send_input`. (#14631)",
+      "translated": "세션 간 향후 네트워크 호스트 승인 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14395 fix(network-proxy): serve HTTP proxy listener as HTTP/1",
+      "translated": "생성된 하위 에이전트에 대해 분할된 샌드박스 정책 동기화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14385 Add js_repl cwd and homeDir helpers",
+      "translated": "#146"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14376 Keep agent-switch word-motion keys out of draft editing",
+      "translated": "드래프트 편집 중 에이전트 전환 및 단어 이동 키 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14175 Let models opt into original image detail",
+      "translated": "모델이 원본 이미지 디테일을 사용하도록 설정 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14382 check for large binaries in CI",
+      "translated": "CI에서 대용량 바이너리 확인 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14392 chore(app-server): stop emitting codex/event/ notifications",
+      "translated": "`codex/event/` 알림 전송 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14274 feat: search_tool migrate to bring you own tool of Responses API",
+      "translated": "`search_tool`을 `Responses API`의 BYOT(Bring Your Own Tool)로 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14174 refactor: centralize filesystem permissions precedence",
+      "translated": "파일 시스템 권한 우선순위 중앙화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14394 chore(app-server): delete unused rpc methods from v1.rs",
+      "translated": "`v1.rs`에서 미사용 RPC 메서드 삭제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14171 fix: align core approvals with split sandbox policies",
+      "translated": "코어 승인을 분할된 샌드박스 정책에 맞춰 정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14410 Make collab model metadata accurate on completion",
+      "translated": "완료 시 협업 모델 메타데이터 정확하게 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14387 feat(app-server): propagate traces across tasks and core ops",
+      "translated": "및 코어 연산 간 트레이스 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14407 chore: use AVAILABLE and ON_INSTALL as default plugin install and auth policies",
+      "translated": "기본 플러그인 설치 및 인증 정책으로 `AVAILABLE`과 `ON_INSTALL` 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14287 [apps] Add tool_suggest tool.",
+      "translated": "`tool_suggest` 도구 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14432 Clarify spawn agent authorization",
+      "translated": "에이전트 생성 인가 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14295 Support waiting for code_mode sessions",
+      "translated": "`code_mode` 세션 대기 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14427 feat: refactor on openai-curated plugins.",
+      "translated": "`openai-curated` 플러그인 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13996 refactor: make bubblewrap the default Linux sandbox",
+      "translated": "`bubblewrap`을 기본 Linux 샌드박스로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14440 fix: follow up on linux sandbox review nits",
+      "translated": "Linux 샌드박스 리뷰 지적 사항 후속 조치"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14431 Handle pre-approved permissions in zsh fork",
+      "translated": "`zsh` 포크에서 사전 승인된 권한 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14403 [elicitation] User-friendly tool call messages.",
+      "translated": "[elicitation] 사용자 친화적인 도구 호출 메시지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14429 Use granted permissions when invoking apply_patch",
+      "translated": "`apply_patch` 호출 시 부여된 권한 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14471 Updated out-of-date tip about availability on free and go plans",
+      "translated": "무료 및 go 플랜에서의 가용성에 대한 오래된 팁 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14444 fix: move inline codex-rs/core unit tests into sibling files",
+      "translated": "인라인 `codex-rs/core` 유닛 테스트를 형제 파일로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14437 Dispatch tools when code mode is not awaited directly",
+      "translated": "코드 모드가 직접 대기되지 않을 때 도구 디스패치"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14435 Add Python app-server SDK",
+      "translated": "Python `app-server` SDK 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14473 fix(cli): support legacy use_linux_sandbox_bwrap flag",
+      "translated": "레거시 `use_linux_sandbox_bwrap` 플래그 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13882 Fix stdio-to-uds peer-close flake",
+      "translated": "`stdio-to-uds` peer-close 플레이크 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14476 Move code mode tool files under tools/code_mode and split functionality",
+      "translated": "코드 모드 도구 파일을 `tools/code_mode` 하위로 이동하고 기능 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14475 rename spawn_csv feature flag to enable_fanout",
+      "translated": "`spawn_csv` 기능 플래그 이름을 `enable_fanout`으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14173 fix: preserve split filesystem semantics in linux sandbox",
+      "translated": "Linux 샌드박스에서 분할 파일 시스템 의미 체계 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14480 Cleanup code_mode tool descriptions",
+      "translated": "`code_mode` 도구 설명 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14488 Handle malformed agent role definitions nonfatally",
+      "translated": "잘못된 형식의 에이전트 역할 정의를 비치명적으로 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14398 Do not allow unified_exec for sandboxed scenarios on Windows",
+      "translated": "Windows의 샌드박스 시나리오에서 `unified_exec` 허용하지 않음"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14419 use scopes_supported for OAuth when present on MCP servers",
+      "translated": "MCP 서버에 `scopes_supported`가 있을 경우 OAuth에 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14484 Add default code-mode yield timeout",
+      "translated": "기본 코드 모드 yield 타임아웃 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14494 Add parallel tool call test",
+      "translated": "병렬 도구 호출 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14478 chore(app-server): stop exporting EventMsg schemas",
+      "translated": "`EventMsg` 스키마 내보내기 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14490 fix turn_start_jsonrpc_span_parents_core_turn_spans flakiness",
+      "translated": "`turn_start_jsonrpc_span_parents_core_turn_spans` 플레이키 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14496 Reuse tool runtime for code mode worker",
+      "translated": "코드 모드 워커를 위한 도구 런타임 재사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14421 Fix js_repl hangs on U+2028/U+2029 dynamic tool responses",
+      "translated": "`U+2028`/`U+2029` 동적 도구 응답에서 `js_repl` 멈춤 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14505 Skip nested tool call parallel test on Windows",
+      "translated": "Windows에서 중첩 도구 호출 병렬 테스트 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14491 Fix MCP tool calling",
+      "translated": "MCP 도구 호출 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14493 memories: focus write prompts on user preferences",
+      "translated": "memories: 사용자 선호 설정에 맞춰 쓰기 프롬프트 집중"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14510 Rename exec session IDs to cell IDs",
+      "translated": "exec 세션 ID를 cell IDs로 이름 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14500 Update tool search prompts",
+      "translated": "도구 검색 프롬프트 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14426 Decouple request permissions feature and tool",
+      "translated": "요청 권한 기능과 도구 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14503 Persist js_repl codex helpers across cells",
+      "translated": "셀 간에 `js_repl` codex 헬퍼 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14517 Expose code-mode tools through globals",
+      "translated": "전역을 통해 코드 모드 도구 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14502 feat(search_tool): gate search_tool on model supports_search_tool field",
+      "translated": "model `supports_search_tool` 필드에 따라 `search_tool` 사용 제어"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14521 Reapply \"Pass more params to compaction\" (#14298)",
+      "translated": "\"컴팩션에 더 많은 파라미터 전달\" 재적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14524 Fix `codex exec --profile` handling",
+      "translated": "`codex exec --profile` 처리 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14516 Rename reject approval policy to granular",
+      "translated": "거부 승인 정책 이름을 granular로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14445 feat: add plugin/read.",
+      "translated": "`plugin/read` 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14178 login: add custom CA support for login flows",
+      "translated": "login: 로그인 흐름에 사용자 정의 CA 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14535 Split multi-agent handlers per tool",
+      "translated": "도구별로 멀티 에이전트 핸들러 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13329 [js_repl] Hard-stop active js_repl execs on explicit user interrupts",
+      "translated": "[js_repl] 명시적 사용자 중단 시 활성 `js_repl` 실행 강제 중지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14239 client: extend custom CA handling across HTTPS and websocket clients",
+      "translated": "client: HTTPS 및 웹소켓 클라이언트 전반에 사용자 정의 CA 처리 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14536 Add typed multi-agent tool outputs",
+      "translated": "타입이 지정된 멀티 에이전트 도구 출력 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14514 fix: reopen writable linux carveouts under denied parents",
+      "translated": "거부된 상위 항목 하위에서 쓰기 가능한 Linux carveouts 다시 열기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14531 Add plugin usage telemetry",
+      "translated": "플러그인 사용량 텔레메트리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14511 code_mode: Move exec params from runtime declarations to @pragma",
+      "translated": "code_mode: 실행 파라미터를 런타임 선언에서 `@pragma`로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14504 Refactor cloud requirements error and surface in JSON-RPC error",
+      "translated": "클라우드 요구 사항 오류 리팩터링 및 JSON-RPC 오류에 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14537 Add realtime v2 event parser behind feature flag",
+      "translated": "기능 플래그로 realtime v2 이벤트 파서 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14529 Simplify permissions available in request permissions tool",
+      "translated": "요청 권한 도구에서 사용 가능한 권한 단순화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14522 feat: support skill-scoped managed network domain overrides in skill config",
+      "translated": "스킬 설정에서 스킬 범위 관리형 네트워크 도메인 재정의 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14554 Add codex tool support for realtime v2 handoff",
+      "translated": "Realtime v2 핸드오프를 위한 codex 도구 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14556 Add realtime transcription mode for websocket sessions",
+      "translated": "Websocket 세션용 실시간 전사 모드 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14518 Add diagnostics for read_only_unless_trusted timeout flake",
+      "translated": "Read_only_unless_trusted 시간 초과 플레이크 진단 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14603 Split multi-agent handler into dedicated files",
+      "translated": "멀티 에이전트 핸들러를 전용 파일로 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14526 code mode: single line tool declarations",
+      "translated": "코드 모드: 한 줄 도구 선언"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14400 Use a private desktop for Windows sandbox instead of Winsta0\\Default",
+      "translated": "Windows 샌드박스에 Winsta0\\Default 대신 전용 데스크톱 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14558 sending back imagaegencall response back to responseapi",
+      "translated": "Imagaegencall 응답을 responseapi로 다시 전송"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14553 Improve granular approval policy prompt",
+      "translated": "세분화된 승인 정책 프롬프트 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14541 chore: clarify plugin + app copy in model instructions",
+      "translated": "모델 지침에서 플러그인 + 앱 문구 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14542 [bazel] Bump up cc and rust toolchains",
+      "translated": "[bazel] cc 및 rust 툴체인 버전 업"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14512 Start TUI on embedded app server",
+      "translated": "임베디드 앱 서버에서 TUI 시작"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14606 Unify realtime v1/v2 session config",
+      "translated": "Realtime v1/v2 세션 설정 통합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14527 app-server: Add platform os and family to init response",
+      "translated": "App-server: init 응답에 플랫폼 OS 및 패밀리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14618 Use subagents naming in the TUI",
+      "translated": "TUI에서 하위 에이전트 명명 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14304 Override local apps settings with requirements.toml settings",
+      "translated": "로컬 앱 설정을 requirements.toml 설정으로 재정의"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14479 feat(app-server, core): add more spans",
+      "translated": "더 많은 스팬 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13644 fix: preserve zsh-fork escalation fds across unified-exec spawn paths",
+      "translated": "`unified-exec` spawn 경로 간 `zsh-fork` escalation `fds` 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14617 Add code_mode_only feature",
+      "translated": "`code_mode_only` 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13201 Slash copy osc52 wsl support",
+      "translated": "Slash copy osc52 wsl 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14631 Rename multi-agent wait tool to wait_agent",
+      "translated": "Multi-agent wait 도구 이름을 `wait_agent`로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14622 Stabilize multi-agent feature flag",
+      "translated": "Multi-agent 기능 플래그 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14245 app-server: add v2 filesystem APIs",
+      "translated": "App-server: v2 파일시스템 API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14605 Normalize MCP tool names to code-mode safe form",
+      "translated": "MCP 도구 이름을 코드 모드 안전 형식으로 정규화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14637 Fix wait_agent expectations in core tests",
+      "translated": "코어 테스트의 `wait_agent` 기대값 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13860 Add Smart Approvals guardian review across core, app-server, and TUI",
+      "translated": "코어, app-server, TUI 전반에 Smart Approvals guardian review 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14639 Fix stale create_wait_tool reference",
+      "translated": "오래된 `create_wait_tool` 참조 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14532 [hooks] stop continuation & stop_hook_active mechanics",
+      "translated": "[hooks] stop continuation 및 `stop_hook_active` 메커니즘"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14635 Fix realtime transcription session.update tools payload",
+      "translated": "실시간 전사 `session.update` 도구 페이로드 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14636 Use parser-specific realtime voice enum",
+      "translated": "파서별 실시간 음성 `enum` 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14633 refactor: make unified-exec zsh-fork state explicit",
+      "translated": "`unified-exec` `zsh-fork` 상태 명시화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12031 Add openai_base_url config override for built-in provider",
+      "translated": "내장 제공자를 위한 `openai_base_url` 설정 재정의 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14645 Fix Windows CI assertions for guardian and Smart Approvals",
+      "translated": "Guardian 및 Smart Approvals에 대한 Windows CI 단언문 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14616 Fix turn context reconstruction after backtracking",
+      "translated": "백트래킹 후 턴 컨텍스트 재구성 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14619 fix: persist future network host approvals across sessions",
+      "translated": "세션 간 향후 네트워크 호스트 승인 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14650 fix: sync split sandbox policies for spawned subagents",
+      "translated": "생성된 하위 에이전트에 대한 분할 샌드박스 정책 동기화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14609 move plugin/skill instructions into dev msg and reorder",
+      "translated": "플러그인/스킬 지침을 `dev msg`로 이동 및 재정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#12024 Enforce errors on overriding built-in model providers",
+      "translated": "내장 모델 제공자 재정의 시 오류가 발생하도록 강제 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14646 Refresh Python SDK generated types",
+      "translated": "Python SDK 생성 타입 갱신"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14649 make defaultPrompt an array, keep backcompat",
+      "translated": "`defaultPrompt`를 배열로 변경하고 하위 호환성 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14501 dynamic tool calls: add param `exposeToContext` to optionally hide tool",
+      "translated": "동적 툴 호출: 툴을 선택적으로 숨기기 위해 `exposeToContext` 파라미터 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14651 Add argument-comment Dylint runner",
+      "translated": "Argument-comment Dylint 러너 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14674 fix: fix symlinked writable roots in sandbox policies",
+      "translated": "샌드박스 정책의 심볼릭 링크된 쓰기 가능 루트 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#14611 Add auth 401 recovery observability to client bug reports",
+      "translated": "클라이언트 버그 리포트에 인증 401 복구 가시성 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14647 [apps] Add tool call meta.",
+      "translated": "[apps] 툴 호출 메타 정보 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14732 [apps] Improve search tool fallback.",
+      "translated": "[apps] 검색 툴 폴백 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14602 Preserve background terminals on interrupt and rename cleanup command to /stop",
+      "translated": "인터럽트 발생 시 백그라운드 터미널 유지 및 정리 명령어를 `/stop`으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14668 Reuse guardian session across approvals",
+      "translated": "승인 과정에서 guardian 세션 재사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14769 fix(core): preserve tool_params for elicitations",
+      "translated": "Elicitation을 위한 `tool_params` 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14807 fix: sub-agent role when using profiles",
+      "translated": "프로필 사용 시 하위 에이전트 역할 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14806 feat: improve skills cache key to take into account config layering",
+      "translated": "설정 레이어링을 고려하도록 스킬 캐시 키 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13850 feat: make interrupt state not final for multi-agents",
+      "translated": "멀티 에이전트 환경에서 인터럽트 상태가 최종 상태가 아니도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14816 fix: tui freeze when sub-agents are present",
+      "translated": "하위 에이전트 존재 시 TUI 멈춤 현상 수정"
+    }
+  ],
+  "translatedAt": "2026-03-17T03:31:39.001Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 6357
+}

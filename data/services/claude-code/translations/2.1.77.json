@@ -1,0 +1,278 @@
+{
+  "version": "2.1.77",
+  "date": "2026-03-17",
+  "parsedAt": "2026-03-17T03:14:32.010Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Increased default maximum output token limits for Claude Opus 4.6 to 64k tokens, and the upper bound for Opus 4.6 and Sonnet 4.6 models to 128k tokens",
+      "translated": "Claude Opus 4.6의 기본 최대 출력 토큰 제한을 64k 토큰으로 상향하고, Opus 4.6 및 Sonnet 4.6 모델의 상한선을 128k 토큰으로 늘렸습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `allowRead` sandbox filesystem setting to re-allow read access within `denyRead` regions",
+      "translated": "`denyRead` 영역 내에서 읽기 권한을 다시 허용할 수 있도록 `allowRead` 샌드박스 파일 시스템 설정을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/copy` now accepts an optional index: `/copy N` copies the Nth-latest assistant response",
+      "translated": "`/copy` 명령에 선택적 인덱스를 추가했습니다. `/copy N`을 사용하면 어시스턴트의 N번째 최신 응답을 복사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Always Allow\" on compound bash commands (e.g. `cd src && npm test`) saving a single rule for the full string instead of per-subcommand, leading to dead rules and repeated permission prompts",
+      "translated": "복합 bash 명령어(예: `cd src && npm test`)에 대해 \"Always Allow\" 설정 시, 각 하위 명령어가 아닌 전체 문자열에 대해 단일 규칙이 저장되어 무효한 규칙이 생성되고 권한 요청이 반복되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto-updater starting overlapping binary downloads when the slash-command overlay repeatedly opened and closed, accumulating tens of gigabytes of memory",
+      "translated": "슬래시 명령 오버레이가 반복적으로 열리고 닫힐 때 자동 업데이트 프로그램이 바이너리 다운로드를 중복으로 시작하여 수십 기가바이트의 메모리가 누적되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` silently truncating recent conversation history due to a race between memory-extraction writes and the main transcript",
+      "translated": "메모리 추출 쓰기와 메인 트랜스크립트 간의 경합 조건으로 인해 `--resume` 시 최근 대화 기록이 예고 없이 잘리던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PreToolUse hooks returning `\"allow\"` bypassing `deny` permission rules, including enterprise managed settings",
+      "translated": "PreToolUse 훅이 `\"allow\"`를 반환할 때 엔터프라이즈 관리 설정을 포함한 `deny` 권한 규칙을 우회하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Write tool silently converting line endings when overwriting CRLF files or creating files in CRLF directories",
+      "translated": "Write 도구가 CRLF 파일을 덮어쓰거나 CRLF 디렉토리에 파일을 생성할 때 줄 바꿈 문자를 임의로 변환하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory growth in long-running sessions from progress messages surviving compaction",
+      "translated": "장시간 실행되는 세션에서 진행 메시지가 압축(compaction) 후에도 남아 메모리 사용량이 증가하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cost and token usage not being tracked when the API falls back to non-streaming mode",
+      "translated": "API가 비스트리밍 모드로 전환될 때 비용 및 토큰 사용량이 추적되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS` not stripping beta tool-schema fields, causing proxy gateways to reject requests",
+      "translated": "`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`가 베타 도구 스키마 필드를 제거하지 않아 프록시 게이트웨이에서 요청을 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool reporting errors for successful commands when the system temp directory path contains spaces",
+      "translated": "시스템 임시 디렉토리 경로에 공백이 포함된 경우, 성공한 명령어에 대해서도 Bash 도구가 오류를 보고하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed paste being lost when typing immediately after pasting",
+      "translated": "붙여넣기 직후에 타이핑할 때 붙여넣은 내용이 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+D in `/feedback` text input deleting forward instead of the second press exiting the session",
+      "translated": "`/feedback` 텍스트 입력 시 Ctrl+D를 눌러 세션을 종료하는 대신 커서 뒤의 문자가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed API error when dragging a 0-byte image file into the prompt",
+      "translated": "0바이트 이미지 파일을 프롬프트로 드래그할 때 발생하는 API 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Desktop sessions incorrectly using the terminal CLI's configured API key instead of OAuth",
+      "translated": "Claude Desktop 세션에서 OAuth 대신 터미널 CLI에 설정된 API 키를 잘못 사용하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `git-subdir` plugins at different subdirectories of the same monorepo commit colliding in the plugin cache",
+      "translated": "동일한 모노레포 커밋의 서로 다른 하위 디렉토리에 있는 `git-subdir` 플러그인들이 플러그인 캐시에서 충돌하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ordered list numbers not rendering in terminal UI",
+      "translated": "터미널 UI에서 번호 매기기 목록의 숫자가 렌더링되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a race condition where stale-worktree cleanup could delete an agent worktree just resumed from a previous crash",
+      "translated": "이전 충돌에서 막 재개된 에이전트 작업 트리가 오래된 작업 트리 정리 과정에서 삭제될 수 있는 경합 조건을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed input deadlock when opening `/mcp` or similar dialogs while the agent is running",
+      "translated": "에이전트가 실행 중일 때 `/mcp` 또는 유사한 대화 상자를 열면 입력 데드락이 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Backspace and Delete keys not working in vim NORMAL mode",
+      "translated": "vim NORMAL 모드에서 Backspace 및 Delete 키가 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed status line not updating when vim mode is toggled on or off",
+      "translated": "vim 모드 설정/해제 시 상태 표시줄이 업데이트되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hyperlinks opening twice on Cmd+click in VS Code, Cursor, and other xterm.js-based terminals",
+      "translated": "VS Code, Cursor 및 기타 xterm.js 기반 터미널에서 Cmd+클릭 시 하이퍼링크가 두 번 열리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background colors rendering as terminal-default inside tmux with default configuration",
+      "translated": "기본 설정의 tmux 내부에서 배경색이 터미널 기본값으로 렌더링되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed iTerm2 session crash when selecting text inside tmux over SSH",
+      "translated": "SSH를 통한 tmux 내부에서 텍스트 선택 시 iTerm2 세션이 충돌하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed clipboard copy silently failing in tmux sessions; copy toast now indicates whether to paste with `⌘V` or tmux `prefix+]`",
+      "translated": "tmux 세션에서 클립보드 복사가 소리 없이 실패하던 문제 수정. 이제 복사 알림(toast)에 `⌘V` 또는 tmux `prefix+]` 중 어떤 것으로 붙여넣어야 하는지 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `←`/`→` accidentally switching tabs in settings, permissions, and sandbox dialogs while navigating lists",
+      "translated": "설정, 권한 및 샌드박스 대화 상자의 목록 탐색 중 `←`/`→` 키로 인해 의도치 않게 탭이 전환되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed IDE integration not auto-connecting when Claude Code is launched inside tmux or screen",
+      "translated": "tmux 또는 screen 내부에서 Claude Code 실행 시 IDE 통합 기능이 자동으로 연결되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed CJK characters visually bleeding into adjacent UI elements when clipped at the right edge",
+      "translated": "CJK(한중일) 문자가 오른쪽 끝에서 잘릴 때 인접한 UI 요소로 시각적으로 번지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed teammate panes not closing when the leader exits",
+      "translated": "리더가 종료될 때 팀원(teammate) 창이 닫히지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed iTerm2 auto mode not detecting iTerm2 for native split-pane teammates",
+      "translated": "네이티브 분할 창 팀원(teammate)에 대해 iTerm2 자동 모드가 iTerm2를 감지하지 못하던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Faster startup on macOS (~60ms) by reading keychain credentials in parallel with module loading",
+      "translated": "모듈 로딩과 병렬로 키체인 자격 증명을 읽어 macOS에서의 시작 속도 개선 (~60ms 단축)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Faster `--resume` on fork-heavy and very large sessions — up to 45% faster loading and ~100-150MB less peak memory",
+      "translated": "포크(fork)가 많거나 매우 큰 세션에서 `--resume` 속도 개선 — 로딩 속도 최대 45% 향상 및 피크 메모리 약 100-150MB 절감"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Esc to abort in-flight non-streaming API requests",
+      "translated": "Esc 키를 눌러 진행 중인 비스트리밍 API 요청을 중단하는 기능 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude plugin validate` to check skill, agent, and command frontmatter plus `hooks/hooks.json`, catching YAML parse errors and schema violations",
+      "translated": "`claude plugin validate`가 skill, agent, command 프런트매터 및 `hooks/hooks.json`을 확인하여 YAML 파싱 오류 및 스키마 위반을 감지하도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background bash tasks are now killed if output exceeds 5GB, preventing runaway processes from filling disk",
+      "translated": "백그라운드 bash 작업의 출력이 5GB를 초과할 경우 해당 작업을 종료하여, 제어 불능 프로세스가 디스크를 가득 채우는 현상 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions are now auto-named from plan content when you accept a plan",
+      "translated": "플랜 수락 시 플랜 내용을 바탕으로 세션 이름이 자동으로 지정됨"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved headless mode plugin installation to compose correctly with `CLAUDE_CODE_PLUGIN_SEED_DIR`",
+      "translated": "헤드리스(headless) 모드 플러그인 설치가 `CLAUDE_CODE_PLUGIN_SEED_DIR`과 올바르게 구성되도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Show a notice when `apiKeyHelper` takes longer than 10s, preventing it from blocking the main loop",
+      "translated": "`apiKeyHelper`가 10초 이상 소요될 때 알림을 표시하여 메인 루프가 차단되지 않도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The Agent tool no longer accepts a `resume` parameter — use `SendMessage({to: agentId})` to continue a previously spawned agent",
+      "translated": "Agent 도구에서 더 이상 `resume` 파라미터를 지원하지 않음 — 이전에 생성된 에이전트를 계속하려면 `SendMessage({to: agentId})`를 사용하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`SendMessage` now auto-resumes stopped agents in the background instead of returning an error",
+      "translated": "`SendMessage`가 이제 오류를 반환하는 대신 백그라운드에서 중단된 에이전트를 자동으로 재개합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Renamed `/fork` to `/branch` (`/fork` still works as an alias)",
+      "translated": "`/fork`를 `/branch`로 변경했습니다 (`/fork`는 여전히 별칭으로 작동합니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Improved plan preview tab titles to use the plan's heading instead of \"Claude's Plan\"",
+      "translated": "[VSCode] 플랜 미리보기 탭 제목이 \"Claude's Plan\" 대신 플랜의 헤딩을 사용하도록 개선되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] When option+click doesn't trigger native selection on macOS, the footer now points to the `macOptionClickForcesSelection` setting",
+      "translated": "[VSCode] macOS에서 option+클릭이 네이티브 선택을 트리거하지 않을 때, 이제 푸터에서 `macOptionClickForcesSelection` 설정을 안내합니다."
+    }
+  ],
+  "translatedAt": "2026-03-17T03:15:43.355Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4406
+}
