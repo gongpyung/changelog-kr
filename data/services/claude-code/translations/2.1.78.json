@@ -1,0 +1,170 @@
+{
+  "version": "2.1.78",
+  "date": "2026-03-17",
+  "parsedAt": "2026-03-18T03:22:03.191Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `StopFailure` hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.)",
+      "translated": "API 오류(속도 제한, 인증 실패 등)로 인해 턴이 종료될 때 실행되는 `StopFailure` 훅 이벤트 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `${CLAUDE_PLUGIN_DATA}` variable for plugin persistent state that survives plugin updates; `/plugin uninstall` prompts before deleting it",
+      "translated": "플러그인 업데이트 후에도 유지되는 영구 상태를 위한 `${CLAUDE_PLUGIN_DATA}` 변수 추가; `/plugin uninstall` 실행 시 삭제 전 확인 프롬프트 표시"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `effort`, `maxTurns`, and `disallowedTools` frontmatter support for plugin-shipped agents",
+      "translated": "플러그인과 함께 제공되는 에이전트를 위한 `effort`, `maxTurns`, `disallowedTools` 프론트매터 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Terminal notifications (iTerm2/Kitty/Ghostty popups, progress bar) now reach the outer terminal when running inside tmux with `set -g allow-passthrough on`",
+      "translated": "tmux 내에서 `set -g allow-passthrough on` 설정 시 터미널 알림(iTerm2/Kitty/Ghostty 팝업, 진행 표시줄)이 외부 터미널까지 전달되도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Response text now streams line-by-line as it's generated",
+      "translated": "응답 텍스트가 생성되는 대로 한 줄씩 스트리밍되도록 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `git log HEAD` failing with \"ambiguous argument\" inside sandboxed Bash on Linux, and stub files polluting `git status` in the working directory",
+      "translated": "리눅스의 샌드박스 Bash 환경에서 `git log HEAD`가 \"ambiguous argument\" 오류로 실패하던 문제 및 작업 디렉토리의 스텁 파일이 `git status`를 오염시키던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `cc log` and `--resume` silently truncating conversation history on large sessions (>5 MB) that used subagents",
+      "translated": "서브 에이전트를 사용하는 대규모 세션(5MB 초과)에서 `cc log` 및 `--resume` 시 대화 기록이 자동으로 잘리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed infinite loop when API errors triggered stop hooks that re-fed blocking errors to the model",
+      "translated": "API 오류로 인해 중단 훅이 트리거되고, 이로 인해 차단 오류가 모델에 다시 전달되어 무한 루프가 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `deny: [\"mcp__servername\"]` permission rules not removing MCP server tools before sending to the model, allowing it to see and attempt blocked tools",
+      "translated": "`deny: [\"mcp__servername\"]` 권한 규칙이 모델 전송 전 MCP 서버 도구를 제거하지 않아, 모델이 차단된 도구를 확인하고 시도할 수 있었던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `sandbox.filesystem.allowWrite` not working with absolute paths (previously required `//` prefix)",
+      "translated": "`sandbox.filesystem.allowWrite`가 절대 경로에서 작동하지 않던 문제 수정 (기존에는 `//` 접두사가 필요했음)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/sandbox` Dependencies tab showing Linux prerequisites on macOS instead of macOS-specific info",
+      "translated": "macOS에서 `/sandbox`의 Dependencies 탭이 macOS 전용 정보 대신 리눅스 필수 구성 요소를 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Security:** Fixed silent sandbox disable when `sandbox.enabled: true` is set but dependencies are missing — now shows a visible startup warning",
+      "translated": "**보안:** `sandbox.enabled: true`로 설정되어 있으나 종속성이 누락된 경우 샌드박스가 경고 없이 비활성화되던 문제 수정 — 이제 시작 시 가시적인 경고 표시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `.git`, `.claude`, and other protected directories being writable without a prompt in `bypassPermissions` mode",
+      "translated": "`bypassPermissions` 모드에서 `.git`, `.claude` 및 기타 보호된 디렉토리에 확인 프롬프트 없이 쓰기가 가능하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ctrl+u in normal mode scrolling instead of readline kill-line (ctrl+u/ctrl+d half-page scroll moved to transcript mode only)",
+      "translated": "일반 모드에서 ctrl+u가 readline kill-line 대신 스크롤로 작동하던 문제 수정 (ctrl+u/ctrl+d 반 페이지 스크롤은 트랜스크립트 모드 전용으로 변경)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode modifier-combo push-to-talk keybindings (e.g. ctrl+k) requiring a hold instead of activating immediately",
+      "translated": "음성 모드에서 조합 키를 사용한 push-to-talk 단축키(예: ctrl+k)가 즉시 활성화되지 않고 길게 눌러야 했던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode not working on WSL2 with WSLg (Windows 11); WSL1/Win10 users now get a clear error",
+      "translated": "WSLg를 사용하는 WSL2(Windows 11)에서 음성 모드가 작동하지 않던 문제 수정; WSL1/Win10 사용자에게는 명확한 오류 메시지 표시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--worktree` flag not loading skills and hooks from the worktree directory",
+      "translated": "`--worktree` 플래그 사용 시 워크트리 디렉토리에서 스킬과 훅을 로드하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` and `includeGitInstructions` setting not suppressing the git status section in the system prompt",
+      "translated": "`CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` 및 `includeGitInstructions` 설정이 시스템 프롬프트에서 git status 섹션을 숨기지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool not finding Homebrew and other PATH-dependent binaries when VS Code is launched from Dock/Spotlight",
+      "translated": "VS Code를 Dock 또는 Spotlight에서 실행했을 때 Bash 도구가 Homebrew 및 기타 PATH 의존적 바이너리를 찾지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed washed-out Claude orange color in VS Code/Cursor/code-server terminals that don't advertise truecolor support",
+      "translated": "truecolor 지원을 명시하지 않는 VS Code/Cursor/code-server 터미널에서 Claude 오렌지 색상이 흐릿하게 표시되던 문제 수정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ANTHROPIC_CUSTOM_MODEL_OPTION` env var to add a custom entry to the `/model` picker, with optional `_NAME` and `_DESCRIPTION` suffixed vars for display",
+      "translated": "`/model` 선택기에 커스텀 항목을 추가할 수 있는 `ANTHROPIC_CUSTOM_MODEL_OPTION` 환경 변수를 추가했습니다. 표시용으로 `_NAME` 및 `_DESCRIPTION` 접미사가 붙은 선택적 변수도 지원합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ANTHROPIC_BETAS` environment variable being silently ignored when using Haiku models",
+      "translated": "Haiku 모델 사용 시 `ANTHROPIC_BETAS` 환경 변수가 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed queued prompts being concatenated without a newline separator",
+      "translated": "대기열에 있는 프롬프트가 줄바꿈 없이 연결되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved memory usage and startup time when resuming large sessions",
+      "translated": "대규모 세션을 재개할 때의 메모리 사용량과 시작 시간을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a brief flash of the login screen when opening the sidebar while already authenticated",
+      "translated": "[VSCode] 이미 인증된 상태에서 사이드바를 열 때 로그인 화면이 잠깐 나타나던 현상을 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed \"API Error: Rate limit reached\" when selecting Opus — model dropdown no longer offers 1M context variant to subscribers whose plan tier is unknown",
+      "translated": "[VSCode] Opus 선택 시 발생하는 \"API Error: Rate limit reached\" 오류를 수정했습니다. 이제 플랜 등급을 확인할 수 없는 구독자에게는 모델 드롭다운에서 1M 컨텍스트 옵션이 제공되지 않습니다."
+    }
+  ],
+  "translatedAt": "2026-03-18T03:22:45.519Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2989
+}
