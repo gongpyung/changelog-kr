@@ -1,0 +1,476 @@
+{
+  "version": "0.116.0",
+  "date": "2026-03-19",
+  "parsedAt": "2026-03-19T19:16:40.784Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server TUI now supports device-code ChatGPT sign-in during onboarding and can refresh existing ChatGPT tokens. (#14952)",
+      "translated": "App-server TUI에서 온보딩 중 기기 코드(device-code) ChatGPT 로그인을 지원하며, 기존 ChatGPT 토큰을 갱신할 수 있습니다. (#14952)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Plugin setup is smoother: Codex can prompt to install missing plugins or connectors, honor a configured suggestion allowlist, and sync install/uninstall state remotely. (#14896, #15022, #14878)",
+      "translated": "플러그인 설정이 더 원활해졌습니다. Codex에서 누락된 플러그인이나 커넥터 설치를 제안하고, 설정된 제안 허용 목록(allowlist)을 준수하며, 설치/삭제 상태를 원격으로 동기화할 수 있습니다. (#14896, #15022, #14878)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a `userpromptsubmit` hook so prompts can be blocked or augmented before execution and before they enter history. (#14626)",
+      "translated": "실행 전 및 히스토리 저장 전에 프롬프트를 차단하거나 보강할 수 있도록 `userpromptsubmit` 훅을 추가했습니다. (#14626)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Realtime sessions now start with recent thread context and are less likely to self-interrupt during audio playback. (#14829, #14827)",
+      "translated": "실시간 세션이 최근 스레드 컨텍스트와 함께 시작되며, 오디오 재생 중 자체 중단이 발생할 확률이 줄어들었습니다. (#14829, #14827)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a first-turn stall where websocket prewarm could delay `turn/start`; startup now times out and falls back cleanly. (#14838)",
+      "translated": "websocket prewarm으로 인해 `turn/start`가 지연되던 첫 번째 턴의 멈춤 현상을 수정했습니다. 이제 시작 시 타임아웃이 발생하면 정상적으로 폴백(fallback)됩니다. (#14838)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Restored conversation history for remote resume/fork in the app-server TUI and stopped duplicate live transcript output from legacy stream events. (#14930, #14892)",
+      "translated": "app-server TUI에서 원격 재개/포크(resume/fork) 시 대화 기록을 복구하고, 레거시 스트림 이벤트로 인한 중복 라이브 트랜스크"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved Linux sandbox startup on symlinked checkouts, missing writable roots, and Ubuntu/AppArmor hosts by preferring system `bwrap` when available. (#14849, #14890, #14963)",
+      "translated": "사용 가능한 경우 시스템 `bwrap`을 우선 사용하도록 변경하여, 심볼릭 링크된 체크아웃, 쓰기 가능한 루트 누락 및 Ubuntu/AppArmor 호스트에서의 리눅스 샌드박스 시작 문제를 개선했습니다. (#14849, #14890, #14963)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an agent job finalization race and reduced status polling churn for worker threads. (#14843)",
+      "translated": "에이전트 작업 완료 시 경쟁 상태를 수정하고 워커 스레드의 상태 폴링 부하를 줄였습니다. (#14843)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Refreshed the Python SDK public API docs, examples, and walkthrough around the generated app-server models. (#14446)",
+      "translated": "생성된 앱 서버 모델 관련 Python SDK 공개 API 문서, 예제 및 실습 가이드를 업데이트했습니다. (#14446)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Pinned the `setup-zig` GitHub Action to an immutable SHA for more reproducible CI. (#14858)",
+      "translated": "보다 재현 가능한 CI를 위해 `setup-zig` GitHub Action을 불변 SHA로 고정했습니다. (#14858)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14717 Move TUI on top of app server (parallel code)",
+      "translated": "TUI를 앱 서버 상단으로 이동 (병렬 코드)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14665 Use request permission profile in app server",
+      "translated": "앱 서버에서 요청 권한 프로필 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14826 Fixed build failures related to PR 14717",
+      "translated": "PR 14717과 관련된 빌드 실패 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14833 fix(core): fix sanitize name to use '_' everywhere",
+      "translated": "모든 곳에서 '_'를 사용하도록 이름 정규화 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14268 memories: exclude AGENTS and skills from stage1 input",
+      "translated": "Stage1 입력에서 AGENTS 및 스킬 제외"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14139 windows-sandbox: add runner IPC foundation for future unified_exec",
+      "translated": "향후 unified_exec을 위한 윈도우 샌드박스 러너 IPC 기반 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14851 Add exit helper to code mode scripts",
+      "translated": "코드 모드 스크립트에 종료 헬퍼 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14828 [stack 1/4] Split realtime websocket methods by version",
+      "translated": "[stack 1/4] 버전별로 실시간 웹소켓 메서드 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14652 Apply argument comment lint across codex-rs",
+      "translated": "Codex-rs 전체에 인자 주석 린트 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14837 skill-creator: default new skills to ~/.codex/skills",
+      "translated": "새 스킬의 기본 위치를 ~/.codex/skills로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14861 Add marketplace display names to plugin/list",
+      "translated": "Plugin/list에 마켓플레이스 표시 이름 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14878 feat: support remote_sync for plugin install/uninstall.",
+      "translated": "플러그인 설치/제거 시 remote_sync 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14830 [stack 2/4] Align main realtime v2 wire and runtime flow",
+      "translated": "[stack 2/4] 메인 realtime v2 wire와 런타임 흐름 정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14886 fix: align marketplace display name with existing interface conventions",
+      "translated": "마켓플레이스 표시 이름을 기존 인터페이스 규칙에 맞춤"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14881 [codex] add Jason as a predefined subagent name",
+      "translated": "Jason을 미리 정의된 하위 에이전트 이름으로 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14864 fix: tighten up shell arg quoting in GitHub workflows",
+      "translated": "GitHub 워크플로에서 셸 인자 따옴표 처리 강화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14829 [stack 3/4] Add current thread context to realtime startup",
+      "translated": "[stack 3/4] 실시간 시작 시 현재 스레드 컨텍스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14827 [stack 4/4] Reduce realtime self-interruptions during playback",
+      "translated": "[stack 4/4] 재생 중 실시간 자체 중단 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14849 fix: canonicalize symlinked Linux sandbox cwd",
+      "translated": "심볼릭 링크된 Linux 샌드박스 cwd 경로 정규화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14892 Fix tui_app_server: ignore duplicate legacy stream events",
+      "translated": "Tui_app_server 수정: 중복된 레거시 스트림 이벤트 무시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14899 Revert tui code so it does not rely on in-process app server",
+      "translated": "In-process 앱 서버에 의존하지 않도록 TUI 코드 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14890 fix(linux-sandbox): ignore missing writable roots",
+      "translated": "누락된 쓰기 가능 루트 무시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14920 feat: centralize package manager version",
+      "translated": "패키지 관리자 버전 중앙 집중화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14935 feat: rename to get more explicit close agent",
+      "translated": "에이전트 종료를 더 명확하게 하기 위해 이름 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14843 Fix agent jobs finalization race and reduce status polling churn",
+      "translated": "에이전트 작업 종료 경쟁 상태 수정 및 상태 폴링 빈도 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14944 feat: show effective model in spawn agent event",
+      "translated": "Spawn 에이전트 이벤트에 유효 모델 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14838 fix(core): prevent hanging turn/start due to websocket warming issues",
+      "translated": "웹소켓 워밍 문제로 인한 turn/start 중단 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14859 Feat: CXA-1831 Persist latest model and reasoning effort in sqlite",
+      "translated": "CXA-1831 최신 모델 및 추론 노력(effort)을 sqlite에 저장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14930 fix(tui): restore remote resume and fork history",
+      "translated": "원격 재개 및 포크 기록 복원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14955 Fix fuzzy search notification buffering in app-server tests",
+      "translated": "App-server 테스트에서 퍼지 검색 알림 버퍼링 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14938 feat: add suffix to shell snapshot name",
+      "translated": "셸 스냅샷 이름에 접미사 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14959 Fix code mode yield startup race",
+      "translated": "코드 모드 yield 시작 경쟁 상태 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14434 generate an internal json schema for `RolloutLine`",
+      "translated": "`RolloutLine`용 내부 json 스키마 생성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14846 use framed IPC for elevated command runner",
+      "translated": "권한 상승 명령 실행기에 프레임드 IPC(framed IPC) 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14952 Add device-code onboarding and ChatGPT token refresh to app-server TUI",
+      "translated": "App-server TUI에 기기 코드 온보딩 및 ChatGPT 토큰 갱신 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14896 [plugins] Support plugin installation elicitation.",
+      "translated": "[플러그인] 플러그인 설치 요청(elicitation) 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14958 Stabilize Windows cmd-based shell test harnesses",
+      "translated": "윈도우 cmd 기반 셸 테스트 하네스 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14966 Stabilize permissions popup selection tests",
+      "translated": "권한 팝업 선택 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14968 Stabilize approval matrix write-file command",
+      "translated": "승인 매트릭스 write-file 명령 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14986 temporarily disable private desktop until it works with elevated IPC path",
+      "translated": "권한 상승된 IPC 경로에서 작동할 때까지 개인 데스크톱 임시 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14983 Rename exec_wait tool to wait",
+      "translated": "exec_wait 도구를 wait로 이름 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14905 Add auth env observability",
+      "translated": "인증 환경 관측 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14931 fix(tui): implement /mcp inventory for tui_app_server",
+      "translated": "tui_app_server용 /mcp 인벤토리 구현"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14977 Cleanup skills/remote/xxx endpoints.",
+      "translated": "skills/remote/xxx 엔드포인트 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14984 Gate realtime audio interruption logic to v2",
+      "translated": "실시간 오디오 중단 로직을 v2로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14902 Unify realtime shutdown in core",
+      "translated": "코어에서 실시간 종료 기능 통합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14963 fix(linux-sandbox): prefer system /usr/bin/bwrap when available",
+      "translated": "가능한 경우 시스템 /usr/bin/bwrap 우선 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14446 Add Python SDK public API and examples",
+      "translated": "Python SDK 공개 API 및 예제 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14993 feat: Add product-aware plugin policies and clean up manifest naming",
+      "translated": "제품 인식 플러그인 정책 추가 및 매니페스트 명명 규칙 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14995 app-server: reject websocket requests with Origin headers",
+      "translated": "app-server: Origin 헤더가 포함된 websocket 요청 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14960 Add FS abstraction and use in view_image",
+      "translated": "파일 시스템 추상화 추가 및 view_image에 적용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#14293 fix: honor active permission profiles in sandbox debug",
+      "translated": "샌드박스 디버그에서 활성 권한 프로필 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14610 feat: support restricted ReadOnlyAccess in elevated Windows sandbox",
+      "translated": "권한 상승된 윈도우 샌드박스에서 제한된 ReadOnlyAccess 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13592 Prefer websockets when providers support them",
+      "translated": "제공자가 웹소켓을 지원하는 경우 우선 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14903 Handle realtime conversation end in the TUI",
+      "translated": "TUI에서 실시간 대화 종료 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14727 Use workspace requirements for guardian prompt override",
+      "translated": "가디언 프롬프트 재정의 시 워크스페이스 요구사항 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14626 [hooks] userpromptsubmit - hook before user's prompt is executed",
+      "translated": "[hooks] userpromptsubmit - 사용자 프롬프트 실행 전 훅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14858 Pin setup-zig GitHub Action to immutable SHA",
+      "translated": "Setup-zig GitHub Action을 불변 SHA로 고정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#13702 fix(subagents) share execpolicy by default",
+      "translated": "기본적으로 execpolicy 공유"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15022 [plugins] Support configuration tool suggest allowlist.",
+      "translated": "[plugins] 구성 도구 제안 허용 목록 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14947 feat: adapt artifacts to new packaging and 2.5.6",
+      "translated": "아티팩트를 새 패키징 및 2.5.6에 맞춤"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14821 feat: add memory citation to agent message",
+      "translated": "에이전트 메시지에 메모리 인용 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15058 nit: disable live memory edition",
+      "translated": "실시간 메모리 편집 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14942 Removed remaining core events from tui_app_server",
+      "translated": "Tui_app_server에서 나머지 코어 이벤트 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15059 chore: disable memory read path for morpheus",
+      "translated": "Morpheus용 메모리 읽기 경로 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#14842 Add notify to code-mode",
+      "translated": "Code-mode에 알림 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15020 fix: harden plugin feature gating",
+      "translated": "플러그인 기능 게이팅 강화"
+    }
+  ],
+  "translatedAt": "2026-03-19T19:22:26.366Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 4243
+}
