@@ -1,0 +1,176 @@
+{
+  "version": "2.1.81",
+  "date": "2026-03-20",
+  "parsedAt": "2026-03-21T02:48:45.768Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--bare` flag for scripted `-p` calls — skips hooks, LSP, plugin sync, and skill directory walks; requires `ANTHROPIC_API_KEY` or an `apiKeyHelper` via `--settings` (OAuth and keychain auth disabled); auto-memory fully disabled",
+      "translated": "스크립트 방식의 `-p` 호출을 위한 `--bare` 플래그 추가 — 훅, LSP, 플러그인 동기화 및 스킬 디렉토리 탐색을 건너뜁니다. `ANTHROPIC_API_KEY` 또는 `--settings`를 통한 `apiKeyHelper`가 필요하며(OAuth 및 키체인 인증 비활성화), 자동 메모리 기능이 완전히 비활성화됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--channels` permission relay — channel servers that declare the permission capability can forward tool approval prompts to your phone",
+      "translated": "`--channels` 권한 릴레이 추가 — 권한 기능을 선언한 채널 서버가 도구 승인 프롬프트를 사용자의 휴대폰으로 전달할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multiple concurrent Claude Code sessions requiring repeated re-authentication when one session refreshes its OAuth token",
+      "translated": "한 세션에서 OAuth 토큰을 갱신할 때 여러 개의 동시 Claude Code 세션에서 반복적인 재인증이 필요하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode silently swallowing retry failures and showing a misleading \"check your network\" message instead of the actual error",
+      "translated": "음성 모드에서 재시도 실패를 알리지 않고 실제 오류 대신 \"check your network\"라는 잘못된 메시지를 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode audio not recovering when the server silently drops the WebSocket connection",
+      "translated": "서버가 WebSocket 연결을 예고 없이 끊었을 때 음성 모드 오디오가 복구되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS` not suppressing the structured-outputs beta header, causing 400 errors on proxy gateways forwarding to Vertex/Bedrock",
+      "translated": "`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`가 structured-outputs 베타 헤더를 억제하지 못해 Vertex/Bedrock으로 전달되는 프록시 게이트웨이에서 400 오류가 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--channels` bypass for Team/Enterprise orgs with no other managed settings configured",
+      "translated": "다른 관리 설정이 구성되지 않은 Team/Enterprise 조직에서 `--channels` 우회가 가능하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash on Node.js 18",
+      "translated": "Node.js 18에서 발생하던 크래시 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unnecessary permission prompts for Bash commands containing dashes in strings",
+      "translated": "문자열에 대시가 포함된 Bash 명령에 대해 불필요한 권한 프롬프트가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin hooks blocking prompt submission when the plugin directory is deleted mid-session",
+      "translated": "세션 도중 플러그인 디렉토리가 삭제되었을 때 플러그인 훅이 프롬프트 제출을 차단하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a race condition where background agent task output could hang indefinitely when the task completed between polling intervals",
+      "translated": "폴링 간격 사이에 작업이 완료될 경우 백그라운드 에이전트 작업 출력이 무한히 대기 상태에 빠지던 레이스 컨디션 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Resuming a session that was in a worktree now switches back to that worktree",
+      "translated": "worktree 상태였던 세션을 재개할 때 해당 worktree로 다시 전환되도록 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/btw` not including pasted text when used during an active response",
+      "translated": "응답이 진행 중일 때 `/btw`를 사용하면 붙여넣은 텍스트가 포함되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a race where fast Cmd+Tab followed by paste could beat the clipboard copy under tmux",
+      "translated": "tmux 환경에서 빠른 Cmd+Tab 후 붙여넣기를 할 때 클립보드 복사보다 먼저 실행되던 레이스 컨디션 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal tab title not updating with an auto-generated session description",
+      "translated": "터미널 탭 제목이 자동 생성된 세션 설명으로 업데이트되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed invisible hook attachments inflating the message count in transcript mode",
+      "translated": "transcript 모드에서 보이지 않는 훅 첨부 파일이 메시지 수를 부풀리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions showing a generic title instead of deriving from the first prompt",
+      "translated": "Remote Control 세션이 첫 프롬프트에서 제목을 가져오지 않고 일반적인 제목을 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/rename` not syncing the title for Remote Control sessions",
+      "translated": "Remote Control 세션에서 `/rename`이 제목을 동기화하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control `/exit` not reliably archiving the session",
+      "translated": "Remote Control에서 `/exit` 명령이 세션을 안정적으로 아카이브하지 못하던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved MCP read/search tool calls to collapse into a single \"Queried {server}\" line (expand with Ctrl+O)",
+      "translated": "MCP 읽기/검색 도구 호출이 단일 \"Queried {server}\" 줄로 축약되도록 개선 (Ctrl+O로 확장 가능)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `!` bash mode discoverability — Claude now suggests it when you need to run an interactive command",
+      "translated": "`!` bash 모드 발견 가능성 개선 — 대화형 명령어를 실행해야 할 때 Claude가 이를 제안합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved plugin freshness — ref-tracked plugins now re-clone on every load to pick up upstream changes",
+      "translated": "플러그인 최신성 개선 — ref-tracked 플러그인이 로드될 때마다 다시 클론하여 업스트림 변경 사항을 반영합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control session titles to refresh after your third message",
+      "translated": "Remote Control 세션 제목이 세 번째 메시지 이후에 갱신되도록 개선되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated MCP OAuth to support Client ID Metadata Document (CIMD / SEP-991) for servers without Dynamic Client Registration",
+      "translated": "Dynamic Client Registration을 지원하지 않는 서버를 위해 MCP OAuth가 Client ID Metadata Document (CIMD / SEP-991)를 지원하도록 업데이트되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plan mode to hide the \"clear context\" option by default (restore with `\"showClearContextOnPlanAccept\": true`)",
+      "translated": "플랜 모드에서 \"clear context\" 옵션이 기본적으로 숨겨지도록 변경되었습니다 (`\"showClearContextOnPlanAccept\": true` 설정을 통해 복구 가능)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Disabled line-by-line response streaming on Windows (including WSL in Windows Terminal) due to rendering issues",
+      "translated": "렌더링 문제로 인해 Windows(Windows Terminal의 WSL 포함)에서 줄 단위 응답 스트리밍이 비활성화되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)",
+      "translated": "[VSCode] Git Bash 사용 시 Bash 도구의 Windows PATH 상속 문제 수정 (v2.1.78 버전의 회귀 오류)"
+    }
+  ],
+  "translatedAt": "2026-03-21T02:49:21.940Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2773
+}
