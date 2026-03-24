@@ -1,0 +1,188 @@
+{
+  "version": "2026.3.23",
+  "date": "2026-03-23",
+  "parsedAt": "2026-03-24T03:15:22.573Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/Chrome MCP: wait for existing-session browser tabs to become usable after attach instead of treating the initial Chrome MCP handshake as ready, which reduces user-profile timeouts and repeated consent churn on macOS Chrome attach flows. Fixes #52930. Thanks @vincentkoc.",
+      "translated": "Browser/Chrome MCP: attach 후 초기 Chrome MCP 핸드셰이크를 준비 완료 상태로 간주하는 대신 기존 세션 브라우저 탭이 사용 가능해질 때까지 대기하도록 하여, macOS Chrome attach 흐름에서 사용자 프로필 타임아웃 및 반복적인 동의 요청 발생을 줄였습니다. #52930 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/CDP: reuse an already-running loopback browser after a short initial reachability miss instead of immediately falling back to relaunch detection, which fixes second-run browser start/open regressions on slower headless Linux setups. Fixes #53004. Thanks @vincentkoc.",
+      "translated": "Browser/CDP: 초기 연결에 일시적으로 실패했을 때 즉시 재실행 감지로 넘어가는 대신 이미 실행 중인 루프백 브라우저를 재사용하도록 하여, 느린 headless Linux 환경에서 두 번째 브라우저 시작/열기 시 발생하는 성능 저하 문제를 해결했습니다. #53004 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ClawHub/macOS auth: honor macOS auth config and XDG auth paths for saved ClawHub credentials, so `openclaw skills ...` and gateway skill browsing keep using the signed-in auth state instead of silently falling back to unauthenticated mode. Fixes #53034.",
+      "translated": "ClawHub/macOS auth: 저장된 ClawHub 자격 증명에 대해 macOS 인증 설정 및 XDG 인증 경로를 준수하도록 하여, `openclaw skills ...` 및 게이트웨이 스킬 탐색 시 인증되지 않은 모드로 자동 전환되지 않고 로그인된 인증 상태를 유지하도록 했습니다. #53034 해결."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ClawHub/macOS: read the local ClawHub login from the macOS Application Support path and still honor XDG config on macOS, so skill browsing uses the logged-in token on both default and XDG-style setups. Fixes #52949. Thanks @scoootscooob.",
+      "translated": "ClawHub/macOS: macOS의 Application Support 경로에서 로컬 ClawHub 로그인 정보를 읽어오면서도 XDG 설정을 계속 준수하도록 하여, 기본 설정과 XDG 스타일 설정 모두에서 스킬 탐색 시 로그인된 토큰을 사용하도록 했습니다. #52949 해결. @scoootscooob님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ClawHub/skills: resolve the local ClawHub auth token for gateway skill browsing and switch browse-all requests to search so ClawControl stops falling into unauthenticated 429s and empty authenticated skill lists. Fixes #52949. Thanks @vincentkoc.",
+      "translated": "ClawHub/skills: 게이트웨이 스킬 탐색을 위해 로컬 ClawHub 인증 토큰을 확인하고 전체 탐색 요청을 검색으로 전환하여, ClawControl에서 인증되지 않은 429 오류가 발생하거나 인증된 스킬 목록이 비어 있는 문제를 해결했습니다. #52949 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/message tool: make Discord `components` and Slack `blocks` optional again, and route Feishu `message(..., media=...)` sends through the outbound media path, so pin/unpin/react flows stop failing schema validation and Feishu file/image attachments actually send. Fixes #52970 and #52962. Thanks @vincentkoc.",
+      "translated": "Plugins/message tool: Discord의 `components` 및 Slack의 `blocks`를 다시 선택 사항으로 변경하고, Feishu의 `message(..., media=...)` 전송을 아웃바운드 미디어 경로를 통하도록 라우팅하여 고정/고정 해제/반응 흐름의 스키마 검증 실패를 방지하고 Feishu 파일/이미지 첨부 파일이 정상적으로 전송되도록 수정했습니다. #52970 및 #52962 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/model pricing: stop `openrouter/auto` pricing refresh from recursing indefinitely during bootstrap, so OpenRouter auto routes can populate cached pricing and `usage.cost` again. Fixes #53035. Thanks @vincentkoc.",
+      "translated": "Gateway/model pricing: 부트스트랩 중 `openrouter/auto` 가격 갱신이 무한 재귀되는 현상을 수정하여, OpenRouter 자동 경로가 캐시된 가격과 `usage.cost`를 다시 정상적으로 채울 수 있도록 했습니다. #53035 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Mistral/models: lower bundled Mistral max-token defaults to safe output budgets and teach `openclaw doctor --fix` to repair old persisted Mistral provider configs that still carry context-sized output limits, avoiding deterministic Mistral 422 rejects on fresh and existing setups. Fixes #52599. Thanks @vincentkoc.",
+      "translated": "Mistral/models: 번들로 제공되는 Mistral의 max-token 기본값을 안전한 출력 예산으로 낮추고, `openclaw doctor --fix` 명령어가 컨텍스트 크기의 출력 제한을 가진 기존 Mistral 제공자 설정을 복구하도록 하여 신규 및 기존 환경에서 발생하는 Mistral 422 거부 오류를 방지했습니다. #52599 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/web_search: use the active runtime `web_search` provider instead of stale/default selection, so agent turns keep hitting the provider you actually configured. Fixes #53020. Thanks @jzakirov.",
+      "translated": "Agents/web_search: 오래되거나 기본 설정된 선택 대신 활성 런타임의 `web_search` 제공자를 사용하도록 하여, 에이전트가 실제로 설정된 제공자를 계속 사용하도록 수정했습니다. #53020 해결. @jzakirov님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/OpenAI Codex OAuth: bootstrap the env-configured HTTP/HTTPS proxy dispatcher on the stored-credential refresh path before token renewal runs, so expired Codex OAuth profiles can refresh successfully in proxy-required environments instead of locking users out after the first token expiry.",
+      "translated": "Models/OpenAI Codex OAuth: 토큰 갱신이 실행되기 전 저장된 자격 증명 갱신 경로에서 환경 변수로 설정된 HTTP/HTTPS 프록시 디스패처를 부트스트랩하여, 프록시가 필요한 환경에서 만료된 Codex OAuth 프로필이 첫 토큰 만료 후 사용자가 차단되지 않고 성공적으로 갱신될 수 있도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/OpenAI Codex OAuth and Plugins/MiniMax OAuth: ensure env-configured HTTP/HTTPS proxy dispatchers are initialized before OAuth preflight and token exchange requests so proxy-required environments can complete MiniMax and OpenAI Codex sign-in flows again. (#52228; fixes #51619, #51569) Thanks @openperf.",
+      "translated": "Models/OpenAI Codex OAuth 및 Plugins/MiniMax OAuth: OAuth 프리플라이트 및 토큰 교환 요청 전에 환경 변수로 설정된 HTTP/HTTPS 프록시 디스패처가 초기화되도록 보장하여, 프록시가 필요한 환경에서 MiniMax 및 OpenAI Codex 로그인 흐름을 다시 완료할 수 있도록 했습니다. (#52228; #51619, #51569 해결) @openperf님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/memory-lancedb: bootstrap LanceDB into plugin runtime state on first use when the bundled npm install does not already have it, so `plugins.slots.memory=\"memory-lancedb\"` works again after global npm installs without moving LanceDB into OpenClaw core dependencies. Fixes #26100.",
+      "translated": "Plugins/memory-lancedb: 번들된 npm 설치에 LanceDB가 포함되어 있지 않은 경우 처음 사용할 때 LanceDB를 플러그인 런타임 상태로 부트스트랩하여, LanceDB를 OpenClaw 핵심 종속성으로 옮기지 않고도 전역 npm 설치 후 `plugins.slots.memory=\"memory-lancedb\"`가 다시 작동하도록 했습니다. #26100 해결."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/plugins: treat stale unknown `plugins.allow` ids as warnings instead of fatal config errors, so recovery commands like `plugins install`, `doctor --fix`, and `status` still run when a plugin is missing locally. Fixes #52992. Thanks @vincentkoc.",
+      "translated": "Config/plugins: 오래된 알 수 없는 `plugins.allow` ID를 치명적인 설정 오류 대신 경고로 처리하여, 로컬에 플러그인이 없는 경우에도 `plugins install`, `doctor --fix`, `status`와 같은 복구 명령어가 계속 실행될 수 있도록 했습니다. #52992 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/WhatsApp: stop auto-enable from appending built-in channel ids like `whatsapp` to `plugins.allow`, so `openclaw doctor --fix` no longer writes schema-invalid plugin allowlist entries when repairing built-in channels. Fixes #52931. Thanks @vincentkoc.",
+      "translated": "Doctor/WhatsApp: 자동 활성화 시 `whatsapp`과 같은 기본 제공 채널 ID를 `plugins.allow`에 추가하지 않도록 하여, `openclaw doctor --fix`가 기본 제공 채널을 복구할 때 스키마에 맞지 않는 플러그인 허용 목록 항목을 작성하지 않도록 수정했습니다. #52931 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/auto-reply: preserve same-chat inbound debounce order without stranding stale busy-session followups, and keep same-key overflow turns ordered when tracked debounce keys are saturated. (#52998) Thanks @osolmaz.",
+      "translated": "Telegram/auto-reply: 오래된 바쁜 세션의 후속 작업이 누락되지 않도록 동일 채팅 내 인바운드 디바운스 순서를 유지하고, 추적된 디바운스 키가 포화 상태일 때 동일 키 오버플로 차례의 순서가 유지되도록 했습니다. (#52998) @osolmaz님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/message tool: add `asDocument` as a user-facing alias for `forceDocument` on image and GIF sends, while preserving explicit `forceDocument` precedence when both flags are present. (#52461) Thanks @bakhtiersizhaev.",
+      "translated": "Telegram/message tool: 이미지 및 GIF 전송 시 `forceDocument`에 대한 사용자용 별칭으로 `asDocument`를 추가했으며, 두 플래그가 모두 있을 경우 명시적인 `forceDocument`가 우선순위를 갖도록 유지했습니다. (#52461) @bakhtiersizhaev님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/commands: return an explicit unauthorized reply for privileged native slash commands instead of falling through to Discord's misleading generic completion when auth gates reject the sender. Fixes #53041. Thanks @scoootscooob.",
+      "translated": "Discord/commands: 인증 게이트가 발신자를 거부할 때 Discord의 오해의 소지가 있는 일반적인 완료 메시지 대신, 권한이 필요한 네이티브 슬래시 명령어에 대해 명시적인 권한 없음 응답을 반환하도록 수정했습니다. #53041 해결. @scoootscooob님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels/catalog: let external channel catalogs override shipped fallback metadata and honor overridden npm specs during channel setup, so custom channel catalogs no longer fall back to bundled packages when a channel id matches. (#52988)",
+      "translated": "Channels/catalog: 외부 채널 카탈로그가 기본 제공되는 폴백 메타데이터를 재정의하고 채널 설정 중에 재정의된 npm 사양을 준수하도록 하여, 채널 ID가 일치할 때 커스텀 채널 카탈로그가 번들 패키지로 되돌아가지 않도록 했습니다. (#52988)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Voice-call/Plivo: stabilize Plivo v2 replay keys so webhook retries and replay protection stop colliding on valid follow-up deliveries.",
+      "translated": "Voice-call/Plivo: Plivo v2 재생 키를 안정화하여 웹훅 재시도와 재생 보호 기능이 유효한 후속 전달 시 충돌하지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/skills: prefer the active resolved runtime snapshot for embedded skill config and env injection, so `skills.entries.<skill>.apiKey` SecretRefs resolve correctly during embedded startup instead of failing on raw source config. Fixes #53098. Thanks @vincentkoc.",
+      "translated": "Agents/skills: 임베디드 스킬 설정 및 환경 주입 시 활성 런타임 스냅샷을 우선적으로 사용하여, 임베디드 시작 중에 `skills.entries.<skill>.apiKey` SecretRefs가 원본 설정에서 실패하지 않고 올바르게 확인되도록 수정했습니다. #53098 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: recheck timed-out worker waits against the latest runtime snapshot before sending completion events, so fast-finishing workers stop being reported as timed out when they actually succeeded. Fixes #53106. Thanks @vincentkoc.",
+      "translated": "완료 이벤트를 보내기 전에 타임아웃된 워커 대기 상태를 최신 런타임 스냅샷과 대조하여 재확인함으로써, 실제로는 성공했지만 빠르게 종료된 워커가 타임아웃으로 보고되는 문제를 수정했습니다. #53106 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Anthropic: preserve latest assistant thinking and redacted-thinking block ordering during transcript image sanitization so follow-up turns do not trip Anthropic's unmodified-thinking validation. (#52961) Thanks @vincentkoc.",
+      "translated": "트랜스크립트 이미지 새니타이제이션 중 최신 어시스턴트 생각(thinking) 및 redacted-thinking 블록 순서를 유지하여 후속 턴에서 Anthropic의 unmodified-thinking 검증에 걸리지 않도록 합니다. (#52961) @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/DeepSeek: refactor the bundled DeepSeek provider onto the shared single-provider plugin entry, move its coverage into the extension test lane, and keep bundled auth env-var metadata on the generated manifest path. (#48762) Thanks @07akioni.",
+      "translated": "번들된 DeepSeek 프로바이더를 공유 단일 프로바이더 플러그인 엔트리로 리팩터링하고, 테스트 범위를 확장 프로그램 테스트 레인으로 이동하며, 생성된 매니페스트 경로에 번들 인증 환경 변수 메타데이터를 유지합니다. (#48762) @07akioni님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: avoid duplicate `resolveMatrixAccountStringValues` runtime-api exports under Jiti so bundled Matrix installs no longer crash at startup with `Cannot redefine property: resolveMatrixAccountStringValues`. Fixes #52909 and #52891. Thanks @vincentkoc.",
+      "translated": "Jiti 환경에서 `resolveMatrixAccountStringValues` runtime-api 내보내기 중복을 방지하여 번들된 Matrix 설치 시 시작 단계에서 `Cannot redefine property: resolveMatrixAccountStringValues` 오류와 함께 크래시가 발생하는 문제를 수정했습니다. #52909 및 #52891 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/exec approvals: keep shell-wrapper positional-argv allowlist matching on real direct carriers only by rejecting single-quoted `$0`/`$n` tokens, disallowing newline-separated `exec`, and still accepting `exec --` carrier forms. Thanks @vincentkoc.",
+      "translated": "작은따옴표로 묶인 `$0`/`$n` 토큰을 거부하고 줄바꿈으로 구분된 `exec`를 허용하지 않으면서도 `exec --` 캐리어 형식은 계속 수용함으로써, shell-wrapper positional-argv 허용 목록 매칭이 실제 직접 캐리어에만 적용되도록 유지합니다. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/probe: stop successful gateway handshakes from timing out as unreachable while post-connect detail RPCs are still loading, so slow devices report a reachable RPC failure instead of a false negative dead gateway. Fixes #52927. Thanks @vincentkoc.",
+      "translated": "연결 후 상세 RPC가 로딩 중일 때 성공적인 게이트웨이 핸드셰이크가 연결 불가능으로 타임아웃되는 현상을 방지하여, 느린 기기에서 게이트웨이가 죽은 것으로 오인되는 대신 연결 가능한 상태에서의 RPC 실패로 보고되도록 합니다. #52927 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/supervision: stop lock conflicts from crash-looping under launchd and systemd by keeping the duplicate process in a retry wait instead of exiting as a failure while another healthy gateway still owns the lock. Fixes #52922. Thanks @vincentkoc.",
+      "translated": "다른 정상적인 게이트웨이가 잠금(lock)을 소유하고 있는 동안 중복 프로세스가 실패로 종료되는 대신 재시도 대기 상태를 유지하게 함으로써, launchd 및 systemd 환경에서 잠금 충돌로 인해 크래시 루프가 발생하는 현상을 방지합니다. #52922 해결. @vincentkoc님 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/auth: require auth for canvas routes and admin scope for agent session reset, so anonymous canvas access and non-admin reset requests fail closed.",
+      "translated": "캔버스 경로에는 인증을, 에이전트 세션 초기화에는 관리자 권한을 요구하여 익명 캔버스 접근 및 비관리자의 초기화 요청이 차단되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/install: keep previously released bundled plugins and Control UI assets in published openclaw npm installs, and fail release checks when those shipped artifacts are missing. Thanks @vincentkoc.",
+      "translated": "배포된 openclaw npm 설치본에 이전에 릴리스된 번들 플러그인 및 Control UI 에셋을 유지하고, 해당 아티팩트가 누락된 경우 릴리스 체크가 실패하도록 합니다. @vincentkoc님 감사합니다."
+    }
+  ],
+  "translatedAt": "2026-03-24T03:16:57.961Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 7140
+}
