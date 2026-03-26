@@ -1,0 +1,254 @@
+{
+  "version": "2.1.84",
+  "date": "2026-03-26",
+  "parsedAt": "2026-03-26T03:28:42.559Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added PowerShell tool for Windows as an opt-in preview. Learn more at https://code.claude.com/docs/en/tools-reference#powershell-tool",
+      "translated": "Windows용 PowerShell 도구를 선택적 미리보기(opt-in preview)로 추가했습니다. 자세한 내용은 https://code.claude.com/docs/en/tools-reference#powershell-tool 에서 확인하세요."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS` env vars to override effort/thinking capability detection for pinned default models for 3p (Bedrock, Vertex, Foundry), and `_MODEL_NAME`/`_DESCRIPTION` to customize the `/model` picker label",
+      "translated": "제3자 서비스(Bedrock, Vertex, Foundry)의 고정된 기본 모델에 대해 노력/사고 능력 감지를 재정의할 수 있는 `ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS` 환경 변수를 추가했으며, `/model` 선택기 레이블을 사용자 지정할 수 있는 `_MODEL_NAME` 및 `_DESCRIPTION`을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_STREAM_IDLE_TIMEOUT_MS` env var to configure the streaming idle watchdog threshold (default 90s)",
+      "translated": "스트리밍 유휴 감시(watchdog) 임계값을 설정할 수 있는 `CLAUDE_STREAM_IDLE_TIMEOUT_MS` 환경 변수를 추가했습니다 (기본값 90초)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `TaskCreated` hook that fires when a task is created via `TaskCreate`",
+      "translated": "`TaskCreate`를 통해 작업이 생성될 때 실행되는 `TaskCreated` 훅을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `WorktreeCreate` hook support for `type: \"http\"` — return the created worktree path via `hookSpecificOutput.worktreePath` in the response JSON",
+      "translated": "`type: \"http\"`에 대한 `WorktreeCreate` 훅 지원을 추가했습니다. 응답 JSON의 `hookSpecificOutput.worktreePath`를 통해 생성된 워크트리 경로를 반환합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `allowedChannelPlugins` managed setting for team/enterprise admins to define a channel plugin allowlist",
+      "translated": "팀 및 엔터프라이즈 관리자가 채널 플러그인 허용 목록을 정의할 수 있는 `allowedChannelPlugins` 관리 설정을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `x-client-request-id` header to API requests for debugging timeouts",
+      "translated": "타임아웃 디버깅을 위해 API 요청에 `x-client-request-id` 헤더를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added idle-return prompt that nudges users returning after 75+ minutes to `/clear`, reducing unnecessary token re-caching on stale sessions",
+      "translated": "75분 이상 경과 후 복귀한 사용자에게 `/clear`를 권장하는 유휴 복귀 프롬프트를 추가하여, 오래된 세션에서 불필요한 토큰 재캐싱을 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Deep links (`claude-cli://`) now open in your preferred terminal instead of whichever terminal happens to be first in the detection list",
+      "translated": "딥 링크(`claude-cli://`)가 이제 감지 목록의 첫 번째 터미널이 아닌 사용자가 선호하는 터미널에서 열립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Rules and skills `paths:` frontmatter now accepts a YAML list of globs",
+      "translated": "규칙 및 스킬의 `paths:` 프런트매터에서 이제 glob의 YAML 목록을 지원합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP tool descriptions and server instructions are now capped at 2KB to prevent OpenAPI-generated servers from bloating context",
+      "translated": "OpenAPI로 생성된 서버가 컨텍스트를 과도하게 차지하는 것을 방지하기 위해 MCP 도구 설명 및 서버 지침을 2KB로 제한했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP servers configured both locally and via claude.ai connectors are now deduplicated — the local config wins",
+      "translated": "로컬 및 claude.ai 커넥터를 통해 중복 구성된 MCP 서버를 중복 제거하며, 로컬 설정이 우선 적용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background bash tasks that appear stuck on an interactive prompt now surface a notification after ~45 seconds",
+      "translated": "대화형 프롬프트에서 멈춘 것으로 보이는 백그라운드 bash 작업에 대해 약 45초 후 알림을 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Token counts ≥1M now display as \"1.5m\" instead of \"1512.6k\"",
+      "translated": "100만 개 이상의 토큰 수를 이제 \"1512.6k\" 대신 \"1.5m\"으로 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Global system-prompt caching now works when `ToolSearch` is enabled, including for users with MCP tools configured",
+      "translated": "MCP 도구가 설정된 사용자를 포함하여 `ToolSearch`가 활성화된 경우에도 전역 시스템 프롬프트 캐싱이 작동합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice push-to-talk: holding the voice key no longer leaks characters into the text input, and transcripts now insert at the correct position",
+      "translated": "음성 푸시 투 토크(push-to-talk) 기능을 수정했습니다. 음성 키를 누르고 있을 때 텍스트 입력창에 문자가 입력되지 않으며, 전사된 텍스트가 올바른 위치에 삽입됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed up/down arrow keys being unresponsive when a footer item is focused",
+      "translated": "푸터 항목에 포커스가 있을 때 위/아래 화살표 키가 응답하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Ctrl+U` (kill-to-line-start) being a no-op at line boundaries in multiline input, so repeated `Ctrl+U` now clears across lines",
+      "translated": "다중 행 입력 시 줄 경계에서 `Ctrl+U`(줄 시작까지 삭제)가 작동하지 않던 문제를 수정하여, 이제 `Ctrl+U`를 반복하면 여러 줄에 걸쳐 삭제됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed null-unbinding a default chord binding (e.g. `\"ctrl+x ctrl+k\": null`) still entering chord-wait mode instead of freeing the prefix key",
+      "translated": "기본 코드 바인딩을 null로 해제(예: `\"ctrl+x ctrl+k\": null`)해도 접두사 키가 해제되지 않고 여전히 코드 대기 모드로 진입하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mouse events inserting literal \"mouse\" text into transcript search input",
+      "translated": "마우스 이벤트 발생 시 전사 검색 입력창에 \"mouse\"라는 텍스트가 그대로 입력되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflow subagents failing with API 400 when the outer session uses `--json-schema` and the subagent also specifies a schema",
+      "translated": "외부 세션에서 `--json-schema`를 사용하고 서브에이전트도 스키마를 지정할 때, 워크플로 서브에이전트가 API 400 오류로 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed missing background color behind certain emoji in user message bubbles on some terminals",
+      "translated": "일부 터미널의 사용자 메시지 말풍선에서 특정 이모지 뒤의 배경색이 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the \"allow Claude to edit its own settings for this session\" permission option not sticking for users with `Edit(.claude)` allow rules",
+      "translated": "`Edit(.claude)` 허용 규칙이 있는 사용자의 경우 \"이 세션에서 Claude가 자신의 설정을 편집하도록 허용\" 권한 옵션이 유지되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hang when generating attachment snippets for large edited files",
+      "translated": "대규모로 편집된 파일의 첨부 파일 스니펫을 생성할 때 멈춤 현상이 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool/resource cache leak on server reconnect",
+      "translated": "서버 재연결 시 MCP 도구/리소스 캐시가 누수되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a startup performance issue where partial clone repositories (Scalar/GVFS) triggered mass blob downloads",
+      "translated": "부분 클론 저장소(Scalar/GVFS)에서 대량의 블롭 다운로드가 트리거되어 시작 성능이 저하되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed native terminal cursor not tracking the text input caret, so IME composition (CJK input) now renders inline and screen readers can follow the input position",
+      "translated": "네이티브 터미널 커서가 텍스트 입력 캐럿을 추적하지 못하던 문제를 수정하여, 이제 IME 조합(한중일 입력)이 인라인으로 렌더링되고 스크린 리더가 입력 위치를 따라갈 수 있도록 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed spurious \"Not logged in\" errors on macOS caused by transient keychain read failures",
+      "translated": "macOS에서 일시적인 키체인 읽기 실패로 인해 발생하던 잘못된 \"로그인되지 않음\" 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cold-start race where core tools could be deferred without their bypass active, causing Edit/Write to fail with InputValidationError on typed parameters",
+      "translated": "콜드 스타트 시 코어 도구의 바이패스가 활성화되지 않은 채 지연되어, 타입이 지정된 파라미터에서 Edit/Write가 InputValidationError로 실패하던 레이스 컨디션 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved detection for dangerous removals of Windows drive roots (`C:\\`, `C:\\Windows`, etc.)",
+      "translated": "Windows 드라이브 루트(`C:\\`, `C:\\Windows` 등)의 위험한 삭제 작업에 대한 탐지 기능 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved interactive startup by ~30ms by running `setup()` in parallel with slash command and agent loading",
+      "translated": "슬래시 명령어 및 에이전트 로딩과 `setup()`을 병렬로 실행하여 대화형 시작 시간을 약 30ms 단축"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup for `claude \"prompt\"` with MCP servers — the REPL now renders immediately instead of blocking until all servers connect",
+      "translated": "MCP 서버를 사용하는 `claude \"prompt\"`의 시작 성능 개선 — 이제 모든 서버가 연결될 때까지 차단되지 않고 REPL이 즉시 렌더링됨"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control to show a specific reason when blocked instead of a generic \"not yet enabled\" message",
+      "translated": "Remote Control이 차단되었을 때 일반적인 \"아직 활성화되지 않음\" 메시지 대신 구체적인 이유를 표시하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved p90 prompt cache rate",
+      "translated": "p90 프롬프트 캐시 적중률 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced scroll-to-top resets in long sessions by making the message window immune to compaction and grouping changes",
+      "translated": "메시지 창이 압축 및 그룹화 변경의 영향을 받지 않도록 하여, 긴 세션에서 스크롤이 맨 위로 리셋되는 현상 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced terminal flickering when animated tool progress scrolls above the viewport",
+      "translated": "애니메이션이 포함된 도구 진행 상황이 뷰포트 위로 스크롤될 때 발생하는 터미널 깜빡임 현상 감소"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed issue/PR references to only become clickable links when written as `owner/repo#123` — bare `#123` is no longer auto-linked",
+      "translated": "이슈/PR 참조가 `owner/repo#123` 형식으로 작성된 경우에만 클릭 가능한 링크로 변환되도록 변경 — 단순한 `#123` 형식은 더 이상 자동 링크되지 않음"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Slash commands unavailable for the current auth setup (`/voice`, `/mobile`, `/chrome`, `/upgrade`, etc.) are now hidden instead of shown",
+      "translated": "현재 인증 설정에서 사용할 수 없는 슬래시 명령어(`/voice`, `/mobile`, `/chrome`, `/upgrade` 등)를 표시하는 대신 숨기도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added rate limit warning banner with usage percentage and reset time",
+      "translated": "[VSCode] 사용량 백분율 및 리셋 시간이 포함된 속도 제한 경고 배너 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stats screenshot (Ctrl+S in /stats) now works in all builds and is 16× faster",
+      "translated": "통계 스크린샷(`/stats`에서 Ctrl+S) 기능이 이제 모든 빌드에서 작동하며 속도가 16배 빨라짐"
+    }
+  ],
+  "translatedAt": "2026-03-26T03:29:30.486Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4430
+}
