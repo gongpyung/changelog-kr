@@ -1,0 +1,194 @@
+{
+  "version": "2.1.85",
+  "date": "2026-03-26",
+  "parsedAt": "2026-03-27T03:31:12.238Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_MCP_SERVER_NAME` and `CLAUDE_CODE_MCP_SERVER_URL` environment variables to MCP `headersHelper` scripts, allowing one helper to serve multiple servers",
+      "translated": "MCP `headersHelper` 스크립트에 `CLAUDE_CODE_MCP_SERVER_NAME` 및 `CLAUDE_CODE_MCP_SERVER_URL` 환경 변수를 추가하여, 하나의 헬퍼가 여러 서버를 지원할 수 있도록 개선했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added conditional `if` field for hooks using permission rule syntax (e.g., `Bash(git *)`) to filter when they run, reducing process spawning overhead",
+      "translated": "권한 규칙 구문(예: `Bash(git *)`)을 사용하는 훅에 조건부 `if` 필드를 추가하여 실행 시점을 필터링하고 프로세스 생성 오버헤드를 줄였습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added timestamp markers in transcripts when scheduled tasks (`/loop`, `CronCreate`) fire",
+      "translated": "예약된 작업(`/loop`, `CronCreate`)이 실행될 때 트랜스크립트에 타임스탬프 표시를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added trailing space after `[Image #N]` placeholder when pasting images",
+      "translated": "이미지를 붙여넣을 때 `[Image #N]` 자리 표시자 뒤에 공백을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Deep link queries (`claude-cli://open?q=…`) now support up to 5,000 characters, with a \"scroll to review\" warning for long pre-filled prompts",
+      "translated": "딥 링크 쿼리(`claude-cli://open?q=…`)가 최대 5,000자까지 지원되며, 미리 채워진 프롬프트가 길 경우 \"검토를 위해 스크롤\" 경고가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP OAuth now follows RFC 9728 Protected Resource Metadata discovery to find the authorization server",
+      "translated": "MCP OAuth가 인증 서버를 찾기 위해 RFC 9728 Protected Resource Metadata discovery를 따르도록 변경되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins blocked by organization policy (`managed-settings.json`) can no longer be installed or enabled, and are hidden from marketplace views",
+      "translated": "조직 정책(`managed-settings.json`)에 의해 차단된 플러그인은 더 이상 설치하거나 활성화할 수 없으며 마켓플레이스 뷰에서 숨겨집니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "PreToolUse hooks can now satisfy `AskUserQuestion` by returning `updatedInput` alongside `permissionDecision: \"allow\"`, enabling headless integrations that collect answers via their own UI",
+      "translated": "PreToolUse 훅이 `permissionDecision: \"allow\"`와 함께 `updatedInput`을 반환하여 `AskUserQuestion`을 충족할 수 있게 되었으며, 이를 통해 자체 UI에서 답변을 수집하는 헤드리스 통합이 가능해졌습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`tool_parameters` in OpenTelemetry tool_result events are now gated behind `OTEL_LOG_TOOL_DETAILS=1`",
+      "translated": "OpenTelemetry tool_result 이벤트의 `tool_parameters`가 이제 `OTEL_LOG_TOOL_DETAILS=1` 설정 시에만 기록됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/compact` failing with \"context exceeded\" when the conversation has grown too large for the compact request itself to fit",
+      "translated": "대화 내용이 너무 많아 압축 요청 자체가 수용 범위를 넘을 경우 `/compact` 명령이 \"context exceeded\" 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin enable` and `/plugin disable` failing when a plugin's install location differs from where it's declared in settings",
+      "translated": "플러그인 설치 위치가 설정에 선언된 위치와 다를 경우 `/plugin enable` 및 `/plugin disable` 명령이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--worktree` exiting with an error in non-git repositories before the `WorktreeCreate` hook could run",
+      "translated": "git 저장소가 아닌 곳에서 `WorktreeCreate` 훅이 실행되기 전에 `--worktree` 옵션이 오류와 함께 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `deniedMcpServers` setting not blocking claude.ai MCP servers",
+      "translated": "`deniedMcpServers` 설정이 claude.ai MCP 서버를 차단하지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `switch_display` in the computer-use tool returning \"not available in this session\" on multi-monitor setups",
+      "translated": "멀티 모니터 환경에서 computer-use 도구의 `switch_display`가 \"not available in this session\"을 반환하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed crash when `OTEL_LOGS_EXPORTER`, `OTEL_METRICS_EXPORTER`, or `OTEL_TRACES_EXPORTER` is set to `none`",
+      "translated": "`OTEL_LOGS_EXPORTER`, `OTEL_METRICS_EXPORTER` 또는 `OTEL_TRACES_EXPORTER`가 `none`으로 설정되었을 때 발생하던 충돌 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed diff syntax highlighting not working in non-native builds",
+      "translated": "네이티브가 아닌 빌드에서 diff 구문 강조가 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP step-up authorization failing when a refresh token exists — servers requesting elevated scopes via `403 insufficient_scope` now correctly trigger the re-authorization flow",
+      "translated": "리프레시 토큰이 존재할 때 MCP 단계별 인증(step-up authorization)이 실패하던 문제를 수정했습니다. 이제 `403 insufficient_scope`를 통해 권한 확장을 요청하는 서버가 재인증 흐름을 올바르게 트리거합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory leak in remote sessions when a streaming response is interrupted",
+      "translated": "원격 세션에서 스트리밍 응답이 중단될 때 발생하던 메모리 누수 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed persistent ECONNRESET errors during edge connection churn by using a fresh TCP connection on retry",
+      "translated": "에지 연결 전환 중 발생하는 지속적인 ECONNRESET 오류를 재시도 시 새로운 TCP 연결을 사용하도록 하여 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompts getting stuck in the queue after running certain slash commands, with up-arrow unable to retrieve them",
+      "translated": "특정 슬래시 명령 실행 후 프롬프트가 대기열에 멈춰 있고 위쪽 화살표 키로 불러올 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Python Agent SDK: `type:'sdk'` MCP servers passed via `--mcp-config` are no longer dropped during startup",
+      "translated": "Python Agent SDK 수정: `--mcp-config`를 통해 전달된 `type:'sdk'` MCP 서버가 시작 시 누락되는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed raw key sequences appearing in the prompt when running over SSH or in the VS Code integrated terminal",
+      "translated": "SSH 또는 VS Code 통합 터미널에서 실행할 때 프롬프트에 원시 키 시퀀스가 나타나는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control session status staying stuck on \"Requires Action\" after a permission is resolved",
+      "translated": "권한이 해결된 후에도 Remote Control 세션 상태가 \"Requires Action\"에 멈춰 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed shift+enter and meta+enter being intercepted by typeahead suggestions instead of inserting newlines",
+      "translated": "줄바꿈을 삽입하는 대신 자동 완성 제안이 shift+enter 및 meta+enter 입력을 가로채던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale content bleeding through when scrolling up during streaming",
+      "translated": "스트리밍 중 위로 스크롤할 때 이전 콘텐츠가 남아 보이던 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal left in enhanced keyboard mode after exit in Ghostty, Kitty, WezTerm, and other terminals supporting the Kitty keyboard protocol — Ctrl+C and Ctrl+D now work correctly after quitting",
+      "translated": "Ghostty, Kitty, WezTerm 및 Kitty 키보드 프로토콜을 지원하는 터미널에서 종료 후 터미널이 확장 키보드 모드로 남아 있던 문제를 수정했습니다. 이제 종료 후 Ctrl+C 및 Ctrl+D가 정상적으로 작동합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved @-mention file autocomplete performance on large repositories",
+      "translated": "대규모 저장소에서 @-mention 파일 자동 완성 성능을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved PowerShell dangerous command detection",
+      "translated": "PowerShell의 위험한 명령어 탐지 기능을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved scroll performance with large transcripts by replacing WASM yoga-layout with a pure TypeScript implementation",
+      "translated": "WASM yoga-layout을 순수 TypeScript 구현으로 교체하여 대규모 트랜스크립트의 스크롤 성능을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced UI stutter when compaction triggers on large sessions",
+      "translated": "대규모 세션에서 압축이 트리거될 때 발생하는 UI 끊김 현상을 줄였습니다."
+    }
+  ],
+  "translatedAt": "2026-03-27T03:32:19.824Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3327
+}
