@@ -1,0 +1,134 @@
+{
+  "version": "4.9.2",
+  "date": "2026-03-28",
+  "parsedAt": "2026-03-28T19:01:20.022Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(team): harden shutdown cleanup for split-pane workers** — strengthens cleanup when pane metadata drifts and improves cmux-compatible team launches. (#1752, #1750, #1743)",
+      "translated": "분할 창(split-pane) 워커의 종료 정리 작업 강화 — 창 메타데이터 불일치 시 정리 로직을 강화하고 `cmux` 호환 팀 실행 기능을 개선했습니다. (#1752, #1750, #1743)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(autoresearch): improve setup and launch flow** — adds guided intake, launch-from-interview artifacts, and zero-learning-curve Claude session setup. (#1740, #1734, #1723, #1693)",
+      "translated": "설정 및 실행 흐름 개선 — 가이드형 인테이크(intake), 인터뷰 결과물 기반 실행, 학습이 필요 없는 `Claude` 세션 설정 기능을 추가했습니다. (#1740, #1734, #1723, #1693)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(safety): harden regex- and state-sensitive paths** — filters informational keyword-detector queries, avoids risky regex behavior, and reduces stale state interactions. (#1737, #1741)",
+      "translated": "정규식 및 상태 민감 경로 강화 — 정보성 `keyword-detector` 쿼리를 필터링하고, 위험한 정규식 동작을 방지하며, 오래된 상태와의 상호작용을 줄였습니다. (#1737, #1741)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(runtime): clean up orphaned background processes** — reduces lingering bridge/MCP child processes and related runtime residue. (#1724)",
+      "translated": "고립된(orphaned) 백그라운드 프로세스 정리 — 잔류하는 `bridge`/`MCP` 자식 프로세스 및 관련 런타임 잔재를 줄였습니다. (#1724)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): ensure shutdown removes split-pane workers after metadata drift** — improves team shutdown cleanup reliability. (#1752)",
+      "translated": "메타데이터 불일치 발생 시 종료 과정에서 분할 창 워커가 제거되도록 보장 — 팀 종료 정리 작업의 신뢰성을 개선했습니다. (#1752)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): support team mode launches from cmux surfaces** — expands compatibility for cmux-driven flows. (#1750)",
+      "translated": "`cmux` 인터페이스에서의 팀 모드 실행 지원 — `cmux` 기반 워크플로우의 호환성을 확장했습니다. (#1750)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(cli): skip tmux wrapping in cmux terminals** — prevents orphaned/incorrect nested session behavior. (#1743)",
+      "translated": "`cmux` 터미널에서 `tmux` 래핑 건너뛰기 — 고립되거나 잘못된 중첩 세션 동작을 방지합니다. (#1743)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(bridge): clean up orphaned bridge and MCP child processes** — hardens runtime cleanup behavior. (#1724)",
+      "translated": "고립된 `bridge` 및 `MCP` 자식 프로세스 정리 — 런타임 정리 동작을 강화했습니다. (#1724)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(autoresearch): launch from interview artifacts** — enables smoother launch flow from planning artifacts. (#1740)",
+      "translated": "인터뷰 결과물 기반 실행 — 기획 결과물을 통한 원활한 실행 흐름을 지원합니다. (#1740)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(autoresearch): port intake flow from OMX and clean up setup path** — improves guided intake reliability. (#1734)",
+      "translated": "`OMX`에서 인테이크 흐름 이식 및 설정 경로 정리 — 가이드형 인테이크의 신뢰성을 개선했습니다. (#1734)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat: add zero-learning-curve autoresearch setup flow** — simplifies Claude session setup for lightweight use. (#1723)",
+      "translated": "학습이 필요 없는 `autoresearch` 설정 흐름 추가 — 가벼운 사용을 위해 `Claude` 세션 설정을 간소화했습니다. (#1723)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(autoresearch): backport autoresearch from OMX to OMC (Phase 1)** — expands the autoresearch surface. (#1693)",
+      "translated": "`autoresearch` 기능을 `OMX`에서 `OMC`로 백포트(1단계) — `autoresearch` 적용 범위를 확장했습니다. (#1693)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(keyword-detector): skip informational queries and clear legacy state** — reduces false activations and stale-state issues. (#1737)",
+      "translated": "정보성 쿼리 건너뛰기 및 레거시 상태 삭제 — 오작동 및 오래된 상태로 인한 문제를 줄였습니다. (#1737)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix: prevent skill-active-state collision between OMC and project custom skills** — improves reload/sync safety around active state handling. (#1741)",
+      "translated": "`OMC`와 프로젝트 커스텀 스킬 간의 `skill-active-state` 충돌 방지 — 활성 상태 처리와 관련된 재로드/동기화 안정성을 개선했습니다. (#1741)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(planning): remove unnecessary global flag from module-level regex** — avoids unsafe regex statefulness in planning-related flows.",
+      "translated": "모듈 수준 정규식에서 불필요한 글로벌 플래그 제거 — 기획 관련 흐름에서 안전하지 않은 정규식 상태 유지를 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**fix(team): pass Bedrock/Vertex model IDs to workers without normalization** — preserves provider-specific identifiers. (#1697)",
+      "translated": "`Bedrock`/`Vertex` 모델 ID를 정규화 없이 워커에 전달 — 제공자별 식별자를 그대로 유지합니다. (#1697)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat: add mandatory deslop pass to ralph workflow** — improves cleanup discipline in execution flows. (#1736)",
+      "translated": "`ralph` 워크플로우에 필수 `deslop` 패스 추가 — 실행 흐름의 정리 규율을 개선했습니다. (#1736)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(docs): add Lore commit knowledge protocol to CLAUDE.md template** — formalizes commit knowledge capture. (#1733)",
+      "translated": "`CLAUDE.md` 템플릿에 `Lore` 커밋 지식 프로토콜 추가 — 커밋 지식 캡처 방식을 공식화했습니다. (#1733)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(deepinit): add manifest-based incremental deepinit tool** — extends onboarding/setup capabilities. (#1719)",
+      "translated": "매니페스트 기반 증분 `deepinit` 도구 추가 — 온보딩 및 설정 기능을 확장했습니다. (#1719)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(skill): add deep-dive skill (trace -> deep-interview pipeline)** — adds a new investigation workflow. (#1681)",
+      "translated": "심층 분석(deep-dive) 스킬 추가 (`trace` -> `deep-interview` 파이프라인) — 새로운 조사 워크플로우를 추가했습니다. (#1681)"
+    }
+  ],
+  "translatedAt": "2026-03-28T19:01:53.191Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2637
+}
