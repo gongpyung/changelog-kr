@@ -1,0 +1,170 @@
+{
+  "version": "2.1.86",
+  "date": "2026-03-27",
+  "parsedAt": "2026-03-28T03:17:51.498Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `X-Claude-Code-Session-Id` header to API requests so proxies can aggregate requests by session without parsing the body",
+      "translated": "API 요청에 `X-Claude-Code-Session-Id` 헤더를 추가하여 프록시가 본문을 파싱하지 않고도 세션별로 요청을 집계할 수 있도록 개선했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `.jj` and `.sl` to VCS directory exclusion lists so Grep and file autocomplete don't descend into Jujutsu or Sapling metadata",
+      "translated": "VCS 디렉터리 제외 목록에 `.jj` 및 `.sl`을 추가하여 Grep 및 파일 자동 완성이 Jujutsu 또는 Sapling 메타데이터를 탐색하지 않도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` failing with \"tool_use ids were found without tool_result blocks\" on sessions created before v2.1.85",
+      "translated": "v2.1.85 이전 버전에서 생성된 세션에서 `--resume` 실행 시 \"tool_use ids were found without tool_result blocks\" 오류와 함께 실패하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Write/Edit/Read failing on files outside the project root (e.g., `~/.claude/CLAUDE.md`) when conditional skills or rules are configured",
+      "translated": "조건부 스킬이나 규칙이 설정된 경우 프로젝트 루트 외부의 파일(예: `~/.claude/CLAUDE.md`)에 대한 쓰기/수정/읽기 작업이 실패하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unnecessary config disk writes on every skill invocation that could cause performance issues and config corruption on Windows",
+      "translated": "스킬을 호출할 때마다 불필요하게 설정 파일을 디스크에 써서 Windows에서 성능 저하 및 설정 파일 손상을 일으킬 수 있던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed potential out-of-memory crash when using `/feedback` on very long sessions with large transcript files",
+      "translated": "대용량 트랜스크립트 파일이 포함된 매우 긴 세션에서 `/feedback` 사용 시 발생할 수 있는 메모리 부족(OOM) 크래시를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--bare` mode dropping MCP tools in interactive sessions and silently discarding messages enqueued mid-turn",
+      "translated": "대화형 세션에서 `--bare` 모드가 MCP 도구를 누락하고 턴 도중에 대기열에 추가된 메시지를 자동으로 무시하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `c` shortcut copying only ~20 characters of the OAuth login URL instead of the full URL",
+      "translated": "`c` 단축키가 OAuth 로그인 URL 전체가 아닌 약 20자만 복사하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed masked input (e.g., OAuth code paste) leaking the start of the token when wrapping across multiple lines on narrow terminals",
+      "translated": "좁은 터미널에서 마스킹된 입력(예: OAuth 코드 붙여넣기)이 여러 줄로 줄바꿈될 때 토큰의 시작 부분이 노출되던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed official marketplace plugin scripts failing with \"Permission denied\" on macOS/Linux since v2.1.83",
+      "translated": "v2.1.83 이후 macOS/Linux에서 공식 마켓플레이스 플러그인 스크립트가 \"Permission denied\" 오류로 실패하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed statusline showing another session's model when running multiple Claude Code instances and using `/model` in one of them",
+      "translated": "여러 개의 Claude Code 인스턴스를 실행 중일 때 한 곳에서 `/model`을 사용하면 상태 표시줄에 다른 세션의 모델이 표시되던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scroll not following new messages after wheel scroll or click-to-select at the bottom of a long conversation",
+      "translated": "긴 대화의 하단에서 휠 스크롤이나 클릭 선택 후 새 메시지가 추가될 때 스크롤이 따라가지 않던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin` uninstall dialog: pressing `n` now correctly uninstalls the plugin while preserving its data directory",
+      "translated": "`/plugin` 삭제 대화 상자 수정: 이제 `n`을 누르면 데이터 디렉터리는 보존하면서 플러그인을 정상적으로 삭제합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a regression where pressing Enter after clicking could leave the transcript blank until the response arrived",
+      "translated": "클릭 후 Enter 키를 눌렀을 때 응답이 오기 전까지 트랜스크립트가 빈 칸으로 표시되던 회귀 버그를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ultrathink` hint lingering after deleting the keyword",
+      "translated": "키워드를 삭제한 후에도 `ultrathink` 힌트가 남아있던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory growth in long sessions from markdown/highlight render caches retaining full content strings",
+      "translated": "마크다운/하이라이트 렌더링 캐시가 전체 콘텐츠 문자열을 보유하여 긴 세션에서 메모리 사용량이 증가하던 문제를 해결했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced startup event-loop stalls when many claude.ai MCP connectors are configured (macOS keychain cache extended from 5s to 30s)",
+      "translated": "다수의 claude.ai MCP 커넥터가 설정된 경우 시작 시 발생하는 이벤트 루프 지연을 줄였습니다 (macOS 키체인 캐시 유효 기간을 5초에서 30초로 연장)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced token overhead when mentioning files with `@` — raw string content no longer JSON-escaped",
+      "translated": "`@`로 파일을 참조할 때의 토큰 오버헤드를 줄였습니다. 이제 원본 문자열 콘텐츠가 JSON 이스케이프 처리되지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved prompt cache hit rate for Bedrock, Vertex, and Foundry users by removing dynamic content from tool descriptions",
+      "translated": "도구 설명에서 동적 콘텐츠를 제거하여 Bedrock, Vertex, Foundry 사용자의 프롬프트 캐시 적중률을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory filenames in the \"Saved N memories\" notice now highlight on hover and open on click",
+      "translated": "\"Saved N memories\" 알림에 표시되는 메모리 파일 이름에 마우스를 올리면 강조 표시되고, 클릭하면 해당 파일이 열립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skill descriptions in the `/skills` listing are now capped at 250 characters to reduce context usage",
+      "translated": "`/skills` 목록의 스킬 설명이 컨텍스트 사용량을 줄이기 위해 최대 250자로 제한됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/skills` menu to sort alphabetically for easier scanning",
+      "translated": "쉽게 확인할 수 있도록 `/skills` 메뉴의 정렬 방식을 알파벳순으로 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto mode now shows \"unavailable for your plan\" when disabled by plan restrictions (was \"temporarily unavailable\")",
+      "translated": "요금제 제한으로 자동 모드를 사용할 수 없는 경우, 표시 문구가 \"temporarily unavailable\"에서 \"unavailable for your plan\"으로 변경되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed extension incorrectly showing \"Not responding\" during long-running operations",
+      "translated": "[VSCode] 오래 걸리는 작업 중에 확장 프로그램이 \"Not responding\"으로 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed extension defaulting Max plan users to Sonnet after the OAuth token refreshes (8 hours after login)",
+      "translated": "[VSCode] 로그인 8시간 후 OAuth 토큰이 갱신될 때 Max 요금제 사용자의 설정이 Sonnet으로 기본 설정되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Read tool now uses compact line-number format and deduplicates unchanged re-reads, reducing token usage",
+      "translated": "Read 도구가 이제 간결한 줄 번호 형식을 사용하고 변경되지 않은 재판독 내용을 중복 제거하여 토큰 사용량을 줄입니다."
+    }
+  ],
+  "translatedAt": "2026-03-28T03:18:30.703Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2858
+}
