@@ -1,0 +1,734 @@
+{
+  "version": "2026.3.28",
+  "date": "2026-03-29",
+  "parsedAt": "2026-03-29T03:40:04.355Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Providers/Qwen: remove the deprecated `qwen-portal-auth` OAuth integration for `portal.qwen.ai`; migrate to Model Studio with `openclaw onboard --auth-choice modelstudio-api-key`. (#52709) Thanks @pomelo-nwu.",
+      "translated": "Providers/Qwen: `portal.qwen.ai`에 대한 사용 중단된 `qwen-portal-auth` OAuth 통합 제거; `openclaw onboard --auth-choice modelstudio-api-key`를 사용하여 Model Studio로 마이그레이션. (#52709) 감사합니다 @pomelo-nwu."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config/Doctor: drop automatic config migrations older than two months; very old legacy keys now fail validation instead of being rewritten on load or by `openclaw doctor`.",
+      "translated": "Config/Doctor: 두 달 이상 된 자동 구성 마이그레이션 삭제; 매우 오래된 레거시 키는 이제 로드 시 또는 `openclaw doctor`에 의해 재작성되지 않고 검증에 실패합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "xAI/tools: move the bundled xAI provider to the Responses API, add first-class `x_search`, and auto-enable the xAI plugin from owned web-search and tool config so bundled Grok auth/configured search flows work without manual plugin toggles. (#56048) Thanks @huntharo.",
+      "translated": "xAI/tools: 번들된 xAI 제공자를 Responses API로 이동하고, 일급 `x_search`를 추가하며, 소유한 웹 검색 및 도구 구성에서 xAI 플러그인을 자동 활성화하여 번들된 Grok 인증/구성된 검색 흐름이 수동 플러그인 전환 없이 작동하도록 합니다. (#56048) 감사합니다 @huntharo."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "xAI/onboarding: let the bundled Grok web-search plugin offer optional `x_search` setup during `openclaw onboard` and `openclaw configure --section web`, including an x_search model picker with the shared xAI key.",
+      "translated": "xAI/onboarding: 번들된 Grok 웹 검색 플러그인이 `openclaw onboard` 및 `openclaw configure --section web` 중에 선택적 `x_search` 설정을 제공하도록 하고, 공유된 xAI 키를 사용한 x_search 모델 선택기를 포함합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MiniMax: add image generation provider for `image-01` model, supporting generate and image-to-image editing with aspect ratio control. (#54487) Thanks @liyuan97.",
+      "translated": "MiniMax: `image-01` 모델에 대한 이미지 생성 제공자를 추가하여 생성 및 이미지-대-이미지 편집을 지원하며, 종횡비 제어 기능을 제공합니다. (#54487) 감사합니다 @liyuan97."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/hooks: add async `requireApproval` to `before_tool_call` hooks, letting plugins pause tool execution and prompt the user for approval via the exec approval overlay, Telegram buttons, Discord interactions, or the `/approve` command on any channel. The `/approve` command now handles both exec and plugin approvals with automatic fallback. (#55339) Thanks @vaclavbelak and @joshavant.",
+      "translated": "Plugins/hooks: `before_tool_call` 훅에 비동기 `requireApproval`을 추가하여 플러그인이 도구 실행을 일시 중지하고 실행 승인 오버레이, Telegram 버튼, Discord 상호작용 또는 모든 채널의 `/approve` 명령을 통해 사용자에게 승인을 요청할 수 있도록 합니다. 이제 `/approve` 명령은 실행 및 플러그인 승인을 자동으로 처리합니다. (#55339) 감사합니다 @vaclavbelak 및 @joshavant."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ACP/channels: add current-conversation ACP binds for Discord, BlueBubbles, and iMessage so `/acp spawn codex --bind here` can turn the current chat into a Codex-backed workspace without creating a child thread, and document the distinction between chat surface, ACP session, and runtime workspace.",
+      "translated": "ACP/channels: Discord, BlueBubbles, iMessage에 대한 현재 대화 ACP 바인드를 추가하여 `/acp spawn codex --bind here`가 자식 스레드를 생성하지 않고 현재 채팅을 Codex 지원 작업 공간으로 전환할 수 있도록 하고, 채팅 표면, ACP 세션, 런타임 작업 공간 간의 차이를 문서화합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenAI/apply_patch: enable `apply_patch` by default for OpenAI and OpenAI Codex models, and align its sandbox policy access with `write` permissions.",
+      "translated": "OpenAI/apply_patch: OpenAI 및 OpenAI Codex 모델에 대해 기본적으로 `apply_patch`를 활성화하고, 그 샌드박스 정책 접근을 `write` 권한과 일치시킵니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/CLI backends: move bundled Claude CLI, Codex CLI, and Gemini CLI inference defaults onto the plugin surface, add bundled Gemini CLI backend support, and replace `gateway run --claude-cli-logs` with generic `--cli-backend-logs` while keeping the old flag as a compatibility alias.",
+      "translated": "Plugins/CLI backends: 번들된 Claude CLI, Codex CLI, Gemini CLI 추론 기본값을 플러그인 표면으로 이동하고, 번들된 Gemini CLI 백엔드 지원을 추가하며, `gateway run --claude-cli-logs`를 일반적인 `--cli-backend-logs`로 대체하되, 이전 플래그는 호환성 별칭으로 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/startup: auto-load bundled provider and CLI-backend plugins from explicit config refs, so bundled Claude CLI, Codex CLI, and Gemini CLI message-provider setups no longer need manual `plugins.allow` entries.",
+      "translated": "Plugins/startup: 명시적 구성 참조에서 번들된 제공자 및 CLI 백엔드 플러그인을 자동 로드하여 번들된 Claude CLI, Codex CLI, Gemini CLI 메시지 제공자 설정이 더 이상 수동 `plugins.allow` 항목을 필요로 하지 않도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Podman: simplify the container setup around the current rootless user, install the launch helper under `~/.local/bin`, and document the host-CLI `openclaw --container <name> ...` workflow instead of a dedicated `openclaw` service user.",
+      "translated": "Podman: 현재 루트리스 사용자를 중심으로 컨테이너 설정을 간소화하고, `~/.local/bin` 아래에 실행 도우미를 설치하며, 전용 `openclaw` 서비스 사용자 대신 호스트-CLI `openclaw --container <name> ...` 워크플로를 문서화합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Slack/tool actions: add an explicit `upload-file` Slack action that routes file uploads through the existing Slack upload transport, with optional filename/title/comment overrides for channels and DMs.",
+      "translated": "Slack/tool actions: 파일 업로드를 기존 Slack 업로드 전송을 통해 라우팅하는 명시적 `upload-file` Slack 동작을 추가하고, 채널 및 DM에 대한 파일 이름/제목/댓글 재정의를 선택적으로 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Message actions/files: start unifying file-first sends on the canonical `upload-file` action by adding explicit support for Microsoft Teams and Google Chat, and by exposing BlueBubbles file sends through `upload-file` while keeping the legacy `sendAttachment` alias.",
+      "translated": "Message actions/files: Microsoft Teams 및 Google Chat에 대한 명시적 지원을 추가하고, BlueBubbles 파일 전송을 `upload-file`을 통해 노출하면서 레거시 `sendAttachment` 별칭을 유지하여 표준 `upload-file` 동작에서 파일 우선 전송을 통합하기 시작합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/Matrix TTS: send auto-TTS replies as native Matrix voice bubbles instead of generic audio attachments. (#37080) thanks @Matthew19990919.",
+      "translated": "Plugins/Matrix TTS: 자동 TTS 응답을 일반 오디오 첨부 파일 대신 네이티브 Matrix 음성 버블로 전송합니다. (#37080) 감사합니다 @Matthew19990919."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI: add `openclaw config schema` to print the generated JSON schema for `openclaw.json`. (#54523) Thanks @kvokka.",
+      "translated": "CLI: `openclaw.json`에 대한 생성된 JSON 스키마를 출력하는 `openclaw config schema`를 추가합니다. (#54523) 감사합니다 @kvokka."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Config/TTS: auto-migrate legacy speech config on normal reads and secret resolution, keep legacy diagnostics for Doctor, and remove regular-mode runtime fallback for old bundled `tts.<provider>` API-key shapes.",
+      "translated": "Config/TTS: 일반 읽기 및 비밀 해상도 시 레거시 음성 구성 자동 마이그레이션, Doctor에 대한 레거시 진단 유지, 오래된 번들 `tts.<provider>` API 키 모양에 대한 일반 모드 런타임 폴백 제거."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory/plugins: move the pre-compaction memory flush plan behind the active memory plugin contract so `memory-core` owns flush prompts and target-path policy instead of hardcoded core logic.",
+      "translated": "Memory/plugins: 사전 압축 메모리 플러시 계획을 활성 메모리 플러그인 계약 뒤로 이동하여 `memory-core`가 플러시 프롬프트 및 대상 경로 정책을 소유하도록 하고, 하드코딩된 코어 로직 대신 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MiniMax: trim model catalog to M2.7 only, removing legacy M2, M2.1, M2.5, and VL-01 models. (#54487) Thanks @liyuan97.",
+      "translated": "MiniMax: M2, M2.1, M2.5, VL-01 모델을 제거하고 M2.7 모델 카탈로그로 축소합니다. (#54487) 감사합니다 @liyuan97."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/runtime: expose `runHeartbeatOnce` in the plugin runtime `system` namespace so plugins can trigger a single heartbeat cycle with an explicit delivery target override (e.g. `heartbeat: { target: \"last\" }`). (#40299) Thanks @loveyana.",
+      "translated": "Plugins/runtime: 플러그인이 명시적 전달 대상 재정의와 함께 단일 하트비트 사이클을 트리거할 수 있도록 플러그인 런타임 `system` 네임스페이스에 `runHeartbeatOnce`를 노출합니다 (예: `heartbeat: { target: \"last\" }`). (#40299) 감사합니다 @loveyana."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/compaction: preserve the post-compaction AGENTS refresh on stale-usage preflight compaction for both immediate replies and queued followups. (#49479) Thanks @jared596.",
+      "translated": "Agents/compaction: 즉각적인 응답 및 대기 중인 후속 작업 모두에 대해 오래된 사용 전압축에 대한 AGENTS 새로 고침을 유지합니다. (#49479) 감사합니다 @jared596."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/compaction: surface safeguard-specific cancel reasons and relabel benign manual `/compact` no-op cases as skipped instead of failed. (#51072) Thanks @afurm.",
+      "translated": "Agents/compaction: 특정 보호 장치 취소 사유를 표면화하고, 수동 `/compact` 무작위 작업을 실패 대신 건너뛴 것으로 다시 라벨링합니다. (#51072) @afurm 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: add `pnpm docs:check-links:anchors` for Mintlify anchor validation while keeping `scripts/docs-link-audit.mjs` as the stable link-audit entrypoint. (#55912) Thanks @velvet-shark.",
+      "translated": "`pnpm docs:check-links:anchors`를 추가하여 Mintlify 앵커 유효성을 검사하고, `scripts/docs-link-audit.mjs`를 안정적인 링크 감사 진입점으로 유지합니다. (#55912) @velvet-shark 감사합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tavily: mark outbound API requests with `X-Client-Source: openclaw` so Tavily can attribute OpenClaw-originated traffic. (#55335) Thanks @lakshyaag-tavily.",
+      "translated": "Tavily: `X-Client-Source: openclaw`로 아웃바운드 API 요청을 표시하여 Tavily가 OpenClaw에서 발생한 트래픽을 추적할 수 있도록 합니다. (#55335) @lakshyaag-tavily 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Anthropic: recover unhandled provider stop reasons (e.g. `sensitive`) as structured assistant errors instead of crashing the agent run. (#56639)",
+      "translated": "Agents/Anthropic: 처리되지 않은 제공자 중지 사유(예: `sensitive`)를 에이전트 실행 충돌 대신 구조화된 보조 오류로 복구합니다. (#56639)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Google/models: resolve Gemini 3.1 pro, flash, and flash-lite for all Google provider aliases by passing the actual runtime provider ID and adding a template-provider fallback; fix flash-lite prefix ordering. (#56567)",
+      "translated": "Google/models: 모든 Google 제공자 별칭에 대해 Gemini 3.1 pro, flash 및 flash-lite를 실제 런타임 제공자 ID를 전달하고 템플릿 제공자 대체를 추가하여 해결합니다. flash-lite 접두사 순서를 수정합니다. (#56567)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI Codex/image tools: register Codex for media understanding and route image prompts through Codex instructions so image analysis no longer fails on missing provider registration or missing `instructions`. (#54829) Thanks @neeravmakwana.",
+      "translated": "OpenAI Codex/image tools: 미디어 이해를 위해 Codex를 등록하고 이미지 프롬프트를 Codex 지침을 통해 라우팅하여 제공자 등록 누락 또는 `instructions` 누락으로 인한 이미지 분석 실패를 방지합니다. (#54829) @neeravmakwana 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/image tool: restore the generic image-runtime fallback when no provider-specific media-understanding provider is registered, so image analysis works again for providers like `openrouter` and `minimax-portal`. (#54858) Thanks @MonkeyLeeT.",
+      "translated": "Agents/image tool: 특정 제공자 미디어 이해 제공자가 등록되지 않은 경우 일반 이미지 런타임 대체를 복원하여 `openrouter` 및 `minimax-portal`과 같은 제공자에 대해 이미지 분석이 다시 작동하도록 합니다. (#54858) @MonkeyLeeT 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp: fix infinite echo loop in self-chat DM mode where the bot's own outbound replies were re-processed as new inbound user messages. (#54570) Thanks",
+      "translated": "WhatsApp: 봇의 자체 아웃바운드 응답이 새로운 인바운드 사용자 메시지로 다시 처리되는 셀프 채팅 DM 모드에서 무한 에코 루프를 수정합니다. (#54570) 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/splitting: replace proportional text estimate with verified HTML-length search so long messages split at word boundaries instead of mid-word; gracefully degrade when tag overhead exceeds the limit. (#56595)",
+      "translated": "Telegram/splitting: 비례 텍스트 추정을 검증된 HTML 길이 검색으로 대체하여 긴 메시지가 단어 경계에서 분할되도록 하고, 태그 오버헤드가 제한을 초과할 때 우아하게 저하됩니다. (#56595)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/delivery: skip whitespace-only and hook-blanked text replies in bot delivery to prevent GrammyError 400 empty-text crashes. (#56620)",
+      "translated": "Telegram/delivery: 공백만 있는 텍스트 및 후크로 빈 텍스트 응답을 봇 전달에서 건너뛰어 GrammyError 400 빈 텍스트 충돌을 방지합니다. (#56620)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/send: validate `replyToMessageId` at all four API sinks with a shared normalizer that rejects non-numeric, NaN, and mixed-content strings. (#56587)",
+      "translated": "Telegram/send: 모든 네 가지 API 싱크에서 `replyToMessageId`를 검증하고 비숫자, NaN 및 혼합 콘텐츠 문자열을 거부하는 공유 정규화기를 사용합니다. (#56587)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Mistral: normalize OpenAI-compatible request flags so official Mistral API runs no longer fail with remaining `422 status code (no body)` chat errors.",
+      "translated": "Mistral: OpenAI 호환 요청 플래그를 정규화하여 공식 Mistral API 실행이 더 이상 `422 상태 코드(본문 없음)` 채팅 오류로 실패하지 않도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/config: keep sensitive raw config hidden by default, replace the blank blocked editor with an explicit reveal-to-edit state, and restore raw JSON editing without auto-exposing secrets. Fixes #55322.",
+      "translated": "Control UI/config: 기본적으로 민감한 원시 구성을 숨기고, 차단된 편집기를 명시적으로 편집 상태로 표시하며, 자동으로 비밀을 노출하지 않고 원시 JSON 편집을 복원합니다. #55322 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/zsh: defer `compdef` registration until `compinit` is available so zsh completion loads cleanly with plugin managers and manual setups. (#56555)",
+      "translated": "CLI/zsh: `compinit`이 사용 가능할 때까지 `compdef` 등록을 연기하여 zsh 완성이 플러그인 관리자 및 수동 설정과 함께 깔끔하게 로드되도록 합니다. (#56555)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles/debounce: guard debounce flush against null message text by sanitizing at the enqueue boundary and adding an independent combiner guard. (#56573)",
+      "translated": "BlueBubbles/debounce: 큐 경계에서 정리하고 독립적인 결합기 보호를 추가하여 null 메시지 텍스트에 대한 디바운스 플러시를 보호합니다. (#56573)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply: suppress JSON-wrapped `{\"action\":\"NO_REPLY\"}` control envelopes before channel delivery with a strict single-key detector; preserves media when text is only a silent envelope. (#56612)",
+      "translated": "자동 응답: 채널 전달 전에 JSON으로 래핑된 `{\"action\":\"NO_REPLY\"}` 제어 봉투를 엄격한 단일 키 감지기로 억제합니다. 텍스트가 단순히 무음 봉투일 때 미디어를 보존합니다. (#56612)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ACP/ACPX agent registry: align OpenClaw's ACPX built-in agent mirror with the latest `openclaw/acpx` command defaults and built-in aliases, pin versioned `npx` built-ins to exact versions, and stop unknown ACP agent ids from falling through to raw `--agent` command execution on the MCP-proxy path. (#28321) Thanks @m0nkmaster and @vincentkoc.",
+      "translated": "ACP/ACPX 에이전트 레지스트리: OpenClaw의 ACPX 내장 에이전트 미러를 최신 `openclaw/acpx` 명령 기본값 및 내장 별칭과 정렬하고, 버전이 지정된 `npx` 내장을 정확한 버전에 고정하며, MCP 프록시 경로에서 원시 `--agent` 명령 실행으로 알 수 없는 ACP 에이전트 ID가 통과하지 않도록 합니다. (#28321) @m0nkmaster 및 @vincentkoc 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/audit: extend web search key audit to recognize Gemini, Grok/xAI, Kimi, Moonshot, and OpenRouter credentials via a boundary-safe bundled-web-search registry shim. (#56540)",
+      "translated": "보안/감사: 경계 안전 번들 웹 검색 레지스트리 셈을 통해 Gemini, Grok/xAI, Kimi, Moonshot 및 OpenRouter 자격 증명을 인식하도록 웹 검색 키 감사를 확장합니다. (#56540)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docs/FAQ: remove broken Xfinity SSL troubleshooting cross-links from English and zh-CN FAQ entries — both sections already contain the full workaround inline. (#56500)",
+      "translated": "문서/FAQ: 영어 및 zh-CN FAQ 항목에서 손상된 Xfinity SSL 문제 해결 교차 링크를 제거합니다. 두 섹션 모두 이미 전체 해결 방법을 인라인으로 포함하고 있습니다. (#56500)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: deliver verbose tool summaries inside forum topic sessions again, so threaded topic chats now match DM verbose behavior. (#43236) Thanks @frankbuild.",
+      "translated": "Telegram: 포럼 주제 세션 내에서 도구 요약을 자세히 전달하여 스레드 주제 채팅이 이제 DM 상세 동작과 일치하도록 합니다. (#43236) @frankbuild 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles/CLI agents: restore inbound prompt image refs for CLI routed turns, reapply embedded runner image size guardrails, and cover both CLI image transport paths with regression tests. (#51373)",
+      "translated": "BlueBubbles/CLI 에이전트: CLI 라우팅된 턴에 대한 인바운드 프롬프트 이미지 참조를 복원하고, 임베디드 러너 이미지 크기 가드레일을 다시 적용하며, 두 CLI 이미지 전송 경로를 회귀 테스트로 커버합니다. (#51373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles/groups: optionally enrich unnamed participant lists with local macOS Contacts names after group gating passes, so group member context can show names instead of only raw phone numbers.",
+      "translated": "BlueBubbles/그룹: 그룹 게이팅이 통과한 후 이름 없는 참가자 목록을 선택적으로 로컬 macOS 연락처 이름으로 풍부하게 하여 그룹 멤버 컨텍스트가 원시 전화번호 대신 이름을 표시할 수 있도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/reconnect: drain stale gateway sockets, clear cached resume state before forced fresh reconnects, and fail closed when old sockets refuse to die so Discord recovery stops looping on poisoned resume state. (#54697) Thanks @ngutman.",
+      "translated": "Discord/재연결: 오래된 게이트웨이 소켓을 비우고, 강제 새 연결 전 캐시된 재개 상태를 지우며, 오래된 소켓이 죽지 않을 때 닫힌 상태로 실패하여 Discord 복구가 손상된 재개 상태에서 반복되지 않도록 합니다. (#54697) 감사합니다 @ngutman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iMessage: stop leaking inline `[[reply_to:...]]` tags into delivered text by sending `reply_to` as RPC metadata and stripping stray directive tags from outbound messages. (#39512) Thanks @mvanhorn.",
+      "translated": "iMessage: `reply_to`를 RPC 메타데이터로 보내고 아웃바운드 메시지에서 불필요한 지시자 태그를 제거하여 전달된 텍스트에 인라인 `[[reply_to:...]]` 태그가 누출되지 않도록 합니다. (#39512) 감사합니다 @mvanhorn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/plugins: make routed commands use the same auto-enabled bundled-channel snapshot as gateway startup, so configured bundled channels like Slack load without requiring a prior config rewrite. (#54809) Thanks @neeravmakwana.",
+      "translated": "CLI/플러그인: 라우팅된 명령어가 게이트웨이 시작과 동일한 자동 활성화된 번들 채널 스냅샷을 사용하도록 하여, Slack과 같은 구성된 번들 채널이 사전 구성 재작성 없이 로드되도록 합니다. (#54809) 감사합니다 @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/message send: write manual `openclaw message send` deliveries into the resolved agent session transcript again by always threading the default CLI agent through outbound mirroring. (#54187) Thanks @KevInTheCloud5617.",
+      "translated": "CLI/메시지 전송: 기본 CLI 에이전트를 항상 아웃바운드 미러링을 통해 전달하여 수동 `openclaw message send` 전달을 해결된 에이전트 세션 기록에 다시 작성합니다. (#54187) 감사합니다 @KevInTheCloud5617."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/onboarding: show the Kimi Code API key option again in the Moonshot setup menu so the interactive picker includes all Kimi setup paths together. Fixes #54412 Thanks",
+      "translated": "CLI/온보딩: Kimi Code API 키 옵션을 Moonshot 설정 메뉴에 다시 표시하여 대화형 선택기에 모든 Kimi 설정 경로가 함께 포함되도록 합니다. #54412 해결 감사합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/status: use provider-aware context window lookup for fresh Anthropic 4.6 model overrides so `/status` shows the correct 1.0m window instead of an underreported shared-cache minimum. (#54796) Thanks @neeravmakwana.",
+      "translated": "에이전트/상태: `/status`가 과소 보고된 공유 캐시 최소값 대신 올바른 1.0m 창을 표시하도록 신선한 Anthropic 4.6 모델 재정의를 위해 공급자 인식 컨텍스트 창 조회를 사용합니다. (#54796) 감사합니다 @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/WebSocket: preserve reasoning replay metadata and tool-call item ids on WebSocket tool turns, and start a fresh response chain when full-context resend is required. (#53856) Thanks @xujingchen1996.",
+      "translated": "OpenAI/WebSocket: WebSocket 도구 턴에서 추론 재생 메타데이터와 도구 호출 항목 ID를 보존하고, 전체 컨텍스트 재전송이 필요할 때 새로운 응답 체인을 시작합니다. (#53856) 감사합니다 @xujingchen1996."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/WS: restore reasoning blocks for Responses WebSocket runs and keep reasoning/tool-call replay metadata intact so resumed sessions do not lose or break follow-up reasoning-capable turns. (#53856) Thanks @xujingchen1996.",
+      "translated": "OpenAI/WS: Responses WebSocket 실행을 위한 추론 블록을 복원하고, 재개된 세션이 추론 가능한 턴을 잃거나 깨지지 않도록 추론/도구 호출 재생 메타데이터를 유지합니다. (#53856) 감사합니다 @xujingchen1996."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/errors: surface provider quota/reset details when available, but keep HTML/Cloudflare rate-limit pages on the generic fallback so raw error pages are not shown to users. (#54512) Thanks @bugkill3r.",
+      "translated": "에이전트/오류: 사용 가능한 경우 공급자 할당량/재설정 세부 정보를 표시하지만, HTML/Cloudflare 속도 제한 페이지를 일반적인 대체로 유지하여 원시 오류 페이지가 사용자에게 표시되지 않도록 합니다. (#54512) 감사합니다 @bugkill3r."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude CLI: switch the bundled Claude CLI backend to `stream-json` output so watchdogs see progress on long runs, and keep session/usage metadata even when Claude finishes with an empty result line. (#49698) Thanks @felear2022.",
+      "translated": "Claude CLI: 번들된 Claude CLI 백엔드를 `stream-json` 출력으로 전환하여 긴 실행에서 진행 상황을 감시자가 볼 수 있도록 하고, Claude가 빈 결과 줄로 완료되더라도 세션/사용 메타데이터를 유지합니다. (#49698) 감사합니다 @felear2022."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude CLI/MCP: always pass a strict generated `--mcp-config` overlay for background Claude CLI runs, including the empty-server case, so Claude does not inherit ambient user/global MCP servers. (#54961) Thanks @markojak.",
+      "translated": "Claude CLI/MCP: 백그라운드 Claude CLI 실행을 위해 엄격히 생성된 `--mcp-config` 오버레이를 항상 전달하여 빈 서버 사례를 포함하여 Claude가 주변 사용자/글로벌 MCP 서버를 상속하지 않도록 합니다. (#54961) 감사합니다 @markojak."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/embedded replies: surface mid-turn 429 and overload failures when embedded runs end without a user-visible reply, while preserving successful media-only replies that still use legacy `mediaUrl`. (#50930) Thanks @infichen.",
+      "translated": "에이전트/임베디드 응답: 사용자에게 표시되지 않는 응답 없이 임베디드 실행이 종료될 때 중간 턴 429 및 과부하 실패를 표시하면서 여전히 레거시 `mediaUrl`을 사용하는 성공적인 미디어 전용 응답을 보존합니다. (#50930) 감사합니다 @infichen."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Chat/UI: move the chat send button onto the shared ghost-button theme styling, while keeping the stop button icon readable on the danger state. (#55075) Thanks @bottenbenny.",
+      "translated": "채팅/UI: 채팅 전송 버튼을 공유 고스트 버튼 테마 스타일링으로 이동하면서, 위험 상태에서 중지 버튼 아이콘을 읽을 수 있도록 유지합니다. (#55075) 감사합니다 @bottenbenny."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/allowFrom: show a specific allowFrom policy error for valid blocked targets instead of the misleading `<E.164|group JID>` format hint. Thanks @mcaxtr.",
+      "translated": "WhatsApp/allowFrom: 유효한 차단 대상에 대해 잘못된 `<E.164|group JID>` 형식 힌트 대신 특정 allowFrom 정책 오류를 표시합니다. 감사합니다 @mcaxtr."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/cooldowns: scope rate-limit cooldowns per model so one 429 no longer blocks every model on the same auth profile, replace the exponential 1 min -> 1 h escalation with a stepped 30 s / 1 min / 5 min ladder, and surface a user-facing countdown message when all models are rate-limited. (#49834) Thanks @kiranvk-2011.",
+      "translated": "에이전트/쿨다운: 모델별로 속도 제한 쿨다운을 범위 지정하여 하나의 429가 동일한 인증 프로필의 모든 모델을 차단하지 않도록 하고, 1분 -> 1시간의 기하급수적 증가를 30초 / 1분 / 5분 계단식으로 대체하며, 모든 모델이 속도 제한될 때 사용자에게 표시되는 카운트다운 메시지를 표시합니다. (#49834) 감사합니다 @kiranvk-2011."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/embedded transport errors: distinguish common network failures like connection refused, DNS lookup failure, and interrupted sockets from true timeouts in embedded-run user messaging and lifecycle diagnostics. (#51419) Thanks @scoootscooob.",
+      "translated": "에이전트/임베디드 전송 오류: 연결 거부, DNS 조회 실패, 중단된 소켓과 같은 일반적인 네트워크 실패를 임베디드 실행 사용자 메시징 및 수명 주기 진단에서 실제 시간 초과와 구분합니다. (#51419) 감사합니다 @scoootscooob."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/pairing: ignore self-authored DM `message` updates so bot-pinned status cards and similar service updates do not trigger bogus pairing requests or re-enter inbound dispatch. (#54530) thanks",
+      "translated": "Telegram/페어링: 봇 고정 상태 카드 및 유사한 서비스 업데이트가 잘못된 페어링 요청을 트리거하거나 인바운드 디스패치에 다시 진입하지 않도록 자신이 작성한 DM `message` 업데이트를 무시합니다. (#54530) 감사합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Mattermost/replies: keep pairing replies, slash-command fallback replies, and model-picker messages on the resolved config path so `exec:` SecretRef bot tokens work across all outbound reply branches. (#48347) thanks @mathiasnagler.",
+      "translated": "Mattermost/응답: 페어링 응답, 슬래시 명령 대체 응답 및 모델 선택기 메시지를 해결된 구성 경로에 유지하여 `exec:` SecretRef 봇 토큰이 모든 아웃바운드 응답 분기에서 작동하도록 합니다. (#48347) 감사합니다 @mathiasnagler."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Microsoft Teams/config: accept the existing `welcomeCard`, `groupWelcomeCard`, `promptStarters`, and feedback/reflection keys in strict config validation so already-supported Teams runtime settings stop failing schema checks. (#54679) Thanks @gumclaw.",
+      "translated": "Microsoft Teams/config: 기존 `welcomeCard`, `groupWelcomeCard`, `promptStarters`, 및 feedback/reflection 키를 엄격한 구성 검증에서 허용하여 이미 지원되는 Teams 런타임 설정이 스키마 검사를 통과하도록 합니다. (#54679) @gumclaw 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP/channels: add a Gateway-backed channel MCP bridge with Codex/Claude-facing conversation tools, Claude channel notifications, and safer stdio bridge lifecycle handling for reconnects and routed session discovery.",
+      "translated": "MCP/channels: Codex/Claude 대화 도구, Claude 채널 알림, 재연결 및 라우팅된 세션 검색을 위한 안전한 stdio 브리지 수명 주기 처리를 포함한 Gateway 지원 채널 MCP 브리지를 추가합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/SDK: thread `moduleUrl` through plugin-sdk alias resolution so user-installed plugins outside the openclaw directory (e.g. `~/.openclaw/extensions/`) correctly resolve `openclaw/plugin-sdk/*` subpath imports, and gate `plugin-sdk:check-exports` in `release:check`. (#54283) Thanks @xieyongliang.",
+      "translated": "Plugins/SDK: `moduleUrl`을 plugin-sdk 별칭 해석에 전달하여 openclaw 디렉토리 외부에 설치된 사용자 플러그인이 `openclaw/plugin-sdk/*` 하위 경로 가져오기를 올바르게 해석하도록 하고, `plugin-sdk:check-exports`를 `release:check`에서 게이트합니다. (#54283) @xieyongliang 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/web fetch: allow the documented `tools.web.fetch.maxResponseBytes` setting in runtime schema validation so valid configs no longer fail with unrecognized-key errors. (#53401) Thanks @erhhung.",
+      "translated": "Config/web fetch: 런타임 스키마 검증에서 문서화된 `tools.web.fetch.maxResponseBytes` 설정을 허용하여 유효한 구성이 더 이상 인식되지 않는 키 오류로 실패하지 않도록 합니다. (#53401) @erhhung 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Message tool/buttons: keep the shared `buttons` schema optional in merged tool definitions so plain `action=send` calls stop failing validation when no buttons are provided. (#54418) Thanks @adzendo.",
+      "translated": "Message tool/buttons: 병합된 도구 정의에서 공유된 `buttons` 스키마를 선택 사항으로 유지하여 버튼이 제공되지 않을 때 `action=send` 호출이 검증에 실패하지 않도록 합니다. (#54418) @adzendo 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/openai-compatible tool calls: deduplicate repeated tool call ids across live assistant messages and replayed history so OpenAI-compatible backends no longer reject duplicate `tool_call_id` values with HTTP 400. (#40996) Thanks @xaeon2026.",
+      "translated": "Agents/openai-compatible tool calls: 라이브 어시스턴트 메시지와 재생된 기록에서 반복된 도구 호출 ID를 중복 제거하여 OpenAI 호환 백엔드가 더 이상 중복 `tool_call_id` 값을 HTTP 400으로 거부하지 않도록 합니다. (#40996) @xaeon2026 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/openai-completions: default non-native OpenAI-compatible providers to omit tool-definition `strict` fields unless users explicitly opt back in, so tool calling keeps working on providers that reject that option. (#45497) Thanks @sahancava.",
+      "translated": "Models/openai-completions: 사용자가 명시적으로 다시 선택하지 않는 한 도구 정의 `strict` 필드를 생략하도록 비본토 OpenAI 호환 공급자를 기본 설정하여 해당 옵션을 거부하는 공급자에서 도구 호출이 계속 작동하도록 합니다. (#45497) @sahancava 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/context engines: retry strict legacy `assemble()` calls without the new `prompt` field when older engines reject it, preserving prompt-aware retrieval compatibility for pre-prompt plugins. (#50848) thanks @danhdoan.",
+      "translated": "Plugins/context engines: 이전 엔진이 새 `prompt` 필드를 거부할 때 이를 포함하지 않고 엄격한 레거시 `assemble()` 호출을 재시도하여 프롬프트 인식 검색 호환성을 유지합니다. (#50848) @danhdoan 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update status: explicitly say `up to date` when the local version already matches npm latest, while keeping the availability logic unchanged. (#51409) Thanks @dongzhenye.",
+      "translated": "CLI/update status: 로컬 버전이 npm 최신 버전과 이미 일치할 때 `up to date`라고 명시적으로 표시하면서 가용성 논리는 변경하지 않습니다. (#51409) @dongzhenye 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/Linux: stop flagging non-gateway systemd services as duplicate gateways just because their unit files mention OpenClaw, reducing false-positive doctor/log noise. (#45328) Thanks @gregretkowski.",
+      "translated": "Daemon/Linux: 유닛 파일에 OpenClaw가 언급되어 있다는 이유만으로 비게이트웨이 systemd 서비스를 중복 게이트웨이로 플래그 지정하는 것을 중지하여 잘못된 긍정 오류를 줄입니다. (#45328) @gregretkowski 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu: close WebSocket connections on monitor stop/abort so ghost connections no longer persist, preventing duplicate event processing and resource leaks across restart cycles. (#52844) Thanks @schumilin.",
+      "translated": "Feishu: 모니터 중지/중단 시 WebSocket 연결을 닫아 유령 연결이 더 이상 지속되지 않도록 하여 재시작 주기 동안 중복 이벤트 처리 및 리소스 누수를 방지합니다. (#52844) @schumilin 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu: use the original message `create_time` instead of `Date.now()` for inbound timestamps so offline-retried messages carry the correct authoring time, preventing mis-targeted agent actions on stale instructions. (#52809) Thanks @schumilin.",
+      "translated": "Feishu: 수신 타임스탬프에 `Date.now()` 대신 원본 메시지 `create_time`을 사용하여 오프라인 재시도 메시지가 올바른 작성 시간을 유지하도록 하여 오래된 지침에 대한 잘못된 대상 에이전트 작업을 방지합니다. (#52809) @schumilin 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/Skills: open skill detail dialogs with the browser modal lifecycle so clicking a skill row keeps the panel centered instead of rendering it off-screen at the bottom of the page.",
+      "translated": "Control UI/Skills: 브라우저 모달 수명 주기로 스킬 세부 정보 대화 상자를 열어 스킬 행을 클릭할 때 패널이 페이지 하단에 오프스크린으로 렌더링되지 않고 중앙에 유지되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/replies: include quoted poll question/options in inbound reply context so the agent sees the original poll content when users reply to Matrix poll messages. (#55056) Thanks @alberthild.",
+      "translated": "Matrix/replies: 사용자가 Matrix 투표 메시지에 응답할 때 에이전트가 원본 투표 내용을 볼 수 있도록 수신 응답 컨텍스트에 인용된 투표 질문/옵션을 포함합니다. (#55056) @alberthild 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/plugins: keep plugin bootstrap from crashing when built runtime mixes bare and deep `matrix-js-sdk` entrypoints, so unrelated channels do not get taken down during plugin load. (#56273) Thanks @aquaright1.",
+      "translated": "Matrix/plugins: 빌드된 런타임이 기본 및 깊은 `matrix-js-sdk` 진입점을 혼합할 때 플러그인 부트스트랩이 충돌하지 않도록 하여 관련 없는 채널이 플러그인 로드 중에 중단되지 않도록 합니다. (#56273) @aquaright1 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/sandbox: honor `tools.sandbox.tools.alsoAllow`, let explicit sandbox re-allows remove matching built-in default-deny tools, and keep sandbox explain/error guidance aligned with the effective sandbox tool policy. (#54492) Thanks @ngutman.",
+      "translated": "Agents/sandbox: `tools.sandbox.tools.alsoAllow`를 준수하여 명시적 샌드박스 재허용이 일치하는 기본 거부 도구를 제거할 수 있도록 하고, 샌드박스 설명/오류 지침을 효과적인 샌드박스 도구 정책과 일치하도록 유지합니다. (#54492) @ngutman 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/sandbox: make blocked-tool guidance glob-aware again, redact/sanitize session-specific explain hints for safer copy-paste, and avoid leaking control-character session keys in those hints. (#54684) Thanks @ngutman.",
+      "translated": "Agents/sandbox: 차단된 도구 지침을 다시 글로브 인식하도록 만들고, 세션별 설명 힌트를 안전하게 복사/붙여넣기 위해 수정/정제하며, 해당 힌트에서 제어 문자 세션 키가 누출되지 않도록 합니다. (#54684) @ngutman 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: trigger timeout recovery compaction before retrying high-context LLM timeouts so embedded runs stop repeating oversized requests. (#46417) thanks @joeykrug.",
+      "translated": "Agents/compaction: 임베디드 실행이 더 이상 과도한 요청을 반복하지 않도록 높은 컨텍스트 LLM 타임아웃을 재시도하기 전에 타임아웃 복구 압축을 트리거합니다. (#46417) @joeykrug 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: reconcile `sessions.json.compactionCount` after a late embedded auto-compaction success so persisted session counts catch up once the handler reports completion. (#45493) Thanks @jackal092927.",
+      "translated": "Agents/compaction: 핸들러가 완료를 보고한 후 지속된 세션 수가 따라잡을 수 있도록 임베디드 자동 압축 성공 후 `sessions.json.compactionCount`를 조정합니다. (#45493) @jackal092927 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/failover: classify Codex accountId token extraction failures as auth errors so model fallback continues to the next configured candidate. (#55206) Thanks @cosmicnet.",
+      "translated": "Agents/failover: Codex accountId 토큰 추출 실패를 인증 오류로 분류하여 모델 폴백이 다음 구성된 후보로 계속되도록 합니다. (#55206) @cosmicnet 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/runtime: reuse only compatible active plugin registries across tools, providers, web search, and channel bootstrap, align `/tools/invoke` plugin loading with the session workspace, and retry outbound channel recovery when the pinned channel surface changes so plugin tools and channels stop disappearing or re-registering from mismatched runtime loads. Thanks @gumadeiras.",
+      "translated": "플러그인/런타임: 도구, 제공자, 웹 검색 및 채널 부트스트랩 전반에서 호환 가능한 활성 플러그인 레지스트리만 재사용하고, 세션 작업 공간과 `/tools/invoke` 플러그인 로딩을 정렬하며, 고정된 채널 표면이 변경될 때 아웃바운드 채널 복구를 재시도하여 플러그인 도구와 채널이 사라지거나 잘못된 런타임 로드로 인해 다시 등록되지 않도록 합니다. @gumadeiras 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Talk/macOS: stop direct system-voice failures from replaying system speech, use app-locale fallback for shared watchdog timing, and add regression coverage for the macOS fallback route and language-aware timeout policy. (#53511) thanks @hongsw.",
+      "translated": "Talk/macOS: 시스템 음성 재생으로 인한 직접적인 시스템 음성 실패를 중지하고, 공유 감시 타이밍에 앱 로케일 대체를 사용하며, macOS 대체 경로 및 언어 인식 시간 초과 정책에 대한 회귀 커버리지를 추가합니다. (#53511) @hongsw 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/gateway cleanup: keep late Carbon reconnect-exhausted errors suppressed through startup/dispose cleanup so Discord monitor shutdown no longer crashes on late gateway close events. (#55373) Thanks @Takhoffman.",
+      "translated": "Discord/게이트웨이 정리: 시작/처리 정리를 통해 늦은 Carbon 재연결 소진 오류를 억제하여 Discord 모니터 종료 시 늦은 게이트웨이 닫기 이벤트로 인해 더 이상 충돌하지 않도록 합니다. (#55373) @Takhoffman 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/gateway shutdown: treat expected reconnect-exhausted events during intentional lifecycle stop as clean shutdowns so startup-abort cleanup no longer surfaces false gateway failures. (#55324) Thanks @joelnishanth.",
+      "translated": "Discord/게이트웨이 종료: 의도적인 라이프사이클 중지 중 예상되는 재연결 소진 이벤트를 깨끗한 종료로 처리하여 시작 중단 정리가 더 이상 잘못된 게이트웨이 실패를 표면화하지 않도록 합니다. (#55324) @joelnishanth 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/gateway shutdown: suppress reconnect-exhausted events that were already buffered before teardown flips `lifecycleStopping`, so stale-socket Discord restarts no longer crash the whole gateway. Fixes #55403 and #55421. Thanks @lml2468 and @vincentkoc.",
+      "translated": "Discord/게이트웨이 종료: `lifecycleStopping`이 전환되기 전에 이미 버퍼링된 재연결 소진 이벤트를 억제하여 오래된 소켓 Discord 재시작이 전체 게이트웨이를 충돌시키지 않도록 합니다. #55403 및 #55421 수정. @lml2468 및 @vincentkoc 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "GitHub Copilot/auth refresh: treat large `expires_at` values as seconds epochs and clamp far-future runtime auth refresh timers so Copilot token refresh cannot fall into a `setTimeout` overflow hot loop. (#55360) Thanks @michael-abdo.",
+      "translated": "GitHub Copilot/인증 갱신: 큰 `expires_at` 값을 초 단위 에포크로 처리하고 먼 미래의 런타임 인증 갱신 타이머를 고정하여 Copilot 토큰 갱신이 `setTimeout` 오버플로 핫 루프에 빠지지 않도록 합니다. (#55360) @michael-abdo 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/status: use the persisted runtime session model in `session_status` when no explicit override exists, and honor per-agent `thinkingDefault` in both `session_status` and `/status`. (#55425) Thanks @scoootscooob, @xaeon2026, and @ysfbsf.",
+      "translated": "에이전트/상태: 명시적인 재정의가 없을 때 `session_status`에서 지속된 런타임 세션 모델을 사용하고, `session_status` 및 `/status` 모두에서 에이전트별 `thinkingDefault`를 존중합니다. (#55425) @scoootscooob, @xaeon2026, @ysfbsf 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat/runner: guarantee the interval timer is re-armed after heartbeat runs and unexpected runner errors so scheduled heartbeats do not silently stop after an interrupted cycle. (#52270) Thanks @MiloStack.",
+      "translated": "하트비트/러너: 하트비트 실행 및 예기치 않은 러너 오류 후 간격 타이머가 다시 무장되도록 보장하여 중단된 주기 후 예약된 하트비트가 조용히 멈추지 않도록 합니다. (#52270) @MiloStack 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/Doctor: rewrite stale bundled plugin load paths from legacy `extensions/*` locations to the packaged bundled path, including directory-name mismatches and slash-suffixed config entries. (#55054) Thanks @SnowSky1.",
+      "translated": "구성/의사: 오래된 번들 플러그인 로드 경로를 레거시 `extensions/*` 위치에서 패키지된 번들 경로로 다시 작성하여 디렉터리 이름 불일치 및 슬래시로 끝나는 구성 항목을 포함합니다. (#55054) @SnowSky1 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/mentions: stop treating mentions embedded in quoted messages as direct mentions so replying to a message that @mentioned the bot no longer falsely triggers mention gating. (#52711) Thanks @lurebat.",
+      "translated": "WhatsApp/멘션: 인용된 메시지에 포함된 멘션을 직접 멘션으로 처리하는 것을 중지하여 봇을 @멘션한 메시지에 대한 응답이 더 이상 잘못된 멘션 게이팅을 트리거하지 않도록 합니다. (#52711) @lurebat 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix: keep separate 2-person rooms out of DM routing after `m.direct` seeds successfully, while still honoring explicit `is_direct` state and startup fallback recovery. (#54890) thanks",
+      "translated": "Matrix: `m.direct`가 성공적으로 시드된 후 2인실을 DM 라우팅에서 제외하면서도 명시적인 `is_direct` 상태와 시작 대체 복구를 존중합니다. (#54890) 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/ollama fallback: surface non-2xx Ollama HTTP errors with a leading status code so HTTP 503 responses trigger model fallback again. (#55214) Thanks @bugkill3r.",
+      "translated": "에이전트/ollama 대체: 2xx가 아닌 Ollama HTTP 오류를 선행 상태 코드로 표면화하여 HTTP 503 응답이 모델 대체를 다시 트리거하도록 합니다. (#55214) @bugkill3r 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/tools: stop synthetic agent ids like `agent-spawner` from being treated as Feishu account ids during tool execution, so tools fall back to the configured/default Feishu account unless the contextual id is a real enabled Feishu account. (#55627) Thanks @MonkeyLeeT.",
+      "translated": "Feishu/도구: `agent-spawner`와 같은 합성 에이전트 ID가 도구 실행 중 Feishu 계정 ID로 처리되지 않도록 하여, 컨텍스트 ID가 실제로 활성화된 Feishu 계정이 아닌 경우 도구가 구성된/기본 Feishu 계정으로 대체되도록 합니다. (#55627) @MonkeyLeeT 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Google/tools: strip empty `required: []` arrays from Gemini tool schemas so optional-only tool parameters no longer trigger Google validator 400s. (#52106) Thanks @oliviareid-svg.",
+      "translated": "Google/도구: Gemini 도구 스키마에서 빈 `required: []` 배열을 제거하여 선택적 매개변수만 있는 도구 매개변수가 더 이상 Google 유효성 검사기 400을 트리거하지 않도록 합니다. (#52106) @oliviareid-svg 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Onboarding/TUI/local gateways: show the resolved gateway port in setup output, clarify no-daemon local health/dashboard messaging, and preserve loopback Control UI auth on reruns and explicit local gateway URLs so local quickstart flows recover cleanly. (#55730) Thanks @shakkernerd.",
+      "translated": "온보딩/TUI/로컬 게이트웨이: 설정 출력에 해결된 게이트웨이 포트를 표시하고, 데몬 없는 로컬 상태/대시보드 메시지를 명확히 하며, 반복 실행 및 명시적인 로컬 게이트웨이 URL에서 루프백 제어 UI 인증을 유지하여 로컬 빠른 시작 흐름이 깔끔하게 복구되도록 합니다. (#55730) @shakkernerd 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI/chat log: keep system messages as single logical entries and prune overflow at whole-message boundaries so wrapped system spacing stays intact. (#55732) Thanks @shakkernerd.",
+      "translated": "TUI/채팅 로그: 시스템 메시지를 단일 논리 항목으로 유지하고 전체 메시지 경계에서 오버플로를 가지치기하여 래핑된 시스템 간격이 유지되도록 합니다. (#55732) @shakkernerd 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI/activation: validate `/activation` arguments in the TUI and reject invalid values instead of silently coercing them to `mention`. (#55733) Thanks @shakkernerd.",
+      "translated": "TUI/활성화: TUI에서 `/activation` 인수를 검증하고 잘못된 값을 `mention`으로 조용히 강제 변환하는 대신 거부합니다. (#55733) @shakkernerd 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/model switching: apply `/model` changes to active embedded runs at the next safe retry boundary, so overloaded or retrying turns switch to the newly selected model instead of staying pinned to the old provider.",
+      "translated": "에이전트/모델 전환: 다음 안전한 재시도 경계에서 활성 임베디드 실행에 `/model` 변경 사항을 적용하여 과부하되거나 재시도하는 턴이 새로 선택된 모델로 전환되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Codex fallback: classify Codex `server_error` payloads as failoverable, sanitize `Codex error:` payloads before they reach chat, preserve context-overflow guidance for prefixed `invalid_request_error` payloads, and omit provider `request_id` values from user-facing UI copy. (#42892) Thanks @xaeon2026.",
+      "translated": "에이전트/Codex 대체: Codex `server_error` 페이로드를 대체 가능으로 분류하고, `Codex error:` 페이로드가 채팅에 도달하기 전에 정리하며, 접두사가 붙은 `invalid_request_error` 페이로드에 대한 컨텍스트 오버플로 가이던스를 유지하고, 사용자 인터페이스 복사에서 제공자 `request_id` 값을 생략합니다. (#42892) @xaeon2026 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/search: share memory embedding provider registrations across split plugin runtimes so memory search no longer fails with unknown provider errors after memory-core registers built-in adapters. (#55945) Thanks @glitch418x.",
+      "translated": "메모리/검색: 메모리 검색이 메모리 코어가 내장 어댑터를 등록한 후 알 수 없는 제공자 오류로 실패하지 않도록 분할된 플러그인 런타임 전반에 메모리 임베딩 제공자 등록을 공유합니다. (#55945) @glitch418x 감사합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/Carbon beta: update `@buape/carbon` to the latest beta and pass the new `RateLimitError` request argument so Discord stays compatible with the upstream beta constructor change. (#55980) Thanks @ngutman.",
+      "translated": "Discord/Carbon 베타: `@buape/carbon`을 최신 베타 버전으로 업데이트하고 새로운 `RateLimitError` 요청 인수를 전달하여 Discord가 업스트림 베타 생성자 변경 사항과 호환되도록 유지합니다. (#55980) 감사합니다 @ngutman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/inbound claims: pass full inbound attachment arrays through `inbound_claim` hook metadata while keeping the legacy singular media attachment fields for compatibility. (#55452) Thanks @huntharo.",
+      "translated": "플러그인/인바운드 클레임: 전체 인바운드 첨부 파일 배열을 `inbound_claim` 훅 메타데이터를 통해 전달하면서 호환성을 위해 기존의 단일 미디어 첨부 필드를 유지합니다. (#55452) 감사합니다 @huntharo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: preserve sender filenames for inbound media by forwarding `originalFilename` to `saveMediaBuffer`. (#55692) thanks @esrehmki.",
+      "translated": "플러그인/Matrix: `originalFilename`을 `saveMediaBuffer`로 전달하여 인바운드 미디어의 발신자 파일 이름을 보존합니다. (#55692) 감사합니다 @esrehmki."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/mentions: recognize `matrix.to` mentions whose visible label uses the bot's room display name, so `requireMention: true` rooms respond correctly in modern Matrix clients. (#55393) thanks @nickludlam.",
+      "translated": "Matrix/멘션: 봇의 방 표시 이름을 사용하는 `matrix.to` 멘션을 인식하여 `requireMention: true` 방이 최신 Matrix 클라이언트에서 올바르게 응답하도록 합니다. (#55393) 감사합니다 @nickludlam."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama/thinking off: route `thinkingLevel=off` through the live Ollama extension request path so thinking-capable Ollama models now receive top-level `think: false` instead of silently generating hidden reasoning tokens. (#53200) Thanks @BruceMacD.",
+      "translated": "Ollama/생각 끄기: `thinkingLevel=off`를 라이브 Ollama 확장 요청 경로를 통해 라우팅하여 이제 생각할 수 있는 Ollama 모델이 숨겨진 추론 토큰을 생성하는 대신 최상위 `think: false`를 받도록 합니다. (#53200) 감사합니다 @BruceMacD."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/diffs: stage bundled `@pierre/diffs` runtime dependencies during packaged updates so the bundled diff viewer keeps loading after global installs and updates. (#56077) Thanks @gumadeiras.",
+      "translated": "플러그인/diffs: 패키지 업데이트 중에 번들된 `@pierre/diffs` 런타임 종속성을 스테이징하여 글로벌 설치 및 업데이트 후에도 번들된 diff 뷰어가 계속 로드되도록 합니다. (#56077) 감사합니다 @gumadeiras."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/diffs: load bundled Pierre themes without JSON module imports so diff rendering keeps working on newer Node builds. (#45869) thanks @NickHood1984.",
+      "translated": "플러그인/diffs: JSON 모듈 가져오기 없이 번들된 Pierre 테마를 로드하여 최신 Node 빌드에서 diff 렌더링이 계속 작동하도록 합니다. (#45869) 감사합니다 @NickHood1984."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/uninstall: remove owned `channels.<id>` config when uninstalling channel plugins, and keep the uninstall preview aligned with explicit channel ownership so built-in channels and shared keys stay intact. (#35915) Thanks @wbxl2000.",
+      "translated": "플러그인/제거: 채널 플러그인을 제거할 때 소유한 `channels.<id>` 구성을 제거하고 명시적 채널 소유권과 일치하도록 제거 미리보기를 유지하여 내장 채널과 공유 키가 손상되지 않도록 합니다. (#35915) 감사합니다 @wbxl2000."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: prefer explicit DM signals when choosing outbound direct rooms and routing unmapped verification summaries, so strict 2-person fallback rooms do not outrank the real DM. (#56076) thanks",
+      "translated": "플러그인/Matrix: 명시적 DM 신호를 선호하여 아웃바운드 직접 방을 선택하고 매핑되지 않은 검증 요약을 라우팅하여 엄격한 2인용 대체 방이 실제 DM보다 우선하지 않도록 합니다. (#56076) 감사합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: resolve env-backed `accessToken` and `password` SecretRefs against the active Matrix config env path during startup, and officially accept SecretRef `accessToken` config values. (#54980) thanks @kakahu2015.",
+      "translated": "플러그인/Matrix: 시작 시 활성 Matrix 구성 환경 경로에 대해 환경 기반 `accessToken` 및 `password` SecretRefs를 해결하고 SecretRef `accessToken` 구성 값을 공식적으로 수락합니다. (#54980) 감사합니다 @kakahu2015."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Microsoft Teams/proactive DMs: prefer the freshest personal conversation reference for `user:<aadObjectId>` sends when multiple stored references exist, so replies stop targeting stale DM threads. (#54702) Thanks @gumclaw.",
+      "translated": "Microsoft Teams/사전 DM: 여러 저장된 참조가 있을 때 `user:<aadObjectId>` 전송을 위한 최신 개인 대화 참조를 선호하여 응답이 오래된 DM 스레드를 대상으로 하지 않도록 합니다. (#54702) 감사합니다 @gumclaw."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/plugins: reuse the session workspace when building HTTP `/tools/invoke` tool lists and harden tool construction to infer the session agent workspace by default, so workspace plugins do not re-register on repeated HTTP tool calls. (#56101) thanks",
+      "translated": "게이트웨이/플러그인: HTTP `/tools/invoke` 도구 목록을 빌드할 때 세션 작업 공간을 재사용하고 도구 구성을 강화하여 기본적으로 세션 에이전트 작업 공간을 추론하여 작업 공간 플러그인이 반복적인 HTTP 도구 호출 시 다시 등록되지 않도록 합니다. (#56101) 감사합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Brave/web search: normalize unsupported Brave `country` filters to `ALL` before request and cache-key generation so locale-derived values like `VN` stop failing with upstream 422 validation errors. (#55695) Thanks @chen-zhang-cs-code.",
+      "translated": "Brave/웹 검색: 요청 및 캐시 키 생성 전에 지원되지 않는 Brave `country` 필터를 `ALL`로 정규화하여 `VN`과 같은 로케일 유도 값이 업스트림 422 유효성 검사 오류로 실패하지 않도록 합니다. (#55695) 감사합니다 @chen-zhang-cs-code."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/replies: preserve leading indentation when stripping inline reply tags so reply-tagged plain text and fenced code blocks keep their formatting. (#55960) Thanks @Nanako0129.",
+      "translated": "Discord/답글: 인라인 답글 태그를 제거할 때 선행 들여쓰기를 보존하여 답글 태그가 있는 일반 텍스트 및 펜스 코드 블록이 형식을 유지하도록 합니다. (#55960) 감사합니다 @Nanako0129."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/status: surface immediate gateway close reasons from lightweight probes and prefer those concrete auth or pairing failures over generic timeouts in `openclaw daemon status`. (#56282) Thanks @mbelinky.",
+      "translated": "데몬/상태: 경량 프로브에서 즉각적인 게이트웨이 종료 이유를 표면화하고 `openclaw daemon status`에서 일반적인 시간 초과보다 구체적인 인증 또는 페어링 실패를 선호합니다. (#56282) 감사합니다 @mbelinky."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/failover: classify HTTP 410 errors as retryable timeouts by default while still preserving explicit session-expired, billing, and auth signals from the payload. (#55201) thanks @nikus-pan.",
+      "translated": "에이전트/페일오버: HTTP 410 오류를 기본적으로 재시도 가능한 시간 초과로 분류하면서도 페이로드에서 명시적인 세션 만료, 결제 및 인증 신호를 유지합니다. (#55201) 감사합니다 @nikus-pan."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: restore completion announce delivery for extension channels like BlueBubbles. (#56348)",
+      "translated": "에이전트/서브에이전트: BlueBubbles와 같은 확장 채널에 대한 완료 알림 전송을 복원합니다. (#56348)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: load bundled `@matrix-org/matrix-sdk-crypto-nodejs` through `createRequire(...)` so E2EE media send and receive keep the package-local native binding lookup working in packaged ESM builds. (#54566) thanks @joelnishanth.",
+      "translated": "플러그인/Matrix: `createRequire(...)`를 통해 번들된 `@matrix-org/matrix-sdk-crypto-nodejs`를 로드하여 패키지된 ESM 빌드에서 E2EE 미디어 전송 및 수신이 패키지 로컬 네이티브 바인딩 조회를 계속 작동하도록 합니다. (#54566) 감사합니다 @joelnishanth."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Matrix: encrypt E2EE image thumbnails with `thumbnail_file` while keeping unencrypted-room previews on `thumbnail_url`, so encrypted Matrix image events keep thumbnail metadata without leaking plaintext previews. (#54711) thanks @frischeDaten.",
+      "translated": "플러그인/Matrix: `thumbnail_file`로 E2EE 이미지 썸네일을 암호화하면서 `thumbnail_url`에서 암호화되지 않은 방 미리보기를 유지하여 암호화된 Matrix 이미지 이벤트가 썸네일 메타데이터를 유지하면서 평문 미리보기를 누출하지 않도록 합니다. (#54711) 감사합니다 @frischeDaten."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/forum topics: keep native `/new` and `/reset` routed to the active topic by preserving the topic target on forum-thread command context. (#35963)",
+      "translated": "Telegram/포럼 주제: 포럼 스레드 명령 컨텍스트에서 주제 대상을 보존하여 기본 `/new` 및 `/reset`이 활성 주제로 라우팅되도록 합니다. (#35963)"
+    }
+  ],
+  "translatedAt": "2026-03-29T03:50:52.738Z",
+  "translationEngine": "openai",
+  "translationProvider": "openai",
+  "translationModel": "gpt-4o",
+  "translationEndpointType": "openai-compatible",
+  "translationCharCount": 25247
+}
