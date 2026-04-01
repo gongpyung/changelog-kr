@@ -1,0 +1,326 @@
+{
+  "version": "2.1.89",
+  "date": "2026-04-01",
+  "parsedAt": "2026-04-01T03:46:36.007Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `\"defer\"` permission decision to `PreToolUse` hooks — headless sessions can pause at a tool call and resume with `-p --resume` to have the hook re-evaluate",
+      "translated": "`PreToolUse` 훅에 `\"defer\"` 권한 결정 추가 — 헤드리스 세션이 도구 호출 시 일시 중지하고 `-p --resume`으로 재개하여 훅을 다시 평가할 수 있음"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_NO_FLICKER=1` environment variable to opt into flicker-free alt-screen rendering with virtualized scrollback",
+      "translated": "가상화된 스크롤백을 포함한 깜빡임 없는 대체 화면(alt-screen) 렌더링을 사용하기 위한 `CLAUDE_CODE_NO_FLICKER=1` 환경 변수 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `PermissionDenied` hook that fires after auto mode classifier denials — return `{retry: true}` to tell the model it can retry",
+      "translated": "자동 모드 분류기 거부 후 실행되는 `PermissionDenied` 훅 추가 — `{retry: true}`를 반환하여 모델이 재시도할 수 있도록 설정 가능"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added named subagents to `@` mention typeahead suggestions",
+      "translated": "`@` 멘션 자동 완성 제안에 이름이 지정된 서브에이전트 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `MCP_CONNECTION_NONBLOCKING=true` for `-p` mode to skip the MCP connection wait entirely, and bounded `--mcp-config` server connections at 5s instead of blocking on the slowest server",
+      "translated": "`-p` 모드에서 MCP 연결 대기를 완전히 건너뛰기 위한 `MCP_CONNECTION_NONBLOCKING=true` 추가 및 `--mcp-config` 서버 연결 시간을 가장 느린 서버에 맞춰 대기하는 대신 5초로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto mode: denied commands now show a notification and appear in `/permissions` → Recent tab where you can retry with `r`",
+      "translated": "자동 모드: 거부된 명령어가 알림으로 표시되며 `/permissions` → Recent 탭에서 `r` 키로 재시도 가능"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Edit(//path/**)` and `Read(//path/**)` allow rules to check the resolved symlink target, not just the requested path",
+      "translated": "`Edit(//path/**)` 및 `Read(//path/**)` 허용 규칙이 요청된 경로뿐만 아니라 확인된 심볼릭 링크 대상을 확인하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice push-to-talk not activating for some modifier-combo bindings, and voice mode on Windows failing with \"WebSocket upgrade rejected with HTTP 101\"",
+      "translated": "일부 조합 키 바인딩에서 음성 PTT(Push-to-Talk)가 활성화되지 않는 문제 및 Windows에서 음성 모드가 \"WebSocket upgrade rejected with HTTP 101\" 오류로 실패하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Edit/Write tools doubling CRLF on Windows and stripping Markdown hard line breaks (two trailing spaces)",
+      "translated": "Windows에서 Edit/Write 도구가 CRLF를 중복 생성하고 마크다운의 강제 줄 바꿈(끝부분 공백 두 개)을 제거하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `StructuredOutput` schema cache bug causing ~50% failure rate when using multiple schemas",
+      "translated": "여러 스키마를 사용할 때 약 50%의 실패율을 유발하던 `StructuredOutput` 스키마 캐시 버그 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory leak where large JSON inputs were retained as LRU cache keys in long-running sessions",
+      "translated": "장시간 실행되는 세션에서 대용량 JSON 입력이 LRU 캐시 키로 유지되어 발생하던 메모리 누수 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when removing a message from very large session files (over 50MB)",
+      "translated": "매우 큰 세션 파일(50MB 초과)에서 메시지를 삭제할 때 발생하던 충돌 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed LSP server zombie state after crash — server now restarts on next request instead of failing until session restart",
+      "translated": "충돌 후 LSP 서버가 좀비 상태가 되는 문제 수정 — 이제 세션을 재시작할 때까지 실패하는 대신 다음 요청 시 서버가 재시작됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt history entries containing CJK or emoji being silently dropped when they fall on a 4KB boundary in `~/.claude/history.jsonl`",
+      "translated": "`~/.claude/history.jsonl` 파일에서 CJK 문자나 이모지가 포함된 프롬프트 기록 항목이 4KB 경계에 걸칠 때 자동으로 삭제되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/stats` undercounting tokens by excluding subagent usage, and losing historical data beyond 30 days when the stats cache format changes",
+      "translated": "`/stats`에서 서브에이전트 사용량을 제외하여 토큰 수가 적게 계산되는 문제와 통계 캐시 형식이 변경될 때 30일 이전의 기록 데이터가 유실되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `-p --resume` hangs when the deferred tool input exceeds 64KB or no deferred marker exists, and `-p --continue` not resuming deferred tools",
+      "translated": "지연된 도구 입력이 64KB를 초과하거나 지연 마커가 없을 때 `-p --resume`이 멈추는 문제 및 `-p --continue`가 지연된 도구를 재개하지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude-cli://` deep links not opening on macOS",
+      "translated": "macOS에서 `claude-cli://` 딥 링크가 열리지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool errors truncating to only the first content block when the server returns multi-element error content",
+      "translated": "서버가 다중 요소 오류 콘텐츠를 반환할 때 MCP 도구 오류가 첫 번째 콘텐츠 블록으로 잘리는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skill reminders and other system context being dropped when sending messages with images via the SDK",
+      "translated": "SDK를 통해 이미지가 포함된 메시지를 보낼 때 스킬 리마인더 및 기타 시스템 컨텍스트가 누락되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PreToolUse/PostToolUse hooks to receive `file_path` as an absolute path for Write/Edit/Read tools, matching the documented behavior",
+      "translated": "문서화된 동작과 일치하도록 Write/Edit/Read 도구에 대해 `PreToolUse`/`PostToolUse` 훅이 `file_path`를 절대 경로로 받도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed autocompact thrash loop — now detects when context refills to the limit immediately after compacting three times in a row and stops with an actionable error instead of burning API calls",
+      "translated": "자동 압축(autocompact) 스레싱 루프 수정 — 3회 연속 압축 직후 컨텍스트가 다시 한도까지 차오르는 것을 감지하여 API 호출을 낭비하는 대신 조치 가능한 오류와 함께 중단되도록 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt cache misses in long sessions caused by tool schema bytes changing mid-session",
+      "translated": "세션 중간에 도구 스키마 바이트가 변경되어 긴 세션에서 프롬프트 캐시 미스가 발생하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed nested CLAUDE.md files being re-injected dozens of times in long sessions that read many files",
+      "translated": "많은 파일을 읽는 긴 세션에서 중첩된 `CLAUDE.md` 파일이 수십 번씩 다시 주입되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` crash when transcript contains a tool result from an older CLI version or interrupted write",
+      "translated": "트랜스크립트에 이전 CLI 버전의 도구 결과가 포함되어 있거나 쓰기가 중단된 경우 `--resume` 시 발생하는 크래시 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed misleading \"Rate limit reached\" message when the API returned an entitlement error — now shows the actual error with actionable hints",
+      "translated": "API가 권한(entitlement) 오류를 반환했을 때 \"Rate limit reached\"라는 오해의 소지가 있는 메시지가 표시되던 문제 수정 — 이제 실제 오류와 함께 조치 가능한 힌트 표시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hooks `if` condition filtering not matching compound commands (`ls && git push`) or commands with env-var prefixes (`FOO=bar git push`)",
+      "translated": "후크(hooks)의 `if` 조건 필터링이 복합 명령(`ls && git push`)이나 환경 변수 접두사가 붙은 명령(`FOO=bar git push`)과 일치하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed collapsed search/read group badges duplicating in terminal scrollback during heavy parallel tool use",
+      "translated": "도구를 과도하게 병렬로 사용할 때 터미널 스크롤백에서 축소된 검색/읽기 그룹 배지가 중복되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed notification `invalidates` not clearing the currently-displayed notification immediately",
+      "translated": "알림의 `invalidates`가 현재 표시된 알림을 즉시 지우지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt briefly disappearing after submit when background messages arrived during processing",
+      "translated": "처리 중 백그라운드 메시지가 도착했을 때 제출 후 프롬프트가 잠시 사라지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Devanagari and other combining-mark text being truncated in assistant output",
+      "translated": "어시스턴트 출력에서 데바나가리 및 기타 조합 문자(combining-mark) 텍스트가 잘리는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rendering artifacts on main-screen terminals after layout shifts",
+      "translated": "레이아웃 변경 후 메인 화면 터미널에서 발생하는 렌더링 잔상 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode failing to request microphone permission on macOS Apple Silicon",
+      "translated": "macOS Apple Silicon에서 음성 모드가 마이크 권한을 요청하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Shift+Enter submitting instead of inserting a newline on Windows Terminal Preview 1.25",
+      "translated": "Windows Terminal Preview 1.25에서 Shift+Enter 입력 시 줄바꿈 대신 제출되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed periodic UI jitter during streaming in iTerm2 when running inside tmux",
+      "translated": "tmux 내부의 iTerm2에서 스트리밍 중 주기적으로 UI가 떨리는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell tool incorrectly reporting failures when commands like `git push` wrote progress to stderr on Windows PowerShell 5.1",
+      "translated": "Windows PowerShell 5.1에서 `git push`와 같은 명령이 stderr에 진행 상황을 기록할 때 PowerShell 도구가 이를 실패로 잘못 보고하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a potential out-of-memory crash when the Edit tool was used on very large files (>1 GiB)",
+      "translated": "매우 큰 파일(1GiB 초과)에 Edit 도구를 사용할 때 발생할 수 있는 메모리 부족(out-of-memory) 크래시 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved collapsed tool summary to show \"Listed N directories\" for `ls`/`tree`/`du` instead of \"Read N files\"",
+      "translated": "축소된 도구 요약에서 `ls`/`tree`/`du`에 대해 \"Read N files\" 대신 \"N개의 디렉토리 목록 표시\"가 나타나도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Bash tool to warn when a formatter/linter command modifies files you have previously read, preventing stale-edit errors",
+      "translated": "포맷터/린터 명령이 이전에 읽은 파일을 수정할 때 Bash 도구가 경고를 표시하여 오래된 편집(stale-edit) 오류를 방지하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `@`-mention typeahead to rank source files above MCP resources with similar names",
+      "translated": "`@` 멘션 자동 완성 시 이름이 비슷한 MCP 리소스보다 소스 파일의 순위를 높게 표시하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved PowerShell tool prompt with version-appropriate syntax guidance (5.1 vs 7+)",
+      "translated": "PowerShell 도구 프롬프트에서 버전에 맞는 구문 안내(5.1 vs 7+)를 제공하도록 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `Edit` to work on files viewed via `Bash` with `sed -n` or `cat`, without requiring a separate `Read` call first",
+      "translated": "별도의 `Read` 호출 없이도 `Bash`에서 `sed -n` 또는 `cat`으로 확인한 파일에 대해 `Edit`이 작동하도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed hook output over 50K characters to be saved to disk with a file path + preview instead of being injected directly into context",
+      "translated": "5만 자를 초과하는 훅 출력 결과가 컨텍스트에 직접 삽입되는 대신 파일 경로와 미리보기가 포함된 형태로 디스크에 저장되도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `cleanupPeriodDays: 0` in settings.json to be rejected with a validation error — it previously silently disabled transcript persistence",
+      "translated": "`settings.json`에서 `cleanupPeriodDays: 0` 설정 시 유효성 검사 오류가 발생하도록 변경했습니다. 이전에는 기록 보존 기능이 별도 알림 없이 비활성화되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed thinking summaries to no longer be generated by default in interactive sessions — set `showThinkingSummaries: true` in settings.json to restore",
+      "translated": "대화형 세션에서 생각 요약(thinking summaries)이 더 이상 기본으로 생성되지 않습니다. 다시 사용하려면 `settings.json`에서 `showThinkingSummaries: true`로 설정하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Documented `TaskCreated` hook event and its blocking behavior",
+      "translated": "`TaskCreated` 훅 이벤트와 해당 이벤트의 블로킹 동작에 대한 설명을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Preserved task notifications when backgrounding a running command with Ctrl+B",
+      "translated": "Ctrl+B로 실행 중인 명령을 백그라운드로 전환할 때 작업 알림이 유지되도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "PowerShell tool on Windows: external-command arguments containing both a double-quote and whitespace now prompt instead of auto-allowing (PS 5.1 argument-splitting hardening)",
+      "translated": "Windows용 PowerShell 도구: 큰따옴표와 공백이 모두 포함된 외부 명령 인수는 이제 자동 허용 대신 확인 프롬프트를 표시합니다 (PS 5.1 인수 분할 보안 강화)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/env` now applies to PowerShell tool commands (previously only affected Bash)",
+      "translated": "`/env`가 이제 PowerShell 도구 명령에도 적용됩니다 (기존에는 `Bash`에만 적용)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/usage` now hides redundant \"Current week (Sonnet only)\" bar for Pro and Enterprise plans",
+      "translated": "`/usage`에서 Pro 및 Enterprise 플랜의 불필요한 \"이번 주 (Sonnet 전용)\" 막대를 숨깁니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Image paste no longer inserts a trailing space",
+      "translated": "이미지를 붙여넣을 때 더 이상 뒤에 공백이 삽입되지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pasting `!command` into an empty prompt now enters bash mode, matching typed `!` behavior",
+      "translated": "빈 프롬프트에 `!command`를 붙여넣으면 직접 `!`를 입력할 때와 마찬가지로 bash 모드로 진입합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/buddy` is here for April 1st — hatch a small creature that watches you code",
+      "translated": "만우절을 맞아 `/buddy` 기능이 추가되었습니다. 코딩 과정을 지켜보는 작은 생물을 부화시켜 보세요."
+    }
+  ],
+  "translatedAt": "2026-04-01T03:49:01.070Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5747
+}
