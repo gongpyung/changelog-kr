@@ -1,0 +1,128 @@
+{
+  "version": "2.1.90",
+  "date": "2026-04-01",
+  "parsedAt": "2026-04-02T03:27:45.368Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/powerup` — interactive lessons teaching Claude Code features with animated demos",
+      "translated": "애니메이션 데모와 함께 Claude Code 기능을 가르치는 대화형 레슨인 `/powerup` 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` env var to keep the existing marketplace cache when `git pull` fails, useful in offline environments",
+      "translated": "`git pull` 실패 시 기존 마켓플레이스 캐시를 유지하는 `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` 환경 변수 추가 (오프라인 환경에서 유용)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `.husky` to protected directories (acceptEdits mode)",
+      "translated": "보호 디렉터리에 `.husky` 추가 (acceptEdits 모드)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an infinite loop where the rate-limit options dialog would repeatedly auto-open after hitting your usage limit, eventually crashing the session",
+      "translated": "사용량 한도 도달 시 속도 제한 옵션 대화상자가 반복적으로 자동으로 열려 결국 세션이 중단되는 무한 루프 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` causing a full prompt-cache miss on the first request for users with deferred tools, MCP servers, or custom agents (regression since v2.1.69)",
+      "translated": "지연된 도구, MCP 서버 또는 사용자 정의 에이전트가 있는 사용자의 첫 번째 요청에서 `--resume`가 전체 프롬프트 캐시 미스를 유발하는 문제 수정 (v2.1.69 이후 회귀)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Edit`/`Write` failing with \"File content has changed\" when a PostToolUse format-on-save hook rewrites the file between consecutive edits",
+      "translated": "PostToolUse 저장 시 포맷 훅이 연속된 편집 사이에 파일을 재작성할 때 `Edit`/`Write`가 \"File content has changed\" 오류로 실패하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `PreToolUse` hooks that emit JSON to stdout and exit with code 2 not correctly blocking the tool call",
+      "translated": "stdout으로 JSON을 출력하고 코드 2로 종료하는 `PreToolUse` 훅이 도구 호출을 올바르게 차단하지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed collapsed search/read summary badge appearing multiple times in fullscreen scrollback when a CLAUDE.md file auto-loads during a tool call",
+      "translated": "도구 호출 중 `CLAUDE.md` 파일이 자동 로드될 때 전체 화면 스크롤백에서 접힌 검색/읽기 요약 배지가 여러 번 나타나는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode not respecting explicit user boundaries (\"don't push\", \"wait for X before Y\") even when the action would otherwise be allowed",
+      "translated": "작업이 허용되는 경우에도 명시적인 사용자 경계(\"don't push\", \"wait for X before Y\")를 준수하지 않는 자동 모드 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed click-to-expand hover text being nearly invisible on light terminal themes",
+      "translated": "밝은 터미널 테마에서 클릭하여 확장 시 나타나는 마우스 오버 텍스트가 거의 보이지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed UI crash when malformed tool input reached the permission dialog",
+      "translated": "잘못된 형식의 도구 입력이 권한 대화상자에 전달될 때 UI가 충돌하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed headers disappearing when scrolling `/model`, `/config`, and other selection screens",
+      "translated": "`/model`, `/config` 및 기타 선택 화면을 스크롤할 때 헤더가 사라지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hardened PowerShell tool permission checks: fixed trailing `&` background job bypass, `-ErrorAction Break` debugger hang, archive-extraction TOCTOU, and parse-fail fallback deny-rule degradation",
+      "translated": "PowerShell 도구 권한 확인 강화: 후행 `&` 백그라운드 작업 우회, `-ErrorAction Break` 디버거 중단, 아카이브 추출 TOCTOU 및 구문 분석 실패 시 대체 거부 규칙 저하 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance: eliminated per-turn JSON.stringify of MCP tool schemas on cache-key lookup",
+      "translated": "개선: 캐시 키 조회 시 MCP 도구 스키마에 대해 매 턴 발생하던 `JSON.stringify` 제거"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance: SSE transport now handles large streamed frames in linear time (was quadratic)",
+      "translated": "개선: SSE 전송이 이제 큰 스트리밍 프레임을 선형 시간으로 처리 (기존에는 이차 시간 소요)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance: SDK sessions with long conversations no longer slow down quadratically on transcript writes",
+      "translated": "개선: 긴 대화가 포함된 SDK 세션에서 대화 기록 작성 시 더 이상 이차 속도로 느려지지 않음"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/resume` all-projects view to load project sessions in parallel, improving load times for users with many projects",
+      "translated": "여러 프로젝트가 있는 사용자의 로드 시간을 개선하기 위해 `/resume` 전체 프로젝트 보기에서 프로젝트 세션을 병렬로 로드하도록 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `--resume` picker to no longer show sessions created by `claude -p` or SDK invocations",
+      "translated": "`--resume` 선택기가 `claude -p` 또는 SDK 호출로 생성된 세션을 더 이상 표시하지 않도록 변경"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed `Get-DnsClientCache` and `ipconfig /displaydns` from auto-allow (DNS cache privacy)",
+      "translated": "자동 허용 목록에서 `Get-DnsClientCache` 및 `ipconfig /displaydns` 제거 (DNS 캐시 개인정보 보호)"
+    }
+  ],
+  "translatedAt": "2026-04-02T03:30:22.152Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "glm-5",
+  "translationEndpointType": "coding",
+  "translationCharCount": 2194
+}
