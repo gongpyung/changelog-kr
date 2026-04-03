@@ -1,0 +1,92 @@
+{
+  "version": "2.1.91",
+  "date": "2026-04-02",
+  "parsedAt": "2026-04-03T03:29:06.660Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added MCP tool result persistence override via `_meta[\"anthropic/maxResultSizeChars\"]` annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation",
+      "translated": "`_meta[\"anthropic/maxResultSizeChars\"]` 어노테이션(최대 500K)을 통해 MCP 도구 결과 유지 설정을 재정의할 수 있는 기능을 추가하여, DB 스키마와 같은 대용량 결과가 잘리지 않고 전달되도록 개선했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `disableSkillShellExecution` setting to disable inline shell execution in skills, custom slash commands, and plugin commands",
+      "translated": "스킬, 커스텀 슬래시 명령어, 플러그인 명령어에서 인라인 셸 실행을 비활성화하는 `disableSkillShellExecution` 설정을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for multi-line prompts in `claude-cli://open?q=` deep links (encoded newlines `%0A` no longer rejected)",
+      "translated": "`claude-cli://open?q=` 딥 링크에서 다중 행 프롬프트를 지원합니다. (인코딩된 줄바꿈 `%0A`이 더 이상 거부되지 않습니다.)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins can now ship executables under `bin/` and invoke them as bare commands from the Bash tool",
+      "translated": "플러그인이 `bin/` 디렉토리에 실행 파일을 포함하고, 이를 Bash 도구에서 일반 명령어로 호출할 수 있게 되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed transcript chain breaks on `--resume` that could lose conversation history when async transcript writes fail silently",
+      "translated": "비동기 트랜스크립트 쓰기가 소리 없이 실패할 경우 대화 기록이 유실될 수 있었던 `--resume` 시의 트랜스크립트 체인 끊김 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `cmd+delete` not deleting to start of line on iTerm2, kitty, WezTerm, Ghostty, and Windows Terminal",
+      "translated": "iTerm2, kitty, WezTerm, Ghostty 및 Windows Terminal에서 `cmd+delete`가 줄 시작 부분까지 삭제되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan mode in remote sessions losing track of the plan file after a container restart, which caused permission prompts on plan edits and an empty plan-approval modal",
+      "translated": "원격 세션의 플랜 모드에서 컨테이너 재시작 후 플랜 파일을 찾지 못해, 플랜 편집 시 권한 요청이 발생하거나 빈 플랜 승인 모달이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed JSON schema validation for `permissions.defaultMode: \"auto\"` in settings.json",
+      "translated": "settings.json의 `permissions.defaultMode: \"auto\"`에 대한 JSON 스키마 검증 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows version cleanup not protecting the active version's rollback copy",
+      "translated": "Windows 버전 정리 시 활성 버전의 롤백 복사본이 보호되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/feedback` now explains why it's unavailable instead of disappearing from the slash menu",
+      "translated": "`/feedback` 명령어가 슬래시 메뉴에서 사라지는 대신, 사용 불가능한 이유를 설명하도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/claude-api` skill guidance for agent design patterns including tool surface decisions, context management, and caching strategy",
+      "translated": "도구 노출 결정, 컨텍스트 관리, 캐싱 전략을 포함한 에이전트 디자인 패턴에 대한 `/claude-api` 스킬 가이드를 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance: faster `stripAnsi` on Bun by routing through `Bun.stripANSI`",
+      "translated": "개선: Bun에서 `Bun.stripANSI`를 사용하도록 경로를 변경하여 `stripAnsi` 속도를 향상했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Edit tool now uses shorter `old_string` anchors, reducing output tokens",
+      "translated": "Edit 도구가 더 짧은 `old_string` 앵커를 사용하여 출력 토큰 수를 줄입니다."
+    }
+  ],
+  "translatedAt": "2026-04-03T03:29:18.906Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1470
+}
