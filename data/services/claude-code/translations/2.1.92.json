@@ -1,0 +1,140 @@
+{
+  "version": "2.1.92",
+  "date": "2026-04-04",
+  "parsedAt": "2026-04-04T03:17:53.822Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `forceRemoteSettingsRefresh` policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed)",
+      "translated": "`forceRemoteSettingsRefresh` 정책 설정 추가: 설정 시 CLI는 원격 관리 설정을 새로 가져올 때까지 시작을 차단하며, 가져오기에 실패하면 종료됨(fail-closed)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added interactive Bedrock setup wizard accessible from the login screen when selecting \"3rd-party platform\" — guides you through AWS authentication, region configuration, credential verification, and model pinning",
+      "translated": "로그인 화면에서 \"3rd-party platform\" 선택 시 접근 가능한 대화형 Bedrock 설정 마법사 추가 — AWS 인증, 리전 구성, 자격 증명 확인 및 모델 고정 과정을 안내함"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added per-model and cache-hit breakdown to `/cost` for subscription users",
+      "translated": "구독 사용자를 위해 `/cost`에서 모델별 및 캐시 히트 상세 내역 확인 가능"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/release-notes` is now an interactive version picker",
+      "translated": "`/release-notes`가 대화형 버전 선택기로 변경됨"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control session names now use your hostname as the default prefix (e.g. `myhost-graceful-unicorn`), overridable with `--remote-control-session-name-prefix`",
+      "translated": "Remote Control 세션 이름의 기본 접두사로 호스트 이름을 사용함(예: `myhost-graceful-unicorn`). `--remote-control-session-name-prefix`로 변경 가능"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pro users now see a footer hint when returning to a session after the prompt cache has expired, showing roughly how many tokens the next turn will send uncached",
+      "translated": "Pro 사용자가 프롬프트 캐시 만료 후 세션으로 돌아올 때, 다음 턴에서 캐시되지 않은 상태로 전송될 예상 토큰 수를 푸터 힌트로 표시함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent spawning permanently failing with \"Could not determine pane count\" after tmux windows are killed or renumbered during a long-running session",
+      "translated": "장시간 실행되는 세션 중 tmux 창이 종료되거나 번호가 재지정된 후, 서브에이전트 생성이 \"Could not determine pane count\" 오류와 함께 영구적으로 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt-type Stop hooks incorrectly failing when the small fast model returns `ok:false`, and restored `preventContinuation:true` semantics for non-Stop prompt-type hooks",
+      "translated": "소형 고속 모델이 `ok:false`를 반환할 때 prompt-type Stop 훅이 잘못 실패하던 문제 수정 및 Stop이 아닌 prompt-type 훅에 대한 `preventContinuation:true` 의미 체계 복구"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tool input validation failures when streaming emits array/object fields as JSON-encoded strings",
+      "translated": "스트리밍 시 배열/객체 필드를 JSON 인코딩된 문자열로 내보낼 때 도구 입력 유효성 검사가 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an API 400 error that could occur when extended thinking produced a whitespace-only text block alongside real content",
+      "translated": "확장된 사고(extended thinking) 과정에서 실제 콘텐츠와 함께 공백만 있는 텍스트 블록이 생성될 때 발생할 수 있던 API 400 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed accidental feedback survey submissions from auto-pilot keypresses and consecutive-prompt digit collisions",
+      "translated": "자동 실행 키 입력 및 연속 프롬프트의 숫자 충돌로 인해 피드백 설문이 실수로 제출되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed misleading \"esc to interrupt\" hint appearing alongside \"esc to clear\" when a text selection exists in fullscreen mode during processing",
+      "translated": "전체 화면 모드에서 텍스트 선택 영역이 있을 때 처리 중 \"esc to clear\"와 함께 오해의 소지가 있는 \"esc to interrupt\" 힌트가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Homebrew install update prompts to use the cask's release channel (`claude-code` → stable, `claude-code@latest` → latest)",
+      "translated": "Homebrew 설치 업데이트 프롬프트가 cask의 릴리스 채널을 사용하도록 수정(`claude-code` → stable, `claude-code@latest` → latest)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ctrl+e` jumping to the end of the next line when already at end of line in multiline prompts",
+      "translated": "다중 행 프롬프트에서 이미 줄 끝에 있을 때 `ctrl+e`를 누르면 다음 줄 끝으로 이동하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an issue where the same message could appear at two positions when scrolling up in fullscreen mode (iTerm2, Ghostty, and other terminals with DEC 2026 support)",
+      "translated": "전체 화면 모드에서 위로 스크롤할 때 동일한 메시지가 두 위치에 나타날 수 있던 문제 수정(iTerm2, Ghostty 및 DEC 2026을 지원하는 기타 터미널)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed idle-return \"/clear to save X tokens\" hint showing cumulative session tokens instead of current context size",
+      "translated": "유휴 상태 복귀 시 \"/clear to save X tokens\" 힌트가 현재 컨텍스트 크기 대신 누적 세션 토큰을 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin MCP servers stuck \"connecting\" on session start when they duplicate a claude.ai connector that is unauthenticated",
+      "translated": "인증되지 않은 claude.ai 커넥터와 중복되는 플러그인 MCP 서버가 세션 시작 시 \"connecting\" 상태로 멈추던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Write tool diff computation speed for large files (60% faster on files with tabs/`&`/`$`)",
+      "translated": "대용량 파일에 대한 Write 도구의 diff 계산 속도 개선(탭/`&`/`$`가 포함된 파일에서 60% 빨라짐)"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed `/tag` command",
+      "translated": "`/tag` 명령 삭제"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed `/vim` command (toggle vim mode via `/config` → Editor mode)",
+      "translated": "`/vim` 명령 삭제(`/config` → Editor mode를 통해 vim 모드 전환 가능)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Linux sandbox now ships the `apply-seccomp` helper in both npm and native builds, restoring unix-socket blocking for sandboxed commands",
+      "translated": "Linux sandbox의 npm 및 native builds 모두에 `apply-seccomp` 헬퍼가 포함되어, 샌드박스 명령어에 대한 unix-socket 차단 기능이 복구되었습니다."
+    }
+  ],
+  "translatedAt": "2026-04-04T03:18:47.622Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2598
+}
