@@ -1,0 +1,62 @@
+{
+  "version": "2026.4.8",
+  "date": "2026-04-08",
+  "parsedAt": "2026-04-08T07:54:21.239Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/setup: load setup and secret contracts through packaged top-level sidecars so installed npm builds no longer try to import missing `dist/extensions/telegram/src/*` files during gateway startup.",
+      "translated": "패키징된 최상위 사이드카를 통해 설정 및 비밀 계약(secret contracts)을 로드하여, 설치된 npm 빌드가 게이트웨이 시작 시 누락된 `dist/extensions/telegram/src/*` 파일을 가져오려고 시도하지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bundled channels/setup: load shared secret contracts through packaged top-level sidecars across BlueBubbles, Feishu, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, and Zalo so installed npm builds no longer rely on missing `dist/extensions/*/src/*` files during gateway startup.",
+      "translated": "BlueBubbles, Feishu, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, Zalo 전반에서 패키징된 최상위 사이드카를 통해 공유 비밀 계약을 로드하여, 설치된 npm 빌드가 게이트웨이 시작 시 누락된 `dist/extensions/*/src/*` 파일에 더 이상 의존하지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bundled plugins: align packaged plugin compatibility metadata with the release version so bundled channels and providers load on OpenClaw 2026.4.8.",
+      "translated": "패키징된 플러그인 호환성 메타데이터를 릴리스 버전과 일치시켜, 번들 채널 및 프로바이더가 OpenClaw 2026.4.8에서 정상적으로 로드되도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/progress: keep `update_plan` available for OpenAI-family runs while returning compact success payloads and allowing `tools.experimental.planTool=false` to opt out.",
+      "translated": "OpenAI 계열 실행 시 `update_plan`을 계속 사용할 수 있도록 유지하면서 간결한 성공 페이로드를 반환하고, `tools.experimental.planTool=false`를 통한 옵트아웃을 허용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: keep `/exec` current-default reporting aligned with real runtime behavior so `host=auto` sessions surface the correct host-aware fallback policy (`full/off` on gateway or node, `deny/off` on sandbox) instead of stale stricter defaults.",
+      "translated": "`/exec`의 현재 기본 보고 방식을 실제 런타임 동작과 일치시켜, `host=auto` 세션이 오래되고 엄격한 기본값 대신 올바른 호스트 인식 폴백 정책(게이트웨이 또는 노드에서는 `full/off`, 샌드박스에서는 `deny/off`)을 표시하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: honor ambient HTTP(S) proxy settings for Socket Mode WebSocket connections, including NO_PROXY exclusions, so proxy-only deployments can connect without a monkey patch. (#62878) Thanks @mjamiv.",
+      "translated": "`NO_PROXY` 제외 설정을 포함한 주변 HTTP(S) 프록시 설정을 Socket Mode WebSocket 연결에 적용하여, 프록시 전용 배포 환경에서도 별도의 멍키 패치 없이 연결할 수 있도록 했습니다. (#62878) @mjamiv님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack/actions: pass the already resolved read token into `downloadFile` so SecretRef-backed bot tokens no longer fail after a raw config re-read. (#62097) Thanks @martingarramon.",
+      "translated": "이미 확인된 읽기 토큰을 `downloadFile`에 전달하여, 원시 설정 재로드 후에도 SecretRef 기반 봇 토큰이 실패하지 않도록 수정했습니다. (#62097) @martingarramon님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Network/fetch guard: skip target DNS pinning when trusted env-proxy mode is active so proxy-only sandboxes can let the trusted proxy resolve outbound hosts. (#59007) Thanks @cluster2600.",
+      "translated": "신뢰할 수 있는 env-proxy 모드가 활성화된 경우 대상 DNS 고정(pinning)을 건너뛰어, 프록시 전용 샌드박스가 신뢰할 수 있는 프록시를 통해 아웃바운드 호스트를 확인(resolve)할 수 있도록 했습니다. (#59007) @cluster2600님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-04-08T07:55:00.905Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1640
+}
