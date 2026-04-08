@@ -1,0 +1,164 @@
+{
+  "version": "2.1.94",
+  "date": "2026-04-07",
+  "parsedAt": "2026-04-08T03:33:41.703Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for Amazon Bedrock powered by Mantle, set `CLAUDE_CODE_USE_MANTLE=1`",
+      "translated": "Mantle로 구동되는 Amazon Bedrock 지원 추가, `CLAUDE_CODE_USE_MANTLE=1`로 설정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (control this with `/effort`)",
+      "translated": "API 키, Bedrock/Vertex/Foundry, Team 및 Enterprise 사용자를 위한 기본 effort 수준을 medium에서 high로 변경 (`/effort`로 제어 가능)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added compact `Slacked #channel` header with a clickable channel link for Slack MCP send-message tool calls",
+      "translated": "Slack MCP send-message 도구 호출을 위해 클릭 가능한 채널 링크가 포함된 간결한 `Slacked #channel` 헤더 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `keep-coding-instructions` frontmatter field support for plugin output styles",
+      "translated": "플러그인 출력 스타일에 대한 `keep-coding-instructions` frontmatter 필드 지원 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `hookSpecificOutput.sessionTitle` to `UserPromptSubmit` hooks for setting the session title",
+      "translated": "세션 제목 설정을 위해 `UserPromptSubmit` 훅에 `hookSpecificOutput.sessionTitle` 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin skills declared via `\"skills\": [\"./\"]` now use the skill's frontmatter `name` for the invocation name instead of the directory basename, giving a stable name across install methods",
+      "translated": "`\"skills\": [\"./\"]`로 선언된 플러그인 스킬은 이제 디렉토리 basename 대신 스킬의 frontmatter `name`을 호출 이름으로 사용하여, 설치 방식에 관계없이 일관된 이름을 제공함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agents appearing stuck after a 429 rate-limit response with a long Retry-After header — the error now surfaces immediately instead of silently waiting",
+      "translated": "긴 Retry-After 헤더가 포함된 429 속도 제한(rate-limit) 응답 후 에이전트가 멈춘 것처럼 보이던 문제 수정 — 이제 묵묵히 대기하는 대신 오류가 즉시 표시됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Console login on macOS silently failing with \"Not logged in\" when the login keychain is locked or its password is out of sync — the error is now surfaced and `claude doctor` diagnoses the fix",
+      "translated": "macOS에서 로그인 키체인이 잠겨 있거나 비밀번호가 동기화되지 않았을 때 Console 로그인이 \"Not logged in\"과 함께 조용히 실패하던 문제 수정 — 이제 오류가 표시되며 `claude doctor`가 해결 방법을 진단함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin skill hooks defined in YAML frontmatter being silently ignored",
+      "translated": "YAML frontmatter에 정의된 플러그인 스킬 훅이 무시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin hooks failing with \"No such file or directory\" when `CLAUDE_PLUGIN_ROOT` was not set",
+      "translated": "`CLAUDE_PLUGIN_ROOT`가 설정되지 않았을 때 플러그인 훅이 \"No such file or directory\" 오류와 함께 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `${CLAUDE_PLUGIN_ROOT}` resolving to the marketplace source directory instead of the installed cache for local-marketplace plugins on startup",
+      "translated": "시작 시 local-marketplace 플러그인에 대해 `${CLAUDE_PLUGIN_ROOT}`가 설치된 캐시 대신 마켓플레이스 소스 디렉토리로 해석되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scrollback showing the same diff repeated and blank pages in long-running sessions",
+      "translated": "장기 실행 세션에서 스크롤백(scrollback) 시 동일한 diff가 반복되거나 빈 페이지가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multiline user prompts in the transcript indenting wrapped lines under the `❯` caret instead of under the text",
+      "translated": "기록(transcript)에서 여러 줄 사용자 프롬프트의 줄바꿈 시 텍스트가 아닌 `❯` 캐럿 아래로 들여쓰기되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Shift+Space inserting the literal word \"space\" instead of a space character in search inputs",
+      "translated": "검색 입력창에서 Shift+Space 입력 시 공백 문자 대신 \"space\"라는 단어가 입력되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hyperlinks opening two browser tabs when clicked inside tmux running in an xterm.js-based terminal (VS Code, Hyper, Tabby)",
+      "translated": "xterm.js 기반 터미널(VS Code, Hyper, Tabby)에서 실행되는 tmux 내부에서 하이퍼링크 클릭 시 브라우저 탭 두 개가 열리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an alt-screen rendering bug where content height changes mid-scroll could leave compounding ghost lines",
+      "translated": "스크롤 도중 콘텐츠 높이가 변경될 때 누적되는 고스트 라인(ghost lines)이 남는 alt-screen 렌더링 버그 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `FORCE_HYPERLINK` environment variable being ignored when set via `settings.json` `env`",
+      "translated": "`settings.json`의 `env`를 통해 설정할 때 `FORCE_HYPERLINK` 환경 변수가 무시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed native terminal cursor not tracking the selected tab in dialogs, so screen readers and magnifiers can follow tab navigation",
+      "translated": "대화상자에서 선택된 탭을 네이티브 터미널 커서가 추적하지 못해 스크린 리더 및 돋보기가 탭 탐색을 따라가지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock invocation of Sonnet 3.5 v2 by using the `us.` inference profile ID",
+      "translated": "`us.` inference profile ID를 사용하여 Sonnet 3.5 v2의 Bedrock 호출 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK/print mode not preserving the partial assistant response in conversation history when interrupted mid-stream",
+      "translated": "SDK/print 모드에서 스트림 도중 중단되었을 때 대화 기록에 부분적인 어시스턴트 응답이 저장되지 않던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `--resume` to resume sessions from other worktrees of the same repo directly instead of printing a `cd` command",
+      "translated": "`cd` 명령어를 출력하는 대신 동일한 저장소의 다른 워크트리에서 세션을 직접 재개하도록 `--resume` 기능 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed CJK and other multibyte text being corrupted with U+FFFD in stream-json input/output when chunk boundaries split a UTF-8 sequence",
+      "translated": "청크 경계가 UTF-8 시퀀스를 분할할 때 `stream-json` 입력/출력에서 CJK 및 기타 멀티바이트 텍스트가 U+FFFD로 손상되던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Reduced cold-open subprocess work on starting a session",
+      "translated": "[VSCode] 세션 시작 시 콜드 오픈 서브프로세스 작업 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys",
+      "translated": "[VSCode] 타이핑하거나 화살표 키를 사용할 때 마우스 커서가 목록 위에 있으면 드롭다운 메뉴에서 잘못된 항목이 선택되던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a warning banner when `settings.json` files fail to parse, so users know their permission rules are not being applied",
+      "translated": "[VSCode] `settings.json` 파일 파싱 실패 시 권한 규칙이 적용되지 않음을 사용자가 알 수 있도록 경고 배너 추가"
+    }
+  ],
+  "translatedAt": "2026-04-08T03:37:28.673Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "glm-5",
+  "translationEndpointType": "coding",
+  "translationCharCount": 2901
+}
