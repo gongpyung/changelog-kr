@@ -1,0 +1,926 @@
+{
+  "version": "3.16.0",
+  "date": "2026-04-08",
+  "parsedAt": "2026-04-08T14:04:03.650Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces.",
+      "translated": "부모 컨텍스트 해결 방식에 맞춰 베리언트 전파 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior.",
+      "translated": "설치 시 OpenCode 최소 버전 확인 강제 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task-system default behavior alignment so omitted configuration behaves consistently across runtime paths.",
+      "translated": "기존 항목을 유지하는 대신 고정된 플러그인 버전을 실제로 업그레이드하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Install and publish workflow hardening, including safer release sequencing and package/install fixes.",
+      "translated": "500회 반복 제한을 반영하도록 템플릿 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c5b6d59c Merge pull request #3227 from code-yeongyu/fix/installer-and-auto-update",
+      "translated": "단순 모드 계획 진행률에서 최상위 체크박스만 계산하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d781b753 Merge pull request #3226 from code-yeongyu/fix/plan-progress-and-trust",
+      "translated": "계획 이름 정규화 시 비 ASCII 문자 보존"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bdf6e419 Merge pull request #3225 from code-yeongyu/fix/agent-name-safety",
+      "translated": "환경 변수 접근 시 opencode-project 및 local 범위를 신뢰할 수 없는 것으로 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c37e440b Merge pull request #3224 from code-yeongyu/fix/oauth-wiring",
+      "translated": "항목 찾기에서 표준 플러그인 이름과 기존 플러그인 이름을 모두 일치시키도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e1cbbed4 Merge pull request #3223 from code-yeongyu/fix/core-runtime-bugs",
+      "translated": "백그라운드 실행 경로의 에이전트 이름에서 ZWSP 제거"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5abab08e test(tmux): add missing tmux exports to zombie-pane mock module",
+      "translated": "ULW 자동 시작 범위를 선두 키워드 위치로만 제한"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7f8ed7b0 test(tmux): add missing tmux exports to zombie-pane mock module",
+      "translated": "skill-mcp의 withOperationRetry에 요청 후 401/403 핸들러 연결"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "600d68da test(tmux): add missing tmux exports to zombie-pane mock module",
+      "translated": "동시성 중복 제거를 위해 provider.refresh()에 리프레시 뮤텍스 연결"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d53be836 test(tmux): add missing tmux exports to zombie-pane mock module",
+      "translated": "processKey 오류 정리 시 하위 할당량의 이중 감소 방지"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4c0225a2 test(tmux): add missing tmux exports to zombie-pane mock module",
+      "translated": "notifyParentSession에서 하위 작업 베리언트 대신 부모 세션 베리언트 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2f4bd480 fix(ci): isolate mock.module tests per-file to prevent cross-contamination",
+      "translated": "세션 프롬프트 매개변수에서 maxOutputTokens 마이그레이션 완료"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9fb7cfb3 fix(ci): isolate mock.module tests per-file to prevent cross-contamination",
+      "translated": "등록된 op"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28b9f777 fix(ci): isolate mock.module tests per-file to prevent cross-contamination",
+      "translated": "교차 오염을 방지하기 위해 파일별로 mock.module 테스트 격리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dc1546c6 fix(ci): isolate mock.module tests per-file to prevent cross-contamination",
+      "translated": "교차 오염을 방지하기 위해 파일별로 mock.module 테스트 격리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "70955b2b fix(ci): isolate mock.module tests per-file to prevent cross-contamination",
+      "translated": "교차 오염을 방지하기 위해 파일별로 mock.module 테스트 격리"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "85fa9390 test(skill-mcp): fix connection env var tests after oauth-handler import changes",
+      "translated": "Oauth-handler 임포트 변경 후 연결 환경 변수 테스트 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "119c2334 test(background): fix variant propagation test to match parent-context resolution",
+      "translated": "부모 컨텍스트 확인에 맞게 variant 전파 테스트 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6d8d82d7 fix(installer): enforce minimum OpenCode version check during install",
+      "translated": "설치 중 최소 OpenCode 버전 검사 시행"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "389b194f fix(installer): actually upgrade pinned plugin version instead of preserving old entry",
+      "translated": "기존 항목을 유지하는 대신 고정된 플러그인 버전을 실제로 업그레이드"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bbbbf683 fix(ralph-loop): update template to reflect 500 iteration cap",
+      "translated": "500회 반복 제한을 반영하여 템플릿 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0cb938e3 fix(boulder): count only top-level checkboxes in simple-mode plan progress",
+      "translated": "심플 모드 플랜 진행률에서 최상위 체크박스만 계산"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aa0de17f fix(start-work): preserve non-ASCII characters in plan name normalization",
+      "translated": "플랜 이름 정규화 시 비 ASCII 문자 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "001d29ea fix(skill-mcp): treat opencode-project and local scopes as untrusted for env var access",
+      "translated": "환경 변수 접근에 대해 opencode-project 및 로컬 범위를 신뢰할 수 없는 것으로 처리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "15e3b14c fix(auto-update): match both canonical and legacy plugin names in entry finder",
+      "translated": "항목 파인더에서 표준 및 레거시 플러그인 이름 모두 일치"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "359f7413 fix(delegate-task): strip ZWSP from agent names on background launch path",
+      "translated": "백그라운드 실행 경로에서 에이전트 이름의 ZWSP 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "917ae4df fix(keyword-detector): narrow ULW auto-start to leading keyword position only",
+      "translated": "ULW 자동 시작을 선행 키워드 위치로만 제한"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0479693c fix(oauth): wire post-request 401/403 handler into skill-mcp withOperationRetry",
+      "translated": "요청 후 401/403 핸들러를 skill-mcp withOperationRetry에 연결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "63ba16bc fix(oauth): wire refresh mutex into provider.refresh() for concurrent deduplication",
+      "translated": "동시 중복 제거를 위해 provider.refresh()에 새로고침 뮤텍스 연결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "80c74c88 fix(background): prevent double-decrement of descendant quota in processKey error cleanup",
+      "translated": "ProcessKey 오류 정리 시 하위 할당량의 이중 감소 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1cf4119d fix(background): use parent session variant in notifyParentSession instead of child task variant",
+      "translated": "NotifyParentSession에서 하위 작업 variant 대신 부모 세션 variant 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed16dc06 fix(chat-params): complete maxOutputTokens migration in session prompt params",
+      "translated": "세션 프롬프트 매개변수에서 maxOutputTokens 마이그레이션 완료"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06b825dd fix(start-work): reuse registered opencode agent names",
+      "translated": "등록된 opencode 에이전트 이름 재사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24629643 fix(start-work): use canonical display name for command routing",
+      "translated": "명령어 라우팅에 정식 표시 이름 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8925ec3a fix(start-work): align command routing with exported agent keys",
+      "translated": "내보낸 에이전트 키에 맞춰 명령어 라우팅 정렬"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43941296 fix(compaction): harden continuation directive markers",
+      "translated": "연속 지시문 마커 강화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cd95172e fix(start-work): keep native command agents on config keys",
+      "translated": "설정 키에 네이티브 명령 에이전트 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aa1a18c5 Merge pull request #3218 from code-yeongyu/fix/3216-plugin-scope-filter",
+      "translated": "풀 리퀘스트 #3218을 code-yeongyu/fix/3216-plugin-scope-filter에서 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b2856725 fix(plugin-loader): filter project-scoped plugins by cwd",
+      "translated": "Cwd 기반으로 프로젝트 범위 플러그인 필터링"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d22c3f23 test(plugin-interface): fix Atlas display name expectation",
+      "translated": "Atlas 표시 이름 기대값 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2c6a1614 test(runtime-fallback): fix OpenAI auto-retry test expectations",
+      "translated": "OpenAI 자동 재시도 테스트 기대값 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "902b2f9f test(ci): update workflow test to match actual CI command",
+      "translated": "실제 CI 명령어와 일치하도록 워크플로 테스트 업데이트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4d9652c0 test(start-work): update display name expectations for ZWSP fix",
+      "translated": "ZWSP 수정에 대한 표시 이름 기대값 업데이트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "94449e0a test(delegate-task): update isPlanAgent test for exact match fix",
+      "translated": "정확한 일치 수정을 위해 isPlanAgent 테스트 업데이트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1a04a6ef test(ralph-loop): update iteration cap expectation to 500",
+      "translated": "반복 횟수 제한 기대값을 500으로 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ab0e1e3b fix(oauth): refresh-once handler for 401/403 responses",
+      "translated": "401/403 응답을 위한 refresh-once 핸들러"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7ba41d38 fix(oauth): atomic storage writes for token safety",
+      "translated": "토큰 안전성을 위한 원자적 스토리지 쓰기"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7be285ef feat(oauth): add per-server refresh mutex",
+      "translated": "서버별 새로고침 뮤텍스 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cdd6e885 fix(installer): add upgrade path safety checks",
+      "translated": "업그레이드 경로 안전성 검사 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "01f7d5e2 feat(installer): export version compatibility and backup utilities",
+      "translated": "버전 호환성 및 백업 유틸리티 내보내기"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2f86a175 feat(installer): add config backup utility for safe upgrades",
+      "translated": "안전한 업그레이드를 위한 설정 백업 유틸리티 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7022a7e8 feat(installer): add version compatibility checking utilities",
+      "translated": "버전 호환성 검사 유틸리티 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a09b905b fix(installer): add installedVersion to DetectedConfig type",
+      "translated": "DetectedConfig 타입에 installedVersion 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d490b4dc fix(ralph-loop): harden Oracle VERIFIED detection",
+      "translated": "Oracle VERIFIED 감지 강화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0bf5dc26 fix(token-limit): normalize detection across providers",
+      "translated": "제공자 전반의 감지 로직 정규화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3fe0ae0 fix(background): propagate variant in parent notifications",
+      "translated": "상위 알림에 variant 전파"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14f4390a fix(ultrawork): add iteration cap to prevent infinite loops",
+      "translated": "무한 루프 방지를 위한 반복 횟수 제한 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8090ee6a fix(compaction): persist recovery cap across cycles",
+      "translated": "사이클 간 복구 한도 유지"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f2fac9bc test(runtime-fallback): update tests for quota STOP classification",
+      "translated": "할당량 STOP 분류에 대한 테스트 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8169dbec docs: update for v3.16.0 release",
+      "translated": "V3.16.0 릴리스 문서 업데이트"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b7d9521a feat(installer): add opencode v1.4.0 minimum version check",
+      "translated": "Opencode v1.4.0 최소 버전 검사 추가"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "35f778db test(skill-mcp): add scope field to test fixtures",
+      "translated": "픽스처에 scope 필드 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fa140b03 fix(skill-loader): propagate scope to MCP connections",
+      "translated": "MCP 연결에 scope 전파"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5e0bd87d test(runtime-fallback): add provider matrix quota tests",
+      "translated": "제공자 매트릭스 할당량 테스트 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "05efb20f feat(skill-mcp): add scope field to connection types",
+      "translated": "연결 유형에 scope 필드 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b81fdef5 fix(skill-mcp): redact sensitive data from connection errors",
+      "translated": "연결 오류에서 민감한 데이터 마스킹"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "77514029 fix(runtime-fallback): classify quota exhaustion as STOP not retryable",
+      "translated": "할당량 소진을 재시도 불가능한 STOP으로 분류"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a419857b fix(delegate-task): use exact match for isPlanFamily to allow Metis/Momus",
+      "translated": "Metis/Momus 허용을 위해 isPlanFamily에 정확한 일치 적용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "78e6d780 fix(plugin): verify event hook compatibility with v1.4.0",
+      "translated": "V1.4.0과의 이벤트 훅 호환성 검증"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e52dd340 fix(plugin): migrate chat.params to maxOutputTokens for v1.4.0",
+      "translated": "V1.4.0을 위한 chat.params를 maxOutputTokens으로 마이그레이션"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8d83b5f fix(zwsp): strip zero-width chars in delegate-task tools",
+      "translated": "Delegate-task 도구에서 제로 폭 문자 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "317e2c64 fix(zwsp): strip zero-width chars in start-work-hook",
+      "translated": "Start-work-hook에서 제로 폭 문자 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37240936 fix(zwsp): strip zero-width chars from agent headers in command-config-handler",
+      "translated": "Command-config-handler의 에이전트 헤더에서 제로 폭 문자 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "130e67a4 fix(zwsp): strip zero-width chars in boulder-continuation-injector",
+      "translated": "Boulder-continuation-injector에서 제로 폭 문자 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5188df90 fix(types): revert task-tool type inference workarounds",
+      "translated": "Task-tool 타입 추론 우회 코드 되돌리기"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "18771c8d fix(schema): restore z.toJSONSchema native v4 API",
+      "translated": "Z.toJSONSchema 네이티브 v4 API 복원"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f4eabf9f chore(deps): upgrade @opencode-ai/{plugin,sdk} to 1.4.0 and restore zod v4",
+      "translated": "@opencode-ai/{plugin,sdk}을 1.4.0으로 업그레이드하고 zod v4 복원"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8f129eb4 fix(test): update plugin tests to use getAgentListDisplayName for agent assertions",
+      "translated": "에이전트 어서션에 getAgentListDisplayName을 사용하도록 플러그인 테스트 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0452343f fix(start-work): use getAgentListDisplayName for Atlas agent selection",
+      "translated": "Atlas 에이전트 선택에 getAgentListDisplayName 사용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "557c2db6 feat(start-work): add plan name normalization and quote stripping",
+      "translated": "플랜 이름 정규화 및 따옴표 제거 기능 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "83a80e21 fix(ci): add skipLibCheck to script tsconfig to avoid bun-types/@types/node conflicts",
+      "translated": "Bun-types/@types/node 충돌을 방지하기 위해 스크립트 tsconfig에 skipLibCheck 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a00fe131 fix(test): update normalizeAgentForPrompt expectations to dash format",
+      "translated": "NormalizeAgentForPrompt 기댓값을 대시 형식으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dcecf049 Merge pull request #3189 from code-yeongyu/fix/issue-3146",
+      "translated": "Code-yeongyu/fix/issue-3146에서 풀 리퀘스트 #3189 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6eb527c9 fix: remove ZWSP from agent display names (#3146)",
+      "translated": "에이전트 표시 이름에서 ZWSP 제거 (#3146)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b269f115 Merge pull request #3181 from code-yeongyu/fix/issue-3144",
+      "translated": "Code-yeongyu/fix/issue-3144에서 풀 리퀘스트 #3181 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2f19cd28 Merge pull request #3178 from code-yeongyu/fix/issue-3164",
+      "translated": "Code-yeongyu/fix/issue-3164에서 풀 리퀘스트 #3178 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b77c2569 fix(jsonc): strip BOM before parsing (#3164)",
+      "translated": "파싱 전 BOM 제거 (#3164)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bb1bad8e fix(cli): include fallback_models when writing agent model config (#3144)",
+      "translated": "에이전트 모델 설정 작성 시 fallback_models 포함 (#3144)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8c8376d fix(boulder): support both structured and simple plan formats in getPlanProgress",
+      "translated": "GetPlanProgress에서 구조화된 플랜 형식과 단순 플랜 형식 모두 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cf04f510 Merge pull request #3185 from code-yeongyu/fix/issue-2462",
+      "translated": "Code-yeongyu/fix/issue-2462에서 풀 리퀘스트 #3185 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "62cc74b2 Merge pull request #3187 from code-yeongyu/fix/issue-2687",
+      "translated": "Code-yeongyu/fix/issue-2687에서 풀 리퀘스트 #3187 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4e6e7617 Merge pull request #3186 from code-yeongyu/fix/issue-2689",
+      "translated": "Code-yeongyu/fix/issue-2689에서 풀 리퀘스트 #3186 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "505c7ef0 Merge pull request #3184 from code-yeongyu/fix/issue-3163",
+      "translated": "Code-yeongyu/fix/issue-3163에서 풀 리퀘스트 #3184 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aade99ee Merge pull request #3183 from code-yeongyu/fix/issue-2932",
+      "translated": "Code-yeongyu/fix/issue-2932 브랜치에서 풀 리퀘스트 #3183 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d64cd66c Merge pull request #3182 from code-yeongyu/fix/issue-2964",
+      "translated": "Code-yeongyu/fix/issue-2964 브랜치에서 풀 리퀘스트 #3182 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24652053 fix: propagate project skills to background task sessions (#2687)",
+      "translated": "백그라운드 작업 세션에 프로젝트 스킬 전파 (#2687)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc009caa fix: register custom user agents in delegate-task resolver (#2689)",
+      "translated": "Delegate-task resolver에 커스텀 사용자 에이전트 등록 (#2689)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a9c73986 fix: detect token-limit errors in todo-continuation to prevent infinite loop (#2462)",
+      "translated": "무한 루프를 방지하기 위해 todo-continuation에서 토큰 제한 오류 감지 (#2462)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ee8410ce fix: allow variant override even with agent model config (#3163)",
+      "translated": "에이전트 모델 설정이 있어도 variant 재정의 허용 (#3163)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5622d154 fix: prevent background agent race condition in session prompt (#2932)",
+      "translated": "세션 프롬프트에서 백그라운드 에이전트 경쟁 상태 방지 (#2932)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b2e7ddfb fix: inject agent identity into system prompt for built-in agents (#2964)",
+      "translated": "내장 에이전트를 위한 시스템 프롬프트에 에이전트 식별 정보 주입 (#2964)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "be562905 Merge pull request #3179 from code-yeongyu/fix/issue-3066",
+      "translated": "Code-yeongyu/fix/issue-3066 브랜치에서 풀 리퀘스트 #3179 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b4b9aea8 Merge pull request #3177 from code-yeongyu/fix/issue-3168",
+      "translated": "Code-yeongyu/fix/issue-3168 브랜치에서 풀 리퀘스트 #3177 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "062b8cd7 Merge pull request #3169 from code-yeongyu/fix/sisyphus-junior-model",
+      "translated": "Code-yeongyu/fix/sisyphus-junior-model 브랜치에서 풀 리퀘스트 #3169 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6ebe1bf1 Merge pull request #3176 from code-yeongyu/fix/issue-3113",
+      "translated": "Code-yeongyu/fix/issue-3113 브랜치에서 풀 리퀘스트 #3176 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5b53f6fd Merge pull request #3175 from code-yeongyu/fix/issue-3129",
+      "translated": "Code-yeongyu/fix/issue-3129 브랜치에서 풀 리퀘스트 #3175 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5db6bfd9 Merge pull request #3174 from code-yeongyu/fix/issue-3033",
+      "translated": "Code-yeongyu/fix/issue-3033 브랜치에서 풀 리퀘스트 #3174 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b4baec75 Merge pull request #3173 from code-yeongyu/fix/issue-3081",
+      "translated": "Code-yeongyu/fix/issue-3081 브랜치에서 풀 리퀘스트 #3173 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0ab2370d fix(start-work): add CHECKED_CHECKBOX_PATTERN for plan progress tracking (#3066)",
+      "translated": "계획 진행률 추적을 위한 CHECKED_CHECKBOX_PATTERN 추가 (#3066)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "73d407fe fix(mcp): bypass env var allowlist for trusted skill MCP configs (#3168)",
+      "translated": "신뢰할 수 있는 스킬 MCP 설정에 대해 환경 변수 허용 목록 우회 (#3168)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "717c976c fix(keyword-detector): start ralph-loop when ulw keyword detected (#3113)",
+      "translated": "Ulw 키워드 감지 시 ralph-loop 시작 (#3113)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eb8d7191 fix(auto-update): align PACKAGE_NAME with published package name (#3129)",
+      "translated": "게시된 패키지 이름과 일치하도록 PACKAGE_NAME 조정 (#3129)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b1c536dd fix(look-at): make multimodal-looker prompt conditional on Read availability (#3033)",
+      "translated": "Read 사용 가능 여부에 따라 multimodal-looker 프롬프트 조건부 적용 (#3033)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aa528e42 fix: propagate variant field in all promptAsync continuation paths (#3081)",
+      "translated": "모든 promptAsync 연속 경로에 variant 필드 전파 (#3081)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bf2c104c Merge pull request #3172 from code-yeongyu/fix/bom-strip-jsonc",
+      "translated": "Code-yeongyu/fix/bom-strip-jsonc에서 pull request #3172 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "daae6ed0 fix(jsonc-parser): strip UTF-8 BOM before parsing to fix Windows \"InvalidSymbol at offset 0\" errors",
+      "translated": "Windows에서 발생하는 \"InvalidSymbol at offset 0\" 오류 수정을 위해 파싱 전 UTF-8 BOM 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "889294a5 fix(model-fallback): respect user model override for sisyphus-junior category sessions (#2941)",
+      "translated": "Sisyphus-junior 카테고리 세션의 사용자 모델 재정의 적용 (#2941)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "12106ffc Merge pull request #3167 from code-yeongyu/fix/agent-header-validation",
+      "translated": "Code-yeongyu/fix/agent-header-validation에서 pull request #3167 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8c62608 fix(agent-names): use HTTP-header-safe display names and config keys for API calls (#3138)",
+      "translated": "API 호출 시 HTTP 헤더에 안전한 표시 이름 및 구성 키 사용 (#3138)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ebfd4a41 Merge pull request #3166 from code-yeongyu/fix/delegate-description-optional",
+      "translated": "Code-yeongyu/fix/delegate-description-optional에서 pull request #3166 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd37e667 fix(delegate-task): make description optional with auto-generation from prompt (#3162)",
+      "translated": "프롬프트에서 자동 생성을 통해 설명을 선택 사항으로 변경 (#3162)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3e8fd5ff fix(start-work): always hand off to atlas regardless of current session agent (#3155)",
+      "translated": "현재 세션 에이전트와 관계없이 항상 atlas로 작업 전달 (#3155)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "23180c6b fix(schema): use zodToJsonSchema instead of z.toJSONSchema for zod v3 compat",
+      "translated": "Zod v3 호환성을 위해 z.toJSONSchema 대신 zodToJsonSchema 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b7c8a000 fix(tests): isolate atlas background launch client setup",
+      "translated": "Atlas 백그라운드 실행 클라이언트 설정 격리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "19280979 fix(tests): stabilize prometheus md-only state",
+      "translated": "Prometheus md-only 상태 안정화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "41af547f fix(schema): use Zod native JSON schema output",
+      "translated": "Zod 기본 JSON 스키마 출력 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03409938 fix(tests): inject plugin loader dependencies",
+      "translated": "플러그인 로더 종속성 주입"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "320dc024 fix(tests): inject create-managers dependencies",
+      "translated": "Create-managers 종속성 주입"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0de74533 fix(tests): fix globalThis.fetch pollution between test files",
+      "translated": "파일 간의 globalThis.fetch 오염 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e62d5d7a fix(agents): strip ZWSP ordering prefixes in session state, config lookups, and override protection",
+      "translated": "세션 상태, 구성 조회 및 재정의 보호에서 ZWSP 정렬 접두사 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "178b635d feat(agents): add ZWSP stable-sort prefixes for core agent list ordering",
+      "translated": "핵심 에이전트 목록 순서 지정을 위한 ZWSP 안정 정렬 접두사 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "88280d0e fix(agents): keep prometheus and atlas in canonical core order",
+      "translated": "Prometheus 및 atlas를 표준 핵심 순서로 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0c1202e4 fix(tests): resolve CI test isolation failures in OAuth refresh and ralph-loop",
+      "translated": "OAuth 새로 고침 및 ralph-loop에서 CI 테스트 격리 실패 해결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61083d49 fix(oauth+errors): OAuth silent refresh, quota STOP patterns, compaction loop cap",
+      "translated": "OAuth 조용한 새로고침, 할당량 STOP 패턴, compaction 루프 상한 설정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c4e0b69 fix(agents): enforce Sisyphus->Hephaestus->Prometheus->Atlas assembly order",
+      "translated": "Sisyphus->Hephaestus->Prometheus->Atlas 조립 순서 강제"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "56f2a9df fix(ralph-loop): detect oracle VERIFIED tool results in session messages",
+      "translated": "세션 메시지에서 oracle VERIFIED 도구 결과 감지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "137c2459 fix(prompt): prevent immediate BackgroundOutput polling after background task launch",
+      "translated": "백그라운드 작업 실행 후 즉각적인 BackgroundOutput 폴링 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5ad011de fix(compaction): cap recovery attempts to prevent infinite compaction loop (#3127)",
+      "translated": "무한 compaction 루프 방지를 위한 복구 시도 횟수 제한 (#3127)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f69234ab fix(error-classifier): quota/billing errors are non-retryable STOP (fixes #3126)",
+      "translated": "Quota/billing 오류를 재시도 불가능한 STOP으로 처리 (fixes #3126)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9438c89c Merge pull request #3148 from MoerAI/fix/remove-installer-subscription-upsell",
+      "translated": "MoerAI/fix/remove-installer-subscription-upsell에서 풀 리퀘스트 #3148 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd723b51 fix(tests): repair test regressions from zod v3 downgrade",
+      "translated": "Zod v3 다운그레이드로 인한 테스트 회귀 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4659f14c fix(tests): update model-fallback snapshots after installer fallback chain fix",
+      "translated": "Installer 폴백 체인 수정 후 model-fallback 스냅샷 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "213cee27 fix(types): resolve zod v3 type inference differences in task tools",
+      "translated": "Task 도구 내 zod v3 타입 추론 차이 해결"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "20526942 fix(deps): downgrade zod to v3 for opencode compatibility (#3151)",
+      "translated": "Opencode 호환성을 위해 zod를 v3로 다운그레이드 (#3151)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "22d08959 Merge pull request #3136 from andrescera/fix/atlas-zwsp-header-leak",
+      "translated": "Andrescera/fix/atlas-zwsp-header-leak에서 풀 리퀘스트 #3136 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f69bb456 fix(cli): dedupe generated installer fallback models",
+      "translated": "생성된 installer 폴백 모델 중복 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "57b15299 fix(cli): preserve installer fallback chains in generated config (#3144)",
+      "translated": "생성된 설정에서 installer 폴백 체인 유지 (#3144)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2f10ff46 fix(cli): replace subscription upsell with informational note (fixes #3069)",
+      "translated": "구독 업셀을 정보성 안내로 교체 (fixes #3069)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b482e6c6 fix: remove ZWSP sort prefix from Atlas agent name",
+      "translated": "Atlas 에이전트 이름에서 ZWSP 정렬 접두사 제거"
+    }
+  ],
+  "translatedAt": "2026-04-08T14:22:03.743Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 10215
+}
