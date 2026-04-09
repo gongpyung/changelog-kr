@@ -1,0 +1,356 @@
+{
+  "version": "2.1.98",
+  "date": "2026-04-09",
+  "parsedAt": "2026-04-09T19:39:29.323Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting \"3rd-party platform\", guiding you through GCP authentication, project and region configuration, credential verification, and model pinning",
+      "translated": "\"타사 플랫폼\" 선택 시 로그인 화면에서 접근할 수 있는 대화형 Google Vertex AI 설정 마법사를 추가했습니다. GCP 인증, 프로젝트 및 리전 구성, 자격 증명 확인, 모델 고정 과정을 안내합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_PERFORCE_MODE` env var: when set, Edit/Write/NotebookEdit fail on read-only files with a `p4 edit` hint instead of silently overwriting them",
+      "translated": "`CLAUDE_CODE_PERFORCE_MODE` 환경 변수를 추가했습니다. 이 환경 변수가 설정되면 읽기 전용 파일에 대해 Edit/Write/NotebookEdit 작업 시 조용히 덮어쓰는 대신 `p4 edit` 힌트와 함께 실패하도록 변경됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added Monitor tool for streaming events from background scripts",
+      "translated": "백그라운드 스크립트에서 이벤트를 스트리밍하는 Monitor 도구를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added subprocess sandboxing with PID namespace isolation on Linux when `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB` is set, and `CLAUDE_CODE_SCRIPT_CAPS` env var to limit per-session script invocations",
+      "translated": "`CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`가 설정된 경우 Linux에서 PID 네임스페이스 격리를 통한 하위 프로세스 샌드박싱을 추가했으며, 세션당 스크립트 호출을 제한하기 위한 `CLAUDE_CODE_SCRIPT_CAPS` 환경 변수를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--exclude-dynamic-system-prompt-sections` flag to print mode for improved cross-user prompt caching",
+      "translated": "교차 사용자 프롬프트 캐싱을 개선하기 위해 print 모드에 `--exclude-dynamic-system-prompt-sections` 플래그를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `workspace.git_worktree` to the status line JSON input, set whenever the current directory is inside a linked git worktree",
+      "translated": "현재 디렉터리가 연결된 git worktree 내부에 있을 때 설정되도록 상태 표시줄 JSON 입력에 `workspace.git_worktree`를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added W3C `TRACEPARENT` env var to Bash tool subprocesses when OTEL tracing is enabled, so child-process spans correctly parent to Claude Code's trace tree",
+      "translated": "OTEL 추적이 활성화된 경우 Bash 도구 하위 프로세스에 W3C `TRACEPARENT` 환경 변수를 추가하여, 하위 프로세스 스팬이 Claude Code의 추적 트리에 올바르게 상위 항목으로 연결되도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "LSP: Claude Code now identifies itself to language servers via `clientInfo` in the initialize request",
+      "translated": "LSP: Claude Code가 이제 초기화 요청 시 `clientInfo`를 통해 언어 서버에 자신을 식별합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Bash tool permission bypass where a backslash-escaped flag could be auto-allowed as read-only and lead to arbitrary code execution",
+      "translated": "백슬래시로 이스케이프된 플래그가 읽기 전용으로 자동 허용되어 임의 코드 실행으로 이어질 수 있었던 Bash 도구 권한 우회 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compound Bash commands bypassing forced permission prompts for safety checks and explicit ask rules in auto and bypass-permissions modes",
+      "translated": "auto 및 bypass-permissions 모드에서 안전 검사 및 명시적 요청 규칙에 대한 강제 권한 프롬프트를 우회하는 복합 Bash 명령어 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed read-only commands with env-var prefixes not prompting unless the var is known-safe (`LANG`, `TZ`, `NO_COLOR`, etc.)",
+      "translated": "환경 변수 접두사가 있는 읽기 전용 명령어가 해당 변수가 안전하다고 알려진 변수(`LANG`, `TZ`, `NO_COLOR` 등)가 아닌 경우에도 프롬프트를 띄우지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed redirects to `/dev/tcp/...` or `/dev/udp/...` not prompting instead of auto-allowing",
+      "translated": "`/dev/tcp/...` 또는 `/dev/udp/...`로의 리다이렉트가 프롬프트를 띄우지 않고 자동 허용되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stalled streaming responses timing out instead of falling back to non-streaming mode",
+      "translated": "스트리밍 응답이 지연될 때 비스트리밍 모드로 전환되지 않고 타임아웃되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed 429 retries burning all attempts in ~13s when the server returns a small `Retry-After` — exponential backoff now applies as a minimum",
+      "translated": "서버가 짧은 `Retry-After` 값을 반환할 때 429 재시도가 약 13초 만에 모든 시도 횟수를 소진하던 문제를 수정했습니다. 이제 지수 백오프가 최소 대기 시간으로 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth `oauth.authServerMetadataUrl` config override not being honored on token refresh after restart, affecting ADFS and similar IdPs",
+      "translated": "재시작 후 토큰을 새로고침할 때 MCP OAuth `oauth.authServerMetadataUrl` 구성 재정의가 적용되지 않아 ADFS 및 유사한 IdP에 영향을 미치던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed capital letters being dropped to lowercase on xterm and VS Code integrated terminal when the kitty keyboard protocol is active",
+      "translated": "kitty 키보드 프로토콜이 활성화된 상태에서 xterm 및 VS Code 통합 터미널에 대문자가 소문자로 입력되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed macOS text replacements deleting the trigger word instead of inserting the substitution",
+      "translated": "macOS 텍스트 대체 기능이 대체어를 삽입하는 대신 트리거 단어를 삭제하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--dangerously-skip-permissions` being silently downgraded to accept-edits mode after approving a write to a protected path via Bash",
+      "translated": "Bash를 통해 보호된 경로에 대한 쓰기를 승인한 후 `--dangerously-skip-permissions`가 조용히 accept-edits 모드로 다운그레이드되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed-settings allow rules remaining active after an admin removed them, until process restart",
+      "translated": "관리자가 제거한 후에도 프로세스가 다시 시작될 때까지 managed-settings 허용 규칙이 활성 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `permissions.additionalDirectories` changes not applying mid-session — removed directories lose access immediately and added ones work without restart",
+      "translated": "세션 중에 `permissions.additionalDirectories` 변경 사항이 적용되지 않던 문제를 수정했습니다. 이제 제거된 디렉터리는 즉시 접근 권한을 잃고 추가된 디렉터리는 재시작 없이 작동합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed removing a directory from `additionalDirectories` revoking access to the same directory passed via `--add-dir`",
+      "translated": "`additionalDirectories`에서 디렉터리를 제거할 때 `--add-dir`로 전달된 동일한 디렉터리의 접근 권한이 취소되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Bash(cmd:*)` and `Bash(git commit *)` wildcard permission rules failing to match commands with extra spaces or tabs",
+      "translated": "추가 공백이나 탭이 포함된 명령어를 매칭하지 못하던 `Bash(cmd:*)` 및 `Bash(git commit *)` 와일드카드 권한 규칙 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Bash(...)` deny rules being downgraded to a prompt for piped commands that mix `cd` with other segments",
+      "translated": "`cd`와 다른 명령어가 혼합된 파이프 명령어에서 `Bash(...)` 거부 규칙이 프롬프트로 강등되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed false Bash permission prompts for `cut -d /`, `paste -d /`, `column -s /`, `awk '{print $1}' file`, and filenames containing `%`",
+      "translated": "`cut -d /`, `paste -d /`, `column -s /`, `awk '{print $1}' file` 및 `%`가 포함된 파일 이름에 대해 거짓 Bash 권한 프롬프트가 뜨던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission rules with names matching JavaScript prototype properties (e.g. `toString`) causing `settings.json` to be silently ignored",
+      "translated": "JavaScript 프로토타입 속성(예: `toString`)과 이름이 일치하는 권한 규칙으로 인해 `settings.json`이 임의로 무시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent team members not inheriting the leader's permission mode when using `--dangerously-skip-permissions`",
+      "translated": "`--dangerously-skip-permissions` 사용 시 에이전트 팀원이 리더의 권한 모드를 상속받지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash in fullscreen mode when hovering over MCP tool results",
+      "translated": "전체 화면 모드에서 MCP 도구 결과 위에 마우스를 올릴 때 충돌이 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed copying wrapped URLs in fullscreen mode inserting spaces at line breaks",
+      "translated": "전체 화면 모드에서 줄바꿈된 URL을 복사할 때 줄 바꿈 지점에 공백이 삽입되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed file-edit diffs disappearing from the UI on `--resume` when the edited file was larger than 10KB",
+      "translated": "편집한 파일이 10KB보다 클 때 `--resume` 시 UI에서 파일 편집 diff가 사라지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, filter reload wiping search state, empty list swallowing arrow keys, cross-project staleness, and transient task-status text replacing conversation summaries",
+      "translated": "여러 `/resume` 선택기 문제 수정: `--resume <name>` 실행 시 편집 불가능한 상태로 열림, 필터 새로고침 시 검색 상태 초기화, 빈 목록에서 화살표 키 미작동, 교차 프로젝트 간의 데이터 만료, 일시적인 작업 상태 텍스트가 대화 요약을 대체하는 문제"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/export` not honoring absolute paths and `~`, and silently rewriting user-supplied extensions to `.txt`",
+      "translated": "`/export` 명령어가 절대 경로와 `~`를 무시하고, 사용자가 지정한 확장자를 임의로 `.txt`로 변경하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort max` being denied for unknown or future model IDs",
+      "translated": "알 수 없거나 향후 출시될 모델 ID에 대해 `/effort max`가 거부되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash command picker breaking when a plugin's frontmatter `name` is a YAML boolean keyword",
+      "translated": "플러그인 프론트매터의 `name`이 YAML 불리언(boolean) 키워드인 경우 슬래시 명령어 선택기가 깨지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rate-limit upsell text being hidden after message remounts",
+      "translated": "메시지 리마운트(remount) 후 요청 제한(rate-limit) 안내 텍스트가 숨겨지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tools with `_meta[\"anthropic/maxResultSizeChars\"]` not bypassing the token-based persist layer",
+      "translated": "`_meta[\"anthropic/maxResultSizeChars\"]`가 있는 MCP 도구가 토큰 기반 유지(persist) 레이어를 우회하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode leaking dozens of space characters into the input when re-holding the push-to-talk key while the previous transcript is still processing",
+      "translated": "이전 음성 인식 텍스트가 처리 중일 때 눌러서 말하기(PTT) 키를 다시 누르면 음성 모드에서 수십 개의 공백 문자가 입력창에 삽입되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `DISABLE_AUTOUPDATER` not fully suppressing the npm registry version check and symlink modification on npm-based installs",
+      "translated": "`DISABLE_AUTOUPDATER`가 npm 기반 설치 환경에서 npm 레지스트리 버전 확인 및 심볼릭 링크 수정을 완전히 차단하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory leak where Remote Control permission handler entries were retained for the lifetime of the session",
+      "translated": "Remote Control 권한 핸들러 항목이 세션 종료 시까지 유지되어 발생하던 메모리 누수 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background subagents that fail with an error not reporting partial progress to the parent agent",
+      "translated": "오류로 실패한 백그라운드 하위 에이전트가 상위 에이전트에게 부분 진행 상황을 보고하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt-type Stop/SubagentStop hooks failing on long sessions, and hook evaluator API errors showing \"JSON validation failed\" instead of the real message",
+      "translated": "긴 세션에서 프롬프트 유형 Stop/SubagentStop 훅(hook)이 실패하던 문제와, 훅 평가기 API 오류 시 실제 메시지 대신 \"JSON validation failed\"가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed feedback survey rendering when dismissed",
+      "translated": "피드백 설문조사가 닫힐 때 렌더링되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash `grep -f FILE` / `rg -f FILE` not prompting when reading a pattern file outside the working directory",
+      "translated": "디렉터리 외부의 패턴 파일을 읽을 때 프롬프트가 표시되지 않는 Bash `grep -f FILE` / `rg -f FILE` 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale subagent worktree cleanup removing worktrees that contain untracked files",
+      "translated": "추적되지 않은 파일이 포함된 워크트리가 삭제되는 오래된 하위 에이전트 워크트리 정리 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `sandbox.network.allowMachLookup` not taking effect on macOS",
+      "translated": "macOS에서 `sandbox.network.allowMachLookup`이 적용되지 않는 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/resume` filter hint labels and added project/worktree/branch names in the filter indicator",
+      "translated": "`/resume` 필터 힌트 레이블 개선 및 필터 표시기에 프로젝트/워크트리/브랜치 이름 추가"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved footer indicators (Focus, notifications) to stay on the mode-indicator row instead of wrapping at narrow terminal widths",
+      "translated": "터미널 너비가 좁을 때 줄바꿈되지 않고 모드 표시기 행에 유지되도록 하단 표시기(포커스, 알림) 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/agents` with a tabbed layout: a Running tab shows live subagents, and the Library tab adds Run agent and View running instance actions",
+      "translated": "탭 레이아웃을 도입하여 `/agents` 개선: Running 탭은 활성화된 하위 에이전트를 표시하고, Library 탭은 에이전트 실행 및 실행 중인 인스턴스 보기 액션을 추가함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/reload-plugins` to pick up plugin-provided skills without requiring a restart",
+      "translated": "재시작 없이 플러그인에서 제공하는 스킬을 인식하도록 `/reload-plugins` 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Accept Edits mode to auto-approve filesystem commands prefixed with safe env vars or process wrappers",
+      "translated": "안전한 환경 변수 또는 프로세스 래퍼가 접두어로 붙은 파일 시스템 명령어를 자동 승인하도록 Accept Edits 모드 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Vim mode: `j`/`k` in NORMAL mode now navigate history and select the footer pill at the input boundary",
+      "translated": "Vim 모드 개선: NORMAL 모드에서 `j`/`k`로 기록을 탐색하고, 입력 경계에서 하단 표시줄(pill)을 선택하도록 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved hook errors in the transcript to include the first line of stderr for self-diagnosis without `--debug`",
+      "translated": "`--debug` 플래그 없이도 자가 진단을 할 수 있도록 트랜스크립트의 훅(hook) 오류에 stderr의 첫 번째 줄을 포함하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved OTEL tracing: interaction spans now correctly wrap full turns under concurrent SDK calls, and headless turns end spans per-turn",
+      "translated": "OTEL 추적 개선: 동시 SDK 호출 시 상호작용 스팬(span)이 전체 턴을 올바르게 래핑하며, 헤드리스 턴은 턴별로 스팬을 종료함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved transcript entries to carry final token usage instead of streaming placeholders",
+      "translated": "스트리밍 플레이스홀더 대신 최종 토큰 사용량을 표시하도록 트랜스크립트 항목 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the `/claude-api` skill to cover Managed Agents alongside Claude API",
+      "translated": "Claude API와 함께 Managed Agents를 지원하도록 `/claude-api` 스킬 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed false-positive \"requires git-bash\" error on Windows when `CLAUDE_CODE_GIT_BASH_PATH` is set or Git is installed at a default location",
+      "translated": "[VSCode] `CLAUDE_CODE_GIT_BASH_PATH`가 설정되었거나 Git이 기본 위치에 설치된 Windows 환경에서 \"requires git-bash\" 오탐지 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_MAX_CONTEXT_TOKENS` to honor `DISABLE_COMPACT` when it is set.",
+      "translated": "`DISABLE_COMPACT`가 설정된 경우 이를 올바르게 반영하도록 `CLAUDE_CODE_MAX_CONTEXT_TOKENS` 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dropped `/compact` hints when `DISABLE_COMPACT` is set.",
+      "translated": "`DISABLE_COMPACT`가 설정된 경우 `/compact` 힌트 미표시 처리"
+    }
+  ],
+  "translatedAt": "2026-04-09T19:45:39.361Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "glm-5",
+  "translationEndpointType": "coding",
+  "translationCharCount": 6614
+}
