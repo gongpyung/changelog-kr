@@ -1,0 +1,290 @@
+{
+  "version": "2.1.101",
+  "date": "2026-04-10",
+  "parsedAt": "2026-04-10T19:13:59.784Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/team-onboarding` command to generate a teammate ramp-up guide from your local Claude Code usage",
+      "translated": "로컬 Claude Code 사용 기록을 바탕으로 팀원 온보딩 가이드를 생성하는 `/team-onboarding` 명령어 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra setup (set `CLAUDE_CODE_CERT_STORE=bundled` to use only bundled CAs)",
+      "translated": "기본적으로 OS CA 인증서 저장소를 신뢰하도록 설정하여 별도 설정 없이도 기업용 TLS 프록시가 작동하도록 개선 (번들된 CA만 사용하려면 `CLAUDE_CODE_CERT_STORE=bundled`로 설정)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/ultraplan` and other remote-session features now auto-create a default cloud environment instead of requiring web setup first",
+      "translated": "`/ultraplan` 및 기타 원격 세션 기능 사용 시 웹 설정을 먼저 거치지 않고 기본 클라우드 환경을 자동으로 생성하도록 변경"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved brief mode to retry once when Claude responds with plain text instead of a structured message",
+      "translated": "Claude가 구조화된 메시지 대신 일반 텍스트로 응답할 경우 brief mode에서 한 번 더 재시도하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved focus mode: Claude now writes more self-contained summaries since it knows you only see its final message",
+      "translated": "focus mode 개선: 사용자가 최종 메시지만 확인한다는 점을 고려하여 Claude가 더 독립적이고 완결된 요약을 작성하도록 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved tool-not-available errors to explain why and how to proceed when the model calls a tool that exists but isn't available in the current context",
+      "translated": "모델이 존재하지만 현재 컨텍스트에서 사용할 수 없는 도구를 호출할 때, 원인과 진행 방법을 설명하도록 도구 사용 불가(tool-not-available) 오류 메시지 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved rate-limit retry messages to show which limit was hit and when it resets instead of an opaque seconds countdown",
+      "translated": "속도 제한(rate-limit) 재시도 메시지 개선: 단순 초 단위 카운트다운 대신 어떤 제한에 걸렸는지와 초기화 시점을 표시하도록 변경"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved refusal error messages to include the API-provided explanation when available",
+      "translated": "거부(refusal) 오류 메시지 발생 시 가능한 경우 API에서 제공하는 설명을 포함하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude -p --resume <name>` to accept session titles set via `/rename` or `--name`",
+      "translated": "`claude -p --resume <name>` 명령어가 `/rename` 또는 `--name`으로 설정한 세션 제목을 인식하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved settings resilience: an unrecognized hook event name in `settings.json` no longer causes the entire file to be ignored",
+      "translated": "설정 복원력 개선: `settings.json`에 인식되지 않는 hook 이벤트 이름이 있어도 파일 전체가 무시되지 않도록 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved plugin hooks from plugins force-enabled by managed settings to run when `allowManagedHooksOnly` is set",
+      "translated": "`allowManagedHooksOnly`가 설정된 경우 관리형 설정으로 강제 활성화된 플러그인의 plugin hooks가 실행되도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/plugin` and `claude plugin update` to show a warning when the marketplace could not be refreshed, instead of silently reporting a stale version",
+      "translated": "`/plugin` 및 `claude plugin update` 실행 시 마켓플레이스를 새로고침할 수 없는 경우, 이전 버전을 그대로 표시하는 대신 경고를 출력하도록 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved plan mode to hide the \"Refine with Ultraplan\" option when the user's org or auth setup can't reach Claude Code on the web",
+      "translated": "plan mode 개선: 사용자의 조직 또는 인증 설정이 웹의 Claude Code에 연결할 수 없는 경우 \"Refine with Ultraplan\" 옵션을 숨기도록 처리"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved beta tracing to honor `OTEL_LOG_USER_PROMPTS`, `OTEL_LOG_TOOL_DETAILS`, and `OTEL_LOG_TOOL_CONTENT`; sensitive span attributes are no longer emitted unless opted in",
+      "translated": "베타 트레이싱 개선: `OTEL_LOG_USER_PROMPTS`, `OTEL_LOG_TOOL_DETAILS`, 및 `OTEL_LOG_TOOL_CONTENT` 설정을 준수하며, 명시적으로 선택하지 않는 한 민감한 span 속성이 노출되지 않도록 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved SDK `query()` to clean up subprocess and temp files when consumers `break` from `for await` or use `await using`",
+      "translated": "SDK `query()` 개선: 사용자가 `for await` 루프에서 `break`하거나 `await using`을 사용할 때 하위 프로세스 및 임시 파일이 정리되도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a command injection vulnerability in the POSIX `which` fallback used by LSP binary detection",
+      "translated": "LSP 바이너리 감지에 사용되는 POSIX `which` 폴백의 커맨드 인젝션 취약점 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory leak where long sessions retained dozens of historical copies of the message list in the virtual scroller",
+      "translated": "긴 세션에서 가상 스크롤러(virtual scroller)에 수십 개의 이전 메시지 목록 복사본이 남아 발생하는 메모리 누수 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume`/`--continue` losing conversation context on large sessions when the loader anchored on a dead-end branch instead of the live conversation",
+      "translated": "대규모 세션에서 로더가 활성 대화 대신 막다른 브랜치에 고정되어 `--resume`/`--continue` 시 대화 컨텍스트를 잃어버리는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` chain recovery bridging into an unrelated subagent conversation when a subagent message landed near a main-chain write gap",
+      "translated": "`--resume` 체인 복구 시 서브에이전트 메시지가 메인 체인의 쓰기 공백 근처에 위치할 경우 관련 없는 서브에이전트 대화로 연결되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash on `--resume` when a persisted Edit/Write tool result was missing its `file_path`",
+      "translated": "`--resume` 시 저장된 Edit/Write 도구 결과에 `file_path`가 누락된 경우 발생하는 크래시 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hardcoded 5-minute request timeout that aborted slow backends (local LLMs, extended thinking, slow gateways) regardless of `API_TIMEOUT_MS`",
+      "translated": "`API_TIMEOUT_MS` 설정과 관계없이 로컬 LLM, 확장 생각(extended thinking), 느린 게이트웨이 등 응답이 느린 백엔드에서 요청이 중단되던 하드코딩된 5분 타임아웃 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `permissions.deny` rules not overriding a PreToolUse hook's `permissionDecision: \"ask\"` — previously the hook could downgrade a deny into a prompt",
+      "translated": "`permissions.deny` 규칙이 PreToolUse 훅의 `permissionDecision: \"ask\"` 설정을 덮어쓰지 못하던 문제를 수정했습니다. 이전에는 훅이 거부(deny) 설정을 사용자 확인(prompt)으로 낮출 수 있었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--setting-sources` without `user` causing background cleanup to ignore `cleanupPeriodDays` and delete conversation history older than 30 days",
+      "translated": "`user` 없이 `--setting-sources`를 사용할 때 백그라운드 정리 작업이 `cleanupPeriodDays` 설정을 무시하고 30일이 지난 대화 기록을 삭제하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock SigV4 authentication failing with 403 when `ANTHROPIC_AUTH_TOKEN`, `apiKeyHelper`, or `ANTHROPIC_CUSTOM_HEADERS` set an Authorization header",
+      "translated": "`ANTHROPIC_AUTH_TOKEN`, `apiKeyHelper` 또는 `ANTHROPIC_CUSTOM_HEADERS`가 Authorization 헤더를 설정할 때 Bedrock SigV4 인증이 403 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -w <name>` failing with \"already exists\" after a previous session's worktree cleanup left a stale directory",
+      "translated": "이전 세션의 worktree 정리 후 남은 오래된 디렉토리로 인해 `claude -w <name>` 실행 시 \"already exists\" 오류가 발생하며 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents not inheriting MCP tools from dynamically-injected servers",
+      "translated": "서브 에이전트가 동적으로 주입된 서버의 MCP 도구를 상속받지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sub-agents running in isolated worktrees being denied Read/Edit access to files inside their own worktree",
+      "translated": "격리된 worktree에서 실행되는 서브 에이전트가 자신의 worktree 내 파일에 대한 읽기/수정 권한을 거부당하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandboxed Bash commands failing with `mktemp: No such file or directory` after a fresh boot",
+      "translated": "새로 부팅한 후 샌드박스 처리된 Bash 명령어가 `mktemp: No such file or directory` 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude mcp serve` tool calls failing with \"Tool execution failed\" in MCP clients that validate `outputSchema`",
+      "translated": "`outputSchema`를 검증하는 MCP 클라이언트에서 `claude mcp serve` 도구 호출이 \"Tool execution failed\" 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `RemoteTrigger` tool's `run` action sending an empty body and being rejected by the server",
+      "translated": "`RemoteTrigger` 도구의 `run` 액션이 빈 본문(body)을 전송하여 서버에서 거부되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several `/resume` picker issues: narrow default view hiding sessions from other projects, unreachable preview on Windows Terminal, incorrect cwd in worktrees, session-not-found errors not surfacing in stderr, terminal title not being set, and resume hint overlapping the prompt input",
+      "translated": "`/resume` 선택기의 여러 문제를 수정했습니다: 좁은 기본 뷰로 인해 다른 프로젝트의 세션이 표시되지 않는 현상, Windows Terminal에서 미리보기에 접근할 수 없는 문제, worktree 내 잘못된 cwd, stderr에 표시되지 않는 세션 미찾음 오류, 터미널 제목 미설정, 그리고 프롬프트 입력창과 겹치는 재개(resume) 힌트 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Grep tool ENOENT when the embedded ripgrep binary path becomes stale (VS Code extension auto-update, macOS App Translocation); now falls back to system `rg` and self-heals mid-session",
+      "translated": "내장된 ripgrep 바이너리 경로가 유효하지 않게 될 때(VS Code 확장 프로그램 자동 업데이트, macOS App Translocation 등) Grep 도구에서 ENOENT 오류가 발생하던 문제를 수정했습니다. 이제 시스템의 `rg`를 사용하도록 전환하며 세션 도중 자동 복구됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/btw` writing a copy of the entire conversation to disk on every use",
+      "translated": "`/btw`를 사용할 때마다 전체 대화 내용의 복사본이 디스크에 기록되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/context` Free space and Messages breakdown disagreeing with the header percentage",
+      "translated": "`/context`의 여유 공간(Free space) 및 메시지 상세 내역이 헤더의 백분율 표시와 일치하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several plugin issues: slash commands resolving to the wrong plugin with duplicate `name:` frontmatter, `/plugin update` failing with `ENAMETOOLONG`, Discover showing already-installed plugins, directory-source plugins loading from a stale version cache, and skills not honoring `context: fork` and `agent` frontmatter fields",
+      "translated": "여러 플러그인 문제를 수정했습니다: 중복된 `name:` frontmatter로 인해 슬래시 명령어가 잘못된 플러그인으로 연결되는 문제, `/plugin update`가 `ENAMETOOLONG` 오류로 실패하는 문제, Discover에 이미 설치된 플러그인이 표시되는 문제, 디렉토리 소스 플러그인이 오래된 버전 캐시에서 로드되는 문제, 그리고 스킬(skills)이 `context: fork` 및 `agent` frontmatter 필드를 준수하지 않는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/mcp` menu offering OAuth-specific actions for MCP servers configured with `headersHelper`; Reconnect is now offered instead to re-invoke the helper script",
+      "translated": "`headersHelper`로 구성된 MCP 서버에 대해 `/mcp` 메뉴에서 OAuth 전용 액션이 제공되던 문제를 수정했습니다. 이제 대신 헬퍼 스크립트를 다시 호출할 수 있도록 Reconnect가 제공됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ctrl+]`, `ctrl+\\`, and `ctrl+^` keybindings not firing in terminals that send raw C0 control bytes (Terminal.app, default iTerm2, xterm)",
+      "translated": "원시 C0 제어 바이트를 전송하는 터미널(Terminal.app, 기본 iTerm2, xterm)에서 `ctrl+]`, `ctrl+\\`, `ctrl+^` 단축키가 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/login` OAuth URL rendering with padding that prevented clean mouse selection",
+      "translated": "`/login` OAuth URL이 마우스로 깔끔하게 선택되지 않도록 패딩이 포함되어 렌더링되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rendering issues: flicker in non-fullscreen mode when content above the visible area changed, terminal scrollback being wiped during long sessions in non-fullscreen mode, and mouse-scroll escape sequences occasionally leaking into the prompt as text",
+      "translated": "렌더링 문제를 수정했습니다: 전체 화면이 아닐 때 가시 영역 위의 내용이 변경되면 깜빡이는 현상, 전체 화면이 아닐 때 긴 세션 동안 터미널 스크롤백이 삭제되는 문제, 그리고 마우스 스크롤 이스케이프 시퀀스가 가끔 프롬프트에 텍스트로 입력되는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed crash when `settings.json` env values are numbers instead of strings",
+      "translated": "`settings.json`의 env 값이 문자열이 아닌 숫자일 때 발생하던 크래시를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed in-app settings writes (e.g. `/add-dir --remember`, `/config`) not refreshing the in-memory snapshot, preventing removed directories from being revoked mid-session",
+      "translated": "앱 내 설정 쓰기(예: `/add-dir --remember`, `/config`) 시 인메모리 스냅샷이 새로고침되지 않아, 세션 도중 삭제된 디렉터리가 반영되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed custom keybindings (`~/.claude/keybindings.json`) not loading on Bedrock, Vertex, and other third-party providers",
+      "translated": "Bedrock, Vertex 및 기타 서드파티 제공자에서 사용자 정의 키 바인딩(`~/.claude/keybindings.json`)이 로드되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --continue -p` not correctly continuing sessions created by `-p` or the SDK",
+      "translated": "`claude --continue -p` 명령어가 `-p` 또는 SDK로 생성된 세션을 올바르게 이어가지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several Remote Control issues: worktrees removed on session crash, connection failures not persisting in the transcript, spurious \"Disconnected\" indicator in brief mode for local sessions, and `/remote-control` failing over SSH when only `CLAUDE_CODE_ORGANIZATION_UUID` is set",
+      "translated": "여러 Remote Control 관련 문제를 수정했습니다: 세션 충돌 시 worktrees가 삭제되는 문제, 연결 실패가 트랜스크립트에 기록되지 않는 문제, 로컬 세션의 brief mode에서 \"Disconnected\" 표시가 잘못 나타나는 문제, `CLAUDE_CODE_ORGANIZATION_UUID`만 설정되었을 때 SSH를 통한 `/remote-control`이 실패하는 문제."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/insights` sometimes omitting the report file link from its response",
+      "translated": "`/insights` 응답에서 간혹 리포트 파일 링크가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the file attachment below the chat input not clearing when the last editor tab is closed",
+      "translated": "[VSCode] 마지막 에디터 탭을 닫을 때 채팅 입력창 하단의 파일 첨부가 해제되지 않던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-04-10T19:15:28.213Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6225
+}
