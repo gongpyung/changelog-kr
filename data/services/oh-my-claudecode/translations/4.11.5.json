@@ -1,0 +1,326 @@
+{
+  "version": "4.11.5",
+  "date": "2026-04-11",
+  "parsedAt": "2026-04-11T07:18:53.520Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**feat(release): rewrite release skill as generic repo-aware assistant** (#2501) — `/oh-my-claudecode:release` now inspects any repo's CI, version files, and release rules on first run and caches them in `.omc/RELEASE_RULE.md`.",
+      "translated": "**배포 스킬을 범용 저장소 인식 어시스턴트로 재작성** (#2501) — `/oh-my-claudecode:release`가 첫 실행 시 모든 저장소의 CI, 버전 파일, 배포 규칙을 검사하고 `.omc/RELEASE_RULE.md`에 캐시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Autopilot/Team stability** — surface hidden dependency stalls before `/autopilot` looks hung; preserve live team workflows when coarse staged state drifts; bound MCP restarts; repair retired team MCP config on upgrade.",
+      "translated": "**Autopilot/팀 안정성** — `/autopilot`이 멈춘 것처럼 보이기 전에 숨겨진 의존성 지연을 표시, 대략적인 스테이징 상태가 어긋날 때 라이브 팀 워크플로우 유지, MCP 재시작 횟수 제한, 업그레이드 시 중단된 팀 MCP 설정 복구."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Keyword-detector accuracy** — prevent mode activation from quoted reference prose; keep help-style queries informational; preserve activation in mixed command/help prompts.",
+      "translated": "**키워드 탐지 정확도** — 인용된 참조 문구로 인한 모드 활성화 방지, 도움말 스타일 쿼리를 정보 제공용으로 유지, 명령과 도움말이 섞인 프롬프트에서 활성화 상태 유지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Ralph robustness** — preserve continuation across interrupted tool turns; silence repeated idle follow-up nudges once backlog is truly zero.",
+      "translated": "**Ralph 견고성** — 중단된 도구 실행 차례에서도 연속성 유지, 백로그가 완전히 0이 되면 반복되는 유휴 후속 알림 중지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**HUD reliability** — prevent setup docs from deleting the installed wrapper; surface import errors; prevent stale root state revival.",
+      "translated": "**HUD 신뢰성** — 설정 문서가 설치된 래퍼를 삭제하지 않도록 방지, 임포트 오류 표시, 오래된 루트 상태의 복구 방지."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Setup/installer correctness** — always update CLAUDE.md on install; avoid hook re-injection for plugin installs; validate and select cache version candidates deterministically.",
+      "translated": "**설정/설치 프로그램 정확성** — 설치 시 항상 `CLAUDE.md` 업데이트, 플러그인 설치 시 훅 재주입 방지, 캐시 버전 후보를 결정론적으로 검증 및 선택."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**tmux centralization** — all tmux execution routed through wrapper functions; Windows `.cmd` availability checks aligned; tmux-utils API compatibility restored.",
+      "translated": "**tmux 중앙 집중화** — 모든 `tmux` 실행이 래퍼 함수를 통해 라우팅됨, Windows `.cmd` 가용성 확인 방식 통일, `tmux-utils` API 호환성 복구."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Surface hidden dependency stalls before /autopilot looks hung",
+      "translated": "`/autopilot`이 멈춘 것처럼 보이기 전에 숨겨진 의존성 지연을 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Preserve live team workflows when coarse staged state drifts",
+      "translated": "대략적인 스테이징 상태가 어긋날 때 라이브 팀 워크플로우 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bound launcher-backed MCP restarts without changing user intent",
+      "translated": "사용자 의도를 변경하지 않고 런처 기반 MCP 재시작 횟수 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Repair retired team MCP config on upgrade and launch",
+      "translated": "업그레이드 및 실행 시 중단된 팀 MCP 설정 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent stale team worktrees from blocking startup",
+      "translated": "오래된 팀 작업 트리(worktrees)가 시작을 차단하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Preserve team state for explicit shutdown instead of terminal auto-cleanup",
+      "translated": "터미널 자동 정리 대신 명시적 종료를 위해 팀 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Keep bridge autopilot blocker regression aligned with active-session ownership",
+      "translated": "브리지 autopilot 차단 회귀 현상을 활성 세션 소유권과 일치하도록 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent autopilot runtime insight from leaking unrelated team blockers",
+      "translated": "autopilot 런타임 인사이트에서 관련 없는 팀 차단 요소가 노출되지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Let scale-up workers follow the existing provider launch contract",
+      "translated": "스케일업 워커가 기존 프로바이더 실행 계약을 따르도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Avoid Claude onboarding on default omc launches",
+      "translated": "기본 `omc` 실행 시 Claude 온보딩 생략"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prefer consensus planning blockers over team-stage continuation",
+      "translated": "팀 단계 지속보다 합의 계획 차단 요소를 우선 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Back off shipped idle follow-ups once zero backlog is unchanged",
+      "translated": "백로그 0 상태가 유지되면 전송된 유휴 후속 알림 중지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Collapse duplicate native lifecycle bursts for attached tmux sessions (#2494)",
+      "translated": "연결된 `tmux` 세션에 대해 중복된 네이티브 라이프사이클 버스트를 축소 (#2494)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent shipped keyword-detector hooks from re-triggering on explanatory follow-ups",
+      "translated": "설명용 후속 메시지에서 기본 제공 키워드 탐지 훅이 다시 트리거되지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent mode activation from quoted reference prose",
+      "translated": "인용된 참조 문구로 인해 모드가 활성화되지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent explanatory mode references from re-triggering orchestration",
+      "translated": "설명용 모드 참조가 오케스트레이션을 다시 트리거하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent bundled help-question regexes from collapsing in keyword detection",
+      "translated": "키워드 탐지 시 내장된 도움말 질문 정규식이 충돌하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Preserve activation in mixed command/help prompts (#2428)",
+      "translated": "명령어와 도움말이 혼합된 프롬프트에서 활성화 상태 유지 (#2428)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Keep help-style use queries informational (#2428)",
+      "translated": "도움말 스타일의 사용 쿼리를 정보 제공용으로 유지 (#2428)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent stale ralplan terminal states from re-triggering stop enforcement",
+      "translated": "오래된 ralplan 터미널 상태가 중지 강제를 다시 트리거하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent stale stop-hook state from blocking fresh sessions",
+      "translated": "오래된 stop-hook 상태가 새 세션을 차단하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Silence repeated idle follow-up nudges once backlog is truly zero",
+      "translated": "백로그가 완전히 비워지면 반복되는 유휴 후속 알림을 중지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Preserve Ralph continuation across interrupted tool turns",
+      "translated": "도구 사용이 중단되어도 Ralph의 연속성이 유지되도록 보존"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent HUD setup docs from deleting the installed wrapper",
+      "translated": "HUD 설정 문서가 설치된 래퍼를 삭제하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent session-recreated HUD panes from reviving stale root state",
+      "translated": "세션에서 다시 생성된 HUD 창이 오래된 루트 상태를 복구하지 않도록 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Surface HUD import errors from plugin root wrapper (#2457)",
+      "translated": "플러그인 루트 래퍼에서 발생하는 HUD 가져오기 오류를 표시 (#2457)"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Remove stale inline wrapper from HUD skill, copy from canonical template (#2433)",
+      "translated": "HUD 스킬에서 오래된 인라인 래퍼를 제거하고 표준 템플릿에서 복사 (#2433)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prevent nested tmux HUD panes from surviving cleanup (#2492)",
+      "translated": "정리 작업 시 중첩된 tmux HUD 창이 남아 있지 않도록 방지 (#2492)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Always update claude config CLAUDE.md on install (#2431)",
+      "translated": "설치 시 항상 claude 설정 파일인 CLAUDE.md를 업데이트 (#2431)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Avoid hook re-injection for plugin installs (#2430)",
+      "translated": "플러그인 설치 시 훅이 재주입되지 않도록 방지 (#2430)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Validate and strictly select cache version candidates (#2422)",
+      "translated": "캐시 버전 후보를 검증하고 엄격하게 선택 (#2422)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Prefer latest cache version over stale installed path (#2422)",
+      "translated": "오래된 설치 경로보다 최신 캐시 버전을 우선적으로 사용 (#2422)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Detect CLAUDE.md version drift against plugin cache (#2423)",
+      "translated": "플러그인 캐시와 비교하여 CLAUDE.md 버전 차이를 감지 (#2423)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Support companion version markers and mingw-safe checks (#2423)",
+      "translated": "컴패니언 버전 마커 및 mingw-safe 검사 지원 (#2423)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Use deterministic CLAUDE source for version drift check (#2423)",
+      "translated": "버전 드리프트 검사를 위해 결정론적 CLAUDE 소스 사용 (#2423)"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Remove extra brace in version drift command (#2423)",
+      "translated": "버전 드리프트 명령어의 불필요한 중괄호 제거 (#2423)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Centralize all tmux execution through wrapper functions (#2427)",
+      "translated": "모든 tmux 실행을 래퍼 함수를 통해 중앙 집중화 (#2427)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Keep Windows tmux.cmd execution consistent with availability checks (#2444)",
+      "translated": "Windows `tmux.cmd` 실행을 가용성 검사와 일관되게 유지 (#2444)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Restore tmux-utils API compatibility (#2442)",
+      "translated": "`tmux-utils` API 호환성 복구 (#2442)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Allow completed ultrawork sessions to exit cleanly (#2439)",
+      "translated": "완료된 ultrawork 세션이 정상적으로 종료되도록 허용 (#2439)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Avoid .json false positive in source extension matching (#2432)",
+      "translated": "소스 확장자 매칭 시 `.json` 오탐 방지 (#2432)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Recognize `ty` in the supported Python LSP registry (#2439)",
+      "translated": "지원되는 Python LSP 레지스트리에서 `ty` 인식 (#2439)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Align learned skill templates with flat-file discovery (#2438)",
+      "translated": "학습된 스킬 템플릿을 플랫 파일 탐색 방식과 일치시킴 (#2438)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**docs: add omc symlink bootstrap and .mcp.json conflict resolution to CONTRIBUTING** (#2493)",
+      "translated": "**`CONTRIBUTING`에 omc 심볼릭 링크 부트스트랩 및 `.mcp.json` 충돌 해결 방법 추가** (#2493)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**50+ PRs merged** | **1 new feature** | **30+ bug fixes** | **0 breaking changes**",
+      "translated": "**50개 이상의 PR 병합** | **1개의 새로운 기능** | **30개 이상의 버그 수정** | **0개의 파괴적 변경 사항**"
+    }
+  ],
+  "translatedAt": "2026-04-11T07:20:03.227Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4081
+}
