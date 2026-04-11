@@ -1,0 +1,710 @@
+{
+  "version": "2026.4.10",
+  "date": "2026-04-11",
+  "parsedAt": "2026-04-11T03:21:39.006Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/Codex: add the bundled Codex provider and plugin-owned app-server harness so `codex/gpt-*` models use Codex-managed auth, native threads, model discovery, and compaction while `openai/gpt-*` stays on the normal OpenAI provider path. (#64298)",
+      "translated": "Models/Codex: 번들 Codex 제공자와 플러그인 소유의 app-server 하네스를 추가하여, `openai/gpt-*`가 일반 OpenAI 제공자 경로를 유지하는 동안 `codex/gpt-*` 모델이 Codex 관리 인증, 네이티브 스레드, 모델 검색 및 컴팩션을 사용하도록 개선했습니다. (#64298)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/Active Memory: add a new optional Active Memory plugin that gives OpenClaw a dedicated memory sub-agent right before the main reply, so ongoing chats can automatically pull in relevant preferences, context, and past details without making users remember to manually say \"remember this\" or \"search memory\" first. Includes configurable message/recent/full context modes, live `/verbose` inspection, advanced prompt/thinking overrides for tuning, and opt-in transcript persistence for debugging. Docs: https://docs.openclaw.ai/concepts/active-memory. (#63286) Thanks @Takhoffman.",
+      "translated": "Memory/Active Memory: 메인 응답 직전에 OpenClaw에 전용 메모리 서브 에이전트를 제공하는 새로운 선택형 Active Memory 플러그인을 추가했습니다. 이를 통해 사용자가 수동으로 \"이걸 기억해\" 또는 \"메모리 검색\"이라고 말하지 않아도 진행 중인 채팅에서 관련 선호도, 컨텍스트 및 과거 세부 정보를 자동으로 가져올 수 있습니다. 구성 가능한 메시지/최근/전체 컨텍스트 모드, 실시간 `/verbose` 검사, 튜닝을 위한 고급 프롬프트/생각 재정의, 디버깅을 위한 트랜스크립트 영구 저장 옵션이 포함됩니다. Docs: https://docs.openclaw.ai/concepts/active-memory. (#63286) @Takhoffman님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS/Talk: add an experimental local MLX speech provider for Talk Mode, with explicit provider selection, local utterance playback, interruption handling, and system-voice fallback. (#63539) Thanks @ImLukeF.",
+      "translated": "macOS/Talk: Talk Mode를 위한 실험적인 로컬 MLX 음성 제공자를 추가했습니다. 명시적인 제공자 선택, 로컬 발화 재생, 중단 처리 및 시스템 음성 폴백 기능을 포함합니다. (#63539) @ImLukeF님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tools/video generation: add Seedance 2.0 model refs to the bundled fal provider and submit the provider-specific duration, resolution, audio, and seed metadata fields needed for live Seedance 2.0 runs.",
+      "translated": "Tools/video generation: 번들 fal 제공자에 Seedance 2.0 모델 참조를 추가하고, 실시간 Seedance 2.0 실행에 필요한 제공자별 기간, 해상도, 오디오 및 시드 메타데이터 필드를 제출합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Microsoft Teams: add message actions for pin, unpin, read, react, and listing reactions. (#53432) Thanks @sudie-codes.",
+      "translated": "Microsoft Teams: 메시지 고정, 고정 해제, 읽음 처리, 반응 및 반응 목록 표시를 위한 액션을 추가했습니다. (#53432) @sudie-codes님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/Matrix: add a live `openclaw qa matrix` lane backed by a disposable Matrix homeserver, shared live-transport seams, and Matrix-specific transport coverage for threading, reactions, restart, and allowlist behavior. (#64489) Thanks @gumadeiras.",
+      "translated": "QA/Matrix: 일회용 Matrix 홈서버, 공유 라이브 전송 심(seam), 스레딩, 반응, 재시작 및 허용 목록 동작에 대한 Matrix 전용 전송 커버리지를 지원하는 실시간 `openclaw qa matrix` 레인을 추가했습니다. (#64489) @gumadeiras님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/Telegram: add a live `openclaw qa telegram` lane for private-group bot-to-bot checks, harden its artifact handling, and preserve native Telegram command reply threading for QA verification. (#64303) Thanks @obviyus.",
+      "translated": "QA/Telegram: 비공개 그룹의 봇 간 체크를 위한 실시간 `openclaw qa telegram` 레인을 추가하고, 아티팩트 처리를 강화하며 QA 검증을 위해 네이티브 Telegram 명령 응답 스레딩을 유지합니다. (#64303) @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/testing: add a `--runner multipass` lane for `openclaw qa suite` so repo-backed QA scenarios can run inside a disposable Linux VM and write back the usual report, summary, and VM logs. (#63426) Thanks @shakkernerd.",
+      "translated": "QA/testing: `openclaw qa suite`에 `--runner multipass` 레인을 추가하여, 리포지토리 기반 QA 시나리오를 일회용 Linux VM 내에서 실행하고 일반적인 보고서, 요약 및 VM 로그를 기록할 수 있도록 했습니다. (#63426) @shakkernerd님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI/exec policy: add a local `openclaw exec-policy` command with `show`, `preset`, and `set` subcommands for synchronizing requested `tools.exec.*` config with the local exec approvals file, plus follow-up hardening for node-host rejection, rollback safety, and sync conflict detection. (#64050)",
+      "translated": "CLI/exec policy: 요청된 `tools.exec.*` 설정을 로컬 실행 승인 파일과 동기화하기 위한 `show`, `preset`, `set` 하위 명령어가 포함된 로컬 `openclaw exec-policy` 명령어를 추가했습니다. 또한 노드 호스트 거부, 롤백 안전성 및 동기화 충돌 감지에 대한 후속 강화 작업을 진행했습니다. (#64050)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: add a `commands.list` RPC so remote gateway clients can discover runtime-native, text, skill, and plugin commands with surface-aware naming and serialized argument metadata. (#62656) Thanks @samzong.",
+      "translated": "Gateway: 원격 게이트웨이 클라이언트가 노출 위치를 인식하는 네이밍과 직렬화된 인자 메타데이터를 통해 런타임 네이티브, 텍스트, 스킬 및 플러그인 명령어를 검색할 수 있도록 `commands.list` RPC를 추가했습니다. (#62656) @samzong님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/providers: add per-provider `models.providers.*.request.allowPrivateNetwork` for trusted self-hosted OpenAI-compatible endpoints, keep the opt-in scoped to model request surfaces, and refresh cached WebSocket managers when request transport overrides change. (#63671) Thanks @qas.",
+      "translated": "Models/providers: 신뢰할 수 있는 자체 호스팅 OpenAI 호환 엔드포인트를 위해 제공자별 `models.providers.*.request.allowPrivateNetwork`를 추가했습니다. 옵트인 범위를 모델 요청 표면으로 제한하고, 요청 전송 재정의가 변경될 때 캐시된 WebSocket 관리자를 새로 고칩니다. (#63671) @qas님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Feishu: standardize request user agents and register the bot as an AI agent so Feishu deployments identify OpenClaw consistently. (#63835) Thanks @evandance.",
+      "translated": "Feishu: 요청 사용자 에이전트를 표준화하고 봇을 AI 에이전트로 등록하여 Feishu 배포 환경에서 OpenClaw를 일관되게 식별하도록 했습니다. (#63835) @evandance님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Matrix/partial streaming: add MSC4357 live markers to draft preview sends and edits so supporting Matrix clients can render a live/typewriter animation and stop it when the final edit lands. (#63513) Thanks @TigerInYourDream.",
+      "translated": "Matrix/partial streaming: 초안 미리보기 전송 및 편집에 MSC4357 라이브 마커를 추가하여, 이를 지원하는 Matrix 클라이언트가 라이브/타자기 애니메이션을 렌더링하고 최종 편집이 완료되면 중지할 수 있도록 했습니다. (#63513) @TigerInYourDream님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI/dreaming: simplify the Scene and Diary surfaces, preserve unknown phase state for partial status payloads, and stabilize waiting-entry recency ordering so Dreaming status and review lists stay clear and deterministic. (#64035) Thanks @davemorin.",
+      "translated": "Control UI/dreaming: Scene 및 Diary 화면을 간소화하고, 부분 상태 페이로드에 대해 알 수 없는 단계 상태를 보존하며, 대기 항목의 최신성 순서를 안정화하여 Dreaming 상태 및 검토 목록이 명확하고 결정론적으로 유지되도록 했습니다. (#64035) @davemorin님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents: add an opt-in strict-agentic embedded Pi execution contract for GPT-5-family runs so plan-only or filler turns keep acting until they hit a real blocker. (#64241) Thanks @100yenadmin.",
+      "translated": "Agents: GPT-5 제품군 실행을 위해 선택 가능한 엄격한 에이전트형 임베디드 Pi 실행 계약을 추가하여, 계획 전용 또는 필러 턴이 실제 차단 요소에 부딪힐 때까지 계속 작동하도록 했습니다. (#64241) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/OpenAI: add provider-owned OpenAI/Codex tool schema compatibility and surface embedded-run replay/liveness state for long-running runs. (#64300) Thanks @100yenadmin.",
+      "translated": "Agents/OpenAI: 제공자 소유의 OpenAI/Codex 도구 스키마 호환성을 추가하고, 장기 실행 작업에 대해 임베디드 실행 재생/활성 상태를 노출합니다. (#64300) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs i18n: chunk raw doc translation, reject truncated tagged outputs, avoid ambiguous body-only wrapper unwrapping, and recover from terminated Pi translation sessions without changing the default `openai/gpt-5.4` path. (#62969, #63808) Thanks @hxy91819.",
+      "translated": "Docs i18n: 원본 문서 번역을 청크로 나누고, 잘린 태그 출력을 거부하며, 모호한 본문 전용 래퍼 언래핑을 방지하고, 기본 `openai/gpt-5.4` 경로를 변경하지 않고 중단된 Pi 번역 세션에서 복구합니다. (#62969, #63808) @hxy91819님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/security: tighten browser and sandbox navigation defenses across strict SSRF defaults, hostname allowlists, interaction-driven redirects, subframes, CDP discovery, existing sessions, tab actions, noVNC, marker-span sanitization, and Docker CDP source-range enforcement. (#61404, #63332, #63882, #63885, #63889, #64367, #64370, #64371)",
+      "translated": "Browser/security: 엄격한 SSRF 기본값, 호스트 이름 허용 목록, 상호작용 기반 리다이렉트, 서브프레임, CDP 검색, 기존 세션, 탭 액션, noVNC, 마커 스팬 정리 및 Docker CDP 소스 범위 강제 적용 전반에 걸쳐 브라우저 및 샌드박스 탐색 방어를 강화했습니다. (#61404, #63332, #63882, #63885, #63889, #64367, #64370, #64371)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/tools: harden exec preflight reads, host env denylisting, node output boundaries, outbound host-media reads, profile-mutation authorization, plugin install dependency scanning, ACPX tool hooks, Gmail watcher token redaction, and oversized realtime WebSocket frame handling. (#62333, #62661, #62662, #63277, #63551, #63553, #63886, #63890, #63891, #64459)",
+      "translated": "Security/tools: 실행 프리플라이트 읽기, 호스트 환경 차단 목록, 노드 출력 경계, 아웃바운드 호스트 미디어 읽기, 프로필 변경 권한 부여, 플러그인 설치 종속성 스캔, ACPX 도구 후크, Gmail 감시자 토큰 삭제 및 과도하게 큰 실시간 WebSocket 프레임 처리를 강화했습니다. (#62333, #62661, #62662, #63277, #63551, #63553, #63886, #63890, #63891, #64459)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/Codex: add required Codex OAuth scopes, classify provider/runtime failures more clearly, stop suggesting `/elevated full` when auto-approved host exec is unavailable, add OpenAI/Codex tool-schema compatibility, and preserve embedded-run replay/liveness truth across compaction retries and mutating side effects. (#64300, #64439) Thanks @100yenadmin.",
+      "translated": "OpenAI/Codex: 필수 Codex OAuth 범위를 추가하고, 제공자/런타임 실패를 더 명확하게 분류하며, 자동 승인된 호스트 실행을 사용할 수 없을 때 `/elevated full` 제안을 중단합니다. 또한 OpenAI/Codex 도구 스키마 호환성을 추가하고, 컴팩션 재시도 및 변경 부수 효과 전반에 걸쳐 임베디드 실행 재생/활성 상태를 보존합니다. (#64300, #64439) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/WhatsApp media sends: route gateway-mode outbound sends with `--media` through the channel `sendMedia` path and preserve media access context, so WhatsApp document and attachment sends stop silently dropping the file while still delivering the caption. (#64478, #64492) Thanks @ShionEria.",
+      "translated": "CLI/WhatsApp 미디어 전송: `--media` 옵션을 사용하는 gateway-mode 아웃바운드 전송을 채널의 `sendMedia` 경로로 라우팅하고 미디어 액세스 컨텍스트를 유지하여, WhatsApp 문서 및 첨부 파일 전송 시 캡션은 전달되지만 파일이 자동으로 누락되는 현상을 수정했습니다. (#64478, #64492)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Microsoft Teams: restore media downloads for personal DMs, Bot Framework `a:` conversations, OneDrive/SharePoint shared files, and Graph-backed chat IDs; accept Bot Framework audience tokens; prevent feedback-learning filename collisions; keep long tool chains alive with typing indicators; add SSO sign-in callbacks; inject parent context for thread replies; and deliver cron announcements to Teams conversation IDs. (#54932, #55383, #55386, #58001, #58249, #58774, #59731, #60956, #62219, #62674, #63063, #63942, #63945, #63949, #63951, #63953, #64087, #64088, #64089)",
+      "translated": "Microsoft Teams: 개인 DM, Bot Framework `a:` 대화, OneDrive/SharePoint 공유 파일, Graph 기반 채팅 ID에 대한 미디어 다운로드 기능을 복구했습니다. Bot Framework 대상 토큰을 수락하고, 피드백 학습 시 파일 이름 충돌을 방지하며, 타이핑 인디케이터를 통해 긴 툴 체인 연결을 유지합니다. 또한 SSO 로그인 콜백을 추가하고, 스레드 답글에 부모 컨텍스트를 주입하며, Teams 대화 ID로 cron 공지를 전달합니다. (#54932, #55383, #55386, #58001, #58249, #58774, #59731, #60956, #62219, #62674, #63063, #63942, #63945, #63949, #63951, #63953, #64087, #64088, #64089)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/tailscale: start Tailscale exposure and the gateway update check before awaiting channel and plugin sidecar startup so remote operators are not locked out when startup sidecars stall.",
+      "translated": "Gateway/tailscale: 채널 및 플러그인 사이드카의 시작을 기다리기 전에 Tailscale 노출 및 게이트웨이 업데이트 확인을 시작하여, 시작 시 사이드카가 지연되더라도 원격 운영자가 접속 차단되지 않도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/startup: keep WebSocket RPC available while channels and plugin sidecars start, hold `chat.history` unavailable until startup sidecars finish so synchronous history reads cannot stall startup (reported in #63450), refresh advertised gateway methods after deferred plugin reloads, and enforce the pre-auth WebSocket upgrade budget before the no-handler 503 path so upgrade floods cannot bypass connection limits during that window. (#63480) Thanks @neeravmakwana.",
+      "translated": "Gateway/startup: 채널 및 플러그인 사이드카가 시작되는 동안 WebSocket RPC를 가용 상태로 유지하고, 시작 시 사이드카가 완료될 때까지 `chat.history` 사용을 제한하여 동기식 기록 읽기가 시작 프로세스를 지연시키지 않도록 했습니다. 지연된 플러그인 재로드 후 게이트웨이 메서드를 갱신하며, 인증 전 WebSocket 업그레이드 할당량을 강제하여 업그레이드 요청 폭주가 연결 제한을 우회하지 못하도록 보안을 강화했습니다. (#63480)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp: keep inbound replies, media, composing indicators, and queued outbound deliveries attached to the current socket across reconnect gaps, including fresh retry-eligible sends after the listener comes back. (#30806, #46299, #62892, #63916) Thanks @mcaxtr.",
+      "translated": "WhatsApp: 재연결 시 발생하는 공백기 동안 인바운드 답장, 미디어, 입력 중 표시 및 대기 중인 아웃바운드 전송을 현재 소켓에 유지하며, 리스너가 복구된 후 재시도가 가능한 새로운 전송 건도 포함하도록 개선했습니다. (#30806, #46299, #62892, #63916)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/thread routing: preserve Slack, Telegram, Mattermost, Matrix, ACP, restart-sentinel, and agent announce delivery targets so subagent, cron, stream-relay, session fallback, and restart messages land back in the originating thread, topic, or room casing. (#54840, #57056, #63143, #63228, #63506, #64343, #64391)",
+      "translated": "Gateway/thread routing: Slack, Telegram, Mattermost, Matrix, ACP, restart-sentinel 및 에이전트 알림 전송 대상을 유지하여 서브 에이전트, cron, stream-relay, 세션 폴백 및 재시작 메시지가 원래의 스레드, 토픽 또는 룸으로 정확히 전달되도록 했습니다. (#54840, #57056, #63143, #63228, #63506, #64343, #64391)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/fallback: preserve `/models` selection across transient primary-model failures and config reloads, allow timeout cooldown probes, classify OpenRouter no-endpoints responses, detect llama.cpp context overflows, and keep provider/runtime context metadata stable through reloads. (#61472, #64196, #64471)",
+      "translated": "Models/fallback: 일시적인 주 모델 실패 및 설정 재로드 시에도 `/models` 선택을 유지하고, 타임아웃 쿨다운 프로브를 허용하며, OpenRouter의 엔드포인트 없음 응답을 분류합니다. 또한 llama.cpp 컨텍스트 오버플로우를 감지하고 재로드 시에도 제공자/런타임 컨텍스트 메타데이터를 안정적으로 유지합니다. (#61472, #64196, #64471)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/BTW: keep `/btw` side questions working after tool-use turns by stripping replayed tool blocks, hidden reasoning, and malformed image payloads, omitting empty tool arrays, allowing Bedrock `auth: \"aws-sdk\"`, and routing Feishu `/btw` plus `/stop` through bounded out-of-band lanes. (#64218, #64219, #64225, #64324) Thanks @ngutman.",
+      "translated": "Agents/BTW: 도구 사용 턴 이후에도 재현된 도구 블록, 숨겨진 추론 및 잘못된 이미지 페이로드를 제거하여 `/btw` 부가 질문이 계속 작동하도록 개선했습니다. 빈 도구 배열을 생략하고 Bedrock `auth: \"aws-sdk\"`를 허용하며, Feishu의 `/btw` 및 `/stop` 명령을 제한된 대역 외 경로로 라우팅합니다. (#64218, #64219, #64225, #64324)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/BTW: render `/btw` side results as dismissible ephemeral cards in the browser, send `/btw` immediately during active runs, and clear stale BTW cards on reset flows so webchat matches the intended detached side-question behavior. (#64290) Thanks @ngutman.",
+      "translated": "Control UI/BTW: `/btw` 부가 결과를 브라우저에서 닫을 수 있는 일시적인 카드 형태로 렌더링하고, 실행 중에도 `/btw`를 즉시 전송하며, 초기화 시 오래된 BTW 카드를 삭제하여 웹채팅이 의도된 부가 질문 동작과 일치하도록 했습니다. (#64290)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Commands/targeting: use the selected agent or session for command output, send policy, usage/cost, context reports, model lists, bash sandbox hints, BTW/compact working directories, plugin commands, and session exports so multi-agent commands describe and mutate the intended target instead of the requester.",
+      "translated": "Commands/targeting: 명령 출력, 전송 정책, 사용량/비용, 컨텍스트 보고서, 모델 목록, bash 샌드박스 힌트, BTW/압축 작업 디렉토리, 플러그인 명령 및 세션 내보내기에 선택된 에이전트 또는 세션을 사용합니다. 이를 통해 다중 에이전트 명령이 요청자가 아닌 의도된 대상을 설명하고 변경하도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Conversation bindings: normalize focused/current conversation ids, preserve binding metadata on account and Discord rebinds, avoid stale Discord lifecycle windows, and keep generic activity touches persisted so reply routing survives rebinds and restarts.",
+      "translated": "Conversation bindings: 포커스된/현재 대화 ID를 정규화하고 계정 및 Discord 재바인딩 시 바인딩 메타데이터를 유지합니다. 오래된 Discord 라이프사이클 윈도우를 방지하고 일반 활동 기록을 유지하여 재바인딩 및 재시작 후에도 답장 라우팅이 유지되도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iMessage/self-chat: distinguish normal DM outbound rows from true self-chat using `destination_caller_id` plus chat participants, preserve multi-handle self-chat aliases, drop ambiguous reflected echoes, and strip wrapped imsg RPC text fields. (#61619, #63868, #63980, #63989, #64000) Thanks @neeravmakwana.",
+      "translated": "iMessage/self-chat: `destination_caller_id`와 채팅 참여자 정보를 사용하여 일반 DM 아웃바운드와 실제 셀프 채팅을 구분하고, 다중 핸들 셀프 채팅 별칭을 유지합니다. 모호한 반사 에코를 제거하고 래핑된 imsg RPC 텍스트 필드를 정리했습니다. (#61619, #63868, #63980, #63989, #64000)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix: keep multi-account room scoping consistent, keep packaged crypto migrations warning-only when appropriate, preserve ordered block streaming, add explicit Matrix block-streaming opt-in, and resolve verification/bootstrap from the packaged runtime entry. (#58449, #59249, #59266, #64373) Thanks @gumadeiras.",
+      "translated": "Matrix: 다중 계정 룸 범위의 일관성을 유지하고, 패키지된 암호화 마이그레이션을 적절한 경우 경고로만 처리하며, 순차적 블록 스트리밍을 유지합니다. 명시적인 Matrix 블록 스트리밍 옵트인 기능을 추가하고 패키지된 런타임 엔트리에서 검증 및 부트스트랩을 해결하도록 했습니다. (#58449, #59249, #59266, #64373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/security: tighten Telegram `allowFrom` sender validation and keep `/whoami` allowlist reporting in sync with command auth checks.",
+      "translated": "Telegram/security: Telegram `allowFrom` 발신자 검증을 강화하고, `/whoami` 허용 목록 보고를 명령 권한 확인과 동기화된 상태로 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/timeouts: extend the default LLM idle window to 120s and keep silent no-token idle timeouts on recovery paths, so slow models can retry or fall back before users see an error.",
+      "translated": "Agents/timeouts: 기본 LLM 유휴 대기 시간을 120초로 연장하고 복구 경로에서 토큰 없는 유휴 타임아웃을 조용히 유지하여, 느린 모델이 사용자에게 오류를 표시하기 전에 재시도하거나 폴백할 수 있도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/agents: preserve configured model selection and richer `IDENTITY.md` content across agent create/update flows and workspace moves, and fail safely instead of silently overwriting unreadable identity files. (#61577) Thanks @samzong.",
+      "translated": "Gateway/agents: 에이전트 생성/업데이트 흐름 및 워크스페이스 이동 시 설정된 모델 선택과 풍부한 `IDENTITY.md` 콘텐츠를 유지하며, 읽을 수 없는 ID 파일을 자동으로 덮어쓰는 대신 안전하게 실패 처리를 하도록 개선했습니다. (#61577)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills/TaskFlow: restore valid frontmatter fences for the bundled `taskflow` and `taskflow-inbox-triage` skills and copy bundled `SKILL.md` files as hard dist-runtime copies so skills stay discoverable and loadable after updates. (#64166, #64469) Thanks @extrasmall0.",
+      "translated": "Skills/TaskFlow: 번들된 `taskflow` 및 `taskflow-inbox-triage` 스킬의 유효한 frontmatter fence를 복구하고, 번들된 `SKILL.md` 파일을 dist-runtime 하드 카피로 복사하여 업데이트 후에도 스킬을 검색하고 로드할 수 있도록 했습니다. (#64166, #64469)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills: respect overridden home directories when loading personal skills so service, test, and custom launch environments read the intended user skill directory instead of the process home.",
+      "translated": "Skills: 개인 스킬을 로드할 때 재정의된 홈 디렉토리를 준수하여 서비스, 테스트 및 사용자 정의 실행 환경이 프로세스 홈 대신 의도된 사용자 스킬 디렉토리를 읽도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows/exec: settle supervisor waits from child exit state after stdout and stderr drain even when `close` never arrives, so CLI commands stop hanging or dying with forced `SIGKILL` on Windows. (#64072) Thanks @obviyus.",
+      "translated": "Windows/exec: `close` 신호가 도달하지 않더라도 stdout 및 stderr이 드레인된 후 자식 프로세스의 종료 상태로부터 수퍼바이저 대기를 완료 처리하여, Windows에서 CLI 명령이 중단되거나 `SIGKILL`로 강제 종료되는 현상을 해결했습니다. (#64072)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/sandbox: prevent sandbox browser CDP startup hangs by recreating containers when the browser security hash changes and by waiting on the correct sandbox browser lifecycle. (#62873) Thanks @Syysean.",
+      "translated": "Browser/sandbox: 브라우저 보안 해시가 변경될 때 컨테이너를 재생성하고 올바른 샌드박스 브라우저 라이프사이클을 대기함으로써 샌드박스 브라우저 CDP 시작 시의 중단 현상을 방지했습니다. (#62873)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QQBot/streaming: make block streaming configurable per QQ bot account via `streaming.mode` (`\"partial\"` | `\"off\"`, default `\"partial\"`) instead of hardcoding it off, so responses can be delivered incrementally. (#63746)",
+      "translated": "QQBot/streaming: 블록 스트리밍을 하드코딩으로 비활성화하는 대신 `streaming.mode`(`\"partial\"` | `\"off\"`, 기본값 `\"partial\"`)를 통해 QQ 봇 계정별로 설정할 수 있게 하여, 응답이 점진적으로 전달되도록 개선했습니다. (#63746)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QQBot/config: allow extra fields in `channels.qqbot` and `channels.qqbot.accounts.*` so extended qqbot builds can add new config options without gateway startup failing on schema validation. (#64075) Thanks @WideLee.",
+      "translated": "QQBot/config: `channels.qqbot` 및 `channels.qqbot.accounts.*`에 추가 필드를 허용하여, 확장된 qqbot 빌드에서 스키마 검증으로 인한 게이트웨이 시작 실패 없이 새로운 설정 옵션을 추가할 수 있도록 했습니다. (#64075) @WideLee님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/gateway: require `operator.admin` for persistent `/dreaming on|off` changes and treat missing gateway client scopes as unprivileged instead of silently allowing config writes. (#63872) Thanks @mbelinky.",
+      "translated": "Dreaming/gateway: 영구적인 `/dreaming on|off` 변경 시 `operator.admin` 권한을 요구하며, 게이트웨이 클라이언트 스코프가 누락된 경우 설정 쓰기를 자동으로 허용하는 대신 권한 없음으로 처리합니다. (#63872) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/pairing: prefer explicit QR bootstrap auth over earlier Tailscale auth classification so iOS `/pair qr` silent bootstrap pairing does not fall through to `pairing required`. (#59232) Thanks @ngutman.",
+      "translated": "Gateway/pairing: 이전의 Tailscale 인증 분류보다 명시적인 QR 부트스트랩 인증을 우선하여, iOS `/pair qr` 자동 부트스트랩 페어링이 `pairing required` 상태로 빠지지 않도록 개선했습니다. (#59232) @ngutman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/control: auto-generate browser-control auth tokens for `none` and `trusted-proxy` modes, and route browser auth/profile/doctor helpers through the public browser plugin facades. (#63280, #63957) Thanks @pgondhi987.",
+      "translated": "Browser/control: `none` 및 `trusted-proxy` 모드에 대한 browser-control 인증 토큰을 자동으로 생성하고, 브라우저 인증/프로필/doctor 헬퍼를 공용 브라우저 플러그인 파사드를 통해 라우팅합니다. (#63280, #63957) @pgondhi987님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/act: centralize `/act` request normalization and execution dispatch while adding stable machine-readable route-level error codes for invalid requests, selector misuse, evaluate-disabled gating, target mismatch, and existing-session unsupported actions. (#63977) Thanks @joshavant.",
+      "translated": "Browser/act: `/act` 요청 정규화 및 실행 디스패치를 중앙 집중화하고, 잘못된 요청, 선택기 오용, evaluate 비활성화 제한, 대상 불일치, 기존 세션 미지원 작업에 대해 기계 읽기 가능한 안정적인 라우트 레벨 에러 코드를 추가했습니다. (#63977) @joshavant님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/QQBot: enforce media storage boundaries for all outbound local file paths and route image-size probes through SSRF-guarded media fetching instead of raw `fetch()`. (#63271, #63495) Thanks @pgondhi987.",
+      "translated": "Security/QQBot: 모든 외부 로컬 파일 경로에 대해 미디어 저장소 경계를 강제하고, 이미지 크기 조사를 일반 `fetch()` 대신 SSRF 보호가 적용된 미디어 페칭을 통해 라우팅합니다. (#63271, #63495) @pgondhi987님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channel setup: ignore workspace plugin shadows when resolving trusted channel setup catalog entries so onboarding and setup flows keep using the bundled, trusted setup contract.",
+      "translated": "Channel setup: 신뢰할 수 있는 채널 설정 카탈로그 항목을 확인할 때 워크스페이스 플러그인 섀도우를 무시하여, 온보딩 및 설정 흐름이 번들로 제공되는 신뢰할 수 있는 설정 계약을 계속 사용하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/memory startup: load the explicitly selected memory-slot plugin during gateway startup, while keeping restrictive allowlists and implicit default memory slots from auto-starting unrelated memory plugins. (#64423) Thanks @EronFan.",
+      "translated": "Gateway/memory startup: 게이트웨이 시작 시 명시적으로 선택된 memory-slot 플러그인을 로드하며, 제한적인 허용 목록과 암시적 기본 메모리 슬롯이 관련 없는 메모리 플러그인을 자동 시작하지 않도록 방지합니다. (#64423) @EronFan님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/plugins: let config writes keep disabled plugin entries without forcing required plugin config schemas or crashing raw plugin validation, and avoid re-activating plugin registry state during schema checks. (#54971, #63296) Thanks @fuller-stack-dev.",
+      "translated": "Config/plugins: 설정 저장 시 필수 플러그인 설정 스키마를 강제하거나 원시 플러그인 검증에서 오류를 발생시키지 않고 비활성화된 플러그인 항목을 유지하며, 스키마 확인 중 플러그인 레지스트리 상태가 재활성화되지 않도록 합니다. (#54971, #63296) @fuller-stack-dev님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config validation: surface the actual offending field for strict-schema union failures in bindings, including top-level unexpected keys on the matching ACP branch. (#40841) Thanks @Hollychou924.",
+      "translated": "Config validation: 바인딩의 엄격한 스키마 유니온 실패 시, 일치하는 ACP 브랜치의 최상위 예기치 않은 키를 포함하여 실제 문제가 되는 필드를 표시합니다. (#40841) @Hollychou924님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Wizard/plugin config: coerce integer-typed plugin config fields from interactive text input so integer schema values persist as numbers instead of failing validation. (#63346) Thanks @jalehman.",
+      "translated": "Wizard/plugin config: 대화형 텍스트 입력에서 정수 타입의 플러그인 설정 필드를 강제 변환하여, 정수 스키마 값이 검증 실패 없이 숫자로 저장되도록 했습니다. (#63346) @jalehman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/gateway install: preserve safe custom service env vars on forced reinstall, merge prior custom PATH segments behind the managed service PATH, and stop removed managed env keys from persisting as custom carryover. (#63136) Thanks @WarrenJones.",
+      "translated": "Daemon/gateway install: 강제 재설치 시 안전한 사용자 정의 서비스 환경 변수를 보존하고, 이전 사용자 정의 PATH 세그먼트를 관리형 서비스 PATH 뒤로 병합하며, 삭제된 관리형 환경 변수 키가 사용자 정의 변수로 남아있지 않도록 수정했습니다. (#63136) @WarrenJones님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/scheduling: treat `nextRunAtMs <= 0` as invalid across cron update, maintenance, timer, and stale-delivery paths so corrupted zero timestamps self-heal instead of causing immediate runs or skipped deliveries. (#63507) Thanks @WarrenJones.",
+      "translated": "Cron/scheduling: cron 업데이트, 유지 관리, 타이머 및 지연 전달 경로에서 `nextRunAtMs <= 0`을 유효하지 않은 것으로 처리하여, 손상된 0 타임스탬프가 즉시 실행되거나 전달이 누락되는 대신 자체 복구되도록 했습니다. (#63507) @WarrenJones님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/auth: resolve auth profiles consistently for isolated cron jobs so scheduled runs use the same configured provider credentials as interactive sessions. (#62797) Thanks @neeravmakwana.",
+      "translated": "Cron/auth: 격리된 cron 작업에 대해 인증 프로필을 일관되게 확인하여, 예약된 실행이 대화형 세션과 동일하게 설정된 제공자 자격 증명을 사용하도록 했습니다. (#62797) @neeravmakwana님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tasks: let `openclaw tasks cancel` cancel stuck background tasks that never reached a normal terminal state. (#62506) Thanks @neeravmakwana.",
+      "translated": "Tasks: `openclaw tasks cancel` 명령어로 정상적인 종료 상태에 도달하지 못하고 멈춰 있는 백그라운드 작업을 취소할 수 있게 했습니다. (#62506) @neeravmakwana님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/model selection: preserve catalog-backed session model labels, provider-qualified context limits, and already-qualified session model refs when catalog metadata is unavailable, so model selection and memory/context budgets survive reloads without bogus provider prefixes. (#61382, #62493) Thanks @Mule-ME.",
+      "translated": "Sessions/model selection: 카탈로그 메타데이터를 사용할 수 없을 때 카탈로그 기반 세션 모델 레이블, 제공자 한정 컨텍스트 제한 및 이미 한정된 세션 모델 참조를 보존하여, 모델 선택 및 메모리/컨텍스트 할당량이 잘못된 제공자 접두사 없이 새로고침 후에도 유지되도록 했습니다. (#61382, #62493) @Mule-ME님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Status: show configured fallback models in `/status` and shared session status cards so per-agent fallback configuration is visible before a live failover happens. (#33111) Thanks @AnCoSONG.",
+      "translated": "Status: `/status` 및 공유 세션 상태 카드에 설정된 폴백 모델을 표시하여, 실제 장애 조치(failover)가 발생하기 전에 에이전트별 폴백 설정을 확인할 수 있도록 했습니다. (#33111) @AnCoSONG님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/context detail` now compares the tracked prompt estimate with cached context usage and surfaces untracked provider/runtime overhead when present. (#28391) Thanks @ImLukeF.",
+      "translated": "`/context detail` 명령어가 추적된 프롬프트 추정치와 캐시된 컨텍스트 사용량을 비교하고, 추적되지 않은 제공자/런타임 오버헤드가 있는 경우 이를 표시합니다. (#28391) @ImLukeF님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/sessions: scope bare `sessions.create` aliases like `main` to the requested agent while preserving the canonical `global` and `unknown` sentinel keys. (#58207) Thanks @jalehman.",
+      "translated": "Gateway/sessions: `main`과 같은 단순 `sessions.create` 별칭의 범위를 요청된 에이전트로 제한하는 동시에, 표준 `global` 및 `unknown` 센티널 키를 유지합니다. (#58207) @jalehman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/session reset: emit the typed `before_reset` hook for gateway `/new` and `/reset`, preserving reset-hook behavior even when the previous transcript has already been archived. (#53872) Thanks @VACInc.",
+      "translated": "게이트웨이/세션 초기화: 게이트웨이 `/new` 및 `/reset`에 대해 타입이 지정된 `before_reset` 훅을 발생시켜, 이전 트랜스크립트가 이미 아카이브된 경우에도 초기화 훅 동작을 유지합니다. (#53872) @VACInc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/commands: pass the active host `sessionKey` into plugin command contexts, and include `sessionId` when it is already available from the active session entry, so bundled and third-party commands can resolve the current conversation reliably. (#59044) Thanks @jalehman.",
+      "translated": "플러그인/명령어: 활성 호스트의 `sessionKey`를 플러그인 명령어 컨텍스트에 전달하고, 활성 세션 엔트리에서 `sessionId`를 사용할 수 있는 경우 이를 포함하여 번들 및 서드파티 명령어가 현재 대화를 안정적으로 식별할 수 있도록 합니다. (#59044) @jalehman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/auth: honor `models.providers.*.authHeader` for pi embedded runner model requests by injecting `Authorization: Bearer <apiKey>` when requested. (#54390) Thanks @lndyzwdxhs.",
+      "translated": "에이전트/인증: pi embedded runner 모델 요청 시 요청에 따라 `Authorization: Bearer <apiKey>`를 주입하여 `models.providers.*.authHeader` 설정을 준수합니다. (#54390) @lndyzwdxhs님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude CLI: clear inherited Anthropic auth/header environment aliases before spawning Claude Code and add sanitized CLI backend auth-env diagnostics for debugging gateway-run provider selection.",
+      "translated": "Claude CLI: Claude Code를 실행하기 전에 상속된 Anthropic 인증/헤더 환경 별칭을 삭제하고, 게이트웨이 실행 제공자 선택 디버깅을 위해 정제된 CLI 백엔드 인증 환경 진단 기능을 추가합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/failover: classify AbortError and stream-abort messages as timeout so Ollama NDJSON stream aborts stop showing `reason=unknown` in model fallback logs. (#58324) Thanks @yelog.",
+      "translated": "에이전트/장애 조치: AbortError 및 스트림 중단 메시지를 타임아웃으로 분류하여, Ollama NDJSON 스트림 중단 시 모델 폴백 로그에 `reason=unknown`으로 표시되는 문제를 해결합니다. (#58324) @yelog님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fireworks/FirePass: disable Kimi K2.5 Turbo reasoning output by forcing thinking off on the FirePass path and hardening the provider wrapper so hidden reasoning no longer leaks into visible replies. (#63607) Thanks @frankekn.",
+      "translated": "Fireworks/FirePass: FirePass 경로에서 추론 기능을 강제로 비활성화하여 Kimi K2.5 Turbo의 추론 출력을 차단하고, 제공자 래퍼를 강화하여 숨겨진 추론 내용이 공개 답변에 노출되지 않도록 합니다. (#63607) @frankekn님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord: update Carbon to v0.15.0. Thanks @thewilloftheshadow.",
+      "translated": "Discord: Carbon을 v0.15.0으로 업데이트합니다. @thewilloftheshadow님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/Discord: coerce safe integer numeric Discord IDs to strings during config validation, keep unsafe or precision-losing numeric snowflakes rejected, and align `openclaw doctor` repair guidance with the same fail-closed behavior. (#45125) Thanks @moliendocode.",
+      "translated": "설정/Discord: 설정 검증 시 안전한 정수형 Discord ID를 문자열로 강제 변환하고, 안전하지 않거나 정밀도 손실이 발생하는 숫자형 snowflake는 거부하며, `openclaw doctor` 복구 가이드를 동일한 폐쇄형 실패(fail-closed) 동작에 맞게 조정합니다. (#45125) @moliendocode님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles/config: accept `enrichGroupParticipantsFromContacts` in the core strict config schema so gateways no longer fail validation or startup when the BlueBubbles plugin writes that field. (#56889) Thanks @zqchris.",
+      "translated": "BlueBubbles/설정: 핵심 엄격 설정 스키마에서 `enrichGroupParticipantsFromContacts`를 허용하여, BlueBubbles 플러그인이 해당 필드를 작성할 때 게이트웨이 검증이나 시작이 실패하지 않도록 합니다. (#56889) @zqchris님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu/webhooks: read webhook bodies through the pre-auth guard so unauthenticated webhook traffic stays under the same body budget as other protected channel ingress paths.",
+      "translated": "Feishu/웹훅: 사전 인증 가드를 통해 웹훅 본문을 읽어, 인증되지 않은 웹훅 트래픽이 다른 보호된 채널 유입 경로와 동일한 본문 용량 제한 내에서 관리되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tools/web_fetch: add an opt-in `tools.web.fetch.ssrfPolicy.allowRfc2544BenchmarkRange` config so fake-IP proxy environments that resolve public sites into `198.18.0.0/15` can use `web_fetch` without weakening the default SSRF block. (#61830) Thanks @xing-xing-coder.",
+      "translated": "도구/web_fetch: 선택 사항인 `tools.web.fetch.ssrfPolicy.allowRfc2544BenchmarkRange` 설정을 추가하여, 공개 사이트를 `198.18.0.0/15`로 해석하는 가짜 IP 프록시 환경에서 기본 SSRF 차단 기능을 약화시키지 않고 `web_fetch`를 사용할 수 있도록 합니다. (#61830) @xing-xing-coder님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/cron: reconcile managed dreaming cron from startup config and runtime lifecycle changes, but only recover managed dreaming cron state during heartbeat-triggered dreaming checks so ordinary chat traffic does not recreate removed jobs. (#63873, #63929, #63938) Thanks @mbelinky.",
+      "translated": "Dreaming/cron: 시작 설정 및 런타임 수명 주기 변경 사항에서 관리형 dreaming cron을 조정하되, 하트비트로 트리거되는 dreaming 체크 중에만 관리형 dreaming cron 상태를 복구하여 일반 채팅 트래픽이 삭제된 작업을 다시 생성하지 않도록 합니다. (#63873, #63929, #63938) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/lancedb: accept `dreaming` config when `memory-lancedb` owns the memory slot so Dreaming surfaces can read slot-owner settings without schema rejection. (#63874) Thanks @mbelinky.",
+      "translated": "메모리/lancedb: `memory-lancedb`가 메모리 슬롯을 소유할 때 `dreaming` 설정을 허용하여, Dreaming 인터페이스가 스키마 거부 없이 슬롯 소유자 설정을 읽을 수 있도록 합니다. (#63874) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/dreaming: keep the Dreaming trace area contained and scrollable so overlays no longer cover tabs or blow out the page layout. (#63875) Thanks @mbelinky.",
+      "translated": "제어 UI/dreaming: Dreaming 추적 영역을 제한된 크기의 스크롤 가능한 상태로 유지하여, 오버레이가 탭을 가리거나 페이지 레이아웃을 깨뜨리지 않도록 합니다. (#63875) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/narrative: harden request-scoped diary fallback so scheduled dreaming only falls back on the dedicated subagent-runtime error, stop trusting spoofable raw error-code objects, and avoid leaking workspace paths when local fallback writes fail. (#64156) Thanks @mbelinky.",
+      "translated": "Dreaming/narrative: 요청 범위 다이어리 폴백을 강화하여 예약된 dreaming이 전용 subagent-runtime 오류 시에만 폴백되도록 하고, 위조 가능한 원시 오류 코드 객체에 대한 신뢰를 중단하며, 로컬 폴백 쓰기 실패 시 워크스페이스 경로가 유출되지 않도록 합니다. (#64156) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/diary: add idempotent narrative subagent runs, preserve restrictive `DREAMS.md` permissions during atomic writes, and surface temp cleanup failures so repeated sweeps do not double-run the same narrative request or silently weaken diary safety. (#63876) Thanks @mbelinky.",
+      "translated": "Dreaming/diary: 멱등성 있는 내러티브 서브에이전트 실행 기능을 추가하고, 원자적 쓰기 중에 제한적인 `DREAMS.md` 권한을 유지하며, 임시 정리 실패를 표시하여 반복된 스윕 작업이 동일한 내러티브 요청을 중복 실행하거나 다이어리 보안을 암묵적으로 약화시키지 않도록 합니다. (#63876) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeats/sessions: remove stale accumulated isolated heartbeat session keys when the next tick converges them back to the canonical sibling, so repaired sessions stop showing orphaned `:heartbeat:heartbeat` variants in session listings. (#59606) Thanks @rogerdigital.",
+      "translated": "하트비트/세션: 다음 틱에서 격리된 하트비트 세션 키가 정표(canonical) 형제 세션으로 수렴될 때 오래된 누적 키를 제거하여, 복구된 세션 목록에 고립된 `:heartbeat:heartbeat` 변체가 더 이상 표시되지 않도록 합니다. (#59606) @rogerdigital님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/run cleanup: fix stale run-context TTL cleanup so the new maintenance sweep resets orphaned run sequence state and prevents unbounded run-context growth. (#52731) Thanks @artwalker.",
+      "translated": "게이트웨이/실행 정리: 오래된 실행 컨텍스트 TTL 정리를 수정하여, 새로운 유지 관리 스윕이 고립된 실행 시퀀스 상태를 초기화하고 실행 컨텍스트의 무제한 증가를 방지합니다. (#52731) @artwalker님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "UI/compaction: keep the compaction indicator in a retry-pending state until the run actually finishes, so the UI does not show `Context compacted` before compaction actually finishes. (#55132) Thanks @mpz4life.",
+      "translated": "UI/압축: 실행이 실제로 완료될 때까지 압축 표시기를 재시도 대기 상태로 유지하여, 압축이 실제로 끝나기 전에 UI에 `Context compacted`가 표시되지 않도록 합니다. (#55132) @mpz4life님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/tool schemas: keep cron tool schemas strict-model-friendly while still preserving `failureAlert=false`, nullable `agentId`/`sessionKey`, and flattened add/update recovery for the newly exposed cron job fields. (#55043) Thanks @brunolorente.",
+      "translated": "Cron/도구 스키마: 새로 노출된 cron 작업 필드에 대해 `failureAlert=false`, null 허용 `agentId`/`sessionKey`, 평탄화된 추가/업데이트 복구 기능을 유지하면서 cron 도구 스키마를 엄격한 모델 친화적 상태로 유지합니다. (#55043) @brunolorente님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Git metadata: read commit ids from packed refs as well as loose refs so version and status metadata stay accurate after repository maintenance. (#63943)",
+      "translated": "Git 메타데이터: 저장소 유지 관리 후에도 버전 및 상태 메타데이터가 정확하게 유지되도록 loose refs뿐만 아니라 packed refs에서도 commit ids를 읽어옵니다. (#63943)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: keep `commands.list` skill entries categorized under tools and include provider-aware plugin `nativeName` metadata even when `scope=text`, so remote clients can group skills correctly and map text-surface plugin commands back to native aliases. (#64147)",
+      "translated": "Gateway: `commands.list` 스킬 항목을 도구로 분류하고 `scope=text`인 경우에도 제공자 인식 플러그인 `nativeName` 메타데이터를 포함하여, 원격 클라이언트가 스킬을 올바르게 그룹화하고 텍스트 기반 플러그인 명령을 기본 별칭에 매핑할 수 있도록 합니다. (#64147)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI: reset footer activity to idle when switching sessions so a stale streaming indicator cannot persist after the selection changes. (#63988) Thanks @neeravmakwana.",
+      "translated": "TUI: 세션 전환 시 푸터 활동을 유휴 상태로 재설정하여 선택 항목이 변경된 후에도 이전의 스트리밍 표시기가 남아 있지 않도록 합니다. (#63988) @neeravmakwana님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude CLI: stop marking spawned Claude Code runs as host-managed so they keep using normal CLI subscription behavior. (#64023) Thanks @Alex-Alaniz.",
+      "translated": "Claude CLI: 생성된 Claude Code 실행을 호스트 관리형으로 표시하지 않도록 하여 일반적인 CLI 구독 동작을 계속 사용하게 합니다. (#64023) @Alex-Alaniz님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex auth: brand Codex OAuth flows as OpenClaw in user-visible auth prompts and diagnostics.",
+      "translated": "Codex auth: 사용자에게 보이는 인증 프롬프트 및 진단 도구에서 Codex OAuth 흐름을 OpenClaw로 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/pairing: fail closed for paired device records that have no device tokens, and reject pairing approvals whose requested scopes do not match the requested device roles.",
+      "translated": "Gateway/pairing: 디바이스 토큰이 없는 페어링된 디바이스 레코드는 연결을 차단하고, 요청된 스코프가 요청된 디바이스 역할과 일치하지 않는 페어링 승인을 거부합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ACP/gateway chat: classify lifecycle errors before forwarding them to ACP clients so refusals use ACP's refusal stop reason while transient backend errors continue to finish as normal turns.",
+      "translated": "ACP/gateway chat: 수명 주기 오류를 ACP 클라이언트에 전달하기 전에 분류하여, 거부 시에는 ACP의 거부 중단 사유를 사용하고 일시적인 백엔드 오류는 정상적인 턴으로 완료되도록 합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude CLI/skills: pass eligible OpenClaw skills into CLI runs, including native Claude Code skill resolution via a temporary plugin plus per-run skill env/API key injection. (#62686, #62723) Thanks @zomars.",
+      "translated": "Claude CLI/skills: 임시 플러그인을 통한 기본 Claude Code 스킬 확인 및 실행별 스킬 환경/API 키 주입을 포함하여, 적격한 OpenClaw 스킬을 CLI 실행에 전달합니다. (#62686, #62723) @zomars님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord: keep generated auto-thread names working with reasoning models by giving title generation enough output budget for thinking plus visible title text. (#64172) Thanks @hanamizuki.",
+      "translated": "Discord: 제목 생성 시 추론 과정과 실제 제목 텍스트를 위한 충분한 출력 예산을 할당하여, 추론 모델에서도 자동 스레드 이름 생성이 원활하게 작동하도록 합니다. (#64172) @hanamizuki님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat: ignore doc-only Markdown fence markers in the default `HEARTBEAT.md` template so comment-only heartbeat scaffolds skip API calls again. (#61690, #63434) Thanks @ravyg.",
+      "translated": "Heartbeat: 기본 `HEARTBEAT.md` 템플릿에서 문서 전용 Markdown 펜스 마커를 무시하여, 주석만 있는 하트비트 스캐폴드가 다시 API 호출을 건너뛰도록 합니다. (#61690, #63434) @ravyg.님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Reply/skills: keep resolved skill and memory secret config stable through embedded reply runs so raw SecretRefs in secondary skill settings no longer crash replies when the gateway already has the live env. (#64249) Thanks @mbelinky.",
+      "translated": "Reply/skills: 임베디드 회신 실행 중에도 확인된 스킬 및 메모리 비밀 설정을 안정적으로 유지하여, 게이트웨이에 이미 활성 환경이 있는 경우 보조 스킬 설정의 원시 SecretRefs로 인해 회신이 중단되지 않도록 합니다. (#64249) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/startup: keep plugin-registered startup hooks alive across workspace hook reloads and include dreaming startup owners in the gateway startup plugin scope, so managed Dreaming cron registration comes back reliably after gateway boot. (#62327, #64258) Thanks @mbelinky.",
+      "translated": "Dreaming/startup: 워크스페이스 후크를 다시 로드할 때 플러그인에 등록된 시작 후크를 유지하고 게이트웨이 시작 플러그인 범위에 dreaming 시작 소유자를 포함하여, 게이트웨이 부팅 후 관리형 Dreaming cron 등록이 안정적으로 복구되도록 합니다. (#62327, #64258) @mbelinky님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins: treat duplicate `registerService` calls from the same plugin id as idempotent so snapshot and activation loads no longer emit spurious `service already registered` diagnostics. (#62033, #64128) Thanks @ly85206559.",
+      "translated": "Plugins: 동일한 플러그인 ID의 중복 `registerService` 호출을 멱등성 있게 처리하여, 스냅샷 및 활성화 로드 시 불필요한 `service already registered` 진단 메시지가 발생하지 않도록 합니다. (#62033, #64128) @ly85206559님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/TTS: route auto voice replies through the native voice-note path so Discord receives Opus voice messages instead of regular audio attachments. (#64096) Thanks @LiuHuaize.",
+      "translated": "Discord/TTS: 자동 음성 회신을 기본 음성 메모 경로로 라우팅하여 Discord가 일반 오디오 첨부 파일 대신 Opus 음성 메시지를 수신하도록 합니다. (#64096) @LiuHuaize님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/plugins: use plugin-owned command alias metadata when `plugins.allow` contains runtime command names like `dreaming`, and point users at the owning plugin instead of stale plugin-not-found guidance. (#64191, #64242) Thanks @feiskyer.",
+      "translated": "Config/plugins: `plugins.allow`에 `dreaming`과 같은 런타임 명령 이름이 포함된 경우 플러그인 소유의 명령 별칭 메타데이터를 사용하고, 사용자에게 잘못된 플러그인 미설명 안내 대신 해당 플러그인을 안내합니다. (#64191, #64242) @feiskyer님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Gemini: strip orphaned `required` entries from Gemini tool schemas so provider validation no longer rejects tools after schema cleanup or union flattening. (#64284) Thanks @xxxxxmax.",
+      "translated": "Agents/Gemini: Gemini 도구 스키마에서 분리된 `required` 항목을 제거하여, 스키마 정리 또는 유니온 플래트닝 후 제공자 유효성 검사에서 도구가 거부되지 않도록 합니다. (#64284) @xxxxxmax님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Assistant text: strip Qwen-style XML tool call payloads from visible replies so web and channel messages no longer show raw `<tool_call><function=...>` output. (#63999, #64214) Thanks @MoerAI.",
+      "translated": "Assistant text: 표시되는 회신에서 Qwen 스타일의 XML 도구 호출 페이로드를 제거하여 웹 및 채널 메시지에 원시 `<tool_call><function=...>` 출력이 더 이상 표시되지 않도록 합니다. (#63999, #64214) @MoerAI님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/gateway: prevent systemd restart storms on configuration errors by exiting with `EX_CONFIG` and adding generated unit restart-prevention guards. (#63913) Thanks @neo1027144-creator.",
+      "translated": "Daemon/gateway: 구성 오류 발생 시 `EX_CONFIG`와 함께 종료하고 생성된 유닛의 재시작 방지 가드를 추가하여 systemd 재시작 폭풍을 방지합니다. (#63913) @neo1027144-creator님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: prevent gateway crash (\"Agent listener invoked outside active run\") when a subagent exec tool produces stdout/stderr after the agent run has ended or been aborted. (#62821) Thanks @openperf.",
+      "translated": "Agents/exec: 에이전트 실행이 종료되거나 중단된 후 하위 에이전트 실행 도구에서 stdout/stderr가 생성될 때 발생하는 게이트웨이 충돌(\"Agent listener invoked outside active run\")을 방지합니다. (#62821) @openperf님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/OpenAI compat: return real `usage` for non-stream `/v1/chat/completions` responses, emit the final usage chunk when `stream_options.include_usage=true`, and bound usage-gated stream finalization after lifecycle end. (#62986) Thanks @Lellansin.",
+      "translated": "Gateway/OpenAI compat: 비스트리밍 `/v1/chat/completions` 응답에 실제 `usage`를 반환하고, `stream_options.include_usage=true`인 경우 최종 사용량 청크를 내보내며, 수명 주기 종료 후 사용량 기반 스트림 마무리를 제한합니다. (#62986) @Lellansin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: deduplicate delivered completion announces so retry or re-entry cleanup does not inject duplicate internal-context completion turns into the parent session. (#61525) Thanks @100yenadmin.",
+      "translated": "에이전트/서브에이전트: 전달된 완료 알림을 중복 제거하여 재시도 또는 재진입 정리 작업 시 부모 세션에 중복된 내부 컨텍스트 완료 턴이 삽입되지 않도록 개선했습니다. (#61525) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: keep sandboxed `tools.exec.host=auto` sessions from honoring per-call `host=node` or `host=gateway` overrides while a sandbox runtime is active, and stop advertising node routing in that state so exec stays on the sandbox host. (#63880)",
+      "translated": "에이전트/exec: 샌드박스 런타임이 활성화된 동안 샌드박스 처리된 `tools.exec.host=auto` 세션이 호출별 `host=node` 또는 `host=gateway` 오버라이드를 따르지 않도록 제한하고, 해당 상태에서 노드 라우팅 광고를 중단하여 실행이 샌드박스 호스트에 유지되도록 수정했습니다. (#63880)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: preserve archived delete-mode runs until `sessions.delete` succeeds and prevent overlapping archive sweeps from duplicating in-flight cleanup attempts. (#61801) Thanks @100yenadmin.",
+      "translated": "에이전트/서브에이전트: `sessions.delete`가 성공할 때까지 아카이브된 삭제 모드 실행을 보존하고, 중복된 아카이브 스윕(sweep)으로 인해 진행 중인 정리 시도가 중복되지 않도록 방지했습니다. (#61801) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/isolated agent: run scheduled agent turns as non-owner senders so owner-only tools stay unavailable during cron execution. (#63878)",
+      "translated": "Cron/격리된 에이전트: 예약된 에이전트 턴을 소유자가 아닌 발신자로 실행하여 cron 실행 중에 소유자 전용 도구를 사용할 수 없도록 변경했습니다. (#63878)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/sandbox: include `image` in sandbox media param normalization so Discord event cover images cannot bypass sandbox path rewriting. (#64377) Thanks @mmaps.",
+      "translated": "Discord/샌드박스: 샌드박스 미디어 파라미터 정규화에 `image`를 포함하여 Discord 이벤트 커버 이미지가 샌드박스 경로 재작성을 우회하지 못하도록 수정했습니다. (#64377) @mmaps님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: extend exec completion detection to cover local background exec formats so the owner-downgrade fires correctly for all exec paths. (#64376) Thanks @mmaps.",
+      "translated": "에이전트/exec: 로컬 백그라운드 실행 형식을 포함하도록 실행 완료 감지 범위를 확장하여 모든 실행 경로에서 소유자 권한 강등(owner-downgrade)이 올바르게 작동하도록 개선했습니다. (#64376) @mmaps님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hooks/security: mark agent hook system events as untrusted and sanitize hook display names before cron metadata reuse. (#64372) Thanks @eleqtrizit.",
+      "translated": "후크/보안: 에이전트 후크 시스템 이벤트를 신뢰할 수 없는 것으로 표시하고, cron 메타데이터를 재사용하기 전에 후크 표시 이름을 정리(sanitize)하도록 수정했습니다. (#64372) @eleqtrizit님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Daemon/launchd: keep `openclaw gateway stop` persistent without uninstalling the macOS LaunchAgent, re-enable it on explicit restart or repair, and harden launchd label handling. (#64447) Thanks @ngutman.",
+      "translated": "데몬/launchd: macOS LaunchAgent를 제거하지 않고도 `openclaw gateway stop` 상태가 유지되도록 변경하고, 명시적인 재시작 또는 복구 시 이를 다시 활성화하며 launchd 레이블 처리를 강화했습니다. (#64447) @ngutman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/context engines: preserve `plugins.slots.contextEngine` through normalization and keep explicitly selected workspace context-engine plugins enabled, so loader diagnostics and plugin activation stop dropping that slot selection. (#64192) Thanks @hclsys.",
+      "translated": "플러그인/컨텍스트 엔진: 정규화 과정에서 `plugins.slots.contextEngine`을 보존하고 명시적으로 선택된 워크스페이스 컨텍스트 엔진 플러그인을 활성 상태로 유지하여, 로더 진단 및 플러그인 활성화 시 해당 슬롯 선택이 해제되지 않도록 수정했습니다. (#64192) @hclsys님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat: stop top-level `interval:` and `prompt:` fields outside the `tasks:` block from bleeding into the last parsed heartbeat task. (#64488) Thanks @Rahulkumar070.",
+      "translated": "하트비트: `tasks:` 블록 외부의 최상위 `interval:` 및 `prompt:` 필드가 마지막으로 파싱된 하트비트 작업에 영향을 미치지 않도록 수정했습니다. (#64488) @Rahulkumar070님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI replay: preserve malformed function-call arguments in stored assistant history, avoid double-encoding preserved raw strings on replay, and coerce replayed string args back to objects at Anthropic and Google provider boundaries. (#61956) Thanks @100yenadmin.",
+      "translated": "에이전트/OpenAI 리플레이: 저장된 어시스턴트 기록에서 잘못된 형식의 함수 호출 인수를 보존하고, 리플레이 시 보존된 원시 문자열의 이중 인코딩을 방지하며, Anthropic 및 Google 제공자 경계에서 리플레이된 문자열 인수를 다시 객체로 변환하도록 수정했습니다. (#61956) @100yenadmin님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Heartbeat/config: accept and honor `agents.defaults.heartbeat.timeoutSeconds` and per-agent heartbeat timeout overrides for heartbeat agent turns. (#64491) Thanks @cedillarack.",
+      "translated": "하트비트/설정: 하트비트 에이전트 턴에 대해 `agents.defaults.heartbeat.timeoutSeconds` 및 에이전트별 하트비트 타임아웃 오버라이드 설정을 적용하도록 개선했습니다. (#64491) @cedillarack님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/devices: make implicit `openclaw devices approve` selection preview-only and require approving the exact request ID, preventing latest-request races during device pairing. (#64160) Thanks @coygeek.",
+      "translated": "CLI/디바이스: 암시적인 `openclaw devices approve` 선택을 미리보기 전용으로 변경하고 정확한 요청 ID 승인을 요구하도록 하여, 디바이스 페어링 중 발생하는 최신 요청 경합(race condition) 문제를 방지했습니다. (#64160) @coygeek님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Media/security: honor sender-scoped `toolsBySender` policy for outbound host-media reads so denied senders cannot trigger host file disclosure via attachment hydration. (#64459) Thanks @eleqtrizit.",
+      "translated": "미디어/보안: 아웃바운드 호스트 미디어 읽기 시 발신자 범위의 `toolsBySender` 정책을 준수하도록 하여, 거부된 발신자가 첨부 파일 하이드레이션(hydration)을 통해 호스트 파일 노출을 유발하지 못하도록 수정했습니다. (#64459) @eleqtrizit님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/security: reject strict-policy hostname navigation unless the hostname is an explicit allowlist exception or IP literal, and route CDP HTTP discovery through the pinned SSRF fetch path. (#64367) Thanks @eleqtrizit.",
+      "translated": "브라우저/보안: 호스트 이름이 명시적인 허용 목록 예외이거나 IP 리터럴인 경우를 제외하고 엄격한 정책의 호스트 이름 탐색을 거부하며, CDP HTTP 검색을 고정된 SSRF 페치(fetch) 경로를 통해 라우팅하도록 수정했습니다. (#64367) @eleqtrizit님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/vLLM: ignore empty `tool_calls` arrays from reasoning-model OpenAI-compatible replies, reset false `toolUse` stop reasons when no actual tool calls were parsed, and stop sending `tool_choice` unless tools are present so vLLM reasoning responses no longer hang indefinitely. (#61197, #61534) Thanks @balajisiva.",
+      "translated": "모델/vLLM: 추론 모델의 OpenAI 호환 응답에서 비어 있는 `tool_calls` 배열을 무시하고, 실제 도구 호출이 파싱되지 않은 경우 잘못된 `toolUse` 중단 사유를 재설정하며, 도구가 없을 때 `tool_choice` 전송을 중단하여 vLLM 추론 응답이 무한 대기하는 현상을 해결했습니다. (#61197, #61534) @balajisiva님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-04-11T03:54:01.593Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 26648
+}

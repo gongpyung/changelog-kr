@@ -1,0 +1,1766 @@
+{
+  "version": "0.119.0",
+  "date": "2026-04-10",
+  "parsedAt": "2026-04-11T03:21:37.930Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Realtime voice sessions now default to the v2 WebRTC path, with configurable transport, voice selection, native TUI media support, and app-server coverage for the new flow (#16960, #17057, #17058, #17093, #17097, #17145, #17165, #17176, #17183, #17188).",
+      "translated": "Realtime 음성 세션은 이제 기본적으로 v2 WebRTC 경로를 사용하며, 구성 가능한 전송, 음성 선택, 네이티브 TUI 미디어 지원 및 새로운 흐름에 대한 app-server 커버리지를 제공합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "MCP Apps and custom MCP servers gained richer support, including resource reads, tool-call metadata, custom-server tool search, server-driven elicitations, file-parameter uploads, and more reliable plugin cache refreshes (#16082, #16465, #16944, #17043, #15197, #16191, #16947).",
+      "translated": "MCP 앱 및 커스텀 MCP 서버에 대한 지원이 강화되어, 리소스 읽기, tool-call 메타데이터, 커스텀 서버 tool 검색, 서버 주도 elicitations, 파일 매개변수 업로드 및 더 안정적인 플러그인 캐시 새로고침 등을 사용할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Remote/app-server workflows now support egress websocket transport, remote `--cd` forwarding, runtime remote-control enablement, sandbox-aware filesystem APIs, and an experimental `codex exec-server` subcommand (#15951, #16700, #16973, #16751, #17059, #17142, #17162).",
+      "translated": "Remote/app-server 워크플로우가 이제 송신 웹소켓 전송, 원격 `--cd` 포워딩, 런타임 원격 제어 활성화, 샌드박스 인식 파일 시스템 API, 그리고 실험적인 `codex exec-server` 하위 명령어를 지원합니다 (#15951, #16700, #16973, #16751, #17059, #17142, #17162)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The TUI can copy the latest agent response with `Ctrl+O`, including better clipboard behavior over SSH and across platforms (#16966).",
+      "translated": "TUI에서 `Ctrl+O`를 사용하여 최신 에이전트 응답을 복사할 수 있으며, SSH 및 여러 플랫폼에서 클립보드 동작이 개선되었습니다 (#16966)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`/resume` can now jump directly to a session by ID or name from the TUI (#17222).",
+      "translated": "`/resume` 명령어를 통해 TUI에서 ID 또는 이름을 사용하여 세션으로 바로 이동할 수 있습니다 (#17222)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "TUI notifications are more configurable, including Warp OSC 9 support and an opt-in mode for notifications even while the terminal is focused (#17174, #17175).",
+      "translated": "TUI 알림을 더 세부적으로 설정할 수 있습니다. Warp OSC 9 지원 및 터미널에 포커스가 있을 때도 알림을 받을 수 있는 옵트인(Opt-in) 모드가 포함되었습니다 (#17174, #17175)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The TUI starts faster by fetching rate limits asynchronously, and `/status` now refreshes stale limits instead of showing frozen or misleading quota information (#16201, #17039).",
+      "translated": "비동기적으로 속도 제한(rate limits)을 가져와 TUI가 더 빠르게 시작되며, `/status`는 멈춘 상태이거나 오해의 소지가 있는 할당량 정보를 보여주는 대신 만료된 제한을 새로고침합니다 (#16201, #17039)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Resume flows are more stable: the picker no longer flashes false empty states, uses fresher thread names, stabilizes timestamp labels, preserves resume hints on zero-token exits, and avoids crashing when resuming the current thread (#16591, #16601, #16822, #16987, #17086).",
+      "translated": "재개(Resume) 흐름이 더 안정적입니다. 선택기에서 더 이상 잘못된 빈 상태가 깜빡이지 않으며, 최신 스레드 이름을 사용하고 타임스탬프 레이블이 안정화되었으며, 0 토큰 종료 시 재개 힌트가 유지되고, 현재 스레드를 재개할 때 충돌이 발생하지 않습니다 (#16591, #16601, #16822, #16987, #17086)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Composer and chat behavior are smoother, including fixed paste teardown, CJK word navigation, stale `/copy` output, percent-decoded local file links, and clearer truncated exec-output hints (#16202, #16829, #16648, #16810, #17076).",
+      "translated": "컴포저 및 채팅 동작이 더욱 부드러워졌습니다. 붙여넣기 teardown 수정, CJK 단어 탐색, 오래된 `/copy` 출력, 퍼센트 디코딩된 로컬 파일 링크, 그리고 더 명확해진 잘린 실행 출력(exec-output) 힌트 등이 개선되었습니다 (#16202, #16829, #16648, #16810, #17076)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fast Mode no longer stays stuck on after `/fast off` in app-server-backed TUI sessions (#16833).",
+      "translated": "app-server 기반 TUI 세션에서 `/fast off` 실행 후 Fast Mode가 더 이상 켜진 상태로 멈추지 않습니다 (#16833)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP status and startup are less noisy and faster: hyphenated server names list tools correctly, `/mcp` avoids slow full inventory probes, disabled servers skip auth probing, and residency headers are honored by `codex mcp-server` (#16674, #16831, #17098, #16952).",
+      "translated": "MCP 상태 및 시작이 더 빠르고 불필요한 출력이 줄어듭니다. 하이픈이 포함된 서버 이름의 도구가 올바르게 나열되고, `/mcp`는 느린 전체 인벤토리 프로브를 피하며, 비활성화된 서버는 인증 프로브를 건너뛰고, `codex mcp-server`는 residency 헤더를 준수합니다 (#16674, #16831, #17098, #16952)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox, network, and platform edge cases were tightened, including clearer read-only `apply_patch` errors, refreshed network proxy policy after sandbox changes, suppressed irrelevant bubblewrap warnings, a macOS HTTP-client sandbox panic fix, and Windows firewall address handling (#16885, #17040, #16667, #16670, #17053).",
+      "translated": "샌드박스, 네트워크 및 플랫폼의 엣지 케이스가 더욱 강화되었습니다. 읽기 전용 `apply_patch` 오류를 더 명확하게 표시하고, 샌드박스 변경 후 네트워크 프록시 정책을 새로고침하며, 관련 없는 bubblewrap 경고를 억제하고, macOS HTTP 클라이언트 샌드박스 패닉 문제를 수정하고, Windows 방화벽 주소 처리를 개선했습니다 (#16885, #17040, #16667, #16670, #17053)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The README now uses the current ChatGPT Business plan name (#16348).",
+      "translated": "README에 현재 ChatGPT Business 요금제 이름이 사용됩니다 (#16348)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Developer guidance for `argument_comment_lint` was updated to favor getting CI started instead of blocking on slow local lint runs (#16375).",
+      "translated": "느린 로컬 린트 실행으로 인해 차단되는 대신 CI를 우선 시작할 수 있도록 `argument_comment_lint`에 대한 개발자 안내가 업데이트되었습니다 (#16375)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Obsolete `codex-cli` README content was removed to avoid stale setup guidance (#17096).",
+      "translated": "오래된 설정 안내를 피하기 위해 더 이상 사용되지 않는 `codexcli` README 콘텐츠가 제거되었습니다 (#17096)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`codex exec --help` now shows clearer usage and approval-mode wording (#16881, #16888).",
+      "translated": "`codex exec --help`가 이제 더 명확한 사용법과 승인 모드(approval-mode) 문구를 보여줍니다 (#16881, #16888)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`codex-core` was slimmed down through major crate extractions for MCP, tools, config, model management, auth, feedback, protocol, and related ownership boundaries (#15919, #16379, #16508, #16523, #16962).",
+      "translated": "MCP, 도구, 구성, 모델 관리, 인증, 피드백, 프로토콜 및 관련 소유권 경계에 대한 주요 크레이트 추출을 통해 `codex-core`가 경량화되었습니다 (#15919, #16379, #16508, #16523, #16962)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rust CI and workspace guardrails were simplified by blocking new crate features and dropping routine `--all-features` runs (#16455, #16473).",
+      "translated": "새로운 크레이트 기능을 차단하고 정기적인 `--all-features` 실행을 생략하여 Rust CI 및 워크스페이스 가드레일이 단순화되었습니다 (#16455, #16473)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Core compile times were reduced by removing expensive async-trait expansion from hot tool/task abstractions (#16630, #16631).",
+      "translated": "빈번하게 사용되는 tool/task 추상화에서 비용이 많이 드는 async-trait 확장을 제거하여 코어 컴파일 시간이 단축되었습니다 (#16630, #16631)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Bazel diagnostics and dependency wiring improved with compact execution logs, repository-cache persistence, remote downloader support, and several platform-specific build fixes (#16577, #16926, #16928, #16634, #16744).",
+      "translated": "간결한 실행 로그, 저장소 캐시 지속성, 원격 다운로더 지원 및 여러 플랫폼별 빌드 수정을 통해 Bazel 진단 및 종속성 연결이 개선되었습니다 (#16577, #16926, #16928, #16634, #16744)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16308 fix: one shot end of turn",
+      "translated": "수정: 단일 턴 종료(one shot end of turn)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16238 fix: ma2",
+      "translated": "수정: ma2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16317 chore: clean wait v2",
+      "translated": "Wait v2 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16318 nit: update aborted line",
+      "translated": "중단된 줄 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15771 feat: fork pattern v2",
+      "translated": "Fork 패턴 v2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16322 fix: update fork boundaries computation",
+      "translated": "Fork 경계 계산 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16325 feat: restrict spawn_agent v2 to messages",
+      "translated": "Spawn_agent v2를 메시지로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16324 chore: drop interrupt from send_message",
+      "translated": "Send_message에서 interrupt 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16345 fix: fix clippy issue caught by cargo but not bazel",
+      "translated": "Cargo에서는 감지되지만 bazel에서는 감지되지 않는 clippy 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16184 Route TUI `/feedback` submission through the app server",
+      "translated": "앱 서버를 통한 TUI `/feedback` 제출 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16330 feat: log db better maintenance",
+      "translated": "로그 DB 유지보수 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15690 [codex-analytics] thread events",
+      "translated": "[codex-analytics] 스레드 이벤트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16363 Fix PR babysitter review comment monitoring",
+      "translated": "PR babysitter 리뷰 댓글 모니터링 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16356 Refactor external auth to use a single trait",
+      "translated": "단일 trait를 사용하도록 외부 인증 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16366 Fix Windows external bearer refresh test",
+      "translated": "Windows 외부 bearer 갱신 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16353 ci: verify codex-rs Cargo manifests inherit workspace settings",
+      "translated": "Codex-rs Cargo 매니페스트가 워크스페이스 설정을 상속하는지 확인"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16361 Refactor chatwidget tests into topical modules",
+      "translated": "주제별 모듈로 chatwidget 테스트 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16201 Fix stale /status rate limits in active TUI sessions",
+      "translated": "활성 TUI 세션에서 만료된 /status 속도 제한 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16351 ci: sync Bazel clippy lints and fix uncovered violations",
+      "translated": "Bazel clippy 린트 동기화 및 새로 발견된 위반 사항 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16378 fix: suppress status card expect_used warnings after #16351",
+      "translated": "#16351 이후 상태 카드 expect_used 경고 억제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16406 Use message string in v2 spawn_agent",
+      "translated": "V2 spawn_agent에서 메시지 문자열 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16409 Use message string in v2 send_message",
+      "translated": "V2 send_message에서 메시지 문자열 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16419 Use message string in v2 assign_task",
+      "translated": "V2 assign_task에서 메시지 문자열 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16424 feat: tasks can't be assigned to root agent",
+      "translated": "루트 에이전트에 태스크를 할당할 수 없도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16425 nit: update wait v2 desc",
+      "translated": "Wait v2 설명 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16426 chore: interrupted as state",
+      "translated": "Interrupted를 상태로 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16427 nit: deny field v2",
+      "translated": "V2 deny 필드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16433 chore: drop log DB",
+      "translated": "로그 DB 삭제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16434 feat: auto vaccum state DB",
+      "translated": "상태 DB 자동 vacuum"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16422 fix(core) rm execute_exec_request sandbox_policy",
+      "translated": "Execute_exec_request sandbox_policy 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16375 docs: update argument_comment_lint instructions in AGENTS.md",
+      "translated": "AGENTS.md의 argument_comment_lint 지침 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16449 fix: remove unused import",
+      "translated": "미사용 import 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15772 Make fuzzy file search case insensitive",
+      "translated": "퍼지 파일 검색 대소문자 구분 안 함으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16455 ci: block new workspace crate features",
+      "translated": "새로운 workspace crate 기능 차단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16456 cloud-tasks: split the mock client out of cloud-tasks-client",
+      "translated": "Cloud-tasks-client에서 mock client 분리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#16457 tui: remove debug/test-only crate features",
+      "translated": "Debug/test 전용 crate 기능 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16467 tui: remove the voice-input crate feature",
+      "translated": "Voice-input crate 기능 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16379 Extract tool config into codex-tools",
+      "translated": "도구 설정을 codex-tools로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16469 otel: remove the last workspace crate feature",
+      "translated": "마지막 workspace crate 기능 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16471 Extract tool spec helpers into codex-tools",
+      "translated": "도구 스펙 헬퍼를 codex-tools로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16473 ci: stop running rust CI with --all-features",
+      "translated": "--all-features로 rust CI 실행 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16477 Extract tool discovery helpers into codex-tools",
+      "translated": "도구 검색 헬퍼를 codex-tools로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16480 login: treat provider auth refresh_interval_ms=0 as no auto-refresh",
+      "translated": "프로바이더 인증 `refresh_interval_ms=0`을 자동 갱신 안 함으로 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16448 fix(guardian): make GuardianAssessmentEvent.action strongly typed",
+      "translated": "`GuardianAssessmentEvent.action`을 강력한 타입으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16481 Extract update_plan tool spec into codex-tools",
+      "translated": "`update_plan` 도구 스펙을 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15919 Extract MCP into codex-mcp crate",
+      "translated": "`MCP`를 `codex-mcp` 크레이트로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16482 Remove client_common tool re-exports",
+      "translated": "`client_common` 도구 재내보내기 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16495 fix: remove unused import",
+      "translated": "사용하지 않는 임포트 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16493 Extract built-in tool spec constructors into codex-tools",
+      "translated": "내장 도구 스펙 생성자를 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16273 Fix regression: \"not available in TUI\" error message",
+      "translated": "회귀 버그 수정: \"TUI에서 사용할 수 없음\" 오류 메시지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16497 Extract tool-search output helpers into codex-tools",
+      "translated": "`tool-search` 출력 헬퍼를 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16498 fix: guard guardian_command_source_tool_name with cfg(unix)",
+      "translated": "`cfg(unix)`로 `guardian_command_source_tool_name` 보호"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16499 Extract tool-suggest wire helpers into codex-tools",
+      "translated": "`tool-suggest` 와이어 헬퍼를 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16284 Fix TUI app-server permission profile conversions",
+      "translated": "TUI `app-server` 권한 프로필 변환 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16202 Fix paste-driven bottom pane completion teardown",
+      "translated": "붙여넣기 기반 하단 창 자동완성 해제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16504 core: use codex-tools config types directly",
+      "translated": "`codex-tools` 설정 타입 직접 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16503 Extract request_user_input normalization into codex-tools",
+      "translated": "`request_user_input` 정규화를 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16510 core: use codex-mcp APIs directly",
+      "translated": "`codex-mcp` API 직접 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16509 Extract code-mode nested tool collection into codex-tools",
+      "translated": "`code-mode` 중첩 도구 컬렉션을 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16512 core: remove cross-crate re-exports from lib.rs",
+      "translated": "`lib.rs`에서 크레이트 간 재내보내기 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16516 fix: add update to Cargo.lock that was missed in #16512",
+      "translated": "`#16512`에서 누락된 `Cargo.lock` 업데이트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16513 Extract tool registry planning into codex-tools",
+      "translated": "도구 레지스트리 계획을 `codex-tools`로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16521 Move tool registry plan tests into codex-tools",
+      "translated": "도구 레지스트리 계획 테스트를 codex-tools로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16523 [codex] Move config types into codex-config",
+      "translated": "[codex] 설정 타입을 codex-config로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16524 fix: move some test utilities out of codex-rs/core/src/tools/spec.rs",
+      "translated": "일부 테스트 유틸리티를 codex-rs/core/src/tools/spec.rs에서 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16529 [codex] Remove codex-core config type shim",
+      "translated": "[codex] codex-core 설정 타입 shim 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16559 chore: memories mini model",
+      "translated": "Memories 미니 모델"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16561 fix: race pending",
+      "translated": "Pending 경쟁 상태 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16564 nit: lint",
+      "translated": "린트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16566 fix: races in end of turn",
+      "translated": "턴 종료 시 경쟁 상태 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16567 chore: rework state machine further",
+      "translated": "상태 머신 추가 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16569 nit: state machine desc",
+      "translated": "상태 머신 설명 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16571 chore: rename assign_task for followup_task",
+      "translated": "Assign_task를 followup_task로 이름 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16577 ci: upload compact Bazel execution logs for bazel.yml",
+      "translated": "Bazel.yml용 간결한 Bazel 실행 로그 업로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16581 chore: move codex-exec unit tests into sibling files",
+      "translated": "Codex-exec 단위 테스트를 인접한 파일로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16590 Fix non-determinism in rules_rs/crate_git_repository.bzl",
+      "translated": "Rules_rs/crate_git_repository.bzl의 비결정성 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16604 test: deflake external bearer auth token tests on Windows",
+      "translated": "Windows 환경에서 외부 Bearer 인증 토큰 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16606 fix: add more detail to test assertion",
+      "translated": "테스트 어서션에 세부 정보 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16608 fix: increase timeout to account for slow PowerShell startup",
+      "translated": "느린 PowerShell 시작 시간을 고려하여 타임아웃 증가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16591 Fix resume picker initial loading state",
+      "translated": "이력 선택기 초기 로딩 상태 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16613 fix: increase another startup timeout for PowerShell",
+      "translated": "PowerShell의 또 다른 시작 타임아웃 증가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16601 Fix resume picker stale thread names",
+      "translated": "이력 선택기의 오래된 스레드 이름 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16616 Fixed some existing labels and added a few new ones",
+      "translated": "기존 레이블 일부 수정 및 새로운 레이블 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16588 Fix stale turn steering during TUI review follow-ups",
+      "translated": "TUI 리뷰 후속 작업 중 오래된 턴 조정 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16617 fix: add shell fallback paths for pwsh/powershell that work on GitHub Actions Windows runners",
+      "translated": "GitHub Actions Windows 실행 환경에서 작동하는 pwsh/powershell용 셸 폴백 경로 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16596 Fix fork source display in /status (expose forked_from_id in app server)",
+      "translated": "/status에서 포크 원본 표시 수정 (app server에 forked_from_id 노출)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16578 fix(tui): handle zellij redraw and composer rendering",
+      "translated": "Zellij 다시 그리기 및 컴포저 렌더링 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16630 core: cut codex-core compile time 63% with native async ToolHandler",
+      "translated": "네이티브 비동기 ToolHandler로 codex-core 컴파일 시간 63% 단축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16631 core: cut codex-core compile time 48% with native async SessionTask",
+      "translated": "네이티브 비동기 SessionTask로 codex-core 컴파일 시간 48% 단축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16492 Auto-trust cwd on thread start",
+      "translated": "스레드 시작 시 cwd 자동 신뢰"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16633 fix: address unused variable on windows",
+      "translated": "Windows에서 사용하지 않는 변수 문제 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16635 app-server: make thread/shellCommand tests shell-aware",
+      "translated": "Thread/shellCommand 테스트가 셸을 인식하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16629 test: use cmd.exe for ProviderAuthScript on Windows",
+      "translated": "Windows의 ProviderAuthScript에 cmd.exe 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16634 build: fix Bazel lzma-sys wiring",
+      "translated": "Bazel lzma-sys 연결 설정 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16658 Fix deprecated login --api-key parsing",
+      "translated": "사용 중단된 login --api-key 구문 분석 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16508 extract models manager and related ownership from core",
+      "translated": "Core에서 모델 관리자 및 관련 소유권 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16662 fix: changes to test that should help them pass on Windows under Bazel",
+      "translated": "Bazel 환경의 Windows에서 테스트가 통과되도록 돕는 테스트 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16665 fix: use COMSPEC in Windows unicode shell test",
+      "translated": "Windows 유니코드 셸 테스트에서 COMSPEC 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16668 fix: use cmd.exe in Windows unicode shell test",
+      "translated": "Windows 유니코드 셸 테스트에서 cmd.exe 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16626 remove temporary ownership re-exports",
+      "translated": "임시 소유권 재내보내기 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16648 Fix stale /copy output after commentary-only turns",
+      "translated": "설명 전용 턴 이후의 오래된 /copy 출력 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16674 Fix MCP tool listing for hyphenated server names",
+      "translated": "하이픈이 포함된 서버 이름에 대한 MCP 도구 나열 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16667 Suppress bwrap warning when sandboxing is bypassed",
+      "translated": "샌드박싱을 우회할 때 bwrap 경고 무시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16670 Fix macOS sandbox panic in Codex HTTP client",
+      "translated": "Codex HTTP 클라이언트의 macOS 샌드박스 패닉 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16699 Fix macOS malloc diagnostics leaking into TUI composer",
+      "translated": "MacOS malloc 진단 정보가 TUI 작성기에 유출되는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16700 Add remote --cd forwarding for app-server sessions",
+      "translated": "App-server 세션을 위한 원격 --cd 포워딩 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16707 fix: preserve platform-specific core shell env vars",
+      "translated": "플랫폼별 핵심 셸 환경 변수 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16715 fix: address clippy violations that sneaked in",
+      "translated": "잘못 추가된 clippy 위반 사항 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16722 fix windows-only clippy lint violation",
+      "translated": "Windows 전용 clippy 린트 위반 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16710 fix(tui): sort skill mentions by display name first",
+      "translated": "스킬 멘션을 표시 이름 기준으로 우선 정렬"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16709 Sanitize forked child history",
+      "translated": "포크된 자식 프로세스 기록 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16711 Fix Windows Bazel app-server trust tests",
+      "translated": "Windows Bazel app-server 신뢰 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16720 Remove OPENAI_BASE_URL config fallback",
+      "translated": "OPENAI_BASE_URL 설정 폴백 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16528 Codex/windows bazel rust test coverage no rs",
+      "translated": "Codex/windows bazel rust 테스트 커버리지 no rs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16450 bazel: lint rust_test targets in clippy workflow",
+      "translated": "Bazel: clippy 워크플로우에서 rust_test 타겟 린트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16735 [codex] allow disabling prompt instruction blocks",
+      "translated": "[codex] 프롬프트 인스트럭션 블록 비활성화 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16745 [codex] allow disabling environment context injection",
+      "translated": "[codex] 환경 컨텍스트 삽입 비활성화 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16725 Preempt mailbox mail after reasoning/commentary items",
+      "translated": "추론/주석 항목 뒤에 오는 사서함 메일 선제 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16755 Use Node 24 for npm publish",
+      "translated": "Npm 퍼블리시에 Node 24 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16753 [codex] add responses proxy JSON dumps",
+      "translated": "[codex] responses 프록시 JSON 덤프 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16746 Add spawn context for MultiAgentV2 children",
+      "translated": "MultiAgentV2 하위 항목에 대한 스폰 컨텍스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16757 Back out \"bazel: lint rust_test targets in clippy workflow (#16450)\"",
+      "translated": "\"bazel: lint rust_test targets in clippy workflow (#16450)\" 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16737 test: avoid PowerShell startup in Windows auth fixture",
+      "translated": "Windows 인증 픽스처에서 PowerShell 시작 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16740 ci: align Bazel repo cache and Windows clippy target handling",
+      "translated": "Bazel 리포지토리 캐시와 Windows clippy 타겟 처리 방식 통일"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16758 [codex] add context-window lineage headers",
+      "translated": "[codex] 컨텍스트 윈도우 계보 헤더 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16763 Add CODEX_SKIP_VENDORED_BWRAP",
+      "translated": "CODEX_SKIP_VENDORED_BWRAP 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15915 [codex-analytics] subagent analytics",
+      "translated": "[codex-analytics] 하위 에이전트 분석"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16823 Fix flaky test relating to metadata remote URL",
+      "translated": "메타데이터 원격 URL 관련 불안정한 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16825 Fix flaky permissions escalation test on Windows",
+      "translated": "Windows에서 권한 에스컬레이션 불안정한 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16881 Fix misleading codex exec help usage",
+      "translated": "잘못된 codex exec 도움말 사용법 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16888 Clarify `codex exec` approval help",
+      "translated": "`codex exec` 승인 도움말 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16876 [codex] add response proxy subagent header test",
+      "translated": "[codex] 응답 프록시 하위 에이전트 헤더 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16829 Fix CJK word navigation in the TUI composer",
+      "translated": "TUI 작성기의 CJK 단어 탐색 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16833 Fix TUI fast mode toggle regression",
+      "translated": "TUI 빠른 모드 토글 회귀 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16795 [regression] Fix ephemeral turn backfill in exec",
+      "translated": "[회귀] exec의 임시 턴 백필 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16822 Fix resume picker timestamp labels and stability",
+      "translated": "재개 선택기 타임스탬프 레이블 및 안정성 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16813 Annotate skill doc reads with skill names",
+      "translated": "스킬 문서 읽기에 스킬 이름 주석 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16810 (tui): Decode percent-escaped bare local file links",
+      "translated": "퍼센트 인코딩된 단순 로컬 파일 링크 디코딩"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16877 [codex-backend] Make thread metadata updates tolerate pending backfill",
+      "translated": "[codex-backend] 스레드 메타데이터 업데이트 시 대기 중인 백필 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16701 feat(requirements): support allowed_approval_reviewers",
+      "translated": "Allowed_approval_reviewers 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16925 fix(bazel): fix simdutf",
+      "translated": "Simdutf 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16926 bazel: Always save bazel repository cache",
+      "translated": "항상 Bazel 리포지토리 캐시 저장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16928 bazel: Enable `--experimental_remote_downloader`",
+      "translated": "Bazel: `--experimental_remote_downloader` 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16462 fix(guardian): fix ordering of guardian events",
+      "translated": "Guardian 이벤트 순서 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16924 fix(sqlite): don't hard fail migrator if DB is newer",
+      "translated": "DB가 더 최신인 경우 마이그레이터 하드 실패 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16744 build: restore lzma-sys Bazel wiring for devbox codex run",
+      "translated": "Devbox codex 실행을 위한 lzma-sys Bazel 연동 복원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16764 app-server: centralize AuthManager initialization",
+      "translated": "App-server: AuthManager 초기화 중앙화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16939 Fix clippy warning",
+      "translated": "Clippy 경고 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16923 Revert \"[codex-backend] Make thread metadata updates tolerate pending backfill\"",
+      "translated": "\"[codex-backend] 스레드 메타데이터 업데이트가 보류 중인 백필을 허용하도록 수정\" 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15951 app-server: Add egress websocket transport",
+      "translated": "App-server: egress 웹소켓 전송 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16945 [codex] Allow PyTorch libomp shm in Seatbelt",
+      "translated": "[codex] Seatbelt에서 PyTorch libomp shm 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16947 feat: fallback curated plugin download from backend endpint.",
+      "translated": "백엔드 엔드포인트에서 큐레이션된 플러그인 다운로드 폴백 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16191 feat: refresh non-curated cache from plugin list.",
+      "translated": "플러그인 목록에서 비큐레이션 캐시 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16952 Respect residency requirements in mcp-server",
+      "translated": "Mcp-server에서 상주 요구 사항 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16827 tui: route device-code auth through app server",
+      "translated": "Tui: app server를 통한 장치 코드 인증 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16638 [codex-analytics] add protocol-native turn timestamps",
+      "translated": "[codex-analytics] 프로토콜 네이티브 턴 타임스탬프 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16831 Speed up /mcp inventory listing",
+      "translated": "/mcp 인벤토리 조회 속도 향상"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16349 Disable env-bound tools when exec server is none",
+      "translated": "Exec server가 없을 때 env-bound 도구 비활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16957 Promote image_detail_original to experimental",
+      "translated": "Image_detail_original을 experimental로 승격"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16962 Refactor config types into a separate crate",
+      "translated": "설정 타입을 별도 크레이트로 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16153 Add setTimeout support to code mode",
+      "translated": "코드 모드에 setTimeout 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16961 app-server: Unify config changes handling a bit",
+      "translated": "App-server: 설정 변경 처리 방식 일부 통일"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16890 Validate exec input before starting app-server",
+      "translated": "App-server 시작 전 exec 입력값 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16082 [mcp] Support MCP Apps part 1.",
+      "translated": "[mcp] MCP Apps 1부 지원."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15893 fix: warn when bwrap cannot create user namespaces",
+      "translated": "Bwrap이 사용자 네임스페이스를 생성할 수 없을 때 경고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16946 [codex] Add danger-full-access denylist-only network mode",
+      "translated": "[codex] danger-full-access denylist-only 네트워크 모드 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16972 app-server: Fix compilation of a test in mcp_resource",
+      "translated": "App-server: mcp_resource 내 테스트 컴파일 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15826 Make AGENTS.md discovery FS-aware",
+      "translated": "AGENTS.md 탐색이 파일 시스템(FS)을 인식하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16964 Honor null thread instructions",
+      "translated": "Null 스레드 지시사항 반영"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16988 collapse dev message into one",
+      "translated": "개발 메시지 하나로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16724 [codex] ez - rename env=>request in codex-rs/core/src/unified_exec/process_manager.rs",
+      "translated": "[codex] ez - codex-rs/core/src/unified_exec/process_manager.rs 내 env를 request로 이름 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16999 feat: empty role ok",
+      "translated": "빈 role 허용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17002 chore: debug flag to hide some parameters",
+      "translated": "일부 매개변수 숨김을 위한 디버그 플래그"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17005 feat: drop agent ID from v2",
+      "translated": "V2에서 에이전트 ID 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17008 chore: send_message and followup_task do not return anything",
+      "translated": "Send_message 및 followup_task가 아무것도 반환하지 않도록 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17007 chore: hide nickname for debug flag",
+      "translated": "디버그 플래그 사용 시 닉네임 숨김"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16442 feat: /feedback cascade",
+      "translated": "/feedback cascade 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16978 [codex] reduce module visibility",
+      "translated": "[codex] 모듈 공개 범위(visibility) 축소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17009 chore: keep request_user_input tool to persist cache on multi-agents",
+      "translated": "멀티 에이전트 환경에서 캐시 유지를 위해 request_user_input 도구 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16739 Stabilize flaky multi-agent followup interrupt test",
+      "translated": "불안정한 멀티 에이전트 followup 인터럽트 테스트 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16885 Fix read-only apply_patch rejection message",
+      "translated": "읽기 전용 apply_patch 거부 메시지 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16882 Fix nested exec thread ID restore",
+      "translated": "중첩된 exec 스레드 ID 복원 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16976 Preserve null developer instructions",
+      "translated": "Null 개발자 지침 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16987 Fix missing resume hint on zero-token exits",
+      "translated": "0 토큰 종료 시 누락된 재개 힌트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16912 feat(analytics): generate an installation_id and pass it in responsesapi client_metadata",
+      "translated": "Installation_id를 생성하여 responsesapi client_metadata에 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16956 fix(guardian): don't throw away transcript when over budget",
+      "translated": "예산 초과 시 트랜스크립트 삭제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16981 [codex] Make AbsolutePathBuf joins infallible",
+      "translated": "[codex] AbsolutePathBuf joins가 실패하지 않도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16348 Update README",
+      "translated": "README 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16977 [codex] Make unified exec tests remote aware",
+      "translated": "[codex] 통합 exec 테스트가 원격 환경을 인식하도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16465 [mcp] Support MCP Apps part 2 - Add meta to mcp tool call result.",
+      "translated": "[mcp] MCP Apps 지원 2부 - mcp tool call 결과에 meta 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17026 app-server: Move watch_id to request of fs/watch",
+      "translated": "App-server: watch_id를 fs/watch 요청으로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16980 Add full-ci branch trigger",
+      "translated": "Full-ci 브랜치 트리거 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16973 app-server: Allow enabling remote control in runtime",
+      "translated": "App-server: 런타임에서 원격 제어 활성화 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17032 [codex] Fix unified exec test build",
+      "translated": "[codex] 통합 exec 테스트 빌드 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17031 fix(core) revert Command line in unified exec output",
+      "translated": "통합 exec 출력에서 명령줄 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17027 [codex] Migrate apply_patch to executor filesystem",
+      "translated": "[codex] apply_patch를 executor 파일 시스템으로 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17044 [app-server-protocol] introduce generic ServerResponse for app-server-protocol",
+      "translated": "[app-server-protocol] app-server-protocol을 위한 제네릭 ServerResponse 도입"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17047 fix(app-server) revert null instructions changes",
+      "translated": "Null instructions 변경 사항 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16960 Add WebRTC transport to realtime start",
+      "translated": "Realtime 시작 시 WebRTC transport 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17053 Fix remote address format to work with Windows Firewall rules.",
+      "translated": "Windows 방화벽 규칙과 호환되도록 원격 주소 형식 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17048 [codex] Apply patches through executor filesystem",
+      "translated": "[codex] executor 파일 시스템을 통해 패치 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16949 Use model metadata for Fast Mode status",
+      "translated": "Fast Mode 상태에 모델 메타데이터 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17039 fix(tui): reduce startup and new-session latency",
+      "translated": "시작 및 새 세션 지연 시간 단축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17052 Add regression tests for JsonSchema",
+      "translated": "JsonSchema 회귀 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17059 Add remote exec start script",
+      "translated": "원격 실행 시작 스크립트 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17064 Add project-local codex bug triage skill",
+      "translated": "프로젝트 로컬 codex 버그 분류 스킬 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17040 fix: refresh network proxy settings when sandbox mode changes",
+      "translated": "샌드박스 모드 변경 시 네트워크 프록시 설정 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16698 Remove expired April 2nd tooltip copy",
+      "translated": "만료된 4월 2일 툴팁 문구 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17096 Remove obsolete codex-cli README",
+      "translated": "구식 codex-cli README 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16875 Support anyOf and enum in JsonSchema",
+      "translated": "JsonSchema에서 anyOf 및 enum 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16880 Render function attribute descriptions",
+      "translated": "함수 속성 설명 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16879 Render namespace description for tools",
+      "translated": "도구의 네임스페이스 설명 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16582 feat: single app-server bootstrap in TUI",
+      "translated": "TUI에서 단일 app-server 부트스트랩"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17117 codex debug 1 (guardian approved)",
+      "translated": "Codex debug 1 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17119 codex debug 3 (guardian approved)",
+      "translated": "Codex debug 3 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17121 codex debug 5 (guardian approved)",
+      "translated": "Codex debug 5 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17123 codex debug 7 (guardian approved)",
+      "translated": "Codex debug 7 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17125 codex debug 9 (guardian approved)",
+      "translated": "Codex debug 9 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17127 codex debug 11 (guardian approved)",
+      "translated": "Codex debug 11 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17129 codex debug 13 (guardian approved)",
+      "translated": "Codex debug 13 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17131 codex debug 15 (guardian approved)",
+      "translated": "Codex debug 15 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17118 codex debug 2 (guardian approved)",
+      "translated": "Codex debug 2 (guardian 승인됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17120 codex debug 4 (guardian approved)",
+      "translated": "Codex 디버그 4 (guardian 승인)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17122 codex debug 6 (guardian approved)",
+      "translated": "Codex 디버그 6 (guardian 승인)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17124 codex debug 8 (guardian approved)",
+      "translated": "Codex 디버그 8 (guardian 승인)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17126 codex debug 10 (guardian approved)",
+      "translated": "Codex 디버그 10 (guardian 승인)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17128 codex debug 12 (guardian approved)",
+      "translated": "Codex 디버그 12 (guardian 승인)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17130 codex debug 14 (guardian approved)",
+      "translated": "Codex 디버그 14 (guardian 승인)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17071 Configure multi_agent_v2 spawn agent hints",
+      "translated": "Multi_agent_v2 스폰 에이전트 힌트 구성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17091 Show global AGENTS.md in /status",
+      "translated": "/status에 전역 AGENTS.md 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17086 Fix TUI crash when resuming the current thread",
+      "translated": "현재 스레드 재개 시 TUI 충돌 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17098 Skip MCP auth probing for disabled servers",
+      "translated": "비활성화된 서버에 대한 MCP 인증 프로빙 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17097 Add realtime transport config",
+      "translated": "실시간 전송 구성 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17043 [mcp] Support server-driven elicitations",
+      "translated": "[mcp] 서버 기반 elicitation 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17058 Add WebRTC media transport to realtime TUI",
+      "translated": "실시간 TUI에 WebRTC 미디어 전송 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17063 Use AbsolutePathBuf for exec cwd plumbing",
+      "translated": "Exec cwd 내부 처리에 AbsolutePathBuf 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#17138 fix(debug-config, guardian): fix /debug-config rendering and guardian…",
+      "translated": "/debug-config 렌더링 및 guardian… 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17046 release ready, enabling only for siwc users",
+      "translated": "릴리스 준비 완료, siwc 사용자에게만 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16751 Add sandbox support to filesystem APIs",
+      "translated": "파일 시스템 API에 샌드박스 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17142 [codex] Support remote exec cwd in TUI startup",
+      "translated": "[codex] TUI 시작 시 원격 exec cwd 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17149 Fix missing fields",
+      "translated": "누락된 필드 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17154 Fix ToolsConfigParams initializer in tool registry test",
+      "translated": "도구 레지스트리 테스트의 ToolsConfigParams 이니셜라이저 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17145 Wire realtime WebRTC native media into Bazel",
+      "translated": "Bazel에 실시간 WebRTC 네이티브 미디어 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17057 Attach WebRTC realtime starts to sideband websocket",
+      "translated": "WebRTC 실시간 시작을 사이드밴드 웹소켓에 연결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17162 Add top-level exec-server subcommand",
+      "translated": "최상위 exec-server 하위 명령어 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17061 Update guardian output schema",
+      "translated": "Guardian 출력 스키마 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17164 Auto-approve MCP server elicitations in Full Access mode",
+      "translated": "Full Access 모드에서 MCP 서버 요청 자동 승인"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17093 Add WebRTC realtime app-server e2e tests",
+      "translated": "WebRTC 실시간 app-server e2e 테스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17174 Support Warp for OSC 9 notifications",
+      "translated": "OSC 9 알림을 위한 Warp 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16646 Fix stale thread-name resume lookups",
+      "translated": "오래된 스레드 이름 재개 조회 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17165 Move default realtime prompt into core",
+      "translated": "기본 실시간 프롬프트를 코어로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17176 Add realtime voice selection",
+      "translated": "실시간 음성 선택 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17175 Add TUI notification condition config",
+      "translated": "TUI 알림 조건 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17183 Default realtime startup to v2 model",
+      "translated": "실시간 시작 기본 모델을 v2로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17186 Skip update prompts for source builds",
+      "translated": "소스 빌드 시 업데이트 프롬프트 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17188 make webrtc the default experience",
+      "translated": "WebRTC를 기본 환경으로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17163 [codex] Defer steering until after sampling the model post-compaction",
+      "translated": "[codex] 컴팩션 이후 모델 샘플링 전까지 스티어링 지연"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17222 feat: /resume per ID/name",
+      "translated": "ID/이름별 /resume 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17226 feat: advanced announcements per OS and plans",
+      "translated": "OS 및 요금제별 고급 공지 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17170 Render statusline context as a meter",
+      "translated": "Statusline 컨텍스트를 게이지로 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17217 Skip local shell snapshots for remote unified exec",
+      "translated": "원격 통합 실행 시 로컬 셸 스냅샷 건너뛰기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17116 chore: merge name and title",
+      "translated": "이름과 제목 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16276 [codex] add memory extensions",
+      "translated": "[codex] 메모리 확장 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17168 refactor(proxy): clarify sandbox block messages",
+      "translated": "샌드박스 차단 메시지 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17076 [codex] Show ctrl + t hint on truncated exec output in TUI",
+      "translated": "[codex] TUI에서 잘린 exec 출력에 ctrl + t 힌트 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#15197 Add Codex Apps sediment file remapping",
+      "translated": "Codex Apps sediment 파일 리매핑 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16009 Forward app-server turn clientMetadata to Responses",
+      "translated": "App-server 턴 clientMetadata를 Responses로 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17256 app-server: Use shared receivers for app-server message processors",
+      "translated": "App-server 메시지 프로세서에 공유 리시버 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16944 [mcp] Expand tool search to custom MCPs.",
+      "translated": "[mcp] 도구 검색을 커스텀 MCP로 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#16966 feat(tui): Ctrl+O copy hotkey and harden copy-as-markdown behavior",
+      "translated": "Ctrl+O 복사 단축키 추가 및 copy-as-markdown 동작 강화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17262 app-server: Fix clippy by removing extra `mut`",
+      "translated": "불필요한 `mut` 제거로 clippy 오류 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17258 Omit empty app-server instruction overrides",
+      "translated": "빈 app-server instruction override 생략"
+    }
+  ],
+  "translatedAt": "2026-04-11T03:50:26.062Z",
+  "translationEngine": "glm",
+  "translationProvider": "glm",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 17317
+}
