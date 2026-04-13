@@ -1,0 +1,416 @@
+{
+  "version": "2026.4.12",
+  "date": "2026-04-13",
+  "parsedAt": "2026-04-13T14:09:57.304Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/lab: add Convex-backed pooled Telegram credential leasing plus `openclaw qa credentials` admin commands and broker setup docs. (#65596) Thanks @joshavant.",
+      "translated": "QA/lab: Convex 기반의 풀링된 Telegram 자격 증명 임대 기능, `openclaw qa credentials` 관리자 명령어 및 브로커 설정 문서 추가. (#65596)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/Active Memory: add a new optional Active Memory plugin that gives OpenClaw a dedicated memory sub-agent right before the main reply, so ongoing chats can automatically pull in relevant preferences, context, and past details without making users remember to manually say \"remember this\" or \"search memory\" first. Includes configurable message/recent/full context modes, live `/verbose` inspection, advanced prompt/thinking overrides for tuning, and opt-in transcript persistence for debugging. (#63286) Thanks @Takhoffman.",
+      "translated": "Memory/Active Memory: 메인 답변 직전에 OpenClaw에 전용 메모리 서브 에이전트를 제공하는 새로운 선택형 Active Memory 플러그인 추가. 이를 통해 사용자가 \"이걸 기억해\" 또는 \"메모리 검색\"이라고 수동으로 요청하지 않아도 진행 중인 채팅에서 관련 선호도, 컨텍스트 및 과거 세부 정보를 자동으로 가져올 수 있음. 설정 가능한 메시지/최근/전체 컨텍스트 모드, 실시간 `/verbose` 검사, 튜닝을 위한 고급 프롬프트/사고 오버라이드, 디버깅을 위한 옵트인 트랜스크립트 보존 기능 포함. (#63286)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS/Talk: add an experimental local MLX speech provider for Talk Mode, with explicit provider selection, local utterance playback, interruption handling, and system-voice fallback. (#63539) Thanks @ImLukeF.",
+      "translated": "macOS/Talk: Talk Mode를 위한 실험적인 로컬 MLX 음성 제공자 추가. 명시적인 제공자 선택, 로컬 발화 재생, 중단 처리 및 시스템 음성 폴백 기능 포함. (#63539)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI/exec policy: add a local `openclaw exec-policy` command with `show`, `preset`, and `set` subcommands for synchronizing requested `tools.exec.*` config with the local exec approvals file, plus follow-up hardening for node-host rejection, rollback safety, and sync conflict detection. (#64050)",
+      "translated": "CLI/exec policy: 요청된 `tools.exec.*` 설정을 로컬 실행 승인 파일과 동기화하기 위한 `show`, `preset`, `set` 하위 명령어가 포함된 로컬 `openclaw exec-policy` 명령어 추가. 노드 호스트 거부, 롤백 안전성 및 동기화 충돌 감지를 위한 후속 강화 작업 포함. (#64050)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: add a `commands.list` RPC so remote gateway clients can discover runtime-native, text, skill, and plugin commands with surface-aware naming and serialized argument metadata. (#62656) Thanks @samzong.",
+      "translated": "Gateway: 원격 게이트웨이 클라이언트가 노출 범위 기반 이름 지정 및 직렬화된 인자 메타데이터를 통해 런타임 네이티브, 텍스트, 스킬 및 플러그인 명령어를 검색할 수 있도록 `commands.list` RPC 추가. (#62656)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/providers: add per-provider `models.providers.*.request.allowPrivateNetwork` for trusted self-hosted OpenAI-compatible endpoints, keep the opt-in scoped to model request surfaces, and refresh cached WebSocket managers when request transport overrides change. (#63671) Thanks @qas.",
+      "translated": "Models/providers: 신뢰할 수 있는 자체 호스팅 OpenAI 호환 엔드포인트를 위해 제공자별 `models.providers.*.request.allowPrivateNetwork` 설정 추가. 옵트인 범위를 모델 요청 인터페이스로 제한하고, 요청 전송 오버라이드가 변경될 때 캐시된 WebSocket 관리자를 갱신함. (#63671)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/testing: add a `--runner multipass` lane for `openclaw qa suite` so repo-backed QA scenarios can run inside a disposable Linux VM and write back the usual report, summary, and VM logs. (#63426) Thanks @shakkernerd.",
+      "translated": "QA/testing: 레포지토리 기반 QA 시나리오를 일회용 Linux VM 내에서 실행하고 일반적인 보고서, 요약 및 VM 로그를 기록할 수 있도록 `openclaw qa suite`에 `--runner multipass` 레인 추가. (#63426)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs i18n: chunk raw doc translation, reject truncated tagged outputs, avoid ambiguous body-only wrapper unwrapping, and recover from terminated Pi translation sessions without changing the default `openai/gpt-5.4` path. (#62969, #63808) Thanks @hxy91819.",
+      "translated": "Docs i18n: 원본 문서 번역 청크화, 잘린 태그 출력 거부, 모호한 본문 전용 래퍼 언래핑 방지, 기본 `openai/gpt-5.4` 경로를 변경하지 않고 중단된 Pi 번역 세션 복구. (#62969, #63808)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI/dreaming: simplify the Scene and Diary surfaces, preserve unknown phase state for partial status payloads, and stabilize waiting-entry recency ordering so Dreaming status and review lists stay clear and deterministic. (#64035) Thanks @davemorin.",
+      "translated": "Control UI/dreaming: Scene 및 Diary 인터페이스 단순화, 부분 상태 페이로드에 대한 알 수 없는 단계 상태 보존, Dreaming 상태 및 검토 목록이 명확하고 결정론적으로 유지되도록 대기 항목의 최신순 정렬 안정화. (#64035)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: split startup and runtime seams so gateway lifecycle sequencing, reload state, and shutdown behavior stay easier to maintain without changing observed behavior. (#63975) Thanks @gumadeiras.",
+      "translated": "Gateway: 관찰되는 동작의 변경 없이 게이트웨이 수명 주기 시퀀싱, 재로드 상태 및 종료 동작을 더 쉽게 유지 관리할 수 있도록 시작 및 런타임 경계 분리. (#63975)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Matrix/partial streaming: add MSC4357 live markers to draft preview sends and edits so supporting Matrix clients can render a live/typewriter animation and stop it when the final edit lands. (#63513) Thanks @TigerInYourDream.",
+      "translated": "Matrix/partial streaming: 지원되는 Matrix 클라이언트가 실시간/타자기 애니메이션을 렌더링하고 최종 편집이 완료되면 중지할 수 있도록 초안 미리보기 전송 및 편집에 MSC4357 라이브 마커 추가. (#63513)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/Telegram: add a live `openclaw qa telegram` lane for private-group bot-to-bot checks, harden its artifact handling, and preserve native Telegram command reply threading for QA verification. (#64303) Thanks @obviyus.",
+      "translated": "QA/Telegram: 비공개 그룹 봇 간 체크를 위한 실시간 `openclaw qa telegram` 레인 추가, 아티팩트 처리 강화, QA 검증을 위한 네이티브 Telegram 명령어 답글 스레딩 보존. (#64303)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/Codex: add the bundled Codex provider and plugin-owned app-server harness so `codex/gpt-*` models use Codex-managed auth, native threads, model discovery, and compaction while `openai/gpt-*` stays on the normal OpenAI provider path. (#64298) Thanks @steipete.",
+      "translated": "Models/Codex: 번들로 제공되는 Codex 제공자 및 플러그인 소유 앱 서버 하네스를 추가하여, `openai/gpt-*`가 일반 OpenAI 제공자 경로를 유지하는 동안 `codex/gpt-*` 모델은 Codex 관리 인증, 네이티브 스레드, 모델 검색 및 압축을 사용하도록 설정. (#64298)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/providers: add a bundled LM Studio provider with onboarding, runtime model discovery, stream preload support, and memory-search embeddings for local/self-hosted OpenAI-compatible models. (#53248) Thanks @rugvedS07.",
+      "translated": "Models/providers: 로컬/자체 호스팅 OpenAI 호환 모델을 위해 온보딩, 런타임 모델 검색, 스트림 프리로드 지원 및 메모리 검색 임베딩이 포함된 번들 LM Studio 제공자 추가. (#53248)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/loading: narrow CLI, provider, and channel activation to manifest-declared needs, preserve explicit scope and trust boundaries, and centralize manifest-owner policy so startup, command discovery, and runtime activation avoid loading unrelated plugin runtime. (#65120, #65259, #65298, #65429, #65459) Thanks @vincentkoc.",
+      "translated": "Plugins/loading: CLI, 제공자 및 채널 활성화를 매니페스트에 선언된 요구 사항으로 제한하고, 명시적인 범위 및 신뢰 경계를 유지하며, 시작, 명령어 검색 및 런타임 활성화 시 관련 없는 플러그인 런타임 로드를 방지하도록 매니페스트 소유자 정책 중앙화. (#65120, #65259, #65298, #65429, #65459)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory/active-memory: default QMD recall to search and surface better search-path telemetry so memory-backed recall works more predictably out of the box. (#65068) Thanks @Takhoffman.",
+      "translated": "Memory/active-memory: QMD 소환(recall)의 기본값을 검색으로 설정하고 더 나은 검색 경로 텔레메트리를 노출하여 메모리 기반 소환이 즉시 더 예측 가능하게 작동하도록 개선. (#65068)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/providers: expand bundled provider docs with richer capability, env-var, and setup guidance across provider pages.",
+      "translated": "Docs/providers: 제공자 페이지 전반에 걸쳐 더 풍부한 기능, 환경 변수 및 설정 가이드를 포함하도록 번들 제공자 문서 확장."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/memory-wiki: add the recommended QMD + bridge-mode hybrid recipe plus zero-artifact troubleshooting guidance for `memory-wiki` bridge setups. (#63165) Thanks @sercada and @vincentkoc.",
+      "translated": "Docs/memory-wiki: `memory-wiki` 브릿지 설정을 위해 권장되는 QMD + 브릿지 모드 하이브리드 레시피 및 제로 아티팩트 트러블슈팅 가이드 추가. (#63165)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/busybox: remove busybox/toybox from interpreter-like safe bins (#65713) Thanks @pgondhi987.",
+      "translated": "Security/busybox: 인터프리터와 유사한 안전한 바이너리 목록에서 busybox/toybox 제거 (#65713)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Approval: prevent empty approver list from granting explicit approval authorization (#65714) Thanks @pgondhi987.",
+      "translated": "Security/Approval: 빈 승인자 목록이 명시적 승인 권한을 부여하지 못하도록 방지 (#65714)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/Shell: broaden shell-wrapper detection and block env-argv assignment injection (#65717) Thanks @pgondhi987.",
+      "translated": "Security/Shell: 쉘 래퍼(shell-wrapper) 감지 범위를 확장하고 env-argv 할당 인젝션을 차단합니다. (#65717) @pgondhi987님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/startup: defer scheduled services until sidecars finish, gate chat history and model listing during sidecar resume, and let Control UI retry startup-gated history loads so Sandbox wake resumes channels first. (#65365) Thanks @lml2468.",
+      "translated": "Gateway/startup: 사이드카가 완료될 때까지 예약된 서비스 실행을 연기하고, 사이드카 재개 중 채팅 기록 및 모델 목록 조회를 제한하며, Control UI에서 시작 시 제한된 기록 로드를 재시도할 수 있게 하여 Sandbox가 채널을 먼저 재개하도록 개선했습니다. (#65365) @lml2468님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/chat: load the live gateway slash-command catalog into the composer and command palette so dock commands, plugin commands, and direct skill aliases appear in chat, while keeping trusted local commands authoritative and bounding remote command metadata. (#65620) Thanks @BunsDev.",
+      "translated": "Control UI/chat: 라이브 게이트웨이 슬래시 명령 카탈로그를 작성기 및 명령 팔레트에 로드하여 독 명령, 플러그인 명령, 직접 스킬 에일리어스가 채팅에 표시되도록 하고, 신뢰할 수 있는 로컬 명령의 우선순위를 유지하며 원격 명령 메타데이터의 범위를 제한합니다. (#65620) @BunsDev님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: respawn tracked plugin refresh from the updated entrypoint after package self-updates so `openclaw update` stops failing on stale hashed `dist/install.runtime-*.js` chunk imports. (#65471)",
+      "translated": "CLI/update: 패키지 자체 업데이트 후 업데이트된 엔트리포인트에서 추적된 플러그인 새로고침을 다시 실행하여, `openclaw update`가 오래된 해시의 `dist/install.runtime-*.js` 청크 임포트로 인해 실패하는 문제를 해결했습니다. (#65471)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/active-memory: keep recall runs on the resolved channel when wrappers like `mx-claw` are enabled, improve lexical fallback ranking, and keep lexical boosts out of hybrid search so recall finds the right memories more consistently. (#65049, #65395) Thanks @Takhoffman.",
+      "translated": "Memory/active-memory: `mx-claw`와 같은 래퍼가 활성화된 경우 리콜 실행을 확인된 채널에서 유지하고, 어휘 폴백(lexical fallback) 순위 지정을 개선하며, 하이브리드 검색에서 어휘 부스트를 제외하여 리콜이 적절한 메모리를 더 일관되게 찾을 수 있도록 했습니다. (#65049, #65395) @Takhoffman님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming: consume managed heartbeat events exactly once, stage light-sleep confidence from all recorded short-term signals, wake scheduled jobs immediately, raise dreaming-only promotion enough to cross the durable-memory gate, and stop dreaming from re-ingesting its own narrative transcripts.",
+      "translated": "Dreaming: 관리형 하트비트 이벤트를 정확히 한 번만 소비하고, 기록된 모든 단기 신호로부터 얕은 수면(light-sleep) 신뢰도를 스테이징하며, 예약된 작업을 즉시 깨우고, dreaming-only 승격 수준을 durable-memory 게이트를 통과할 수 있을 만큼 높이며, dreaming이 자신의 내러티브 트랜스크립트를 다시 수집하지 않도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/narrative: harden transient narrative cleanup by retrying timed-out deletes, scrubbing stale dreaming session artifacts through the lock-aware session-store path, and isolating transient narrative session keys per workspace. (#65320, #61674)",
+      "translated": "Dreaming/narrative: 타임아웃된 삭제를 재시도하고, 잠금 인식 세션 저장소 경로를 통해 오래된 dreaming 세션 아티팩트를 제거하며, 워크스페이스별로 일시적 내러티브 세션 키를 격리하여 일시적 내러티브 정리를 강화했습니다. (#65320, #61674)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/wiki: preserve Unicode letters, digits, and combining marks in wiki slugs and contradiction clustering, and cap Unicode filename segments to safe byte lengths so non-ASCII titles stop collapsing or overflowing path limits. (#64742) Thanks @zhouhe-xydt.",
+      "translated": "Memory/wiki: 위키 슬러그 및 모순 클러스터링에서 유니코드 문자, 숫자, 결합 문자를 보존하고, 유니코드 파일 이름 세그먼트를 안전한 바이트 길이로 제한하여 비 ASCII 제목이 축소되거나 경로 제한을 초과하지 않도록 했습니다. (#64742) @zhouhe-xydt님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/short-term recall: allow nested daily notes under `memory/**/YYYY-MM-DD.md` to feed short-term recall, while still excluding generated dream reports under `memory/dreaming/**` so dreaming does not promote its own output. (#64682) Thanks @SARAMALI15792.",
+      "translated": "Memory/short-term recall: `memory/**/YYYY-MM-DD.md` 하위의 중첩된 일일 노트를 단기 리콜에 사용할 수 있도록 허용하되, `memory/dreaming/**` 하위의 생성된 드림 리포트는 계속 제외하여 dreaming이 자신의 출력을 승격시키지 않도록 했습니다. (#64682) @SARAMALI15792님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "UI/WebChat: hide synthetic transcript-repair tool results from chat history reloads so internal recovery markers do not leak into visible chat after reconnects. (#65247) Thanks @wangwllu.",
+      "translated": "UI/WebChat: 채팅 기록을 다시 로드할 때 합성 트랜스크립트 복구 도구 결과를 숨겨, 재연결 후 내부 복구 마커가 실제 채팅에 노출되지 않도록 했습니다. (#65247) @wangwllu님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp/outbound: fall back to the first `mediaUrls` entry when `mediaUrl` is empty so gateway media sends stop silently dropping attachments that already have a resolved media list. (#64394) Thanks @eric-fr4 and @vincentkoc.",
+      "translated": "WhatsApp/outbound: `mediaUrl`이 비어 있을 때 첫 번째 `mediaUrls` 항목으로 폴백하여, 이미 확인된 미디어 목록이 있는 게이트웨이 미디어 전송 시 첨부 파일이 누락되는 문제를 해결했습니다. (#64394) @eric-fr4님 및 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Discord: stop `openclaw doctor --fix` from rewriting legacy Discord preview-streaming config into the nested modern shape, so downgrades can still recover without hand-editing `channels.discord.streaming`. (#65035) Thanks @vincentkoc.",
+      "translated": "Doctor/Discord: `openclaw doctor --fix`가 레거시 Discord 프리뷰 스트리밍 설정을 중첩된 최신 형태로 다시 작성하지 않도록 하여, `channels.discord.streaming`을 수동으로 편집하지 않고도 다운그레이드 시 복구할 수 있도록 했습니다. (#65035) @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/auth: blank the shipped example gateway credential in `.env.example` and fail startup when a copied placeholder token or password is still configured, so operators cannot accidentally launch with a publicly known secret. (#64586) Thanks @navarrotech and @vincentkoc.",
+      "translated": "Gateway/auth: `.env.example`에 포함된 예시 게이트웨이 자격 증명을 비우고, 복사된 플레이스홀더 토큰이나 비밀번호가 설정되어 있는 경우 시작에 실패하도록 하여 운영자가 공개된 비밀 정보로 실수로 서비스를 실행하지 않도록 했습니다. (#64586) @navarrotech님 및 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/active-memory+dreaming: keep active-memory recall runs on the strongest resolved channel, consume managed dreaming heartbeat events exactly once, stop dreaming from re-ingesting its own narrative transcripts, and add explicit repair/dedupe recovery flows in CLI, doctor, and the Dreams UI.",
+      "translated": "Memory/active-memory+dreaming: 활성 메모리 리콜 실행을 가장 강력하게 확인된 채널에서 유지하고, 관리형 dreaming 하트비트 이벤트를 정확히 한 번만 소비하며, dreaming이 자신의 내러티브 트랜스크립트를 다시 수집하지 않도록 하고, CLI, doctor 및 Dreams UI에 명시적인 복구/중복 제거 흐름을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/queueing: carry orphaned active-turn user text into the next prompt before repairing transcript ordering, so follow-up messages that arrive mid-run are no longer silently dropped. (#65388) Thanks @adminfedres and @vincentkoc.",
+      "translated": "Agents/queueing: 트랜스크립트 순서를 복구하기 전에 고립된 활성 턴의 사용자 텍스트를 다음 프롬프트로 전달하여, 실행 도중 도착한 후속 메시지가 누락되지 않도록 했습니다. (#65388) @adminfedres님 및 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/keepalive: stop marking WebSocket tick broadcasts as droppable so slow or backpressured clients do not self-disconnect with `tick timeout` while long-running work is still alive. (#65256) Thanks @100yenadmin and @vincentkoc.",
+      "translated": "Gateway/keepalive: WebSocket 틱 브로드캐스트를 삭제 가능(droppable)으로 표시하지 않도록 하여, 장시간 실행되는 작업이 진행 중일 때 속도가 느리거나 백프레셔가 발생하는 클라이언트가 `tick timeout`으로 자동 연결 해제되지 않도록 했습니다. (#65256) @100yenadmin님 및 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/mentions: keep room mention gating strict while accepting visible `@displayName` Matrix URI labels, so `requireMention` works for non-OpenClaw Matrix clients again. (#64796) Thanks @hclsys.",
+      "translated": "Matrix/mentions: 가시적인 `@displayName` Matrix URI 레이블을 허용하면서도 룸 멘션 제한을 엄격하게 유지하여, OpenClaw가 아닌 Matrix 클라이언트에서도 `requireMention`이 다시 작동하도록 했습니다. (#64796) @hclsys님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor: warn when on-disk agent directories still exist under `~/.openclaw/agents/<id>/agent` but the matching `agents.list[]` entries are missing from config. (#65113) Thanks @neeravmakwana.",
+      "translated": "Doctor: 디스크의 `~/.openclaw/agents/<id>/agent` 경로에 에이전트 디렉토리가 존재하지만 설정의 `agents.list[]` 항목이 누락된 경우 경고를 표시합니다. (#65113) @neeravmakwana님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: route approval button callback queries onto a separate sequentializer lane so plugin approval clicks can resolve immediately instead of deadlocking behind the blocked agent turn. (#64979) Thanks @nk3750.",
+      "translated": "Telegram: 승인 버튼 콜백 쿼리를 별도의 순차 처리 레인으로 라우팅하여, 플러그인 승인 클릭이 차단된 에이전트 턴 뒤에서 데드락에 걸리지 않고 즉시 처리될 수 있도록 했습니다. (#64979) @nk3750님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/direct sessions: keep commentary-only assistant fallback payloads out of visible direct delivery, so Codex planning chatter cannot leak into Telegram DMs when a run has no `final_answer` text.",
+      "translated": "Telegram/direct sessions: 주석만 포함된 어시스턴트 폴백 페이로드가 직접 전달되지 않도록 하여, 실행 결과에 `final_answer` 텍스트가 없을 때 Codex의 계획 수립 과정이 Telegram DM에 노출되지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/keepalive: stop marking WebSocket tick broadcasts as droppable so slow or backpressured clients do not self-disconnect with `tick timeout` while long-running work is still alive. (#65436)",
+      "translated": "Gateway/keepalive: WebSocket 틱 브로드캐스트를 삭제 가능(droppable)으로 표시하지 않도록 수정하여, 장시간 작업이 진행 중일 때 느리거나 백프레셔가 발생하는 클라이언트가 `tick timeout`으로 인해 자동으로 연결 해제되지 않게 했습니다. (#65436)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/plugins: always send a non-empty `idempotencyKey` for plugin subagent runs, so dreaming narrative jobs stop failing gateway schema validation. (#65354) Thanks @CodeForgeNet.",
+      "translated": "Gateway/plugins: 플러그인 서브에이전트 실행 시 항상 비어 있지 않은 `idempotencyKey`를 전송하여, dreaming narrative 작업이 게이트웨이 스키마 검증에 실패하지 않도록 수정했습니다. (#65354) @CodeForgeNet 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/auth: blank the shipped example gateway credential in `.env.example` and fail startup when a copied placeholder token or password is still configured, so operators cannot accidentally launch with a publicly known secret. (#64586) Thanks @navarrotech.",
+      "translated": "Gateway/auth: `.env.example`에 포함된 예시 게이트웨이 자격 증명을 비우고, 복사된 플레이스홀더 토큰이나 비밀번호가 그대로 설정되어 있을 경우 시작에 실패하도록 하여 운영자가 실수로 공개된 비밀 키로 서비스를 시작하는 것을 방지했습니다. (#64586) @navarrotech 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/memory-core dreaming: keep bundled `memory-core` loaded alongside an explicit external memory slot owner only when that owner enables dreaming, while preserving `plugins.slots.memory = \"none\"` disable semantics. (#65411) Thanks @pradeep7127.",
+      "translated": "Plugins/memory-core dreaming: 명시적인 외부 메모리 슬롯 소유자가 dreaming을 활성화한 경우에만 번들된 `memory-core`를 함께 로드하도록 유지하며, `plugins.slots.memory = \"none\"`의 비활성화 의미론은 그대로 보존했습니다. (#65411) @pradeep7127 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Discord: stop `openclaw doctor --fix` from rewriting legacy Discord preview-streaming config into the nested modern shape, so downgrades can still recover without hand-editing `channels.discord.streaming`.",
+      "translated": "Doctor/Discord: `openclaw doctor --fix` 명령어가 기존 Discord 프리뷰 스트리밍 설정을 중첩된 최신 형태로 다시 쓰지 않도록 수정하여, 버전을 낮췄을 때 `channels.discord.streaming`을 수동으로 편집하지 않고도 복구할 수 있게 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor: warn when on-disk agent directories still exist under `~/.openclaw/agents/<id>/agent` but the matching `agents.list[]` entries are missing from config. (#65113) Thanks @neeravmakwana.",
+      "translated": "Doctor: 디스크 상의 에이전트 디렉토리가 `~/.openclaw/agents/<id>/agent`에 존재하지만, 설정의 `agents.list[]`에 일치하는 항목이 없을 때 경고를 표시합니다. (#65113) @neeravmakwana 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/plugins: honor `memory-wiki` when `plugins.allow` is set for `openclaw wiki`, and pass the active app config into the metadata registrar so plugin-owned wiki commands resolve the live plugin config instead of falling back to defaults. (#64779, #65012)",
+      "translated": "CLI/plugins: `openclaw wiki`에 대해 `plugins.allow`가 설정된 경우 `memory-wiki`를 준수하며, 활성 앱 설정을 메타데이터 등록기에 전달하여 플러그인 소유의 위키 명령어가 기본값 대신 실제 플러그인 설정을 확인하도록 수정했습니다. (#64779, #65012)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA/packaging: stop packaged QA helpers from crashing when optional scenario execution config is unavailable, so npm distributions can skip the repo-only scenario pack without breaking completion-cache and startup paths. (#65118) Thanks @EdderTalmor.",
+      "translated": "QA/packaging: 선택 사항인 시나리오 실행 설정이 없을 때 패키징된 QA 헬퍼가 충돌하는 문제를 수정하여, npm 배포판이 completion-cache 및 시작 경로를 손상시키지 않고 저장소 전용 시나리오 팩을 건너뛸 수 있도록 했습니다. (#65118) @EdderTalmor 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Media/audio transcription: surface the real provider failure when every audio transcription attempt fails, so status output and the CLI stop collapsing those errors into generic skips. (#65096) Thanks @l0cka.",
+      "translated": "Media/audio transcription: 모든 오디오 전사 시도가 실패할 때 실제 제공자의 오류를 노출하여, 상태 출력 및 CLI에서 이러한 오류를 일반적인 건너뜀으로 축소하지 않도록 수정했습니다. (#65096) @l0cka 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Infra/net: fix multipart FormData fields (including `model`) being silently dropped when a guarded runtime fetch body crosses a FormData implementation boundary, restoring OpenAI audio transcription requests that failed with HTTP 400. (#64349) Thanks @petr-sloup.",
+      "translated": "Infra/net: 보호된 런타임 fetch 본문이 FormData 구현 경계를 넘을 때 `model`을 포함한 멀티파트 FormData 필드가 무시되는 문제를 수정하여, HTTP 400 오류로 실패하던 OpenAI 오디오 전사 요청을 복구했습니다. (#64349) @petr-sloup 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/diary: use the host local timezone for diary timestamps when `dreaming.timezone` is unset, and include the timezone abbreviation so `DREAMS.md` and the UI make local or UTC time explicit. (#65034, #65057)",
+      "translated": "Dreaming/diary: `dreaming.timezone`이 설정되지 않은 경우 다이어리 타임스탬프에 호스트의 로컬 시간대를 사용하며, 시간대 약어를 포함하여 `DREAMS.md`와 UI에서 로컬 시간 또는 UTC 시간을 명확히 표시하도록 했습니다. (#65034, #65057)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/promotion: raise phase reinforcement enough for repeated dreaming-only revisits to clear the default durable-memory gate after multiple days, instead of stalling just below the score threshold. (#64068) Thanks @vincentkoc.",
+      "translated": "Dreaming/promotion: 반복적인 dreaming 전용 재방문이 며칠 후 기본 durable-memory 게이트를 통과할 수 있도록 단계 강화(phase reinforcement) 수준을 높여, 점수 임계값 직전에서 정체되는 현상을 해결했습니다. (#64068) @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dreaming/light-sleep: compute staged candidate confidence from all recorded short-term signals instead of recall-only counts, so dreaming-only entries stop rendering as `confidence: 0.00`. (#64599) Thanks @vincentkoc.",
+      "translated": "Dreaming/light-sleep: 스테이징된 후보 신뢰도를 리콜 횟수만이 아닌 기록된 모든 단기 신호로부터 계산하여, dreaming 전용 항목이 `confidence: 0.00`으로 표시되는 문제를 수정했습니다. (#64599) @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/memory: restore cached memory capability public artifacts on plugin-registry cache hits so memory-backed artifact surfaces stay visible after warm loads.",
+      "translated": "Plugins/memory: 플러그인 레지스트리 캐시 히트 시 캐시된 메모리 기능 퍼블릭 아티팩트를 복구하여, 웜 로드(warm load) 후에도 메모리 기반 아티팩트 표면이 계속 보이도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/cron: preserve requested isolated-agent config across runtime reloads so subagent jobs and heartbeat overrides keep the right workspace and heartbeat settings when the hot-loaded snapshot is stale.",
+      "translated": "Gateway/cron: 런타임 재로드 시 요청된 격리된 에이전트(isolated-agent) 설정을 유지하여, 핫 로드된 스냅샷이 만료된 경우에도 서브에이전트 작업 및 하트비트 오버라이드가 올바른 워크스페이스와 하트비트 설정을 유지하도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/isolated sessions: persist the right transcript path for each isolated run, including fresh session rollovers, so cron runs stop appending to stale session files.",
+      "translated": "Cron/isolated sessions: 새로운 세션 롤오버를 포함하여 각 격리된 실행에 대해 올바른 트랜스크립트 경로를 유지함으로써, 크론 실행이 만료된 세션 파일에 내용을 추가하지 않도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/gateway: clear stale heartbeat timers before reconnecting so zombie gateway callbacks cannot crash the process and drop in-flight replies. (#65009) Thanks @SARAMALI15792.",
+      "translated": "Discord/gateway: 재연결 전 오래된 하트비트 타이머를 제거하여, 좀비 게이트웨이 콜백이 프로세스를 중단시키거나 전송 중인 답장을 누락하지 않도록 수정했습니다. (#65009) @SARAMALI15792 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/mentions: keep room mention gating strict while accepting visible `@displayName` Matrix URI labels, so `requireMention` works for non-OpenClaw Matrix clients again. (#64796) Thanks @hclsys.",
+      "translated": "Matrix/mentions: 가시적인 `@displayName` Matrix URI 레이블을 허용하면서도 방 멘션 제한을 엄격하게 유지하여, OpenClaw가 아닌 Matrix 클라이언트에서도 `requireMention`이 다시 작동하도록 수정했습니다. (#64796) @hclsys 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Anthropic replay: preserve immutable signed-thinking replay safety across stored and live reruns, keep non-thinking embedded `tool_result` user blocks intact, and drop conflicting preserved tool IDs before validation so retries stop degrading into omitted tool calls. (#65126) Thanks @shakkernerd.",
+      "translated": "Agents/Anthropic replay: 저장된 실행 및 라이브 재실행 전반에서 불변의 signed-thinking 재현 안전성을 유지하고, 사고 과정이 포함되지 않은 임베디드 `tool_result` 사용자 블록을 보존하며, 검증 전 충돌하는 보존된 도구 ID를 삭제하여 재시도가 도구 호출 누락으로 이어지지 않도록 수정했습니다. (#65126) @shakkernerd 님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/QMD: allow channel sessions in the shipped default QMD scope, while still denying groups.",
+      "translated": "Memory/QMD: 기본 제공되는 QMD 범위에서 그룹은 계속 거부하면서 채널 세션은 허용하도록 변경했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/QMD: stop registering the legacy lowercase root memory file as a separate default collection, so QMD now prefers `MEMORY.md` and the `memory/` tree without duplicate collection-add warnings.",
+      "translated": "레거시 소문자 루트 메모리 파일을 별도의 기본 컬렉션으로 등록하는 것을 중단하여, QMD가 중복 컬렉션 추가 경고 없이 `MEMORY.md`와 `memory/` 트리를 우선적으로 사용하도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/memory-core: watch the `memory` directory directly and ignore non-markdown churn so nested note changes still sync on macOS + Node 25 environments where recursive `memory/**/*.md` glob watching fails. (#64711) Thanks @jasonxargs-boop and @vincentkoc.",
+      "translated": "`memory` 디렉토리를 직접 감시하고 마크다운이 아닌 변경 사항은 무시하도록 하여, 재귀적 `memory/**/*.md` 글로브 감시가 실패하는 macOS 및 Node 25 환경에서도 중첩된 노트 변경 사항이 계속 동기화되도록 수정했습니다. (#64711) @jasonxargs-boop님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp: centralize per-account connection ownership so reconnects, login recovery, and outbound readiness stay attached to the live socket instead of drifting across monitor and login paths. (#65290) Thanks @mcaxtr and @vincentkoc.",
+      "translated": "계정별 연결 소유권을 중앙 집중화하여 재연결, 로그인 복구 및 아웃바운드 준비 상태가 모니터링 및 로그인 경로에 분산되지 않고 활성 소켓에 유지되도록 개선했습니다. (#65290) @mcaxtr님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "iMessage: retry transient `watch.subscribe` startup failures before tearing down the monitor, and sanitize startup error logging so brief local transport stalls do not immediately bounce the channel or leak raw imsg RPC payloads into logs. (#65393) Thanks @vincentkoc.",
+      "translated": "모니터를 종료하기 전 일시적인 `watch.subscribe` 시작 실패를 재시도하고 시작 오류 로깅을 정제하여, 일시적인 로컬 전송 지연으로 인해 채널이 즉시 재시작되거나 원시 imsg RPC 페이로드가 로그에 노출되지 않도록 수정했습니다. (#65393) @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/audio providers: report env-authenticated providers as configured in `openclaw infer audio providers --json`, while keeping trusted workspace provider env lookup defaults stable during auth setup. (#65491)",
+      "translated": "`openclaw infer audio providers --json` 실행 시 환경 변수로 인증된 제공자를 구성된 것으로 보고하며, 인증 설정 중에 신뢰할 수 있는 워크스페이스 제공자의 환경 변수 조회 기본값을 안정적으로 유지합니다. (#65491)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/install: reinstall bundled runtime packages when the matching platform native optional child is missing, so packaged Windows installs can recover dependencies that were packed on another host OS.",
+      "translated": "일치하는 플랫폼 네이티브 선택적 하위 패키지가 없는 경우 번들 런타임 패키지를 재설치하여, 다른 호스트 OS에서 패키징된 Windows 설치본이 종속성을 복구할 수 있도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/QMD: preserve explicit `memory.qmd.command` paths, create missing agent workspaces before QMD probes, and keep the current Node binary on QMD subprocess PATH so service and gateway environments do not fall back to builtin search unnecessarily.",
+      "translated": "명시적인 `memory.qmd.command` 경로를 보존하고, QMD 탐색 전에 누락된 에이전트 워크스페이스를 생성하며, 현재 Node 바이너리를 QMD 하위 프로세스의 PATH에 유지하여 서비스 및 게이트웨이 환경이 불필요하게 내장 검색으로 대체되지 않도록 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-04-13T14:13:26.358Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 15095
+}
