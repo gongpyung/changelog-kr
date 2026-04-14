@@ -1,0 +1,236 @@
+{
+  "version": "2.1.105",
+  "date": "2026-04-13",
+  "parsedAt": "2026-04-14T03:44:26.886Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `path` parameter to the `EnterWorktree` tool to switch into an existing worktree of the current repository",
+      "translated": "현재 저장소의 기존 worktree로 전환할 수 있도록 `EnterWorktree` 도구에 `path` 매개변수 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added PreCompact hook support: hooks can now block compaction by exiting with code 2 or returning `{\"decision\":\"block\"}`",
+      "translated": "PreCompact 훅 지원 추가: 이제 훅이 종료 코드 2를 반환하거나 `{\"decision\":\"block\"}`을 반환하여 압축(compaction)을 차단할 수 있음"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added background monitor support for plugins via a top-level `monitors` manifest key that auto-arms at session start or on skill invoke",
+      "translated": "세션 시작 시 또는 스킬 호출 시 자동으로 활성화되는 최상위 `monitors` 매니페스트 키를 통해 플러그인용 백그라운드 모니터 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/proactive` is now an alias for `/loop`",
+      "translated": "`/proactive`가 이제 `/loop`의 별칭으로 사용됨"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved stalled API stream handling: streams now abort after 5 minutes of no data and retry non-streaming instead of hanging indefinitely",
+      "translated": "중단된 API 스트림 처리 개선: 데이터가 없는 상태로 5분이 지나면 스트림이 무한히 대기하는 대신 중단되고 비스트리밍 방식으로 재시도함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved network error messages: connection errors now show a retry message immediately instead of a silent spinner",
+      "translated": "네트워크 오류 메시지 개선: 연결 오류 시 대기 스피너만 표시되는 대신 즉시 재시도 메시지를 표시함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved file write display: long single-line writes (e.g. minified JSON) are now truncated in the UI instead of paginating across many screens",
+      "translated": "파일 쓰기 표시 개선: 긴 한 줄 쓰기(예: 압축된 JSON)가 여러 화면에 걸쳐 나뉘는 대신 UI에서 생략되어 표시됨"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/doctor` layout with status icons; press `f` to have Claude fix reported issues",
+      "translated": "상태 아이콘을 포함하도록 `/doctor` 레이아웃 개선. `f`를 눌러 Claude가 보고된 문제를 수정하도록 할 수 있음"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/config` labels and descriptions for clarity",
+      "translated": "명확성을 위해 `/config` 레이블 및 설명 개선"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved skill description handling: raised the listing cap from 250 to 1,536 characters and added a startup warning when descriptions are truncated",
+      "translated": "스킬 설명 처리 개선: 글자 수 제한을 250자에서 1,536자로 상향하고, 설명이 생략될 경우 시작 시 경고 추가"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `WebFetch` to strip `<style>` and `<script>` contents from fetched pages so CSS-heavy pages no longer exhaust the content budget before reaching actual text",
+      "translated": "가져온 페이지에서 `<style>` 및 `<script>` 내용을 제거하도록 `WebFetch` 개선. 이를 통해 CSS가 많은 페이지가 실제 텍스트에 도달하기 전에 콘텐츠 할당량을 모두 소모하지 않도록 함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved stale agent worktree cleanup to remove worktrees whose PR was squash-merged instead of keeping them indefinitely",
+      "translated": "오래된 에이전트 worktree 정리 기능 개선: PR이 squash-merge된 worktree를 무한히 유지하는 대신 삭제함"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved MCP large-output truncation prompt to give format-specific recipes (e.g. `jq` for JSON, computed Read chunk sizes for text)",
+      "translated": "형식별 레시피(예: JSON의 경우 `jq`, 텍스트의 경우 계산된 Read 청크 크기)를 제공하도록 MCP 대용량 출력 생략 프롬프트 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed images attached to queued messages (sent while Claude is working) being dropped",
+      "translated": "대기 중인 메시지(Claude가 작업 중일 때 전송됨)에 첨부된 이미지가 누락되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed screen going blank when the prompt input wraps to a second line in long conversations",
+      "translated": "긴 대화에서 프롬프트 입력이 두 번째 줄로 넘어갈 때 화면이 공백으로 변하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed leading whitespace getting copied when selecting multi-line assistant responses in fullscreen mode",
+      "translated": "전체 화면 모드에서 어시스턴트의 다중 행 답변을 선택할 때 앞부분의 공백이 함께 복사되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed leading whitespace being trimmed from assistant messages, breaking ASCII art and indented diagrams",
+      "translated": "어시스턴트 메시지에서 앞부분의 공백이 잘려 ASCII 아트나 들여쓰기된 다이어그램이 깨지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed garbled bash output when commands print clickable file links (e.g. Python `rich`/`loguru` logging)",
+      "translated": "명령어가 클릭 가능한 파일 링크를 출력할 때(예: Python `rich`/`loguru` 로깅) bash 출력이 깨지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed alt+enter not inserting a newline in terminals using ESC-prefix alt encoding, and Ctrl+J not inserting a newline (regression in 2.1.100)",
+      "translated": "ESC 접두사 alt 인코딩을 사용하는 터미널에서 alt+enter가 줄바꿈을 삽입하지 않는 문제와 Ctrl+J가 줄바꿈을 삽입하지 않는 문제 수정 (2.1.100 버전의 회귀 오류)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed duplicate \"Creating worktree\" text in EnterWorktree/ExitWorktree tool display",
+      "translated": "EnterWorktree/ExitWorktree 도구 표시에서 \"Creating worktree\" 텍스트가 중복되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed queued user prompts disappearing from focus mode",
+      "translated": "포커스 모드에서 대기 중인 사용자 프롬프트가 사라지는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed one-shot scheduled tasks re-firing repeatedly when the file watcher missed the post-fire cleanup",
+      "translated": "파일 감시자가 실행 후 정리 작업을 누락했을 때 일회성 예약 작업이 반복적으로 재실행되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed inbound channel notifications being silently dropped after the first message for Team/Enterprise users",
+      "translated": "팀/엔터프라이즈 사용자의 경우 첫 번째 메시지 이후 인바운드 채널 알림이 무시되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed marketplace plugins with `package.json` and lockfile not having dependencies installed automatically after install/update",
+      "translated": "`package.json` 및 락파일이 포함된 마켓플레이스 플러그인 설치 또는 업데이트 후 의존성이 자동으로 설치되지 않는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed marketplace auto-update leaving the official marketplace in a broken state when a plugin process holds files open during the update",
+      "translated": "플러그인 프로세스가 파일을 점유 중일 때 마켓플레이스 자동 업데이트를 수행하면 공식 마켓플레이스가 손상된 상태로 남는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Resume this session with...\" hint not printing on exit after `/resume`, `--worktree`, or `/branch`",
+      "translated": "`/resume`, `--worktree` 또는 `/branch` 사용 후 종료 시 \"Resume this session with...\" 힌트가 출력되지 않는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed feedback survey shortcut keys firing when typed at the end of a longer prompt",
+      "translated": "긴 프롬프트 끝에 입력할 때 피드백 설문 조사 단축키가 작동하는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stdio MCP server emitting malformed (non-JSON) output hanging the session instead of failing fast with \"Connection closed\"",
+      "translated": "stdio MCP 서버가 잘못된 형식(비 JSON)의 출력을 보낼 때 \"Connection closed\" 오류와 함께 즉시 종료되지 않고 세션이 멈추는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tools missing on the first turn of headless/remote-trigger sessions when MCP servers connect asynchronously",
+      "translated": "MCP 서버가 비동기적으로 연결될 때 헤드리스/원격 트리거 세션의 첫 번째 턴에서 MCP 도구가 누락되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/model` picker on AWS Bedrock in non-US regions persisting invalid `us.*` model IDs to `settings.json` when inference profile discovery is still in-flight",
+      "translated": "미국 외 지역의 AWS Bedrock에서 추론 프로필 검색이 진행 중일 때 `/model` 선택기가 `settings.json`에 잘못된 `us.*` 모델 ID를 저장하는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed 429 rate-limit errors showing a raw JSON dump instead of a clean message for API-key, Bedrock, and Vertex users",
+      "translated": "API 키, Bedrock 및 Vertex 사용자의 429 속도 제한 오류가 정돈된 메시지 대신 원시 JSON 덤프로 표시되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed crash on resume when session contains malformed text blocks",
+      "translated": "세션에 잘못된 형식의 텍스트 블록이 포함된 경우 재개 시 발생하는 크래시 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/help` dropping the tab bar, Shortcuts heading, and footer at short terminal heights",
+      "translated": "터미널 높이가 낮을 때 `/help` 화면에서 탭 바, 단축키 제목 및 푸터가 사라지는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed malformed keybinding entry values in `keybindings.json` being silently loaded instead of rejected with a clear error",
+      "translated": "`keybindings.json`의 잘못된 키바인딩 항목 값이 명확한 오류와 함께 거부되지 않고 그대로 로드되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` in one project's settings permanently disabling usage metrics for all projects on the machine",
+      "translated": "특정 프로젝트 설정의 `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`이 해당 기기의 모든 프로젝트에 대해 사용량 지표를 영구적으로 비활성화하는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed washed-out 16-color palette when using Ghostty, Kitty, Alacritty, WezTerm, foot, rio, or Contour over SSH/mosh",
+      "translated": "SSH/mosh를 통해 Ghostty, Kitty, Alacritty, WezTerm, foot, rio 또는 Contour를 사용할 때 16색 팔레트 색상이 바래 보이는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool suggesting `acceptEdits` permission mode when exiting plan mode would downgrade from a higher permission level",
+      "translated": "계획 모드 종료 시 권한 수준이 낮아지는 상황에서 Bash 도구가 `acceptEdits` 권한 모드를 제안하는 현상 수정"
+    }
+  ],
+  "translatedAt": "2026-04-14T03:45:06.478Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4126
+}
