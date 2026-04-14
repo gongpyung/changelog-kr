@@ -1,0 +1,158 @@
+{
+  "version": "2.1.108",
+  "date": "2026-04-14",
+  "parsedAt": "2026-04-14T19:43:02.289Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ENABLE_PROMPT_CACHING_1H` env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (`ENABLE_PROMPT_CACHING_1H_BEDROCK` is deprecated but still honored), and `FORCE_PROMPT_CACHING_5M` to force 5-minute TTL",
+      "translated": "API 키, Bedrock, Vertex 및 Foundry에서 1시간 프롬프트 캐시 TTL을 사용하도록 설정하는 `ENABLE_PROMPT_CACHING_1H` 환경 변수를 추가했으며(`ENABLE_PROMPT_CACHING_1H_BEDROCK`은 더 이상 권장되지 않지만 여전히 지원됨), 5분 TTL을 강제하는 `FORCE_PROMPT_CACHING_5M`을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added recap feature to provide context when returning to a session, configurable in /config and manually invocable with /recap; force with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` if telemetry disabled.",
+      "translated": "세션으로 복귀할 때 문맥을 제공하는 요약(recap) 기능을 추가했습니다. /config에서 설정하거나 /recap으로 수동 호출할 수 있으며, 텔레메트리가 비활성화된 경우 `CLAUDE_CODE_ENABLE_AWAY_SUMMARY`로 강제 실행할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The model can now discover and invoke built-in slash commands like `/init`, `/review`, and `/security-review` via the Skill tool",
+      "translated": "모델이 Skill 도구를 통해 `/init`, `/review`, `/security-review`와 같은 내장 슬래시 명령어를 검색하고 호출할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/undo` is now an alias for `/rewind`",
+      "translated": "`/undo`가 `/rewind`에 대한 별칭으로 지정되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/model` to warn before switching models mid-conversation, since the next response re-reads the full history uncached",
+      "translated": "대화 도중 모델을 변경할 때 경고하도록 `/model`을 개선했습니다. 모델 변경 후 다음 응답 시 캐시되지 않은 전체 기록을 다시 읽기 때문입니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/resume` picker to default to sessions from the current directory; press `Ctrl+A` to show all projects",
+      "translated": "`/resume` 선택기에서 현재 디렉토리의 세션을 기본으로 표시하도록 개선했습니다. `Ctrl+A`를 누르면 모든 프로젝트를 볼 수 있습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved error messages: server rate limits are now distinguished from plan usage limits; 5xx/529 errors show a link to status.claude.com; unknown slash commands suggest the closest match",
+      "translated": "오류 메시지 개선: 서버 속도 제한과 요금제 사용량 제한을 구분하며, 5xx/529 오류 시 status.claude.com 링크를 표시합니다. 알 수 없는 슬래시 명령어 입력 시 가장 유사한 명령어를 제안합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand",
+      "translated": "언어 문법을 필요할 때만 로드하여 파일 읽기, 편집 및 구문 강조 시의 메모리 사용량을 줄였습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added \"verbose\" indicator when viewing the detailed transcript (`Ctrl+O`)",
+      "translated": "상세 기록(`Ctrl+O`)을 볼 때 \"verbose\" 표시기를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a warning at startup when prompt caching is disabled via `DISABLE_PROMPT_CACHING*` environment variables",
+      "translated": "`DISABLE_PROMPT_CACHING*` 환경 변수를 통해 프롬프트 캐싱이 비활성화된 경우 시작 시 경고를 표시하도록 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed paste not working in the `/login` code prompt (regression in 2.1.105)",
+      "translated": "`/login` 코드 입력 프롬프트에서 붙여넣기가 작동하지 않던 문제를 수정했습니다(2.1.105 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subscribers who set `DISABLE_TELEMETRY` falling back to 5-minute prompt cache TTL instead of 1 hour",
+      "translated": "`DISABLE_TELEMETRY`를 설정한 구독자의 프롬프트 캐시 TTL이 1시간 대신 5분으로 적용되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Agent tool prompting for permission in auto mode when the safety classifier's transcript exceeded its context window",
+      "translated": "안전 분류기(safety classifier)의 기록이 컨텍스트 창을 초과할 때 자동 모드에서 Agent 도구가 권한을 요청하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool producing no output when `CLAUDE_ENV_FILE` (e.g. `~/.zprofile`) ends with a `#` comment line",
+      "translated": "`CLAUDE_ENV_FILE`(예: `~/.zprofile`)이 `#` 주석 줄로 끝날 때 Bash 도구에서 출력이 생성되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --resume <session-id>` losing the session's custom name and color set via `/rename`",
+      "translated": "`claude --resume <session-id>` 실행 시 `/rename`으로 설정한 세션의 사용자 지정 이름과 색상이 손실되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session titles showing placeholder example text when the first message is a short greeting",
+      "translated": "첫 메시지가 짧은 인사말일 때 세션 제목에 예시 텍스트가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal escape codes appearing as garbage text in the prompt input after `--teleport`",
+      "translated": "`--teleport` 사용 후 프롬프트 입력창에 터미널 이스케이프 코드가 깨진 텍스트로 나타나던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/feedback` retry: pressing Enter to resubmit after a failure now works without first editing the description",
+      "translated": "`/feedback` 재시도 수정: 전송 실패 후 설명을 수정하지 않고도 Enter를 눌러 다시 제출할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--teleport` and `--resume <id>` precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message",
+      "translated": "`--teleport` 및 `--resume <id>`의 전제 조건 오류(예: dirty git tree, 세션을 찾을 수 없음 등)가 발생했을 때 오류 메시지를 표시하지 않고 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control session titles set in the web UI being overwritten by auto-generated titles after the third message",
+      "translated": "웹 UI에서 설정한 Remote Control 세션 제목이 세 번째 메시지 이후 자동 생성된 제목으로 덮어씌워지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` truncating sessions when the transcript contained a self-referencing message",
+      "translated": "트랜스크립트에 자기 참조 메시지가 포함된 경우 `--resume` 옵션이 세션을 중단시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged",
+      "translated": "트랜스크립트 쓰기 실패(예: 디스크 용량 부족)가 로그에 기록되지 않고 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the `language` setting is configured",
+      "translated": "`language` 설정 시 응답에서 발음 구별 부호(악센트, 움라우트, 세디유 등)가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed",
+      "translated": "처음 설치된 프로젝트와 다른 프로젝트에서 실행할 때 정책 관리 플러그인이 자동 업데이트되지 않던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-04-14T19:43:36.699Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2835
+}
