@@ -1,0 +1,212 @@
+{
+  "version": "2.1.110",
+  "date": "2026-04-15",
+  "parsedAt": "2026-04-16T03:48:43.915Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flicker-free rendering in the same conversation",
+      "translated": "`/tui` 명령어와 `tui` 설정 추가 — 동일한 대화에서 깜빡임 없는 렌더링으로 전환하려면 `/tui fullscreen`을 실행하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `Ctrl+O` to toggle between normal and verbose transcript only; focus view is now toggled separately with the new `/focus` command",
+      "translated": "`Ctrl+O`가 일반 및 상세 트랜스크립트 간 전환만 수행하도록 변경되었습니다. 포커스 뷰는 이제 새로운 `/focus` 명령어로 별도로 전환됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added push notification tool — Claude can send mobile push notifications when Remote Control and \"Push when Claude decides\" config are enabled",
+      "translated": "푸시 알림 도구 추가 — Remote Control 및 \"Push when Claude decides\" 설정이 활성화된 경우 Claude가 모바일 푸시 알림을 보낼 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `autoScrollEnabled` config to disable conversation auto-scroll in fullscreen mode",
+      "translated": "전체 화면 모드에서 대화 자동 스크롤을 비활성화하는 `autoScrollEnabled` 설정이 추가되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added option to show Claude's last response as commented context in the `Ctrl+G` external editor (enable via `/config`)",
+      "translated": "`Ctrl+G` 외부 에디터에서 Claude의 마지막 응답을 주석 처리된 컨텍스트로 표시하는 옵션이 추가되었습니다 (`/config`를 통해 활성화)."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/plugin` Installed tab — items needing attention and favorites appear at the top, disabled items are hidden behind a fold, and `f` favorites the selected item",
+      "translated": "`/plugin`의 Installed 탭 개선 — 확인이 필요한 항목과 즐겨찾기가 상단에 표시되고, 비활성화된 항목은 접혀서 숨겨지며, `f`를 눌러 선택한 항목을 즐겨찾기에 추가할 수 있습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/doctor` to warn when an MCP server is defined in multiple config scopes with different endpoints",
+      "translated": "MCP 서버가 서로 다른 엔드포인트를 가진 여러 설정 범위에 정의된 경우 경고하도록 `/doctor` 기능을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--resume`/`--continue` now resurrects unexpired scheduled tasks",
+      "translated": "`--resume`/`--continue` 실행 시 만료되지 않은 예약된 작업을 다시 활성화합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/autocompact`, `/context`, `/exit`, and `/reload-plugins` now work from Remote Control (mobile/web) clients",
+      "translated": "이제 Remote Control(모바일/웹) 클라이언트에서 `/autocompact`, `/context`, `/exit`, `/reload-plugins` 명령어를 사용할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Write tool now informs the model when you edit the proposed content in the IDE diff before accepting",
+      "translated": "Write 도구가 제안된 내용을 수락하기 전에 IDE diff에서 수정하는 경우, 해당 수정 사항을 모델에 알립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bash tool now enforces the documented maximum timeout instead of accepting arbitrarily large values",
+      "translated": "Bash 도구가 임의의 큰 값을 허용하는 대신 문서화된 최대 타임아웃을 강제 적용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SDK/headless sessions now read `TRACEPARENT`/`TRACESTATE` from the environment for distributed trace linking",
+      "translated": "SDK/headless 세션이 분산 추적 연결을 위해 환경 변수에서 `TRACEPARENT` 및 `TRACESTATE`를 읽습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Session recap is now enabled for users with telemetry disabled (Bedrock, Vertex, Foundry, `DISABLE_TELEMETRY`). Opt out via `/config` or `CLAUDE_CODE_ENABLE_AWAY_SUMMARY=0`.",
+      "translated": "텔레메트리가 비활성화된 사용자(Bedrock, Vertex, Foundry, `DISABLE_TELEMETRY`)에게도 세션 요약 기능이 활성화됩니다. `/config` 또는 `CLAUDE_CODE_ENABLE_AWAY_SUMMARY=0`을 통해 비활성화할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool calls hanging indefinitely when the server connection drops mid-response on SSE/HTTP transports",
+      "translated": "SSE/HTTP 전송 중 응답 중간에 서버 연결이 끊겼을 때 MCP 도구 호출이 무한 대기하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed non-streaming fallback retries causing multi-minute hangs when the API is unreachable",
+      "translated": "API에 연결할 수 없을 때 비스트리밍 폴백 재시도로 인해 몇 분 동안 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session recap, local slash-command output, and other system status lines not appearing in focus mode",
+      "translated": "포커스 모드에서 세션 요약, 로컬 슬래시 명령어 출력 및 기타 시스템 상태 줄이 표시되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed high CPU usage in fullscreen when text is selected while a tool is running",
+      "translated": "도구가 실행 중일 때 텍스트를 선택하면 전체 화면에서 CPU 사용량이 높아지는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin install not honoring dependencies declared in `plugin.json` when the marketplace entry omits them; `/plugin` install now lists auto-installed dependencies",
+      "translated": "마켓플레이스 항목에 종속성이 누락된 경우 `plugin.json`에 선언된 종속성을 반영하지 않던 플러그인 설치 문제를 수정했습니다. 이제 `/plugin` 설치 시 자동 설치된 종속성 목록을 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skills with `disable-model-invocation: true` failing when invoked via `/<skill>` mid-message",
+      "translated": "메시지 중간에 `/<skill>`을 통해 호출할 때 `disable-model-invocation: true` 설정이 된 스킬이 실패하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` sometimes showing the first prompt instead of the `/rename` name for sessions still running or exited uncleanly",
+      "translated": "실행 중이거나 비정상 종료된 세션에 대해 `--resume`이 `/rename` 이름 대신 첫 번째 프롬프트를 표시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed queued messages briefly appearing twice during multi-tool-call turns",
+      "translated": "멀티 도구 호출 과정에서 대기 중인 메시지가 잠시 두 번 나타나던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session cleanup not removing the full session directory including subagent transcripts",
+      "translated": "세션 정리 시 하위 에이전트 트랜스크립트를 포함한 전체 세션 디렉터리가 삭제되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed dropped keystrokes after the CLI relaunches (e.g. `/tui`, provider setup wizards)",
+      "translated": "CLI 재실행(예: `/tui`, 프로바이더 설정 마법사) 후 키 입력이 누락되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed garbled startup rendering in macOS Terminal.app and other terminals that don't support synchronized output",
+      "translated": "macOS Terminal.app 및 동기화된 출력을 지원하지 않는 기타 터미널에서 시작 시 화면이 깨지던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hardened \"Open in editor\" actions against command injection from untrusted filenames",
+      "translated": "신뢰할 수 없는 파일명으로 인한 커맨드 인젝션 공격에 대비해 \"Open in editor\" 동작 보안 강화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `PermissionRequest` hooks returning `updatedInput` not being re-checked against `permissions.deny` rules; `setMode:'bypassPermissions'` updates now respect `disableBypassPermissionsMode`",
+      "translated": "`updatedInput`을 반환하는 `PermissionRequest` 훅이 `permissions.deny` 규칙에 따라 재검사되지 않던 문제 수정; 이제 `setMode:'bypassPermissions'` 업데이트가 `disableBypassPermissionsMode`를 준수함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `PreToolUse` hook `additionalContext` being dropped when the tool call fails",
+      "translated": "도구 호출 실패 시 `PreToolUse` 훅의 `additionalContext`가 누락되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stdio MCP servers that print stray non-JSON lines to stdout being disconnected on the first stray line (regression in 2.1.105)",
+      "translated": "stdout에 JSON이 아닌 줄을 출력하는 stdio MCP 서버가 첫 번째 비정상 줄에서 연결이 끊기던 문제 수정 (2.1.105 버전의 회귀 버그)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed headless/SDK session auto-title firing an extra Haiku request when `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` or `CLAUDE_CODE_DISABLE_TERMINAL_TITLE` is set",
+      "translated": "`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` 또는 `CLAUDE_CODE_DISABLE_TERMINAL_TITLE`이 설정된 경우 headless/SDK 세션 자동 제목 생성을 위해 불필요한 Haiku 요청이 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed potential excessive memory allocation when piped (non-TTY) Ink output contains a single very wide line",
+      "translated": "파이프된(non-TTY) Ink 출력에 매우 긴 한 줄이 포함될 때 발생할 수 있는 과도한 메모리 할당 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/skills` menu not scrolling when the list overflows the modal in fullscreen mode",
+      "translated": "전체 화면 모드에서 목록이 모달 범위를 벗어날 때 `/skills` 메뉴가 스크롤되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions showing a generic error instead of prompting for re-login when the session is too old",
+      "translated": "원격 제어 세션이 만료되었을 때 재로그인을 요청하는 대신 일반적인 오류를 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control session renames from claude.ai not persisting the title to the local CLI session",
+      "translated": "claude.ai에서 변경한 원격 제어 세션 이름이 로컬 CLI 세션에 반영되지 않던 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-04-16T03:49:29.288Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3743
+}
