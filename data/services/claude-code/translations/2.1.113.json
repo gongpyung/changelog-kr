@@ -1,0 +1,242 @@
+{
+  "version": "2.1.113",
+  "date": "2026-04-17",
+  "parsedAt": "2026-04-18T03:31:26.106Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the CLI to spawn a native Claude Code binary (via a per-platform optional dependency) instead of bundled JavaScript",
+      "translated": "번들된 JavaScript 대신 플랫폼별 선택적 의존성을 통해 네이티브 Claude Code 바이너리를 실행하도록 CLI 변경"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `sandbox.network.deniedDomains` setting to block specific domains even when a broader `allowedDomains` wildcard would otherwise permit them",
+      "translated": "더 넓은 범위의 `allowedDomains` 와일드카드가 허용하는 경우에도 특정 도메인을 차단할 수 있는 `sandbox.network.deniedDomains` 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Fullscreen mode: Shift+↑/↓ now scrolls the viewport when extending a selection past the visible edge",
+      "translated": "전체 화면 모드: 선택 영역을 가시적 가장자리 너머로 확장할 때 Shift+↑/↓로 뷰포트를 스크롤할 수 있는 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`Ctrl+A` and `Ctrl+E` now move to the start/end of the current logical line in multiline input, matching readline behavior",
+      "translated": "다중 행 입력 시 readline 동작과 일치하도록 `Ctrl+A` 및 `Ctrl+E`를 사용하여 현재 논리적 행의 시작과 끝으로 이동 가능"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: `Ctrl+Backspace` now deletes the previous word",
+      "translated": "Windows: `Ctrl+Backspace`로 이전 단어를 삭제하는 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Long URLs in responses and bash output stay clickable when they wrap across lines (in terminals with OSC 8 hyperlinks)",
+      "translated": "응답 및 bash 출력의 긴 URL이 여러 줄에 걸쳐 표시될 때도 클릭 가능한 상태 유지 (OSC 8 하이퍼링크를 지원하는 터미널 대상)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/loop`: pressing Esc now cancels pending wakeups, and wakeups display as \"Claude resuming /loop wakeup\" for clarity",
+      "translated": "`/loop` 개선: Esc를 눌러 대기 중인 웨이크업을 취소할 수 있으며, 명확성을 위해 웨이크업 시 \"Claude resuming /loop wakeup\"으로 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/extra-usage` now works from Remote Control (mobile/web) clients",
+      "translated": "Remote Control(모바일/웹) 클라이언트에서 `/extra-usage` 사용 가능"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control clients can now query `@`-file autocomplete suggestions",
+      "translated": "Remote Control 클라이언트에서 `@` 파일 자동 완성 제안 조회 가능"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/ultrareview`: faster launch with parallelized checks, diffstat in the launch dialog, and animated launching state",
+      "translated": "`/ultrareview` 개선: 병렬 체크를 통한 빠른 실행, 실행 대화 상자의 diffstat 표시, 실행 상태 애니메이션 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Subagents that stall mid-stream now fail with a clear error after 10 minutes instead of hanging silently",
+      "translated": "스트리밍 도중 중단된 서브 에이전트가 응답 없이 대기하는 대신 10분 후 명확한 오류와 함께 종료되도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bash tool: multi-line commands whose first line is a comment now show the full command in the transcript, closing a UI-spoofing vector",
+      "translated": "Bash 도구: 첫 줄이 주석인 다중 행 명령의 전체 내용이 트랜스크립트에 표시되도록 하여 UI 스푸핑 취약점 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Running `cd <current-directory> && git …` no longer triggers a permission prompt when the `cd` is a no-op",
+      "translated": "`cd` 명령이 아무런 동작을 하지 않는 경우 `cd <current-directory> && git …` 실행 시 권한 요청 프롬프트가 표시되지 않도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: on macOS, `/private/{etc,var,tmp,home}` paths are now treated as dangerous removal targets under `Bash(rm:*)` allow rules",
+      "translated": "보안: macOS에서 `/private/{etc,var,tmp,home}` 경로가 `Bash(rm:*)` 허용 규칙 하에서 위험한 삭제 대상으로 처리됨"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: Bash deny rules now match commands wrapped in `env`/`sudo`/`watch`/`ionice`/`setsid` and similar exec wrappers",
+      "translated": "보안: Bash 거부 규칙이 `env`, `sudo`, `watch`, `ionice`, `setsid` 및 유사한 실행 래퍼로 감싸진 명령에도 적용됨"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: `Bash(find:*)` allow rules no longer auto-approve `find -exec`/`-delete`",
+      "translated": "보안: `Bash(find:*)` 허용 규칙이 더 이상 `find -exec` 및 `-delete`를 자동 승인하지 않음"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP concurrent-call timeout handling where a message for one tool call could silently disarm another call's watchdog",
+      "translated": "한 도구 호출의 메시지가 다른 호출의 watchdog을 의도치 않게 해제하던 MCP 동시 호출 타임아웃 처리 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Cmd-backspace / `Ctrl+U` to once again delete from the cursor to the start of the line",
+      "translated": "Cmd-backspace 및 `Ctrl+U` 사용 시 커서부터 행 시작 부분까지 다시 정상적으로 삭제되도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed markdown tables breaking when a cell contains an inline code span with a pipe character",
+      "translated": "셀에 파이프(|) 문자가 포함된 인라인 코드 스팬이 있을 때 마크다운 표가 깨지는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session recap auto-firing while composing unsent text in the prompt",
+      "translated": "프롬프트에서 전송하지 않은 텍스트를 작성하는 동안 세션 요약이 자동으로 실행되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/copy` \"Full response\" not aligning markdown table columns for pasting into GitHub, Notion, or Slack",
+      "translated": "GitHub, Notion, Slack에 붙여넣을 때 `/copy` \"Full response\"의 마크다운 표 열 정렬이 맞지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed messages typed while viewing a running subagent being hidden from its transcript and misattributed to the parent AI",
+      "translated": "실행 중인 서브에이전트를 확인하는 동안 입력한 메시지가 트랜스크립트에서 누락되거나 상위 AI의 메시지로 잘못 할당되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash `dangerouslyDisableSandbox` running commands outside the sandbox without a permission prompt",
+      "translated": "Bash `dangerouslyDisableSandbox`가 권한 요청 없이 샌드박스 외부에서 명령어를 실행하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort auto` confirmation — now says \"Effort level set to max\" to match the status bar label",
+      "translated": "`/effort auto` 확인 메시지 수정 — 이제 상태 표시줄 레이블과 일치하도록 \"Effort level set to max\"로 표시됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the \"copied N chars\" toast overcounting emoji and other multi-code-unit characters",
+      "translated": "\"copied N chars\" 토스트 메시지에서 이모지 및 기타 멀티 코드 유닛 문자의 개수가 과다하게 집계되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/insights` crashing with `EBUSY` on Windows",
+      "translated": "Windows에서 `/insights`가 `EBUSY` 오류와 함께 충돌하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed exit confirmation dialog mislabeling one-shot scheduled tasks as recurring — now shows a countdown",
+      "translated": "종료 확인 대화 상자에서 일회성 예약 작업이 반복 작업으로 잘못 표시되는 문제 수정 — 이제 카운트다운이 표시됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash/@ completion menu not sitting flush against the prompt border in fullscreen mode",
+      "translated": "전체 화면 모드에서 슬래시(/) 및 @ 완성 메뉴가 프롬프트 경계에 밀착되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_EXTRA_BODY` `output_config.effort` causing 400 errors on subagent calls to models that don't support effort and on Vertex AI",
+      "translated": "effort를 지원하지 않는 모델에 대한 서브에이전트 호출 및 Vertex AI에서 `CLAUDE_CODE_EXTRA_BODY` `output_config.effort`로 인해 400 오류가 발생하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt cursor disappearing when `NO_COLOR` is set",
+      "translated": "`NO_COLOR`가 설정되었을 때 프롬프트 커서가 사라지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ToolSearch` ranking so pasted MCP tool names surface the actual tool instead of description-matching siblings",
+      "translated": "붙여넣은 MCP 도구 이름이 설명이 일치하는 유사한 도구 대신 실제 도구를 우선적으로 표시하도록 `ToolSearch` 랭킹 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compacting a resumed long-context session failing with \"Extra usage is required for long context requests\"",
+      "translated": "재개된 긴 컨텍스트 세션을 압축할 때 \"Extra usage is required for long context requests\" 오류와 함께 실패하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `plugin install` succeeding when a dependency version conflicts with an already-installed plugin — now reports `range-conflict`",
+      "translated": "이미 설치된 플러그인과 의존성 버전이 충돌함에도 `plugin install`이 성공하는 문제 수정 — 이제 `range-conflict`를 보고함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Refine with Ultraplan\" not showing the remote session URL in the transcript",
+      "translated": "\"Refine with Ultraplan\" 사용 시 트랜스크립트에 원격 세션 URL이 표시되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK image content blocks that fail to process crashing the session — now degrade to a text placeholder",
+      "translated": "처리에 실패한 SDK 이미지 콘텐츠 블록이 세션을 중단시키는 문제 수정 — 이제 텍스트 플레이스홀더로 대체됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions not streaming subagent transcripts",
+      "translated": "Remote Control 세션에서 서브에이전트 트랜스크립트가 스트리밍되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions not being archived when Claude Code exits",
+      "translated": "Claude Code 종료 시 Remote Control 세션이 아카이브되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `thinking.type.enabled is not supported` 400 error when using Opus 4.7 via a Bedrock Application Inference Profile ARN",
+      "translated": "Bedrock Application Inference Profile ARN을 통해 Opus 4.7을 사용할 때 `thinking.type.enabled is not supported` 400 오류가 발생하는 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-04-18T03:32:08.281Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3876
+}
