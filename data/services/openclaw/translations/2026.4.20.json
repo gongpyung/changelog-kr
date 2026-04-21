@@ -1,0 +1,578 @@
+{
+  "version": "2026.4.20",
+  "date": "2026-04-21",
+  "parsedAt": "2026-04-21T19:39:20.662Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Onboard/wizard: restyle the setup security disclaimer with a single yellow warning banner, section headings and bulleted checklists, and un-dim the note body so key guidance is easy to scan; add a loading spinner during the initial model catalog load so the wizard no longer goes blank while it runs; add an \"API key\" placeholder to provider API key prompts. (#69553) Thanks @Patrick-Erichsen.",
+      "translated": "메타데이터만 있는 빈 턴은 계속 무시하면서, 인라인 이미지 첨부를 빈 턴 게이팅(empty-turn gating)을 위한 미디어로 처리합니다. (#69474) @Jaswir님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/prompts: strengthen the default system prompt and OpenAI GPT-5 overlay with clearer completion bias, live-state checks, weak-result recovery, and verification-before-final guidance.",
+      "translated": "제공자 관리형 적응형 추론(adaptive thinking)을 실제로 지원하는 제공자/모델 쌍에 대해서만 `/think` 자동 완성에 `adaptive`를 표시하여, GPT/OpenAI 모델에서 더 이상 Anthropic 전용 옵션이 나타나지 않도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/costs: support tiered model pricing from cached catalogs and configured models, and include bundled Moonshot Kimi K2.6/K2.5 cost estimates for token-usage reports. (#67605) Thanks @sliverp.",
+      "translated": "제공자 최대 추론(max reasoning)을 명시적으로 지원하는 모델에 대해서만 `max`를 노출하고, 사용자가 다른 모델로 전환할 때 저장된 `max` 설정을 지원되는 가장 큰 추론 모드로 재매핑합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sessions/Maintenance: enforce the built-in entry cap and age prune by default, and prune oversized stores at load time so accumulated cron/executor session backlogs cannot OOM the gateway before the write path runs. (#69404) Thanks @bobrenze-bot.",
+      "translated": "비용 사용량 캐시를 FIFO 교체 정책으로 제한하여 날짜/범위 조회가 무한정 늘어나지 않도록 합니다. (#68842) @Feelw00님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/tests: reuse plugin loader alias and Jiti config resolution across repeated same-context loads, reducing import-heavy test overhead. (#69316) Thanks @amknight.",
+      "translated": "각 GPT 모델이 지원하는 추론 노력(reasoning efforts)에 맞춰 `/think` 레벨을 확인하여, `/think off`가 높은 추론으로 설정되거나 지원되지 않는 `reasoning.effort: \"none\"` 페이로드를 전송하지 않도록 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cron: split runtime execution state into `jobs-state.json` so `jobs.json` stays stable for git-tracked job definitions. (#63105) Thanks @Feelw00.",
+      "translated": "관리형 승인 재개 시 재개 토큰 없이 `approvalId`를 사용할 수 있도록 허용하고, 해당 ID를 승인 대기 상태에 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/compaction: send opt-in start and completion notices during context compaction. (#67830) Thanks @feniix.",
+      "translated": "Agents/compaction: send opt-in start and completion notices during context compaction. (#67830) Thanks @feniix."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Moonshot/Kimi: default bundled Moonshot setup, web search, and media-understanding surfaces to `kimi-k2.6` while keeping `kimi-k2.5` available for compatibility. (#69477) Thanks @scoootscooob.",
+      "translated": "Moonshot/Kimi: default bundled Moonshot setup, web search, and media-understanding surfaces to `kimi-k2.6` while keeping `kimi-k2.5` available for compatibility. (#69477) Thanks @scoootscooob."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Moonshot/Kimi: allow `thinking.keep = \"all\"` on `moonshot/kimi-k2.6`, and strip it for other Moonshot models or requests where pinned `tool_choice` disables thinking. (#68816) Thanks @aniaan.",
+      "translated": "Moonshot/Kimi: allow `thinking.keep = \"all\"` on `moonshot/kimi-k2.6`, and strip it for other Moonshot models or requests where pinned `tool_choice` disables thinking. (#68816) Thanks @aniaan."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "BlueBubbles/groups: forward per-group `systemPrompt` config into inbound context `GroupSystemPrompt` so configured group-specific behavioral instructions (for example threaded-reply and tapback conventions) are injected on every turn. Supports `\"*\"` wildcard fallback matching the existing `requireMention` pattern. Closes #60665. (#69198) Thanks @omarshahine.",
+      "translated": "BlueBubbles/groups: forward per-group `systemPrompt` config into inbound context `GroupSystemPrompt` so configured group-specific behavioral instructions (for example threaded-reply and tapback conventions) are injected on every turn. Supports `\"*\"` wildcard fallback matching the existing `requireMention` pattern. Closes #60665. (#69198) Thanks @omarshahine."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/tasks: add a detached runtime registration contract so plugin executors can own detached task lifecycle and cancellation without reaching into core task internals. (#68915) Thanks @mbelinky.",
+      "translated": "Plugins/tasks: add a detached runtime registration contract so plugin executors can own detached task lifecycle and cancellation without reaching into core task internals. (#68915) Thanks @mbelinky."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Terminal/logging: optimize `sanitizeForLog()` by replacing the iterative control-character stripping loop with a single regex pass while preserving the existing ANSI-first sanitization behavior. (#67205) Thanks @bulutmuf.",
+      "translated": "Terminal/logging: optimize `sanitizeForLog()` by replacing the iterative control-character stripping loop with a single regex pass while preserving the existing ANSI-first sanitization behavior. (#67205) Thanks @bulutmuf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA/CI: make `openclaw qa suite` and `openclaw qa telegram` fail by default when scenarios fail, add `--allow-failures` for artifact-only runs, and tighten live-lane defaults for CI automation. (#69122) Thanks @joshavant.",
+      "translated": "QA/CI: make `openclaw qa suite` and `openclaw qa telegram` fail by default when scenarios fail, add `--allow-failures` for artifact-only runs, and tighten live-lane defaults for CI automation. (#69122) Thanks @joshavant."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Mattermost: stream thinking, tool activity, and partial reply text into a single draft preview post that finalizes in place when safe. (#47838) thanks @ninjaa.",
+      "translated": "Mattermost: stream thinking, tool activity, and partial reply text into a single draft preview post that finalizes in place when safe. (#47838) thanks @ninjaa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Exec/YOLO: stop rejecting gateway-host exec in `security=full` plus `ask=off` mode via the Python/Node script preflight hardening path, so promptless YOLO exec once again runs direct interpreter stdin and heredoc forms such as `node <<'NODE' ... NODE`.",
+      "translated": "Exec/YOLO: stop rejecting gateway-host exec in `security=full` plus `ask=off` mode via the Python/Node script preflight hardening path, so promptless YOLO exec once again runs direct interpreter stdin and heredoc forms such as `node <<'NODE' ... NODE`."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI Codex: normalize legacy `openai-completions` transport overrides on default OpenAI/Codex and GitHub Copilot-compatible hosts back to the native Codex Responses transport while leaving custom proxies untouched. (#45304, #42194) Thanks @dyss1992 and @DeadlySilent.",
+      "translated": "OpenAI Codex: normalize legacy `openai-completions` transport overrides on default OpenAI/Codex and GitHub Copilot-compatible hosts back to the native Codex Responses transport while leaving custom proxies untouched. (#45304, #42194) Thanks @dyss1992 and @DeadlySilent."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Anthropic/plugins: scope Anthropic `api: \"anthropic-messages\"` defaulting to Anthropic-owned providers, so `openai-codex` and other providers without an explicit `api` no longer get rewritten to the wrong transport. Fixes #64534.",
+      "translated": "Anthropic/plugins: scope Anthropic `api: \"anthropic-messages\"` defaulting to Anthropic-owned providers, so `openai-codex` and other providers without an explicit `api` no longer get rewritten to the wrong transport. Fixes #64534."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(qqbot): add SSRF guard to direct-upload URL paths in uploadC2CMedia and uploadGroupMedia [AI-assisted]. (#69595) Thanks @pgondhi987.",
+      "translated": "Add SSRF guard to direct-upload URL paths in uploadC2CMedia and uploadGroupMedia [AI-assisted]. (#69595) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(gateway): enforce allowRequestSessionKey gate on template-rendered mapping sessionKeys. (#69381) Thanks @pgondhi987.",
+      "translated": "Enforce allowRequestSessionKey gate on template-rendered mapping sessionKeys. (#69381) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/Chrome MCP: surface `DevToolsActivePort` attach failures as browser-connectivity errors instead of a generic \"waiting for tabs\" timeout, and point signed-out fallbacks toward the managed `openclaw` profile.",
+      "translated": "Browser/Chrome MCP: surface `DevToolsActivePort` attach failures as browser-connectivity errors instead of a generic \"waiting for tabs\" timeout, and point signed-out fallbacks toward the managed `openclaw` profile."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Webchat/images: treat inline image attachments as media for empty-turn gating while still ignoring metadata-only blank turns. (#69474) Thanks @Jaswir.",
+      "translated": "Webchat/images: treat inline image attachments as media for empty-turn gating while still ignoring metadata-only blank turns. (#69474) Thanks @Jaswir."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/think: only show `adaptive` in `/think` autocomplete for provider/model pairs that actually support provider-managed adaptive thinking, so GPT/OpenAI models no longer advertise an Anthropic-only option.",
+      "translated": "Discord/think: only show `adaptive` in `/think` autocomplete for provider/model pairs that actually support provider-managed adaptive thinking, so GPT/OpenAI models no longer advertise an Anthropic-only option."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thinking: only expose `max` for models that explicitly support provider max reasoning, and remap stored `max` settings to the largest supported thinking mode when users switch to another model.",
+      "translated": "Thinking: only expose `max` for models that explicitly support provider max reasoning, and remap stored `max` settings to the largest supported thinking mode when users switch to another model."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/usage: bound the cost usage cache with FIFO eviction so date/range lookups cannot grow unbounded. (#68842) Thanks @Feelw00.",
+      "translated": "Gateway/usage: bound the cost usage cache with FIFO eviction so date/range lookups cannot grow unbounded. (#68842) Thanks @Feelw00."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/Responses: resolve `/think` levels against each GPT model's supported reasoning efforts so `/think off` no longer becomes high reasoning or sends unsupported `reasoning.effort: \"none\"` payloads.",
+      "translated": "OpenAI/Responses: resolve `/think` levels against each GPT model's supported reasoning efforts so `/think off` no longer becomes high reasoning or sends unsupported `reasoning.effort: \"none\"` payloads."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Lobster/TaskFlow: allow managed approval resumes to use `approvalId` without a resume token, and persist that id in approval wait state. (#69559) Thanks @kirkluokun.",
+      "translated": "Lobster/TaskFlow: allow managed approval resumes to use `approvalId` without a resume token, and persist that id in approval wait state. (#69559) Thanks @kirkluokun."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/startup: install bundled runtime dependencies into each plugin's own runtime directory, reuse source-checkout repair caches after rebuilds, and log only packages that were actually installed so repeated Gateway starts stay quiet once deps are present.",
+      "translated": "Plugins/startup: install bundled runtime dependencies into each plugin's own runtime directory, reuse source-checkout repair caches after rebuilds, and log only packages that were actually installed so repeated Gateway starts stay quiet once deps are present."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/startup: ignore pnpm's `npm_execpath` when repairing bundled plugin runtime dependencies and skip workspace-only package specs so npm-only install flags or local workspace links do not break packaged plugin startup.",
+      "translated": "Plugins/startup: ignore pnpm's `npm_execpath` when repairing bundled plugin runtime dependencies and skip workspace-only package specs so npm-only install flags or local workspace links do not break packaged plugin startup."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP: block interpreter-startup env keys such as `NODE_OPTIONS` for stdio servers while preserving ordinary credential and proxy env vars. (#69540) Thanks @drobison00.",
+      "translated": "MCP: block interpreter-startup env keys such as `NODE_OPTIONS` for stdio servers while preserving ordinary credential and proxy env vars. (#69540) Thanks @drobison00."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/shell: ignore non-interactive placeholder shells like `/usr/bin/false` and `/sbin/nologin`, falling back to `sh` so service-user exec runs no longer exit immediately. (#69308) Thanks @sk7n4k3d.",
+      "translated": "Agents/shell: ignore non-interactive placeholder shells like `/usr/bin/false` and `/sbin/nologin`, falling back to `sh` so service-user exec runs no longer exit immediately. (#69308) Thanks @sk7n4k3d."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Setup/TUI: relaunch the setup hatch TUI in a fresh process while preserving the configured gateway target and auth source, so onboarding recovers terminal state cleanly without exposing gateway secrets on command-line args. (#69524) Thanks @shakkernerd.",
+      "translated": "Setup/TUI: relaunch the setup hatch TUI in a fresh process while preserving the configured gateway target and auth source, so onboarding recovers terminal state cleanly without exposing gateway secrets on command-line args. (#69524) Thanks @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex: avoid re-exposing the image-generation tool on native vision turns with inbound images, and keep bare image-model overrides on the configured image provider. (#65061) Thanks @zhulijin1991.",
+      "translated": "Codex: avoid re-exposing the image-generation tool on native vision turns with inbound images, and keep bare image-model overrides on the configured image provider. (#65061) Thanks @zhulijin1991."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/reset: clear auto-sourced model, provider, and auth-profile overrides on `/new` and `/reset` while preserving explicit user selections, so channel sessions stop staying pinned to runtime fallback choices. (#69419) Thanks @sk7n4k3d.",
+      "translated": "Sessions/reset: clear auto-sourced model, provider, and auth-profile overrides on `/new` and `/reset` while preserving explicit user selections, so channel sessions stop staying pinned to runtime fallback choices. (#69419) Thanks @sk7n4k3d."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/costs: snapshot `estimatedCostUsd` like token counters so repeated persist paths no longer compound the same run cost by up to dozens of times. (#69403) Thanks @MrMiaigi.",
+      "translated": "Sessions/costs: snapshot `estimatedCostUsd` like token counters so repeated persist paths no longer compound the same run cost by up to dozens of times. (#69403) Thanks @MrMiaigi."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI Codex: route ChatGPT/Codex OAuth Responses requests through the `/backend-api/codex` endpoint so `openai-codex/gpt-5.4` no longer hits the removed `/backend-api/responses` alias. (#69336) Thanks @mzogithub.",
+      "translated": "OpenAI Codex: route ChatGPT/Codex OAuth Responses requests through the `/backend-api/codex` endpoint so `openai-codex/gpt-5.4` no longer hits the removed `/backend-api/responses` alias. (#69336) Thanks @mzogithub."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/Responses: omit disabled reasoning payloads when `/think off` is active, so GPT reasoning models no longer receive unsupported `reasoning.effort: \"none\"` requests. (#61982) Thanks @a-tokyo.",
+      "translated": "OpenAI/Responses: omit disabled reasoning payloads when `/think off` is active, so GPT reasoning models no longer receive unsupported `reasoning.effort: \"none\"` requests. (#61982) Thanks @a-tokyo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/pairing: treat loopback shared-secret node-host, TUI, and gateway clients as local for pairing decisions, so trusted local tools no longer reconnect as remote clients and fail with `pairing required`. (#69431) Thanks @SARAMALI15792.",
+      "translated": "Gateway/pairing: treat loopback shared-secret node-host, TUI, and gateway clients as local for pairing decisions, so trusted local tools no longer reconnect as remote clients and fail with `pairing required`. (#69431) Thanks @SARAMALI15792."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Active Memory: degrade gracefully when memory recall fails during prompt building, logging a warning and letting the reply continue without memory context instead of failing the whole turn. (#69485) Thanks @Magicray1217.",
+      "translated": "Active Memory: degrade gracefully when memory recall fails during prompt building, logging a warning and letting the reply continue without memory context instead of failing the whole turn. (#69485) Thanks @Magicray1217."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama: add provider-policy defaults for `baseUrl` and `models` so implicit local discovery can run before config validation rejects a minimal Ollama provider config. (#69370) Thanks @PratikRai0101.",
+      "translated": "Ollama: add provider-policy defaults for `baseUrl` and `models` so implicit local discovery can run before config validation rejects a minimal Ollama provider config. (#69370) Thanks @PratikRai0101."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/model selection: clear transient auto-failover session overrides before each turn so recovered primary models are retried immediately without emitting user-override reset warnings. (#69365) Thanks @hitesh-github99.",
+      "translated": "Agents/model selection: clear transient auto-failover session overrides before each turn so recovered primary models are retried immediately without emitting user-override reset warnings. (#69365) Thanks @hitesh-github99."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply: apply silent `NO_REPLY` policy per conversation type, so direct chats get a helpful rewritten reply while groups and internal deliveries can remain quiet. (#68644) Thanks @Takhoffman.",
+      "translated": "Auto-reply: apply silent `NO_REPLY` policy per conversation type, so direct chats get a helpful rewritten reply while groups and internal deliveries can remain quiet. (#68644) Thanks @Takhoffman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/status reactions: honor `messages.removeAckAfterReply` when lifecycle status reactions are enabled, clearing or restoring the reaction after success/error using the configured hold timings. (#68067) Thanks @poiskgit.",
+      "translated": "Telegram/status reactions: honor `messages.removeAckAfterReply` when lifecycle status reactions are enabled, clearing or restoring the reaction after success/error using the configured hold timings. (#68067) Thanks @poiskgit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Web search/plugins: resolve plugin-scoped SecretRef API keys for bundled Exa, Firecrawl, Gemini, Kimi, Perplexity, Tavily, and Grok web-search providers when they are selected through the shared web-search config. (#68424) Thanks @afurm.",
+      "translated": "Web search/plugins: resolve plugin-scoped SecretRef API keys for bundled Exa, Firecrawl, Gemini, Kimi, Perplexity, Tavily, and Grok web-search providers when they are selected through the shared web-search config. (#68424) Thanks @afurm."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/polling: raise the default polling watchdog threshold from 90s to 120s and add configurable `channels.telegram.pollingStallThresholdMs` (also per-account) so long-running Telegram work gets more room before polling is treated as stalled. (#57737) Thanks @Vitalcheffe.",
+      "translated": "Telegram/polling: raise the default polling watchdog threshold from 90s to 120s and add configurable `channels.telegram.pollingStallThresholdMs` (also per-account) so long-running Telegram work gets more room before polling is treated as stalled. (#57737) Thanks @Vitalcheffe."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/polling: bound the persisted-offset confirmation `getUpdates` probe with a client-side timeout so a zombie socket cannot hang polling recovery before the runner watchdog starts. (#50368) Thanks @boticlaw.",
+      "translated": "Telegram/polling: bound the persisted-offset confirmation `getUpdates` probe with a client-side timeout so a zombie socket cannot hang polling recovery before the runner watchdog starts. (#50368) Thanks @boticlaw."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Pi runner: retry silent `stopReason=error` turns with no output when no side effects ran, so non-frontier providers that briefly return empty error turns get another chance instead of ending the session early. (#68310) Thanks @Chased1k.",
+      "translated": "Agents/Pi runner: retry silent `stopReason=error` turns with no output when no side effects ran, so non-frontier providers that briefly return empty error turns get another chance instead of ending the session early. (#68310) Thanks @Chased1k."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/memory: preserve the active memory capability when read-only snapshot plugin loads run, so status and provider discovery paths no longer wipe memory public artifacts. (#69219) Thanks @zeroaltitude.",
+      "translated": "Plugins/memory: preserve the active memory capability when read-only snapshot plugin loads run, so status and provider discovery paths no longer wipe memory public artifacts. (#69219) Thanks @zeroaltitude."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins: keep only the highest-precedence manifest when distinct discovered plugins share an id, so lower-precedence global or workspace duplicates no longer load beside bundled or config-selected plugins. (#41626) Thanks @Tortes.",
+      "translated": "Plugins: keep only the highest-precedence manifest when distinct discovered plugins share an id, so lower-precedence global or workspace duplicates no longer load beside bundled or config-selected plugins. (#41626) Thanks @Tortes."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(security): block MINIMAX_API_HOST workspace env injection and remove env-driven URL routing [AI-assisted]. (#67300) Thanks @pgondhi987.",
+      "translated": "Block MINIMAX_API_HOST workspace env injection and remove env-driven URL routing [AI-assisted]. (#67300) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/delivery: treat explicit `delivery.mode: \"none\"` runs as not requested even if the runner reports `delivered: false`, so no-delivery cron jobs no longer persist false delivery failures or errors. (#69285) Thanks @matsuri1987.",
+      "translated": "Cron/delivery: treat explicit `delivery.mode: \"none\"` runs as not requested even if the runner reports `delivered: false`, so no-delivery cron jobs no longer persist false delivery failures or errors. (#69285) Thanks @matsuri1987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/install: repair active and default-enabled bundled plugin runtime dependencies before import in packaged installs, so bundled Discord, WhatsApp, Slack, Telegram, and provider plugins work without putting their dependency trees in core.",
+      "translated": "Plugins/install: repair active and default-enabled bundled plugin runtime dependencies before import in packaged installs, so bundled Discord, WhatsApp, Slack, Telegram, and provider plugins work without putting their dependency trees in core."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles: raise the outbound `/api/v1/message/text` send timeout default from 10s to 30s, and add a configurable `channels.bluebubbles.sendTimeoutMs` (also per-account) so macOS 26 setups where Private API iMessage sends stall for 60+ seconds no longer silently lose messages at the 10s abort. Probes, chat lookups, and health checks keep the shorter 10s default. Fixes #67486. (#69193) Thanks @omarshahine.",
+      "translated": "BlueBubbles: raise the outbound `/api/v1/message/text` send timeout default from 10s to 30s, and add a configurable `channels.bluebubbles.sendTimeoutMs` (also per-account) so macOS 26 setups where Private API iMessage sends stall for 60+ seconds no longer silently lose messages at the 10s abort. Probes, chat lookups, and health checks keep the shorter 10s default. Fixes #67486. (#69193) Thanks @omarshahine."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/bootstrap: budget truncation markers against per-file caps, preserve source content instead of silently wasting bootstrap bytes, and avoid marker-only output in tiny-budget truncation cases. (#69114) Thanks @BKF-Gitty.",
+      "translated": "Agents/bootstrap: budget truncation markers against per-file caps, preserve source content instead of silently wasting bootstrap bytes, and avoid marker-only output in tiny-budget truncation cases. (#69114) Thanks @BKF-Gitty."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Context engine/plugins: stop rejecting third-party context engines whose `info.id` differs from the registered plugin slot id. The strict-match contract added in 2026.4.14 broke `lossless-claw` and other plugins whose internal engine id does not equal the slot id they are registered under, producing repeated `info.id must match registered id` lane failures on every turn. Fixes #66601. (#66678) Thanks @GodsBoy.",
+      "translated": "Context engine/plugins: stop rejecting third-party context engines whose `info.id` differs from the registered plugin slot id. The strict-match contract added in 2026.4.14 broke `lossless-claw` and other plugins whose internal engine id does not equal the slot id they are registered under, producing repeated `info.id must match registered id` lane failures on every turn. Fixes #66601. (#66678) Thanks @GodsBoy."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: rename embedded Pi compaction lifecycle events to `compaction_start` / `compaction_end` so OpenClaw stays aligned with `pi-coding-agent` 0.66.1 event naming. (#67713) Thanks @mpz4life.",
+      "translated": "Agents/compaction: rename embedded Pi compaction lifecycle events to `compaction_start` / `compaction_end` so OpenClaw stays aligned with `pi-coding-agent` 0.66.1 event naming. (#67713) Thanks @mpz4life."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/dotenv: block all `OPENCLAW_*` keys from untrusted workspace `.env` files so workspace-local env loading fails closed for new runtime-control variables instead of silently inheriting them. (#473)",
+      "translated": "Security/dotenv: block all `OPENCLAW_*` keys from untrusted workspace `.env` files so workspace-local env loading fails closed for new runtime-control variables instead of silently inheriting them. (#473)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/device pairing: restrict non-admin paired-device sessions (device-token auth) to their own pairing list, approve, and reject actions so a paired device cannot enumerate other devices or approve/reject pairing requests authored by another device. Admin and shared-secret operator sessions retain full visibility. (#69375) Thanks @eleqtrizit.",
+      "translated": "Gateway/device pairing: restrict non-admin paired-device sessions (device-token auth) to their own pairing list, approve, and reject actions so a paired device cannot enumerate other devices or approve/reject pairing requests authored by another device. Admin and shared-secret operator sessions retain full visibility. (#69375) Thanks @eleqtrizit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/gateway tool: extend the agent-facing `gateway` tool's config mutation guard so model-driven `config.patch` and `config.apply` cannot rewrite operator-trusted paths (sandbox, plugin trust, gateway auth/TLS, hook routing and tokens, SSRF policy, MCP servers, workspace filesystem hardening) and cannot bypass the guard by editing per-agent sandbox, tools, or embedded-Pi overrides in place under `agents.list[]`. (#69377) Thanks @eleqtrizit.",
+      "translated": "Agents/gateway tool: extend the agent-facing `gateway` tool's config mutation guard so model-driven `config.patch` and `config.apply` cannot rewrite operator-trusted paths (sandbox, plugin trust, gateway auth/TLS, hook routing and tokens, SSRF policy, MCP servers, workspace filesystem hardening) and cannot bypass the guard by editing per-agent sandbox, tools, or embedded-Pi overrides in place under `agents.list[]`. (#69377) Thanks @eleqtrizit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/websocket broadcasts: require `operator.read` (or higher) for chat, agent, and tool-result event frames so pairing-scoped and node-role sessions no longer passively receive session chat content, and scope-gate unknown broadcast events by default. Plugin-defined `plugin.*` broadcasts are scoped to operator.write/admin, and status/transport events (`heartbeat`, `presence`, `tick`, etc.) remain unrestricted. Per-client sequence numbers preserve per-connection monotonicity. (#69373) Thanks @eleqtrizit.",
+      "translated": "Gateway/websocket broadcasts: require `operator.read` (or higher) for chat, agent, and tool-result event frames so pairing-scoped and node-role sessions no longer passively receive session chat content, and scope-gate unknown broadcast events by default. Plugin-defined `plugin.*` broadcasts are scoped to operator.write/admin, and status/transport events (`heartbeat`, `presence`, `tick`, etc.) remain unrestricted. Per-client sequence numbers preserve per-connection monotonicity. (#69373) Thanks @eleqtrizit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/compaction: always reload embedded Pi resources through an explicit loader and reapply reserve-token overrides so runs without extension factories no longer silently lose compaction settings before session start. (#67146) Thanks @ly85206559.",
+      "translated": "Agents/compaction: always reload embedded Pi resources through an explicit loader and reapply reserve-token overrides so runs without extension factories no longer silently lose compaction settings before session start. (#67146) Thanks @ly85206559."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory-core/dreaming: normalize sweep timestamps and reuse hashed narrative session keys for fallback cleanup so Dreaming narrative sub-sessions stop leaking. (#67023) Thanks @chiyouYCH.",
+      "translated": "Memory-core/dreaming: normalize sweep timestamps and reuse hashed narrative session keys for fallback cleanup so Dreaming narrative sub-sessions stop leaking. (#67023) Thanks @chiyouYCH."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/startup: delay HTTP bind until websocket handlers are attached, so immediate post-startup websocket health/connect probes no longer hit the startup race window. (#43392) Thanks @dalefrieswthat.",
+      "translated": "Gateway/startup: delay HTTP bind until websocket handlers are attached, so immediate post-startup websocket health/connect probes no longer hit the startup race window. (#43392) Thanks @dalefrieswthat."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/app-server: release the session lane when a downstream consumer throws while draining the `turn/completed` notification, so follow-up messages after a Codex plugin reply stop queueing behind a stale lane lock. Fixes #67996. (#69072) Thanks @ayeshakhalid192007-dev.",
+      "translated": "Codex/app-server: release the session lane when a downstream consumer throws while draining the `turn/completed` notification, so follow-up messages after a Codex plugin reply stop queueing behind a stale lane lock. Fixes #67996. (#69072) Thanks @ayeshakhalid192007-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/app-server: default approval handling to `on-request` so Codex harness sessions do not start with overly permissive tool approvals. (#68721) Thanks @Lucenx9.",
+      "translated": "Codex/app-server: default approval handling to `on-request` so Codex harness sessions do not start with overly permissive tool approvals. (#68721) Thanks @Lucenx9."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/delivery: keep isolated cron chat delivery tools available, resolve `channel: \"last\"` targets from the gateway, show delivery previews in `cron list/show`, and avoid duplicate fallback sends after direct message-tool delivery. (#69587) Thanks @obviyus.",
+      "translated": "Cron/delivery: keep isolated cron chat delivery tools available, resolve `channel: \"last\"` targets from the gateway, show delivery previews in `cron list/show`, and avoid duplicate fallback sends after direct message-tool delivery. (#69587) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Telegram: key isolated direct-delivery dedupe to each cron execution instead of the reused session id, so recurring Telegram announce runs no longer report delivered while silently skipping later sends. (#69000) Thanks @obviyus.",
+      "translated": "Cron/Telegram: key isolated direct-delivery dedupe to each cron execution instead of the reused session id, so recurring Telegram announce runs no longer report delivered while silently skipping later sends. (#69000) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models/Kimi: default bundled Kimi thinking to off and normalize Anthropic-compatible `thinking` payloads so stale session `/think` state no longer silently re-enables reasoning on Kimi runs. (#68907) Thanks @frankekn.",
+      "translated": "Models/Kimi: default bundled Kimi thinking to off and normalize Anthropic-compatible `thinking` payloads so stale session `/think` state no longer silently re-enables reasoning on Kimi runs. (#68907) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/cron: keep the runtime-only `last` delivery sentinel from being materialized into persisted cron delivery and failure-alert channel configs when jobs are created or edited. (#68829) Thanks @tianhaocui.",
+      "translated": "Control UI/cron: keep the runtime-only `last` delivery sentinel from being materialized into persisted cron delivery and failure-alert channel configs when jobs are created or edited. (#68829) Thanks @tianhaocui."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/Responses: strip orphaned reasoning blocks before outbound Responses API calls so compacted or restored histories no longer fail on standalone reasoning items. (#55787) Thanks @suboss87.",
+      "translated": "OpenAI/Responses: strip orphaned reasoning blocks before outbound Responses API calls so compacted or restored histories no longer fail on standalone reasoning items. (#55787) Thanks @suboss87."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/CLI: parse PowerShell-style `--tools` allow-lists the same way as comma-separated input, so `cron add` and `cron edit` no longer persist `exec read write` as one combined tool entry on Windows. (#68858) Thanks @chen-zhang-cs-code.",
+      "translated": "Cron/CLI: parse PowerShell-style `--tools` allow-lists the same way as comma-separated input, so `cron add` and `cron edit` no longer persist `exec read write` as one combined tool entry on Windows. (#68858) Thanks @chen-zhang-cs-code."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/user-profile: let existing-session `profile=\"user\"` tool calls auto-route to a connected browser node or use explicit `target=\"node\"`, while still honoring explicit `target=\"host\"` pinning. (#48677)",
+      "translated": "Browser/user-profile: let existing-session `profile=\"user\"` tool calls auto-route to a connected browser node or use explicit `target=\"node\"`, while still honoring explicit `target=\"host\"` pinning. (#48677)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord/slash commands: tolerate partial Discord channel metadata in slash-command and model-picker flows so partial channel objects no longer crash when channel names, topics, or thread parent metadata are unavailable. (#68953) Thanks @dutifulbob.",
+      "translated": "Discord/slash commands: tolerate partial Discord channel metadata in slash-command and model-picker flows so partial channel objects no longer crash when channel names, topics, or thread parent metadata are unavailable. (#68953) Thanks @dutifulbob."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles: consolidate outbound HTTP through a typed `BlueBubblesClient` that resolves the SSRF policy once at construction so image attachments stop getting blocked on localhost and reactions stop getting blocked on private-IP BB deployments. Fixes #34749 and #59722. (#68234) Thanks @omarshahine.",
+      "translated": "BlueBubbles: consolidate outbound HTTP through a typed `BlueBubblesClient` that resolves the SSRF policy once at construction so image attachments stop getting blocked on localhost and reactions stop getting blocked on private-IP BB deployments. Fixes #34749 and #59722. (#68234) Thanks @omarshahine."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/gateway: reject ambiguous announce delivery config at add/update time so invalid multi-channel or target-id provider settings fail early instead of persisting broken cron jobs. (#69015) Thanks @obviyus.",
+      "translated": "Cron/gateway: reject ambiguous announce delivery config at add/update time so invalid multi-channel or target-id provider settings fail early instead of persisting broken cron jobs. (#69015) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/main-session delivery: preserve `heartbeat.target=\"last\"` through deferred wake queuing, gateway wake forwarding, and same-target wake coalescing so queued cron replies still return to the last active chat. (#69021) Thanks @obviyus.",
+      "translated": "Cron/main-session delivery: preserve `heartbeat.target=\"last\"` through deferred wake queuing, gateway wake forwarding, and same-target wake coalescing so queued cron replies still return to the last active chat. (#69021) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/gateway: ignore disabled channels when announce delivery ambiguity is checked, and validate main-session delivery patches against the live cron service default agent so hot-reloaded agent config does not falsely reject valid updates. (#69040) Thanks @obviyus.",
+      "translated": "Cron/gateway: ignore disabled channels when announce delivery ambiguity is checked, and validate main-session delivery patches against the live cron service default agent so hot-reloaded agent config does not falsely reject valid updates. (#69040) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/allowlists: hot-reload `dm.allowFrom` and `groupAllowFrom` entries on inbound messages while keeping config removals authoritative, so Matrix allowlist changes no longer require a channel restart to add or revoke a sender. (#68546) Thanks @johnlanni.",
+      "translated": "Matrix/allowlists: hot-reload `dm.allowFrom` and `groupAllowFrom` entries on inbound messages while keeping config removals authoritative, so Matrix allowlist changes no longer require a channel restart to add or revoke a sender. (#68546) Thanks @johnlanni."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles: always set `method` explicitly on outbound text sends (`\"private-api\"` when available, `\"apple-script\"` otherwise), and prefer Private API on macOS 26 even for plain text. Fixes silent delivery failure on macOS setups without Private API where an omitted `method` let BB Server fall back to version-dependent default behavior that silently drops the message (#64480), and the AppleScript `-1700` error on macOS 26 Tahoe plain text sends (#53159). (#69070) Thanks @xqing3.",
+      "translated": "BlueBubbles: always set `method` explicitly on outbound text sends (`\"private-api\"` when available, `\"apple-script\"` otherwise), and prefer Private API on macOS 26 even for plain text. Fixes silent delivery failure on macOS setups without Private API where an omitted `method` let BB Server fall back to version-dependent default behavior that silently drops the message (#64480), and the AppleScript `-1700` error on macOS 26 Tahoe plain text sends (#53159). (#69070) Thanks @xqing3."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix/commands: recognize slash commands that are prefixed with the bot's Matrix mention, so room messages like `@bot:server /new` trigger the command path without requiring custom mention regexes. (#68570) Thanks @nightq and @johnlanni.",
+      "translated": "Matrix/commands: recognize slash commands that are prefixed with the bot's Matrix mention, so room messages like `@bot:server /new` trigger the command path without requiring custom mention regexes. (#68570) Thanks @nightq and @johnlanni."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/pairing: return reason-specific `PAIRING_REQUIRED` details, remediation hints, and request ids so unapproved-device and scope-upgrade failures surface actionable recovery guidance in the CLI and Control UI. (#69227) Thanks @obviyus.",
+      "translated": "Gateway/pairing: return reason-specific `PAIRING_REQUIRED` details, remediation hints, and request ids so unapproved-device and scope-upgrade failures surface actionable recovery guidance in the CLI and Control UI. (#69227) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: include requested role and runtime timing on subagent failure payloads so parent agents can correlate failed or timed-out child work. (#68726) Thanks @BKF-Gitty.",
+      "translated": "Agents/subagents: include requested role and runtime timing on subagent failure payloads so parent agents can correlate failed or timed-out child work. (#68726) Thanks @BKF-Gitty."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/sessions: reject stale agent-scoped sessions after an agent is removed from config while preserving legacy default-agent main-session aliases. (#65986) Thanks @bittoby.",
+      "translated": "Gateway/sessions: reject stale agent-scoped sessions after an agent is removed from config while preserving legacy default-agent main-session aliases. (#65986) Thanks @bittoby."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/gateway: surface pending device pairing requests, scope-upgrade approval drift, and stale device-token mismatch repair steps so `openclaw doctor --fix` no longer leaves pairing/auth setup failures unexplained. (#69210) Thanks @obviyus.",
+      "translated": "Doctor/gateway: surface pending device pairing requests, scope-upgrade approval drift, and stale device-token mismatch repair steps so `openclaw doctor --fix` no longer leaves pairing/auth setup failures unexplained. (#69210) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/isolated-agent: preserve explicit `delivery.mode: \"none\"` message targets for isolated runs without inheriting implicit `last` routing, so agent-initiated Telegram sends keep their authored destination while bare `mode:none` jobs stay targetless. (#69153) Thanks @obviyus.",
+      "translated": "Cron/isolated-agent: preserve explicit `delivery.mode: \"none\"` message targets for isolated runs without inheriting implicit `last` routing, so agent-initiated Telegram sends keep their authored destination while bare `mode:none` jobs stay targetless. (#69153) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/isolated-agent: keep `delivery.mode: \"none\"` account-only or thread-only configs from inheriting a stale implicit recipient, so isolated runs only resolve message routing when the job authored an explicit `to` target. (#69163) Thanks @obviyus.",
+      "translated": "Cron/isolated-agent: keep `delivery.mode: \"none\"` account-only or thread-only configs from inheriting a stale implicit recipient, so isolated runs only resolve message routing when the job authored an explicit `to` target. (#69163) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/TUI: retry session history while the local gateway is still finishing startup, so `openclaw tui` reconnects no longer fail on transient `chat.history unavailable during gateway startup` errors. (#69164) Thanks @shakkernerd.",
+      "translated": "Gateway/TUI: retry session history while the local gateway is still finishing startup, so `openclaw tui` reconnects no longer fail on transient `chat.history unavailable during gateway startup` errors. (#69164) Thanks @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles/reactions: fall back to `love` when an agent reacts with an emoji outside the iMessage tapback set (`love`/`like`/`dislike`/`laugh`/`emphasize`/`question`), so wider-vocabulary model reactions like `👀` still produce a visible tapback instead of failing the whole reaction request. Configured ack reactions still validate strictly via the new `normalizeBlueBubblesReactionInputStrict` path. (#64693) Thanks @zqchris.",
+      "translated": "BlueBubbles/reactions: fall back to `love` when an agent reacts with an emoji outside the iMessage tapback set (`love`/`like`/`dislike`/`laugh`/`emphasize`/`question`), so wider-vocabulary model reactions like `👀` still produce a visible tapback instead of failing the whole reaction request. Configured ack reactions still validate strictly via the new `normalizeBlueBubblesReactionInputStrict` path. (#64693) Thanks @zqchris."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "BlueBubbles: prefer iMessage over SMS when both chats exist for the same handle, honor explicit `sms:` targets, and never silently downgrade iMessage-available recipients. (#61781) Thanks @rmartin.",
+      "translated": "BlueBubbles: prefer iMessage over SMS when both chats exist for the same handle, honor explicit `sms:` targets, and never silently downgrade iMessage-available recipients. (#61781) Thanks @rmartin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/setup: require numeric `allowFrom` user IDs during setup instead of offering unsupported `@username` DM resolution, and point operators to `from.id`/`getUpdates` for discovery. (#69191) Thanks @obviyus.",
+      "translated": "Telegram/setup: require numeric `allowFrom` user IDs during setup instead of offering unsupported `@username` DM resolution, and point operators to `from.id`/`getUpdates` for discovery. (#69191) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "GitHub Copilot/onboarding: default GitHub Copilot setup to `claude-opus-4.6` and keep the bundled default model list aligned, so new Copilot setups no longer start on the older `gpt-4o` default. (#69207) Thanks @obviyus.",
+      "translated": "GitHub Copilot/onboarding: default GitHub Copilot setup to `claude-opus-4.6` and keep the bundled default model list aligned, so new Copilot setups no longer start on the older `gpt-4o` default. (#69207) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/status: separate reachability, capability, and read-probe reporting so connect-only or scope-limited sessions no longer look fully healthy, and normalize SSH targets entered as `ssh user@host`. (#69215) Thanks @obviyus.",
+      "translated": "Gateway/status: separate reachability, capability, and read-probe reporting so connect-only or scope-limited sessions no longer look fully healthy, and normalize SSH targets entered as `ssh user@host`. (#69215) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: fix outbound replies failing with \"unresolved SecretRef\" for accounts configured via `file` or `exec` secret sources; the send path now tolerates the runtime snapshot retaining an unresolved channel SecretRef when a boot-resolved token override is already available. (#68954) Thanks @openperf.",
+      "translated": "Slack: fix outbound replies failing with \"unresolved SecretRef\" for accounts configured via `file` or `exec` secret sources; the send path now tolerates the runtime snapshot retaining an unresolved channel SecretRef when a boot-resolved token override is already available. (#68954) Thanks @openperf."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/device pairing: explain scope and role approval upgrades during reconnects, and show requested versus approved access in the Control UI and `openclaw devices` so broader reconnects no longer look like lost pairings. (#69221) Thanks @obviyus.",
+      "translated": "Control UI/device pairing: explain scope and role approval upgrades during reconnects, and show requested versus approved access in the Control UI and `openclaw devices` so broader reconnects no longer look like lost pairings. (#69221) Thanks @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/Control UI: surface pending scope, role, and device-metadata pairing approvals in auth errors and Control UI hints so broader reconnects no longer look like random auth breakage. (#69226) Thanks @obviyus.",
+      "translated": "Gateway/Control UI: surface pending scope, role, and device-metadata pairing approvals in auth errors and Control UI hints so broader reconnects no longer look like random auth breakage. (#69226) Thanks @obviyus."
+    }
+  ],
+  "translatedAt": "2026-04-21T19:41:25.469Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 20618
+}
