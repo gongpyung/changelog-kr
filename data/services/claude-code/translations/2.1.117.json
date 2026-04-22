@@ -1,0 +1,182 @@
+{
+  "version": "2.1.117",
+  "date": "2026-04-22",
+  "parsedAt": "2026-04-22T03:43:52.187Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Forked subagents can now be enabled on external builds by setting `CLAUDE_CODE_FORK_SUBAGENT=1`",
+      "translated": "`CLAUDE_CODE_FORK_SUBAGENT=1`을 설정하여 외부 빌드에서 포크된 서브에이전트를 활성화할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent frontmatter `mcpServers` are now loaded for main-thread agent sessions via `--agent`",
+      "translated": "`--agent`를 통한 메인 스레드 에이전트 세션에 대해 에이전트 프론트매터 `mcpServers`가 로드됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/model`: selections now persist across restarts even when the project pins a different model, and the startup header shows when the active model comes from a project or managed-settings pin",
+      "translated": "`/model` 기능 개선: 프로젝트에서 다른 모델을 고정하더라도 선택한 모델이 재시작 후에도 유지되며, 활성 모델이 프로젝트 또는 관리형 설정 고정에서 온 경우 시작 헤더에 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `/resume` command now offers to summarize stale, large sessions before re-reading them, matching the existing `--resume` behavior",
+      "translated": "`/resume` 명령어가 기존 `--resume` 동작과 마찬가지로, 오래된 대규모 세션을 다시 읽기 전에 요약 제안을 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Faster startup when both local and claude.ai MCP servers are configured (concurrent connect now default)",
+      "translated": "로컬 및 claude.ai MCP 서버가 모두 구성된 경우 시작 속도가 빨라졌습니다 (이제 동시 연결이 기본값입니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`plugin install` on an already-installed plugin now installs any missing dependencies instead of stopping at \"already installed\"",
+      "translated": "이미 설치된 플러그인에 대해 `plugin install`을 실행하면 \"이미 설치됨\"에서 멈추지 않고 누락된 종속성을 설치합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin dependency errors now say \"not installed\" with an install hint, and `claude plugin marketplace add` now auto-resolves missing dependencies from configured marketplaces",
+      "translated": "플러그인 종속성 오류 시 설치 힌트와 함께 \"설치되지 않음\" 메시지가 표시되며, `claude plugin marketplace add` 실행 시 구성된 마켓플레이스에서 누락된 종속성을 자동으로 해결합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Managed-settings `blockedMarketplaces` and `strictKnownMarketplaces` are now enforced on plugin install, update, refresh, and autoupdate",
+      "translated": "플러그인 설치, 업데이트, 새로고침 및 자동 업데이트 시 관리형 설정의 `blockedMarketplaces` 및 `strictKnownMarketplaces`가 적용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Advisor Tool (experimental): dialog now carries an \"experimental\" label, learn-more link, and startup notification when enabled; sessions no longer get stuck with \"Advisor tool result content could not be processed\" errors on every prompt and `/compact`",
+      "translated": "Advisor Tool (실험적 기능): 활성화 시 대화 상자에 \"실험적\" 레이블, 자세히 알아보기 링크, 시작 알림이 표시됩니다. 또한 매 프롬프트 및 `/compact` 실행 시 \"Advisor tool result content could not be processed\" 오류로 세션이 중단되는 문제가 해결되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `cleanupPeriodDays` retention sweep now also covers `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, and `~/.claude/backups/`",
+      "translated": "`cleanupPeriodDays` 보관 기간 정리 대상에 `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, 및 `~/.claude/backups/` 경로가 추가되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenTelemetry: `user_prompt` events now include `command_name` and `command_source` for slash commands; `cost.usage`, `token.usage`, `api_request`, and `api_error` now include an `effort` attribute when the model supports effort levels. Custom/MCP command names are redacted unless `OTEL_LOG_TOOL_DETAILS=1` is set",
+      "translated": "OpenTelemetry: 슬래시 명령어의 `user_prompt` 이벤트에 `command_name` 및 `command_source`가 포함됩니다. 모델이 노력 수준(effort levels)을 지원하는 경우 `cost.usage`, `token.usage`, `api_request`, 및 `api_error`에 `effort` 속성이 포함됩니다. `OTEL_LOG_TOOL_DETAILS=1`이 설정되지 않은 경우 커스텀/MCP 명령어 이름은 마스킹 처리됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Native builds on macOS and Linux: the `Glob` and `Grep` tools are replaced by embedded `bfs` and `ugrep` available through the Bash tool — faster searches without a separate tool round-trip (Windows and npm-installed builds unchanged)",
+      "translated": "macOS 및 Linux 네이티브 빌드: `Glob` 및 `Grep` 도구가 Bash 도구를 통해 사용 가능한 내장 `bfs` 및 `ugrep`으로 교체되었습니다. 별도의 도구 호출 없이 더 빠른 검색이 가능합니다 (Windows 및 npm 설치 빌드는 변경 없음)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: cached `where.exe` executable lookups per process for faster subprocess launches",
+      "translated": "Windows: 하위 프로세스 실행 속도를 높이기 위해 프로세스별로 `where.exe` 실행 파일 조회를 캐싱합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Default effort for Pro/Max subscribers on Opus 4.6 and Sonnet 4.6 is now `high` (was `medium`)",
+      "translated": "Opus 4.6 및 Sonnet 4.6을 사용하는 Pro/Max 구독자의 기본 노력 수준(effort)이 `high`로 변경되었습니다 (기존 `medium`)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Plain-CLI OAuth sessions dying with \"Please run /login\" when the access token expires mid-session — the token is now refreshed reactively on 401",
+      "translated": "세션 도중 액세스 토큰이 만료되어 Plain-CLI OAuth 세션이 \"Please run /login\" 메시지와 함께 종료되는 문제를 수정했습니다. 이제 401 오류 발생 시 토큰을 즉시 갱신합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `WebFetch` hanging on very large HTML pages by truncating input before HTML-to-markdown conversion",
+      "translated": "HTML에서 마크다운으로 변환하기 전에 입력을 잘라내어, 매우 큰 HTML 페이지에서 `WebFetch`가 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when a proxy returns HTTP 204 No Content — now surfaces a clear error instead of a `TypeError`",
+      "translated": "프록시가 HTTP 204 No Content를 반환할 때 발생하는 크래시를 수정했습니다. 이제 `TypeError` 대신 명확한 오류 메시지를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/login` having no effect when launched with `CLAUDE_CODE_OAUTH_TOKEN` env var and that token expires",
+      "translated": "`CLAUDE_CODE_OAUTH_TOKEN` 환경 변수와 함께 실행된 후 해당 토큰이 만료되었을 때 `/login`이 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt-input undo (`Ctrl+_`) doing nothing immediately after typing, and skipping a state on each undo step",
+      "translated": "입력 직후 프롬프트 입력 실행 취소(`Ctrl+_`)가 작동하지 않거나 실행 취소 단계마다 상태를 건너뛰는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `NO_PROXY` not being respected for remote API requests when running under Bun",
+      "translated": "Bun 환경에서 실행 시 원격 API 요청에 대해 `NO_PROXY` 설정이 무시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rare spurious escape/return triggers when key names arrive as coalesced text over slow connections",
+      "translated": "느린 연결 환경에서 키 이름이 결합된 텍스트로 수신될 때 드물게 escape/return이 잘못 트리거되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK `reload_plugins` reconnecting all user MCP servers serially",
+      "translated": "SDK `reload_plugins`가 모든 사용자 MCP 서버를 순차적으로 다시 연결하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock application-inference-profile requests failing with 400 when backed by Opus 4.7 with thinking disabled",
+      "translated": "사고(thinking) 기능이 비활성화된 Opus 4.7 기반의 Bedrock application-inference-profile 요청이 400 오류로 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP `elicitation/create` requests auto-cancelling in print/SDK mode when the server finishes connecting mid-turn",
+      "translated": "턴 중간에 서버 연결이 완료될 때 print/SDK 모드에서 MCP `elicitation/create` 요청이 자동 취소되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents running a different model than the main agent incorrectly flagging file reads with a malware warning",
+      "translated": "메인 에이전트와 다른 모델을 실행하는 서브 에이전트가 파일 읽기 작업을 맬웨어 경고로 잘못 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed idle re-render loop when background tasks are present, reducing memory growth on Linux",
+      "translated": "백그라운드 작업이 있을 때 발생하는 유휴 재렌더링 루프를 수정하여 Linux에서의 메모리 증가 현상 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed \"Manage Plugins\" panel breaking when multiple large marketplaces are configured",
+      "translated": "[VSCode] 대규모 마켓플레이스가 여러 개 구성되어 있을 때 \"Manage Plugins\" 패널이 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Opus 4.7 sessions showing inflated `/context` percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7's native 1M",
+      "translated": "Opus 4.7 세션에서 `/context` 비율이 과도하게 표시되고 자동 압축이 너무 일찍 수행되는 문제 수정 — Claude Code가 Opus 4.7의 기본 1M 컨텍스트 창 대신 200K를 기준으로 계산하던 오류 해결"
+    }
+  ],
+  "translatedAt": "2026-04-22T03:44:32.283Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3729
+}
