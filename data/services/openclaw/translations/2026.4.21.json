@@ -1,0 +1,56 @@
+{
+  "version": "2026.4.21",
+  "date": "2026-04-22",
+  "parsedAt": "2026-04-22T08:07:47.507Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenAI/images: default the bundled image-generation provider and live media smoke tests to `gpt-image-2`, and advertise the newer 2K/4K OpenAI size hints in image-generation docs and tool metadata.",
+      "translated": "내장 이미지 생성 프로바이더 및 라이브 미디어 스모크 테스트의 기본값을 `gpt-image-2`로 설정하고, 이미지 생성 문서 및 도구 메타데이터에 최신 2K/4K OpenAI 크기 힌트를 안내합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/doctor: repair bundled plugin runtime dependencies from doctor paths so packaged installs can recover missing channel/provider dependencies without broad core dependency installs.",
+      "translated": "doctor 경로의 내장 플러그인 런타임 의존성을 복구하여, 패키지 설치 시 광범위한 코어 의존성을 설치하지 않고도 누락된 채널/프로바이더 의존성을 복구할 수 있도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Image generation: log failed provider/model candidates at warn level before automatic provider fallback, so OpenAI image failures are visible in the gateway log even when a later provider succeeds.",
+      "translated": "자동 프로바이더 폴백이 실행되기 전 실패한 프로바이더/모델 후보를 warn 수준으로 로그에 기록하여, 이후 다른 프로바이더가 성공하더라도 OpenAI 이미지 생성 실패 내역을 게이트웨이 로그에서 확인할 수 있게 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auth/commands: require owner identity (an owner-candidate match or internal `operator.admin`) for owner-enforced commands instead of treating wildcard channel `allowFrom` or empty owner-candidate lists as sufficient, so non-owner senders can no longer reach owner-only commands through a permissive fallback when `enforceOwnerForCommands=true` and `commands.ownerAllowFrom` is unset. (#69774) Thanks @drobison00.",
+      "translated": "소유자 권한이 강제되는 명령에 대해 와일드카드 채널 `allowFrom`이나 빈 소유자 후보 목록을 허용하는 대신, 실제 소유자 식별 정보(소유자 후보 일치 또는 내부 `operator.admin`)를 요구하도록 변경했습니다. 이를 통해 `enforceOwnerForCommands=true`이고 `commands.ownerAllowFrom`이 설정되지 않은 경우, 소유자가 아닌 발신자가 허용적인 폴백을 통해 소유자 전용 명령에 접근할 수 없도록 했습니다. (#69774) @drobison00님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: preserve thread aliases in runtime outbound sends so generic runtime sends stay in the intended Slack thread when the caller supplies `threadTs`. (#62947) Thanks @bek91.",
+      "translated": "런타임 아웃바운드 전송 시 스레드 별칭을 유지하여, 호출자가 `threadTs`를 제공할 경우 일반 런타임 전송이 의도한 Slack 스레드 내에 유지되도록 했습니다. (#62947) @bek91님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser: reject invalid `ax<N>` accessibility refs in act paths immediately instead of waiting for the browser action timeout. (#69924) Thanks @Patrick-Erichsen.",
+      "translated": "act 경로에서 유효하지 않은 `ax<N>` 접근성 참조를 발견하면 브라우저 동작 타임아웃까지 기다리지 않고 즉시 거부하도록 수정했습니다. (#69924) @Patrick-Erichsen님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "npm/install: mirror the `node-domexception` alias into root `package.json` `overrides`, so npm installs stop surfacing the deprecated `google-auth-library -> gaxios -> node-fetch -> fetch-blob -> node-domexception` chain pulled through Pi/Google runtime deps. Thanks @vincentkoc.",
+      "translated": "`node-domexception` 별칭을 루트 `package.json`의 `overrides`에 반영하여, Pi/Google 런타임 의존성을 통해 유입되는 지원 중단된 `google-auth-library -> gaxios -> node-fetch -> fetch-blob -> node-domexception` 체인이 npm 설치 시 나타나지 않도록 했습니다. @vincentkoc님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-04-22T08:08:05.694Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1609
+}
