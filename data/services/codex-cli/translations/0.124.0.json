@@ -1,0 +1,596 @@
+{
+  "version": "0.124.0",
+  "date": "2026-04-23",
+  "parsedAt": "2026-04-23T19:42:42.682Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The TUI now has quick reasoning controls: `Alt+,` lowers reasoning, `Alt+.` raises it, and accepted model upgrades now reset reasoning to the new model’s default instead of carrying over stale settings. (#18866, #19085)",
+      "translated": "TUI에 빠른 추론 제어 기능이 추가되었습니다. `Alt+,`는 추론 수준을 낮추고, `Alt+.`는 높입니다. 또한 모델 업그레이드 시 이전 설정이 유지되는 대신 새 모델의 기본값으로 추론 설정이 초기화됩니다. (#18866, #19085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server sessions can now manage multiple environments and choose an environment and working directory per turn, which makes multi-workspace and remote setups easier to target precisely. (#18401, #18416)",
+      "translated": "App-server 세션에서 이제 여러 환경을 관리하고 턴마다 환경과 작업 디렉토리를 선택할 수 있어, 멀티 워크스페이스 및 원격 설정을 더 정밀하게 타겟팅할 수 있습니다. (#18401, #18416)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added first-class Amazon Bedrock support for OpenAI-compatible providers, including AWS SigV4 signing and AWS credential-based auth. (#17820)",
+      "translated": "OpenAI 호환 제공자를 위한 Amazon Bedrock 기본 지원을 추가했습니다. 여기에는 AWS SigV4 서명 및 AWS 자격 증명 기반 인증이 포함됩니다. (#17820)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Remote plugin marketplaces can now be listed and read directly, with more reliable detail lookups and larger result pages. (#18452, #19079)",
+      "translated": "원격 플러그인 마켓플레이스 목록을 직접 조회하고 읽을 수 있게 되었으며, 상세 정보 조회의 신뢰성이 향상되고 결과 페이지 용량이 커졌습니다. (#18452, #19079)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Hooks are now stable, can be configured inline in `config.toml` and managed `requirements.toml`, and can observe MCP tools as well as `apply_patch` and long-running Bash sessions. (#18893, #18385, #18391, #18888, #19012)",
+      "translated": "Hooks 기능이 안정화되었습니다. 이제 `config.toml`에서 인라인으로 설정하고 `requirements.toml`에서 관리할 수 있으며, MCP 도구뿐만 아니라 `apply_patch` 및 장시간 실행되는 Bash 세션도 모니터링할 수 있습니다. (#18893, #18385, #18391, #18888, #19012)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Eligible ChatGPT plans now default to the Fast service tier unless you explicitly opt out. (#19053)",
+      "translated": "대상 ChatGPT 플랜은 명시적으로 거부하지 않는 한 이제 기본적으로 Fast 서비스 티어를 사용합니다. (#19053)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Preserved Cloudflare cookies across approved ChatGPT hosts, reducing auth breakage in HTTP-backed ChatGPT flows. (#17783)",
+      "translated": "승인된 ChatGPT 호스트 간에 Cloudflare 쿠키를 유지하여 HTTP 기반 ChatGPT 흐름에서의 인증 오류를 줄였습니다. (#17783)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote app-server reliability issues so websocket events keep draining under load and shutdown no longer fails when the remote worker exits during cleanup. (#18932, #18936)",
+      "translated": "원격 app-server 안정성 문제를 수정하여 부하 상황에서도 websocket 이벤트가 계속 처리되도록 했으며, 정리 작업 중 원격 워커가 종료되어도 셧다운이 실패하지 않게 했습니다. (#18932, #18936)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission-mode drift so `/permissions` changes survive side conversations and updated Full Access state is correctly reflected in MCP approval handling. (#18924, #19033)",
+      "translated": "권한 모드 드리프트 현상을 수정하여 `/permissions` 변경 사항이 사이드 대화에서도 유지되도록 했으며, 업데이트된 Full Access 상태가 MCP 승인 처리에 올바르게 반영되도록 했습니다. (#18924, #19033)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `wait_agent` so it returns promptly when mailbox work is already queued instead of waiting for a fresh notification or timing out. (#18968)",
+      "translated": "`wait_agent`가 새로운 알림을 기다리거나 타임아웃되는 대신, 사서함 작업이 이미 대기 중인 경우 즉시 반환되도록 수정했습니다. (#18968)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed local stdio MCP launches for relative commands without an explicit `cwd`, bringing fallback path resolution in line with CLI behavior. (#19031)",
+      "translated": "명시적인 `cwd`가 없는 상대 경로 명령어에 대한 로컬 stdio MCP 실행 문제를 수정하여, 폴백 경로 해석 방식이 CLI 동작과 일치하도록 개선했습니다. (#19031)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Startup now fails less often on managed config edge cases: unknown feature requirements warn instead of aborting, and cloud-requirements errors are clearer about what failed. (#19038, #19078)",
+      "translated": "관리형 설정의 예외 케이스에서 시작 실패 빈도를 줄였습니다. 알 수 없는 기능 요구 사항 발생 시 중단하는 대신 경고를 표시하며, cloud-requirements 오류는 실패 원인을 더 명확하게 보여줍니다. (#19038, #19078)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18870 Load app-server config through ConfigManager",
+      "translated": "ConfigManager를 통해 app-server 설정 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18866 feat(tui): shortcuts to change reasoning level temporarily",
+      "translated": "추론 수준을 일시적으로 변경하는 단축키"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18430 app-server: implement device key v2 methods",
+      "translated": "Device key v2 메서드 구현"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18757 fix: fully revert agent identity runtime wiring",
+      "translated": "Agent identity 런타임 연결을 완전히 되돌림"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17783 Preserve Cloudfare HTTP cookies in codex",
+      "translated": "Codex에서 Cloudflare HTTP 쿠키 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18876 [rollout_trace] Add rollout trace crate",
+      "translated": "Rollout trace 크레이트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18401 Support multiple managed environments",
+      "translated": "여러 관리형 환경 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18797 Allow guardian bare allow output",
+      "translated": "Guardian의 bare allow 출력 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18886 Normalize /statusline & /title items",
+      "translated": "/statusline 및 /title 항목 정규화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18768 [codex] Tighten external migration prompt tests",
+      "translated": "[codex] 외부 마이그레이션 프롬프트 테스트 강화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18909 Update /statusline and /title snapshots",
+      "translated": "/statusline 및 /title 스냅샷 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18867 sandboxing: materialize cwd-relative permission globs",
+      "translated": "`cwd` 상대 경로 권한 글로브(glob) 구체화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18915 fix: windows snapshot for external_agent_config_migration::tests::prompt_snapshot did not match windows output",
+      "translated": "`external_agent_config_migration::tests::prompt_snapshot`에 대한 Windows 스냅샷이 Windows 출력과 일치하지 않는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18416 Add turn-scoped environment selections",
+      "translated": "턴(turn) 범위의 환경 선택 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18391 fix(core): emit hooks for apply_patch edits",
+      "translated": "`apply_patch` 편집 시 후크(hook) 발생"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#18916 test(core): move prompt debug coverage to integration suite",
+      "translated": "프롬프트 디버그 커버리지를 통합 테스트 스위트로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17820 feat: add AWS SigV4 auth for OpenAI-compatible model providers",
+      "translated": "OpenAI 호환 모델 제공자를 위한 AWS SigV4 인증 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18913 bazel: run wrapped Rust unit test shards",
+      "translated": "래핑된 Rust 단위 테스트 샤드 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18452 feat: Support remote plugin list/read.",
+      "translated": "원격 플러그인 목록 조회 및 읽기 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18936 Fix remote app-server shutdown race",
+      "translated": "원격 `app-server` 종료 시의 레이스 컨디션 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18871 refactor: add agent identity crate",
+      "translated": "에이전트 식별(identity) 크레이트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18276 exec-server: carry filesystem sandbox profiles",
+      "translated": "파일 시스템 샌드박스 프로필 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18926 ci: keep argument comment lint checks materialized",
+      "translated": "인자 주석 린트 체크 구체화 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18935 Keep TUI status surfaces in sync",
+      "translated": "TUI 상태 서피스(surface) 동기화 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#18923 chore(tui) debug-config guardian_policy_config",
+      "translated": "`guardian_policy_config` 디버그 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18943 tests: serialize process-heavy Windows CI suites",
+      "translated": "프로세스 부하가 큰 Windows CI 테스트 스위트 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18934 [codex] Clean guardian instructions",
+      "translated": "[codex] 가디언(guardian) 지침 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18948 chore: remove unused Bedrock auth lazy loading",
+      "translated": "사용되지 않는 Bedrock 인증 지연 로딩 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18277 core: derive active permission profiles",
+      "translated": "활성 권한 프로필 도출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18785 feat: add explicit AgentIdentity auth mode",
+      "translated": "명시적 `AgentIdentity` 인증 모드 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18953 use long-lived sessions for codex sandbox windows",
+      "translated": "`codex` 샌드박스 창에 장기 세션 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18278 app-server: expose thread permission profiles",
+      "translated": "스레드 권한 프로필 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17693 [codex-analytics] guardian review analytics events emission",
+      "translated": "`guardian` 리뷰 분석 이벤트 발행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17695 [codex-analytics] guardian review truncation",
+      "translated": "`guardian` 리뷰 자르기 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17696 [codex-analytics] guardian review TTFT plumbing and emission",
+      "translated": "`guardian` 리뷰 `TTFT` 연결 및 발행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18962 nit: expose lib",
+      "translated": "`lib` 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18502 Support multiple cwd filters for thread list",
+      "translated": "스레드 목록에 대한 다중 `cwd` 필터 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18968 fix: wait_agent timeout for queued mailbox mail",
+      "translated": "대기 중인 사서함 메일에 대한 `wait_agent` 타임아웃 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18971 fix: cargo deny",
+      "translated": "`cargo deny` 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18973 chore: prep memories for AB",
+      "translated": "AB 테스트를 위한 메모리 준비"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18852 [codex] Update imagegen system skill",
+      "translated": "`imagegen` 시스템 스킬 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18865 Stage publishable Python runtime wheels",
+      "translated": "배포 가능한 Python 런타임 휠 스테이징"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18932 TUI: Keep remote app-server events draining",
+      "translated": "원격 `app-server` 이벤트 드레이닝 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18877 [rollout_trace] Record core session rollout traces",
+      "translated": "코어 세션 롤아웃 추적 기록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18959 feat(auto-review) policy config",
+      "translated": "정책 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18955 Add plumbing to approve stored Auto-Review denials",
+      "translated": "저장된 `Auto-Review` 거부 승인을 위한 기반 작업 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18999 arg0: keep dispatch aliases alive during async main",
+      "translated": "비동기 `main` 실행 중 디스패치 별칭 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18925 feat: Fairly trim skill descriptions within context budget",
+      "translated": "컨텍스트 예산 내에서 스킬 설명을 적절히 자름"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18890 feat(auto-review) short-circuit",
+      "translated": "Short-circuit 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18279 app-server: accept permission profile overrides",
+      "translated": "App-server: 권한 프로필 재정의(overrides) 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18582 [2/4] Implement executor HTTP request runner",
+      "translated": "[2/4] executor HTTP 요청 러너 구현"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18197 feat: add guardian network approval trigger context",
+      "translated": "Guardian network 승인 트리거 컨텍스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19033 Fix MCP permission policy sync",
+      "translated": "MCP 권한 정책 동기화 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19016 exec-server: expose arg0 alias root to fs sandbox",
+      "translated": "Exec-server: arg0 별칭 root를 fs sandbox에 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19036 Overlay state DB git metadata for filtered thread lists",
+      "translated": "필터링된 스레드 목록을 위한 state DB git 메타데이터 오버레이"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18956 [Codex] Register browser requirements feature keys",
+      "translated": "[Codex] 브라우저 요구 사항 기능 키 등록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19043 Update bundled OpenAI Docs skill freshness check",
+      "translated": "번들된 OpenAI Docs 스킬 최신성(freshness) 확인 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18504 Rebrand approvals reviewer config to auto-review",
+      "translated": "Approvals reviewer 설정을 auto-review로 리브랜딩"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19046 exec-server: require explicit filesystem sandbox cwd",
+      "translated": "Exec-server: 명시적인 filesystem sandbox cwd 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18280 clients: send permission profiles to app-server",
+      "translated": "Clients: app-server로 권한 프로필 전송"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18281 rollout: persist turn permission profiles",
+      "translated": "Rollout: turn 권한 프로필 영속화(persist)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18888 hooks: emit Bash PostToolUse when exec_command completes via write_stdin",
+      "translated": "Hooks: write_stdin을 통해 exec_command 완료 시 Bash PostToolUse 발생"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19056 Rename approvals reviewer variant to auto-review",
+      "translated": "Approvals reviewer 변형(variant) 이름을 auto-review로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18583 [3/4] Add executor-backed RMCP HTTP client",
+      "translated": "[3/4] executor 기반 RMCP HTTP 클라이언트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19059 core: box multi-agent wrapper futures",
+      "translated": "Core: multi-agent 래퍼 future 박싱(box)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19031 Fix relative stdio MCP cwd fallback",
+      "translated": "상대 경로 stdio MCP cwd 폴백(fallback) 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19063 chore(auto-review) feature => stable",
+      "translated": "Feature 단계를 stable로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19050 feat(request-permissions) approve with strict review",
+      "translated": "엄격한 검토(strict review)를 통한 승인 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19067 test: set Rust test thread stack size",
+      "translated": "Rust 테스트 스레드 스택 크기 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19072 tui: fix approvals popup disabled shortcut test",
+      "translated": "승인 팝업의 비활성화된 단축키 테스트 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18893 codex: support hooks in config.toml and requirements.toml",
+      "translated": "`config.toml` 및 `requirements.toml`에서 훅 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18282 protocol: report session permission profiles",
+      "translated": "세션 권한 프로필 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19053 Default Fast service tier for eligible ChatGPT plans",
+      "translated": "대상 ChatGPT 플랜에 Fast 서비스 티어 기본 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19055 Add safety check notification and error handling",
+      "translated": "안전 점검 알림 및 오류 처리 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18283 app-server: accept command permission profiles",
+      "translated": "명령어 권한 프로필 수락"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19012 Mark codex_hooks stable",
+      "translated": "`codex_hooks`를 안정 버전으로 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18924 TUI: preserve permission state after side conversations",
+      "translated": "사이드 대화 이후에도 권한 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19071 Add computer_use feature requirement key",
+      "translated": "`computer_use` 기능 요구 사항 키 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19079 Use remote plugin IDs for detail reads and enlarge list pages",
+      "translated": "상세 조회 시 원격 플러그인 ID 사용 및 목록 페이지 확대"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19038 feat: Warn and continue on unknown feature requirements",
+      "translated": "알 수 없는 기능 요구 사항에 대해 경고 후 계속 진행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19078 Clarify cloud requirements error messages",
+      "translated": "클라우드 요구 사항 오류 메시지 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19085 Persist target default reasoning on model upgrade",
+      "translated": "모델 업그레이드 시 대상 기본 추론 설정 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19086 app-server: include filesystem entries in permission requests",
+      "translated": "권한 요청에 파일 시스템 항목 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18385 Support MCP tools in hooks",
+      "translated": "훅에서 MCP 도구 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19113 Fix auto-review config compatibility across protocol and SDK",
+      "translated": "17"
+    }
+  ],
+  "translatedAt": "2026-04-23T19:45:44.506Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6416
+}
