@@ -1,0 +1,428 @@
+{
+  "version": "0.125.0",
+  "date": "2026-04-24",
+  "parsedAt": "2026-04-24T19:14:34.588Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server integrations now support Unix socket transport, pagination-friendly resume/fork, sticky environments, and remote thread config/store plumbing. (#18255, #18892, #18897, #18908, #19008, #19014)",
+      "translated": "App-server integrations now support Unix socket transport, pagination-friendly resume/fork, sticky environments, and remote thread config/store plumbing. (#18255, #18892, #18897, #18908, #19008, #19014)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server plugin management can install remote plugins and upgrade configured marketplaces. (#18917, #19074)",
+      "translated": "App-server plugin management can install remote plugins and upgrade configured marketplaces. (#18917, #19074)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Permission profiles now round-trip across TUI sessions, user turns, MCP sandbox state, shell escalation, and app-server APIs. (#18284, #18285, #18286, #18287, #19231)",
+      "translated": "Permission profiles now round-trip across TUI sessions, user turns, MCP sandbox state, shell escalation, and app-server APIs. (#18284, #18285, #18286, #18287, #19231)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Model providers now own model discovery, with AWS/Bedrock account state exposed to app clients. (#18950, #19048)",
+      "translated": "Model providers now own model discovery, with AWS/Bedrock account state exposed to app clients. (#18950, #19048)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`codex exec --json` now reports reasoning-token usage for programmatic consumers. (#19308)",
+      "translated": "`codex exec --json` now reports reasoning-token usage for programmatic consumers. (#19308)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Rollout tracing now records tool, code-mode, session, and multi-agent relationships, with a debug reducer command for inspection. (#18878, #18879, #18880)",
+      "translated": "Rollout tracing now records tool, code-mode, session, and multi-agent relationships, with a debug reducer command for inspection. (#18878, #18879, #18880)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Interrupting `/review` and exiting the TUI no longer leaves the interface wedged on delegate startup or unsubscribe. (#18921)",
+      "translated": "Interrupting `/review` and exiting the TUI no longer leaves the interface wedged on delegate startup or unsubscribe. (#18921)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Exec-server no longer drops buffered output after process exit and now waits correctly for stream closure. (#18946, #19130)",
+      "translated": "Exec-server no longer drops buffered output after process exit and now waits correctly for stream closure. (#18946, #19130)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "App-server now respects explicitly untrusted project config instead of auto-persisting trust. (#18626)",
+      "translated": "App-server now respects explicitly untrusted project config instead of auto-persisting trust. (#18626)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WebSocket app-server clients are less likely to disconnect during bursts of turn and tool-output notifications. (#19246)",
+      "translated": "WebSocket app-server clients are less likely to disconnect during bursts of turn and tool-output notifications. (#19246)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows sandbox startup handles multiple CLI versions and installed app directories better, and background `Start-Process` calls avoid visible PowerShell windows. (#19044, #19180, #19214)",
+      "translated": "Windows sandbox startup handles multiple CLI versions and installed app directories better, and background `Start-Process` calls avoid visible PowerShell windows. (#19044, #19180, #19214)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Config/schema handling now rejects conflicting MultiAgentV2 thread limits, resolves relative agent-role config paths, hides unsupported MCP bearer-token fields, and rejects invalid `js_repl` image MIME types. (#19129, #19261, #19294, #19292)",
+      "translated": "Config/schema handling now rejects conflicting MultiAgentV2 thread limits, resolves relative agent-role config paths, hides unsupported MCP bearer-token fields, and rejects invalid `js_repl` image MIME types. (#19129, #19261, #19294, #19292)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "App-server docs and generated schemas were refreshed for the new transport, thread, marketplace, sticky environment, and permission-profile APIs. (#18255, #18897, #19014, #19074, #19231)",
+      "translated": "App-server docs and generated schemas were refreshed for the new transport, thread, marketplace, sticky environment, and permission-profile APIs. (#18255, #18897, #19014, #19074, #19231)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Rollout-trace documentation now covers the debug trace reduction workflow. (#18880)",
+      "translated": "Rollout-trace documentation now covers the debug trace reduction workflow. (#18880)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Refreshed `models.json` and related core, app-server, SDK, and TUI fixtures for the latest model catalog and reasoning defaults. (#19323)",
+      "translated": "Refreshed `models.json` and related core, app-server, SDK, and TUI fixtures for the latest model catalog and reasoning defaults. (#19323)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Windows Bazel CI now uses a stable PATH and shared query startup path for better cache reuse. (#19161, #19232)",
+      "translated": "Windows Bazel CI now uses a stable PATH and shared query startup path for better cache reuse. (#19161, #19232)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Plugin marketplace add/remove/startup-sync internals moved out of `codex-core`, and curated plugin cache versions now use short SHAs. (#19099, #19095)",
+      "translated": "Plugin marketplace add/remove/startup-sync internals moved out of `codex-core`, and curated plugin cache versions now use short SHAs. (#19099, #19095)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reverted a macOS signing entitlement change after it caused alpha startup failures. (#19167, #19350)",
+      "translated": "Reverted a macOS signing entitlement change after it caused alpha startup failures. (#19167, #19350)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Stabilized flaky approval-popup and plugin MCP tool-discovery tests. (#19178, #19191)",
+      "translated": "Stabilized flaky approval-popup and plugin MCP tool-discovery tests. (#19178, #19191)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19129 Reject agents.max_threads with multi_agent_v2",
+      "translated": "Reject agents.max_threads with multi_agent_v2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19130 exec-server: wait for close after observed exit",
+      "translated": "Exec-server: wait for close after observed exit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19149 Update safety check wording",
+      "translated": "Update safety check wording"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18284 tui: sync session permission profiles",
+      "translated": "Tui: sync session permission profiles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18710 [codex] Fix plugin marketplace help usage",
+      "translated": "[codex] Fix plugin marketplace help usage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19127 feat: drop spawned-agent context instructions",
+      "translated": "Feat: drop spawned-agent context instructions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18892 Add remote thread config loader protos",
+      "translated": "Add remote thread config loader protos"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19014 Add excludeTurns parameter to thread/resume and thread/fork",
+      "translated": "Add excludeTurns parameter to thread/resume and thread/fork"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18882 [codex] Route live thread writes through ThreadStore",
+      "translated": "[codex] Route live thread writes through ThreadStore"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19008 [codex] Implement remote thread store methods",
+      "translated": "[codex] Implement remote thread store methods"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18626 Respect explicit untrusted project config",
+      "translated": "Respect explicit untrusted project config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18255 app-server: add Unix socket transport",
+      "translated": "App-server: add Unix socket transport"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19167 ci: add macOS keychain entitlements",
+      "translated": "Ci: add macOS keychain entitlements"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19099 Move marketplace add/remove and startup sync out of core.",
+      "translated": "Move marketplace add/remove and startup sync out of core."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19168 Use Auto-review wording for fallback rationale",
+      "translated": "Use Auto-review wording for fallback rationale"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18908 Add remote thread config endpoint",
+      "translated": "Add remote thread config endpoint"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18285 tui: carry permission profiles on user turns",
+      "translated": "Tui: carry permission profiles on user turns"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18286 mcp: include permission profiles in sandbox state",
+      "translated": "Mcp: include permission profiles in sandbox state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18878 [rollout_trace] Trace tool and code-mode boundaries",
+      "translated": "[rollout_trace] Trace tool and code-mode boundaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18287 shell-escalation: carry resolved permission profiles",
+      "translated": "Shell-escalation: carry resolved permission profiles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18946 fix(exec-server): retain output until streams close",
+      "translated": "Fix(exec-server): retain output until streams close"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19074 Add app-server marketplace upgrade RPC",
+      "translated": "Add app-server marketplace upgrade RPC"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19180 use a version-specific suffix for command runner binary in .sandbox-bin",
+      "translated": "Use a version-specific suffix for command runner binary in .sandbox-bin"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19178 Stabilize approvals popup disabled-row test",
+      "translated": "Stabilize approvals popup disabled-row test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18921 Fix /review interrupt and TUI exit wedges",
+      "translated": "Fix /review interrupt and TUI exit wedges"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19191 Stabilize plugin MCP tools test",
+      "translated": "Stabilize plugin MCP tools test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19194 Mark hooks schema fixtures as generated",
+      "translated": "Mark hooks schema fixtures as generated"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18288 tests: isolate approval fixtures from host rules",
+      "translated": "Tests: isolate approval fixtures from host rules"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19044 guide Windows to use -WindowStyle Hidden for Start-Process calls",
+      "translated": "Guide Windows to use -WindowStyle Hidden for Start-Process calls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19214 do not attempt ACLs on installed codex dir",
+      "translated": "Do not attempt ACLs on installed codex dir"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19161 ci: derive cache-stable Windows Bazel PATH",
+      "translated": "Ci: derive cache-stable Windows Bazel PATH"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18811 refactor: route Codex auth through AuthProvider",
+      "translated": "Refactor: route Codex auth through AuthProvider"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19246 Increase app-server WebSocket outbound buffer",
+      "translated": "Increase app-server WebSocket outbound buffer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19048 feat: expose AWS account state from account/read",
+      "translated": "Feat: expose AWS account state from account/read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#18880 [rollout_trace] Add debug trace reduction command",
+      "translated": "[rollout_trace] Add debug trace reduction command"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18897 Add sticky environment API and thread state",
+      "translated": "Add sticky environment API and thread state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18879 [rollout_trace] Trace sessions and multi-agent edges",
+      "translated": "[rollout_trace] Trace sessions and multi-agent edges"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19095 feat: Use short SHA versions for curated plugin cache entries",
+      "translated": "Feat: Use short SHA versions for curated plugin cache entries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18950 feat: let model providers own model discovery",
+      "translated": "Feat: let model providers own model discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19206 app-server: persist device key bindings in sqlite",
+      "translated": "App-server: persist device key bindings in sqlite"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18917 [codex] Support remote plugin install writes",
+      "translated": "[codex] Support remote plugin install writes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19231 permissions: make profiles represent enforcement",
+      "translated": "Permissions: make profiles represent enforcement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19261 Resolve relative agent role config paths from layers",
+      "translated": "Resolve relative agent role config paths from layers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19232 ci: reuse Bazel CI startup for target-discovery queries",
+      "translated": "Ci: reuse Bazel CI startup for target-discovery queries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19292 Reject unsupported js_repl image MIME types",
+      "translated": "Reject unsupported js_repl image MIME types"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19247 chore: apply truncation policy to unified_exec",
+      "translated": "Chore: apply truncation policy to unified_exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19294 Hide unsupported MCP bearer_token from config schema",
+      "translated": "Hide unsupported MCP bearer_token from config schema"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19308 Surface reasoning tokens in exec JSON usage",
+      "translated": "Surface reasoning tokens in exec JSON usage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19323 Update models.json and related fixtures",
+      "translated": "Update models.json and related fixtures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19350 fix alpha build",
+      "translated": "Fix alpha build"
+    }
+  ],
+  "translatedAt": "2026-04-24T19:18:58.679Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 5199
+}
