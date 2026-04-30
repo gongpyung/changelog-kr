@@ -1,0 +1,254 @@
+{
+  "version": "3.17.10",
+  "date": "2026-04-30",
+  "parsedAt": "2026-04-30T08:36:23.660Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Hashline edit** uses write-metadata line counts instead of re-reading files (fewer disk hits per edit)",
+      "translated": "**Hashline edit** 시 파일을 다시 읽는 대신 write-metadata의 라인 수를 사용합니다 (편집당 디스크 접근 횟수 감소)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Compaction** reuses message update parts when the tail has no text (less work on every prompt)",
+      "translated": "**Compaction** 시 끝부분에 텍스트가 없으면 메시지 업데이트 부분을 재사용합니다 (프롬프트마다 발생하는 작업량 감소)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Context window usage** is now cached per session (no recomputation across hooks)",
+      "translated": "**Context window usage**가 세션별로 캐싱됩니다 (훅 간의 재계산 방지)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Background agent** indexes tasks by parent session (faster lookups when many tasks fan out)",
+      "translated": "**Background agent**가 상위 세션별로 태스크를 인덱싱합니다 (많은 태스크가 분산될 때 조회 속도 향상)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces.",
+      "translated": "패키지 감지, 플러그인/설정 호환성 및 설치 영역 전반에 걸친 이름 변경 전환 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior.",
+      "translated": "delegate-task 계약 및 런타임 등록 동작을 포함한 태스크 및 도구 동작 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Install and publish workflow hardening, including safer release sequencing and package/install fixes.",
+      "translated": "더 안전한 릴리스 순서 지정 및 패키지/설치 수정을 포함한 설치 및 게시 워크플로 강화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9a61c607 fix(ci): treat npm OIDC exchange 201 as success in preflight",
+      "translated": "preflight에서 npm OIDC 교환 응답 201을 성공으로 처리"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ab5216f6 feat(ci): add preflight-trust gate before version bump",
+      "translated": "버전 범프 전에 preflight-trust 게이트 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fd85dad9 fix(ci): strip _authToken from .npmrc so OIDC takes precedence",
+      "translated": "OIDC가 우선순위를 갖도록 `.npmrc`에서 `_authToken` 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "48fc7bd4 fix(ci): switch npm publish to OIDC trusted publishing",
+      "translated": "npm publish를 OIDC 신뢰할 수 있는 게시(trusted publishing)로 전환"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "002297b3 Merge pull request #3718 from ismetanin/fix/cached-version-per-plugin-sandbox",
+      "translated": "ismetanin/fix/cached-version-per-plugin-sandbox로부터의 풀 리퀘스트 #3718 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5291ee7d fix(auto-update-checker): prefer loaded module's package.json over flat-install candidates",
+      "translated": "flat-install 후보보다 로드된 모듈의 `package.json`을 우선 사용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d65bc873 feat(agents): add gpt-5.5 native deep category prompt",
+      "translated": "gpt-5.5 네이티브 딥 카테고리 프롬프트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "766eedd6 Merge pull request #3706 from unclok/fix/retry-recovery-and-observability",
+      "translated": "unclok/fix/retry-recovery-and-observability로부터의 풀 리퀘스트 #3706 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "05a15f75 Merge branch 'dev' into fix/retry-recovery-and-observability",
+      "translated": "'dev' 브랜치를 fix/retry-recovery-and-observability로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ea07f284 Merge pull request #3556 from MoerAI/fix/fallback-credit-exhaustion",
+      "translated": "MoerAI/fix/fallback-credit-exhaustion으로부터의 풀 리퀘스트 #3556 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6850cb6d Merge branch 'dev' into fix/fallback-credit-exhaustion",
+      "translated": "'dev' 브랜치를 fix/fallback-credit-exhaustion으로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7adb7259 Merge remote-tracking branch 'origin/dev' into fix/retry-recovery-and-observability",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/retry-recovery-and-observability로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0dd455e7 fix(delegate-task): ignore stale sync session errors",
+      "translated": "오래된 동기화 세션 오류 무시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "18566570 fix(model-fallback): clone session fallback chains",
+      "translated": "세션 폴백 체인 복제"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2237c1ac fix(background-agent): guard stale launch errors and retry links",
+      "translated": "오래된 실행 오류 및 재시도 링크 보호 처리"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "27fb2d5e test(plugin): clean up event handler test helpers",
+      "translated": "이벤트 핸들러 테스트 헬퍼 정리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "078e4962 fix(delegate-task): replay sync retry session registration",
+      "translated": "동기화 재시도 세션 등록 재실행"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fbaeb032 fix(todo-continuation): avoid duplicate progress reset",
+      "translated": "진행 상황 중복 초기화 방지"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ebcd6edf perf(hashline): use write metadata line counts",
+      "translated": "쓰기 메타데이터 라인 수 사용"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "24201ea9 perf(background-agent): index tasks by parent session",
+      "translated": "상위 세션별 작업 인덱싱"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "eb722aa9 perf(compaction): reuse message update parts for no-text tails",
+      "translated": "텍스트가 없는 끝부분에 메시지 업데이트 파트 재사용"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ece8fd4f perf(shared): cache context window usage per session",
+      "translated": "세션별 컨텍스트 윈도우 사용량 캐싱"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3fc9e6ba Merge remote-tracking branch 'origin/dev' into opencode/mighty-wolf",
+      "translated": "원격 추적 브랜치 'origin/dev'를 opencode/mighty-wolf로 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "79054ea3 feat(background-task): render retry timelines and links",
+      "translated": "재시도 타임라인 및 링크 렌더링"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "25548f25 fix(model-fallback): retry forbidden provider errors",
+      "translated": "금지된 제공자(forbidden provider) 오류 재시도"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "613e4a6c fix(delegate-task): retry sync tasks after runtime session errors",
+      "translated": "런타임 세션 오류 후 동기화 작업 재시도"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a4968a3d feat(background-task): track retry attempts across sessions",
+      "translated": "세션 간 재시도 횟수 추적"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cc3cca7c fix(model-fallback): expose session fallback chains to background tasks",
+      "translated": "백그라운드 작업에 세션 폴백 체인 노출"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "328df081 fix(test): update provider-matrix tests to expect fallback on quota exhaustion",
+      "translated": "쿼터 소진 시 폴백이 발생하도록 provider-matrix 테스트 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "59493002 fix(error-classifier): match insufficient balance/funds as quota_exceeded",
+      "translated": "잔액/자금 부족을 quota_exceeded로 매칭"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "034744cb fix(model-error-classifier): retry forbidden provider errors",
+      "translated": "금지된 제공자(forbidden provider) 오류 재시도"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fbf130ec fix(test): update integration tests to expect fallback on quota exhaustion",
+      "translated": "쿼터 소진 시 폴백이 발생하도록 통합 테스트 업데이트"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7488c527 fix(runtime-fallback): trigger fallback on quota/credit exhaustion (fixes #3519)",
+      "translated": "쿼터/크레딧 소진 시 폴백 트리거 (#3519 수정)"
+    }
+  ],
+  "translatedAt": "2026-04-30T08:37:03.452Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3035
+}
