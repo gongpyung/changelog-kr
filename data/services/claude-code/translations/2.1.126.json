@@ -1,0 +1,206 @@
+{
+  "version": "2.1.126",
+  "date": "2026-05-01",
+  "parsedAt": "2026-05-01T04:31:11.179Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `/model` picker now lists models from your gateway's `/v1/models` endpoint when `ANTHROPIC_BASE_URL` points at an Anthropic-compatible gateway",
+      "translated": "`ANTHROPIC_BASE_URL`가 Anthropic 호환 게이트웨이를 가리킬 때, `/model` 선택기에 게이트웨이의 `/v1/models` 엔드포인트 모델 목록이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "- Added `claude project purge [path]` to delete all Claude Code state for a project (transcripts, tasks, file history, config entry) — supports `--dry-run`, `-y/--yes`, `-i/--interactive`, and `--all`",
+      "translated": "프로젝트의 모든 Claude Code 상태(대화 기록, 작업, 파일 히스토리, 설정 항목)를 삭제하는 `claude project purge [path]` 명령어를 추가했습니다. `--dry-run`, `-y/--yes`, `-i/--interactive`, `--all` 옵션을 지원합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--dangerously-skip-permissions` now bypasses prompts for writes to `.claude/`, `.git/`, `.vscode/`, shell config files, and other previously-protected paths (catastrophic removal commands still prompt as a safety net)",
+      "translated": "`--dangerously-skip-permissions` 옵션 사용 시 `.claude/`, `.git/`, `.vscode/`, 셸 설정 파일 및 이전에 보호되었던 기타 경로에 대한 쓰기 권한 확인을 건너뜁니다. (단, 치명적인 삭제 명령어는 안전을 위해 여전히 확인 메시지를 표시합니다.)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude auth login` now accepts the OAuth code pasted into the terminal when the browser callback can't reach localhost (WSL2, SSH, containers)",
+      "translated": "브라우저 콜백이 localhost에 도달할 수 없는 환경(WSL2, SSH, 컨테이너 등)에서 `claude auth login` 실행 시 터미널에 직접 붙여넣은 OAuth 코드를 인식합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude_code.skill_activated` OpenTelemetry event now fires for user-typed slash commands and carries a new `invocation_trigger` attribute (`\"user-slash\"`, `\"claude-proactive\"`, or `\"nested-skill\"`)",
+      "translated": "사용자가 입력한 슬래시 명령어에 대해 `claude_code.skill_activated` OpenTelemetry 이벤트가 발생하며, 새로운 `invocation_trigger` 속성(`\"user-slash\"`, `\"claude-proactive\"`, `\"nested-skill\"`)이 포함됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto mode: the spinner now turns red when a permission check stalls, instead of looking like the tool is running",
+      "translated": "자동 모드: 권한 확인이 지연될 때 도구가 실행 중인 것처럼 보이는 대신 스피너가 빨간색으로 변합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Host-managed deployments (`CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST`) no longer auto-disable analytics on Bedrock/Vertex/Foundry",
+      "translated": "호스트 관리형 배포(`CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST`)에서 더 이상 Bedrock, Vertex, Foundry의 분석 기능을 자동으로 비활성화하지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: PowerShell 7 installed via the Microsoft Store, MSI without PATH, or `.NET global tool` is now detected",
+      "translated": "Windows: Microsoft Store를 통해 설치된 PowerShell 7, PATH에 등록되지 않은 MSI 버전, 또는 `.NET global tool`로 설치된 버전을 감지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: when the PowerShell tool is enabled, Claude now treats PowerShell as the primary shell instead of defaulting to Bash",
+      "translated": "Windows: PowerShell 도구가 활성화되면 Claude는 Bash 대신 PowerShell을 기본 셸로 사용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Read tool: removed the per-file malware-assessment reminder that could cause spurious refusals and \"this is not malware\" commentary on legacy models",
+      "translated": "Read 도구: 레거시 모델에서 불필요한 거부나 \"이것은 멀웨어가 아닙니다\"와 같은 설명을 유발하던 파일별 멀웨어 평가 알림을 제거했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Security:** Fixed `allowManagedDomainsOnly` / `allowManagedReadPathsOnly` being ignored when a higher-priority managed-settings source lacked a `sandbox` block",
+      "translated": "**보안:** 우선순위가 높은 관리형 설정 소스에 `sandbox` 블록이 없을 경우 `allowManagedDomainsOnly` 및 `allowManagedReadPathsOnly` 설정이 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasting an image larger than 2000px breaking the session — images are now downscaled on paste, and oversized images in history are automatically removed and the request retried",
+      "translated": "2000px보다 큰 이미지를 붙여넣을 때 세션이 중단되던 문제를 수정했습니다. 이제 이미지를 붙여넣을 때 크기가 자동으로 조정되며, 히스토리에 있는 너무 큰 이미지는 자동으로 제거된 후 요청이 재시도됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed showing the login screen for \"OAuth not allowed for organization\" errors — now shows guidance to contact your admin",
+      "translated": "\"조직에서 OAuth가 허용되지 않음\" 오류 발생 시 로그인 화면이 표시되던 문제를 수정했습니다. 이제 관리자에게 문의하라는 안내가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OAuth login failing with timeout on slow or proxied connections, in IPv6-only devcontainers, and when the browser callback can't reach localhost",
+      "translated": "연결 속도가 느리거나 프록시를 사용하는 경우, IPv6 전용 devcontainer 환경, 그리고 브라우저 콜백이 localhost에 도달할 수 없는 경우 OAuth 로그인이 타임아웃으로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare race where a concurrent credential write could clear a valid OAuth refresh token",
+      "translated": "자격 증명 동시 쓰기로 인해 유효한 OAuth 리프레시 토큰이 삭제될 수 있는 드문 레이스 컨디션 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed API retry countdown sticking at \"0s\" instead of counting down between attempts",
+      "translated": "API 재시도 카운트다운이 시도 간에 줄어들지 않고 \"0s\"에 멈춰 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Stream idle timeout\" error after waking Mac from sleep mid-request",
+      "translated": "요청 도중 Mac이 절전 모드에서 깨어날 때 발생하는 \"Stream idle timeout\" 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background and remote sessions falsely aborting with \"Stream idle timeout\" during long model thinking pauses",
+      "translated": "모델의 추론 시간이 길어질 때 백그라운드 및 원격 세션이 \"Stream idle timeout\" 오류로 잘못 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hang where the assistant could finish thinking but show no output after a run of empty turns",
+      "translated": "빈 턴이 이어진 후 어시스턴트가 추론을 마쳤음에도 출력을 표시하지 않고 멈춰 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed overly fast trackpad scrolling in Cursor and VS Code 1.92–1.104 integrated terminals",
+      "translated": "Cursor 및 VS Code 1.92–1.104 통합 터미널에서 트랙패드 스크롤이 지나치게 빠르게 작동하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed claude.ai MCP connectors being suppressed by manual servers stuck in needs-auth state",
+      "translated": "인증 필요(needs-auth) 상태에 멈춰 있는 수동 서버로 인해 claude.ai MCP 커넥터가 억제되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Japanese/Korean/Chinese text rendering as garbled characters on Windows in no-flicker mode",
+      "translated": "Windows의 no-flicker 모드에서 한중일 텍스트가 깨져서 렌더링되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Ctrl+L` clearing the prompt input — it now only forces a screen redraw, matching readline behavior",
+      "translated": "`Ctrl+L` 입력 시 프롬프트 입력 내용이 지워지던 문제 수정 — 이제 readline 동작과 동일하게 화면 다시 그리기만 수행"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed deferred tools (WebSearch, WebFetch, etc.) not being available to skills with `context: fork` and other subagents on their first turn",
+      "translated": "`context: fork`를 사용하는 스킬 및 기타 서브 에이전트의 첫 번째 턴에서 지연된 도구(WebSearch, WebFetch 등)를 사용할 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan-mode tools being unavailable in interactive sessions launched with `--channels`",
+      "translated": "`--channels`로 실행된 대화형 세션에서 plan-mode 도구를 사용할 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin` Uninstall reporting \"Enabled\" instead of \"Uninstalled\"",
+      "translated": "`/plugin` 삭제 시 \"Uninstalled\" 대신 \"Enabled\"로 표시되던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bounded total size of file-modified reminders when a linter touches many files at once",
+      "translated": "린터가 한 번에 많은 파일을 수정할 때 파일 수정 알림의 전체 크기 제한 적용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/remote-control` retries appearing stuck on \"connecting…\" — each retry now shows its result",
+      "translated": "`/remote-control` 재시도가 \"connecting…\" 상태에 멈춰 있는 것처럼 보이던 문제 수정 — 이제 각 재시도 결과가 표시됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control failure notification not showing the error reason for initial connection failures",
+      "translated": "원격 제어 실패 알림에서 초기 연결 실패 시 오류 원인이 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: clipboard writes no longer expose copied content in process command-line arguments visible to EDR/SIEM telemetry; also fixes >22KB selections not reaching the clipboard",
+      "translated": "Windows: 클립보드 기록 시 복사된 내용이 EDR/SIEM 텔레메트리에 노출되는 프로세스 명령줄 인수에 포함되지 않도록 수정 및 22KB 이상의 선택 영역이 클립보드에 전달되지 않던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "PowerShell tool: bare `--` (e.g. `git diff -- file`) is no longer mis-flagged as the `--%` stop-parsing token",
+      "translated": "PowerShell 도구: 단독 `--` (예: `git diff -- file`)가 `--%` 구문 분석 중단 토큰으로 오인되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Agent SDK hang when the model emits a malformed tool name in a parallel tool call batch",
+      "translated": "병렬 도구 호출 배치에서 모델이 잘못된 형식의 도구 이름을 생성할 때 Agent SDK가 응답하지 않던 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-05-01T04:32:02.346Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3950
+}
