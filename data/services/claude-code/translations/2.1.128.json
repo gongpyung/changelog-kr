@@ -1,0 +1,236 @@
+{
+  "version": "2.1.128",
+  "date": "2026-05-04",
+  "parsedAt": "2026-05-05T03:52:21.729Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bare `/color` (no args) now picks a random session color",
+      "translated": "`/config`에서 탭 탐색 시 포커스가 끊기던 문제 수정 — 이제 탭 헤더에 포커스가 유지되어 화살표 키와 Esc 키가 정상적으로 작동합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/mcp` now shows the tool count for connected servers and flags servers that connected with 0 tools",
+      "translated": "OSC 8 하이퍼링크를 지원하지 않는 터미널에서 마크다운 링크 라벨이 유실되던 문제 수정 — 이제 링크가 URL만 표시되는 대신 `label (url)` 형식으로 렌더링됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--plugin-dir` now accepts `.zip` plugin archives in addition to directories",
+      "translated": "1M 컨텍스트 모델에서 autocompact 윈도우가 작을 때, 실제 API 제한에 도달하기 전 \"Prompt is too long\"으로 세션이 잘못 차단되던 문제 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--channels` now works with console (API key) authentication — console orgs with managed settings must set `channelsEnabled: true` to enable",
+      "translated": "병렬 쉘 도구 호출 수정: 읽기 전용 명령어(`grep`, `git diff`, `ls`)가 실패해도 다른 병렬 호출이 취소되지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated `/model` picker: collapsed duplicate Opus 4.7 entries, and current Opus now shows as \"Opus\" instead of \"Opus 4.7\"",
+      "translated": "effort 기능을 지원하지 않는 모델에서 배너에 \"with X effort\"가 표시되던 문제 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Subprocesses (Bash, hooks, MCP, LSP) no longer inherit `OTEL_*` environment variables, so OTEL-instrumented apps run via the Bash tool no longer pick up the CLI's own OTLP endpoint",
+      "translated": "제3자 제공자(3P providers)에서 `/fast` 사용 시 \"not available\" 대신 관련 없는 스킬로 퍼지 매칭(fuzzy-matching)되던 문제 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP: `workspace` is now a reserved server name — existing servers with that name will be skipped with a warning",
+      "translated": "Bedrock 기본 모델이 지역에 맞는 접두사 대신 `global.*`로 해석되던 문제 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reconnecting MCP servers no longer flood the conversation with full tool-name lists on every reconnect — re-announced tools are summarized by server prefix",
+      "translated": "vim 모드 수정: NORMAL 모드에서 `Space` 입력 시 표준 vi/vim 동작과 동일하게 커서가 오른쪽으로 이동합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SDK hosts now receive a persistent `localSettings` suggestion for Bash permission prompts, so \"Always allow\" writes to `.claude/settings.local.json`",
+      "translated": "도구 호출 사이에 터미널 진행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`EnterWorktree` now creates the new branch from local HEAD as documented, instead of `origin/<default-branch>` — unpushed commits are no longer dropped",
+      "translated": "`EnterWorktree` now creates the new branch from local HEAD as documented, instead of `origin/<default-branch>` — unpushed commits are no longer dropped"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto mode: when the classifier can't evaluate an action, the error now includes a hint (retry, `/compact`, or run with `--debug`)",
+      "translated": "Auto mode: when the classifier can't evaluate an action, the error now includes a hint (retry, `/compact`, or run with `--debug`)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed focus mode briefly dimming the previous response when submitting a new prompt",
+      "translated": "Fixed focus mode briefly dimming the previous response when submitting a new prompt"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stray \"4;0;\" desktop notification on every `/exit` in Kitty and other terminals that interpret OSC 9 as a notification",
+      "translated": "Fixed stray \"4;0;\" desktop notification on every `/exit` in Kitty and other terminals that interpret OSC 9 as a notification"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control showing an empty \"Opening your options…\" message on rate limit instead of actionable upsell options",
+      "translated": "Fixed Remote Control showing an empty \"Opening your options…\" message on rate limit instead of actionable upsell options"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed drag-and-drop image upload hanging on \"Pasting text…\" when the image read fails",
+      "translated": "Fixed drag-and-drop image upload hanging on \"Pasting text…\" when the image read fails"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed crash loop when piping very large input (>10 MB) to `claude -p` via stdin",
+      "translated": "Fixed crash loop when piping very large input (>10 MB) to `claude -p` via stdin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed long URLs not being individually clickable on every wrapped row in fullscreen mode",
+      "translated": "Fixed long URLs not being individually clickable on every wrapped row in fullscreen mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin` Components panel showing \"Marketplace 'inline' not found\" for plugins loaded via `--plugin-dir`",
+      "translated": "Fixed `/plugin` Components panel showing \"Marketplace 'inline' not found\" for plugins loaded via `--plugin-dir`"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool results dropping images when the server returns both structured content and content blocks",
+      "translated": "Fixed MCP tool results dropping images when the server returns both structured content and content blocks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fenced code blocks inside list items carrying leading whitespace into the clipboard on copy-paste",
+      "translated": "Fixed fenced code blocks inside list items carrying leading whitespace into the clipboard on copy-paste"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tab navigation in `/config` stranding focus — the tab header now stays focused so arrows and Esc keep working",
+      "translated": "Fixed tab navigation in `/config` stranding focus — the tab header now stays focused so arrows and Esc keep working"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed markdown link labels being lost on terminals without OSC 8 hyperlink support — links now render as `label (url)` instead of just the URL",
+      "translated": "Fixed markdown link labels being lost on terminals without OSC 8 hyperlink support — links now render as `label (url)` instead of just the URL"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sessions on 1M-context models with a smaller autocompact window being falsely blocked with \"Prompt is too long\" before reaching the actual API limit",
+      "translated": "Fixed sessions on 1M-context models with a smaller autocompact window being falsely blocked with \"Prompt is too long\" before reaching the actual API limit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed parallel shell tool calls: a failing read-only command (grep, git diff, ls) no longer cancels sibling calls",
+      "translated": "Fixed parallel shell tool calls: a failing read-only command (grep, git diff, ls) no longer cancels sibling calls"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed banner showing \"with X effort\" on models that don't support effort",
+      "translated": "Fixed banner showing \"with X effort\" on models that don't support effort"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/fast` on 3P providers fuzzy-matching to an unrelated skill instead of showing \"not available\"",
+      "translated": "Fixed `/fast` on 3P providers fuzzy-matching to an unrelated skill instead of showing \"not available\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock default model resolving to `global.*` instead of the region-appropriate prefix",
+      "translated": "Fixed Bedrock default model resolving to `global.*` instead of the region-appropriate prefix"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed vim mode: `Space` in NORMAL mode now moves the cursor right, matching standard vi/vim behavior",
+      "translated": "Fixed vim mode: `Space` in NORMAL mode now moves the cursor right, matching standard vi/vim behavior"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal progress indicator (OSC 9;4) flickering off between tool calls — stays visible across the full turn",
+      "translated": "Fixed terminal progress indicator (OSC 9;4) flickering off between tool calls — stays visible across the full turn"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/rename` without args failing on resumed sessions whose last entry is a compact boundary",
+      "translated": "Fixed `/rename` without args failing on resumed sessions whose last entry is a compact boundary"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale \"remote-control is active\" status lines from prior sessions appearing after `--resume`/`--continue`",
+      "translated": "Fixed stale \"remote-control is active\" status lines from prior sessions appearing after `--resume`/`--continue`"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale `installed_plugins.json` entries pointing at deleted cache directories polluting PATH",
+      "translated": "Fixed stale `installed_plugins.json` entries pointing at deleted cache directories polluting PATH"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP stdio servers receiving corrupted arguments when `CLAUDE_CODE_SHELL_PREFIX` is set and an argument contains spaces or shell metacharacters",
+      "translated": "Fixed MCP stdio servers receiving corrupted arguments when `CLAUDE_CODE_SHELL_PREFIX` is set and an argument contains spaces or shell metacharacters"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sub-agent progress summaries missing the prompt cache (~3× `cache_creation` reduction)",
+      "translated": "Fixed sub-agent progress summaries missing the prompt cache (~3× `cache_creation` reduction)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin update` never detecting new versions of npm-sourced plugins",
+      "translated": "Fixed `/plugin update` never detecting new versions of npm-sourced plugins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sub-agent summaries firing repeatedly while a sub-agent's transcript is static, capping worst-case token cost on idle sub-agents",
+      "translated": "Fixed sub-agent summaries firing repeatedly while a sub-agent's transcript is static, capping worst-case token cost on idle sub-agents"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Headless `--output-format stream-json`: `init.plugin_errors` now includes `--plugin-dir` load failures in addition to dependency demotions",
+      "translated": "Headless `--output-format stream-json`: `init.plugin_errors` now includes `--plugin-dir` load failures in addition to dependency demotions"
+    }
+  ],
+  "translatedAt": "2026-05-05T03:53:29.824Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 3070
+}
