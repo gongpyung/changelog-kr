@@ -1,0 +1,38 @@
+{
+  "version": "2026.5.6",
+  "date": "2026-05-06",
+  "parsedAt": "2026-05-06T20:02:46.125Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/OpenAI Codex: revert the 2026.5.5 `doctor --fix` repair that rewrote valid `openai-codex/*` ChatGPT/Codex OAuth routes to `openai/*`, which could break OAuth-only GPT-5.5 setups or accidentally move users onto the OpenAI API-key route. If 2026.5.5 already changed your default model, run `openclaw models set openai-codex/gpt-5.5 && openclaw config validate` to switch the default agent back to the Codex OAuth PI route. Fixes #78407.",
+      "translated": "Doctor/OpenAI Codex: 유효한 `openai-codex/*` ChatGPT/Codex OAuth 경로를 `openai/*`로 덮어써서 OAuth 전용 GPT-5.5 설정을 손상시키거나 사용자를 의도치 않게 OpenAI API 키 경로로 전환할 수 있었던 2026.5.5 버전의 `doctor --fix` 수정 사항을 되돌렸습니다. 만약 2026.5.5 버전에서 이미 기본 모델이 변경된 경우, `openclaw models set openai-codex/gpt-5.5 && openclaw config validate`를 실행하여 기본 에이전트를 Codex OAuth PI 경로로 다시 전환하십시오. #78407 해결."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/runtime fetch: drop third-party symbol metadata from plain request header dictionaries before passing them into native `fetch` or `Headers`, so SDK and guarded/proxy fetch paths do not reject otherwise valid plugin requests. Fixes #77846. Thanks @shakkernerd.",
+      "translated": "Plugins/runtime fetch: SDK 및 보호된/프록시 fetch 경로가 유효한 플러그인 요청을 거부하지 않도록, 일반 요청 헤더 딕셔너리에서 서드파티 심볼 메타데이터를 제거한 후 네이티브 `fetch` 또는 `Headers`로 전달합니다. #77846 해결. @shakkernerd님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Debug proxy: normalize captured fetch header dictionaries before replaying requests so symbol metadata from caller-owned header objects cannot make debug-proxy fetches fail.",
+      "translated": "Debug proxy: 호출자 소유의 헤더 객체에 포함된 심볼 메타데이터로 인해 debug-proxy fetch가 실패하지 않도록, 요청을 재현하기 전에 캡처된 fetch 헤더 딕셔너리를 정규화합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Web fetch: bound guarded dispatcher cleanup after request timeouts so timed-out fetches return tool errors instead of leaving Gateway tool lanes active. (#78439) Thanks @obviyus.",
+      "translated": "Web fetch: 요청 타임아웃 발생 시 Gateway 도구 레인이 활성 상태로 남지 않고 타임아웃된 fetch가 도구 오류를 반환하도록, 보호된 디스패처(guarded dispatcher) 정리 작업의 범위를 제한했습니다. (#78439) @obviyus님께 감사드립니다."
+    }
+  ],
+  "translatedAt": "2026-05-06T20:04:26.300Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1059
+}
