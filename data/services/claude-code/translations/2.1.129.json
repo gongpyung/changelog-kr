@@ -1,0 +1,176 @@
+{
+  "version": "2.1.129",
+  "date": "2026-05-06",
+  "parsedAt": "2026-05-06T04:07:59.417Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--plugin-url <url>` flag to fetch a plugin `.zip` archive from a URL for the current session",
+      "translated": "현재 세션에서 URL을 통해 플러그인 `.zip` 아카이브를 가져올 수 있는 `--plugin-url <url>` 플래그를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_FORCE_SYNC_OUTPUT=1` env var to force-enable synchronized output on terminals that auto-detection misses (e.g. Emacs `eat`)",
+      "translated": "자동 감지가 되지 않는 터미널(예: Emacs `eat`)에서 동기화된 출력을 강제로 활성화하는 `CLAUDE_CODE_FORCE_SYNC_OUTPUT=1` 환경 변수를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE`: when set on Homebrew or WinGet installations, Claude Code runs the upgrade command in the background and prompts to restart",
+      "translated": "`CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE`를 추가했습니다. Homebrew 또는 WinGet 설치 시 이 변수를 설정하면 Claude Code가 백그라운드에서 업그레이드 명령을 실행하고 재시작을 요청합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin manifests: `themes` and `monitors` should now be declared under `\"experimental\": { ... }`. Top-level declarations still work but `claude plugin validate` will warn",
+      "translated": "플러그인 매니페스트: 이제 `themes`와 `monitors`는 `\"experimental\": { ... }` 아래에 선언해야 합니다. 최상위 선언도 여전히 작동하지만 `claude plugin validate` 실행 시 경고가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway `/v1/models` discovery for the `/model` picker is now opt-in via `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1` (was automatic in 2.1.126–2.1.128)",
+      "translated": "`/model` 선택기를 위한 게이트웨이 `/v1/models` 검색이 이제 `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1`을 통한 선택 사항(opt-in)으로 변경되었습니다 (2.1.126–2.1.128 버전에서는 자동이었습니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Ctrl+R history picker now defaults to searching all prompts across all projects, matching pre-2.1.124 behavior. Press Ctrl+S to narrow to the current project or session",
+      "translated": "Ctrl+R 히스토리 선택기가 이제 2.1.124 이전 버전과 동일하게 모든 프로젝트의 모든 프롬프트를 검색하도록 기본 설정되었습니다. 현재 프로젝트나 세션으로 범위를 좁히려면 Ctrl+S를 누르세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Third-party deployments (Bedrock, Vertex, Foundry, or `ANTHROPIC_BASE_URL` gateway) no longer see spinner tips pointing at first-party Anthropic surfaces",
+      "translated": "서드파티 배포(Bedrock, Vertex, Foundry 또는 `ANTHROPIC_BASE_URL` 게이트웨이) 사용 시 더 이상 Anthropic 전용 서비스로 안내하는 스피너 팁이 표시되지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`skillOverrides` setting now works: `off` hides from model and `/`, `user-invocable-only` hides from model only, `name-only` collapses description",
+      "translated": "`skillOverrides` 설정이 이제 정상 작동합니다. `off`는 모델과 `/` 명령에서 숨기며, `user-invocable-only`는 모델에서만 숨기고, `name-only`는 설명을 축약합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `claude_code.pull_request.count` OTel metric now counts PRs/MRs created via MCP tools, not just shell commands",
+      "translated": "`claude_code.pull_request.count` OTel 메트릭이 이제 셸 명령뿐만 아니라 MCP 도구를 통해 생성된 PR/MR도 집계합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Policy refusal error messages now include the API Request ID for easier support debugging",
+      "translated": "정책 거부 오류 메시지에 원활한 디버깅 지원을 위한 API Request ID가 포함됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed API errors with unrecognized 400 status codes showing raw JSON instead of the underlying error message",
+      "translated": "인식되지 않는 400 상태 코드의 API 오류 발생 시 실제 오류 메시지 대신 원본 JSON이 표시되던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/clear` not resetting the terminal tab title after a conversation",
+      "translated": "대화 종료 후 `/clear` 명령어가 터미널 탭 제목을 초기화하지 않던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session title chip from `/rename` disappearing while a permission or other dialog is active",
+      "translated": "권한 요청이나 다른 대화 상자가 활성화된 동안 `/rename`으로 설정한 세션 제목 칩이 사라지던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent panel below the prompt being hidden when subagents are running (regression in 2.1.122)",
+      "translated": "서브 에이전트 실행 중 프롬프트 아래의 에이전트 패널이 숨겨지던 문제를 해결했습니다 (2.1.122 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed external-editor handoff (Ctrl+G) blanking the conversation history above the prompt",
+      "translated": "외부 에디터 연동(Ctrl+G) 시 프롬프트 상단의 대화 기록이 비워지던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/context` dumping its rendered ASCII visualization grid into the conversation, wasting ~1.6k tokens per call",
+      "translated": "`/context` 명령어가 렌더링된 ASCII 시각화 그리드를 대화 내용에 포함하여 호출당 약 1.6k 토큰을 낭비하던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/agents` Library list arrow-key navigation: the highlighted agent now stays visible when the list exceeds the viewport",
+      "translated": "`/agents` 라이브러리 목록의 화살표 키 탐색 문제를 해결했습니다. 이제 목록이 뷰포트를 초과하더라도 강조 표시된 에이전트가 화면에 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/branch` success message not including the new branch's session id for `/resume`",
+      "translated": "`/branch` 성공 메시지에 `/resume`에 필요한 새 브랜치의 세션 ID가 포함되지 않던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed bold headers with keycap/ZWJ/skin-tone emoji losing trailing characters in fullscreen mode",
+      "translated": "전체 화면 모드에서 키캡/ZWJ/피부색 이모지가 포함된 굵은 헤더의 뒷부분 문자가 잘리던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed server-managed settings policy not applying for enterprise/team users whose stored OAuth credentials lacked the `user:inference` scope",
+      "translated": "저장된 OAuth 자격 증명에 `user:inference` 스코프가 없는 엔터프라이즈/팀 사용자의 경우 서버 관리 설정 정책이 적용되지 않던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OAuth refresh race after wake-from-sleep that could log out all running sessions",
+      "translated": "절전 모드 해제 후 모든 실행 중인 세션이 로그아웃될 수 있는 OAuth 갱신 경합 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed 1-hour prompt cache TTL being silently downgraded to 5 minutes",
+      "translated": "1시간인 프롬프트 캐시 TTL이 별도 알림 없이 5분으로 하향 조정되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cache-miss warning appearing spuriously after `/clear` or compaction when changing `/effort` or `/model`",
+      "translated": "`/effort` 또는 `/model` 변경 시 `/clear` 또는 압축(compaction) 이후 캐시 미스 경고가 잘못 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Bash(mkdir *)`, `Bash(touch *)` and similar allow rules not being honored for in-project paths",
+      "translated": "프로젝트 내 경로에 대해 `Bash(mkdir *)`, `Bash(touch *)` 및 유사한 허용 규칙이 적용되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `deniedMcpServers` patterns with a `*://` scheme wildcard not matching mixed-case hostnames",
+      "translated": "`*://` 스킴 와일드카드가 포함된 `deniedMcpServers` 패턴이 대소문자가 혼용된 호스트 이름과 일치하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed harmless WebSocket warning being logged as an error in `--debug` during voice mode",
+      "translated": "음성 모드 중 `--debug`에서 무해한 WebSocket 경고가 오류로 기록되던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed `/clear` not clearing the conversation context and displayed transcript",
+      "translated": "[VSCode] `/clear`가 대화 컨텍스트 및 표시된 트랜스크립트를 삭제하지 않던 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-05-06T04:08:43.971Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3070
+}
