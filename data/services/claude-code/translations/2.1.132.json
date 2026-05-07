@@ -1,0 +1,182 @@
+{
+  "version": "2.1.132",
+  "date": "2026-05-06",
+  "parsedAt": "2026-05-07T04:07:21.074Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_SESSION_ID` environment variable to the Bash tool subprocess environment, matching the `session_id` passed to hooks",
+      "translated": "Bash 도구 하위 프로세스 환경에 `CLAUDE_CODE_SESSION_ID` 환경 변수를 추가하여 hook에 전달되는 `session_id`와 일치하도록 개선했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1` env var to opt out of the fullscreen alternate-screen renderer and keep the conversation in the terminal's native scrollback",
+      "translated": "전체 화면 alternate-screen 렌더러를 사용하지 않고 터미널 기본 스크롤백에 대화 내용을 유지할 수 있도록 `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1` 환경 변수를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a \"Pasting…\" footer hint while a Ctrl+V image paste is being read from the clipboard",
+      "translated": "클립보드에서 Ctrl+V로 이미지를 붙여넣는 동안 하단에 \"Pasting…\" 힌트가 표시되도록 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed external SIGINT (e.g. IDE stop button, `kill -INT`) not running graceful shutdown — terminal modes are now restored and the `--resume` hint is printed instead of an abrupt exit",
+      "translated": "외부 SIGINT(예: IDE 중지 버튼, `kill -INT`) 발생 시 정상 종료가 수행되지 않던 문제를 수정했습니다. 이제 터미널 모드가 복구되며, 갑작스러운 종료 대신 `--resume` 힌트가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an uncaught exception when the terminal is closed or SSH disconnects mid-session under the native build",
+      "translated": "네이티브 빌드에서 세션 도중 터미널이 닫히거나 SSH 연결이 끊길 때 발생하는 예외 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` failing with `no low surrogate in string` when a tool error truncation split an emoji; pre-corrupted sessions are sanitized on load",
+      "translated": "도구 오류 텍스트가 잘리면서 이모지가 분리될 때 `--resume`이 `no low surrogate in string` 오류와 함께 실패하던 문제를 수정했습니다. 이미 손상된 세션은 로드 시 자동으로 정리됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--permission-mode` flag being ignored when resuming a plan-mode session with `-p --continue`/`--resume`, and plan mode not being re-applied after `ExitPlanMode` within the same session",
+      "translated": "`-p --continue`/`--resume`로 plan-mode 세션을 재개할 때 `--permission-mode` 플래그가 무시되던 문제와, 동일 세션 내에서 `ExitPlanMode` 이후 plan mode가 다시 적용되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fullscreen mode showing a blank screen after laptop sleep/wake or Ctrl+Z/`fg` until the next keystroke or stream output",
+      "translated": "노트북 절전 모드 해제 또는 Ctrl+Z/`fg` 이후 다음 키 입력이나 스트림 출력이 있을 때까지 전체 화면 모드에 빈 화면이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cursor landing mid-grapheme on Ctrl+E/A/K/U/arrow keys when an Indic conjunct or ZWJ emoji wraps across lines",
+      "translated": "인도어 결합 문자나 ZWJ 이모지가 줄 바꿈될 때 Ctrl+E/A/K/U 또는 화살표 키를 사용하면 커서가 글자 중간에 위치하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed vim operators corrupting text containing decomposed (NFD) accented characters",
+      "translated": "vim 연산자가 분해된(NFD) 악센트 문자가 포함된 텍스트를 손상시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasting text starting with `/` silently swallowing the input or triggering an unknown-command reply",
+      "translated": "`/`로 시작하는 텍스트를 붙여넣을 때 입력이 무시되거나 알 수 없는 명령어 응답이 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasting dumping stray escape sequences into the prompt when focus events or mouse-tracking reports interleave with the bracketed paste",
+      "translated": "bracketed paste 도중 포커스 이벤트나 마우스 트래킹 보고가 섞여 프롬프트에 불필요한 이스케이프 시퀀스가 출력되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mouse wheel scrolling being too fast in Cursor and VS Code 1.92–1.104 due to an upstream xterm.js bug",
+      "translated": "업스트림 xterm.js 버그로 인해 Cursor 및 VS Code 1.92–1.104에서 마우스 휠 스크롤이 너무 빠르게 작동하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scroll-wheel handling in JetBrains IDE 2025.2 terminals (spurious arrow keys, wrong-direction events, runaway acceleration)",
+      "translated": "JetBrains IDE 2025.2 터미널의 스크롤 휠 처리 문제(잘못된 화살표 키 입력, 방향 오류, 가속 제어 불가)를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage` Ctrl+S hanging when copying the stats screenshot to the clipboard on Linux/X11",
+      "translated": "Linux/X11 환경에서 통계 스크린샷을 클립보드에 복사할 때 `/usage` Ctrl+S가 멈추던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/terminal-setup` showing a contradictory error in Windows Terminal — Shift+Enter is natively supported there",
+      "translated": "Windows Terminal에서 Shift+Enter가 기본적으로 지원됨에도 불구하고 `/terminal-setup`에서 모순된 오류가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort` picker not reflecting the `CLAUDE_CODE_EFFORT_LEVEL` env var override",
+      "translated": "`/effort` 선택기에서 `CLAUDE_CODE_EFFORT_LEVEL` 환경 변수 설정값이 반영되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/status` showing the wrong default model for some users",
+      "translated": "일부 사용자에게 `/status`에서 기본 모델이 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash command autocomplete popup being capped at ~3–5 visible commands instead of scaling with terminal height",
+      "translated": "슬래시 명령어 자동 완성 팝업이 터미널 높이에 맞춰 조절되지 않고 3~5개 정도로 제한되어 보이던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed statusline `context_window` token counts reflecting cumulative session totals instead of current context usage",
+      "translated": "상태 표시줄의 `context_window` 토큰 수가 현재 컨텍스트 사용량이 아닌 세션 누적 합계로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Alt+T (thinking toggle) not working on macOS terminals without \"Option as Meta\" enabled (iTerm2, Terminal.app defaults)",
+      "translated": "\"Option as Meta\"가 활성화되지 않은 macOS 터미널(iTerm2, Terminal.app 기본값)에서 Alt+T(생각하기 토글)가 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed dead keyboard input on Windows after re-opening a background session from `claude agents`",
+      "translated": "`claude agents`에서 백그라운드 세션을 다시 열었을 때 Windows에서 키보드 입력이 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth (10GB+ RSS) when a stdio MCP server writes non-protocol data to stdout",
+      "translated": "stdio MCP 서버가 stdout에 비프로토콜 데이터를 기록할 때 메모리 사용량(RSS)이 무제한으로 증가(10GB 이상)하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers that connect but fail `tools/list` silently showing 0 tools — they now retry once and show \"connected · tools fetch failed\" in `/mcp`",
+      "translated": "연결은 되었으나 `tools/list` 호출에 실패한 MCP 서버가 도구 개수를 0개로 표시하던 문제 수정 — 이제 한 번 재시도하며, `/mcp`에서 \"connected · tools fetch failed\"라고 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unauthorized claude.ai MCP connectors showing as \"failed\" instead of \"needs auth\", and headless `-p` mode retrying non-transient 4xx connection failures",
+      "translated": "인증되지 않은 claude.ai MCP 커넥터가 \"needs auth\" 대신 \"failed\"로 표시되던 문제와, 헤드리스 `-p` 모드에서 일시적이지 않은 4xx 연결 오류를 재시도하던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved visual consistency in slash command dialogs and `/login`, `/upgrade`, `/extra-usage` dialog spacing",
+      "translated": "슬래시 명령어 대화상자의 시각적 일관성 및 `/login`, `/upgrade`, `/extra-usage` 대화상자의 간격 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the `/tui fullscreen` startup banner to describe additional renderer benefits (lower memory usage, mouse support, auto-copy on select)",
+      "translated": "`/tui fullscreen` 시작 배너를 업데이트하여 추가적인 렌더러 이점(메모리 사용량 감소, 마우스 지원, 선택 시 자동 복사)을 설명하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock and Vertex 400 errors when `ENABLE_PROMPT_CACHING_1H` is set",
+      "translated": "`ENABLE_PROMPT_CACHING_1H` 설정 시 Bedrock 및 Vertex에서 400 오류가 발생하던 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-05-07T04:07:58.325Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3369
+}
