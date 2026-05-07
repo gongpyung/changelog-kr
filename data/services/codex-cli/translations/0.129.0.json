@@ -1,0 +1,1472 @@
+{
+  "version": "0.129.0",
+  "date": "2026-05-07",
+  "parsedAt": "2026-05-07T19:56:26.299Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The TUI now supports modal Vim editing in the composer, including `/vim`, default-mode config, and Vim-specific keymap contexts. (#18595)",
+      "translated": "TUI에서 며칠에 걸친 목표 기간의 형식 지정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "TUI workflows are easier to resume and copy from with a redesigned resume/fork picker, raw scrollback mode, `/ide` context injection, and workspace-aware `/diff`. (#20065, #20819, #20294, #21001)",
+      "translated": "활성 테마를 기반으로 TUI 상태 표시줄 색상 적용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The status line can show theme-aware colors plus optional PR and branch-change summaries, and `/keymap debug` helps inspect terminal key events. (#19631, #20892, #20794)",
+      "translated": "인증 변경 시 원격 플러그인 캐시 갱신"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Plugin management now supports workspace sharing, share access controls, source filtering, local share path tracking, marketplace removal/upgrades, remote bundle sync, and admin-disabled status handling. (#20278, #21124, #21419, #20560, #19843, #20478, #20268, #20298)",
+      "translated": "원격 플러그인 스킬 읽기 API 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Hooks can be browsed and toggled from `/hooks`, can run before/after compaction, and can add `PreToolUse` context; Codex Apps auth and eligible MCP elicitations now surface through TUI/Guardian flows. (#19882, #19905, #20692, #19193, #19431)",
+      "translated": "공유 플러그인의 로컬 경로 추적"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Experimental goals are now discoverable, stay paused across resume unless the user opts back in, and show clearer validation and multi-day duration output. (#20083, #20790, #20746, #20558)",
+      "translated": "기억(memories) 편집 허용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/copy` works better in tmux, Alt+Enter and modified Delete/Backspace keys behave correctly, and Windows typing/paste latency was reduced. (#20207, #20535, #21058, #18914)",
+      "translated": "임시(ad-hoc) 지침 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Large paste placeholders and Ctrl+C-stashed drafts now survive clear/editor workflows without corrupting draft history. (#21091, #21190, #21351, #21397)",
+      "translated": "기억하기(remember) 프롬프트 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI startup and accessibility were tightened by bounding terminal probes, clearing the first inline viewport render, and honoring `animations = false` for live rows. (#20654, #21450, #20564)",
+      "translated": "임시 메모리 확장 지침 초기 데이터(seed) 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Linux sandbox startup is more reliable across older `bwrap`, slow mount probes, symlink-protected paths, and shared `/tmp` setups. (#20628, #20111, #21127, #21234)",
+      "translated": "유효한 설정 잠금(config locks) 내보내기 및 재생 기능"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows sandbox and exec policy now handle named pipes, ConPTY teardown, PowerShell-wrapped allow rules, worktree `safe.directory`, and unsafe Git options more reliably. (#20270, #20685, #20336, #21409, #21275)",
+      "translated": "`apply-patch` 파일 변경 사항을 턴 항목(turn items)으로 이동"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed custom CA login behind TLS-inspecting proxies, Bedrock runtime endpoint reporting, dangerous project config keys, heredoc redirect approval matching, and unbounded MCP/hook output growth. (#20676, #20275, #20098, #20113, #20260, #21069)",
+      "translated": "스크린 리더 사용 시 `animations = false` 강제 적용"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the embedded OpenAI Docs sample skill so API-key setup guidance stays aligned with other docs variants. (#21263)",
+      "translated": "도구 미사용 시 목표 지속 억제 기능 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Documented how generated git commit attribution is gated by `codex_git_commit` and configured in `config.toml`. (#21379)",
+      "translated": "`cargo deny` 관련 수정"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed local-only planning/spec docs and redirected config docs toward the maintained external documentation surface. (#20896)",
+      "translated": "`app-server`: 전송(transport) 계층을 전용"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Linux releases now build, publish, bundle, and verify a standalone `bwrap` fallback for npm and DotSlash installs. (#21255, #21256, #21257, #21312, #21285)",
+      "translated": "Linux releases now build, publish, bundle, and verify a standalone `bwrap` fallback for npm and DotSlash installs. (#21255, #21256, #21257, #21312, #21285)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Vendored Bubblewrap was updated to 0.11.2, including upstream security changes around setuid support. (#21389)",
+      "translated": "Vendored Bubblewrap was updated to 0.11.2, including upstream security changes around setuid support. (#21389)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Windows Bazel CI now uses faster cross-compilation for tests, clippy, and release-build checks, and Bazel now runs sharded Rust integration tests. (#20585, #20701, #21057)",
+      "translated": "Windows Bazel CI now uses faster cross-compilation for tests, clippy, and release-build checks, and Bazel now runs sharded Rust integration tests. (#20585, #20701, #21057)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "App-server and protocol internals were split and slimmed down, including transport extraction, protocol module decomposition, thread/message history moves, and tool-handler cleanup. (#20324, #20325, #20348, #20545, #21251, #21278, #21395)",
+      "translated": "App-server and protocol internals were split and slimmed down, including transport extraction, protocol module decomposition, thread/message history moves, and tool-handler cleanup. (#20324, #20325, #20348, #20545, #21251, #21278, #21395)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Analytics and diagnostics coverage expanded for tool lifecycles, goals, plugin skills, thread sources, service tiers, and PR issue labeling. (#17089, #17090, #20799, #20923, #20949, #20969, #20893)",
+      "translated": "Analytics and diagnostics coverage expanded for tool lifecycles, goals, plugin skills, thread sources, service tiers, and PR issue labeling. (#17089, #17090, #20799, #20923, #20949, #20969, #20893)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20278 feat: Add workspace plugin sharing APIs",
+      "translated": "Feat: Add workspace plugin sharing APIs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20334 Make missing config clears no-ops",
+      "translated": "Make missing config clears no-ops"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20246 Gate multi-agent v2 tools independently of collab",
+      "translated": "Gate multi-agent v2 tools independently of collab"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20361 realtime: rename provider session ids",
+      "translated": "Realtime: rename provider session ids"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20260 fix(core): truncate large mcp tool outputs in rollouts",
+      "translated": "Fix(core): truncate large mcp tool outputs in rollouts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20083 Mark goals feature as experimental",
+      "translated": "Mark goals feature as experimental"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19843 /plugins: remove marketplace",
+      "translated": "/plugins: remove marketplace"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20458 [Extension] Allowlist Chrome Extension in the tool_suggest tool",
+      "translated": "[Extension] Allowlist Chrome Extension in the tool_suggest tool"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20324 Remove core protocol dependency [1/2]",
+      "translated": "Remove core protocol dependency [1/2]"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20299 Move item event mapping into app-server-protocol",
+      "translated": "Move item event mapping into app-server-protocol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20325 Remove core protocol dependency [2/2]",
+      "translated": "Remove core protocol dependency [2/2]"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20471 Stop emitting item/fileChange/outputDelta output delta notifications",
+      "translated": "Stop emitting item/fileChange/outputDelta output delta notifications"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20245 [Codex] Add browser use external feature flag",
+      "translated": "[Codex] Add browser use external feature flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19882 Add /hooks browser for lifecycle hooks",
+      "translated": "Add /hooks browser for lifecycle hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20275 fix: show correct Bedrock runtime endpoint in /status",
+      "translated": "Fix: show correct Bedrock runtime endpoint in /status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20270 [codex] Fix elevated Windows sandbox named-pipe access",
+      "translated": "[codex] Fix elevated Windows sandbox named-pipe access"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20463 feat(rollouts): store EventMsg::ApplyPatchEnd in limited history mode",
+      "translated": "Feat(rollouts): store EventMsg::ApplyPatchEnd in limited history mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20101 install WFP filters for Windows sandbox setup",
+      "translated": "Install WFP filters for Windows sandbox setup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20474 [plugin] Add Canva to suggesteable list.",
+      "translated": "[plugin] Add Canva to suggesteable list."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20379 Send external import completion for sync imports",
+      "translated": "Send external import completion for sync imports"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19280 [codex] Migrate thread turns list to thread store",
+      "translated": "[codex] Migrate thread turns list to thread store"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20348 Move plugin out of core.",
+      "translated": "Move plugin out of core."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19160 Make apply_patch streaming parser stateful",
+      "translated": "Make apply_patch streaming parser stateful"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20504 fix flaky test falls_back_to_registered_fallback_port_when_default_po…",
+      "translated": "Fix flaky test falls_back_to_registered_fallback_port_when_default_po…"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20098 fix: ignore dangerous project-level config keys",
+      "translated": "Fix: ignore dangerous project-level config keys"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20268 Sync remote installed plugin bundles",
+      "translated": "Sync remote installed plugin bundles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20502 fix(tui): set persist_extended_history: false",
+      "translated": "Fix(tui): set persist_extended_history: false"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20069 Bypass review for always-allow MCP tools in auto-review",
+      "translated": "Bypass review for always-allow MCP tools in auto-review"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18595 feat(tui): add vim composer mode",
+      "translated": "Feat(tui): add vim composer mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20267 Emit analytics for remote plugin installs",
+      "translated": "Emit analytics for remote plugin installs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20499 fix(app-server): mark thread/turns/list and exclude_turns as experime…",
+      "translated": "Fix(app-server): mark thread/turns/list and exclude_turns as experime…"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20522 Alias codex_hooks feature as hooks",
+      "translated": "Alias codex_hooks feature as hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20336 execpolicy: unwrap PowerShell -Command wrappers on Windows",
+      "translated": "Execpolicy: unwrap PowerShell -Command wrappers on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20113 fix(exec_policy) heredoc parsing file_redirect",
+      "translated": "Fix(exec_policy) heredoc parsing file_redirect"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20341 app-server: switch remote control to protocol v3 segmentation",
+      "translated": "App-server: switch remote control to protocol v3 segmentation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20300 [codex-analytics] centralize thread analytics state",
+      "translated": "[codex-analytics] centralize thread analytics state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20484 [codex] Improve PR babysitter CI diagnostics and guardrails",
+      "translated": "[codex] Improve PR babysitter CI diagnostics and guardrails"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20298 Surface admin-disabled remote plugin status",
+      "translated": "Surface admin-disabled remote plugin status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20511 [codex] Remove unused event messages",
+      "translated": "[codex] Remove unused event messages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19474 Make thread store process-scoped",
+      "translated": "Make thread store process-scoped"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20558 Format multi-day goal durations in the TUI",
+      "translated": "Format multi-day goal durations in the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19631 Color TUI statusline from active theme",
+      "translated": "Color TUI statusline from active theme"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20265 Refresh remote plugin cache on auth changes",
+      "translated": "Refresh remote plugin cache on auth changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20150 Add remote plugin skill read API",
+      "translated": "Add remote plugin skill read API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20560 feat: Track local paths for shared plugins",
+      "translated": "Feat: Track local paths for shared plugins"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20600 chore: allow memories edition",
+      "translated": "Chore: allow memories edition"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20602 feat: ad-hoc instructions",
+      "translated": "Feat: ad-hoc instructions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20610 chore: improve remember prompt",
+      "translated": "Chore: improve remember prompt"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20606 feat: seed ad-hoc memory extension instructions",
+      "translated": "Feat: seed ad-hoc memory extension instructions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20405 feat: export and replay effective config locks",
+      "translated": "Feat: export and replay effective config locks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20540 Move apply-patch file changes into turn items",
+      "translated": "Move apply-patch file changes into turn items"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20564 Enforce `animations = false` for screen readers",
+      "translated": "Enforce `animations = false` for screen readers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20523 Remove no-tool goal continuation suppression",
+      "translated": "Remove no-tool goal continuation suppression"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20627 fix: cargo deny",
+      "translated": "Fix: cargo deny"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20545 app-server: move transport into dedicated crate",
+      "translated": "App-server: move transport into dedicated crate"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20294 Add /ide context support to the TUI",
+      "translated": "Add /ide context support to the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20630 [codex] Add Codex environment config",
+      "translated": "[codex] Add Codex environment config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20524 deprecate legacy notify",
+      "translated": "Deprecate legacy notify"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20486 [codex] Migrate loaded thread/read history to ThreadStore",
+      "translated": "[codex] Migrate loaded thread/read history to ThreadStore"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20281 Use selected turn environments for runtime context",
+      "translated": "Use selected turn environments for runtime context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20535 fix(tui): restore alt-enter newline alias",
+      "translated": "Fix(tui): restore alt-enter newline alias"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20650 fix: reduce ConfigBuilder::build stack usage",
+      "translated": "Fix: reduce ConfigBuilder::build stack usage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20478 /plugins: add marketplace upgrade flow",
+      "translated": "/plugins: add marketplace upgrade flow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20512 [codex] Emit image view as core item",
+      "translated": "[codex] Emit image view as core item"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20562 Use the 2025-06-18 elicitation capability shape",
+      "translated": "Use the 2025-06-18 elicitation capability shape"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20674 Clear live hook rows when turns finalize",
+      "translated": "Clear live hook rows when turns finalize"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20646 Surface multi-environment choices in environment context",
+      "translated": "Surface multi-environment choices in environment context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20542 Prune unused code-mode globals",
+      "translated": "Prune unused code-mode globals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20585 ci: cross-compile Windows Bazel tests",
+      "translated": "Ci: cross-compile Windows Bazel tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20701 ci: cross-compile Windows Bazel clippy",
+      "translated": "Ci: cross-compile Windows Bazel clippy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20676 Fix custom CA login behind TLS-inspecting proxies",
+      "translated": "Fix custom CA login behind TLS-inspecting proxies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20654 fix(tui): bound startup terminal probes",
+      "translated": "Fix(tui): bound startup terminal probes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20566 [tool_suggest] More prompt polishes.",
+      "translated": "[tool_suggest] More prompt polishes."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20751 Bound websocket request sends with idle timeout",
+      "translated": "Bound websocket request sends with idle timeout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20893 [codex] Add issue labeler area labels",
+      "translated": "[codex] Add issue labeler area labels"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20896 Remove local docs and specs",
+      "translated": "Remove local docs and specs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20897 [codex] Refactor app-server dispatch result flow",
+      "translated": "[codex] Refactor app-server dispatch result flow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20677 [codex] Emit MCP tool calls as turn items",
+      "translated": "[codex] Emit MCP tool calls as turn items"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20973 feat: support template interpolation in multi-agent usage hints",
+      "translated": "Feat: support template interpolation in multi-agent usage hints"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20622 feat: memories mcp v1",
+      "translated": "Feat: memories mcp v1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20773 feat: add remote compaction v2 Responses client path",
+      "translated": "Feat: add remote compaction v2 Responses client path"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20986 feat: add line offsets to memory read MCP",
+      "translated": "Feat: add line offsets to memory read MCP"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20991 feat: add max_lines to memories MCP read",
+      "translated": "Feat: add max_lines to memories MCP read"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20993 feat: paginate MCP memories list",
+      "translated": "Feat: paginate MCP memories list"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20994 feat: make memories MCP list shallow",
+      "translated": "Feat: make memories MCP list shallow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20996 feat: paginate memories MCP search results",
+      "translated": "Feat: paginate memories MCP search results"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20997 feat: add context lines to memories MCP search",
+      "translated": "Feat: add context lines to memories MCP search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20998 nit: renaming",
+      "translated": "Nit: renaming"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21004 feat: support multi-query memories search",
+      "translated": "Feat: support multi-query memories search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21006 nit: legacy",
+      "translated": "Nit: legacy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20815 Speed up /side parent restore replay",
+      "translated": "Speed up /side parent restore replay"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20790 Keep paused goals paused on thread resume",
+      "translated": "Keep paused goals paused on thread resume"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20940 [codex] Split app-server request processors",
+      "translated": "[codex] Split app-server request processors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21023 typo",
+      "translated": "Typo"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21012 memories/mcp: generate tool schemas with schemars",
+      "translated": "Memories/mcp: generate tool schemas with schemars"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21010 memories-mcp: reject symlink traversal in local backend",
+      "translated": "Memories-mcp: reject symlink traversal in local backend"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20989 core: share responses request builder with compact requests",
+      "translated": "Core: share responses request builder with compact requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20853 [mcp-apps] Persist MCP Apps specific tool call end event.",
+      "translated": "[mcp-apps] Persist MCP Apps specific tool call end event."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20750 Unify skip-review handling for approval_mode = \"approve\"",
+      "translated": "Unify skip-review handling for approval_mode = \"approve\""
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20682 feat(app-server): always return limited thread history",
+      "translated": "Feat(app-server): always return limited thread history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20628 fix(linux-sandbox): fall back when system bwrap lacks perms",
+      "translated": "Fix(linux-sandbox): fall back when system bwrap lacks perms"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#20794 feat(tui): add keymap debug inspector",
+      "translated": "Feat(tui): add keymap debug inspector"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21034 tui: retire /approvals and rename /autoreview to /approve",
+      "translated": "Tui: retire /approvals and rename /autoreview to /approve"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20669 Prepare selected environment plumbing",
+      "translated": "Prepare selected environment plumbing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20685 Fix Windows PTY teardown by preserving ConPTY ownership",
+      "translated": "Fix Windows PTY teardown by preserving ConPTY ownership"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20663 Add stdio exec-server listener",
+      "translated": "Add stdio exec-server listener"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20561 state: pass state db handles through consumers",
+      "translated": "State: pass state db handles through consumers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21054 rollout: store web search and mcp tool calls",
+      "translated": "Rollout: store web search and mcp tool calls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20892 feat(tui): add PR summary statusline items",
+      "translated": "Feat(tui): add PR summary statusline items"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20798 feat(tui): improve TUI keymap coverage",
+      "translated": "Feat(tui): improve TUI keymap coverage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21053 Use MCP server instructions in deferred namespace descriptions",
+      "translated": "Use MCP server instructions in deferred namespace descriptions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21026 core: preserve last model ids in feedback tags",
+      "translated": "Core: preserve last model ids in feedback tags"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21060 core: fix apply_patch request permissions test",
+      "translated": "Core: fix apply_patch request permissions test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20060 Add reasoning effort to turn tracing spans",
+      "translated": "Add reasoning effort to turn tracing spans"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21058 fix(tui): support modified backspace/delete keys",
+      "translated": "Fix(tui): support modified backspace/delete keys"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21057 bazel: run sharded rust integration tests",
+      "translated": "Bazel: run sharded rust integration tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18914 fix(tui): use shared paste burst interval on Windows",
+      "translated": "Fix(tui): use shared paste burst interval on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20715 Make realtime sideband startup async",
+      "translated": "Make realtime sideband startup async"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20514 [codex-analytics] add item lifecycle timing",
+      "translated": "[codex-analytics] add item lifecycle timing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20722 Remove remote plugin uninstall prefix gate",
+      "translated": "Remove remote plugin uninstall prefix gate"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19040 [codex] Add unsandboxed process exec API",
+      "translated": "[codex] Add unsandboxed process exec API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21105 [network-proxy] Cover DNS timeout blocking",
+      "translated": "[network-proxy] Cover DNS timeout blocking"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21059 Rename agent identity login surface to access token",
+      "translated": "Rename agent identity login surface to access token"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20576 codex: route metadata updates through ThreadStore",
+      "translated": "Codex: route metadata updates through ThreadStore"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20923 Add plugin ID to skill analytics",
+      "translated": "Add plugin ID to skill analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21122 Add turn_id to Codex skill invocation analytics",
+      "translated": "Add turn_id to Codex skill invocation analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20575 codex: migrate (more) app-server thread history reads to ThreadStore",
+      "translated": "Codex: migrate (more) app-server thread history reads to ThreadStore"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21069 Spill large hook outputs from context",
+      "translated": "Spill large hook outputs from context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20969 1- Add model service tiers metadata",
+      "translated": "1- Add model service tiers metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21170 tools: remove unused experimental `list_dir` tool",
+      "translated": "Tools: remove unused experimental `list_dir` tool"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21201 memories-mcp: hide dot paths from list, read, and search",
+      "translated": "Memories-mcp: hide dot paths from list, read, and search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21204 feat: support windowed multi-query memory search",
+      "translated": "Feat: support windowed multi-query memory search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21205 feat: add normalized matching to memory search",
+      "translated": "Feat: add normalized matching to memory search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20207 fix(tui): make /copy work inside tmux without passthrough",
+      "translated": "Fix(tui): make /copy work inside tmux without passthrough"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20799 Add goal lifecycle metrics",
+      "translated": "Add goal lifecycle metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20746 Validate /goal objective length in TUI",
+      "translated": "Validate /goal objective length in TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20708 Add Windows sandbox readiness RPC",
+      "translated": "Add Windows sandbox readiness RPC"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20692 Support PreToolUse additionalContext",
+      "translated": "Support PreToolUse additionalContext"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21091 [codex] Fix TUI large paste placeholder numbering after Ctrl+C",
+      "translated": "[codex] Fix TUI large paste placeholder numbering after Ctrl+C"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21089 [codex] Fix fork --last cwd filtering",
+      "translated": "[codex] Fix fork --last cwd filtering"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21152 revert legacy notify deprecation",
+      "translated": "Revert legacy notify deprecation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21190 fix(tui): external editor expansion for same-size large pastes",
+      "translated": "Fix(tui): external editor expansion for same-size large pastes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20111 fix(sandboxing): Bound advisory system bwrap startup probe",
+      "translated": "Fix(sandboxing): Bound advisory system bwrap startup probe"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21220 chore: add minimal proxy egress diagnostics",
+      "translated": "Chore: add minimal proxy egress diagnostics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20819 feat(tui): add raw scrollback mode",
+      "translated": "Feat(tui): add raw scrollback mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21225 app-server: ignore persist_extended_history param",
+      "translated": "App-server: ignore persist_extended_history param"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17089 [codex-analytics] add tool item event schemas",
+      "translated": "[codex-analytics] add tool item event schemas"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20647 Route process tools to selected environments",
+      "translated": "Route process tools to selected environments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20321 hook trust metadata and enforcement",
+      "translated": "Hook trust metadata and enforcement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21221 [codex] Use shared app-server JSON-RPC error helpers",
+      "translated": "[codex] Use shared app-server JSON-RPC error helpers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21063 add turn items view to app-server turns",
+      "translated": "Add turn items view to app-server turns"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21001 feat(tui): route /diff through workspace commands",
+      "translated": "Feat(tui): route /diff through workspace commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20065 feat(tui): redesign session picker",
+      "translated": "Feat(tui): redesign session picker"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21127 fix(linux-sandbox): avoid panic on bwrap build failures",
+      "translated": "Fix(linux-sandbox): avoid panic on bwrap build failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21234 fix(linux-sandbox): isolate Linux sandbox synthetic mount registry per user for shared codex use case",
+      "translated": "Fix(linux-sandbox): isolate Linux sandbox synthetic mount registry per user for shared codex use case"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20687 [codex] Split tool handlers by tool name",
+      "translated": "[codex] Split tool handlers by tool name"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21113 Auto-deny MCP elicitations for Xcode 26.4 clients",
+      "translated": "Auto-deny MCP elicitations for Xcode 26.4 clients"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21243 [codex] fix TUI turn items view fixtures",
+      "translated": "[codex] fix TUI turn items view fixtures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21146 Enable V8 sandboxing for source-built builds",
+      "translated": "Enable V8 sandboxing for source-built builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20689 Inject state DB, agent graph store",
+      "translated": "Inject state DB, agent graph store"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19575 Add cloud executor registration to exec-server",
+      "translated": "Add cloud executor registration to exec-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20577 codex: use ThreadStore history for core review forks",
+      "translated": "Codex: use ThreadStore history for core review forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21261 fix build",
+      "translated": "Fix build"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21251 chore(app-server-protocol): split v2 API definitions into modules",
+      "translated": "Chore(app-server-protocol): split v2 API definitions into modules"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21259 ci: trigger rusty-v8 releases from tags",
+      "translated": "Ci: trigger rusty-v8 releases from tags"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21255 linux-sandbox: use standalone bundled bwrap",
+      "translated": "Linux-sandbox: use standalone bundled bwrap"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21256 release: publish standalone bwrap artifacts",
+      "translated": "Release: publish standalone bwrap artifacts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21260 [codex] Move thread naming to app server",
+      "translated": "[codex] Move thread naming to app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21219 Add model and reasoning effort to MCP turn metadata",
+      "translated": "Add model and reasoning effort to MCP turn metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21275 Share Git safe-command logic on Windows",
+      "translated": "Share Git safe-command logic on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21257 release/npm: bundle standalone bwrap on Linux",
+      "translated": "Release/npm: bundle standalone bwrap on Linux"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21276 [codex] Remove unused ListModels op",
+      "translated": "[codex] Remove unused ListModels op"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21282 [codex] Remove legacy ListSkills op",
+      "translated": "[codex] Remove legacy ListSkills op"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21271 Expose plugin manifest keywords in app server",
+      "translated": "Expose plugin manifest keywords in app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20949 [codex-analytics] rework thread_source for thread analytics",
+      "translated": "[codex-analytics] rework thread_source for thread analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21124 feat: Add plugin share access controls",
+      "translated": "Feat: Add plugin share access controls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20724 app-server: align dynamic tool identifiers with Responses API",
+      "translated": "App-server: align dynamic tool identifiers with Responses API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21055 Preserve session MCP config on refresh",
+      "translated": "Preserve session MCP config on refresh"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21277 [mcp] Return Accept early per feedback.",
+      "translated": "[mcp] Return Accept early per feedback."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21285 fix(bwrap): emit libcap after standalone archive",
+      "translated": "Fix(bwrap): emit libcap after standalone archive"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21312 release: bundle bwrap with Linux codex DotSlash artifact",
+      "translated": "Release: bundle bwrap with Linux codex DotSlash artifact"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19193 Support Codex Apps auth elicitations",
+      "translated": "Support Codex Apps auth elicitations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20437 feat: add `session_id`",
+      "translated": "Feat: add `session_id`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21328 test: isolate app-server-client in-process test state",
+      "translated": "Test: isolate app-server-client in-process test state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21329 feat: include thread ID in MCP turn metadata",
+      "translated": "Feat: include thread ID in MCP turn metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21332 feat: return session ID from thread/fork",
+      "translated": "Feat: return session ID from thread/fork"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21337 Revert \"feat: support template interpolation in multi-agent usage hints\"",
+      "translated": "Revert \"feat: support template interpolation in multi-agent usage hints\""
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21249 Propagate cache key and service tiers in compact",
+      "translated": "Propagate cache key and service tiers in compact"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21182 Move installation ID resolution out of core startup",
+      "translated": "Move installation ID resolution out of core startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21214 chore: spawn MCP for memories",
+      "translated": "Chore: spawn MCP for memories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21336 feat(app-server): move v2 `sessionId` onto `Thread`",
+      "translated": "Feat(app-server): move v2 `sessionId` onto `Thread`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21350 [codex] fix builtin MCP Windows path test",
+      "translated": "[codex] fix builtin MCP Windows path test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20971 2- Use string service tiers in session protocol",
+      "translated": "2- Use string service tiers in session protocol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21278 Move message history out of core",
+      "translated": "Move message history out of core"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21284 [codex] Add response.processed websocket request",
+      "translated": "[codex] Add response.processed websocket request"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21367 rollout: coalesce thread updated_at touches",
+      "translated": "Rollout: coalesce thread updated_at touches"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21378 feat: move auto vaccum",
+      "translated": "Feat: move auto vaccum"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21263 [codex] Coordinate OpenAI docs sample with API key setup",
+      "translated": "[codex] Coordinate OpenAI docs sample with API key setup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21351 fix(tui): keep Ctrl-C stashed drafts after /clear",
+      "translated": "Fix(tui): keep Ctrl-C stashed drafts after /clear"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21389 vendor: update bubblewrap to 0.11.2",
+      "translated": "Vendor: update bubblewrap to 0.11.2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21281 Remove core MCP list tools op",
+      "translated": "Remove core MCP list tools op"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21381 [codex] Handle git pagination flags by position",
+      "translated": "[codex] Handle git pagination flags by position"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21397 fix(tui): persist ctrl-c draft via app event",
+      "translated": "Fix(tui): persist ctrl-c draft via app event"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19431 Route opted-in MCP elicitations through Guardian",
+      "translated": "Route opted-in MCP elicitations through Guardian"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21107 Avoid noisy OTEL diagnostics in codex exec",
+      "translated": "Avoid noisy OTEL diagnostics in codex exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21390 Avoid hard-coded environment context shell",
+      "translated": "Avoid hard-coded environment context shell"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21090 [codex] Dedupe fallback model metadata warnings",
+      "translated": "[codex] Dedupe fallback model metadata warnings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21395 [codex] Split tool handlers into separate files",
+      "translated": "[codex] Split tool handlers into separate files"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21401 [codex-tui] pass thread source for tui threads",
+      "translated": "[codex-tui] pass thread source for tui threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#17090 [codex-analytics] emit tool item events from item lifecycle",
+      "translated": "[codex-analytics] emit tool item events from item lifecycle"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21409 [codex] Fix Windows sandbox git safe.directory for worktrees",
+      "translated": "[codex] Fix Windows sandbox git safe.directory for worktrees"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21379 Document Codex git commit attribution config",
+      "translated": "Document Codex git commit attribution config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21287 Move skills watcher to app-server",
+      "translated": "Move skills watcher to app-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21416 [codex] Move tool specs into core handlers",
+      "translated": "[codex] Move tool specs into core handlers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21419 feat: Add marketplace source filtering and plugin share context",
+      "translated": "Feat: Add marketplace source filtering and plugin share context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#19905 Add compact lifecycle hooks (started by vincentkoc - external contrib)",
+      "translated": "Add compact lifecycle hooks (started by vincentkoc - external contrib)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21460 Revert \"Move skills watcher to app-server\"",
+      "translated": "Revert \"Move skills watcher to app-server\""
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21450 fix(tui): clear first inline viewport render",
+      "translated": "Fix(tui): clear first inline viewport render"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21427 [codex] Delete tool handler plan indirection",
+      "translated": "[codex] Delete tool handler plan indirection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21423 [codex] Add OpenAI Developers to tool suggest allowlist",
+      "translated": "[codex] Add OpenAI Developers to tool suggest allowlist"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21340 [codex] allow shared config reads in app-server queue",
+      "translated": "[codex] allow shared config reads in app-server queue"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21441 [codex] Parallelize skills list cwd loading",
+      "translated": "[codex] Parallelize skills list cwd loading"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21481 Revert state DB injection and agent graph store",
+      "translated": "Revert state DB injection and agent graph store"
+    }
+  ],
+  "translatedAt": "2026-05-07T19:58:39.942Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 12245
+}
