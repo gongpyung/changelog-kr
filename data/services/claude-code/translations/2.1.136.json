@@ -1,0 +1,326 @@
+{
+  "version": "2.1.136",
+  "date": "2026-05-08",
+  "parsedAt": "2026-05-08T19:46:37.446Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry",
+      "translated": "OpenTelemetry를 통해 응답을 수집하는 기업용 세션 품질 설문을 다시 활성화하기 위해 `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `settings.autoMode.hard_deny` for auto mode classifier rules that block unconditionally regardless of user intent or allow exceptions",
+      "translated": "사용자 의도나 허용 예외와 관계없이 무조건 차단하는 자동 모드 분류 규칙을 위한 `settings.autoMode.hard_deny` 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers configured in `.mcp.json`, plugins, and claude.ai connectors silently disappearing after `/clear` in the VS Code extension, JetBrains plugin, and Agent SDK",
+      "translated": "VS Code 확장 프로그램, JetBrains 플러그인 및 Agent SDK에서 `/clear` 실행 후 `.mcp.json`에 설정된 MCP 서버, 플러그인, claude.ai 커넥터가 예기치 않게 사라지는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare login loop where a concurrent credential write could overwrite a freshly-rotated OAuth token and force re-login",
+      "translated": "동시 자격 증명 쓰기로 인해 새로 갱신된 OAuth 토큰이 덮어씌워져 재로그인이 강제되는 드문 로그인 루프 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth refresh tokens being lost when multiple servers refresh concurrently — users with several remote MCP servers should no longer need daily re-authentication",
+      "translated": "여러 서버가 동시에 갱신될 때 MCP OAuth 리프레시 토큰이 유실되는 문제 수정 — 이제 여러 원격 MCP 서버를 사용하는 사용자가 매일 다시 인증할 필요가 없음"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an API error (400) when extended thinking emitted a redacted thinking block after a tool call",
+      "translated": "도구 호출 후 확장 추론(extended thinking)에서 편집된(redacted) 추론 블록이 생성될 때 발생하는 API 오류(400) 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` / `--continue` not finding sessions when the project path contains underscores",
+      "translated": "프로젝트 경로에 언더스코어(`_`)가 포함된 경우 `--resume` 및 `--continue`가 세션을 찾지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan mode not blocking file writes when a matching `Edit(...)` allow rule exists",
+      "translated": "일치하는 `Edit(...)` 허용 규칙이 있을 때 플랜 모드에서 파일 쓰기가 차단되지 않는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WSL2: image paste from Windows clipboard now works via a PowerShell fallback when xclip/wl-paste cannot read image data",
+      "translated": "WSL2: `xclip` 또는 `wl-paste`가 이미지 데이터를 읽을 수 없는 경우 PowerShell을 대체 수단으로 사용하여 Windows 클립보드에서 이미지 붙여넣기 기능 지원"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin `Stop`/`UserPromptSubmit` hooks failing when cache cleanup deletes a version still in use by a running session",
+      "translated": "캐시 정리 시 실행 중인 세션에서 사용 중인 버전이 삭제되어 플러그인의 `Stop` 및 `UserPromptSubmit` 훅이 실패하는 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved visual consistency across slash command dialogs: standardized footer hints, dialog spacing, and arrow-key styling, and the dialog frame now appears immediately during loading instead of popping in after",
+      "translated": "슬래시 명령어 대화 상자의 시각적 일관성 개선: 하단 힌트, 대화 상자 간격, 화살표 키 스타일 표준화 및 로딩 중 대화 상자 프레임이 지연 없이 즉시 나타나도록 개선"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed colors appearing at wrong positions in bash command output and markdown code blocks",
+      "translated": "bash 명령어 출력 및 마크다운 코드 블록에서 색상이 잘못된 위치에 표시되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ReasonML diffs rendering corrupted \"undefined\" text artifacts at word-diff boundaries",
+      "translated": "ReasonML diff에서 단어 단위 차이 경계에 \"undefined\" 텍스트 아티팩트가 잘못 렌더링되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worktree exit dialog warning about uncommitted files in the wrong directory after worktree removal",
+      "translated": "worktree 제거 후 종료 대화 상자에서 잘못된 디렉토리의 커밋되지 않은 파일에 대해 경고하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `@` file picker not matching files created mid-session in small non-git directories",
+      "translated": "git을 사용하지 않는 작은 디렉토리에서 세션 중간에 생성된 파일을 `@` 파일 선택기가 찾지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `@`-mention file picker not finding files in directories with more than 100 entries",
+      "translated": "항목이 100개 이상인 디렉토리에서 `@` 멘션 파일 선택기가 파일을 찾지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed failed tool calls not being click-to-expand in fullscreen mode when their output was truncated",
+      "translated": "전체 화면 모드에서 출력이 잘린 실패한 도구 호출을 클릭하여 확장할 수 없는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an external editor on terminals with persistent extended-key modes",
+      "translated": "확장 키 모드가 유지되는 터미널에서 `Ctrl+G`로 외부 편집기를 연 후 Backspace와 `Ctrl+Backspace`가 서로 바뀌는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage` weekly reset showing time of day instead of the calendar date",
+      "translated": "`/usage` 주간 초기화 안내 시 달력 날짜 대신 시간이 표시되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed welcome banner ellipsis causing column overflow on CJK terminals",
+      "translated": "CJK 터미널에서 환영 배너의 말줄임표로 인해 열 너비가 초과되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/insights` crash when session history contains tool calls with malformed input fields",
+      "translated": "세션 기록에 잘못된 형식의 입력 필드가 포함된 도구 호출이 있을 때 `/insights`가 충돌하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a renderer crash when a tool's collapsibility classification changes mid-session",
+      "translated": "세션 도중 도구의 접기 가능 여부 분류가 변경될 때 렌더러가 충돌하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a `skills` entry in `plugin.json` hiding the plugin's default `skills/` directory, and listing a file path now shows an error instead of failing silently",
+      "translated": "`plugin.json`의 `skills` 항목이 플러그인의 기본 `skills/` 디렉토리를 숨기던 문제를 수정하고, 파일 경로를 나열할 때 무시되는 대신 오류를 표시하도록 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed IDE shell-integration lock files not respecting `CLAUDE_CONFIG_DIR`",
+      "translated": "IDE 셸 통합 잠금 파일이 `CLAUDE_CONFIG_DIR`을 준수하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed trailing whitespace in copied terminal output during streaming",
+      "translated": "스트리밍 중 복사된 터미널 출력에 후행 공백이 포함되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin uninstall and enable/disable not matching slugs case-insensitively",
+      "translated": "플러그인 삭제 및 활성화/비활성화 시 슬러그의 대소문자를 구분하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tool error truncation marker showing a negative count for surrogate-pair strings",
+      "translated": "서로게이트 쌍(surrogate-pair) 문자열에 대해 도구 오류 절삭 표시기가 음수 값을 표시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed env vars from `CLAUDE_ENV_FILE` SessionStart hooks going stale after `/resume` or `/clear`",
+      "translated": "`/resume` 또는 `/clear` 이후 `CLAUDE_ENV_FILE` SessionStart 훅의 환경 변수가 최신 상태를 유지하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/branch` saving a multi-line session title when given a pasted multi-line name",
+      "translated": "여러 줄의 이름을 붙여넣었을 때 `/branch`가 여러 줄로 된 세션 제목을 저장하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a stray leading space on the second line of wrapped text at the column boundary",
+      "translated": "열 경계에서 줄바꿈된 텍스트의 두 번째 줄 처음에 불필요한 공백이 생기는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`, and `/web-setup`",
+      "translated": "`/install-github-app`, `/desktop`, `/resume`, `/web-setup`에서 Esc 키로 대화 상자를 닫을 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/doctor` MCP schema errors not naming the missing field or showing the source file path",
+      "translated": "`/doctor` 실행 시 MCP 스키마 오류에서 누락된 필드 이름이나 소스 파일 경로가 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission prompts showing an internal parser diagnostic instead of a user-readable explanation",
+      "translated": "Bash 권한 요청 시 사용자용 설명 대신 내부 파서 진단 메시지가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin slash commands with spaces (e.g. `/myplugin review`) not resolving to their namespaced form",
+      "translated": "공백이 포함된 플러그인 슬래시 명령어(예: `/myplugin review`)가 네임스페이스 형식으로 해석되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `AskUserQuestion` discarding multi-select answers when supplied as an array",
+      "translated": "`AskUserQuestion`에 다중 선택 답변이 배열로 제공될 때 이를 무시하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/clear <name>` not labeling the cleared session for `/resume`",
+      "translated": "`/clear <name>` 실행 시 삭제된 세션이 `/resume`을 위해 라벨링되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CronList` output missing qualifiers and the scheduled prompt",
+      "translated": "`CronList` 출력에서 한정자(qualifiers)와 예약된 프롬프트가 누락되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Jump to bottom\" overlay leaving color artifacts on CJK characters in fullscreen mode",
+      "translated": "전체 화면 모드에서 \"Jump to bottom\" 오버레이가 CJK 문자 위에 색상 잔상을 남기던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed wide markdown tables leaving a stale bordered render in terminal scrollback while streaming",
+      "translated": "스트리밍 중 너비가 넓은 마크다운 표가 터미널 스크롤백에 비정상적인 테두리 렌더링을 남기던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasted text being silently dropped when a long prompt with a pasted-text placeholder was auto-truncated",
+      "translated": "붙여넣은 텍스트 자리 표시자가 포함된 긴 프롬프트가 자동 절삭될 때 붙여넣은 텍스트가 누락되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/release-notes` getting stuck on an old version after a failed changelog refresh",
+      "translated": "변경 로그 새로고침 실패 후 `/release-notes`가 이전 버전에 멈춰 있던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/mcp` server list not scrolling when there are more servers than fit in the terminal",
+      "translated": "터미널 화면보다 서버가 많을 때 `/mcp` 서버 목록이 스크롤되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mid-input slash command autocomplete not working after an initial slash command",
+      "translated": "첫 번째 슬래시 명령어 이후 입력 중간에 슬래시 명령어 자동 완성이 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scrolling to bottom re-engaging auto-follow with `autoScrollEnabled: false`",
+      "translated": "`autoScrollEnabled: false` 설정 시에도 하단으로 스크롤하면 자동 따라가기(auto-follow)가 다시 활성화되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt suggestions being auto-submitted by Enter on an empty input instead of requiring Tab or arrow to accept",
+      "translated": "빈 입력창에서 프롬프트 제안을 수락하기 위해 Tab이나 화살표 키를 사용하는 대신 Enter를 누르면 자동 제출되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed keyboard shortcut hints not reflecting rebound keys from `keybindings.json`",
+      "translated": "`keybindings.json`에서 변경한 단축키가 키보드 단축키 힌트에 반영되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/settings` language change being reverted on Escape after confirming",
+      "translated": "`/settings`에서 언어 변경을 확인한 후 Escape 키를 누르면 변경 사항이 취소되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/terminal-setup` only appearing in autocomplete on exact name match instead of partial prefixes",
+      "translated": "`/terminal-setup`이 부분 일치가 아닌 전체 이름이 정확히 일치해야만 자동 완성에 나타나던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Chat about this\" on an `AskUserQuestion` dialog erasing the question text",
+      "translated": "`AskUserQuestion` 대화 상자에서 \"Chat about this\" 클릭 시 질문 텍스트가 삭제되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool results being invisible when the server returns content blocks",
+      "translated": "서버가 콘텐츠 블록을 반환할 때 MCP 도구 결과가 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved error message when `--worktree` collides with an existing or stale worktree",
+      "translated": "`--worktree`가 기존 또는 오래된 작업 트리와 충돌할 때의 에러 메시지 개선"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plugin marketplace removal key to `d` (matching delete elsewhere) instead of `r` which collided with retry",
+      "translated": "플러그인 마켓플레이스의 삭제 키를 재시도와 충돌하던 `r` 대신 다른 삭제 기능과 일치하도록 `d`로 변경"
+    }
+  ],
+  "translatedAt": "2026-05-08T19:47:49.095Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5237
+}
