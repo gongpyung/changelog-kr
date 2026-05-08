@@ -1,0 +1,116 @@
+{
+  "version": "2.1.133",
+  "date": "2026-05-07",
+  "parsedAt": "2026-05-08T03:55:36.289Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `worktree.baseRef` setting (`fresh` | `head`) to choose whether `--worktree`, `EnterWorktree`, and agent-isolation worktrees branch from `origin/<default>` or local `HEAD`. **Note:** the default `fresh` changes `EnterWorktree`'s base back to `origin/<default>` (it has been local `HEAD` since 2.1.128) — set `worktree.baseRef: \"head\"` to keep unpushed commits in new worktrees",
+      "translated": "`--worktree`, `EnterWorktree`, 에이전트 격리 worktree가 `origin/<default>` 또는 로컬 `HEAD` 중 어디에서 분기할지 선택할 수 있는 `worktree.baseRef` 설정(`fresh` | `head`)을 추가했습니다. **참고:** 기본값인 `fresh`는 `EnterWorktree`의 베이스를 다시 `origin/<default>`로 변경합니다(2.1.128 버전 이후 로컬 `HEAD`였음). 새 worktree에서 푸시되지 않은 커밋을 유지하려면 `worktree.baseRef: \"head\"`로 설정하세요."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `sandbox.bwrapPath` and `sandbox.socatPath` managed settings (Linux/WSL) to specify custom bubblewrap and socat binary locations",
+      "translated": "사용자 정의 bubblewrap 및 socat 바이너리 위치를 지정할 수 있는 `sandbox.bwrapPath` 및 `sandbox.socatPath` 관리형 설정(Linux/WSL)을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `parentSettingsBehavior` admin-tier key (`'first-wins' | 'merge'`) to let admins opt SDK `managedSettings` (parent tier) into the policy merge",
+      "translated": "관리자가 SDK `managedSettings`(상위 계층)를 정책 병합에 포함할 수 있도록 하는 관리자 계층 키 `parentSettingsBehavior`(`'first-wins' | 'merge'`)를 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks now receive the active effort level via the `effort.level` JSON input field and the `$CLAUDE_EFFORT` environment variable, and Bash tool commands can read `$CLAUDE_EFFORT`",
+      "translated": "이제 훅(Hooks)에서 `effort.level` JSON 입력 필드와 `$CLAUDE_EFFORT` 환경 변수를 통해 활성 노력 수준(effort level)을 전달받으며, Bash 도구 명령에서도 `$CLAUDE_EFFORT`를 읽을 수 있습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved focus mode behavior",
+      "translated": "포커스 모드 동작을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved memory usage by releasing warm-spare background workers under memory pressure",
+      "translated": "메모리 부족 시 대기 중인(warm-spare) 백그라운드 워커를 해제하여 메모리 사용량을 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed parallel sessions all dead-ending at 401 after a refresh-token race wiped shared credentials",
+      "translated": "리프레시 토큰 경합으로 인해 공유 자격 증명이 삭제되어 병렬 세션이 모두 401 오류로 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Edit`/`Write` allow rules scoped to a drive root (`C:\\`) or POSIX `/` matching incorrectly and always prompting",
+      "translated": "드라이브 루트(`C:\\`) 또는 POSIX `/`로 범위가 지정된 `Edit`/`Write` 허용 규칙이 잘못 일치하여 항상 확인 프롬프트가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an unhandled rejection (`ECOMPROMISED`) when a history or session-log file lock is compromised by clock skew or slow disk",
+      "translated": "클록 스큐(clock skew) 또는 느린 디스크로 인해 기록 또는 세션 로그 파일 잠금이 손상될 때 발생하는 처리되지 않은 거부 오류(`ECOMPROMISED`)를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pressing Esc during conversation compaction showing a spurious \"Error compacting conversation\" notification",
+      "translated": "대화 압축 중 Esc 키를 누르면 \"Error compacting conversation\"이라는 잘못된 알림이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `HTTP(S)_PROXY` / `NO_PROXY` / mTLS not being respected for the full MCP OAuth flow including discovery, dynamic client registration, token exchange, and token refresh",
+      "translated": "검색(discovery), 동적 클라이언트 등록, 토큰 교환 및 토큰 갱신을 포함한 전체 MCP OAuth 흐름에서 `HTTP(S)_PROXY` / `NO_PROXY` / mTLS 설정이 적용되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Read/Write/Edit being denied on mapped network drives passed via `--add-dir` / SDK `additionalDirectories`",
+      "translated": "`--add-dir` 또는 SDK `additionalDirectories`를 통해 전달된 매핑된 네트워크 드라이브에서 읽기/쓰기/수정 권한이 거부되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control stop/interrupt from claude.ai not fully canceling the CLI session the same way local Esc does, causing queued messages to never advance after interrupting a stuck tool or prompt",
+      "translated": "claude.ai의 원격 제어 중지/중단이 로컬 Esc 키와 동일하게 CLI 세션을 완전히 취소하지 못해, 중단된 도구나 프롬프트를 중단한 후 대기 중인 메시지가 진행되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort` in one session unexpectedly changing the effort level of other concurrent sessions, and a related issue where an IDE effort change could be silently dropped",
+      "translated": "한 세션의 `/effort` 설정이 다른 동시 세션의 노력 수준을 예기치 않게 변경하던 문제와 IDE의 노력 수준 변경이 무시될 수 있던 관련 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents not discovering project, user, or plugin skills via the Skill tool",
+      "translated": "서브 에이전트가 Skill 도구를 통해 프로젝트, 사용자 또는 플러그인 스킬을 찾지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude --help` now lists `--remote-control` alongside `--remote-control-session-name-prefix`",
+      "translated": "이제 `claude --help` 실행 시 `--remote-control-session-name-prefix`와 함께 `--remote-control` 옵션이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed `claudeCode.claudeProcessWrapper` failing with \"Unsupported platform\" when the extension build doesn't bundle a Claude binary",
+      "translated": "[VSCode] 확장 프로그램 빌드에 Claude 바이너리가 포함되지 않은 경우 `claudeCode.claudeProcessWrapper`가 \"Unsupported platform\" 오류와 함께 실패하던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-05-08T03:55:52.384Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2381
+}
