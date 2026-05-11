@@ -1,0 +1,314 @@
+{
+  "version": "2.1.139",
+  "date": "2026-05-11",
+  "parsedAt": "2026-05-11T20:05:23.651Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run `claude agents` to get started. See https://code.claude.com/docs/en/agent-view",
+      "translated": "에이전트 뷰(Research Preview) 추가: 실행 중, 사용자 대기 중 또는 완료된 모든 Claude Code 세션을 하나의 목록으로 확인 가능. `claude agents`를 실행하여 시작. https://code.claude.com/docs/en/agent-view 참고."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/goal` command: set a completion condition and Claude keeps working across turns until it's met. Works in interactive, `-p`, and Remote Control. Shows live elapsed/turns/tokens as an overlay panel",
+      "translated": "`/goal` 명령어 추가: 완료 조건을 설정하면 Claude가 조건이 충족될 때까지 여러 턴에 걸쳐 작업을 계속 수행. 대화형 모드, `-p`, Remote Control에서 작동하며, 오버레이 패널을 통해 실시간 경과 시간/턴 수/토큰 사용량을 표시."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/scroll-speed` command to tune mouse wheel scroll speed with a live preview",
+      "translated": "실시간 미리보기와 함께 마우스 휠 스크롤 속도를 조절할 수 있는 `/scroll-speed` 명령어 추가."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude plugin details <name>` to show a plugin's component inventory and projected per-session token cost",
+      "translated": "플러그인의 구성 요소 목록과 세션당 예상 토큰 비용을 보여주는 `claude plugin details <name>` 추가."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added transcript view navigation: `?` for keyboard shortcuts, `{`/`}` to jump between user prompts, `v` to toggle shortcut panel",
+      "translated": "트랜스크립트 뷰 탐색 기능 추가: 키보드 단축키 확인은 `?`, 사용자 프롬프트 간 이동은 `{`/`}`, 단축키 패널 토글은 `v`."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added hook `args: string[]` field (exec form) that spawns the command directly without a shell, so path placeholders never need quoting",
+      "translated": "셸 없이 명령어를 직접 실행하는 훅 `args: string[]` 필드(exec 형식) 추가. 경로 플레이스홀더에 따옴표를 사용할 필요가 없음."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added hook `continueOnBlock` config option for `PostToolUse` — set to `true` to feed the hook's rejection reason back to Claude and continue the turn",
+      "translated": "`PostToolUse`에 대한 훅 `continueOnBlock` 설정 옵션 추가. `true`로 설정하면 훅의 거부 사유를 Claude에게 다시 전달하고 턴을 계속 진행."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP stdio servers now receive `CLAUDE_PROJECT_DIR` in their environment, matching hooks. Plugin configs can reference `${CLAUDE_PROJECT_DIR}` in commands",
+      "translated": "MCP stdio 서버가 훅과 마찬가지로 환경 변수에서 `CLAUDE_PROJECT_DIR`을 수신. 플러그인 설정의 명령어에서 `${CLAUDE_PROJECT_DIR}` 참조 가능."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Compaction prompt now asks the model to preserve sensitive user instructions",
+      "translated": "압축(Compaction) 프롬프트가 이제 모델에게 민감한 사용자 지침을 보존하도록 요청."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/mcp` Reconnect now picks up `.mcp.json` edits without a restart, and shows the HTTP status and URL when reconnecting fails",
+      "translated": "`/mcp` Reconnect 시 재시작 없이 `.mcp.json` 수정 사항을 반영하며, 재연결 실패 시 HTTP 상태 코드와 URL을 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/context all` per-skill token estimates now account for the model's tokenizer and show rounded values",
+      "translated": "`/context all`의 스킬별 토큰 추정치가 이제 모델의 토크나이저를 반영하며 반올림된 값을 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude plugin install <name>@<marketplace>` now auto-refreshes the marketplace and retries before reporting a plugin as not found",
+      "translated": "`claude plugin install <name>@<marketplace>` 실행 시, 플러그인을 찾지 못했다고 보고하기 전에 마켓플레이스를 자동으로 새로고침하고 재시도."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/plugin` installed-plugin details now show hook event names and MCP server names cleanly",
+      "translated": "`/plugin`에서 설치된 플러그인 상세 정보 확인 시 훅 이벤트 이름과 MCP 서버 이름을 깔끔하게 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/context` now shows the providing plugin's name for plugin-sourced skills",
+      "translated": "`/context`에서 플러그인 기반 스킬의 경우 해당 플러그인의 이름을 표시."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote MCP server reconnect retry on transient failures is now enabled for all users",
+      "translated": "일시적인 오류 발생 시 원격 MCP 서버 재연결 재시도 기능이 모든 사용자에게 활성화됨."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "API requests from subagents now carry `x-claude-code-agent-id` / `x-claude-code-parent-agent-id` headers, and `claude_code.llm_request` OTEL spans include `agent_id` / `parent_agent_id` attributes",
+      "translated": "하위 에이전트의 API 요청에 `x-claude-code-agent-id` / `x-claude-code-parent-agent-id` 헤더가 포함되며, `claude_code.llm_request` OTEL 스팬에 `agent_id` / `parent_agent_id` 속성이 포함됨."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control, `/schedule`, claude.ai MCP connectors, and notification preferences are now disabled when `ANTHROPIC_API_KEY` / `apiKeyHelper` / `ANTHROPIC_AUTH_TOKEN` is set, even if a Claude.ai login also exists. Unset the API key to use these features",
+      "translated": "Claude.ai 로그인이 되어 있더라도 `ANTHROPIC_API_KEY`, `apiKeyHelper`, `ANTHROPIC_AUTH_TOKEN` 중 하나가 설정되어 있으면 Remote Control, `/schedule`, claude.ai MCP 커넥터 및 알림 설정이 비활성화됨. 해당 기능을 사용하려면 API 키 설정을 해제해야 함."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a deadlock where expired credentials and the `forceRemoteSettingsRefresh` policy setting blocked `claude auth login`/`logout`/`status` with no way to recover",
+      "translated": "만료된 자격 증명과 `forceRemoteSettingsRefresh` 정책 설정으로 인해 복구 방법 없이 `claude auth login`/`logout`/`status`가 차단되던 데드락 문제 해결."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `autoAllowBashIfSandboxed` not auto-approving commands with shell expansions like `$VAR` and `$(cmd)`",
+      "translated": "`autoAllowBashIfSandboxed`가 `$VAR` 및 `$(cmd)`와 같은 셸 확장이 포함된 명령어를 자동으로 승인하지 않던 문제 해결."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a bug where a hook writing to the terminal could corrupt an on-screen interactive prompt; hooks now run without terminal access",
+      "translated": "터미널에 기록하는 훅이 화면의 대화형 프롬프트를 손상시킬 수 있던 버그 해결. 이제 훅은 터미널 액세스 없이 실행됨."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth when an HTTP/SSE MCP server streams non-protocol data — response bodies now capped at 16 MB per SSE frame",
+      "translated": "HTTP/SSE MCP 서버가 비프로토콜 데이터를 스트리밍할 때 메모리가 무제한으로 증가하던 문제 수정 — 이제 응답 본문이 SSE 프레임당 16MB로 제한됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Skill(name *)` permission rules — the wildcard form now works as a prefix match, matching `Bash(ls *)` behavior",
+      "translated": "`Skill(name *)` 권한 규칙 수정 — 이제 와일드카드 형식이 `Bash(ls *)` 동작과 동일하게 접두사 일치 방식으로 작동합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed settings hot-reload not detecting edits to symlinked `~/.claude/settings.json`",
+      "translated": "심볼릭 링크된 `~/.claude/settings.json` 파일의 수정을 설정 핫 리로드가 감지하지 못하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin details failing to load when the marketplace key differs from the manifest name",
+      "translated": "마켓플레이스 키가 매니페스트 이름과 다를 때 플러그인 상세 정보를 불러오지 못하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/model` picker \"Default\" row not reflecting `ANTHROPIC_DEFAULT_OPUS_MODEL`/`ANTHROPIC_DEFAULT_SONNET_MODEL` overrides",
+      "translated": "`/model` 선택기의 \"Default\" 행이 `ANTHROPIC_DEFAULT_OPUS_MODEL` 및 `ANTHROPIC_DEFAULT_SONNET_MODEL` 재정의 설정을 반영하지 않던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed spurious \"stream idle timeout\" 5 minutes after a response completed, caused by the watchdog timer not being cleared on stream cancellation",
+      "translated": "스트림 취소 시 워치독 타이머가 해제되지 않아 응답 완료 5분 후 \"stream idle timeout\" 오류가 잘못 발생하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed silent `exit 1` when 10+ MCP servers are configured and the cache directory is unwritable — the error message now includes the underlying cause",
+      "translated": "10개 이상의 MCP 서버가 구성되어 있고 캐시 디렉토리에 쓰기 권한이 없을 때 아무런 설명 없이 `exit 1`이 발생하던 문제 수정 — 이제 오류 메시지에 근본 원인이 포함됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a typing cursor blinking on tab names, list pointers, and select rows in dialogs",
+      "translated": "대화 상자의 탭 이름, 리스트 포인터, 선택 행에서 입력 커서가 깜빡이던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed transcript view letter shortcuts not working after mouse click",
+      "translated": "마우스 클릭 후 대화 내용 보기의 문자 단축키가 작동하지 않던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash-mode up-arrow history repeating the first entry and clobbering the in-progress draft",
+      "translated": "Bash 모드에서 위쪽 화살표 히스토리 탐색 시 첫 번째 항목이 반복되고 작성 중인 초안이 덮어씌워지던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasting or dropping multiple images only inserting the last one",
+      "translated": "여러 이미지를 붙여넣거나 드래그 앤 드롭할 때 마지막 이미지만 삽입되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hyperlinks using unreadable dark navy on dark themes — they now adapt to the active theme",
+      "translated": "다크 테마에서 하이퍼링크가 읽기 어려운 진한 남색으로 표시되던 문제 수정 — 이제 활성화된 테마에 맞게 조정됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model picker showing a redundant \"Current model\" row for third-party users whose model is set to the `opus` alias",
+      "translated": "모델이 `opus` 별칭으로 설정된 제3자 사용자의 경우 모델 선택기에 불필요한 \"Current model\" 행이 표시되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed legacy Opus picker entry on PAYG 3P providers resolving to the same model as the default entry",
+      "translated": "PAYG 방식의 제3자 제공업체에서 레거시 Opus 선택 항목이 기본 항목과 동일한 모델로 연결되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mouse wheel scrolling speed in Cursor and VS Code 1.92–1.104; the trackpad now scrolls at a steady rate and the mouse wheel keeps ~3 lines per notch",
+      "translated": "Cursor 및 VS Code 1.92–1.104 버전의 마우스 휠 스크롤 속도 수정. 이제 트랙패드는 일정한 속도로 스크롤되며, 마우스 휠은 한 칸당 약 3줄씩 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scroll behavior in Windows Terminal and VS Code when attached to background sessions",
+      "translated": "Windows 터미널 및 VS Code에서 백그라운드 세션에 연결되었을 때의 스크롤 동작 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP resources from disconnected servers lingering in `@server:` autocomplete",
+      "translated": "연결이 끊긴 서버의 MCP 리소스가 `@server:` 자동 완성에 남아있던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed two-file diff snippets over-reporting the number of truncated lines by one",
+      "translated": "두 파일 간의 diff 스니펫에서 생략된 줄 수가 실제보다 하나 더 많게 표시되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Grep results not relativizing Windows drive-letter paths and count mode reporting wrong totals for single-file paths",
+      "translated": "Grep 결과에서 Windows 드라이브 문자 경로가 상대 경로로 변환되지 않고, 개수 모드에서 단일 파일 경로의 합계가 잘못 보고되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed border-embedded text overflowing on CJK/emoji due to visual cell width miscalculation",
+      "translated": "시각적 셀 너비 계산 오류로 인해 CJK 문자나 이모지가 포함된 테두리 내 텍스트가 넘치던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fuzzy-match highlighting splitting emoji and astral-plane characters mid-pair",
+      "translated": "퍼지 매칭(fuzzy-match) 하이라이트 시 이모지 및 astral-plane 문자가 중간에 끊기는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skill argument names containing regex metacharacters breaking argument substitution",
+      "translated": "정규식 메타 문자가 포함된 skill 인자 이름으로 인해 인자 치환이 제대로 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ProgressBar rendering a full block for an almost-full fractional cell",
+      "translated": "`ProgressBar`에서 거의 가득 찬 분할 셀이 전체 블록으로 렌더링되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed task polling and `fs.watch` being resurrected when the last subscriber leaves while a fetch is in flight",
+      "translated": "페치(fetch)가 진행 중인 상태에서 마지막 구독자가 나갔을 때 task polling 및 `fs.watch`가 다시 활성화되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin dependency resolution leaving a stale count when the manifest name differs from the source identifier",
+      "translated": "매니페스트 이름이 소스 식별자와 다를 경우 플러그인 의존성 해결 시 잘못된 카운트가 남는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Insights Time-of-Day chart skewing when a session has an unparseable timestamp",
+      "translated": "세션에 파싱할 수 없는 타임스탬프가 포함된 경우 Insights Time-of-Day 차트가 왜곡되는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed keybindings using only the cmd/super/win modifier being flagged as unparseable",
+      "translated": "cmd/super/win 수정 키만 사용하는 키 바인딩이 파싱 불가능한 것으로 표시되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude_code.active_time.total` OpenTelemetry metric not being emitted in `--print` mode",
+      "translated": "`--print` 모드에서 `claude_code.active_time.total` OpenTelemetry 메트릭이 전송되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin update` not preserving cross-plugin symlinks inside a marketplace",
+      "translated": "마켓플레이스 내에서 `claude plugin update` 실행 시 플러그인 간 심볼릭 링크가 유지되지 않는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Press Cmd/Ctrl+Shift+T to reopen the most recently closed session tab, configurable via `claudeCode.enableReopenClosedSessionShortcut`",
+      "translated": "[VSCode] Cmd/Ctrl+Shift+T를 눌러 가장 최근에 닫은 세션 탭을 다시 열 수 있는 기능 추가 (`claudeCode.enableReopenClosedSessionShortcut`으로 설정 가능)"
+    }
+  ],
+  "translatedAt": "2026-05-11T20:06:24.706Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5751
+}
