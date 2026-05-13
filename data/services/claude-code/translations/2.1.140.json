@@ -1,0 +1,92 @@
+{
+  "version": "2.1.140",
+  "date": "2026-05-12",
+  "parsedAt": "2026-05-13T04:14:45.076Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Agent tool `subagent_type` matching to accept case- and separator-insensitive values (e.g. `\"Code Reviewer\"` resolves to `code-reviewer`)",
+      "translated": "에이전트 도구의 `subagent_type` 매칭 방식을 개선하여 대소문자 및 구분 기호에 관계없이 값을 허용하도록 수정했습니다 (예: `\"Code Reviewer\"`가 `code-reviewer`로 인식됨)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated agent color palette",
+      "translated": "에이전트 색상 팔레트를 업데이트했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/goal` silently hanging when `disableAllHooks` or `allowManagedHooksOnly` is set — now shows a clear message instead of an indicator that never resolves",
+      "translated": "`disableAllHooks` 또는 `allowManagedHooksOnly`가 설정되었을 때 `/goal` 명령어가 응답 없이 멈추던 문제를 수정했습니다. 이제 무한히 대기하는 인디케이터 대신 명확한 메시지를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a regression in settings hot-reload where symlinked settings files caused misattributed change events and spurious `ConfigChange` hooks",
+      "translated": "설정 핫 리로드(hot-reload) 시 심볼릭 링크된 설정 파일로 인해 변경 이벤트가 잘못 할당되고 불필요한 `ConfigChange` 훅이 발생하던 회귀 오류를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --bg` failing with \"connection dropped mid-request\" when the background service was about to idle-exit",
+      "translated": "백그라운드 서비스가 유휴 상태로 종료되기 직전 `claude --bg` 실행 시 \"connection dropped mid-request\" 오류와 함께 실패하던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background service startup failing on machines with enterprise endpoint security by allowing more time",
+      "translated": "엔터프라이즈 엔드포인트 보안 프로그램이 설치된 환경에서 백그라운드 서비스 시작 시 대기 시간을 늘려 실행에 실패하던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote managed settings not retrying on 401 — now retries once with a force-refreshed token",
+      "translated": "원격 관리 설정에서 401 오류 발생 시 재시도하지 않던 문제를 수정했습니다. 이제 강제 갱신된 토큰으로 한 번 더 재시도합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed `extraKnownMarketplaces` auto-update policy not being persisted to `known_marketplaces.json`",
+      "translated": "관리형 `extraKnownMarketplaces` 자동 업데이트 정책이 `known_marketplaces.json` 파일에 저장되지 않던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/loop` scheduling redundant wakeups to poll for background tasks that already notify on completion",
+      "translated": "완료 시 알림을 보내는 백그라운드 작업에 대해 `/loop`가 불필요한 폴링(polling) 예약을 생성하던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a recurring event-loop stall on Windows when a missing executable (e.g. `gh`) triggered synchronous `where.exe` re-spawns on every check",
+      "translated": "Windows 환경에서 실행 파일(예: `gh`)이 없을 때 매 확인 시마다 동기적으로 `where.exe`를 다시 실행하여 이벤트 루프가 반복적으로 지연되던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Read` tool calls failing validation when `offset` is passed as a whitespace-padded or `+`-prefixed string",
+      "translated": "`Read` 도구 호출 시 `offset` 값이 공백이 포함되거나 `+` 접두사가 붙은 문자열로 전달될 경우 유효성 검사에 실패하던 문제를 수정했습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed native terminal cursor not staying at the input caret when the terminal loses focus",
+      "translated": "터미널이 포커스를 잃었을 때 네이티브 터미널 커서가 입력 캐럿 위치에 유지되지 않던 문제를 수정했습니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins now warn when a default component folder (e.g. `commands/`) is silently ignored because `plugin.json` sets the matching key. Shown in `/doctor`, `claude plugin list`, and `/plugin`.",
+      "translated": "`plugin.json`에 해당 키가 설정되어 기본 컴포넌트 폴더(예: `commands/`)가 무시될 경우 경고를 표시합니다. 이 경고는 `/doctor`, `claude plugin list`, `/plugin`에서 확인할 수 있습니다."
+    }
+  ],
+  "translatedAt": "2026-05-13T04:15:01.474Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 1537
+}
