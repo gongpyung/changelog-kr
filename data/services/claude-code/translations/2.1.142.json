@@ -1,0 +1,158 @@
+{
+  "version": "2.1.142",
+  "date": "2026-05-14",
+  "parsedAt": "2026-05-15T04:29:28.413Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added new `claude agents` flags: `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to configure dispatched background sessions",
+      "translated": "백그라운드 세션 설정을 위해 `claude agents`에 `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions` 플래그를 새로 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Fast mode now uses Opus 4.7 by default (previously Opus 4.6). Set `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1` to pin fast mode to Opus 4.6",
+      "translated": "Fast mode의 기본 모델이 Opus 4.7로 변경되었습니다(기존 Opus 4.6). Fast mode를 Opus 4.6으로 고정하려면 `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1`을 설정하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins with a root-level `SKILL.md` and no `skills/` subdirectory are now surfaced as a skill",
+      "translated": "루트 레벨에 `SKILL.md`가 있고 `skills/` 하위 디렉터리가 없는 플러그인이 이제 스킬로 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `/plugin` details pane and `claude plugin details` now show LSP servers a plugin provides",
+      "translated": "`/plugin` 상세 창과 `claude plugin details`에서 이제 플러그인이 제공하는 LSP 서버를 확인할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/web-setup` warns before replacing an existing GitHub App connection",
+      "translated": "`/web-setup` 실행 시 기존 GitHub App 연결을 교체하기 전에 경고 메시지를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `MCP_TOOL_TIMEOUT` not raising the per-request fetch timeout for remote HTTP and SSE MCP servers, which capped tool calls at 60 seconds regardless of the configured value",
+      "translated": "원격 HTTP 및 SSE MCP 서버에서 `MCP_TOOL_TIMEOUT`이 요청당 fetch 타임아웃을 늘리지 못해, 설정값과 관계없이 도구 호출이 60초로 제한되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions not recognizing pre-existing git worktrees, blocking Edit while EnterWorktree refused to create a duplicate",
+      "translated": "백그라운드 세션이 기존 git worktree를 인식하지 못해, EnterWorktree가 중복 생성을 거부하는 동안 Edit 작업이 차단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions disappearing and daemon reconnect failing after macOS sleep/wake — the daemon now detects clock jumps instead of treating them as elapsed idle time",
+      "translated": "macOS 절전 모드 해제 후 백그라운드 세션이 사라지고 데몬 재연결에 실패하던 문제를 수정했습니다. 이제 데몬은 경과된 유휴 시간 대신 클록 점프(clock jump)를 감지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed daemon not exiting cleanly after the binary is upgraded (e.g. `brew upgrade`), causing dispatched agents to crash-loop on the deleted path",
+      "translated": "바이너리 업그레이드(예: `brew upgrade`) 후 데몬이 정상적으로 종료되지 않아, 실행 중인 에이전트가 삭제된 경로에서 무한 재시작(crash-loop)되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents crash-looping when the Claude-in-Chrome extension is connected without a shared tab",
+      "translated": "공유 탭 없이 Claude-in-Chrome 확장 프로그램이 연결되었을 때 백그라운드 에이전트가 무한 재시작되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed clicking links in an attached `claude agents` session — the background worker's headless browser shim no longer applies while attached",
+      "translated": "연결된 `claude agents` 세션에서 링크 클릭 시 발생하는 문제를 수정했습니다. 이제 세션 연결 중에는 백그라운드 워커의 헤드리스 브라우저 심(shim)이 적용되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` \"v to open in editor\" using the daemon's default editor instead of your shell's `$EDITOR`/`$VISUAL`",
+      "translated": "`claude agents`에서 \"v to open in editor\" 실행 시 쉘의 `$EDITOR`/`$VISUAL` 대신 데몬의 기본 에디터가 사용되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` deadlocking on Windows with network-drive working directories; Ctrl+C now works during startup",
+      "translated": "Windows 환경의 네트워크 드라이브 작업 디렉터리에서 `claude agents`가 교착 상태(deadlock)에 빠지던 문제를 수정했습니다. 이제 시작 중에 Ctrl+C가 정상 작동합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-color bleed when attaching to a `claude agents` session from Apple Terminal or other 256-color-only terminals",
+      "translated": "Apple 터미널이나 기타 256색 전용 터미널에서 `claude agents` 세션에 연결할 때 배경색이 번지는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --bg --dangerously-skip-permissions` not persisting across retire/wake",
+      "translated": "`claude --bg --dangerously-skip-permissions` 설정이 세션 종료 후 재개(retire/wake) 시 유지되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session titles being derived from the URL when the first message is a link",
+      "translated": "첫 번째 메시지가 링크일 때 세션 제목이 URL에서 생성되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed redundant `set_model` requests from remote clients injecting duplicate `/model` breadcrumbs into the transcript",
+      "translated": "원격 클라이언트의 불필요한 `set_model` 요청으로 인해 트랜스크립트에 중복된 `/model` 이동 경로(breadcrumbs)가 삽입되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugins using `skills: [\"./\"]` showing a false \"path escapes plugin directory\" error",
+      "translated": "`skills: [\"./\"]`를 사용하는 플러그인에서 \"path escapes plugin directory\" 오류가 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin cache cleanup deleting the active plugin version directory when no installation metadata is present",
+      "translated": "설치 메타데이터가 없을 때 플러그인 캐시 정리 과정에서 활성 플러그인 버전 디렉터리가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin` browse pane showing \"0 installs\" for newly published plugins",
+      "translated": "새로 게시된 플러그인에 대해 `/plugin` 탐색 창에서 \"0 installs\"로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin advisories not naming every `plugin.json` key that shadows a default folder",
+      "translated": "기본 폴더를 가리는 모든 `plugin.json` 키가 플러그인 권고 사항(advisories)에 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved reactive compaction: the first summarize attempt now seeds from the original request's overflow size, avoiding a wasted near-full-context retry",
+      "translated": "반응형 압축(reactive compaction) 개선: 첫 번째 요약 시도 시 원본 요청의 초과 크기를 초기값으로 사용하여, 컨텍스트가 거의 가득 찬 상태에서 발생하는 불필요한 재시도 방지"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved hook configuration error: configuring a prompt- or agent-type hook for `SessionStart`/`Setup`/`SubagentStart` now shows a clear \"use a command-type hook instead\" error",
+      "translated": "훅 설정 오류 개선: `SessionStart`, `Setup`, `SubagentStart`에 prompt 또는 agent 유형의 훅을 설정할 때 \"대신 command 유형의 훅을 사용하세요\"라는 명확한 오류 메시지가 표시되도록 개선"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed stale `/model claude-sonnet-4-20250514` suggestion from Usage Policy refusal messages",
+      "translated": "이용 정책(Usage Policy) 거부 메시지에서 더 이상 유효하지 않은 `/model claude-sonnet-4-20250514` 제안 삭제"
+    }
+  ],
+  "translatedAt": "2026-05-15T04:31:21.668Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2914
+}
