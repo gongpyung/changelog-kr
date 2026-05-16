@@ -1,0 +1,212 @@
+{
+  "version": "2.1.143",
+  "date": "2026-05-15",
+  "parsedAt": "2026-05-16T04:04:37.410Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added plugin dependency enforcement: `claude plugin disable` now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and `claude plugin enable` force-enables transitive dependencies",
+      "translated": "플러그인 의존성 강제 적용 추가: 다른 활성화된 플러그인이 대상에 의존하는 경우 `claude plugin disable` 명령이 거부되며(복사 가능한 비활성화 체인 힌트 제공), `claude plugin enable`은 전이적 의존성을 강제로 활성화합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added projected context cost (per-turn and per-invocation token estimates) to the `/plugin` marketplace browse pane",
+      "translated": "`/plugin` 마켓플레이스 탐색 창에 예상 컨텍스트 비용(턴당 및 호출당 토큰 추정치) 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `worktree.bgIsolation: \"none\"` setting to let background sessions edit the working copy directly without `EnterWorktree`, for repos where worktrees are impractical",
+      "translated": "워크트리 사용이 비실용적인 저장소를 위해, `EnterWorktree` 없이 백그라운드 세션이 작업 복사본을 직접 수정할 수 있도록 하는 `worktree.bgIsolation: \"none\"` 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "PowerShell tool now passes `-ExecutionPolicy Bypass`. Opt out with `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1`",
+      "translated": "PowerShell 도구가 이제 `-ExecutionPolicy Bypass`를 전달합니다. 이를 원치 않으면 `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1`로 설정하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background sessions now preserve the model and effort level you set after waking from idle",
+      "translated": "백그라운드 세션이 유휴 상태에서 깨어난 후에도 설정된 모델과 `effort level`을 유지하도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Shift+Tab in attached agent sessions now includes auto mode in the cycle",
+      "translated": "연결된 에이전트 세션에서 Shift+Tab 전환 시 이제 자동 모드가 포함됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a corrupt `.credentials.json` with a non-array `scopes` value hanging the CLI on startup or silently aborting OAuth token refresh",
+      "translated": "`scopes` 값이 배열이 아닌 손상된 `.credentials.json`으로 인해 시작 시 CLI가 멈추거나 OAuth 토큰 갱신이 소리 없이 중단되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed right-click paste in `claude agents` on Windows Terminal and WSL",
+      "translated": "Windows 터미널 및 WSL의 `claude agents`에서 우클릭 붙여넣기 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stop hooks that block repeatedly looping forever — the turn now ends with a warning after 8 consecutive blocks (override via `CLAUDE_CODE_STOP_HOOK_BLOCK_CAP`)",
+      "translated": "중단 훅(stop hooks)이 반복적으로 차단되어 무한 루프에 빠지는 문제 수정 — 이제 8회 연속 차단되면 경고와 함께 턴이 종료됩니다(`CLAUDE_CODE_STOP_HOOK_BLOCK_CAP`으로 변경 가능)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc/Ctrl+C not cancelling a pending `/loop` wakeup while Claude is idle between iterations",
+      "translated": "반복 작업 사이의 유휴 상태에서 Esc/Ctrl+C가 대기 중인 `/loop` 깨우기를 취소하지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/goal` evaluator firing while background shells or delegated subagents are still running",
+      "translated": "백그라운드 쉘이나 위임된 하위 에이전트가 실행 중인 동안 `/goal` 평가기가 작동하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `NO_COLOR`/`FORCE_COLOR` in settings.json `env` stripping Claude Code's own UI colors — they now apply to subprocesses only",
+      "translated": "settings.json의 `env`에 설정된 `NO_COLOR`/`FORCE_COLOR`가 Claude Code 자체의 UI 색상을 제거하는 문제 수정 — 이제 해당 설정은 하위 프로세스에만 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent view spawning repeated PowerShell processes on Windows when listing sessions",
+      "translated": "Windows의 에이전트 뷰에서 세션 목록을 불러올 때 PowerShell 프로세스가 반복적으로 생성되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/bg` without a prompt sending \"continue\" to the forked session — the fork now waits for input",
+      "translated": "프롬프트 없이 `/bg`를 실행할 때 포크된 세션에 \"continue\"를 보내는 문제 수정 — 이제 포크된 세션은 입력을 기다립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--agent <name>` not finding plugin-contributed agents without the `plugin:` prefix",
+      "translated": "`--agent <name>` 사용 시 `plugin:` 접두사 없이는 플러그인이 제공하는 에이전트를 찾지 못하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed deleting a session from agent view not removing its transcript file",
+      "translated": "에이전트 뷰에서 세션을 삭제해도 트랜스크립트 파일이 제거되지 않는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale-fragment rendering when scrolling in attached background sessions on Windows Terminal",
+      "translated": "Windows 터미널의 연결된 백그라운드 세션에서 스크롤할 때 이전 잔상이 렌더링되는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents false-positive worker-stall detection storm after host sleep or macOS App Nap",
+      "translated": "호스트 절전 모드 또는 macOS App Nap 이후 백그라운드 에이전트에서 워커 중단(worker-stall) 감지 폭주가 발생하는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed 5xx error messages pointing at status.claude.com instead of naming the configured gateway or cloud provider",
+      "translated": "5xx 오류 메시지가 설정된 게이트웨이나 클라우드 제공업체 이름 대신 status.claude.com을 가리키는 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The PowerShell tool is now enabled by default on Windows for Bedrock, Vertex, and Foundry users. Opt out with `CLAUDE_CODE_USE_POWERSHELL_TOOL=0`.",
+      "translated": "Windows 환경의 Bedrock, Vertex, Foundry 사용자에게 PowerShell 도구가 기본으로 활성화됩니다. 이를 원치 않으면 `CLAUDE_CODE_USE_POWERSHELL_TOOL=0`으로 설정하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` now accepts `--add-dir`, `--settings`, `--mcp-config`, and `--plugin-dir` and applies them to the dashboard and to background sessions dispatched from it",
+      "translated": "`claude agents`에서 `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir` 옵션을 사용할 수 있으며, 해당 설정이 대시보드 및 대시보드에서 실행된 백그라운드 세션에 적용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` accepts `--permission-mode`, `--model`, `--effort`, and `--dangerously-skip-permissions` to set defaults for sessions dispatched from the view",
+      "translated": "`claude agents`에서 `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions` 옵션을 사용하여 뷰에서 실행되는 세션의 기본값을 설정할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude --bg --dangerously-skip-permissions` now persists across retire→wake",
+      "translated": "`claude --bg --dangerously-skip-permissions` 설정이 retire→wake 과정 전반에 걸쳐 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions silently capturing IDE file references into the warm spare's input, which caused the reference to be prepended to the next prompt dispatched from `claude agents`",
+      "translated": "백그라운드 세션이 IDE 파일 참조를 warm spare 입력으로 자동 캡처하여, `claude agents`에서 전송되는 다음 프롬프트 앞에 해당 참조가 추가되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Worktree cleanup no longer falls back to `rm -rf` when `git worktree remove` fails, preventing loss of gitignored or in-progress files",
+      "translated": "`git worktree remove` 실패 시 워크트리 정리 작업이 더 이상 `rm -rf`를 사용하지 않도록 변경하여, git에서 무시된 파일이나 작업 중인 파일의 손실을 방지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-job sessions on macOS getting \"Operation not permitted\" errors when reading files under `~/Documents`, `~/Desktop`, or `~/Downloads`, even with Full Disk Access granted.",
+      "translated": "macOS에서 전체 디스크 접근 권한이 부여된 상태임에도 `~/Documents`, `~/Desktop`, `~/Downloads` 하위 파일을 읽을 때 백그라운드 작업 세션에서 \"Operation not permitted\" 오류가 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/bg` now preserves `--mcp-config`, `--settings`, `--add-dir`, `--plugin-dir`, and `--strict-mcp-config`, so backgrounded sessions keep their MCP servers and settings across respawn.",
+      "translated": "`/bg` 명령 시 `--mcp-config`, `--settings`, `--add-dir`, `--plugin-dir`, `--strict-mcp-config` 옵션이 유지되어, 백그라운드 세션이 재시작되어도 MCP 서버 및 설정을 그대로 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background sessions launched from `claude agents` now honor `permissions.defaultMode` from settings.json (was previously overridden to auto mode)",
+      "translated": "`claude agents`에서 실행된 백그라운드 세션이 이제 settings.json의 `permissions.defaultMode` 설정을 준수합니다. (기존에는 auto 모드로 강제 설정되었습니다.)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: on Windows, pressing ← in `claude agents` while a response was streaming could leave the agents list unresponsive to all input",
+      "translated": "Windows에서 응답 스트리밍 중 `claude agents`에서 ← 키를 누르면 에이전트 목록이 모든 입력에 응답하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/bg` and `←`-detach now preserve `--fallback-model`, so backgrounded workers degrade to the fallback model on overload instead of hard-failing.",
+      "translated": "`/bg` 및 `←` 분리 시 `--fallback-model` 옵션이 유지되어, 과부하 발생 시 백그라운드 워커가 오류로 중단되는 대신 폴백 모델로 전환됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/bg` and `←`-detach now preserve `--allow-dangerously-skip-permissions`, so the forked worker keeps bypass-permissions available in its Shift+Tab cycle.",
+      "translated": "`/bg` 및 `←` 분리 시 `--allow-dangerously-skip-permissions` 옵션이 유지되어, 포크된 워커의 Shift+Tab 사이클에서 권한 우회 옵션을 계속 사용할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: background daemon spawn now falls back to the running binary when the `~/.local/bin/claude` launcher is missing or non-executable",
+      "translated": "`~/.local/bin/claude` 런처가 없거나 실행 불가능한 경우, 백그라운드 데몬 실행 시 현재 실행 중인 바이너리를 사용하도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents --allow-dangerously-skip-permissions` defaulting dispatched sessions to bypass mode instead of making it available in the permission cycle",
+      "translated": "`claude agents --allow-dangerously-skip-permissions` 사용 시 실행된 세션이 권한 사이클에서 선택 가능한 상태가 되는 대신 기본적으로 우회 모드로 설정되던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-05-16T04:06:08.790Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4254
+}
