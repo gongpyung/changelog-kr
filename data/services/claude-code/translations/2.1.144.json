@@ -1,0 +1,326 @@
+{
+  "version": "2.1.144",
+  "date": "2026-05-19",
+  "parsedAt": "2026-05-19T04:35:13.458Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/resume` support for background sessions — sessions started via `claude --bg` or agent view now appear alongside interactive ones, marked with `bg`",
+      "translated": "백그라운드 세션에 대한 `/resume` 지원 추가 — `claude --bg` 또는 에이전트 뷰를 통해 시작된 세션이 이제 대화형 세션과 함께 표시되며 `bg`로 표시됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added elapsed duration to background subagent completion notifications (e.g. \"Agent completed · 3h 2m 5s\")",
+      "translated": "백그라운드 서브 에이전트 완료 알림에 경과 시간 추가 (예: \"Agent completed · 3h 2m 5s\")"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `/plugin` browse and discover panes now show when a plugin was last updated",
+      "translated": "`/plugin` 탐색 및 검색 창에 플러그인의 마지막 업데이트 시간이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/model` now changes the model for the current session only; press `d` in the model picker to set a default for new sessions",
+      "translated": "`/model`이 이제 현재 세션의 모델만 변경합니다. 새 세션의 기본값을 설정하려면 모델 선택기에서 `d`를 누르세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Renamed \"extra usage\" to \"usage credits\" across CLI copy; `/extra-usage` is now `/usage-credits` (old name still works)",
+      "translated": "CLI 문구 전반에서 \"extra usage\"를 \"usage credits\"로 변경했습니다. `/extra-usage`는 이제 `/usage-credits`가 됩니다 (기존 이름도 계속 작동합니다)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed startup hanging up to 75s when `api.anthropic.com` is unreachable (captive portal, firewall, VPN issues) — side-channel API calls now time out after 15s",
+      "translated": "`api.anthropic.com`에 접속할 수 없을 때(캡티브 포털, 방화벽, VPN 문제 등) 시작 시 최대 75초간 멈추던 현상 수정 — 이제 사이드 채널 API 호출은 15초 후 타임아웃됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed garbled terminal output after a missed window-resize event (e.g. dragging a VS Code split-pane divider) — now self-heals on the next frame instead of requiring Ctrl+L",
+      "translated": "창 크기 조정 이벤트(예: VS Code 분할 창 구분선 드래그)를 놓친 후 터미널 출력이 깨지던 현상 수정 — 이제 Ctrl+L을 누를 필요 없이 다음 프레임에서 자동으로 복구됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed progressive terminal display corruption (stale/garbled glyphs) that could appear in very long sessions and only cleared on terminal resize or restart",
+      "translated": "매우 긴 세션에서 발생하며 터미널 크기를 조정하거나 재시작해야만 해결되던 점진적인 터미널 디스플레이 깨짐(오래되거나 깨진 글자) 현상 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced terminal rendering glitches in VS Code by reducing spinner animation color count",
+      "translated": "스피너 애니메이션의 색상 수를 줄여 VS Code에서의 터미널 렌더링 오류를 감소시켰습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed macOS background sessions crashing with \"exit 1 before init\" when the project lives under a Full Disk Access-protected folder (regression in 2.1.143)",
+      "translated": "프로젝트가 '전체 디스크 접근 권한'으로 보호된 폴더에 있을 때 macOS 백그라운드 세션이 \"exit 1 before init\" 오류와 함께 충돌하던 현상 수정 (2.1.143 버전의 회귀 버그)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an unrecoverable conversation when reading a file whose image extension doesn't match its contents (e.g. HTML saved as .png) — now falls back to text",
+      "translated": "이미지 확장자가 내용과 일치하지 않는 파일(예: .png로 저장된 HTML)을 읽을 때 대화를 복구할 수 없던 현상 수정 — 이제 텍스트로 대체하여 처리합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Fewer spurious tool errors during search: `head`/`tail` file views now satisfy the read-before-edit check, and a \"no matches\" result (exit code 1) from `egrep`, `fgrep`, `git grep`, or `git diff` is no longer reported as a command failure",
+      "translated": "검색 중 발생하는 잘못된 도구 오류 감소: `head`/`tail` 파일 뷰가 이제 `read-before-edit` 체크를 충족하며, `egrep`, `fgrep`, `git grep` 또는 `git diff`에서 검색 결과가 없는 경우(종료 코드 1)를 더 이상 명령 실패로 보고하지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/branch` failing with \"No conversation to branch\" after entering a worktree or in some background sessions",
+      "translated": "워크트리에 진입한 후 또는 일부 백그라운드 세션에서 `/branch`가 \"No conversation to branch\" 오류와 함께 실패하던 현상 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pressing Escape in the AskUserQuestion notes field aborting the turn instead of returning to answer selection",
+      "translated": "`AskUserQuestion` 노트 필드에서 Escape를 누를 때 답변 선택으로 돌아가는 대신 턴이 중단되던 현상 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model selection not applying when changed via the IDE model picker or `applyFlagSettings` after startup",
+      "translated": "시작 후 IDE 모델 선택기 또는 `applyFlagSettings`를 통해 변경한 모델 선택이 적용되지 않던 현상 수정."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Resumed sessions now keep the model they were using instead of picking up another session's `/model` choice",
+      "translated": "재개된 세션이 이제 다른 세션의 `/model` 설정을 가져오는 대신 기존에 사용하던 모델을 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock and Vertex users unable to select \"Opus (1M context)\" from the `/model` picker (regression in v2.1.129)",
+      "translated": "Bedrock 및 Vertex 사용자가 `/model` 선택기에서 \"Opus (1M context)\"를 선택할 수 없던 현상 수정 (v2.1.129 버전의 회귀 버그)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote-session login failing with \"Can't access this organization\" for users with `forceLoginMethod` and `forceLoginOrgUUID` set",
+      "translated": "`forceLoginMethod` 및 `forceLoginOrgUUID`가 설정된 사용자의 원격 세션 로그인이 \"Can't access this organization\" 오류와 함께 실패하던 현상 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers with paginated `tools/list` responses only returning the first page, silently dropping tools",
+      "translated": "페이지가 나뉜 `tools/list` 응답을 가진 MCP 서버가 첫 페이지만 반환하여 도구들이 누락되던 현상 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP images with unsupported MIME types (e.g. SVG) breaking the conversation — now saved to disk and referenced in the tool result",
+      "translated": "지원되지 않는 MIME 유형(예: SVG)의 MCP 이미지가 대화를 중단시키던 현상 수정 — 이제 디스크에 저장되고 도구 결과에서 참조됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed file descriptor exhaustion when a build runs inside a skill directory — non-`.md` files no longer trigger skill reloads",
+      "translated": "스킬 디렉토리 내에서 빌드 실행 시 파일 디스크립터가 고갈되는 문제 수정 — `.md` 파일이 아닌 경우에는 더 이상 스킬 재로드를 트리거하지 않음"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session title being generated from plugin monitor output instead of the user's first prompt",
+      "translated": "세션 제목이 사용자의 첫 번째 프롬프트가 아닌 플러그인 모니터 출력에서 생성되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Skill tool failing with permission error in headless mode (regression in v2.1.141)",
+      "translated": "헤드리스 모드에서 Skill 도구가 권한 오류로 실패하던 문제 수정 (v2.1.141에서 발생한 회귀 오류)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugins enabled in your own settings showing \"not cached\" errors after first load on a fresh machine; plugins enabled only by a project's `.claude/settings.json` now show an actionable `claude plugin install` hint",
+      "translated": "새 기기에서 처음 로드한 후 사용자 설정에서 활성화된 플러그인에 \"not cached\" 오류가 표시되던 문제 수정. 이제 프로젝트의 `.claude/settings.json`에서만 활성화된 플러그인에 대해 실행 가능한 `claude plugin install` 안내가 표시됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude mcp list` silently reporting no servers when `.mcp.json` can't be parsed (e.g. using VS Code's `\"servers\"` key instead of `\"mcpServers\"`) — now shows configuration errors",
+      "translated": "`.mcp.json`을 파싱할 수 없을 때(예: `\"mcpServers\"` 대신 VS Code의 `\"servers\"` 키를 사용하는 경우) `claude mcp list`가 서버가 없다고만 보고하던 문제 수정 — 이제 구성 오류를 표시함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background side-queries on custom `ANTHROPIC_BASE_URL` setups and Bedrock Mantle not using Haiku — now falls back correctly when a first-party API key is configured or no Haiku model is set",
+      "translated": "커스텀 `ANTHROPIC_BASE_URL` 설정 및 Bedrock Mantle에서 백그라운드 사이드 쿼리가 Haiku를 사용하지 않던 문제 수정 — 이제 퍼스트 파티 API 키가 설정되어 있거나 Haiku 모델이 설정되지 않은 경우 정상적으로 폴백됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scrolling in attached background sessions on Windows — PgUp/PgDn, mouse wheel, and Ctrl+O transcript navigation now work",
+      "translated": "Windows에서 연결된 백그라운드 세션의 스크롤 문제 수정 — 이제 PgUp/PgDn, 마우스 휠 및 Ctrl+O 대화 기록 탐색이 정상 작동함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when closing the terminal while attached to a background session",
+      "translated": "백그라운드 세션에 연결된 상태에서 터미널을 닫을 때 발생하던 크래시 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `! <cmd>` exec sessions not responding to Ctrl+C while attached — now interrupts the running command",
+      "translated": "연결된 상태에서 `! <cmd>` 실행 세션이 Ctrl+C에 반응하지 않던 문제 수정 — 이제 실행 중인 명령어를 중단함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent view shell-command rows lingering under Working after completion, and pressing Enter on a completed row re-running the command after its output expired",
+      "translated": "에이전트 뷰에서 셸 명령어 행이 완료 후에도 Working 항목에 남아있던 문제와, 출력이 만료된 완료된 행에서 Enter를 누르면 명령어가 재실행되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed on Windows, pressing ← in `claude agents` leaving the list unresponsive to keyboard input",
+      "translated": "Windows에서 `claude agents` 실행 중 ←를 누르면 목록이 키보드 입력에 반응하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed ghost characters at the left edge when switching panes in Agent View on Windows Terminal with CJK content",
+      "translated": "Windows Terminal의 에이전트 뷰에서 CJK 콘텐츠가 포함된 창을 전환할 때 왼쪽 가장자리에 잔상 문자가 남던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/bg` and `←`-detach now preserve directories added via `/add-dir`",
+      "translated": "`/bg` 및 `←` 분리 시 `/add-dir`을 통해 추가된 디렉토리가 유지됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Edit/Write refusing with \"background session hasn't isolated its changes yet\" right after detaching a session that was already editing in place",
+      "translated": "이미 인플레이스 편집 중인 세션을 분리한 직후 Edit/Write 작업이 \"background session hasn't isolated its changes yet\" 오류와 함께 거부되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude respawn <id>` on a stopped background session showing \"stopped\" instead of running",
+      "translated": "중지된 백그라운드 세션에서 `claude respawn <id>` 실행 시 실행 상태 대신 \"stopped\"으로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/resume` picker not showing sessions forked from a background session",
+      "translated": "`/resume` 선택기에서 백그라운드 세션으로부터 포크된 세션이 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening a session from `claude agents` or running `claude logs <id>` hanging when the background service is unresponsive — now times out after 10s with a recovery hint",
+      "translated": "백그라운드 서비스가 응답하지 않을 때 `claude agents`에서 세션을 열거나 `claude logs <id>`를 실행하면 멈추던 문제 수정 — 이제 10초 후 타임아웃되며 복구 안내를 표시함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background Bash tasks spawned by subagents staying \"Running\" in SDK task panels after the process exits",
+      "translated": "서브 에이전트가 생성한 백그라운드 Bash 작업이 프로세스 종료 후에도 SDK 작업 패널에서 \"Running\" 상태로 남아있던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed completed or stopped background sessions briefly failing to wake being permanently marked as a startup crash",
+      "translated": "완료되거나 중지된 백그라운드 세션이 일시적으로 깨어나지 못할 때 영구적으로 시작 크래시로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed markdown links in `claude agents` attached sessions rendering as plain text instead of clickable hyperlinks",
+      "translated": "`claude agents` 연결 세션에서 마크다운 링크가 클릭 가능한 하이퍼링크가 아닌 일반 텍스트로 렌더링되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed custom `spinnerVerbs` applying to the post-turn duration message — past-tense built-ins like \"Worked for 5s\" are restored there",
+      "translated": "사용자 정의 `spinnerVerbs`가 턴 종료 후 소요 시간 메시지에 적용되던 문제를 수정했습니다. \"Worked for 5s\"와 같은 내장 과거형 메시지가 다시 정상적으로 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` / `--bg` rejection messages now name the specific gate (non-TTY, env var, or setting) instead of a generic message",
+      "translated": "`claude agents` 및 `--bg` 거부 메시지가 일반적인 문구 대신 구체적인 원인(non-TTY, 환경 변수 또는 설정)을 명시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude --bg --name <label>` now echoes the name in the post-spawn confirmation",
+      "translated": "`claude --bg --name <label>` 실행 시 프로세스 생성 확인 메시지에 지정된 이름이 함께 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: renaming a background session with Ctrl+R now updates the attached session's banner immediately",
+      "translated": "`claude agents`: Ctrl+R로 백그라운드 세션의 이름을 변경하면 연결된 세션의 배너에 즉시 반영됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background session worktree isolation guard now applies for non-git VCS users with `WorktreeCreate` hooks configured",
+      "translated": "`WorktreeCreate` 훅이 설정된 non-git VCS 사용자의 경우에도 백그라운드 세션 워크트리 격리 보호 기능이 적용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin marketplace add/update now respects `CLAUDE_CODE_PLUGIN_PREFER_HTTPS`",
+      "translated": "플러그인 마켓플레이스 추가 및 업데이트 시 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS` 설정을 준수합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/plugin` now returns to the Installed list after enabling, disabling, or uninstalling a plugin",
+      "translated": "플러그인을 활성화, 비활성화 또는 삭제한 후 `/plugin` 화면이 설치된 목록으로 다시 돌아갑니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/doctor` now shows an exec-form example when a command hook is missing the `command` field",
+      "translated": "커맨드 훅에 `command` 필드가 누락된 경우 `/doctor`에서 exec-form 예시를 보여줍니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skill-listing truncation is no longer shown as a startup notification — run `/doctor` for the full breakdown",
+      "translated": "스킬 목록 생략 안내가 더 이상 시작 알림으로 표시되지 않습니다. 전체 내역은 `/doctor`를 실행하여 확인할 수 있습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved recovery from rare pre-response stream stalls — now retries streaming once instead of falling back to a slower non-streaming request",
+      "translated": "드물게 발생하는 응답 전 스트림 정지 현상에 대한 복구 기능을 개선했습니다. 이제 느린 비스트리밍 방식으로 전환하는 대신 스트리밍을 한 번 더 시도합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved SDK/headless MCP startup: pre-wait now overlaps startup instead of blocking before the first turn (up to 2s faster with slow MCP servers)",
+      "translated": "SDK 및 헤드리스 MCP 시작 성능을 개선했습니다. 첫 번째 턴 이전에 대기하는 대신 시작 과정과 병렬로 진행하여, 느린 MCP 서버 사용 시 최대 2초 더 빨라졌습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The post-survey follow-up hint now appears after every non-dismiss survey response with context-aware copy, making it easier to share more detail via /feedback.",
+      "translated": "설문 조사 응답 후(닫기 제외) 문맥에 맞는 후속 힌트가 표시되어, `/feedback`을 통해 더 자세한 의견을 쉽게 공유할 수 있습니다."
+    }
+  ],
+  "translatedAt": "2026-05-19T04:36:29.832Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6513
+}
