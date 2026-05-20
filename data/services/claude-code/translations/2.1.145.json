@@ -1,0 +1,134 @@
+{
+  "version": "2.1.145",
+  "date": "2026-05-19",
+  "parsedAt": "2026-05-20T04:38:23.704Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude agents --json` to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)",
+      "translated": "스크립팅(tmux-resurrect, 상태 표시줄, 세션 선택기 등)을 위해 활성 Claude 세션을 JSON으로 나열하는 `claude agents --json` 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `agent_id` and `parent_agent_id` attributes to `claude_code.tool` OTEL spans, and fixed trace parenting so background subagent spans nest under the dispatching Agent tool span",
+      "translated": "`claude_code.tool` OTEL 스팬에 `agent_id` 및 `parent_agent_id` 속성 추가 및 백그라운드 서브에이전트 스팬이 호출 에이전트 도구 스팬 하위에 중첩되도록 트레이스 부모 관계 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Status line JSON input now includes GitHub repo and PR information when detected",
+      "translated": "상태 표시줄 JSON 입력에 GitHub 저장소 및 PR 정보 포함 (감지 시)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/plugin` Discover and Browse screens now show a plugin's commands, agents, skills, hooks, and MCP/LSP servers before installation",
+      "translated": "`/plugin` 탐색 및 찾아보기 화면에서 설치 전 플러그인의 명령어, 에이전트, 스킬, 훅, MCP/LSP 서버 표시 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` terminal tab title now shows the awaiting-input count so an alt-tabbed window tells you when an agent needs attention",
+      "translated": "`claude agents` 터미널 탭 제목에 입력 대기 수 표시를 통해 창 전환 시에도 에이전트 상태 확인 가능하도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Slash command and @-mention suggestion list now supports mouse hover and click in fullscreen mode",
+      "translated": "전체 화면 모드에서 슬래시 명령어 및 @-멘션 추천 목록의 마우스 호버 및 클릭 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stop and SubagentStop hook input now includes `background_tasks` and `session_crons` fields",
+      "translated": "Stop 및 SubagentStop 훅 입력에 `background_tasks` 및 `session_crons` 필드 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a permission-prompt bypass where bare variable assignments to non-allowlisted environment variables in Bash commands were auto-approved",
+      "translated": "Bash 명령어에서 허용 목록에 없는 환경 변수에 대한 단순 변수 할당이 자동 승인되어 권한 요청을 우회하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP prompt slash commands showing raw server validation errors when a required argument is omitted — the error now names the missing argument and shows expected usage",
+      "translated": "필수 인자 누락 시 MCP 프롬프트 슬래시 명령어가 원시 서버 유효성 검사 오류를 표시하던 문제 수정 (이제 누락된 인자 명시 및 예상 사용법 표시)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the spinner and elapsed-time display freezing until a keypress after the terminal was resized or refocused",
+      "translated": "터미널 크기 조정 또는 포커스 재지정 후 키 입력 전까지 스피너와 경과 시간 표시가 멈추던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the cross-project resume hint failing in default Windows PowerShell 5.1 — Windows now uses `;` as the command separator",
+      "translated": "기본 Windows PowerShell 5.1에서 프로젝트 간 재개 힌트가 작동하지 않던 문제 수정 (Windows 명령 구분자로 `;` 사용)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice push-to-talk not working in the agent view's reply pane",
+      "translated": "에이전트 뷰의 답장 창에서 음성 푸시투토크(PTT)가 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed task lists rendering in random order when several tasks are created at once",
+      "translated": "여러 작업 동시 생성 시 작업 목록이 무작위 순서로 렌더링되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stale \"Failed to install Anthropic marketplace\" banner showing when the marketplace is already installed",
+      "translated": "마켓플레이스가 이미 설치된 상태에서 \"Failed to install Anthropic marketplace\" 배너가 계속 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the PR badge in the footer not updating immediately after `gh pr create` and other PR-state-changing commands run in-session",
+      "translated": "세션 내 `gh pr create` 등 PR 상태 변경 명령어 실행 후 푸터의 PR 배지가 즉시 업데이트되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Agent Teams teammates with non-ASCII names failing every API call due to invalid header encoding",
+      "translated": "비 ASCII 이름을 가진 Agent Teams 팀원의 API 호출이 잘못된 헤더 인코딩으로 인해 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/review` using a deprecated `projectCards` GraphQL query that errored on repos with Classic Projects",
+      "translated": "`/review`가 Classic Projects 저장소에서 오류를 일으키는 지원 중단된 `projectCards` GraphQL 쿼리를 사용하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin validate` not flagging `skills:` entries that point at a file instead of a directory — the error now suggests the parent directory",
+      "translated": "`claude plugin validate`가 디렉터리 대신 파일을 가리키는 `skills:` 항목을 감지하지 못하던 문제 수정 (이제 상위 디렉터리 제안)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an infinite loop where a skill using `context: fork` could repeatedly re-invoke itself instead of running",
+      "translated": "`context: fork`를 사용하는 스킬이 실행 대신 자기 자신을 반복 호출하여 무한 루프에 빠지던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Read tool to return a truncated first page with a \"PARTIAL view\" notice instead of a hard error when a whole-file read exceeds the token limit",
+      "translated": "전체 파일 읽기가 토큰 제한 초과 시, 오류 대신 \"PARTIAL view\" 알림과 함께 잘린 첫 페이지를 반환하도록 Read 도구 개선"
+    }
+  ],
+  "translatedAt": "2026-05-20T04:39:00.484Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2402
+}
