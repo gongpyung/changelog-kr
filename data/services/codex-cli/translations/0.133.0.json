@@ -1,0 +1,842 @@
+{
+  "version": "0.133.0",
+  "date": "2026-05-21",
+  "parsedAt": "2026-05-21T20:13:00.527Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Goals are now enabled by default, backed by dedicated storage, and track progress across active turns. (#23300, #23685, #23696, #23732)",
+      "translated": "`codex remote-control` CLI UX 개선"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`codex remote-control` now runs like a foreground command, waits for readiness, reports machine status, and keeps explicit daemon-style `start`/`stop` commands. (#22878)",
+      "translated": "Glibc 호환 태그가 포함된 Linux 런타임 휠 배포"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Permission profiles gained list APIs, inheritance, managed `requirements.toml` support, runtime refresh behavior, and stronger Windows sandbox integration. (#22928, #23412, #22270, #23433, #22931, #23715)",
+      "translated": "[codex] 사용하지 않는 TurnContextItem 필드 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Plugin discovery is easier to inspect, with marketplace-aware list output, installed versions, visible marketplace roots, and remote collection support. (#23372, #23584, #23727, #23730)",
+      "translated": "플러그인 MCP 도구 메타데이터에 플러그인 ID 포함"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Extensions can observe more lifecycle events, including subagent start/stop, tool execution, turn metadata, and async approval/turn processing. (#22782, #22873, #23309, #23688, #23690, #23692)",
+      "translated": "[codex] 대기 중인 입력을 입력 큐로 이동"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed TUI startup choosing the wrong working directory when reusing a local app-server socket. (#23538)",
+      "translated": "지원되지 않는 iTerm2 pet 버전에 대한 경고 표시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan-mode free-form answers so modified Enter keys, like Shift+Enter, no longer submit unexpectedly. (#23536)",
+      "translated": "[codex-analytics] 실행 스레드에 대한 사용자 스레드 소스 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Removed stale background terminal poll events after a process exits. (#23231)",
+      "translated": "V2 권한 파라미터에 프로필 ID 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Preserved raw code-mode exec output unless an explicit output token limit is requested. (#23564)",
+      "translated": "[codex] 외부 websocket 세션 초기화 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Made AGENTS instruction loading more reliable, including local global reads and warnings for invalid UTF-8 instead of silent drops. (#23343, #23232)",
+      "translated": "스킬 환경 변수 의존성 확인 프롬프트 제거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed app-server startup/shutdown races, empty resume/fork paths, plugin upgrade failures, and realtime v1 websocket compatibility. (#23516, #23578, #23400, #23356, #23771)",
+      "translated": "ToolSearch 기능 토글 제거"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added clearer plugin-creator guidance for updating and reinstalling local personal plugins. (#23542)",
+      "translated": "[1/7] UserInput에 스레드 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Expanded app-server/API docs and schema coverage around managed permission profile requirements. (#23433, #23555)",
+      "translated": "[2/7] UserInputWithTurnContext 제거"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Added a canonical Codex package archive pipeline and moved installers, npm packages, DotSlash, and SDK runtimes toward that shared layout. (#23513, #23582, #23586, #23596, #23635, #23636, #23637, #23638, #23786)",
+      "translated": "[3/7] UserTurn 제거"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Fixed Linux Python runtime wheel tags so glibc-based systems can install the runtime artifacts. (#21812)",
+      "translated": "[codex]"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Improved release and CI reliability with package-builder tests, prebuilt resource packaging, DotSlash zstd handling, platform-sharded Rust tests, and Codex Linux release runners. (#23760, #23759, #23752, #23358, #23761)",
+      "translated": "Improved release and CI reliability with package-builder tests, prebuilt resource packaging, DotSlash zstd handling, platform-sharded Rust tests, and Codex Linux release runners. (#23760, #23759, #23752, #23358, #23761)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23343 codex: route global AGENTS reads through LOCAL_FS",
+      "translated": "Codex: route global AGENTS reads through LOCAL_FS"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22380 fix: default unknown tool schemas to empty schemas",
+      "translated": "Fix: default unknown tool schemas to empty schemas"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23309 Add tool lifecycle extension contributor",
+      "translated": "Add tool lifecycle extension contributor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23253 Reduce rust-ci-full Windows nextest timeout flakes",
+      "translated": "Reduce rust-ci-full Windows nextest timeout flakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22878 Improve `codex remote-control` CLI UX",
+      "translated": "Improve `codex remote-control` CLI UX"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21812 Publish Linux runtime wheels with glibc-compatible tags",
+      "translated": "Publish Linux runtime wheels with glibc-compatible tags"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22709 [codex] Trim unused TurnContextItem fields",
+      "translated": "[codex] Trim unused TurnContextItem fields"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23353 Include plugin id in plugin MCP tool metadata",
+      "translated": "Include plugin id in plugin MCP tool metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22728 [codex] Move pending input into input queue",
+      "translated": "[codex] Move pending input into input queue"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23371 fix(tui): warn on unsupported iTerm2 pet versions",
+      "translated": "Fix(tui): warn on unsupported iTerm2 pet versions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23376 [codex-analytics] preserve user thread source for exec threads",
+      "translated": "[codex-analytics] preserve user thread source for exec threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23360 app-server: use profile ids in v2 permission params",
+      "translated": "App-server: use profile ids in v2 permission params"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23384 [codex] Remove external websocket session resets",
+      "translated": "[codex] Remove external websocket session resets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22721 cleanup: Remove skill env var dependency prompting",
+      "translated": "Cleanup: Remove skill env var dependency prompting"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23389 Remove ToolSearch feature toggle",
+      "translated": "Remove ToolSearch feature toggle"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23080 [1 of 7] Add thread settings to UserInput",
+      "translated": "[1 of 7] Add thread settings to UserInput"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23081 [2 of 7] Remove UserInputWithTurnContext",
+      "translated": "[2 of 7] Remove UserInputWithTurnContext"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23075 [3 of 7] Remove UserTurn",
+      "translated": "[3 of 7] Remove UserTurn"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23396 [codex] Extract turn skill and plugin injections",
+      "translated": "[codex] Extract turn skill and plugin injections"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23356 fix(plugins): keep version upgrades additive",
+      "translated": "Fix(plugins): keep version upgrades additive"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22508 [5 of 7] Replace OverrideTurnContext with ThreadSettings",
+      "translated": "[5 of 7] Replace OverrideTurnContext with ThreadSettings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22086 CI: Customize v8 building",
+      "translated": "CI: Customize v8 building"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23390 Remove explicit connector tool undeferral",
+      "translated": "Remove explicit connector tool undeferral"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22928 core: expose permission profile picker metadata",
+      "translated": "Core: expose permission profile picker metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23352 Preserve context baselines for full-history agent forks",
+      "translated": "Preserve context baselines for full-history agent forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23300 feat: dedicated goal DB",
+      "translated": "Feat: dedicated goal DB"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22835 Remove ToolsConfig from tool planning",
+      "translated": "Remove ToolsConfig from tool planning"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22870 Add `body_after_prefix` auto-compact token limit scope",
+      "translated": "Add `body_after_prefix` auto-compact token limit scope"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23144 Defer v1 multi-agent tools behind tool search",
+      "translated": "Defer v1 multi-agent tools behind tool search"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23409 [codex] Allow empty turn/start requests",
+      "translated": "[codex] Allow empty turn/start requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23388 [codex] Move hook request plumbing into hook runtime",
+      "translated": "[codex] Move hook request plumbing into hook runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23405 [codex] Preserve steer input as user input",
+      "translated": "[codex] Preserve steer input as user input"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22914 [2 of 4] tui: route app and skill enablement through app server",
+      "translated": "[2 of 4] tui: route app and skill enablement through app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23397 [codex] Make contextual user fragments dyn-renderable",
+      "translated": "[codex] Make contextual user fragments dyn-renderable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23475 chore: namespace v1 sub-agent tools",
+      "translated": "Chore: namespace v1 sub-agent tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23493 Make `deny` canonical for filesystem permission entries",
+      "translated": "Make `deny` canonical for filesystem permission entries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22929 Harden CLI rate limit window labels",
+      "translated": "Harden CLI rate limit window labels"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22782 Add SubagentStart hook",
+      "translated": "Add SubagentStart hook"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23513 build: add Codex package builder",
+      "translated": "Build: add Codex package builder"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23369 Make local environment optional in EnvironmentManager",
+      "translated": "Make local environment optional in EnvironmentManager"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23327 Refactor exec-server websocket pump",
+      "translated": "Refactor exec-server websocket pump"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23536 fix(tui): preserve modified enter in plan questions",
+      "translated": "Fix(tui): preserve modified enter in plan questions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23400 Fix empty rollout path app-server handling",
+      "translated": "Fix empty rollout path app-server handling"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23551 Route local-only app-server gating through processors",
+      "translated": "Route local-only app-server gating through processors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23372 Split plugin install discovery into list and request tools",
+      "translated": "Split plugin install discovery into list and request tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23516 fix: serialize unix app-server startup",
+      "translated": "Fix: serialize unix app-server startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22169 [codex] Honor role-defined spawn service tiers",
+      "translated": "[codex] Honor role-defined spawn service tiers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23555 Add CUA requirements subsection for locked computer use",
+      "translated": "Add CUA requirements subsection for locked computer use"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23538 Fix: TUI starting in wrong CWD",
+      "translated": "Fix: TUI starting in wrong CWD"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23526 build: fetch rg for Codex packages",
+      "translated": "Build: fetch rg for Codex packages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23573 Remove unused ARC monitor path",
+      "translated": "Remove unused ARC monitor path"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23576 test: fix multi-agent service tier assertion",
+      "translated": "Test: fix multi-agent service tier assertion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23541 build: default Codex package target and output",
+      "translated": "Build: default Codex package target and output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23358 Fan out rust-ci-full nextest by platform",
+      "translated": "Fan out rust-ci-full nextest by platform"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23593 feat: expose codex-app-server version flag",
+      "translated": "Feat: expose codex-app-server version flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23412 feat: add permission profile list api",
+      "translated": "Feat: add permission profile list api"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23535 Move plugin and skill warmup into session startup",
+      "translated": "Move plugin and skill warmup into session startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23231 Fix stale background terminal poll events",
+      "translated": "Fix stale background terminal poll events"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23564 [codex] Preserve raw code-mode exec output by default",
+      "translated": "[codex] Preserve raw code-mode exec output by default"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23232 Warn on invalid UTF-8 in AGENTS.md files",
+      "translated": "Warn on invalid UTF-8 in AGENTS.md files"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23584 feat: Add vertical remote plugin collection support",
+      "translated": "Feat: Add vertical remote plugin collection support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23586 build: package prebuilt Codex entrypoints",
+      "translated": "Build: package prebuilt Codex entrypoints"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23582 ci: build Codex package archives in release workflow",
+      "translated": "Ci: build Codex package archives in release workflow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23596 runtime: detect Codex package layout",
+      "translated": "Runtime: detect Codex package layout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23500 add encryptedcontent to functioncalloutput",
+      "translated": "Add encryptedcontent to functioncalloutput"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23633 Migrate exec-server remote registration to environments",
+      "translated": "Migrate exec-server remote registration to environments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23451 Add timeout for remote compaction requests",
+      "translated": "Add timeout for remote compaction requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23667 feat: rename 1",
+      "translated": "Feat: rename 1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23669 feat: rename 3",
+      "translated": "Feat: rename 3"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23668 feat: rename 2",
+      "translated": "Feat: rename 2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23675 fix: main",
+      "translated": "Fix: main"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23685 feat: wire goal extension tools to the dedicated goal store",
+      "translated": "Feat: wire goal extension tools to the dedicated goal store"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23690 feat: async approval contrib",
+      "translated": "Feat: async approval contrib"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23692 feat: async turn item process",
+      "translated": "Feat: async turn item process"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23688 feat: expose turn-start metadata to extensions",
+      "translated": "Feat: expose turn-start metadata to extensions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23605 [codex] Hide deferred tools from code mode prompt",
+      "translated": "[codex] Hide deferred tools from code mode prompt"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23634 runtime: use install context for bundled bwrap",
+      "translated": "Runtime: use install context for bundled bwrap"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23635 release: publish Codex package archive checksums",
+      "translated": "Release: publish Codex package archive checksums"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23592 feat: Add btw alias for side slash command",
+      "translated": "Feat: Add btw alias for side slash command"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23696 feat: account active goal progress in the goal extension",
+      "translated": "Feat: account active goal progress in the goal extension"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23176 [2 of 2] Start fresh TUI thread in background",
+      "translated": "[2 of 2] Start fresh TUI thread in background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23578 fix(app-server): speed up shutdown",
+      "translated": "Fix(app-server): speed up shutdown"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22896 windows-sandbox: add resolved permissions helper",
+      "translated": "Windows-sandbox: add resolved permissions helper"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23502 Add thread/settings/update app-server API",
+      "translated": "Add thread/settings/update app-server API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23507 Sync TUI thread settings through app server",
+      "translated": "Sync TUI thread settings through app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23666 feat: add turn_id and truncation_policy to extension tool calls",
+      "translated": "Feat: add turn_id and truncation_policy to extension tool calls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23636 install: consume Codex package archives",
+      "translated": "Install: consume Codex package archives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23717 [codex] Preserve failed goal accounting flushes",
+      "translated": "[codex] Preserve failed goal accounting flushes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23655 add standalone websearch api client",
+      "translated": "Add standalone websearch api client"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23724 Fix thread settings clippy failure",
+      "translated": "Fix thread settings clippy failure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23637 npm: ship platform packages in Codex package layout",
+      "translated": "Npm: ship platform packages in Codex package layout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23729 fix(config): resolve cloud requirements deny-read globs",
+      "translated": "Fix(config): resolve cloud requirements deny-read globs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23638 dotslash: publish Codex entrypoints from package archives",
+      "translated": "Dotslash: publish Codex entrypoints from package archives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22918 windows-sandbox: send permission profiles to elevated runner",
+      "translated": "Windows-sandbox: send permission profiles to elevated runner"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23735 windows-sandbox: share bundled helper lookup",
+      "translated": "Windows-sandbox: share bundled helper lookup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18868 Add MITM hook config model",
+      "translated": "Add MITM hook config model"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22270 feat(permissions): resolve permission profile inheritance",
+      "translated": "Feat(permissions): resolve permission profile inheritance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23719 cli: add strict config to exec-server",
+      "translated": "Cli: add strict config to exec-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23542 [skills] Create a personal update flow for plugin creator",
+      "translated": "[skills] Create a personal update flow for plugin creator"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#21272 Support compact SessionStart hooks",
+      "translated": "Support compact SessionStart hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#20659 Wire MITM hooks into runtime enforcement",
+      "translated": "Wire MITM hooks into runtime enforcement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23752 release: use DotSlash zstd for package archives",
+      "translated": "Release: use DotSlash zstd for package archives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22923 windows-sandbox: drive write roots from resolved permissions",
+      "translated": "Windows-sandbox: drive write roots from resolved permissions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23761 chore: use Codex Linux runners for Rust releases",
+      "translated": "Chore: use Codex Linux runners for Rust releases"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23759 release: package prebuilt resource binaries",
+      "translated": "Release: package prebuilt resource binaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23167 windows-sandbox: feed setup from resolved permissions",
+      "translated": "Windows-sandbox: feed setup from resolved permissions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22931 core: refresh active permission profiles at runtime",
+      "translated": "Core: refresh active permission profiles at runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22873 Add SubagentStop hook",
+      "translated": "Add SubagentStop hook"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23727 feat(plugins): tabulate plugin list output",
+      "translated": "Feat(plugins): tabulate plugin list output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23732 Make goals feature on by default and no longer experimental",
+      "translated": "Make goals feature on by default and no longer experimental"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23537 Honor client-resolved service tier defaults",
+      "translated": "Honor client-resolved service tier defaults"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23771 [codex] Fix realtime v1 websocket compatibility",
+      "translated": "[codex] Fix realtime v1 websocket compatibility"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23764 Remove Windows sandbox resource stamping",
+      "translated": "Remove Windows sandbox resource stamping"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23730 [codex] List marketplaces considered by plugin discovery",
+      "translated": "[codex] List marketplaces considered by plugin discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23760 ci: run Codex package builder tests",
+      "translated": "Ci: run Codex package builder tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23737 [codex] Add plugin id to MCP tool call items",
+      "translated": "[codex] Add plugin id to MCP tool call items"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#18240 Use named MITM permissions config",
+      "translated": "Use named MITM permissions config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23774 [codex] Reject read-only fallback with approvals disabled",
+      "translated": "[codex] Reject read-only fallback with approvals disabled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23714 windows-sandbox: add profile-native elevated APIs",
+      "translated": "Windows-sandbox: add profile-native elevated APIs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23433 feat: support managed permission profiles in requirements.toml",
+      "translated": "Feat: support managed permission profiles in requirements.toml"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23715 core: pass permission profiles to Windows runner",
+      "translated": "Core: pass permission profiles to Windows runner"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23786 sdk: launch packaged Codex runtimes",
+      "translated": "Sdk: launch packaged Codex runtimes"
+    }
+  ],
+  "translatedAt": "2026-05-21T20:14:14.034Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 6394
+}
