@@ -1,0 +1,122 @@
+{
+  "version": "4.3.1",
+  "date": "2026-05-22",
+  "parsedAt": "2026-05-22T15:25:16.627Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Native search** (`grep`, `glob`) now reads subprocess output via a Node-safe stream collector instead of `Response(stream).text()` (#3919).",
+      "translated": "**네이티브 검색**(`grep`, `glob`)이 이제 `Response(stream).text()` 대신 Node-safe 스트림 수집기를 통해 서브프로세스 출력을 읽습니다 (#3919)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**OS notifications** fall back to `execFile` with `windowsHide: true` when `ctx.$` is absent (#4128, #4061).",
+      "translated": "`ctx.$`가 없을 경우 **OS 알림**이 `windowsHide: true` 옵션이 적용된 `execFile`로 대체됩니다 (#4128, #4061)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Ripgrep discovery** on Windows uses `where.exe` with shell-free spawn — no more flashing console windows.",
+      "translated": "Windows에서 **Ripgrep 검색** 시 쉘 없이 `where.exe`를 실행하여 콘솔 창이 깜빡이는 현상을 해결했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Subprocess hardening** propagated through `binary-downloader`, `zip-extractor`, and all 5 zip-entry-listing variants.",
+      "translated": "**서브프로세스 안정화** 작업이 `binary-downloader`, `zip-extractor` 및 5가지 모든 zip-entry-listing 변체에 적용되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Duplicate parent wakes** — when a background subagent completed and the parent's `promptAsync` gate was still holding, the same wake could enqueue twice and start a second assistant stream. Resolved by semantic deduplication during the gate hold window (#4256, #4019).",
+      "translated": "**부모 프로세스 중복 깨우기** — 백그라운드 서브에이전트가 완료되었으나 부모의 `promptAsync` 게이트가 여전히 대기 중일 때, 동일한 깨우기 신호가 두 번 큐에 쌓여 두 번째 어시스턴트 스트림이 시작되는 문제를 해결했습니다. 게이트 대기 시간 동안 의미론적 중복 제거를 통해 수정되었습니다 (#4256, #4019)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Cleanup listener retention** — repeated transient errors during MCP startup or provider reconnects no longer kill the host. The `uncaughtException` listener stays installed across events, with a local re-entry guard that still prevents log explosions.",
+      "translated": "**정리 리스너 유지** — MCP 시작 또는 프로바이더 재연결 중 반복되는 일시적 오류로 인해 호스트가 종료되지 않도록 개선했습니다. `uncaughtException` 리스너가 이벤트 전반에 걸쳐 유지되며, 로컬 재진입 가드를 통해 로그 폭증을 방지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e7120f6a Merge pull request #4295 from vanhci/fix/issue-4292-comment-checker-deadloop",
+      "translated": "Vanhci/fix/issue-4292-comment-checker-deadloop로부터의 풀 리퀘스트 #4295 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9e5c4318 Merge pull request #4297 from SpencerJung/fix/issue-4128-desktop-sidecar-crash",
+      "translated": "SpencerJung/fix/issue-4128-desktop-sidecar-crash로부터의 풀 리퀘스트 #4297 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7409f2ea Merge pull request #4300 from code-yeongyu/fix/issue-3919-desktop-native-search",
+      "translated": "Code-yeongyu/fix/issue-3919-desktop-native-search로부터의 풀 리퀘스트 #4300 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e6d8b3e7 Merge pull request #4299 from code-yeongyu/fix/issue-4128-ctx-dollar-guard",
+      "translated": "Code-yeongyu/fix/issue-4128-ctx-dollar-guard로부터의 풀 리퀘스트 #4299 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a51d22d3 Merge pull request #4301 from code-yeongyu/fix/issue-4256-duplicate-prompt-dispatch",
+      "translated": "Code-yeongyu/fix/issue-4256-duplicate-prompt-dispatch로부터의 풀 리퀘스트 #4301 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "560569e3 fix(parent-wake-notifier): drop duplicate wakes during promptAsync gate hold (#4256, #4019)",
+      "translated": "`promptAsync` 게이트 대기 중 중복 깨우기 신호 제거 (#4256, #4019)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aded57ff fix(shared): harden ripgrep-cli, zip-extractor, binary-downloader subprocess paths",
+      "translated": "Ripgrep-cli, zip-extractor, binary-downloader 서브프로세스 경로 안정화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d17b2127 fix(tools/grep, tools/glob): use Node-safe subprocess streaming (#3919)",
+      "translated": "Node-safe 서브프로세스 스트리밍 사용 (#3919)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4ea7562f feat(shared): add Node-safe process stream reader and search output collector",
+      "translated": "Node-safe 프로세스 스트림 리더 및 검색 출력 수집기 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc8c462d fix(session-notification-sender): guard ctx.$ with execFile fallback for Desktop sidecar (#4128, #4061)",
+      "translated": "데스크톱 사이드카를 위해 `ctx.$` 가드 및 `execFile` 대체 수단 추가 (#4128, #4061)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ec9997b7 fix(background-agent): keep cleanup error listener active",
+      "translated": "정리 오류 리스너 활성 상태 유지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4cf391b7 fix(comment-checker): skip modified-existing comments and dedupe per-session (issue #4292)",
+      "translated": "수정된 기존 주석 건너뛰기 및 세션별 중복 제거 (이슈 #4292)"
+    }
+  ],
+  "translatedAt": "2026-05-22T15:25:36.385Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2067
+}
