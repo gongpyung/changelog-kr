@@ -1,0 +1,254 @@
+{
+  "version": "4.4.0",
+  "date": "2026-05-23",
+  "parsedAt": "2026-05-23T19:39:14.896Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Atlas honors your override** even when resolution fails (cold cache, no system default). Instead of silently dropping Atlas, it now registers with your chosen model. (#4255)",
+      "translated": "풀 리퀘스트 병합 (code-yeongyu/fix/agent-loop-dedupe-race-4256)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**multimodal-looker trusts your vision model** — set `agents.multimodal-looker.model` to any provider/model and the vision-cache will accept it, no provider declaration needed. (#4209)",
+      "translated": "불필요한 부모 프로세스 깨우기 억제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`openai/gpt-5.3-codex` stops getting auto-rewritten** — the canonical Codex powerhouse is no longer mistakenly migrated to `gpt-5.4`. (#3777)",
+      "translated": "security-research 오케스트레이션 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**OpenCode-bundled ripgrep reused** — `~/.cache/opencode/bin/rg` is probed first, so we stop duplicate-downloading ripgrep when OpenCode already has it. (#3805)",
+      "translated": "풀 리퀘스트 병합 (islee23520/fix/look-at-status-map-hang)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Windows ast-grep path matching locked** — backslash + UNC suffixes now match the dist CLI consistently. Regression test pins this. (#4220)",
+      "translated": "풀 리퀘스트 병합 (YOMXXX/fix/gpt-5-3-codex-migration)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**CJK terminal headers preserved** — NFC normalization in `oh-my-opencode run` output stops Hangul/CJK from mangling. (#4170)",
+      "translated": "풀 리퀘스트 병합 (YOMXXX/fix/ast-grep-windows-cli-suffix-test)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Clickable subagent entries** — late-arriving session IDs are now captured before metadata publish, fixing the perpetual-spinner subagent bug. (#4252)",
+      "translated": "풀 리퀘스트 병합 (MoerAI/fix/migrate-orphan-lsp-config-key)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`look_at` no longer hangs** — child sessions that produce no output exit gracefully via `allowStableIdleWithoutActivity` instead of waiting for the 120s timeout. (#4238)",
+      "translated": "풀 리퀘스트 병합 (SpencerJung/fix/issue-4123-tool-pair-retrigger)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`/stop-continuation` respected after boulder completion** — no more stray completion nudges fired after you explicitly stopped. (#4149)",
+      "translated": "풀 리퀘스트 병합 (SpencerJung/fix/issue-4170-cjk-agent-header)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**tool-pair-validator continues after repair** — multi-message conversations with missing `tool_result` blocks now repair every affected message in one transform pass. (#4123)",
+      "translated": "풀 리퀘스트 병합 (SpencerJung/fix/issue-4149-terminal-continuation-guard)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces.",
+      "translated": "'lsp' 마이그레이션 가이드를 독립적으로 구성하고 오래된 문서 업데이트 (#4279의 cod"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior.",
+      "translated": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5e2f12fd Merge pull request #4348 from Yeachan-Heo/omc-team/you-are-one-of-5-parallel-work/worker-4",
+      "translated": "Merge pull request #4348 from Yeachan-Heo/omc-team/you-are-one-of-5-parallel-work/worker-4"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0c14c473 Merge pull request #4350 from Yeachan-Heo/omc-team/you-are-one-of-5-parallel-work/worker-3",
+      "translated": "Merge pull request #4350 from Yeachan-Heo/omc-team/you-are-one-of-5-parallel-work/worker-3"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f390d365 Merge pull request #4352 from Yeachan-Heo/fix/atlas-config-model-override-4255",
+      "translated": "Merge pull request #4352 from Yeachan-Heo/fix/atlas-config-model-override-4255"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "54513137 Merge pull request #4356 from Yeachan-Heo/fix/issue-3805-auto-tools-path",
+      "translated": "Merge pull request #4356 from Yeachan-Heo/fix/issue-3805-auto-tools-path"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bfc50789 fix: trust user-configured multimodal-looker model for vision (#4209)",
+      "translated": "Trust user-configured multimodal-looker model for vision (#4209)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "779e2d2f fix(task): capture late-arriving sessionId so TUI subagent entry is clickable (#4252)",
+      "translated": "Capture late-arriving sessionId so TUI subagent entry is clickable (#4252)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7d444eed fix(agents): honor user atlas model when resolution returns undefined (#4255)",
+      "translated": "Honor user atlas model when resolution returns undefined (#4255)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c691a1a fix(grep): probe OpenCode cache-backed bin for auto-downloaded rg (#3805)",
+      "translated": "Probe OpenCode cache-backed bin for auto-downloaded rg (#3805)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c0a6c667 Merge pull request #4346 from code-yeongyu/fix/agent-loop-dedupe-race-4256",
+      "translated": "Merge pull request #4346 from code-yeongyu/fix/agent-loop-dedupe-race-4256"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b3097e56 fix(background-agent): suppress redundant parent wakes",
+      "translated": "Suppress redundant parent wakes"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2bfad490 feat(skills): add security-research orchestration",
+      "translated": "Add security-research orchestration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "01d21962 Merge pull request #4238 from islee23520/fix/look-at-status-map-hang",
+      "translated": "Merge pull request #4238 from islee23520/fix/look-at-status-map-hang"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f511b4bc Merge pull request #4263 from YOMXXX/fix/gpt-5-3-codex-migration",
+      "translated": "Merge pull request #4263 from YOMXXX/fix/gpt-5-3-codex-migration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d06a5d7a Merge pull request #4272 from YOMXXX/fix/ast-grep-windows-cli-suffix-test",
+      "translated": "Merge pull request #4272 from YOMXXX/fix/ast-grep-windows-cli-suffix-test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9da30095 Merge pull request #4279 from MoerAI/fix/migrate-orphan-lsp-config-key",
+      "translated": "Merge pull request #4279 from MoerAI/fix/migrate-orphan-lsp-config-key"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "74db81df Merge pull request #4285 from SpencerJung/fix/issue-4123-tool-pair-retrigger",
+      "translated": "Merge pull request #4285 from SpencerJung/fix/issue-4123-tool-pair-retrigger"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6cac80fe Merge pull request #4290 from SpencerJung/fix/issue-4170-cjk-agent-header",
+      "translated": "Merge pull request #4290 from SpencerJung/fix/issue-4170-cjk-agent-header"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "12d7d104 Merge pull request #4282 from SpencerJung/fix/issue-4149-terminal-continuation-guard",
+      "translated": "Merge pull request #4282 from SpencerJung/fix/issue-4149-terminal-continuation-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6062df82 fix(migration): make 'lsp' migration guidance self-contained and update stale docs (addresses codex P2 on #4279)",
+      "translated": "Make 'lsp' migration guidance self-contained and update stale docs (addresses codex P2 on #4279)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed4c04e5 fix(cli): preserve CJK agent header text",
+      "translated": "Preserve CJK agent header text"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28569307 fix(tool-pair-validator): continue after synthetic repairs",
+      "translated": "Continue after synthetic repairs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7dae2711 fix(atlas): honor stopped continuation after boulder completion",
+      "translated": "Honor stopped continuation after boulder completion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7429cc2 fix(migration): drop orphan 'lsp' config key so users see LSP moved to .opencode/lsp.json (fixes #4225)",
+      "translated": "Drop orphan 'lsp' config key so users see LSP moved to .opencode/lsp.json (fixes #4225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ccaf61e0 test(ast-grep): lock Windows backslash matching for ast_grep dist cli suffix (#4220)",
+      "translated": "Lock Windows backslash matching for ast_grep dist cli suffix (#4220)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d788c3d1 fix(migration): stop rewriting explicit gpt-5.3-codex to gpt-5.4 (#3777)",
+      "translated": "Stop rewriting explicit gpt-5.3-codex to gpt-5.4 (#3777)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c4a51bee Cover look_at permanently absent session output",
+      "translated": "Cover look_at permanently absent session output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b3a195d6 Avoid look_at status map wait hang",
+      "translated": "Avoid look_at status map wait hang"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@Yeachan-Heo:",
+      "translated": "@Yeachan-Heo:"
+    }
+  ],
+  "translatedAt": "2026-05-23T19:40:27.477Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 2287
+}
