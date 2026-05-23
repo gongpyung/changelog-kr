@@ -1,0 +1,170 @@
+{
+  "version": "2.1.149",
+  "date": "2026-05-22",
+  "parsedAt": "2026-05-23T04:09:52.792Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/usage` now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost",
+      "translated": "`/usage`에서 사용량 제한에 영향을 주는 항목(skills, subagents, plugins 및 MCP 서버별 비용)을 카테고리별로 상세히 보여줍니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgUp`/`PgDn`, `Space`, `Home`/`End`)",
+      "translated": "`/diff` 상세 보기에서 키보드(화살표, `j`/`k`, `PgUp`/`PgDn`, `Space`, `Home`/`End`)를 사용하여 스크롤할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Markdown output now renders GFM task list checkboxes (`- [ ] todo` / `- [x] done`) instead of plain bullets",
+      "translated": "Markdown 출력 시 일반 글머리 기호 대신 GFM 작업 목록 체크박스(`- [ ] todo` / `- [x] done`)를 렌더링합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Enterprise: added the `allowAllClaudeAiMcps` managed setting to load claude.ai cloud MCP connectors alongside `managed-mcp.json`",
+      "translated": "Enterprise: `managed-mcp.json`과 함께 claude.ai 클라우드 MCP 커넥터를 로드할 수 있는 `allowAllClaudeAiMcps` 관리형 설정을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a PowerShell permission bypass: built-in `cd` functions (`cd..`, `cd\\`, `cd~`, `X:`) changed the working directory undetected, letting a later command read outside the workspace",
+      "translated": "PowerShell 권한 우회 문제 수정: 내장 `cd` 함수(`cd..`, `cd\\`, `cd~`, `X:`)가 작업 디렉토리를 감지되지 않게 변경하여 이후 명령어가 워크스페이스 외부를 읽을 수 있었던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the sandbox write allowlist in git worktrees covering the entire main repository root instead of only the shared `.git` directory (with `hooks/` and `config` denied)",
+      "translated": "git worktrees의 샌드박스 쓰기 허용 목록이 공유 `.git` 디렉토리(단, `hooks/` 및 `config`는 거부됨)가 아닌 메인 저장소 루트 전체를 포함하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell prefix/wildcard allow rules (e.g. `PowerShell(dotnet.exe build *)`) not pre-approving native executables and scripts",
+      "translated": "PowerShell 접두사/와일드카드 허용 규칙(예: `PowerShell(dotnet.exe build *)`)이 네이티브 실행 파일 및 스크립트를 사전에 승인하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a permission-analysis gap where the parser trusted stale variable-tracking values for `PWD`/`OLDPWD`/`DIRSTACK` across `cd`/`pushd`/`popd`",
+      "translated": "`cd`/`pushd`/`popd` 실행 시 파서가 `PWD`/`OLDPWD`/`DIRSTACK`에 대해 오래된 변수 추적 값을 신뢰하여 발생하던 권한 분석 공백을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `find` in the Bash tool exhausting the macOS system file/vnode table and crashing the host on large directory trees",
+      "translated": "대규모 디렉토리 트리에서 Bash 도구의 `find`가 macOS 시스템 파일/vnode 테이블을 소진시켜 호스트를 충돌시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the managed-settings approval dialog leaving the terminal frozen after accepting at startup",
+      "translated": "시작 시 관리형 설정 승인 대화 상자를 수락한 후 터미널이 멈춘 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultraplan` and remote session creation failing with \"Could not capture uncommitted changes\" when the working tree has no real changes",
+      "translated": "트리에 실제 변경 사항이 없음에도 `/ultraplan` 및 원격 세션 생성이 \"Could not capture uncommitted changes\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `otelHeadersHelper` failing silently when the script path contains spaces; helper failures are now reported in `/doctor` and the debug log",
+      "translated": "스크립트 경로에 공백이 포함된 경우 `otelHeadersHelper`가 아무런 표시 없이 실패하던 문제를 수정했습니다. 이제 헬퍼 실패 시 `/doctor` 및 디버그 로그에 보고됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the thinking spinner staying amber across tool calls and onto fresh thinking bursts",
+      "translated": "도구 호출 및 새로운 생각 과정 중에도 생각 중(thinking) 스피너가 황색으로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed collapsed Bash output reporting the wrong hidden-line count for outputs with many short lines",
+      "translated": "짧은 줄이 많은 출력물에서 접힌 Bash 출력의 숨겨진 줄 수가 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash-command argument-hint clipping trailing typed characters when the hint overflows the input box",
+      "translated": "슬래시 명령의 인자 힌트가 입력창을 벗어날 때 입력한 마지막 문자들이 잘리던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed argument-hint and progressive arg suggestions not appearing after Tab-completing a skill whose frontmatter `name:` differs from its directory basename",
+      "translated": "프론트매터의 `name:`과 디렉토리 기본 이름이 다른 스킬을 Tab으로 자동 완성한 후 인자 힌트 및 단계별 인자 제안이 나타나지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the status bar showing the user's baseline `/effort` setting instead of the effort level applied by skill/agent `effort:` frontmatter",
+      "translated": "상태 표시줄에 스킬/에이전트의 `effort:` 프론트매터에 의해 적용된 노력 수준 대신 사용자의 기본 `/effort` 설정이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tailing new messages",
+      "translated": "Ctrl+O 대화 기록 보기가 새 메시지를 실시간으로 추적하지 않고 열린 시점에 고정되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed editing a recalled prompt-history entry losing the edit when navigating further up/down with arrow keys",
+      "translated": "불러온 프롬프트 기록 항목을 편집하는 도중 화살표 키로 위아래로 이동하면 편집 내용이 손실되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/config` exit summary reporting phantom changes to auto-compact and theme when toggling unrelated settings",
+      "translated": "관련 없는 설정을 변경할 때 `/config` 종료 요약에서 auto-compact 및 theme에 실제로는 없는 변경 사항이 보고되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/insights` crashing when cached session-meta files are missing optional fields",
+      "translated": "캐시된 session-meta 파일에 선택적 필드가 누락되었을 때 `/insights`가 비정상 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed malformed PowerShell and History tool calls with missing input being misclassified as reads in transcript collapsing",
+      "translated": "입력값이 누락되어 잘못된 형식으로 생성된 PowerShell 및 History 도구 호출이 transcript collapsing 시 읽기(reads)로 오분류되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed renaming a Remote Control session from claude.ai or the Claude mobile app not updating the local session name for `claude --resume`",
+      "translated": "claude.ai 또는 Claude 모바일 앱에서 Remote Control 세션 이름을 변경해도 `claude --resume`용 로컬 세션 이름이 업데이트되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a race where a just-submitted prompt could appear twice in the up-arrow history",
+      "translated": "방금 제출한 프롬프트가 위쪽 화살표 히스토리에 중복으로 표시될 수 있는 레이스 컨디션 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tapping the \"Jump to bottom\" pill in fullscreen mode not dismissing it immediately",
+      "translated": "전체 화면 모드에서 \"Jump to bottom\" 버튼을 탭했을 때 즉시 사라지지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/feedback` reports to include the conversation that happened before context compaction, making issues from earlier in long sessions easier to triage",
+      "translated": "`/feedback` 보고서에 context compaction 전의 대화 내용을 포함하여, 긴 세션의 초기 단계에서 발생한 문제를 더 쉽게 분류할 수 있도록 개선했습니다."
+    }
+  ],
+  "translatedAt": "2026-05-23T04:10:47.065Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3198
+}
