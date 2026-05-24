@@ -1,0 +1,1676 @@
+{
+  "version": "2026.5.22",
+  "date": "2026-05-24",
+  "parsedAt": "2026-05-24T04:40:56.827Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/perf: reuse process-stable channel catalog reads, avoid repeated bundled-channel boundary checks, and rotate gateway watch CPU profiles so benchmark runs do not accumulate unbounded artifacts.",
+      "translated": "프로세스 안정 상태의 채널 카탈로그 읽기 결과를 재사용하고, 번들 채널 경계 검사 반복을 방지하며, 벤치마크 실행 시 아티팩트가 무한히 쌓이지 않도록 게이트웨이 감시 CPU 프로필을 순환시킵니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/perf: reuse immutable plugin metadata snapshots across startup, config, model, channel, setup, and secret metadata readers so hot paths avoid repeated plugin file stats and manifest registry reloads.",
+      "translated": "시작, 설정, 모델, 채널, 설치 및 비밀 메타데이터 리더 간에 불변 플러그인 메타데이터 스냅샷을 재사용하여, 주요 실행 경로(hot paths)에서 플러그인 파일 상태 확인 및 매니페스트 레지스트리 재로드가 반복되지 않도록 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/perf: lazy-load startup-idle plugin work, core gateway method handlers, and the embedded ACPX runtime so Gateway health and ready signals no longer wait on unused handler trees or ACPX probes.",
+      "translated": "시작 시 유휴 상태인 플러그인 작업, 핵심 게이트웨이 메서드 핸들러 및 내장 ACPX 런타임을 지연 로딩(lazy-load)하여, 게이트웨이의 상태 확인(health) 및 준비(ready) 신호가 사용되지 않는 핸들러 트리나 ACPX 프로브를 기다리지 않게 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/perf: cache plugin SDK public-surface alias maps and skip irrelevant macOS Linuxbrew PATH probes so Gateway startup avoids repeated filesystem walks and slow missing-directory stats.",
+      "translated": "플러그인 SDK 공개 인터페이스 에일리어스 맵을 캐싱하고 불필요한 macOS Linuxbrew PATH 조사를 건너뛰어, 게이트웨이 시작 시 반복적인 파일 시스템 탐색과 누락된 디렉터리에 대한 느린 상태 확인을 방지했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Meeting Notes: add a source-only external meeting-notes plugin and SDK source-provider contract outside the core npm package, with auto-start capture config, manual transcript imports, read-only `openclaw meeting-notes` CLI access, and Discord voice as the first live source.",
+      "translated": "코어 npm 패키지 외부에 소스 전용 외부 회의록 플러그인 및 SDK 소스 제공자 계약을 추가하고, 자동 시작 캡처"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs/channels/config: add Signal `configPath`, Telegram wildcard topic defaults, local-time backup archive names, Termux home fallback, include-path validation, secret-scanner-safe placeholder guidance, Gemini CLI/Antigravity media guidance, and macOS VM auto-login guidance. Thanks @NorseGaud, @yudistiraashadi, @huangqian8, @VibhorGautam, @maweibin, @tianxingleo, @IgnacioPro, and @xzcxzcyy-claw.",
+      "translated": "Docs/channels/config: add Signal `configPath`, Telegram wildcard topic defaults, local-time backup archive names, Termux home fallback, include-path validation, secret-scanner-safe placeholder guidance, Gemini CLI/Antigravity media guidance, and macOS VM auto-login guidance. Thanks @NorseGaud, @yudistiraashadi, @huangqian8, @VibhorGautam, @maweibin, @tianxingleo, @IgnacioPro, and @xzcxzcyy-claw."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify model-usage portability, Codex migration prerequisites, status bootstrap wording, thread-bound subagent limits, hook ownership, and config-preserving safety guidance. Thanks @aniruddhaadak80, @leno23, @TomDjerry, @matthewxmurphy, @vincentkoc, and @stablegenius49.",
+      "translated": "Clarify model-usage portability, Codex migration prerequisites, status bootstrap wording, thread-bound subagent limits, hook ownership, and config-preserving safety guidance. Thanks @aniruddhaadak80, @leno23, @TomDjerry, @matthewxmurphy, @vincentkoc, and @stablegenius49."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify README onboarding and Gateway startup paths, WhatsApp QR/408 recovery, cron output language prompts, skill advanced features, gateway upstream 403 troubleshooting, and plugin fallback override guidance. Thanks @deepujain, @Zacxxx, @Jah-yee, @neyric, @usimic, @Renu-Cybe, @BigUncle, and @SeashoreShi.",
+      "translated": "Clarify README onboarding and Gateway startup paths, WhatsApp QR/408 recovery, cron output language prompts, skill advanced features, gateway upstream 403 troubleshooting, and plugin fallback override guidance. Thanks @deepujain, @Zacxxx, @Jah-yee, @neyric, @usimic, @Renu-Cybe, @BigUncle, and @SeashoreShi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify context-pruning ratio bounds, local dashboard recovery, CLI env markers, remote onboarding token behavior, and Peekaboo Bridge permissions for subprocess agents. Thanks @ayesha-aziz123, @dishraters, @hougangdev, and @brandonlipman.",
+      "translated": "Clarify context-pruning ratio bounds, local dashboard recovery, CLI env markers, remote onboarding token behavior, and Peekaboo Bridge permissions for subprocess agents. Thanks @ayesha-aziz123, @dishraters, @hougangdev, and @brandonlipman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify browser CDP diagnostics, Plugin SDK allowlist imports, status-reaction timing defaults, queue steering behavior, limited-tool troubleshooting, cron HEARTBEAT handling, Telegram multi-agent groups, Bitwarden SecretRef setup, and EasyRunner deployments. Thanks @Quratulain-bilal, @mbelinky, @Mickey-, @vancece, @xenouzik, @posigit, @surlymochan, @janaka, and @choiking.",
+      "translated": "Clarify browser CDP diagnostics, Plugin SDK allowlist imports, status-reaction timing defaults, queue steering behavior, limited-tool troubleshooting, cron HEARTBEAT handling, Telegram multi-agent groups, Bitwarden SecretRef setup, and EasyRunner deployments. Thanks @Quratulain-bilal, @mbelinky, @Mickey-, @vancece, @xenouzik, @posigit, @surlymochan, @janaka, and @choiking."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Crabbox/Testbox: run clean sparse-checkout Testbox syncs from a temporary full checkout and route remote changed gates through Corepack pnpm.",
+      "translated": "Crabbox/Testbox: run clean sparse-checkout Testbox syncs from a temporary full checkout and route remote changed gates through Corepack pnpm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify IPv4-only Gateway BYOH binding, trusted-proxy scope clearing, Android pairing approval, macOS Accessibility grants, Zalo profile env vars, password-store SecretRef setup, and Chinese memory navigation. Thanks @itskai-dev, @gwh7078, @longstoryscott, @MoeJaberr, and @yuaiccc.",
+      "translated": "Clarify IPv4-only Gateway BYOH binding, trusted-proxy scope clearing, Android pairing approval, macOS Accessibility grants, Zalo profile env vars, password-store SecretRef setup, and Chinese memory navigation. Thanks @itskai-dev, @gwh7078, @longstoryscott, @MoeJaberr, and @yuaiccc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: consolidate GLM under Z.AI, add the Upstash Box install guide and Gateway exposure runbook, clarify MEDIA directives, Copilot and Voyage setup, config path quoting, real behavior proof, and memory-file write guidance. Thanks @BobDu, @alitariksahin, @Jefsky, @musaabhasan, @OmerZeyveli, @leno23, @WuKongAI-CMU, @luoyanglang, and @majin1102.",
+      "translated": "Consolidate GLM under Z.AI, add the Upstash Box install guide and Gateway exposure runbook, clarify MEDIA directives, Copilot and Voyage setup, config path quoting, real behavior proof, and memory-file write guidance. Thanks @BobDu, @alitariksahin, @Jefsky, @musaabhasan, @OmerZeyveli, @leno23, @WuKongAI-CMU, @luoyanglang, and @majin1102."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Docs: clarify media provider credentials, Codex/OpenClaw code-mode boundaries, Slack and Telegram ack reactions, Feishu dynamic agents, secrets plaintext boundaries, memory guidance, and Chinese glossary terms. Thanks @nielskaspers, @cosmopolitan033, @drclaw-iq, @alexgduarte, @zccyman, @chengoak, and @cassthebandit.",
+      "translated": "Clarify media provider credentials, Codex/OpenClaw code-mode boundaries, Slack and Telegram ack reactions, Feishu dynamic agents, secrets plaintext boundaries, memory guidance, and Chinese glossary terms. Thanks @nielskaspers, @cosmopolitan033, @drclaw-iq, @alexgduarte, @zccyman, @chengoak, and @cassthebandit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Packaging: exclude documentation images and assets from the npm tarball, reducing published package size without affecting runtime docs search or CLI behavior. Thanks @SebTardif.",
+      "translated": "Packaging: exclude documentation images and assets from the npm tarball, reducing published package size without affecting runtime docs search or CLI behavior. Thanks @SebTardif."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Media understanding: stop auto-probing Gemini CLI and use Antigravity CLI only as a lower-priority image/video fallback after configured provider APIs.",
+      "translated": "Media understanding: stop auto-probing Gemini CLI and use Antigravity CLI only as a lower-priority image/video fallback after configured provider APIs."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/subagents: limit default sub-agent bootstrap context to `AGENTS.md` and `TOOLS.md`, keeping persona, identity, user, memory, heartbeat, and setup files out of delegated workers by default. (#85283) Thanks @100yenadmin.",
+      "translated": "Agents/subagents: limit default sub-agent bootstrap context to `AGENTS.md` and `TOOLS.md`, keeping persona, identity, user, memory, heartbeat, and setup files out of delegated workers by default. (#85283) Thanks @100yenadmin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Maintainer skills: exclude plugin SDK/API boundary work from `openclaw-landable-bug-sweep` so bugbash sweeps stay focused on small paper-cut fixes.",
+      "translated": "Maintainer skills: exclude plugin SDK/API boundary work from `openclaw-landable-bug-sweep` so bugbash sweeps stay focused on small paper-cut fixes."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab/diagnostics: extend the OpenTelemetry smoke harness to prove trace, metric, and log export, and add first-class Prometheus and observability smoke aliases.",
+      "translated": "QA-Lab/diagnostics: extend the OpenTelemetry smoke harness to prove trace, metric, and log export, and add first-class Prometheus and observability smoke aliases."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin SDK: add a generic channel-message poll sender so channel plugins can expose poll delivery without depending on channel-specific SDK facades.",
+      "translated": "Plugin SDK: add a generic channel-message poll sender so channel plugins can expose poll delivery without depending on channel-specific SDK facades."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Crabbox: keep the local wrapper's provider validation synced with the installed Crabbox binary while preserving supported aliases such as `docker` and `blacksmith`. (#85302) Thanks @hxy91819.",
+      "translated": "Crabbox: keep the local wrapper's provider validation synced with the installed Crabbox binary while preserving supported aliases such as `docker` and `blacksmith`. (#85302) Thanks @hxy91819."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Maintainer skills: add `openclaw-landable-bug-sweep` for producing five small, reviewed, CI-green OpenClaw bugfix PRs from issue/PR sweeps.",
+      "translated": "Maintainer skills: add `openclaw-landable-bug-sweep` for producing five small, reviewed, CI-green OpenClaw bugfix PRs from issue/PR sweeps."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Control UI/chat: add search and Load More pagination to the chat session picker, keeping initial session loads bounded while making older conversations reachable. (#85237) Thanks @amknight.",
+      "translated": "Control UI/chat: add search and Load More pagination to the chat session picker, keeping initial session loads bounded while making older conversations reachable. (#85237) Thanks @amknight."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "CLI/onboarding: start classic onboarding when bare `openclaw` runs before an authored config exists, while keeping configured installs on Crestodian. (#72343) Thanks @fuller-stack-dev.",
+      "translated": "CLI/onboarding: start classic onboarding when bare `openclaw` runs before an authored config exists, while keeping configured installs on Crestodian. (#72343) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discord: allow configuring a bounded `agentComponents.ttlMs` callback registry lifetime for long-running component workflows, with per-account overrides and a 24-hour cap. (#84189) Thanks @100menotu001.",
+      "translated": "Discord: allow configuring a bounded `agentComponents.ttlMs` callback registry lifetime for long-running component workflows, with per-account overrides and a 24-hour cap. (#84189) Thanks @100menotu001."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "xAI/Grok: reuse xAI OAuth auth profiles for Grok `web_search`, thread active-agent auth through web search, add Grok model aliases, and let media providers declare default operation timeouts. (#85182) Thanks @fuller-stack-dev.",
+      "translated": "xAI/Grok: reuse xAI OAuth auth profiles for Grok `web_search`, thread active-agent auth through web search, add Grok model aliases, and let media providers declare default operation timeouts. (#85182) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin SDK: add row-level session workflow helpers and deprecate `loadSessionStore` so plugins can read and patch sessions without depending on the legacy whole-store shape. (#84693) Thanks @efpiva.",
+      "translated": "Plugin SDK: add row-level session workflow helpers and deprecate `loadSessionStore` so plugins can read and patch sessions without depending on the legacy whole-store shape. (#84693) Thanks @efpiva."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway/plugins: reuse a compatible Gateway startup plugin registry during dispatch so safe plugin dispatches avoid redundant registry loading. (#84324) Thanks @ai-hpc.",
+      "translated": "Gateway/plugins: reuse a compatible Gateway startup plugin registry during dispatch so safe plugin dispatches avoid redundant registry loading. (#84324) Thanks @ai-hpc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins/SDK: add a general `embeddingProviders` capability contract and registration API so embeddings can become a reusable provider surface outside memory-specific adapters.",
+      "translated": "Plugins/SDK: add a general `embeddingProviders` capability contract and registration API so embeddings can become a reusable provider surface outside memory-specific adapters."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dependencies: refresh provider, plugin, UI, and tooling packages, update `protobufjs` to 8.4.0 to clear the current npm advisory, and carry the Claude ACP completion patch forward to `@agentclientprotocol/claude-agent-acp` 0.36.1.",
+      "translated": "Dependencies: refresh provider, plugin, UI, and tooling packages, update `protobufjs` to 8.4.0 to clear the current npm advisory, and carry the Claude ACP completion patch forward to `@agentclientprotocol/claude-agent-acp` 0.36.1."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agents/tools: remove the old sender-owner tool gating path so configured tools stay visible for trusted sessions while command and channel-action auth still carry real sender identity.",
+      "translated": "Agents/tools: remove the old sender-owner tool gating path so configured tools stay visible for trusted sessions while command and channel-action auth still carry real sender identity."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: add curated mock JSONL replay fixtures and first-drift reporting for runtime-parity audits. (#80323, refs #80176) Thanks @100yenadmin.",
+      "translated": "QA-Lab: add curated mock JSONL replay fixtures and first-drift reporting for runtime-parity audits. (#80323, refs #80176) Thanks @100yenadmin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: add a QA bus tool-trace visibility scenario for sanitized tool-call assertions.",
+      "translated": "QA-Lab: add a QA bus tool-trace visibility scenario for sanitized tool-call assertions."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: replace generic evidence framing in seeded scenario prompts with concrete observed QA behavior.",
+      "translated": "QA-Lab: replace generic evidence framing in seeded scenario prompts with concrete observed QA behavior."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: list named scenario packs in the coverage report so personal-agent privacy coverage stays visible in audits.",
+      "translated": "QA-Lab: list named scenario packs in the coverage report so personal-agent privacy coverage stays visible in audits."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: list live transport lane membership in the coverage report so real transport checks stay separate from seeded qa-channel scenarios.",
+      "translated": "QA-Lab: list live transport lane membership in the coverage report so real transport checks stay separate from seeded qa-channel scenarios."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release/package: run package integrity checks before package acceptance lanes so public install/update validation fails before private QA assets can leak into the package.",
+      "translated": "Release/package: run package integrity checks before package acceptance lanes so public install/update validation fails before private QA assets can leak into the package."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: include the optional 100-turn runtime parity soak in release-soak artifacts so long-run Codex/Pi transcript drift stays visible outside the default gate. (#80395) Thanks @100yenadmin.",
+      "translated": "QA-Lab: include the optional 100-turn runtime parity soak in release-soak artifacts so long-run Codex/Pi transcript drift stays visible outside the default gate. (#80395) Thanks @100yenadmin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: add a live-only long-context progress watchdog scenario for Codex app-server timeout and stalled-run sentinels. (#80323) Thanks @100yenadmin.",
+      "translated": "QA-Lab: add a live-only long-context progress watchdog scenario for Codex app-server timeout and stalled-run sentinels. (#80323) Thanks @100yenadmin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: tag gateway restart recovery and streaming final-integrity scenarios as live-only runtime parity lanes. (#80323) Thanks @100yenadmin.",
+      "translated": "QA-Lab: tag gateway restart recovery and streaming final-integrity scenarios as live-only runtime parity lanes. (#80323) Thanks @100yenadmin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: add a personal-agent failure recovery scenario that checks honest partial status, retry boundaries, and local recovery artifacts. (#83872) Thanks @iFiras-Max1.",
+      "translated": "QA-Lab: add a personal-agent failure recovery scenario that checks honest partial status, retry boundaries, and local recovery artifacts. (#83872) Thanks @iFiras-Max1."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: include an opt-in `update.run` package self-upgrade sentinel for destructive latest-package recovery checks.",
+      "translated": "QA-Lab: include an opt-in `update.run` package self-upgrade sentinel for destructive latest-package recovery checks."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QA-Lab: add Codex plugin lifecycle and auth-profile fixture coverage for missing installs, pinned-version drift, first-turn install ordering, and doctor migration safety. (#80323, refs #80174) Thanks @100yenadmin.",
+      "translated": "QA-Lab: add Codex plugin lifecycle and auth-profile fixture coverage for missing installs, pinned-version drift, first-turn install ordering, and doctor migration safety. (#80323, refs #80174) Thanks @100yenadmin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Models/perf: pre-warm the provider auth-state map at gateway startup so `/models` and every model-listing call short-circuits the per-provider plugin / external-CLI discovery on the hot path. Per-call cost drops from ~20 s to ~5 ms (~4,100×); the one-time startup warm resets and re-warms after hot reloads. (#84816) Thanks @sjf.",
+      "translated": "Models/perf: pre-warm the provider auth-state map at gateway startup so `/models` and every model-listing call short-circuits the per-provider plugin / external-CLI discovery on the hot path. Per-call cost drops from ~20 s to ~5 ms (~4,100×); the one-time startup warm resets and re-warms after hot reloads. (#84816) Thanks @sjf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release/security: ship the root npm package and OpenClaw-owned npm plugins with generated shrinkwrap, support bundled plugin runtime dependencies for suitable plugin tarballs, and require review for lockfile/shrinkwrap changes so published installs use locked dependency graphs.",
+      "translated": "Release/security: ship the root npm package and OpenClaw-owned npm plugins with generated shrinkwrap, support bundled plugin runtime dependencies for suitable plugin tarballs, and require review for lockfile/shrinkwrap changes so published installs use locked dependency graphs."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Tests/perf: isolate doctor core health check unit coverage from real skills/workspace discovery so `doctor-core-checks` no longer dominates unit perf while keeping one real skills-readiness smoke. (#84493) Thanks @frankekn.",
+      "translated": "Tests/perf: isolate doctor core health check unit coverage from real skills/workspace discovery so `doctor-core-checks` no longer dominates unit perf while keeping one real skills-readiness smoke. (#84493) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WebChat: summarize internal message-tool source replies so tool cards no longer duplicate the visible reply body. (#84773) Thanks @jason-allen-oneal.",
+      "translated": "WebChat: summarize internal message-tool source replies so tool cards no longer duplicate the visible reply body. (#84773) Thanks @jason-allen-oneal."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: preserve deferred lifecycle-error cleanup across later non-terminal events so provider timeouts can persist failed session state instead of leaving sessions stuck running. (#85256, fixes #63819) Thanks @samzong.",
+      "translated": "Gateway: preserve deferred lifecycle-error cleanup across later non-terminal events so provider timeouts can persist failed session state instead of leaving sessions stuck running. (#85256, fixes #63819) Thanks @samzong."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: report tool-only child progress during timeout summaries instead of showing no visible output.",
+      "translated": "Agents/subagents: report tool-only child progress during timeout summaries instead of showing no visible output."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram/ACP: preserve explicit `:topic:` conversation suffixes when inbound ACP targets do not carry a separate thread id.",
+      "translated": "Telegram/ACP: preserve explicit `:topic:` conversation suffixes when inbound ACP targets do not carry a separate thread id."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/proxy: bypass the managed proxy for the exact local managed Chrome CDP readiness and DevTools WebSocket endpoints, so `openclaw browser start` works when the operator proxy blocks loopback egress. (#83255) Thanks @lightcap.",
+      "translated": "Browser/proxy: bypass the managed proxy for the exact local managed Chrome CDP readiness and DevTools WebSocket endpoints, so `openclaw browser start` works when the operator proxy blocks loopback egress. (#83255) Thanks @lightcap."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Ollama: bypass the managed proxy for configured local embedding origins while keeping SSRF guardrails on unconfigured targets. Thanks @Kaspre.",
+      "translated": "Ollama: bypass the managed proxy for configured local embedding origins while keeping SSRF guardrails on unconfigured targets. Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI/images: route Codex API-key image generation through the native OpenAI Images API instead of the Codex OAuth streaming backend, avoiding 401s from valid API keys.",
+      "translated": "OpenAI/images: route Codex API-key image generation through the native OpenAI Images API instead of the Codex OAuth streaming backend, avoiding 401s from valid API keys."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI completions: omit empty tool payload fields for proxy-like OpenAI-compatible endpoints so strict vLLM-style servers accept tool-free turns. (#85835) Thanks @rendrag-git.",
+      "translated": "Agents/OpenAI completions: omit empty tool payload fields for proxy-like OpenAI-compatible endpoints so strict vLLM-style servers accept tool-free turns. (#85835) Thanks @rendrag-git."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Checks/Windows: route full `pnpm check` stage commands through the managed child runner so Windows avoids Node shell-argv deprecation warnings there too.",
+      "translated": "Checks/Windows: route full `pnpm check` stage commands through the managed child runner so Windows avoids Node shell-argv deprecation warnings there too."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Checks/Windows: run managed child commands through explicit `cmd.exe` wrapping instead of Node shell mode with argv, avoiding Node 24 subprocess deprecation warnings during changed checks.",
+      "translated": "Checks/Windows: run managed child commands through explicit `cmd.exe` wrapping instead of Node shell mode with argv, avoiding Node 24 subprocess deprecation warnings during changed checks."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: omit internal stream-error placeholder entries from agent prompt history so failed assistant turns are not replayed as model-authored text. (#85652) Thanks @anyech.",
+      "translated": "Gateway: omit internal stream-error placeholder entries from agent prompt history so failed assistant turns are not replayed as model-authored text. (#85652) Thanks @anyech."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions: enforce the session write-lock max-hold policy during lock acquisition so long-held locks can be reclaimed before the stale-lock window. (#85764) Thanks @njuboy11.",
+      "translated": "Sessions: enforce the session write-lock max-hold policy during lock acquisition so long-held locks can be reclaimed before the stale-lock window. (#85764) Thanks @njuboy11."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Models: prune retired Groq, GitHub Copilot, OpenAI, xAI, and old Claude catalog entries, with doctor migration to upgrade existing configs to current provider refs.",
+      "translated": "Models: prune retired Groq, GitHub Copilot, OpenAI, xAI, and old Claude catalog entries, with doctor migration to upgrade existing configs to current provider refs."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/update: recognize junction-backed source checkouts as git installs by comparing canonical paths before showing package-manager update guidance. Fixes #82215. Thanks @igormf.",
+      "translated": "Doctor/update: recognize junction-backed source checkouts as git installs by comparing canonical paths before showing package-manager update guidance. Fixes #82215. Thanks @igormf."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels: honor `/verbose on` for tool/progress summaries across direct chats, groups, channels, and forum topics while preserving quiet default behavior. (#85488) Thanks @kurplunkin.",
+      "translated": "Channels: honor `/verbose on` for tool/progress summaries across direct chats, groups, channels, and forum topics while preserving quiet default behavior. (#85488) Thanks @kurplunkin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/skills: show an all-ready note with next-step commands when skill setup has no missing dependencies to install. (#85032) Thanks @aniruddhaadak80.",
+      "translated": "CLI/skills: show an all-ready note with next-step commands when skill setup has no missing dependencies to install. (#85032) Thanks @aniruddhaadak80."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Microsoft Foundry: route DeepSeek V4 Pro and Flash models through the Foundry Responses API while keeping older DeepSeek models on their existing path. (#85549) Thanks @roslinmahmud.",
+      "translated": "Microsoft Foundry: route DeepSeek V4 Pro and Flash models through the Foundry Responses API while keeping older DeepSeek models on their existing path. (#85549) Thanks @roslinmahmud."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Status/usage: show configured cost estimates for AWS SDK models in full usage output while keeping token-only usage replies cost-free. (#85619) Thanks @ItsOtherMauridian.",
+      "translated": "Status/usage: show configured cost estimates for AWS SDK models in full usage output while keeping token-only usage replies cost-free. (#85619) Thanks @ItsOtherMauridian."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI Responses: retry non-visible reasoning-only turns for OpenAI Responses API families instead of treating them as empty failed turns. (#85603) Thanks @SebTardif.",
+      "translated": "Agents/OpenAI Responses: retry non-visible reasoning-only turns for OpenAI Responses API families instead of treating them as empty failed turns. (#85603) Thanks @SebTardif."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Directive tags: preserve message and content-part object identity when display stripping makes no directive-tag changes. (#85682) Thanks @willamhou.",
+      "translated": "Directive tags: preserve message and content-part object identity when display stripping makes no directive-tag changes. (#85682) Thanks @willamhou."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: send local `path`/`filePath` and structured attachment media from `sendMessage` actions instead of dropping them or sending text-only messages. (#85219) Thanks @keshavbotagent.",
+      "translated": "Telegram: send local `path`/`filePath` and structured attachment media from `sendMessage` actions instead of dropping them or sending text-only messages. (#85219) Thanks @keshavbotagent."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions/status: show the estimated context budget when fresh provider usage is unavailable and clear stale estimates across session resets and compaction boundaries. (#84830) Thanks @giodl73-repo.",
+      "translated": "Sessions/status: show the estimated context budget when fresh provider usage is unavailable and clear stale estimates across session resets and compaction boundaries. (#84830) Thanks @giodl73-repo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/config: pin relative `OPENCLAW_STATE_DIR` overrides to an absolute path at startup so later working-directory changes cannot retarget gateway state. (#52264) Thanks @PerfectPan.",
+      "translated": "Gateway/config: pin relative `OPENCLAW_STATE_DIR` overrides to an absolute path at startup so later working-directory changes cannot retarget gateway state. (#52264) Thanks @PerfectPan."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/package: run npm release, prepublish, and postpublish verification through Windows-safe npm command shims so native Windows checks can execute `npm.cmd` instead of treating it as a binary.",
+      "translated": "Release/package: run npm release, prepublish, and postpublish verification through Windows-safe npm command shims so native Windows checks can execute `npm.cmd` instead of treating it as a binary."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/harness: pass CLI runtime aliases through harness selection so provider-owned CLI aliases no longer get rejected before reaching the right runtime. (#85631) Thanks @potterdigital.",
+      "translated": "Agents/harness: pass CLI runtime aliases through harness selection so provider-owned CLI aliases no longer get rejected before reaching the right runtime. (#85631) Thanks @potterdigital."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Secrets: show the irreversible apply warning after interactive `secrets configure` confirmation so confirmed migrations still get the final safety prompt. (#85638) Thanks @alkor2000.",
+      "translated": "Secrets: show the irreversible apply warning after interactive `secrets configure` confirmation so confirmed migrations still get the final safety prompt. (#85638) Thanks @alkor2000."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/CLI output: ignore cumulative Claude `stream-json` result usage when assistant usage events are present, preventing inflated cache-read accounting. (#85625) Thanks @zhouhe-xydt.",
+      "translated": "Agents/CLI output: ignore cumulative Claude `stream-json` result usage when assistant usage events are present, preventing inflated cache-read accounting. (#85625) Thanks @zhouhe-xydt."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI: keep `waitForever()` alive by leaving its keep-alive interval ref'd so the public helper no longer exits immediately with Node's unsettled-await code. (#85694) Thanks @m1qaweb.",
+      "translated": "CLI: keep `waitForever()` alive by leaving its keep-alive interval ref'd so the public helper no longer exits immediately with Node's unsettled-await code. (#85694) Thanks @m1qaweb."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/bootstrap: guard bootstrap name checks against missing file names so malformed bootstrap entries warn and truncate instead of crashing. Fixes #85523. (#85615) Thanks @zhouhe-xydt.",
+      "translated": "Agents/bootstrap: guard bootstrap name checks against missing file names so malformed bootstrap entries warn and truncate instead of crashing. Fixes #85523. (#85615) Thanks @zhouhe-xydt."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/tasks: reject partially numeric `openclaw tasks audit --limit` values so audit limits must be real positive integers instead of accepting strings like `5abc`. (#84901) Thanks @jbetala7.",
+      "translated": "CLI/tasks: reject partially numeric `openclaw tasks audit --limit` values so audit limits must be real positive integers instead of accepting strings like `5abc`. (#84901) Thanks @jbetala7."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Status/diagnostics: bound deep Docker audit probes so `openclaw status --deep` reports slow container checks instead of hanging behind unbounded inspection. (#85476) Thanks @giodl73-repo.",
+      "translated": "Status/diagnostics: bound deep Docker audit probes so `openclaw status --deep` reports slow container checks instead of hanging behind unbounded inspection. (#85476) Thanks @giodl73-repo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Anthropic: migrate 1M context handling to GA-capable Claude 4.x models by sizing eligible models at 1M without the retired `context-1m-2025-08-07` beta, ignoring that retired beta in older configs, and preserving OAuth-required Anthropic beta headers. (#45613) Thanks @haoyu-haoyu.",
+      "translated": "Providers/Anthropic: migrate 1M context handling to GA-capable Claude 4.x models by sizing eligible models at 1M without the retired `context-1m-2025-08-07` beta, ignoring that retired beta in older configs, and preserving OAuth-required Anthropic beta headers. (#45613) Thanks @haoyu-haoyu."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/Telegram: parse forum-topic delivery targets through the Telegram plugin instead of cron core, including `:topic:` and `:topicId` forms for announce delivery. Thanks @etticat.",
+      "translated": "Cron/Telegram: parse forum-topic delivery targets through the Telegram plugin instead of cron core, including `:topic:` and `:topicId` forms for announce delivery. Thanks @etticat."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Twitch: keep stale message-handler cleanup callbacks from removing newer handler registrations for the same account, preserving inbound message delivery after reconnects. Fixes #83888. (#85425) Thanks @alkor2000.",
+      "translated": "Twitch: keep stale message-handler cleanup callbacks from removing newer handler registrations for the same account, preserving inbound message delivery after reconnects. Fixes #83888. (#85425) Thanks @alkor2000."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/LanceDB: expose public memory artifacts through the active memory provider bridge so memory-wiki imports durable memory files, daily notes, dream reports, and event logs without depending on memory-core internals. Fixes #83604. (#85060) Thanks @brokemac79.",
+      "translated": "Memory/LanceDB: expose public memory artifacts through the active memory provider bridge so memory-wiki imports durable memory files, daily notes, dream reports, and event logs without depending on memory-core internals. Fixes #83604. (#85060) Thanks @brokemac79."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Crabbox: keep AWS hydration compatible with local Actions replay by inlining the hydrate workflow's Node/pnpm setup instead of invoking repo-local composite actions.",
+      "translated": "Crabbox: keep AWS hydration compatible with local Actions replay by inlining the hydrate workflow's Node/pnpm setup instead of invoking repo-local composite actions."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: simplify native sub-agent completion handoff so children report their latest visible assistant result to the requester without using `message`, while keeping parent-owned message-tool delivery policy intact. Fixes #85070. (#85089) Thanks @brokemac79.",
+      "translated": "Agents/subagents: simplify native sub-agent completion handoff so children report their latest visible assistant result to the requester without using `message`, while keeping parent-owned message-tool delivery policy intact. Fixes #85070. (#85089) Thanks @brokemac79."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docker setup: stop printing the Gateway bearer token in setup logs and printed follow-up commands.",
+      "translated": "Docker setup: stop printing the Gateway bearer token in setup logs and printed follow-up commands."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: let embedded compaction fallback retries proceed when PI-compatible candidates do not need agent harness plugin preparation.",
+      "translated": "Agents: let embedded compaction fallback retries proceed when PI-compatible candidates do not need agent harness plugin preparation."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/tools: honor configured custom provider API keys when deciding whether media, image-generation, video-generation, music-generation, and PDF tools are available. (#85570)",
+      "translated": "Agents/tools: honor configured custom provider API keys when deciding whether media, image-generation, video-generation, music-generation, and PDF tools are available. (#85570)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "StepFun: stop advertising stale generic API key auth choices so onboarding only offers runtime-backed Standard and Step Plan choices.",
+      "translated": "StepFun: stop advertising stale generic API key auth choices so onboarding only offers runtime-backed Standard and Step Plan choices."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diagnostics: keep OpenTelemetry log bodies behind explicit content capture and scrub scoped agent-session keys from OpenTelemetry and Prometheus labels while preserving bounded queue-lane prefixes.",
+      "translated": "Diagnostics: keep OpenTelemetry log bodies behind explicit content capture and scrub scoped agent-session keys from OpenTelemetry and Prometheus labels while preserving bounded queue-lane prefixes."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows installer: fail Git checkout installs when `pnpm install` or `pnpm build` fails instead of writing a wrapper to a missing CLI build.",
+      "translated": "Windows installer: fail Git checkout installs when `pnpm install` or `pnpm build` fails instead of writing a wrapper to a missing CLI build."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions: surface previous-transcript archive failures during `/new` rotation so disk rename errors are logged instead of silently hiding stranded transcript files. Fixes #81984. (#85586, from #82081) Thanks @0xghost42.",
+      "translated": "Sessions: surface previous-transcript archive failures during `/new` rotation so disk rename errors are logged instead of silently hiding stranded transcript files. Fixes #81984. (#85586, from #82081) Thanks @0xghost42."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI/agents: mirror internal-ui message-tool replies into final chat output so message-tool-only agents remain visible in `openclaw tui`. Fixes #85538. Thanks @danpolasek.",
+      "translated": "TUI/agents: mirror internal-ui message-tool replies into final chat output so message-tool-only agents remain visible in `openclaw tui`. Fixes #85538. Thanks @danpolasek."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: keep parallel OpenAI-compatible tool-call deltas in separate argument buffers so interleaved tool calls no longer corrupt streamed arguments. (#82263) Thanks @luna-system.",
+      "translated": "Agents: keep parallel OpenAI-compatible tool-call deltas in separate argument buffers so interleaved tool calls no longer corrupt streamed arguments. (#82263) Thanks @luna-system."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/doctor: report missing or unusable QMD workspace directories as workspace failures instead of generic binary failures. (#63167) Thanks @sercada.",
+      "translated": "Memory/doctor: report missing or unusable QMD workspace directories as workspace failures instead of generic binary failures. (#63167) Thanks @sercada."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Debug proxy: record CONNECT client-socket errors and destroy the paired upstream socket so abrupt client disconnects no longer leak tunnel resources. (#82444) Thanks @SebTardif.",
+      "translated": "Debug proxy: record CONNECT client-socket errors and destroy the paired upstream socket so abrupt client disconnects no longer leak tunnel resources. (#82444) Thanks @SebTardif."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diffs: continue hydrating later diff cards when one card fails so a single broken card no longer blanks the whole diff viewer. (#84775) Thanks @cosmopolitan033.",
+      "translated": "Diffs: continue hydrating later diff cards when one card fails so a single broken card no longer blanks the whole diff viewer. (#84775) Thanks @cosmopolitan033."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Mac app: use the native settings sidebar window chrome so the sidebar toggle stays on the left and content no longer clips under oversized titlebar padding.",
+      "translated": "Mac app: use the native settings sidebar window chrome so the sidebar toggle stays on the left and content no longer clips under oversized titlebar padding."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA-Lab/Codex: bundle auth/plugin fixture imports for flow scenarios and let terminal async media tools end Codex app-server turns without timing out. (#80397, refs #80323) Thanks @100yenadmin.",
+      "translated": "QA-Lab/Codex: bundle auth/plugin fixture imports for flow scenarios and let terminal async media tools end Codex app-server turns without timing out. (#80397, refs #80323) Thanks @100yenadmin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/agents: preserve fresh session overrides and metadata when stale cached agent-session entries race with store updates, so subagent model/provider overrides and routing policy survive concurrent writes. (#19328) Thanks @CodeReclaimers.",
+      "translated": "Gateway/agents: preserve fresh session overrides and metadata when stale cached agent-session entries race with store updates, so subagent model/provider overrides and routing policy survive concurrent writes. (#19328) Thanks @CodeReclaimers."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/chat: keep chat session search inline with the session selector so the header no longer shows a duplicate standalone search row.",
+      "translated": "Control UI/chat: keep chat session search inline with the session selector so the header no longer shows a duplicate standalone search row."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/chat: collapse focused-mode header chrome and suppress hidden-header scroll updates so focus mode no longer jumps while scrolling. Thanks @amknight.",
+      "translated": "Control UI/chat: collapse focused-mode header chrome and suppress hidden-header scroll updates so focus mode no longer jumps while scrolling. Thanks @amknight."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: restart the native app-server and retry once when server-side compaction times out, so preflight compaction stalls recover instead of failing every dispatch. (#85500)",
+      "translated": "Codex app-server: restart the native app-server and retry once when server-side compaction times out, so preflight compaction stalls recover instead of failing every dispatch. (#85500)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Restore Control UI gateway token pairing [AI]. (#85459) Thanks @pgondhi987.",
+      "translated": "Restore Control UI gateway token pairing [AI]. (#85459) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI video: honor configured provider request private-network opt-in for local/custom video endpoints so explicitly trusted mock and self-hosted providers are not blocked. Thanks @shakkernerd.",
+      "translated": "OpenAI video: honor configured provider request private-network opt-in for local/custom video endpoints so explicitly trusted mock and self-hosted providers are not blocked. Thanks @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI video: send uploaded video edit requests to the documented `/videos/edits` endpoint with a `video` file instead of posting MP4 references to `/videos`. Thanks @shakkernerd.",
+      "translated": "OpenAI video: send uploaded video edit requests to the documented `/videos/edits` endpoint with a `video` file instead of posting MP4 references to `/videos`. Thanks @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/channels: preserve message-tool delivery evidence through gateway agent completion handoffs so successful generated media sends are not followed by false failure messages. Thanks @shakkernerd.",
+      "translated": "Agents/channels: preserve message-tool delivery evidence through gateway agent completion handoffs so successful generated media sends are not followed by false failure messages. Thanks @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: repair managed npm plugin `openclaw` peer links during post-core convergence and reject stale or wrong-target peer links before restart. (#83794) Thanks @fuller-stack-dev.",
+      "translated": "CLI/update: repair managed npm plugin `openclaw` peer links during post-core convergence and reject stale or wrong-target peer links before restart. (#83794) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/agents: default new omitted-account bindings to all accounts when the channel has multiple configured accounts, and clarify account-scope docs. (#49769) Thanks @Gcaufy.",
+      "translated": "CLI/agents: default new omitted-account bindings to all accounts when the channel has multiple configured accounts, and clarify account-scope docs. (#49769) Thanks @Gcaufy."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: let authorized `/codex` control commands such as `/codex detach` escape plugin-owned conversation bindings while keeping unknown or unauthorized slash text routed to the bound plugin. Fixes #85157. (#85188) Thanks @TurboTheTurtle.",
+      "translated": "Codex app-server: let authorized `/codex` control commands such as `/codex detach` escape plugin-owned conversation bindings while keeping unknown or unauthorized slash text routed to the bound plugin. Fixes #85157. (#85188) Thanks @TurboTheTurtle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/models: keep `/models` browse replies fast by sharing the bounded read-only catalog path with Gateway model listing. (#84735) Thanks @safrano9999.",
+      "translated": "Auto-reply/models: keep `/models` browse replies fast by sharing the bounded read-only catalog path with Gateway model listing. (#84735) Thanks @safrano9999."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: disable native Code Mode when the effective exec host is `node` and keep OpenClaw `exec`/`process` available, so `/exec host=node` routes shell commands through the selected node instead of the gateway. Fixes #85012. (#85090) Thanks @sahilsatralkar.",
+      "translated": "Codex app-server: disable native Code Mode when the effective exec host is `node` and keep OpenClaw `exec`/`process` available, so `/exec host=node` routes shell commands through the selected node instead of the gateway. Fixes #85012. (#85090) Thanks @sahilsatralkar."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: bound embedded auto-compaction session write-lock watchdogs to the compaction timeout instead of the full run timeout, so stuck compaction cannot hold the live session lock for the whole run window. (#84949) Thanks @luoyanglang.",
+      "translated": "Agents: bound embedded auto-compaction session write-lock watchdogs to the compaction timeout instead of the full run timeout, so stuck compaction cannot hold the live session lock for the whole run window. (#84949) Thanks @luoyanglang."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/agents: return phase-aware `agent.wait` timeout attribution and only cool auth profiles on provider-started timeouts. Refs #65504. Thanks @100yenadmin.",
+      "translated": "Gateway/agents: return phase-aware `agent.wait` timeout attribution and only cool auth profiles on provider-started timeouts. Refs #65504. Thanks @100yenadmin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: defer provider auth-state prewarm until after startup readiness so early gateway tool/session requests are not blocked by provider auth discovery. (#85272) Thanks @dutifulbob.",
+      "translated": "Gateway: defer provider auth-state prewarm until after startup readiness so early gateway tool/session requests are not blocked by provider auth discovery. (#85272) Thanks @dutifulbob."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/models: coalesce provider auth-state rewarms after auth-profile failures and log event-loop delay for warm/rewarm work, so provider auth bursts no longer stack full auth sweeps behind channel replies.",
+      "translated": "Gateway/models: coalesce provider auth-state rewarms after auth-profile failures and log event-loop delay for warm/rewarm work, so provider auth bursts no longer stack full auth sweeps behind channel replies."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/models: stop cancelled provider auth-state prewarms from continuing full provider sweeps, so reload and auth-failure bursts no longer keep startup busy.",
+      "translated": "Gateway/models: stop cancelled provider auth-state prewarms from continuing full provider sweeps, so reload and auth-failure bursts no longer keep startup busy."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Codex: show the first plan update as a transient chat status notice without counting it as final assistant content.",
+      "translated": "Agents/Codex: show the first plan update as a transient chat status notice without counting it as final assistant content."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: walk the macOS process ancestry and honor the inherited Gateway runtime PID before package updates stop the managed Gateway service, so nested in-band updater children can refuse instead of killing the LaunchAgent-supervised Gateway that owns them. Fixes #85120.",
+      "translated": "CLI/update: walk the macOS process ancestry and honor the inherited Gateway runtime PID before package updates stop the managed Gateway service, so nested in-band updater children can refuse instead of killing the LaunchAgent-supervised Gateway that owns them. Fixes #85120."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/LaunchAgent: wait for launchd reload bootout to finish and fall back to kickstart when bootstrap races, so reload handoff does not leave the service deregistered. Fixes #84630. (#84641) Thanks @NianJiuZst.",
+      "translated": "Gateway/LaunchAgent: wait for launchd reload bootout to finish and fall back to kickstart when bootstrap races, so reload handoff does not leave the service deregistered. Fixes #84630. (#84641) Thanks @NianJiuZst."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/LaunchAgent: treat a concurrent launchd bootstrap as a successful restart when the service is already loaded, avoiding false macOS Gateway restart failures. Fixes #84721. (#84722) Thanks @googlerest.",
+      "translated": "Gateway/LaunchAgent: treat a concurrent launchd bootstrap as a successful restart when the service is already loaded, avoiding false macOS Gateway restart failures. Fixes #84721. (#84722) Thanks @googlerest."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/service: include the active `openclaw` command bin directory in managed service PATH generation and doctor audit expectations for npm-global macOS installs. Fixes #84201. (#84475) Thanks @jbetala7.",
+      "translated": "Gateway/service: include the active `openclaw` command bin directory in managed service PATH generation and doctor audit expectations for npm-global macOS installs. Fixes #84201. (#84475) Thanks @jbetala7."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/chat: disable the thinking selector for known non-reasoning models instead of showing duplicate Off choices. Fixes #84069. Thanks @DrippingMellow.",
+      "translated": "Control UI/chat: disable the thinking selector for known non-reasoning models instead of showing duplicate Off choices. Fixes #84069. Thanks @DrippingMellow."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory: expand `~` in configured extra memory paths before resolving them, so home-relative folders are not treated as workspace-relative. Fixes #58026. Thanks @stadman.",
+      "translated": "Memory: expand `~` in configured extra memory paths before resolving them, so home-relative folders are not treated as workspace-relative. Fixes #58026. Thanks @stadman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills: treat `openclaw.os: macos` as Darwin when checking skill requirements, so macOS-only skills no longer report as missing on macOS hosts. Fixes #61338. Thanks @Jessecq1995.",
+      "translated": "Skills: treat `openclaw.os: macos` as Darwin when checking skill requirements, so macOS-only skills no longer report as missing on macOS hosts. Fixes #61338. Thanks @Jessecq1995."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/logs: strip ANSI escape sequences from displayed Gateway log messages so color codes no longer appear as raw text. Fixes #64399. Thanks @guguangxin-eng.",
+      "translated": "Control UI/logs: strip ANSI escape sequences from displayed Gateway log messages so color codes no longer appear as raw text. Fixes #64399. Thanks @guguangxin-eng."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docker: pre-create the workspace and auth-profile config mount points with `node` ownership so first-run named volumes do not start root-owned. Fixes #85076. Thanks @Noerr.",
+      "translated": "Docker: pre-create the workspace and auth-profile config mount points with `node` ownership so first-run named volumes do not start root-owned. Fixes #85076. Thanks @Noerr."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: pass configured markdown table mode through outbound markdown chunking so chunked sends render tables consistently. Fixes #85085. Thanks @ShuaiHui.",
+      "translated": "Telegram: pass configured markdown table mode through outbound markdown chunking so chunked sends render tables consistently. Fixes #85085. Thanks @ShuaiHui."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: preserve managed Gateway service environment during package cutovers so macOS LaunchAgent repair/restart reads the pre-update service state instead of caller shell state. (#83026)",
+      "translated": "CLI/update: preserve managed Gateway service environment during package cutovers so macOS LaunchAgent repair/restart reads the pre-update service state instead of caller shell state. (#83026)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/providers: honor per-model `api` and `baseUrl` overrides in custom provider auth hooks and transport selection. Fixes #80487. (#80488) Thanks @huveewomg.",
+      "translated": "Agents/providers: honor per-model `api` and `baseUrl` overrides in custom provider auth hooks and transport selection. Fixes #80487. (#80488) Thanks @huveewomg."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/restart: eager-load the lifecycle runtime before in-place upgrade signal handling so package replacement does not deadlock restart imports. (#84890) Thanks @myps6415.",
+      "translated": "Gateway/restart: eager-load the lifecycle runtime before in-place upgrade signal handling so package replacement does not deadlock restart imports. (#84890) Thanks @myps6415."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: start managed Gateway update handoff helpers from a stable existing directory and tolerate deleted cwd/package roots during macOS LaunchAgent handoff. Fixes #83808. (#83875) Thanks @jason-allen-oneal.",
+      "translated": "CLI/update: start managed Gateway update handoff helpers from a stable existing directory and tolerate deleted cwd/package roots during macOS LaunchAgent handoff. Fixes #83808. (#83875) Thanks @jason-allen-oneal."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Skills: watch each shared skill directory once across agent workspaces instead of once per agent, preventing file-descriptor exhaustion (`EMFILE`) that disposed bundle-mcp processes and stalled sessions on multi-agent gateways. Fixes #84968. (#85130) Thanks @openperf.",
+      "translated": "Skills: watch each shared skill directory once across agent workspaces instead of once per agent, preventing file-descriptor exhaustion (`EMFILE`) that disposed bundle-mcp processes and stalled sessions on multi-agent gateways. Fixes #84968. (#85130) Thanks @openperf."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/security: keep generated npm shrinkwrap package versions inside the pnpm lock graph so published package locks cannot bypass pnpm dependency age and override policy.",
+      "translated": "Release/security: keep generated npm shrinkwrap package versions inside the pnpm lock graph so published package locks cannot bypass pnpm dependency age and override policy."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron: honor `cron.retry.retryOn: [\"network\"]` for common network error codes such as `EAI_AGAIN`, `EHOSTUNREACH`, and `ENETUNREACH`.",
+      "translated": "Cron: honor `cron.retry.retryOn: [\"network\"]` for common network error codes such as `EAI_AGAIN`, `EHOSTUNREACH`, and `ENETUNREACH`."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway chat: broadcast returned agent-run error payloads after an agent starts so ACP/WebChat clients receive terminal idle-timeout errors. Fixes #84945.",
+      "translated": "Gateway chat: broadcast returned agent-run error payloads after an agent starts so ACP/WebChat clients receive terminal idle-timeout errors. Fixes #84945."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway chat display: preserve OpenAI-compatible `prompt_tokens`, `completion_tokens`, and `total_tokens` usage fields in sanitized chat history so llama.cpp sessions keep context counts. Fixes #77992. Thanks @MarTT79.",
+      "translated": "Gateway chat display: preserve OpenAI-compatible `prompt_tokens`, `completion_tokens`, and `total_tokens` usage fields in sanitized chat history so llama.cpp sessions keep context counts. Fixes #77992. Thanks @MarTT79."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dashboard/CLI: allow macOS browser launching through `open` even when SSH environment variables are present, while preserving Linux SSH no-display protection. Fixes #67088. Thanks @theglove44.",
+      "translated": "Dashboard/CLI: allow macOS browser launching through `open` even when SSH environment variables are present, while preserving Linux SSH no-display protection. Fixes #67088. Thanks @theglove44."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: keep native web search observations out of mirrored chat transcripts while preserving tool progress telemetry. Fixes #85109. Thanks @ugitmebaby.",
+      "translated": "Codex app-server: keep native web search observations out of mirrored chat transcripts while preserving tool progress telemetry. Fixes #85109. Thanks @ugitmebaby."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenCode Go: strip unsupported Kimi reasoning replay fields before provider requests so repeated `kimi-k2.6` turns do not fail schema validation. Fixes #83812. Thanks @Sleeck.",
+      "translated": "OpenCode Go: strip unsupported Kimi reasoning replay fields before provider requests so repeated `kimi-k2.6` turns do not fail schema validation. Fixes #83812. Thanks @Sleeck."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser/CDP: add a WSL2 portproxy self-loop hint when Chrome DevTools endpoints accept connections but return an empty HTTP reply. Fixes #59209. Thanks @Owlock.",
+      "translated": "Browser/CDP: add a WSL2 portproxy self-loop hint when Chrome DevTools endpoints accept connections but return an empty HTTP reply. Fixes #59209. Thanks @Owlock."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI: preserve structured provider error code, type, and redacted body metadata on boundary-aware transport failures.",
+      "translated": "Agents/OpenAI: preserve structured provider error code, type, and redacted body metadata on boundary-aware transport failures."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor/Codex: point native Codex asset warnings at the canonical `openclaw migrate plan codex` preview command. Fixes #84948. Thanks @markoa.",
+      "translated": "Doctor/Codex: point native Codex asset warnings at the canonical `openclaw migrate plan codex` preview command. Fixes #84948. Thanks @markoa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/models: make `capability model auth logout --agent` remove auth profiles from the selected non-default agent store. Fixes #85092. Thanks @islandpreneur007.",
+      "translated": "CLI/models: make `capability model auth logout --agent` remove auth profiles from the selected non-default agent store. Fixes #85092. Thanks @islandpreneur007."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/models: reuse prepared provider auth metadata during model-listing auth checks so repeated lookups avoid broad plugin discovery while preserving synthetic local auth.",
+      "translated": "Gateway/models: reuse prepared provider auth metadata during model-listing auth checks so repeated lookups avoid broad plugin discovery while preserving synthetic local auth."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/status: suppress systemd user-service setup hints when `openclaw status --deep` can already reach a running Gateway RPC service. Fixes #85094. Thanks @islandpreneur007.",
+      "translated": "CLI/status: suppress systemd user-service setup hints when `openclaw status --deep` can already reach a running Gateway RPC service. Fixes #85094. Thanks @islandpreneur007."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/devices: recover local approval when a same-device repair request replaces the request ID being approved.",
+      "translated": "CLI/devices: recover local approval when a same-device repair request replaces the request ID being approved."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/agents: retry transient normal-close Gateway handshakes before falling back to embedded `openclaw agent` execution.",
+      "translated": "CLI/agents: retry transient normal-close Gateway handshakes before falling back to embedded `openclaw agent` execution."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: keep managed Gateway service stop/restart status lines out of `openclaw update --json` stdout so package-update automation can parse the JSON payload.",
+      "translated": "CLI/update: keep managed Gateway service stop/restart status lines out of `openclaw update --json` stdout so package-update automation can parse the JSON payload."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins: resolve OpenClaw plugin SDK subpaths for native external plugin runtimes without mutating package installs or broadening process-wide module resolution.",
+      "translated": "Plugins: resolve OpenClaw plugin SDK subpaths for native external plugin runtimes without mutating package installs or broadening process-wide module resolution."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/OpenAI: preserve Responses and Chat Completions `reasoning_tokens` usage metadata without double-counting it in aggregate output tokens. (#85319)",
+      "translated": "Agents/OpenAI: preserve Responses and Chat Completions `reasoning_tokens` usage metadata without double-counting it in aggregate output tokens. (#85319)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/chat: convert pasted `data:image/...;base64,...` clipboard text into an image attachment instead of dumping the payload into the composer. Fixes #62604. Thanks @cpwilhelmi.",
+      "translated": "Control UI/chat: convert pasted `data:image/...;base64,...` clipboard text into an image attachment instead of dumping the payload into the composer. Fixes #62604. Thanks @cpwilhelmi."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Gemini: strip fractional seconds from web-search time range filters so Gemini accepts freshness-bound search requests. (#85071) Thanks @Noerr.",
+      "translated": "Providers/Gemini: strip fractional seconds from web-search time range filters so Gemini accepts freshness-bound search requests. (#85071) Thanks @Noerr."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI Codex: preserve image input support for sparse `openai-codex/gpt-5.5` catalog rows. (#85095) Thanks @sercada.",
+      "translated": "OpenAI Codex: preserve image input support for sparse `openai-codex/gpt-5.5` catalog rows. (#85095) Thanks @sercada."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/models: add a piped or pasted API-key path for OpenAI Codex auth and warn when API keys are pasted into token-mode auth. (#85533) Thanks @joshavant.",
+      "translated": "CLI/models: add a piped or pasted API-key path for OpenAI Codex auth and warn when API keys are pasted into token-mode auth. (#85533) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: dead-letter missing-harness isolated ingress failures so a poisoned spooled update no longer blocks later same-lane messages. Fixes #85470. (#85605) Thanks @joshavant.",
+      "translated": "Telegram: dead-letter missing-harness isolated ingress failures so a poisoned spooled update no longer blocks later same-lane messages. Fixes #85470. (#85605) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/discovery: strip `-plugin` package suffixes when deriving plugin id hints so package names line up with manifest ids. (#85170) Thanks @JulyanXu.",
+      "translated": "Plugins/discovery: strip `-plugin` package suffixes when deriving plugin id hints so package names line up with manifest ids. (#85170) Thanks @JulyanXu."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tlon: stop advertising a non-existent agent tool contract in the plugin manifest.",
+      "translated": "Tlon: stop advertising a non-existent agent tool contract in the plugin manifest."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: preserve fenced code block languages through Markdown rendering so Telegram receives `language-*` code classes. (#85209) Thanks @leno23.",
+      "translated": "Telegram: preserve fenced code block languages through Markdown rendering so Telegram receives `language-*` code classes. (#85209) Thanks @leno23."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows installer: run npm and Corepack command shims from a Windows-local directory so installs launched from WSL2 UNC paths do not fail before OpenClaw is installed.",
+      "translated": "Windows installer: run npm and Corepack command shims from a Windows-local directory so installs launched from WSL2 UNC paths do not fail before OpenClaw is installed."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows updates: roll back git-backed updates to the previous checkout when dependency install, build, UI build, or doctor repair fails.",
+      "translated": "Windows updates: roll back git-backed updates to the previous checkout when dependency install, build, UI build, or doctor repair fails."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows installer: persist user-local portable Git on PATH and activate the repo-pinned pnpm version for git-backed installs and updates.",
+      "translated": "Windows installer: persist user-local portable Git on PATH and activate the repo-pinned pnpm version for git-backed installs and updates."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows installer: bootstrap a user-local portable Node.js when native Windows has no Node and no winget, Chocolatey, or Scoop, so first-run installs can continue on raw hosts.",
+      "translated": "Windows installer: bootstrap a user-local portable Node.js when native Windows has no Node and no winget, Chocolatey, or Scoop, so first-run installs can continue on raw hosts."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows installer: extract the downloaded portable Node.js directory with native `tar` before falling back to .NET zip extraction, avoiding PowerShell 5.1 archive and path-length failures.",
+      "translated": "Windows installer: extract the downloaded portable Node.js directory with native `tar` before falling back to .NET zip extraction, avoiding PowerShell 5.1 archive and path-length failures."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(integrations): enforce channel read target allowlists [AI]. (#84982) Thanks @pgondhi987.",
+      "translated": "Enforce channel read target allowlists [AI]. (#84982) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/heartbeat: route single-owner `session.dmScope=main` direct-message exec and cron event wakes back to the agent main session so async completions no longer strand context in orphan direct-DM queues. Fixes #71581. (#83743) Thanks @Kaspre.",
+      "translated": "Agents/heartbeat: route single-owner `session.dmScope=main` direct-message exec and cron event wakes back to the agent main session so async completions no longer strand context in orphan direct-DM queues. Fixes #71581. (#83743) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/code-mode: expose outer code-mode `exec` source through the `command` hook alias with `toolKind`/`toolInputKind` discriminators so exec-shaped policies can distinguish code-mode cells. (#83483) Thanks @Kaspre.",
+      "translated": "Agents/code-mode: expose outer code-mode `exec` source through the `command` hook alias with `toolKind`/`toolInputKind` discriminators so exec-shaped policies can distinguish code-mode cells. (#83483) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/code mode: return structured timeout and runtime-unavailable error codes for known worker failures. Fixes #83389. (#83444) Thanks @Kaspre.",
+      "translated": "Agents/code mode: return structured timeout and runtime-unavailable error codes for known worker failures. Fixes #83389. (#83444) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA-Lab: isolate multi-scenario suite workers when scenarios need startup config patches, preventing message-routing config from leaking into unrelated scenarios.",
+      "translated": "QA-Lab: isolate multi-scenario suite workers when scenarios need startup config patches, preventing message-routing config from leaking into unrelated scenarios."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA-Lab: make the commitments heartbeat-target-none scenario request an immediate heartbeat instead of waiting for the next scheduled heartbeat.",
+      "translated": "QA-Lab: make the commitments heartbeat-target-none scenario request an immediate heartbeat instead of waiting for the next scheduled heartbeat."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/Plugin SDK: deliver Codex-native subagent completions through a generic harness task runtime so harness-backed plugins can mirror durable task lifecycle and completion delivery without Codex-specific SDK imports. (#83445) Thanks @bryanpearson.",
+      "translated": "Codex/Plugin SDK: deliver Codex-native subagent completions through a generic harness task runtime so harness-backed plugins can mirror durable task lifecycle and completion delivery without Codex-specific SDK imports. (#83445) Thanks @bryanpearson."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway CLI: surface local post-challenge connect assembly failures immediately instead of waiting for the wrapper timeout. Fixes #68944. (#85253) Thanks @samzong.",
+      "translated": "Gateway CLI: surface local post-challenge connect assembly failures immediately instead of waiting for the wrapper timeout. Fixes #68944. (#85253) Thanks @samzong."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Messages: strip unsupported web-search citation control markers from outbound replies before they reach WebChat or external channels. Fixes #85193. (#85204) Thanks @neeravmakwana.",
+      "translated": "Messages: strip unsupported web-search citation control markers from outbound replies before they reach WebChat or external channels. Fixes #85193. (#85204) Thanks @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: treat denied exec approvals as terminal instead of feeding them back into agent follow-up work, and recognize Chinese stop phrases in abort handling. Fixes #69386. (#85194) Thanks @samzong.",
+      "translated": "Agents/exec: treat denied exec approvals as terminal instead of feeding them back into agent follow-up work, and recognize Chinese stop phrases in abort handling. Fixes #69386. (#85194) Thanks @samzong."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/agents: abort accepted Gateway-backed `openclaw agent` runs on SIGINT/SIGTERM so cron and supervisor timeouts do not leave remote agent work alive. Fixes #71710. (#84381) Thanks @Kaspre.",
+      "translated": "CLI/agents: abort accepted Gateway-backed `openclaw agent` runs on SIGINT/SIGTERM so cron and supervisor timeouts do not leave remote agent work alive. Fixes #71710. (#84381) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: retry replay-safe stdio client-close turns once using structured failure metadata, while surfacing idle `turn/completed` timeouts instead of blindly replaying active shared-server turns. Thanks @VACInc.",
+      "translated": "Codex app-server: retry replay-safe stdio client-close turns once using structured failure metadata, while surfacing idle `turn/completed` timeouts instead of blindly replaying active shared-server turns. Thanks @VACInc."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: reject command overrides that embed Node or package-manager arguments and point users to `appServer.args`, so Windows startup avoids shell parsing failures. (#84417) Thanks @TurboTheTurtle.",
+      "translated": "Codex app-server: reject command overrides that embed Node or package-manager arguments and point users to `appServer.args`, so Windows startup avoids shell parsing failures. (#84417) Thanks @TurboTheTurtle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Copilot: drop unsafe GitHub Copilot Responses reasoning replay items before send so Telegram direct sessions no longer fail on overlong replay IDs. Fixes #85197. (#85198) Thanks @galiniliev.",
+      "translated": "Agents/Copilot: drop unsafe GitHub Copilot Responses reasoning replay items before send so Telegram direct sessions no longer fail on overlong replay IDs. Fixes #85197. (#85198) Thanks @galiniliev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "UI: add accessible tooltips to the topbar color-mode buttons so System, Light, and Dark choices are labeled on hover and focus. (#85227) Thanks @amknight.",
+      "translated": "UI: add accessible tooltips to the topbar color-mode buttons so System, Light, and Dark choices are labeled on hover and focus. (#85227) Thanks @amknight."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix: constrain Windows task script names [AI]. (#85064) Thanks @pgondhi987.",
+      "translated": "Constrain Windows task script names [AI]. (#85064) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI: keep the chat session picker from hiding older or cross-agent configured conversations while preserving the bounded configured-agent refresh. (#85211) Thanks @amknight.",
+      "translated": "Control UI: keep the chat session picker from hiding older or cross-agent configured conversations while preserving the bounded configured-agent refresh. (#85211) Thanks @amknight."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Anthropic: preserve unsafe integer tool-call input values in streamed Anthropic tool-use JSON, preventing Discord-style IDs from being rounded before dispatch. Fixes #47229. (#83063) Thanks @leno23.",
+      "translated": "Agents/Anthropic: preserve unsafe integer tool-call input values in streamed Anthropic tool-use JSON, preventing Discord-style IDs from being rounded before dispatch. Fixes #47229. (#83063) Thanks @leno23."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Codex: estimate tool-heavy prompt pressure at the LLM boundary before provider submission, so persistent sessions compact before overflowing context windows. (#85541) Thanks @fuller-stack-dev and @joshavant.",
+      "translated": "Agents/Codex: estimate tool-heavy prompt pressure at the LLM boundary before provider submission, so persistent sessions compact before overflowing context windows. (#85541) Thanks @fuller-stack-dev and @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/hooks: wait for local one-shot CLI and Codex `agent_end` plugin hooks before process cleanup so terminal observability flushes reliably. (#85007)",
+      "translated": "Agents/hooks: wait for local one-shot CLI and Codex `agent_end` plugin hooks before process cleanup so terminal observability flushes reliably. (#85007)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Google: preserve Gemini 3 cron `thinkingDefault: \"low\"` when stale catalog metadata says `reasoning:false`, so scheduled runs keep provider-supported thinking instead of downgrading to off. (#85185) Thanks @neeravmakwana.",
+      "translated": "Providers/Google: preserve Gemini 3 cron `thinkingDefault: \"low\"` when stale catalog metadata says `reasoning:false`, so scheduled runs keep provider-supported thinking instead of downgrading to off. (#85185) Thanks @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/agents: allow `openclaw agent --session-key` to target explicit session keys, including agent-scoped legacy keys. (#85121) Thanks @Kaspre.",
+      "translated": "CLI/agents: allow `openclaw agent --session-key` to target explicit session keys, including agent-scoped legacy keys. (#85121) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auto-reply/ACP: wait for same-channel block reply delivery before starting tool work, while still honoring ACP dispatch aborts so stopped turns do not wait on slow channel sends. (#83722) Thanks @IWhatsskill.",
+      "translated": "Auto-reply/ACP: wait for same-channel block reply delivery before starting tool work, while still honoring ACP dispatch aborts so stopped turns do not wait on slow channel sends. (#83722) Thanks @IWhatsskill."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/ACP: mark required child-run completions that only report progress, omit a final deliverable, or fail requester delivery as blocked while preserving real final reports. (#85110) Thanks @IWhatsskill.",
+      "translated": "Codex/ACP: mark required child-run completions that only report progress, omit a final deliverable, or fail requester delivery as blocked while preserving real final reports. (#85110) Thanks @IWhatsskill."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels: treat bare abort messages such as `stop`, `abort`, and `wait` as immediate control commands in inbound debounce paths so stop requests are not delayed behind pending message coalescing. (#83348) Thanks @IWhatsskill.",
+      "translated": "Channels: treat bare abort messages such as `stop`, `abort`, and `wait` as immediate control commands in inbound debounce paths so stop requests are not delayed behind pending message coalescing. (#83348) Thanks @IWhatsskill."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels/message tool: resolve configured external channel plugins during in-agent channel selection, so `openclaw agent --local` message-tool sends no longer report an available channel as unavailable. (#85022) Thanks @Kaspre.",
+      "translated": "Channels/message tool: resolve configured external channel plugins during in-agent channel selection, so `openclaw agent --local` message-tool sends no longer report an available channel as unavailable. (#85022) Thanks @Kaspre."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/heartbeat: honor group/channel `message_tool` visible-reply policy and model-specific Codex runtime config for scheduled heartbeat runs, so failed internal tool output stays private. Fixes #85310. (#85357) Thanks @neeravmakwana.",
+      "translated": "Agents/heartbeat: honor group/channel `message_tool` visible-reply policy and model-specific Codex runtime config for scheduled heartbeat runs, so failed internal tool output stays private. Fixes #85310. (#85357) Thanks @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/ACP: close child ACP sessions spawned via `sessions_spawn` when their parent session is reset or deleted, instead of leaving orphaned `claude-agent-acp` processes that accumulate and exhaust memory. Fixes #68916. (#85190) Thanks @openperf.",
+      "translated": "Gateway/ACP: close child ACP sessions spawned via `sessions_spawn` when their parent session is reset or deleted, instead of leaving orphaned `claude-agent-acp` processes that accumulate and exhaust memory. Fixes #68916. (#85190) Thanks @openperf."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: block native execution paths when OpenClaw exec resolves to a node host while preserving the first-party CLI node binding path. Fixes #85012. (#85534) Thanks @joshavant.",
+      "translated": "Codex app-server: block native execution paths when OpenClaw exec resolves to a node host while preserving the first-party CLI node binding path. Fixes #85012. (#85534) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diagnostics: bound cleanup timeout detail logs, emit drop summaries when async diagnostic bursts exceed the queue cap, and surface async queue drops through diagnostic telemetry.",
+      "translated": "Diagnostics: bound cleanup timeout detail logs, emit drop summaries when async diagnostic bursts exceed the queue cap, and surface async queue drops through diagnostic telemetry."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: surface blocked child-run completions as errors instead of successful subagent finishes. (#80886) Thanks @TurboTheTurtle.",
+      "translated": "Agents/subagents: surface blocked child-run completions as errors instead of successful subagent finishes. (#80886) Thanks @TurboTheTurtle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Context engines: fail closed with a descriptive error when the selected agent runtime cannot satisfy declared context-engine host requirements.",
+      "translated": "Context engines: fail closed with a descriptive error when the selected agent runtime cannot satisfy declared context-engine host requirements."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Pi: treat accepted embedded `sessions_spawn` child-session handoffs as terminal progress so parent turns no longer report false non-deliverable failures. (#85054) Thanks @samzong.",
+      "translated": "Agents/Pi: treat accepted embedded `sessions_spawn` child-session handoffs as terminal progress so parent turns no longer report false non-deliverable failures. (#85054) Thanks @samzong."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/models: resolve `openclaw models set` aliases from the runtime config while keeping authored aliases ahead of runtime-only defaults. (#83262) Thanks @IWhatsskill.",
+      "translated": "CLI/models: resolve `openclaw models set` aliases from the runtime config while keeping authored aliases ahead of runtime-only defaults. (#83262) Thanks @IWhatsskill."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor: show personal Codex CLI asset notices as info instead of warnings. Fixes #84859.",
+      "translated": "Doctor: show personal Codex CLI asset notices as info instead of warnings. Fixes #84859."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp: update Baileys to `7.0.0-rc13` and drop the obsolete logger type patch.",
+      "translated": "WhatsApp: update Baileys to `7.0.0-rc13` and drop the obsolete logger type patch."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/update: pre-pack GitHub/git package update targets before the staged npm install, restoring `openclaw update --tag main` for one-off package updates. (#81296) Thanks @fuller-stack-dev.",
+      "translated": "CLI/update: pre-pack GitHub/git package update targets before the staged npm install, restoring `openclaw update --tag main` for one-off package updates. (#81296) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: mirror successful same-source message-tool sends into session transcripts so delivered replies stay in later history/context. (#84837) Thanks @iFiras-Max1.",
+      "translated": "Gateway: mirror successful same-source message-tool sends into session transcripts so delivered replies stay in later history/context. (#84837) Thanks @iFiras-Max1."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Media generation: keep image, music, and video completion delivery from duplicating or losing task ownership when generated media finishes through active session replies. (#84006) Thanks @fuller-stack-dev.",
+      "translated": "Media generation: keep image, music, and video completion delivery from duplicating or losing task ownership when generated media finishes through active session replies. (#84006) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Infra/json: retry transient `File changed during read` races while loading JSON state so config and state reads recover instead of failing the turn. (#84285)",
+      "translated": "Infra/json: retry transient `File changed during read` races while loading JSON state so config and state reads recover instead of failing the turn. (#84285)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/providers: fail closed for workspace provider plugins during setup-mode discovery unless explicitly trusted, preventing untrusted workspace plugin code from running during provider setup. (#81069) Thanks @mmaps.",
+      "translated": "Plugins/providers: fail closed for workspace provider plugins during setup-mode discovery unless explicitly trusted, preventing untrusted workspace plugin code from running during provider setup. (#81069) Thanks @mmaps."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Ollama: resolve configured Ollama Cloud `OLLAMA_API_KEY` markers to the real discovery key so cloud provider entries keep authenticated model catalog access. (#85037)",
+      "translated": "Providers/Ollama: resolve configured Ollama Cloud `OLLAMA_API_KEY` markers to the real discovery key so cloud provider entries keep authenticated model catalog access. (#85037)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord: keep persistent component registry fallback warnings actionable by forwarding structured error and cause metadata through the runtime logger. Fixes #84185. (#84190) Thanks @100menotu001.",
+      "translated": "Discord: keep persistent component registry fallback warnings actionable by forwarding structured error and cause metadata through the runtime logger. Fixes #84185. (#84190) Thanks @100menotu001."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/sessions: preserve compatible session auth profile overrides when switching models within the same provider, including provider-auth aliases. Fixes #81837. (#81886) Thanks @TurboTheTurtle.",
+      "translated": "Gateway/sessions: preserve compatible session auth profile overrides when switching models within the same provider, including provider-auth aliases. Fixes #81837. (#81886) Thanks @TurboTheTurtle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/status: surface inbound delivery telemetry counters and transport-liveness warnings in `openclaw status --all`. Fixes #49577. (#72724)",
+      "translated": "Gateway/status: surface inbound delivery telemetry counters and transport-liveness warnings in `openclaw status --all`. Fixes #49577. (#72724)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docker: prune package-excluded plugin source workspaces and dependency closures so runtime images do not keep packages for plugins that were not opted in.",
+      "translated": "Docker: prune package-excluded plugin source workspaces and dependency closures so runtime images do not keep packages for plugins that were not opted in."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Ollama: treat Docker/OrbStack host aliases as local Ollama endpoints so `ollama-local` marker auth works when OpenClaw runs inside a VM/container and Ollama runs on the host. Fixes #84875.",
+      "translated": "Providers/Ollama: treat Docker/OrbStack host aliases as local Ollama endpoints so `ollama-local` marker auth works when OpenClaw runs inside a VM/container and Ollama runs on the host. Fixes #84875."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA-Lab: keep explicitly searchable/deferred OpenClaw dynamic tool rows report-only by default so tool-coverage gates do not treat mock discovery gaps as hard product failures. (#80319) Thanks @100yenadmin.",
+      "translated": "QA-Lab: keep explicitly searchable/deferred OpenClaw dynamic tool rows report-only by default so tool-coverage gates do not treat mock discovery gaps as hard product failures. (#80319) Thanks @100yenadmin."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/config: keep non-Google provider model refs from being rewritten by Google Gemini preview-id normalization. (#84762) Thanks @zhangguiping-xydt.",
+      "translated": "Agents/config: keep non-Google provider model refs from being rewritten by Google Gemini preview-id normalization. (#84762) Thanks @zhangguiping-xydt."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Installer: require a real controlling terminal before launching onboarding so headless `curl | bash` installs finish cleanly after installing the CLI.",
+      "translated": "Installer: require a real controlling terminal before launching onboarding so headless `curl | bash` installs finish cleanly after installing the CLI."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Codex: promote a completed final assistant response when a prompt timeout races Codex app-server completion instead of returning an empty timeout envelope. Refs #84516.",
+      "translated": "Agents/Codex: promote a completed final assistant response when a prompt timeout races Codex app-server completion instead of returning an empty timeout envelope. Refs #84516."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: keep interrupted turn statuses from being treated as OpenClaw aborts by themselves, so tool-only turns remain eligible for no-visible-answer recovery. Fixes #84492.",
+      "translated": "Codex app-server: keep interrupted turn statuses from being treated as OpenClaw aborts by themselves, so tool-only turns remain eligible for no-visible-answer recovery. Fixes #84492."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: cap heartbeat model bleed context hints by the stored session window when runtime model metadata is unavailable, so overflow recovery advice does not suggest a larger window than the active session actually has.",
+      "translated": "Agents: cap heartbeat model bleed context hints by the stored session window when runtime model metadata is unavailable, so overflow recovery advice does not suggest a larger window than the active session actually has."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI/Web Push: use `https://openclaw.ai` as the generated default VAPID subject instead of the old localhost mailbox so iOS PWA push setup uses an Apple-acceptable subject when `OPENCLAW_VAPID_SUBJECT` is unset. Fixes #83134. (#83317) Thanks @IWhatsskill.",
+      "translated": "Control UI/Web Push: use `https://openclaw.ai` as the generated default VAPID subject instead of the old localhost mailbox so iOS PWA push setup uses an Apple-acceptable subject when `OPENCLAW_VAPID_SUBJECT` is unset. Fixes #83134. (#83317) Thanks @IWhatsskill."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI: distinguish inherited thinking-off settings from explicit Off selections so the thinking selector no longer shows two identical Off rows. (#85223) Thanks @amknight.",
+      "translated": "Control UI: distinguish inherited thinking-off settings from explicit Off selections so the thinking selector no longer shows two identical Off rows. (#85223) Thanks @amknight."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Pi: keep embedded session transcript writes from tripping false takeover detection after packaged npm onboarding agent turns.",
+      "translated": "Agents/Pi: keep embedded session transcript writes from tripping false takeover detection after packaged npm onboarding agent turns."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/TUI: surface Codex-native post-turn compaction failures instead of continuing uncompacted, and keep successful native compaction serialized before local idle/next-turn handling. Fixes #84305. (#85160) Thanks @joshavant.",
+      "translated": "Codex/TUI: surface Codex-native post-turn compaction failures instead of continuing uncompacted, and keep successful native compaction serialized before local idle/next-turn handling. Fixes #84305. (#85160) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory/search: stop recall tracking from writing dreaming side-effect artifacts when `dreaming.enabled=false`, while preserving normal search results. Fixes #84436. (#84444) Thanks @NianJiuZst.",
+      "translated": "Memory/search: stop recall tracking from writing dreaming side-effect artifacts when `dreaming.enabled=false`, while preserving normal search results. Fixes #84436. (#84444) Thanks @NianJiuZst."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diffs: render viewer toolbar icons from a closed icon-name map instead of HTML strings, removing the toolbar icon XSS sink. (#83955) Thanks @tanshanshan.",
+      "translated": "Diffs: render viewer toolbar icons from a closed icon-name map instead of HTML strings, removing the toolbar icon XSS sink. (#83955) Thanks @tanshanshan."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "QA: keep `pnpm qa:e2e` self-check runs inside the private QA runtime envelope even when inherited shell env disables bundled plugins.",
+      "translated": "QA: keep `pnpm qa:e2e` self-check runs inside the private QA runtime envelope even when inherited shell env disables bundled plugins."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(config): validate browser sandbox bind sources [AI]. (#84799) Thanks @pgondhi987.",
+      "translated": "Validate browser sandbox bind sources [AI]. (#84799) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "doctor: constrain legacy plugin cleanup paths [AI]. (#84801) Thanks @pgondhi987.",
+      "translated": "doctor: constrain legacy plugin cleanup paths [AI]. (#84801) Thanks @pgondhi987."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Update/doctor: prune stale local bundled plugin install records that point at old compiled bundled output so current bundled plugin schemas win after upgrade. (#84863) Thanks @fuller-stack-dev.",
+      "translated": "Update/doctor: prune stale local bundled plugin install records that point at old compiled bundled output so current bundled plugin schemas win after upgrade. (#84863) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Providers/Ollama: preserve native Ollama tool-call IDs across assistant replay so Gemini over Ollama Cloud can keep its hidden function-call thought-signature handle.",
+      "translated": "Providers/Ollama: preserve native Ollama tool-call IDs across assistant replay so Gemini over Ollama Cloud can keep its hidden function-call thought-signature handle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord: keep session recovery and `/stop` abort ownership on the source dispatch lane while bound ACP turns continue routing to their target session, so stalled pre-run work and late replies are cleared instead of leaking after stop. Fixes #84477. (#85100) Thanks @joshavant.",
+      "translated": "Discord: keep session recovery and `/stop` abort ownership on the source dispatch lane while bound ACP turns continue routing to their target session, so stalled pre-run work and late replies are cleared instead of leaking after stop. Fixes #84477. (#85100) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: mark missing turn completion after observed execution as replay-unsafe and release the session so follow-up turns can run. Fixes #84076. (#85107) Thanks @joshavant.",
+      "translated": "Codex app-server: mark missing turn completion after observed execution as replay-unsafe and release the session so follow-up turns can run. Fixes #84076. (#85107) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: give visible `message` dynamic tool sends a longer timeout budget so slow channel delivery can return its own result or error instead of hitting the 30-second Codex wrapper. (#85216) Thanks @amknight.",
+      "translated": "Codex app-server: give visible `message` dynamic tool sends a longer timeout budget so slow channel delivery can return its own result or error instead of hitting the 30-second Codex wrapper. (#85216) Thanks @amknight."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex app-server: add a dedicated post-tool raw assistant completion idle timeout config so trusted heavy turns can wait longer after tool handoff without weakening final assistant release.",
+      "translated": "Codex app-server: add a dedicated post-tool raw assistant completion idle timeout config so trusted heavy turns can wait longer after tool handoff without weakening final assistant release."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Matrix: keep explicitly configured two-person rooms on the room route before stale `m.direct` or strict two-member DM fallback can bypass mention gating. Fixes #85017. (#85137) Thanks @joshavant.",
+      "translated": "Matrix: keep explicitly configured two-person rooms on the room route before stale `m.direct` or strict two-member DM fallback can bypass mention gating. Fixes #85017. (#85137) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/subagents: require explicit subagent allowlist targets to be configured agents so stale deleted-agent ids are omitted from `agents_list` and rejected by `sessions_spawn`. Fixes #84811. (#85154) Thanks @joshavant.",
+      "translated": "Agents/subagents: require explicit subagent allowlist targets to be configured agents so stale deleted-agent ids are omitted from `agents_list` and rejected by `sessions_spawn`. Fixes #84811. (#85154) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "PDF tool: time out idle remote PDF body reads after 120 seconds so stalled remote documents return an error instead of wedging the session. Fixes #68649. (#84768) Thanks @luoyanglang.",
+      "translated": "PDF tool: time out idle remote PDF body reads after 120 seconds so stalled remote documents return an error instead of wedging the session. Fixes #68649. (#84768) Thanks @luoyanglang."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Diagnostics/OpenTelemetry plugin: suppress handled OTLP exporter promise rejections so collector shutdowns no longer crash the Gateway. (#81085) Thanks @luoyanglang.",
+      "translated": "Diagnostics/OpenTelemetry plugin: suppress handled OTLP exporter promise rejections so collector shutdowns no longer crash the Gateway. (#81085) Thanks @luoyanglang."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: omit raw command text and env values from denied exec failure logs while keeping safe correlation metadata. Fixes #85049. (#85140) Thanks @joshavant.",
+      "translated": "Agents/exec: omit raw command text and env values from denied exec failure logs while keeping safe correlation metadata. Fixes #85049. (#85140) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Media/audio: skip empty structured sherpa-onnx transcripts instead of treating the raw JSON payload as spoken text. (#84667) Thanks @TurboTheTurtle.",
+      "translated": "Media/audio: skip empty structured sherpa-onnx transcripts instead of treating the raw JSON payload as spoken text. (#84667) Thanks @TurboTheTurtle."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/exec: preserve inherited XDG base-directory environment values for subprocesses while still rejecting agent-supplied XDG overrides. Fixes #84854. (#85139) Thanks @joshavant.",
+      "translated": "Agents/exec: preserve inherited XDG base-directory environment values for subprocesses while still rejecting agent-supplied XDG overrides. Fixes #84854. (#85139) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Node/Linux: keep `OPENCLAW_GATEWAY_TOKEN` out of generated systemd unit files by writing node service token values to a node-specific env file. (#84408)",
+      "translated": "Node/Linux: keep `OPENCLAW_GATEWAY_TOKEN` out of generated systemd unit files by writing node service token values to a node-specific env file. (#84408)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory-core/dreaming: reuse stable narrative subagent session keys per workspace and phase while keeping per-run idempotency and bounded cleanup, so stale `dreaming-narrative-*` sessions do not accumulate. Fixes #68252, #69187, and #70402. (#70464) Thanks @chiyouYCH.",
+      "translated": "Memory-core/dreaming: reuse stable narrative subagent session keys per workspace and phase while keeping per-run idempotency and bounded cleanup, so stale `dreaming-narrative-*` sessions do not accumulate. Fixes #68252, #69187, and #70402. (#70464) Thanks @chiyouYCH."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Trajectory/support: tolerate partial skill snapshot entries when building support metadata so rejected skill path scans no longer abort trajectory capture. (#71185) Thanks @lukeboyett.",
+      "translated": "Trajectory/support: tolerate partial skill snapshot entries when building support metadata so rejected skill path scans no longer abort trajectory capture. (#71185) Thanks @lukeboyett."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI: coalesce repeated idle Esc abort notices into a single `no active run xN` system row instead of appending duplicate rows.",
+      "translated": "TUI: coalesce repeated idle Esc abort notices into a single `no active run xN` system row instead of appending duplicate rows."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: honor `channels.telegram.pollingStallThresholdMs` in the default isolated polling path, restarting silent workers instead of leaving inbound updates wedged. Fixes #83950. (#84861) Thanks @joshavant.",
+      "translated": "Telegram: honor `channels.telegram.pollingStallThresholdMs` in the default isolated polling path, restarting silent workers instead of leaving inbound updates wedged. Fixes #83950. (#84861) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: dedupe replayed message dispatches by Telegram chat/message identity so isolated-ingress replays do not trigger duplicate model dispatches. Fixes #84886. (#85208) Thanks @joshavant.",
+      "translated": "Telegram: dedupe replayed message dispatches by Telegram chat/message identity so isolated-ingress replays do not trigger duplicate model dispatches. Fixes #84886. (#85208) Thanks @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: suppress reasoning payloads before reply delivery and dispatch accounting, so Slack monitor, slash-command, fallback, and direct reply paths do not leak model reasoning. Fixes #84319. (#84322) Thanks @ffluk3 and @joshavant.",
+      "translated": "Slack: suppress reasoning payloads before reply delivery and dispatch accounting, so Slack monitor, slash-command, fallback, and direct reply paths do not leak model reasoning. Fixes #84319. (#84322) Thanks @ffluk3 and @joshavant."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: deliver native plugin approval prompts and updates when Slack native approvals are enabled, while keeping plugin approval authorization separate from exec approvers.",
+      "translated": "Slack: deliver native plugin approval prompts and updates when Slack native approvals are enabled, while keeping plugin approval authorization separate from exec approvers."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Slack: keep native plugin approval prompts in the originating app conversation thread when the live Slack turn source is a `D...` conversation.",
+      "translated": "Slack: keep native plugin approval prompts in the originating app conversation thread when the live Slack turn source is a `D...` conversation."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Pi: disable the embedded pi-coding-agent runtime auto-retry so OpenClaw's own retry and failover loop does not replay failed tool calls through a nested SDK retry. Fixes #73781. (#74434) Thanks @yelog.",
+      "translated": "Agents/Pi: disable the embedded pi-coding-agent runtime auto-retry so OpenClaw's own retry and failover loop does not replay failed tool calls through a nested SDK retry. Fixes #73781. (#74434) Thanks @yelog."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/perf: keep `setup --help`, `onboard --help`, and `configure --help` out of the full wizard runtime while preserving the existing help output. (#84488) Thanks @frankekn.",
+      "translated": "CLI/perf: keep `setup --help`, `onboard --help`, and `configure --help` out of the full wizard runtime while preserving the existing help output. (#84488) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/perf: keep `agents --help` out of agents action/runtime imports so help, completion, and command discovery paths avoid loading the full agents runtime. (#84483) Thanks @frankekn.",
+      "translated": "CLI/perf: keep `agents --help` out of agents action/runtime imports so help, completion, and command discovery paths avoid loading the full agents runtime. (#84483) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/perf: keep `secrets --help` and `nodes --help` on the precomputed help path so parent help avoids loading action-heavy command runtime modules. (#84818) Thanks @frankekn.",
+      "translated": "CLI/perf: keep `secrets --help` and `nodes --help` on the precomputed help path so parent help avoids loading action-heavy command runtime modules. (#84818) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CLI/perf: serve `doctor`, `gateway`, `models`, and `plugins` parent help from startup metadata so common subcommand help avoids full CLI program construction. (#84786) Thanks @frankekn.",
+      "translated": "CLI/perf: serve `doctor`, `gateway`, `models`, and `plugins` parent help from startup metadata so common subcommand help avoids full CLI program construction. (#84786) Thanks @frankekn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/Lossless: keep context-engine history on the canonical run session when Telegram DMs use per-peer runtime policy keys. Fixes #84936. (#84954) Thanks @neeravmakwana.",
+      "translated": "Codex/Lossless: keep context-engine history on the canonical run session when Telegram DMs use per-peer runtime policy keys. Fixes #84936. (#84954) Thanks @neeravmakwana."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex: keep heartbeat response tool schemas durable without exposing dynamic tools disabled by turn policy, so heartbeat wakeups can reuse threads while scoped tool allowlists stay enforced. (#84681) Thanks @jalehman.",
+      "translated": "Codex: keep heartbeat response tool schemas durable without exposing dynamic tools disabled by turn policy, so heartbeat wakeups can reuse threads while scoped tool allowlists stay enforced. (#84681) Thanks @jalehman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auth/OAuth: skip the refresh adapter when a stored OAuth credential has no refresh token so agent turns fail fast on missing-key instead of waiting on the 120s refresh timeout. Thanks @romneyda.",
+      "translated": "Auth/OAuth: skip the refresh adapter when a stored OAuth credential has no refresh token so agent turns fail fast on missing-key instead of waiting on the 120s refresh timeout. Thanks @romneyda."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Auth/Codex: load legacy OAuth sidecar credentials in the embedded runner's secrets-runtime auth loaders so Telegram replies, cron-triggered turns, and other isolated sub-agent lanes can reach the existing #83312 refresh-and-rewrite migration instead of failing with `No API key found for provider \"openai-codex\"` until the user runs `openclaw doctor`. Thanks @Totalsolutionsync and @romneyda.",
+      "translated": "Auth/Codex: load legacy OAuth sidecar credentials in the embedded runner's secrets-runtime auth loaders so Telegram replies, cron-triggered turns, and other isolated sub-agent lanes can reach the existing #83312 refresh-and-rewrite migration instead of failing with `No API key found for provider \"openai-codex\"` until the user runs `openclaw doctor`. Thanks @Totalsolutionsync and @romneyda."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex/failover: classify `deactivated_workspace` as a permanent auth failure so configured fallback models can advance when a Codex workspace is deactivated. (#55893) Thanks @litang9.",
+      "translated": "Codex/failover: classify `deactivated_workspace` as a permanent auth failure so configured fallback models can advance when a Codex workspace is deactivated. (#55893) Thanks @litang9."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Exec: keep configured `tools.exec.pathPrepend` entries ahead of user shell startup PATH changes on POSIX gateway runs. (#81403) Thanks @medns.",
+      "translated": "Exec: keep configured `tools.exec.pathPrepend` entries ahead of user shell startup PATH changes on POSIX gateway runs. (#81403) Thanks @medns."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/sessions: allow shared-secret bearer callers to read and stream session history without an explicit scope header. (#81815) Thanks @medns.",
+      "translated": "Gateway/sessions: allow shared-secret bearer callers to read and stream session history without an explicit scope header. (#81815) Thanks @medns."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/embedded runner: classify HTML auth provider responses as `auth_html` and return a re-authentication hint instead of the CDN-blocked copy that `upstream_html` returns. Cloudflare Access login pages, nginx basic-auth challenges, and gateway login walls all produce HTML auth bodies that were previously misdiagnosed as transient CDN blocks. (#79900) Thanks @martingarramon.",
+      "translated": "Agents/embedded runner: classify HTML auth provider responses as `auth_html` and return a re-authentication hint instead of the CDN-blocked copy that `upstream_html` returns. Cloudflare Access login pages, nginx basic-auth challenges, and gateway login walls all produce HTML auth bodies that were previously misdiagnosed as transient CDN blocks. (#79900) Thanks @martingarramon."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI/streaming watchdog: dismiss the `This response is taking longer than expected` notice as soon as a chat event for the same run arrives, so the message no longer sits next to the recovered response when the run was only briefly silent. Refs #67052, #69081 (closed), prior attempt #69026. Thanks @jpruit20 and @romneyda.",
+      "translated": "TUI/streaming watchdog: dismiss the `This response is taking longer than expected` notice as soon as a chat event for the same run arrives, so the message no longer sits next to the recovered response when the run was only briefly silent. Refs #67052, #69081 (closed), prior attempt #69026. Thanks @jpruit20 and @romneyda."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Pi: tolerate OpenClaw-owned transcript writes while embedded prompts are released for model I/O, keeping long-running Feishu, Slack, Telegram, and cron turns from failing with false session-takeover errors. Fixes #84059. (#84250) Thanks @tianxiaochannel-oss88.",
+      "translated": "Agents/Pi: tolerate OpenClaw-owned transcript writes while embedded prompts are released for model I/O, keeping long-running Feishu, Slack, Telegram, and cron turns from failing with false session-takeover errors. Fixes #84059. (#84250) Thanks @tianxiaochannel-oss88."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.5.22",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.5.22"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.5.22.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.5.22.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: sha512-m+zgBELGbCHjWB1IWF5WSWNPr480cMKOMff2OF72c8A0AMD4hC/9+qwYtzjYmGkETcffnB711JymlVsQnh2Tow==",
+      "translated": "integrity: sha512-m+zgBELGbCHjWB1IWF5WSWNPr480cMKOMff2OF72c8A0AMD4hC/9+qwYtzjYmGkETcffnB711JymlVsQnh2Tow=="
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm publish: https://github.com/openclaw/openclaw/actions/runs/26350601931",
+      "translated": "npm publish: https://github.com/openclaw/openclaw/actions/runs/26350601931"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/26348274555",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/26348274555"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/openclaw/actions/runs/26348274024",
+      "translated": "full release CI report: https://github.com/openclaw/openclaw/actions/runs/26348274024"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release checks report: https://github.com/openclaw/openclaw/actions/runs/26348357741",
+      "translated": "release checks report: https://github.com/openclaw/openclaw/actions/runs/26348357741"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm recovery publish: https://github.com/openclaw/openclaw/actions/runs/26350155030",
+      "translated": "plugin npm recovery publish: https://github.com/openclaw/openclaw/actions/runs/26350155030"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub publish: https://github.com/openclaw/openclaw/actions/runs/26349516036",
+      "translated": "plugin ClawHub publish: https://github.com/openclaw/openclaw/actions/runs/26349516036"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS preflight/sign/notarize: https://github.com/openclaw/releases-private/actions/runs/26348276222",
+      "translated": "macOS preflight/sign/notarize: https://github.com/openclaw/releases-private/actions/runs/26348276222"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS validation: https://github.com/openclaw/releases-private/actions/runs/26348275696",
+      "translated": "macOS validation: https://github.com/openclaw/releases-private/actions/runs/26348275696"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS publish/appcast: https://github.com/openclaw/releases-private/actions/runs/26348989219",
+      "translated": "macOS publish/appcast: https://github.com/openclaw/releases-private/actions/runs/26348989219"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "appcast: https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml",
+      "translated": "appcast: https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS zip: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.zip",
+      "translated": "macOS zip: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.zip"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS dmg: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.dmg",
+      "translated": "macOS dmg: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.dmg"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS dSYM: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.dSYM.zip",
+      "translated": "macOS dSYM: https://github.com/openclaw/openclaw/releases/download/v2026.5.22/OpenClaw-2026.5.22.dSYM.zip"
+    }
+  ],
+  "translatedAt": "2026-05-24T04:41:26.133Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 48490
+}
