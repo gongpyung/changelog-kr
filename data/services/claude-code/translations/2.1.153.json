@@ -1,0 +1,230 @@
+{
+  "version": "2.1.153",
+  "date": "2026-05-28",
+  "parsedAt": "2026-05-28T04:42:48.687Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `skipLfs` option to `github`/`git` plugin marketplace sources to skip Git LFS downloads during clone and update",
+      "translated": "`github`/`git` 플러그인 마켓플레이스 소스에 복제 및 업데이트 시 Git LFS 다운로드를 건너뛰는 `skipLfs` 옵션 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude Code now shows a one-time notice when your npm global install can't auto-update; `/doctor` lists the fixes",
+      "translated": "npm 전역 설치 항목을 자동으로 업데이트할 수 없는 경우 Claude Code에서 일회성 알림을 표시하며, `/doctor`에서 해결 방법을 확인할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Status line commands now receive `COLUMNS` and `LINES` environment variables so scripts can size output to the terminal width",
+      "translated": "상태 표시줄 명령이 `COLUMNS` 및 `LINES` 환경 변수를 전달받아 스크립트 출력을 터미널 너비에 맞게 조정할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills",
+      "translated": "`claude agents`: 디스패치 입력의 자동 완성 기능이 프로젝트 스킬뿐만 아니라 기본 슬래시 명령어와 번들 스킬도 제안합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: PR column now shows `PR #N` for a single PR or `N PRs` for multiple",
+      "translated": "`claude agents`: PR 열에 단일 PR의 경우 `PR #N`, 여러 개인 경우 `N PRs`가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude doctor` now shows the result of your last update attempt",
+      "translated": "`claude doctor`에서 마지막 업데이트 시도 결과를 확인할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Combined the separate \"needs authentication\" startup notifications for MCP servers and connectors into a single message",
+      "translated": "MCP 서버 및 커넥터에 대해 개별적으로 표시되던 \"인증 필요\" 시작 알림을 하나의 메시지로 통합했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS: background agents now appear as \"Claude Code\" in Privacy & Security and keep their permission grants across upgrades",
+      "translated": "macOS: 백그라운드 에이전트가 개인정보 보호 및 보안 설정에 \"Claude Code\"로 표시되며, 업그레이드 후에도 권한 허용 상태가 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stateful MCP servers without the optional GET SSE stream reconnect-looping on `tools/list` (regression in v2.1.147)",
+      "translated": "선택 사항인 GET SSE 스트림이 없는 상태 저장 MCP 서버가 `tools/list` 호출 시 재연결 루프에 빠지는 현상 수정 (v2.1.147 회귀 오류)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a regression where a custom API gateway could receive the user's Anthropic OAuth credential instead of the gateway's own token",
+      "translated": "커스텀 API 게이트웨이가 게이트웨이 자체 토큰 대신 사용자의 Anthropic OAuth 인증 정보를 수신하던 회귀 오류 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent (Agent tool) frontmatter MCP servers ignoring `--strict-mcp-config`, `--bare`, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies",
+      "translated": "하위 에이전트(Agent 도구) 프런트매터 MCP 서버가 `--strict-mcp-config`, `--bare`, 원격 모드, 엔터프라이즈 관리 MCP 설정 및 managed-settings MCP 서버 허용/거부 정책을 무시하던 현상 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--strict-mcp-config` no longer strips inline `mcpServers` from explicitly-passed agent definitions (`--agents` / SDK `agents`), and blocked subagent MCP servers now surface a visible warning",
+      "translated": "`--strict-mcp-config` 사용 시 명시적으로 전달된 에이전트 정의(`--agents` / SDK `agents`)에서 인라인 `mcpServers`를 제거하지 않으며, 차단된 하위 에이전트 MCP 서버에 대해 경고를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Windows PowerShell installer reporting \"Installation complete!\" when installation actually failed",
+      "translated": "Windows PowerShell 설치 프로그램이 설치에 실패했음에도 \"Installation complete!\"라고 보고하던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude update` installing the latest version instead of the configured release channel's version for npm installations",
+      "translated": "npm 설치 시 `claude update`가 설정된 릴리스 채널 버전이 아닌 최신 버전을 설치하던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed excessive memory usage (multiple GB) when resuming a session by transcript file path on machines with many stored sessions",
+      "translated": "저장된 세션이 많은 환경에서 트랜스크립트 파일 경로로 세션을 재개할 때 메모리 사용량이 과도하게(수 GB) 발생하던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` and `claude --bg` running on a stale daemon started before binary-takeover support, even after upgrading",
+      "translated": "업그레이드 후에도 `claude agents` 및 `claude --bg`가 binary-takeover 지원 이전에 시작된 오래된 데몬에서 실행되던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hang where the CLI could fail to exit when stdin was closed without EOF in stream-json mode, leaving a stale session marker behind",
+      "translated": "stream-json 모드에서 stdin이 EOF 없이 닫힐 때 CLI가 종료되지 않고 오래된 세션 마커를 남기던 프리징 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed malformed `file://` links in Claude's responses not being clickable in the terminal",
+      "translated": "Claude의 응답에 포함된 잘못된 형식의 `file://` 링크를 터미널에서 클릭할 수 없던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --help` rendering unwrapped output on terminals narrower than 92 columns",
+      "translated": "92열보다 좁은 터미널에서 `claude --help` 출력이 줄바꿈 없이 렌더링되던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tool progress notifications not rendering in the collapsed tool view",
+      "translated": "축소된 도구 보기에서 MCP 도구 진행률 알림이 렌더링되지 않던 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Agent` tool with `subagent_type: 'claude'` running in an undocumented temporary worktree, which could silently discard outputs written to gitignored paths",
+      "translated": "`subagent_type: 'claude'`인 `Agent` 도구가 문서화되지 않은 임시 worktree에서 실행되어, gitignored 경로에 작성된 출력이 자동으로 누락될 수 있었던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/bg` while Claude is responding now continues the response in the background session instead of dropping it",
+      "translated": "Claude가 응답하는 동안 `/bg`를 사용하면 응답을 중단하는 대신 백그라운드 세션에서 계속 이어가도록 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/btw` keyboard shortcuts becoming unresponsive in background sessions while a task is running",
+      "translated": "작업이 실행 중인 백그라운드 세션에서 `/btw` 키보드 단축키가 응답하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions writing temp files to `$CLAUDE_JOB_DIR` triggering a \"sensitive file\" permission prompt",
+      "translated": "백그라운드 세션이 `$CLAUDE_JOB_DIR`에 임시 파일을 작성할 때 \"민감한 파일\" 권한 요청 프롬프트가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed recovering a background agent whose working directory was deleted showing a truncated stack trace instead of a clear error message",
+      "translated": "디렉터리가 삭제된 백그라운드 에이전트를 복구할 때 명확한 오류 메시지 대신 잘린 스택 추적이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `EnterWorktree` not being available immediately in background sessions (previously required `ToolSearch` first)",
+      "translated": "백그라운드 세션에서 `EnterWorktree`를 즉시 사용할 수 없던 문제를 수정했습니다 (기존에는 `ToolSearch`를 먼저 실행해야 했습니다)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `cmd+k` in iTerm2/Terminal.app not repainting attached background sessions",
+      "translated": "iTerm2 또는 Terminal.app에서 `cmd+k` 입력 시 연결된 백그라운드 세션이 다시 그려지지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the IME candidate window appearing at the bottom of the screen instead of next to the input caret in attached background sessions on Windows",
+      "translated": "Windows의 연결된 백그라운드 세션에서 IME 후보 창이 입력 커서 옆이 아닌 화면 하단에 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-color bleed when attaching to a background agent from 256-color-only terminals after the agent had rendered file diffs",
+      "translated": "에이전트가 파일 diff를 렌더링한 후 256색 전용 터미널에서 백그라운드 에이전트에 연결할 때 배경색이 번지는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/copy` and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux",
+      "translated": "tmux 내부의 백그라운드 세션에 연결되었을 때 `/copy` 및 선택 시 복사 기능이 시스템 클립보드를 업데이트하지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening `claude agents` with Remote Control enabled leaving zombie session entries on the Code tab after exiting",
+      "translated": "Remote Control이 활성화된 상태에서 `claude agents`를 열고 종료한 후 Code 탭에 좀비 세션 항목이 남던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/rename` in background sessions not updating the session banner immediately",
+      "translated": "백그라운드 세션에서 `/rename` 실행 시 세션 배너가 즉시 업데이트되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows update rollback: if a Windows update fails, Claude Code now restores the original executable by copy and tells you how to recover",
+      "translated": "Windows 업데이트 롤백 관련 수정: Windows 업데이트가 실패할 경우, Claude Code가 원본 실행 파일을 복사하여 복구하고 복구 방법을 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false \"unclean exit\" reports and orphaned MCP servers",
+      "translated": "[VSCode] Windows에서 VS Code 종료 시 Claude Code 프로세스가 정상적으로 종료되지 않아 \"비정상 종료\" 보고가 발생하고 MCP 서버가 고립되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/model` now saves your selection as the default for new sessions (matching the IDE). Press `s` in the picker to switch models for the current session only.",
+      "translated": "이제 `/model`에서 선택한 모델이 새 세션의 기본값으로 저장됩니다(IDE와 동일). 현재 세션에서만 모델을 변경하려면 선택기에서 `s`를 누르세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "If you customized the `modelPicker:setAsDefault` keybinding, rename it to `modelPicker:thisSessionOnly` in keybindings.json (the `d` action was replaced by `s`)",
+      "translated": "`modelPicker:setAsDefault` 키바인딩을 사용자 정의한 경우, keybindings.json에서 이를 `modelPicker:thisSessionOnly`로 이름을 변경하세요 (`d` 동작이 `s`로 대체되었습니다)."
+    }
+  ],
+  "translatedAt": "2026-05-28T04:43:42.759Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4426
+}
