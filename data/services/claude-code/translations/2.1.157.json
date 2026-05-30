@@ -1,0 +1,212 @@
+{
+  "version": "2.1.157",
+  "date": "2026-05-29",
+  "parsedAt": "2026-05-30T04:19:14.046Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugins in `.claude/skills` directories are now automatically loaded, no marketplace required",
+      "translated": "`.claude/skills` 디렉토리에 있는 플러그인이 이제 자동으로 로드되며, 마켓플레이스가 필요하지 않습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude plugin init <name>` to scaffold a new plugin in `.claude/skills`",
+      "translated": "`.claude/skills`에 새 플러그인 구조를 생성하는 `claude plugin init <name>` 명령어를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added autocomplete for `/plugin` arguments: subcommands, installed plugin names, and plugins from known marketplaces",
+      "translated": "하위 명령어, 설치된 플러그인 이름, 알려진 마켓플레이스의 플러그인 등 `/plugin` 인자에 대한 자동 완성 기능을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: the `agent` field in `settings.json` is now honored for dispatched sessions, with `--agent <name>` to override it",
+      "translated": "`claude agents`: 이제 분산 세션에서 `settings.json`의 `agent` 필드가 적용되며, `--agent <name>`으로 이를 덮어쓸 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`EnterWorktree` can now switch between Claude-managed worktrees mid-session",
+      "translated": "`EnterWorktree`를 통해 세션 중간에 Claude가 관리하는 작업 트리 간의 전환이 가능해졌습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`tool_decision` telemetry events now include `tool_parameters` (bash commands, MCP/skill names) when `OTEL_LOG_TOOL_DETAILS=1`",
+      "translated": "`OTEL_LOG_TOOL_DETAILS=1` 설정 시 `tool_decision` 원격 측정 이벤트에 `tool_parameters`(bash 명령어, MCP/스킬 이름)가 포함됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Worktrees managed by Claude are now left unlocked when the agent finishes, so `git worktree remove`/`prune` can clean them up",
+      "translated": "에이전트 종료 시 Claude가 관리하는 작업 트리가 잠금 해제 상태로 유지되어, `git worktree remove` 또는 `prune`으로 정리할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unprocessable images (zero-byte, corrupt) attached via paste, MCP, or dialog crashing the request instead of becoming a text placeholder",
+      "translated": "붙여넣기, MCP 또는 대화창을 통해 첨부된 처리 불가능한 이미지(0바이트, 손상됨)가 텍스트 플레이스홀더로 대체되지 않고 요청을 중단시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandbox network permission prompts appearing in auto and bypass-permissions mode when using the desktop app, IDE extensions, or SDK",
+      "translated": "데스크톱 앱, IDE 확장 프로그램 또는 SDK 사용 시 자동 모드 및 권한 우회 모드에서 샌드박스 네트워크 권한 프롬프트가 나타나던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` completed sessions not retiring when an idle subagent was still parked or had leaked a backgrounded shell",
+      "translated": "유휴 상태의 하위 에이전트가 대기 중이거나 백그라운드 셸이 남아 있는 경우 `claude agents`의 완료된 세션이 종료되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` pressing Esc not cancelling a slow \"opening…\", leaving the list unresponsive",
+      "translated": "`claude agents`에서 Esc 키를 눌러도 느린 \"opening…\" 상태가 취소되지 않아 목록이 응답하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agent worktrees under `.claude/worktrees/` being orphaned after the 30-day job retention sweep",
+      "translated": "30일간의 작업 보존 기간이 지난 후 `.claude/worktrees/` 하위의 백그라운드 에이전트 작업 트리가 고립된 상태로 남던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions re-attached after a sleep/wake not telling the model the correct date",
+      "translated": "절전 모드 해제 후 다시 연결된 백그라운드 세션에서 모델에게 정확한 날짜를 전달하지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed copy-on-select in `claude agents` not reaching the system clipboard inside tmux with `set-clipboard on` (regression in 2.1.153)",
+      "translated": "`set-clipboard on`이 설정된 tmux 환경에서 `claude agents`의 선택 시 복사 기능이 시스템 클립보드에 반영되지 않던 문제를 수정했습니다(2.1.153 버전 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` not reporting background subagents that were running when the previous Claude Code process exited",
+      "translated": "이전 Claude Code 프로세스 종료 시 실행 중이던 백그라운드 하위 에이전트를 `--resume` 실행 시 보고하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `--resume` session picker leaving its contents on the terminal after exiting in fullscreen mode",
+      "translated": "전체 화면 모드 종료 후 `--resume` 세션 선택기의 내용이 터미널에 남아 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root instead of the current linked worktree",
+      "translated": "`--worktree` 및 `--worktree --tmux` 사용 시 현재 연결된 작업 트리가 아닌 표준 저장소 루트로 돌아가던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/model` picker showing an incorrect \"Newer version available\" hint when the selected model is already the newest in its family; the pinned-model row now shows the model's description instead of its raw ID",
+      "translated": "선택한 모델이 이미 해당 제품군에서 최신 버전임에도 `/model` 선택기에 \"새 버전 사용 가능\" 힌트가 잘못 표시되던 문제를 수정했습니다. 이제 고정된 모델 행에 원시 ID 대신 모델 설명이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed literal markdown markers (backticks, asterisks) appearing in the in-progress message text in fullscreen mode",
+      "translated": "전체 화면 모드에서 진행 중인 메시지 텍스트에 마크다운 기호(백틱, 별표)가 그대로 노출되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the terminal freezing after approving the managed-settings security dialog at startup",
+      "translated": "시작 시 관리 설정(managed-settings) 보안 대화 상자를 승인한 후 터미널이 멈추는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare duplicate line appearing in scrollback after the terminal UI redraws",
+      "translated": "터미널 UI가 다시 그려진 후 스크롤백에 드물게 중복된 줄이 나타나는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed right-click paste duplicating the clipboard in the VS Code, Cursor, and Windsurf integrated terminals",
+      "translated": "VS Code, Cursor, Windsurf 통합 터미널에서 우클릭 붙여넣기 시 클립보드 내용이 중복되는 현상을 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "WSL: fixed image paste (`alt+v` keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer",
+      "translated": "WSL: 이미지 붙여넣기(`alt+v` 단축키) 및 Windows 11에서의 스크린샷 붙여넣기 오류를 수정하고, Windows 탐색기에서 이미지를 드래그하는 기능을 추가했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance of long and resumed conversations by eliminating redundant message-rendering recomputations",
+      "translated": "불필요한 메시지 렌더링 재계산을 제거하여 길거나 재개된 대화의 성능을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/terminal-setup` now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering",
+      "translated": "텍스트가 깨져서 렌더링되는 현상을 방지하기 위해 `/terminal-setup`에서 VS Code/Cursor/Windsurf 통합 터미널의 GPU 가속을 비활성화하도록 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt",
+      "translated": "'이번 주의 기능(Feature of the Week)' 크레딧 수령 상태가 프롬프트 상단의 한 줄 텍스트 대신 상태 표시줄의 알림으로 나타납니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: slash-command autocomplete in the dispatch input now matches substrings",
+      "translated": "`claude agents`: 디스패치 입력창의 슬래시 명령어 자동 완성이 이제 부분 문자열 일치를 지원합니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the \"bash commands will be sandboxed\" startup banner — sandbox status still shows in `/status` and when a command is blocked",
+      "translated": "\"bash 명령어가 샌드박스에서 실행됩니다\"라는 시작 배너를 제거했습니다. 샌드박스 상태는 여전히 `/status` 및 명령어가 차단될 때 확인할 수 있습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the \"/ide for …\" startup hint toast",
+      "translated": "\"/ide for …\" 시작 힌트 토스트 메시지를 제거했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[IDE] Fixed clicking Stop while a background subagent is running not actually stopping it",
+      "translated": "[IDE] 백그라운드 서브 에이전트가 실행 중일 때 정지(Stop)를 클릭해도 실제로 정지되지 않던 현상을 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the fast mode indicator not appearing on Opus 4.8",
+      "translated": "[VSCode] Opus 4.8에서 패스트 모드 표시기가 나타나지 않던 현상을 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character",
+      "translated": "워크플로우 트리거 키워드 직후에 백스페이스를 누르면 문자를 삭제하는 대신 워크플로우 요청을 취소합니다(alt+w와 동일)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow\" in a prompt from triggering a dynamic workflow",
+      "translated": "프롬프트에 포함된 \"workflow\"라는 단어가 동적 워크플로우를 트리거하지 않도록 `/config`에 \"Workflow keyword trigger\" 설정을 추가했습니다."
+    }
+  ],
+  "translatedAt": "2026-05-30T04:20:59.616Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3719
+}
