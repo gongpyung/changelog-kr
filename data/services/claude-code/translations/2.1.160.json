@@ -1,0 +1,176 @@
+{
+  "version": "2.1.160",
+  "date": "2026-06-02",
+  "parsedAt": "2026-06-02T05:01:47.249Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a prompt before writing to shell startup files (`.zshenv`, `.zlogin`, `.bash_login`) and `~/.config/git/`, which could otherwise lead to unintended command execution",
+      "translated": "의도하지 않은 명령 실행을 방지하기 위해 쉘 시작 파일(`.zshenv`, `.zlogin`, `.bash_login`) 및 `~/.config/git/`에 쓰기 전 확인 프롬프트를 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`acceptEdits` mode now prompts before writing build-tool config files that grant code execution (`.npmrc`, `.yarnrc*`, `bunfig.toml`, `.bazelrc`, `.pre-commit-config.yaml`, `.devcontainer/`, etc.)",
+      "translated": "`acceptEdits` 모드에서 코드 실행 권한을 부여하는 빌드 도구 설정 파일(`.npmrc`, `.yarnrc*`, `bunfig.toml`, `.bazelrc`, `.pre-commit-config.yaml`, `.devcontainer/` 등)을 작성하기 전에 확인 프롬프트를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Edit no longer requires a separate Read after viewing a file with `grep`: single-file `grep`/`egrep`/`fgrep` commands now satisfy the read-before-edit check",
+      "translated": "`grep`으로 파일을 확인한 후 편집 시 별도의 읽기 단계가 필요하지 않습니다. 단일 파일에 대한 `grep`/`egrep`/`fgrep` 명령이 이제 편집 전 읽기 확인 조건을 충족합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed copy-on-select not writing to the Windows clipboard on WSL — now uses PowerShell interop instead of OSC 52, which terminals like MobaXterm don't support",
+      "translated": "WSL에서 선택 시 복사 기능이 Windows 클립보드에 작동하지 않던 문제를 수정했습니다. MobaXterm과 같은 터미널에서 지원하지 않는 OSC 52 대신 PowerShell interop을 사용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed restoring a completed session from `claude agents` dropping chat history and re-running the original prompt",
+      "translated": "`claude agents`에서 완료된 세션을 복구할 때 대화 기록이 사라지고 원래 프롬프트가 다시 실행되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions re-attached after overnight retire losing their conversation and re-running the original prompt",
+      "translated": "장시간 방치 후 다시 연결된 백그라운드 세션에서 대화 내용이 유실되고 원래 프롬프트가 다시 실행되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --bg` occasionally failing with \"socket missing\" when the background daemon was cold-starting on a loaded machine",
+      "translated": "부하가 걸린 기기에서 백그라운드 데몬이 콜드 스타트될 때 `claude --bg`가 간혹 \"socket missing\" 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an issue on Windows where the directory a background session was started in could not be deleted after `claude rm` until the background daemon exited",
+      "translated": "Windows에서 `claude rm` 실행 후 백그라운드 데몬이 종료될 때까지 백그라운드 세션이 시작된 디렉토리를 삭제할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents that resumed work being shown under Completed in the agents list",
+      "translated": "작업을 재개한 백그라운드 에이전트가 에이전트 목록의 Completed 항목에 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` freezing for several seconds when returning to the session list due to the auto-updater re-checking on every exit",
+      "translated": "종료 시마다 자동 업데이트를 다시 확인하여 세션 목록으로 돌아갈 때 `claude agents`가 몇 초간 멈추던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc, arrow keys, and typing becoming unresponsive on Windows when attached to a background session or in the agent view while the host is under heavy CPU load",
+      "translated": "호스트의 CPU 부하가 높을 때 Windows에서 백그라운드 세션에 연결하거나 에이전트 뷰에 있을 경우 Esc, 화살표 키 및 입력이 응답하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents emitting terminal sync-output markers to terminals that don't support them (Apple Terminal, tmux), causing render artifacts when entering a running agent",
+      "translated": "백그라운드 에이전트가 이를 지원하지 않는 터미널(Apple Terminal, tmux)에 터미널 sync-output 마커를 전송하여, 실행 중인 에이전트에 진입할 때 화면 깨짐 현상이 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mouse wheel scrolling prompt history instead of the transcript right after opening a session from the agents list",
+      "translated": "에이전트 목록에서 세션을 연 직후 마우스 휠 스크롤 시 대화 내용 대신 프롬프트 기록이 스크롤되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed CJK IME composition appearing at the bottom-left of the screen instead of at the input caret in the `claude agents` view",
+      "translated": "`claude agents` 뷰에서 CJK IME 입력창이 입력 커서 위치가 아닌 화면 왼쪽 하단에 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed valid `file:///C:/...` links being rewritten to a broken path on Windows terminals with hyperlink support",
+      "translated": "하이퍼링크를 지원하는 Windows 터미널에서 유효한 `file:///C:/...` 링크가 잘못된 경로로 변경되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode failing to connect when the project directory or branch name contains non-ASCII or special characters",
+      "translated": "프로젝트 디렉토리나 브랜치 이름에 비 ASCII 문자 또는 특수 문자가 포함된 경우 음성 모드 연결에 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the auto mode unavailability message on third-party providers (Bedrock/Vertex/Foundry) to point to the `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in instead of incorrectly blaming the model",
+      "translated": "서드파티 제공자(Bedrock/Vertex/Foundry)에서 자동 모드 사용 불가 메시지가 모델 문제로 잘못 표시되던 것을 `CLAUDE_CODE_ENABLE_AUTO_MODE` 옵션 활성화 안내로 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort ultracode` incorrectly blaming the dynamic workflows setting when the model cannot run xhigh; ultracode is no longer offered on models that do not support it",
+      "translated": "모델이 xhigh를 실행할 수 없을 때 `/effort ultracode`가 동적 워크플로우 설정 문제로 잘못 표시되던 문제를 수정했습니다. 이제 이를 지원하지 않는 모델에서는 ultracode가 제공되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model-not-found errors suggesting `--model` when running via the SDK or other hosts where the CLI flag doesn't apply",
+      "translated": "SDK나 CLI 플래그가 적용되지 않는 다른 호스트에서 실행할 때, 모델을 찾을 수 없음 오류에서 `--model` 사용을 제안하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude's past replies disappearing from scrollback when resuming a brief mode session with brief mode turned off",
+      "translated": "brief mode가 꺼진 상태에서 brief mode 세션을 재개할 때 이전 Claude의 답변이 스크롤 기록에서 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed vim mode `p` pasting on the line below instead of at the cursor when the register was yanked with `v$`",
+      "translated": "vim 모드에서 `v$`로 텍스트를 복사(yank)했을 때, `p`를 누르면 커서 위치가 아닌 다음 줄에 붙여넣기 되는 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance of opening recently-inactive background agent sessions in `claude agents`",
+      "translated": "`claude agents`에서 최근 비활성화된 백그라운드 에이전트 세션을 여는 성능을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode classifier latency by reducing reasoning on routine actions, lowering the chance of \"could not evaluate this action\" blocks",
+      "translated": "일상적인 작업에 대한 추론 과정을 줄여 auto mode 분류기 지연 시간을 개선하고, \"could not evaluate this action\" 오류가 발생할 확률을 낮췄습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background-session teardown (`claude rm`/`stop`, idle reap) to send SIGTERM to running shell subprocesses before SIGKILL, so cleanup handlers run",
+      "translated": "백그라운드 세션 종료(`claude rm`/`stop`, 유휴 세션 정리) 시 실행 중인 셸 하위 프로세스에 SIGKILL을 보내기 전 SIGTERM을 먼저 전송하여 정리(cleanup) 핸들러가 실행되도록 개선했습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`; the environment variable is now a no-op",
+      "translated": "`CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`를 제거했습니다. 해당 환경 변수는 이제 아무런 동작을 수행하지 않습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the JetBrains plugin install suggestion from startup",
+      "translated": "시작 시 JetBrains 플러그인 설치 제안을 제거했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Renamed the dynamic-workflow trigger keyword from `workflow` to `ultracode`. The word \"workflow\" no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input",
+      "translated": "dynamic-workflow 트리거 키워드를 `workflow`에서 `ultracode`로 변경했습니다. 이제 \"workflow\"라는 단어는 실행을 트리거하지 않지만, 사용자의 언어로 직접 요청하는 방식은 여전히 유효합니다. 트리거 키워드는 프롬프트 입력창에서 보라색으로 강조 표시됩니다."
+    }
+  ],
+  "translatedAt": "2026-06-02T05:02:49.009Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3715
+}
