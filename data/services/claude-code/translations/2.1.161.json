@@ -1,0 +1,146 @@
+{
+  "version": "2.1.161",
+  "date": "2026-06-02",
+  "parsedAt": "2026-06-03T05:19:39.990Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`OTEL_RESOURCE_ATTRIBUTES` values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo",
+      "translated": "`OTEL_RESOURCE_ATTRIBUTES` 값이 이제 메트릭 데이터 포인트의 레이블로 포함되어, 팀이나 리포지토리와 같은 사용자 정의 차원별로 사용량 메트릭을 세분화하여 분석할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` rows now show `done/total` before the detail when work is fanned out; peek shows the longest-running item",
+      "translated": "`claude agents` 행에서 작업이 분산될 때 세부 정보 앞에 `done/total`이 표시됩니다. 미리보기(peek)에서는 가장 오래 실행 중인 항목을 보여줍니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/mcp` now collapses claude.ai connectors you've never signed in to behind a \"Show unused connectors\" row",
+      "translated": "`/mcp`에서 로그인한 적이 없는 claude.ai 커넥터들을 \"Show unused connectors\" 행 아래로 접어서 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Parallel tool calls: a failed Bash command no longer cancels other calls in the same batch — each tool returns its own result independently",
+      "translated": "병렬 도구 호출: Bash 명령 실행에 실패해도 동일한 배치의 다른 호출이 취소되지 않으며, 각 도구가 독립적으로 결과를 반환합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Fullscreen mode: clipboard now uses `wl-copy`/`xclip`/`xsel` on Linux when available, copies to both the clipboard and PRIMARY selection for middle-click paste, and the \"hold {key} for native selection\" hint now shows the correct key per terminal",
+      "translated": "전체 화면 모드: Linux에서 사용 가능한 경우 클립보드가 `wl-copy`/`xclip`/`xsel`을 사용하며, 클립보드와 PRIMARY 선택 영역 모두에 복사되어 마우스 중간 클릭으로 붙여넣을 수 있습니다. 또한 \"네이티브 선택을 위해 {key}를 누르세요\" 힌트가 터미널별로 올바른 키를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/effort` dialog, workflow animations, and prompt keyword shimmer not honoring the \"Reduce motion\" setting",
+      "translated": "`/effort` 대화 상자, 워크플로 애니메이션, 프롬프트 키워드 반짝임(shimmer) 효과가 \"동작 줄이기\" 설정을 준수하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `forceLoginOrgUUID`/`forceLoginMethod` managed-settings policies blocking third-party provider sessions (Bedrock, Vertex, Foundry, Mantle) alongside the org pin (regression in 2.1.146)",
+      "translated": "`forceLoginOrgUUID`/`forceLoginMethod` 관리 설정 정책이 조직 고정(org pin)과 함께 제3자 제공자 세션(Bedrock, Vertex, Foundry, Mantle)을 차단하던 문제를 수정했습니다 (2.1.146 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background subagent output corrupting `claude -p` stdout when using `--output-format text` or `json`",
+      "translated": "`--output-format text` 또는 `json`을 사용할 때 백그라운드 서브 에이전트 출력이 `claude -p`의 표준 출력(stdout)을 손상시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage-credits` starting a re-login for Team and Enterprise admins instead of pointing to the organization's usage settings page",
+      "translated": "팀 및 엔터프라이즈 관리자에게 `/usage-credits` 실행 시 조직의 사용량 설정 페이지로 안내하는 대신 재로그인을 시작하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/autofix-pr` reporting \"cannot run on the default branch\" when the session is inside a git worktree or another repository",
+      "translated": "세션이 git worktree 또는 다른 리포지토리 내에 있을 때 `/autofix-pr`이 \"기본 브랜치에서 실행할 수 없음\"이라고 보고하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` picker not showing sessions from the current directory when it isn't a git worktree (e.g., jj workspaces)",
+      "translated": "현재 디렉토리가 git worktree가 아닐 때(예: jj workspaces) `--resume` 선택기에 현재 디렉토리의 세션이 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows hooks that invoke bash explicitly (e.g., `/usr/bin/bash script.sh`) failing with \"command not found\" or \"cannot execute binary file\"",
+      "translated": "bash를 명시적으로 호출하는 Windows 훅(예: `/usr/bin/bash script.sh`)이 \"명령을 찾을 수 없음\" 또는 \"이진 파일을 실행할 수 없음\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OpenTelemetry log events (`user_prompt`, `api_request`, `tool_result`, `tool_decision`) being silently dropped when emitted before telemetry initialization completed",
+      "translated": "텔레메트리 초기화가 완료되기 전에 발생한 OpenTelemetry 로그 이벤트(`user_prompt`, `api_request`, `tool_result`, `tool_decision`)가 자동으로 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude mcp` list/get/add printing secrets to the terminal: `${VAR}` references are no longer expanded, and credential headers and URL secrets are redacted",
+      "translated": "`claude mcp` list/get/add 명령이 터미널에 비밀 정보를 출력하던 문제를 수정했습니다. 이제 `${VAR}` 참조가 확장되지 않으며, 인증 헤더 및 URL 비밀 정보가 마스킹 처리됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Workflow agents spawned with `isolation: \"worktree\"` in background sessions being blocked from editing files inside their own worktree",
+      "translated": "백그라운드 세션에서 `isolation: \"worktree\"`로 생성된 워크플로 에이전트가 자신의 worktree 내 파일을 수정하지 못하도록 차단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions dispatched from `claude agents` booting on a stale model from the daemon's environment instead of the model in `settings.json`",
+      "translated": "`claude agents`에서 파생된 백그라운드 세션이 `settings.json`에 설정된 모델 대신 데몬 환경의 오래된 모델로 시작되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a potential crash when rendering Write tool results after resuming a session",
+      "translated": "세션 재개 후 Write 도구 결과를 렌더링할 때 발생할 수 있는 충돌 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed completed subagents getting stuck showing as running when an error occurs while finalizing their result",
+      "translated": "서브 에이전트의 결과를 마무리하는 동안 오류가 발생하면 완료된 서브 에이전트가 계속 실행 중인 것으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `EADDRINUSE` errors from tools that bind Unix sockets under `$TMPDIR` when `CLAUDE_CODE_TMPDIR` is set to a deep path",
+      "translated": "`CLAUDE_CODE_TMPDIR`가 깊은 경로로 설정된 경우 `$TMPDIR` 아래에 Unix 소켓을 바인딩하는 도구에서 발생하는 `EADDRINUSE` 오류를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved terminal rendering performance by stabilizing the layout engine's JIT compilation profile",
+      "translated": "레이아웃 엔진의 JIT 컴파일 프로필을 안정화하여 터미널 렌더링 성능을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved rendering performance for large file writes",
+      "translated": "대용량 파일 쓰기 시 렌더링 성능 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a tip suggesting disabling terminal GPU acceleration (or running `/terminal-setup`) to fix garbled glyphs",
+      "translated": "[VSCode] 글자 깨짐 현상을 해결하기 위해 터미널 GPU 가속을 비활성화하거나 `/terminal-setup`을 실행하도록 안내하는 팁 추가"
+    }
+  ],
+  "translatedAt": "2026-06-03T05:20:28.459Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2914
+}
