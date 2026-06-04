@@ -1,0 +1,182 @@
+{
+  "version": "2.1.162",
+  "date": "2026-06-03",
+  "parsedAt": "2026-06-04T05:10:58.098Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents --json` now includes `waitingFor` showing what a waiting session is blocked on (e.g. permission prompt)",
+      "translated": "`claude agents --json`에 대기 중인 세션이 무엇 때문에 차단되었는지(예: 권한 요청) 보여주는 `waitingFor`가 추가되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`--tools`: explicitly listing Grep/Glob now provides the dedicated search tools on native builds with embedded search (previously these names were silently ignored)",
+      "translated": "`--tools`: Grep/Glob을 명시적으로 나열하면 이제 검색 기능이 내장된 네이티브 빌드에서 전용 검색 도구를 제공합니다 (이전에는 해당 이름들이 무시되었습니다)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/effort` now confirms when your chosen level will persist as the default for new sessions",
+      "translated": "`/effort` 사용 시 선택한 수준이 새 세션의 기본값으로 유지될 때 확인 메시지를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clicking a slash command in the autocomplete menu now fills it into your prompt instead of running it immediately; press Enter to run",
+      "translated": "자동 완성 메뉴에서 슬래시 명령어를 클릭하면 즉시 실행되는 대신 프롬프트에 입력됩니다. 실행하려면 Enter를 누르세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control now shows as a persistent footer pill (with a link to the session) instead of a startup message",
+      "translated": "Remote Control이 시작 메시지 대신 하단 고정 필(세션 링크 포함) 형태로 표시됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/scroll-speed`, following the editor's rebrand",
+      "translated": "에디터 리브랜딩에 따라 `/ide` 메뉴, `/terminal-setup`, `/scroll-speed`에서 Windsurf의 명칭을 Devin Desktop으로 변경했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a silent startup hang when the config directory is read-only or unwritable — Claude Code now starts with in-memory config and surfaces startup errors instead of showing a blank screen",
+      "translated": "설정 디렉토리가 읽기 전용이거나 쓰기 불가능할 때 시작 시 응답이 없던 문제를 수정했습니다. 이제 Claude Code는 인메모리 설정으로 시작하며, 빈 화면 대신 시작 오류를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed WebFetch permission rules not being applied to built-in preapproved domains; explicit `WebFetch(domain:...)` deny/ask/allow rules now take precedence over the preapproved-host auto-allow",
+      "translated": "기본 승인된 도메인에 WebFetch 권한 규칙이 적용되지 않던 문제를 수정했습니다. 이제 명시적인 `WebFetch(domain:...)` 거부/확인/허용 규칙이 사전 승인된 호스트의 자동 허용보다 우선순위를 갖습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows permission rules never matching when spelled with backslashes (`~\\`, `\\\\server\\share`) or case-variant paths, and Read deny rules not hiding files from Glob/Grep results",
+      "translated": "Windows에서 백슬래시(`~\\`, `\\\\server\\share`)나 대소문자가 다른 경로를 사용할 때 권한 규칙이 일치하지 않던 문제와, 읽기 거부 규칙이 Glob/Grep 결과에서 파일을 숨기지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an interrupt (Esc) sent at the very start of a turn being silently dropped in stream-json/SDK sessions, leaving the turn running with no \"Interrupted\" feedback",
+      "translated": "stream-json/SDK 세션에서 턴 시작 직후 보낸 중단(Esc) 명령이 무시되어 \"Interrupted\" 피드백 없이 턴이 계속 실행되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed API 400 `no low surrogate in string` errors for classifier side-queries and MCP server descriptions containing emoji near a truncation boundary",
+      "translated": "분류기 사이드 쿼리 및 MCP 서버 설명의 절단 경계 근처에 이모지가 포함될 때 발생하는 API 400 `no low surrogate in string` 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP per-server `timeout` config values below 1000 ms being floored to a 1-second watchdog that aborted every tool call; sub-1000 ms values are now ignored (falling back to `MCP_TOOL_TIMEOUT` or default), and `claude mcp get` annotates them accordingly",
+      "translated": "MCP 서버별 `timeout` 설정값이 1000ms 미만일 때 모든 도구 호출을 중단시키는 1초 워치독으로 고정되던 문제를 수정했습니다. 1000ms 미만의 값은 이제 무시되며(`MCP_TOOL_TIMEOUT` 또는 기본값으로 대체), `claude mcp get` 실행 시 관련 주석이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the LSP tool's `workspaceSymbol` operation returning no results; it now accepts a `query` parameter and passes it to the language server",
+      "translated": "LSP 도구의 `workspaceSymbol` 작업이 결과를 반환하지 않던 문제를 수정했습니다. 이제 `query` 파라미터를 받아 언어 서버로 전달합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` cutting live status text (tool args, replies, prompts, exec output) at 60–120 columns on wide terminals; the status detail now uses the full terminal width",
+      "translated": "넓은 터미널에서 `claude agents`의 실시간 상태 텍스트(도구 인자, 응답, 프롬프트, 실행 출력)가 60~120자에서 잘리던 문제를 수정했습니다. 이제 상태 상세 정보에 터미널 전체 너비를 사용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` truncating long session names at 40 columns; the name column now grows with terminal width",
+      "translated": "`claude agents`에서 긴 세션 이름이 40자에서 잘리던 문제를 수정했습니다. 이제 이름 열의 너비가 터미널 너비에 맞춰 늘어납니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` attach occasionally bouncing straight back to the session list on the first try after a background-service restart",
+      "translated": "백그라운드 서비스 재시작 후 첫 번째 시도에서 `claude agents` 연결 시 간혹 세션 목록으로 즉시 튕겨 나가던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` Ctrl+V image paste doing nothing in the dispatch input and the session reply box; pasting with no image now shows a hint",
+      "translated": "`claude agents`의 디스패치 입력창과 세션 응답창에서 Ctrl+V 이미지 붙여넣기가 작동하지 않던 문제를 수정했습니다. 이미지가 없는 상태에서 붙여넣기를 하면 힌트가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed backgrounding a session with ← silently losing the conversation when the background service cannot start; the session stays in the list as a failed row you can wake with Enter",
+      "translated": "백그라운드 서비스가 시작되지 않을 때 ← 키로 세션을 백그라운드로 전환하면 대화 내용이 유실되던 문제를 수정했습니다. 이제 해당 세션은 목록에 실패 상태로 유지되며 Enter 키로 다시 활성화할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed replies from the agents view that fail to send being lost; they are now queued for delivery on the next session start",
+      "translated": "에이전트 뷰에서 전송에 실패한 응답이 유실되던 문제를 수정했습니다. 이제 해당 응답은 대기열에 추가되어 다음 세션 시작 시 전송됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cross-session messaging (`SendMessage`) silently breaking when `CLAUDE_CODE_TMPDIR` or `$TMPDIR` points at a deep directory",
+      "translated": "`CLAUDE_CODE_TMPDIR` 또는 `$TMPDIR`이 깊은 경로의 디렉토리를 가리킬 때 세션 간 메시지 전송(`SendMessage`)이 오류 메시지 없이 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening a running background session from `claude agents` stalling for 5 seconds before attaching",
+      "translated": "`claude agents`에서 실행 중인 백그라운드 세션을 열 때 연결 전 5초간 지연되던 현상을 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Quieter startup: notices group by severity, and session info and announcements share a single line per launch",
+      "translated": "시작 시 출력을 간소화했습니다. 알림은 중요도별로 그룹화되며, 세션 정보와 공지 사항은 실행 시 한 줄에 함께 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Startup warnings rewritten to be shorter and clearer, each with a concrete fix",
+      "translated": "시작 시 경고 메시지를 더 짧고 명확하게 재작성했으며, 각 경고에 구체적인 해결 방법을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Launch-prompt warnings (deep link/pre-filled prompt) now stay pinned below the input until you act instead of scrolling away",
+      "translated": "실행 프롬프트 경고(딥 링크/사전 입력된 프롬프트)가 스크롤되어 사라지지 않고, 사용자가 조치를 취할 때까지 입력창 아래에 고정됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Failed turns now show a compact warning line instead of a multi-line red error block",
+      "translated": "대화 단계 실패 시 여러 줄의 빨간색 오류 블록 대신 간결한 경고 메시지가 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background service startup and `claude update` verification to wait out endpoint-security scanning of new binaries instead of failing after 5 seconds",
+      "translated": "백그라운드 서비스 시작 및 `claude update` 검증 시, 새 바이너리에 대한 엔드포인트 보안 스캔이 완료될 때까지 대기하도록 개선하여 5초 후 실패하던 문제를 해결했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background dispatch spawn failures now report the error class name when no errno is available",
+      "translated": "백그라운드 디스패치 생성 실패 시 errno를 확인할 수 없는 경우 오류 클래스 이름을 표시합니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the \"Claude in Chrome enabled\" and \"marketplace installed\" startup messages; model auto-updates and the team-onboarding tip now show as quiet notices under the logo",
+      "translated": "\"Claude in Chrome enabled\" 및 \"marketplace installed\" 시작 메시지를 제거했습니다. 모델 자동 업데이트와 팀 온보딩 팁은 이제 로고 아래에 간결한 알림으로 표시됩니다."
+    }
+  ],
+  "translatedAt": "2026-06-04T05:11:48.829Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3937
+}
