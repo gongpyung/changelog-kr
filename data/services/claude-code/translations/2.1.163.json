@@ -1,0 +1,146 @@
+{
+  "version": "2.1.163",
+  "date": "2026-06-04",
+  "parsedAt": "2026-06-05T04:49:25.221Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `requiredMinimumVersion` and `requiredMaximumVersion` managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version",
+      "translated": "`requiredMinimumVersion` 및 `requiredMaximumVersion` 관리형 설정 추가 — Claude Code 버전이 허용 범위를 벗어나면 실행을 거부하고 승인된 버전으로 안내합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disabled` filters",
+      "translated": "설치된 플러그인 목록을 확인하는 `/plugin list` 명령어 추가 (`--enabled`/`--disabled` 필터 포함)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a \"c to copy\" shortcut to `/btw` that copies the raw markdown answer to the clipboard, preserving formatting when pasted elsewhere",
+      "translated": "`/btw`에 원본 마크다운 답변을 클립보드에 복사하는 \"c to copy\" 단축키 추가 (다른 곳에 붙여넣을 때 서식 유지)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks: Stop and SubagentStop hooks can now return `hookSpecificOutput.additionalContext` to give Claude feedback and keep the turn going without being labeled a hook error",
+      "translated": "Hooks: Stop 및 SubagentStop 훅이 이제 `hookSpecificOutput.additionalContext`를 반환하여, 훅 오류로 처리되지 않고 Claude에게 피드백을 제공하며 대화를 이어갈 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills: added `\\$` escape syntax to include a literal `$` before a digit in command bodies",
+      "translated": "Skills: 명령어 본문의 숫자 앞에 실제 `$` 기호를 포함할 수 있도록 `\\$` 이스케이프 구문 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "stdio MCP servers now receive the same `CLAUDE_CODE_SESSION_ID` as hooks/Bash on `--resume`",
+      "translated": "stdio MCP 서버가 이제 `--resume` 시 Hooks/Bash와 동일한 `CLAUDE_CODE_SESSION_ID`를 수신합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -p` hanging forever after its final result when a backgrounded command never exits — background shells are now stopped ~5s after the result once stdin closes",
+      "translated": "백그라운드 명령어가 종료되지 않을 때 `claude -p`가 최종 결과 이후 무한 대기하던 문제 수정 — 이제 stdin이 닫히고 결과가 나온 후 약 5초 뒤에 백그라운드 쉘이 중단됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -p` failing with \"ANTHROPIC_API_KEY required\" on Bedrock/Vertex/Foundry when `CI=true` and no Anthropic API key is set",
+      "translated": "`CI=true`이고 Anthropic API 키가 설정되지 않았을 때, Bedrock/Vertex/Foundry에서 `claude -p`가 \"ANTHROPIC_API_KEY required\" 오류로 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed bash commands failing under bazel and EDR-protected Go workflows: `$TMPDIR` was overridden to `/tmp/claude-{uid}` for all commands instead of only sandboxed ones (regression in 2.1.154)",
+      "translated": "bazel 및 EDR 보호 Go 워크플로우에서 bash 명령어가 실패하던 문제 수정: `$TMPDIR`이 샌드박스 명령어뿐만 아니라 모든 명령어에 대해 `/tmp/claude-{uid}`로 덮어씌워지던 현상 해결 (2.1.154 버전의 회귀 오류)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash commands failing on Windows with \"EEXIST: file already exists\" on the session-env directory when it has the read-only attribute or is inside OneDrive",
+      "translated": "Windows에서 session-env 디렉토리에 읽기 전용 속성이 있거나 OneDrive 내부에 있을 때 Bash 명령어가 \"EEXIST: file already exists\" 오류로 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed org-managed permission rules not applying for the entire session when the managed settings fetch completed during startup on a fresh config directory",
+      "translated": "새 설정 디렉토리에서 시작 시 관리형 설정 가져오기가 완료되었을 때, 조직 관리 권한 규칙이 전체 세션에 적용되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions in `claude agents` losing their running background tasks when reattached after a Claude Code update",
+      "translated": "Claude Code 업데이트 후 다시 연결할 때 `claude agents`의 백그라운드 세션에서 실행 중인 백그라운드 작업을 손실하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal misalignment and a multi-second hang when exiting the agent view by pressing Esc",
+      "translated": "Esc 키를 눌러 에이전트 뷰를 종료할 때 터미널 정렬이 어긋나고 몇 초간 멈추던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed clicking Stop on a background-task chip in the desktop app not clearing the chip when the underlying process was already gone",
+      "translated": "데스크톱 앱에서 백그라운드 작업 칩의 중지(Stop)를 클릭했을 때, 기본 프로세스가 이미 종료된 상태라면 칩이 사라지지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed keyboard input becoming permanently unresponsive after a paste operation whose end marker is dropped by the terminal",
+      "translated": "터미널에서 종료 마커가 누락된 붙여넣기 작업 이후 키보드 입력이 영구적으로 응답하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hook `if: \"Bash(...)\"` conditions firing on every Bash command containing `$()` or `$VAR`; the pattern now matches against commands inside subshells and backticks too",
+      "translated": "`$()` 또는 `$VAR`를 포함하는 모든 Bash 명령어에서 훅의 `if: \"Bash(...)\"` 조건이 실행되던 문제 수정. 이제 해당 패턴이 서브쉘 및 백틱 내부의 명령어와도 일치하도록 개선되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed deny rules on home-directory paths (e.g. `Read(~/Desktop/**)`) not blocking Bash commands that reference the path via `$HOME`",
+      "translated": "홈 디렉토리 경로(예: `Read(~/Desktop/**)`)에 대한 거부 규칙이 `$HOME`을 통해 해당 경로를 참조하는 Bash 명령어를 차단하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a stray \"(no content)\" line left in the transcript after closing panel dialogs like /mcp and /plugins",
+      "translated": "/mcp 및 /plugins와 같은 패널 대화 상자를 닫은 후 대화 기록에 \"(no content)\" 줄이 남아있던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background agent sessions now update to a new Claude Code version in the background, so opening a session after an update no longer waits on a cold restart",
+      "translated": "백그라운드 에이전트 세션이 이제 백그라운드에서 새로운 Claude Code 버전으로 업데이트되므로, 업데이트 후 세션을 열 때 콜드 리스타트를 기다릴 필요가 없습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clearer descriptions for built-in commands and skills in the / menu",
+      "translated": "/ 메뉴의 내장 명령어 및 스킬에 대한 설명을 더 명확하게 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The subscription-switch suggestion now shows in the startup announcement slot instead of a toast",
+      "translated": "구독 전환 제안이 이제 토스트 메시지 대신 시작 안내 슬롯에 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` dispatching from the state-grouped view now starts the session in the directory the agent view was opened from",
+      "translated": "상태 그룹화 뷰에서 `claude agents`를 실행하면 이제 에이전트 뷰를 열었던 디렉터리에서 세션이 시작됩니다."
+    }
+  ],
+  "translatedAt": "2026-06-05T04:49:55.327Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2912
+}
