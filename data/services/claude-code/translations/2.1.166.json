@@ -1,0 +1,140 @@
+{
+  "version": "2.1.166",
+  "date": "2026-06-06",
+  "parsedAt": "2026-06-06T04:30:15.817Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `fallbackModel` setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; `--fallback-model` now also applies to interactive sessions",
+      "translated": "주 모델이 과부하 상태이거나 사용할 수 없을 때 순서대로 시도할 대체 모델을 최대 3개까지 설정할 수 있는 `fallbackModel` 설정을 추가했습니다. 이제 `--fallback-model`이 대화형 세션에도 적용됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added glob pattern support in deny rule tool-name position (`\"*\"` denies all tools); allow rules reject non-MCP globs, and unknown tool names in deny rules warn at startup",
+      "translated": "거부 규칙(deny rule)의 도구 이름 위치에 글로브(glob) 패턴 지원을 추가했습니다(`\"*\"`는 모든 도구 거부). 허용 규칙(allow rules)은 MCP가 아닌 글로브를 거부하며, 거부 규칙에 알 수 없는 도구 이름이 있는 경우 시작 시 경고를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hardened cross-session messaging: messages relayed via `SendMessage` from other Claude sessions no longer carry user authority — receivers refuse relayed permission requests, and auto mode blocks them",
+      "translated": "세션 간 메시징 보안을 강화했습니다. 다른 Claude 세션에서 `SendMessage`를 통해 전달된 메시지는 더 이상 사용자 권한을 가지지 않습니다. 수신 측은 전달된 권한 요청을 거부하며, 자동 모드(auto mode)에서는 이를 차단합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`MAX_THINKING_TOKENS=0`, `--thinking disabled`, and the per-model thinking toggle now disable thinking on models that think by default via the Claude API (3P providers unchanged)",
+      "translated": "`MAX_THINKING_TOKENS=0`, `--thinking disabled` 및 모델별 생각(thinking) 토글이 이제 Claude API를 통해 기본적으로 생각을 수행하는 모델에서 해당 기능을 비활성화합니다(제3자 제공업체는 변경 없음)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude Code now retries a turn once on the fallback model when the API rejects an unexpected non-retryable error; auth, rate-limit, request-size, and transport errors still surface immediately",
+      "translated": "Claude Code는 API가 예상치 못한 재시도 불가능한 오류로 거부할 때 대체 모델로 한 번 더 시도합니다. 인증, 속도 제한, 요청 크기 및 전송 오류는 여전히 즉시 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude update` now announces the target version before downloading instead of going silent",
+      "translated": "`claude update` 실행 시 아무런 표시 없이 진행되는 대신, 다운로드 전에 대상 버전을 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents`: typing a URL into the list now filters to the session whose first prompt contained it",
+      "translated": "`claude agents`: 목록에 URL을 입력하면 첫 번째 프롬프트에 해당 URL이 포함된 세션이 필터링됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a recurring \"image could not be processed\" error and extra token usage when an unprocessable image was sent in a session",
+      "translated": "세션에서 처리할 수 없는 이미지를 보냈을 때 반복적으로 발생하던 \"image could not be processed\" 오류와 추가 토큰 소모 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote sessions becoming permanently stuck when a brief backend disruption occurred during worker registration at startup",
+      "translated": "시작 시 워커 등록 중에 일시적인 백엔드 장애가 발생할 경우 원격 세션이 영구적으로 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed flickering in JetBrains IDE terminals (IntelliJ, PyCharm, WebStorm, etc.) on 2026.1+ by enabling synchronized output",
+      "translated": "동기화된 출력을 활성화하여 2026.1 이상의 JetBrains IDE 터미널(IntelliJ, PyCharm, WebStorm 등)에서 발생하는 깜빡임 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Shift+non-ASCII characters (e.g. Shift+ä → Ä) being dropped in terminals using the Kitty keyboard protocol (WezTerm, Ghostty, kitty)",
+      "translated": "Kitty 키보드 프로토콜을 사용하는 터미널(WezTerm, Ghostty, kitty)에서 Shift+비 ASCII 문자(예: Shift+ä → Ä)가 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell command validation occasionally hanging far past its time budget on Windows when a killed process's children held its output pipes",
+      "translated": "Windows에서 종료된 프로세스의 자식 프로세스가 출력 파이프를 점유하고 있을 때, PowerShell 명령 유효성 검사가 할당된 시간을 초과하여 지연되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed orphaned `claude --bg-pty-host` processes spinning at 100% CPU after the daemon dies while connected on macOS",
+      "translated": "macOS에서 연결된 상태로 데몬이 종료된 후 고립된 `claude --bg-pty-host` 프로세스가 CPU를 100% 점유하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice mode requiring `/login` to clear a stale auth check after toggling `/voice`",
+      "translated": "`/voice`를 토글한 후 오래된 인증 확인을 지우기 위해 `/login`이 필요했던 음성 모드 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed settings with an invalid entry silently disabling enforcement of their remaining valid policies",
+      "translated": "관리형 설정에 잘못된 항목이 포함된 경우, 나머지 유효한 정책의 강제 적용까지 아무런 알림 없이 비활성화되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed-settings `allowedMcpServers`/`deniedMcpServers` predicates not matching when they use `${VAR}` references",
+      "translated": "관리형 설정의 `allowedMcpServers` 및 `deniedMcpServers` 서술어에서 `${VAR}` 참조를 사용할 때 일치하지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agent sessions that entered a git worktree crash-looping with \"No conversation found\" when reopened from `claude agents`",
+      "translated": "git 작업 트리(worktree)에 진입한 백그라운드 에이전트 세션을 `claude agents`에서 다시 열 때 \"No conversation found\" 오류와 함께 무한 충돌이 발생하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed duplicated thinking text in the Ctrl+O transcript view while streaming",
+      "translated": "스트리밍 중 Ctrl+O 기록 보기에서 생각(thinking) 텍스트가 중복되어 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/doctor` showing a contradictory failed \"Not inside a remote session\" check when run inside a remote session",
+      "translated": "원격 세션 내에서 `/doctor`를 실행했을 때 \"Not inside a remote session\"이라는 모순된 검사 실패 메시지가 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the cursor sticking at the end of the first line when typing a multiline prompt in the `claude agents` dispatch and reply inputs",
+      "translated": "`claude agents`의 발신 및 답장 입력창에서 여러 줄의 프롬프트를 입력할 때 커서가 첫 줄 끝에 고정되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed blank lines appearing between background agent rows in the task list on terminals without Unicode support",
+      "translated": "유니코드를 지원하지 않는 터미널의 작업 목록에서 백그라운드 에이전트 행 사이에 빈 줄이 표시되던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-06-06T04:31:13.105Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2795
+}
