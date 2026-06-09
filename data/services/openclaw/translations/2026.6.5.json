@@ -1,0 +1,434 @@
+{
+  "version": "2026.6.5",
+  "date": "2026-06-09",
+  "parsedAt": "2026-06-09T20:21:35.507Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "QQBot now strips model reasoning/thinking scaffolding before native delivery, preventing raw `<thinking>` content from leaking into channel replies. (#89913, #90132) Thanks @openperf.",
+      "translated": "릴리스 메타데이터: OpenClaw, 배포 가능한 플러그인 매니페스트, 생성된 shrinkwraps, 앱 버전 메타데이터, iOS 릴리스 노트, Matrix 플러그인 변경 로그 및 생성된 릴리스 기준선을 `2026.6.5` 릴리스 트레인에 맞춰 조정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP tool results now coerce `resource_link`, `resource`, `audio`, malformed image, and future non-text/image blocks at the materialize boundary, preventing Anthropic 400s and poisoned session history after a tool returns richer MCP content. (#90710, #90728) Thanks @RanSHammer and @849261680.",
+      "translated": "플랫폼 유지 관리: 이번 릴리스 트레인을 위해 Android, Swift/macOS, Docker, CodeQL, Buildx, Docker build/push 및 Codex Action 의존성을 최신화했습니다. (#74980, #81757, #86481, #86483, #90601)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Anthropic extended-thinking sessions recover after prompt-cache expiry or Gateway restart because stream start events wait for `message_start`, letting pre-generation signature errors trigger the existing recovery retry. (#90667, #90697) Thanks @openperf.",
+      "translated": "채널 콘텐츠 경계: QQBot이 전송 전 추론/생각 태그를 제거하여, 사용자에게 내부 모델의 서술을 숨기면서 최종 답변은 보존하도록 개선했습니다. (#89913, #90132) @openperf님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Parallel is now a bundled `web_search` provider with `PARALLEL_API_KEY` discovery, guarded endpoint handling, cache-safe session ids, onboarding picker support, and docs. (#85158) Thanks @NormallyGaussian.",
+      "translated": "에이전트/MCP/프로바이더: 텍스트나 이미지가 아닌 MCP tool-result 블록이 프로바이더 컨버터에 도달하기 전에 강제 변환하여, 유효한 이미지는 보존하고 풍부한 MCP 콘텐츠가 잘못된 이미지 블록 대신 텍스트로 변환되도록 했습니다. (#90710, #90728) @RanSHammer님과 @849261680님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Google Vertex ADC users get static catalog rows and runtime model resolution again, while single-provider cooldown recovery and memory adapter status checks are more reliable. (#90506, #90609, #90717, #90816) Thanks @849261680.",
+      "translated": "Anthropic/Codex/ACP/에이전트 복구: Anthropic 스트림 시작 이벤트를 `message_start`까지 지연시키고, Anthropic 재생 전 오래된 압축 생각 서명을 제거하며, 서명되지 않은 생각 전용 중단을 감지합니다. 또한 압축 쓰기 후 프롬프트 펜스를 새로 고치고, 빈 완료 핸드오프를 거부하며, 부모의 스트리밍 비활성화 재정의 및 공유 진행 상황 주석을 보존합니다. 하트비트 메타데이터를 context-engine 훅으로 전달하고 Codex 세션/스레드 마이그레이션의 예외 사례를 처리했습니다. (#90667, #90697, #90163, #90108, #89874, #89505, #90632, #89302, #90729, #90317, #90319) @openperf님, @100yenadmin님, @"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Matrix can preflight voice notes before mention gating, preserve thread reads/replies through Matrix relations pagination, and carry QA coverage for voice and thread flows. (#78016, #90415)",
+      "translated": "Matrix can preflight voice notes before mention gating, preserve thread reads/replies through Matrix relations pagination, and carry QA coverage for voice and thread flows. (#78016, #90415)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auth and plugin install state is more durable: auth profiles now live in SQLite, official npm plugin install records keep their trusted pins, and prerelease fallback integrity checks avoid carrying stale integrity forward. (#89102, #88585)",
+      "translated": "Auth and plugin install state is more durable: auth profiles now live in SQLite, official npm plugin install records keep their trusted pins, and prerelease fallback integrity checks avoid carrying stale integrity forward. (#89102, #88585)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent, tool, and provider loops are stricter around MCP lease timestamps, prompt-cache tool names, local tool catalogs, unreadable dynamic tools, owner-only HTTP tools, and provider catalog metadata, reducing hidden retries and unsafe exposure. (#91124, #91233, #90022, #90261)",
+      "translated": "Agent, tool, and provider loops are stricter around MCP lease timestamps, prompt-cache tool names, local tool catalogs, unreadable dynamic tools, owner-only HTTP tools, and provider catalog metadata, reducing hidden retries and unsafe exposure. (#91124, #91233, #90022, #90261)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "macOS node mode no longer silently self-reconnects away from a healthy direct Gateway session, reducing unexpected companion app session churn. (#90668, #90815) Thanks @vrurg.",
+      "translated": "macOS node mode no longer silently self-reconnects away from a healthy direct Gateway session, reducing unexpected companion app session churn. (#90668, #90815) Thanks @vrurg."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Upgrade and service paths are safer: cron legacy JSON stores migrate during doctor preflight, service env placeholders no longer mask state-dir secrets, WhatsApp startup waits are bounded, and disabled WhatsApp accounts tear down on config reload. (#90072, #90208, #90277, #90488, #90486, #87951, #87965) Thanks @MonkeyLeeT, @sallyom, @mcaxtr, and @MukundaKatta.",
+      "translated": "Upgrade and service paths are safer: cron legacy JSON stores migrate during doctor preflight, service env placeholders no longer mask state-dir secrets, WhatsApp startup waits are bounded, and disabled WhatsApp accounts tear down on config reload. (#90072, #90208, #90277, #90488, #90486, #87951, #87965) Thanks @MonkeyLeeT, @sallyom, @mcaxtr, and @MukundaKatta."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Search/providers: add the Parallel bundled web-search plugin, live provider tests, registration contracts, onboarding/docs wiring, and guarded `api.parallel.ai/v1/search` support. (#85158) Thanks @NormallyGaussian.",
+      "translated": "Search/providers: add the Parallel bundled web-search plugin, live provider tests, registration contracts, onboarding/docs wiring, and guarded `api.parallel.ai/v1/search` support. (#85158) Thanks @NormallyGaussian."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Matrix/channels: add voice-message preflight and thread-aware read/reply behavior, including Matrix QA scenario wiring and docs for voice-message behavior. (#78016, #90415)",
+      "translated": "Matrix/channels: add voice-message preflight and thread-aware read/reply behavior, including Matrix QA scenario wiring and docs for voice-message behavior. (#78016, #90415)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills/ClawHub: install ClawHub skills backed by GitHub repositories through the resolved install API, download the pinned GitHub commit, keep install-policy checks, and report install telemetry after success. (#90478) Thanks @Patrick-Erichsen.",
+      "translated": "Skills/ClawHub: install ClawHub skills backed by GitHub repositories through the resolved install API, download the pinned GitHub commit, keep install-policy checks, and report install telemetry after success. (#90478) Thanks @Patrick-Erichsen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills/ClawHub: avoid one filesystem watcher per skill file during refresh, keeping large skill trees from exhausting watcher limits.",
+      "translated": "Skills/ClawHub: avoid one filesystem watcher per skill file during refresh, keeping large skill trees from exhausting watcher limits."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Google Chat/channels: add native approval card actions and click handling so Google Chat approvals use platform-native cards instead of generic message flow.",
+      "translated": "Google Chat/channels: add native approval card actions and click handling so Google Chat approvals use platform-native cards instead of generic message flow."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Mobile: Android provider/model screens now surface expiring, unavailable, unresolved, and attention states more clearly, Android adds theme mode selection, and iOS settings and Talk tabs keep diagnostics, gateway rows, attachment labels, fallback copy, and unavailable Talk controls reachable. (#90752, #91201)",
+      "translated": "Mobile: Android provider/model screens now surface expiring, unavailable, unresolved, and attention states more clearly, Android adds theme mode selection, and iOS settings and Talk tabs keep diagnostics, gateway rows, attachment labels, fallback copy, and unavailable Talk controls reachable. (#90752, #91201)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory: QMD search can use the new rerank toggle, and memory adapter status uses the resolved default model identity when checking plain status. (#61834)",
+      "translated": "Memory: QMD search can use the new rerank toggle, and memory adapter status uses the resolved default model identity when checking plain status. (#61834)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Docs/tooling: add Parallel search docs, refresh weather-skill guidance toward `web_fetch`, clarify legacy `openai-codex` auth, document release/test helper scripts, and tighten changed-test routing docs for CI/debugging work. (#90028, #90250) Thanks @fuller-stack-dev.",
+      "translated": "Docs/tooling: add Parallel search docs, refresh weather-skill guidance toward `web_fetch`, clarify legacy `openai-codex` auth, document release/test helper scripts, and tighten changed-test routing docs for CI/debugging work. (#90028, #90250) Thanks @fuller-stack-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release/process: switch release trains to `YYYY.M.PATCH` monthly patch numbering, keep pre-transition tags compatible, and pin the June 2026 floor at `2026.6.5`.",
+      "translated": "Release/process: switch release trains to `YYYY.M.PATCH` monthly patch numbering, keep pre-transition tags compatible, and pin the June 2026 floor at `2026.6.5`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release/process: defer the session-metadata SQLite migration from the `2026.6.5` beta train so this release keeps the existing JSON-backed session metadata path while the migration risk is worked on `main`.",
+      "translated": "Release/process: defer the session-metadata SQLite migration from the `2026.6.5` beta train so this release keeps the existing JSON-backed session metadata path while the migration risk is worked on `main`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release metadata: align OpenClaw, publishable plugin manifests, generated shrinkwraps, app version metadata, iOS release notes, Matrix plugin changelog, and generated release baselines with the `2026.6.5` release train.",
+      "translated": "Release metadata: align OpenClaw, publishable plugin manifests, generated shrinkwraps, app version metadata, iOS release notes, Matrix plugin changelog, and generated release baselines with the `2026.6.5` release train."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Platform maintenance: refresh Android, Swift/macOS, Docker, CodeQL, Buildx, Docker build/push, and Codex Action dependencies for this release train. (#74980, #81757, #86481, #86483, #90601)",
+      "translated": "Platform maintenance: refresh Android, Swift/macOS, Docker, CodeQL, Buildx, Docker build/push, and Codex Action dependencies for this release train. (#74980, #81757, #86481, #86483, #90601)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channel content boundaries: QQBot now strips reasoning/thinking tags before sending, preserving final answers while hiding internal model narration from users. (#89913, #90132) Thanks @openperf.",
+      "translated": "Channel content boundaries: QQBot now strips reasoning/thinking tags before sending, preserving final answers while hiding internal model narration from users. (#89913, #90132) Thanks @openperf."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/MCP/providers: coerce non-text/image MCP tool-result blocks before they reach provider converters, preserving valid images and turning richer MCP content into text instead of malformed image blocks. (#90710, #90728) Thanks @RanSHammer and @849261680.",
+      "translated": "Agents/MCP/providers: coerce non-text/image MCP tool-result blocks before they reach provider converters, preserving valid images and turning richer MCP content into text instead of malformed image blocks. (#90710, #90728) Thanks @RanSHammer and @849261680."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Anthropic/Codex/ACP/agent recovery: defer Anthropic stream start events until `message_start`, strip stale compaction thinking signatures before Anthropic replay, detect unsigned thinking-only stalls, refresh prompt fences after compaction writes, reject empty completion handoffs, preserve parent streaming-off overrides/shared progress commentary, forward heartbeat metadata to context-engine hooks, and cover Codex session/thread migration edge cases. (#90667, #90697, #90163, #90108, #89874, #89505, #90632, #89302, #90729, #90317, #90319) Thanks @openperf, @100yenadmin, and @ooiuuii.",
+      "translated": "Anthropic/Codex/ACP/agent recovery: defer Anthropic stream start events until `message_start`, strip stale compaction thinking signatures before Anthropic replay, detect unsigned thinking-only stalls, refresh prompt fences after compaction writes, reject empty completion handoffs, preserve parent streaming-off overrides/shared progress commentary, forward heartbeat metadata to context-engine hooks, and cover Codex session/thread migration edge cases. (#90667, #90697, #90163, #90108, #89874, #89505, #90632, #89302, #90729, #90317, #90319) Thanks @openperf, @100yenadmin, and @ooiuuii."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/Codex/tools: MCP lease release no longer refreshes `lastUsedAt`, prompt-cache tool names are guarded, lean local tool catalogs stay compact, unreadable dynamic tools are quarantined, orphan tool errors still surface, native subagent completion results survive app-server monitoring, and background-session name derivation avoids regex backtracking risk. (#91124, #90612, #90022, #91235, #91233)",
+      "translated": "Agents/Codex/tools: MCP lease release no longer refreshes `lastUsedAt`, prompt-cache tool names are guarded, lean local tool catalogs stay compact, unreadable dynamic tools are quarantined, orphan tool errors still surface, native subagent completion results survive app-server monitoring, and background-session name derivation avoids regex backtracking risk. (#91124, #90612, #90022, #91235, #91233)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Provider/model resolution: preserve Google Vertex ADC auth markers in generated catalogs, re-probe a single-provider primary after cooldown, share Codex model visibility, fail closed for unknown model auth, preserve Codex alias availability, keep unresolved profile refs unknown, and avoid resolving auth while listing models. (#90506, #90609, #90717, #90702) Thanks @849261680.",
+      "translated": "Provider/model resolution: preserve Google Vertex ADC auth markers in generated catalogs, re-probe a single-provider primary after cooldown, share Codex model visibility, fail closed for unknown model auth, preserve Codex alias availability, keep unresolved profile refs unknown, and avoid resolving auth while listing models. (#90506, #90609, #90717, #90702) Thanks @849261680."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Provider/model resolution: live provider model catalogs keep helper coverage, Ollama catalog metadata is preserved, Google provider prefixes are stripped from Gemini paths, Foundry Responses reasoning replay ids survive, MiniMax M3 thinking stays enabled, Vertex multi-region calls use the right regional host, and OpenRouter streamed generation cost is reconciled. (#91125)",
+      "translated": "Provider/model resolution: live provider model catalogs keep helper coverage, Ollama catalog metadata is preserved, Google provider prefixes are stripped from Gemini paths, Foundry Responses reasoning replay ids survive, MiniMax M3 thinking stays enabled, Vertex multi-region calls use the right regional host, and OpenRouter streamed generation cost is reconciled. (#91125)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/macOS/mobile: avoid duplicate Gateway probe warnings by identity, rate-limit node pairing requests while preserving paired-node reconnects, keep macOS node mode on a healthy direct Gateway session, keep iOS diagnostics and gateway rows reachable, and avoid Linux ARM Gradle resource tasks during Android builds. (#85791, #90147, #90668, #90815) Thanks @giodl73-repo and @vrurg.",
+      "translated": "Gateway/macOS/mobile: avoid duplicate Gateway probe warnings by identity, rate-limit node pairing requests while preserving paired-node reconnects, keep macOS node mode on a healthy direct Gateway session, keep iOS diagnostics and gateway rows reachable, and avoid Linux ARM Gradle resource tasks during Android builds. (#85791, #90147, #90668, #90815) Thanks @giodl73-repo and @vrurg."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/security/config: owner-only HTTP tools are gated, sandbox skills remain readable in writable sandboxes, legacy agent registry and Codex model metadata migrate safely, and stalled MCP response bodies time out instead of tying up Gateway workers. (#90261)",
+      "translated": "Gateway/security/config: owner-only HTTP tools are gated, sandbox skills remain readable in writable sandboxes, legacy agent registry and Codex model metadata migrate safely, and stalled MCP response bodies time out instead of tying up Gateway workers. (#90261)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway/config: `config.patch` now preserves explicit array replacement semantics for arrays without merge keys, so replacement patches do not accidentally merge stale entries. (#91551)",
+      "translated": "Gateway/config: `config.patch` now preserves explicit array replacement semantics for arrays without merge keys, so replacement patches do not accidentally merge stale entries. (#91551)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "SDK: event pump failures now surface to clients instead of being swallowed behind a quiet iterator shutdown.",
+      "translated": "SDK: event pump failures now surface to clients instead of being swallowed behind a quiet iterator shutdown."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents/transcripts: inline image payload redaction now catches data URLs and repaired transcript images before they can leak raw image bytes into stored or exported transcripts. (#91529)",
+      "translated": "Agents/transcripts: inline image payload redaction now catches data URLs and repaired transcript images before they can leak raw image bytes into stored or exported transcripts. (#91529)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugins/Gateway: legacy flat Control UI descriptors from shipped JavaScript plugins now normalize `name` and missing surface fields into session descriptors, restoring Kitchen Sink RPC descriptor proof for package-backed plugin validation.",
+      "translated": "Plugins/Gateway: legacy flat Control UI descriptors from shipped JavaScript plugins now normalize `name` and missing surface fields into session descriptors, restoring Kitchen Sink RPC descriptor proof for package-backed plugin validation."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI/chat/Workboard/auto-reply: optimistic user messages stay stable across stale history reloads, runId reassignment, and abort windows instead of disappearing, jumping, or lingering as ghost rows; Workboard stale lifecycle bulk updates no longer overwrite newer status/provenance; message-tool sends now count as delivery. (#86205, #89600, #88592, #90123) Thanks @RomneyDa.",
+      "translated": "TUI/chat/Workboard/auto-reply: optimistic user messages stay stable across stale history reloads, runId reassignment, and abort windows instead of disappearing, jumping, or lingering as ghost rows; Workboard stale lifecycle bulk updates no longer overwrite newer status/provenance; message-tool sends now count as delivery. (#86205, #89600, #88592, #90123) Thanks @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cron/update/service env: doctor config preflight now migrates legacy cron JSON stores into SQLite before runtime reads, isolated agent turn payload messages preserve timeout context, service env planning skips unresolved placeholders that would mask state-dir `.env` values, and session transcript rewrites keep registry markers/discriminants consistent. (#90072, #90208, #91230, #90277, #90488) Thanks @MonkeyLeeT and @sallyom.",
+      "translated": "Cron/update/service env: doctor config preflight now migrates legacy cron JSON stores into SQLite before runtime reads, isolated agent turn payload messages preserve timeout context, service env planning skips unresolved placeholders that would mask state-dir `.env` values, and session transcript rewrites keep registry markers/discriminants consistent. (#90072, #90208, #91230, #90277, #90488) Thanks @MonkeyLeeT and @sallyom."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "State/storage: Matrix sync and crypto sidecars, memory-wiki import/source-sync state, sandbox registry state, ACPX process state, device-pair notify state, Zalo hosted media, and plugin SDK dedupe state now use SQLite-owned storage instead of ad hoc runtime files. (#91100, #91108, #91056)",
+      "translated": "State/storage: Matrix sync and crypto sidecars, memory-wiki import/source-sync state, sandbox registry state, ACPX process state, device-pair notify state, Zalo hosted media, and plugin SDK dedupe state now use SQLite-owned storage instead of ad hoc runtime files. (#91100, #91108, #91056)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Security/config/tooling: guard MCP HTTP redirects, protect global agent config defaults, and keep release/test/tooling proof failures bounded and explicit. (#89732, #90145)",
+      "translated": "Security/config/tooling: guard MCP HTTP redirects, protect global agent config defaults, and keep release/test/tooling proof failures bounded and explicit. (#89732, #90145)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Channels: WhatsApp restarts when per-account config changes, bounds background startup waits, closes failed sockets, and preserves reconnect behavior; Mattermost slash commands keep their state on `globalThis` and default replies stay inside existing Mattermost threads instead of starting new ones; Feishu streaming cards preserve full merged content; iMessage private-API failures and send timeouts explain themselves while split-send coalescing honors balloon metadata; voice-call tracks Twilio streams after connect; ClickClack reply tools respect `toolsAllow`; Discord runtime adapters stay resolvable; and outbound delivery retries survive budget deferrals. (#87951, #87965, #90486, #68113, #90534, #90181, #90607, #89500, #91041, #90858, #91119, #91241) Thanks @MukundaKatta, @mcaxtr, @infoanton, @mushuiyu886, @sahibzada-allahyar, and @jacobtomlinson.",
+      "translated": "Channels: WhatsApp restarts when per-account config changes, bounds background startup waits, closes failed sockets, and preserves reconnect behavior; Mattermost slash commands keep their state on `globalThis` and default replies stay inside existing Mattermost threads instead of starting new ones; Feishu streaming cards preserve full merged content; iMessage private-API failures and send timeouts explain themselves while split-send coalescing honors balloon metadata; voice-call tracks Twilio streams after connect; ClickClack reply tools respect `toolsAllow`; Discord runtime adapters stay resolvable; and outbound delivery retries survive budget deferrals. (#87951, #87965, #90486, #68113, #90534, #90181, #90607, #89500, #91041, #90858, #91119, #91241) Thanks @MukundaKatta, @mcaxtr, @infoanton, @mushuiyu886, @sahibzada-allahyar, and @jacobtomlinson."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu: retry transient send rate-limit errors (HTTP 429, per-chat code 230020, tenant-level code 11232) with linear backoff, including SDK responses that fulfill with rate-limit bodies instead of throwing, and route streaming-card sends through the retry wrapper. (#89659) Thanks @ladygege.",
+      "translated": "Feishu: retry transient send rate-limit errors (HTTP 429, per-chat code 230020, tenant-level code 11232) with linear backoff, including SDK responses that fulfill with rate-limit bodies instead of throwing, and route streaming-card sends through the retry wrapper. (#89659) Thanks @ladygege."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "WhatsApp: captured replies after restart now route through the successor controller instead of the stale pre-restart controller. (#85823)",
+      "translated": "WhatsApp: captured replies after restart now route through the successor controller instead of the stale pre-restart controller. (#85823)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: main CI guard drift, PR merge diff scoping, live Docker credential staging, base-image qualification, installer Docker classification, Playwright dependency install recovery, API-key auth for Codex live Docker lanes, Parallels option terminators, and JSON-mode progress handling are tighter so release proof fails cleaner. (#90532, #90287, #90058) Thanks @RomneyDa, @hxy91819, and @mrunalp.",
+      "translated": "Release/CI/E2E: main CI guard drift, PR merge diff scoping, live Docker credential staging, base-image qualification, installer Docker classification, Playwright dependency install recovery, API-key auth for Codex live Docker lanes, Parallels option terminators, and JSON-mode progress handling are tighter so release proof fails cleaner. (#90532, #90287, #90058) Thanks @RomneyDa, @hxy91819, and @mrunalp."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: installed-package root dist verification now allows the current package's JavaScript file count while keeping dependency, per-file-size, and scan-bound checks active.",
+      "translated": "Release/CI/E2E: installed-package root dist verification now allows the current package's JavaScript file count while keeping dependency, per-file-size, and scan-bound checks active."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: Chutes OAuth model-discovery proof now accepts standard `Headers` requests, and QR package install smoke caps Docker CPU requests to the hosted runner capacity so beta validation fails on real package regressions.",
+      "translated": "Release/CI/E2E: Chutes OAuth model-discovery proof now accepts standard `Headers` requests, and QR package install smoke caps Docker CPU requests to the hosted runner capacity so beta validation fails on real package regressions."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: Docker E2E and live Docker harness runs now apply default memory, CPU, and process ceilings while preserving explicit per-lane overrides.",
+      "translated": "Release/CI/E2E: Docker E2E and live Docker harness runs now apply default memory, CPU, and process ceilings while preserving explicit per-lane overrides."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: Docker E2E CPU limits now cap to the runner capacity, keeping package Telegram acceptance on hosted 8-vCPU runners focused on package regressions instead of impossible Docker resource requests.",
+      "translated": "Release/CI/E2E: Docker E2E CPU limits now cap to the runner capacity, keeping package Telegram acceptance on hosted 8-vCPU runners focused on package regressions instead of impossible Docker resource requests."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: task maintenance release checks now reset pinned config around isolated temp state dirs, keeping normal CI focused on the active session-store fixture instead of stale process snapshots.",
+      "translated": "Release/CI/E2E: task maintenance release checks now reset pinned config around isolated temp state dirs, keeping normal CI focused on the active session-store fixture instead of stale process snapshots."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: plugin lifecycle matrix resource sampling now fails phases that exceed RSS, wall-clock, or CPU ceilings instead of only logging the measurements.",
+      "translated": "Release/CI/E2E: plugin lifecycle matrix resource sampling now fails phases that exceed RSS, wall-clock, or CPU ceilings instead of only logging the measurements."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: Codex npm plugin live assertions now cap transcript discovery and diagnostic log reads so failure proof stays bounded.",
+      "translated": "Release/CI/E2E: Codex npm plugin live assertions now cap transcript discovery and diagnostic log reads so failure proof stays bounded."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: browser snapshot, release-scenario, release-user-journey, Telegram desktop/RTT/package, web-search, Parallels update, plugin update, doctor switch, and upgrade-survivor diagnostics now stream or bound log/artifact reads so failed proof stays inspectable without unbounded output.",
+      "translated": "Release/CI/E2E: browser snapshot, release-scenario, release-user-journey, Telegram desktop/RTT/package, web-search, Parallels update, plugin update, doctor switch, and upgrade-survivor diagnostics now stream or bound log/artifact reads so failed proof stays inspectable without unbounded output."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: Parallels smoke validation now runs without requiring `pnpm` on the host, supports already-started Windows/Linux guests without snapshots, reports empty snapshot metadata clearly, and finds portable user-local Node on Windows.",
+      "translated": "Release/CI/E2E: Parallels smoke validation now runs without requiring `pnpm` on the host, supports already-started Windows/Linux guests without snapshots, reports empty snapshot metadata clearly, and finds portable user-local Node on Windows."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: ClawHub publish jobs prepare dependencies after checking out the target ref, and Docker store seed package discovery now targets the intended production packages. (#91547)",
+      "translated": "Release/CI/E2E: ClawHub publish jobs prepare dependencies after checking out the target ref, and Docker store seed package discovery now targets the intended production packages. (#91547)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release/CI/E2E: QA Lab capability-flip release validation now marks intentional `tools.deny` restores as array replacements, so beta validation fails only on real capability regressions.",
+      "translated": "Release/CI/E2E: QA Lab capability-flip release validation now marks intentional `tools.deny` restores as array replacements, so beta validation fails only on real capability regressions."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/state isolation: QA Lab valid-tool-call metrics now require runtime tool-call evidence when runtime parity data is available instead of counting tool-backed scenario pass status alone.",
+      "translated": "Tests/state isolation: QA Lab valid-tool-call metrics now require runtime tool-call evidence when runtime parity data is available instead of counting tool-backed scenario pass status alone."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/state isolation: QA Lab runtime parity now fails planned-only tool-call rows without matching tool results instead of treating matching mock plans as real tool evidence.",
+      "translated": "Tests/state isolation: QA Lab runtime parity now fails planned-only tool-call rows without matching tool results instead of treating matching mock plans as real tool evidence."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/state isolation: QA Lab runtime parity now treats matching controlled tool errors as equivalent and falls back to transcript tool results when mock debug rows miss async image-generation starts.",
+      "translated": "Tests/state isolation: QA Lab runtime parity now treats matching controlled tool errors as equivalent and falls back to transcript tool results when mock debug rows miss async image-generation starts."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/state isolation: QA suites now fail closed on skipped summaries, missing runtime tool proof, planned-only rows, loose release limits, missing live/provider artifacts, failed agent reply markers, and package Telegram summary failures.",
+      "translated": "Tests/state isolation: QA suites now fail closed on skipped summaries, missing runtime tool proof, planned-only rows, loose release limits, missing live/provider artifacts, failed agent reply markers, and package Telegram summary failures."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tests/state isolation: provider, media, auth, cron, task, session, sandbox, Gateway, and Codex timeout fixtures now scope more home/state/env data per test, reducing cross-test leakage and making release validation failures less noisy. (#90027, #89974)",
+      "translated": "Tests/state isolation: provider, media, auth, cron, task, session, sandbox, Gateway, and Codex timeout fixtures now scope more home/state/env data per test, reducing cross-test leakage and making release validation failures less noisy. (#90027, #89974)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions: the beta SQLite downgrade rescue now skips extra pre-reads for active non-empty JSON session stores, preserving cache race detection while still restoring missing or empty beta session files.",
+      "translated": "Sessions: the beta SQLite downgrade rescue now skips extra pre-reads for active non-empty JSON session stores, preserving cache race detection while still restoring missing or empty beta session files."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.6.5",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.6.5"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.6.5.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.6.5.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: `sha512-sRgF0TexfRcJX8Eg0lcL6Jj0YdZbSxUbbp8EbG+qo3v6TtVayE6tKPEs3oCKD7YfYe2C/8Qg26HUxTnycd44ZQ==`",
+      "translated": "integrity: `sha512-sRgF0TexfRcJX8Eg0lcL6Jj0YdZbSxUbbp8EbG+qo3v6TtVayE6tKPEs3oCKD7YfYe2C/8Qg26HUxTnycd44ZQ==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.6.5/release-evidence.md",
+      "translated": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.6.5/release-evidence.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release publish: https://github.com/openclaw/openclaw/actions/runs/27225410843",
+      "translated": "release publish: https://github.com/openclaw/openclaw/actions/runs/27225410843"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/27224743194",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/27224743194"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release validation: https://github.com/openclaw/openclaw/actions/runs/27221691660",
+      "translated": "full release validation: https://github.com/openclaw/openclaw/actions/runs/27221691660"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/27225579557",
+      "translated": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/27225579557"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub publish: https://github.com/openclaw/openclaw/actions/runs/27225585158",
+      "translated": "plugin ClawHub publish: https://github.com/openclaw/openclaw/actions/runs/27225585158"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/27226037857",
+      "translated": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/27226037857"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm Telegram beta E2E: not supplied",
+      "translated": "npm Telegram beta E2E: not supplied"
+    }
+  ],
+  "translatedAt": "2026-06-09T20:24:00.727Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 14497
+}

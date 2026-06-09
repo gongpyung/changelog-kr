@@ -1,0 +1,350 @@
+{
+  "version": "0.139.0",
+  "date": "2026-06-09",
+  "parsedAt": "2026-06-09T20:21:32.391Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Code mode can now call standalone web search directly, including from nested JavaScript tool calls, and receive plaintext search results. (#26719)",
+      "translated": "[codex] 코드 모드에서 독립형 웹 검색 활성화"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Tool and connector input schemas now preserve `oneOf` and `allOf`, and large schemas keep more shallow structure when compacted, improving compatibility with richer MCP tools. (#24118, #27084)",
+      "translated": "V2 에이전트 상주 LRU 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`codex doctor` now includes editor and pager environment details in the local report while redacting raw values in JSON output. (#27081)",
+      "translated": "Proc-macro-error2 권고 무시"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Plugin marketplace automation is more informative and responsive: `codex plugin marketplace list --json` now includes each marketplace source, and plugin lists can return from the cached remote catalog before refreshing in the background. (#27009, #26932)",
+      "translated": "활성 실행 기준 V2 동시성 계산"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`codex resume --last \"...\"` and `codex fork --last \"...\"` now treat the trailing argument as the initial prompt instead of misreading it as a session ID. (#26818)",
+      "translated": "멀티 에이전트 v2의 close_agent를 interrupt_agent로 이름 변경"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP startup warnings from subagents now stay in the thread that owns them, avoiding duplicate parent-thread alerts and stuck startup spinners in the TUI. (#26639)",
+      "translated": "재개 시 v2 하위 항목의 재오픈 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Image edits now use the exact referenced image file paths instead of guessing from conversation history, so attached-image edits land on the intended input. (#26486)",
+      "translated": "[codex] 메모리에서 외부 도구 출력 제외"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bare URLs with `~` in the path are now linkified end to end in the TUI instead of being truncated before the tilde. (#27088)",
+      "translated": "[codex] 라인 테이블이 포함된 릴리스 심볼 아티팩트 복구"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread resets such as `/new`, `/clear`, and `/fork` no longer drop cloud-managed requirements or feature flags during TUI config reloads. (#25177)",
+      "translated": "연결 정리 차단 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sandbox execution now preserves approved escalation decisions and enforces configured proxy-only networking more consistently. (#24981, #27035)",
+      "translated": "Responses 클라이언트 메타데이터에 HTTP 윈도우 ID 추가"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Release builds once again publish separate symbol archives with line tables, improving post-release crash symbolication without bringing back the earlier full-debug build slowdown. (#26202)",
+      "translated": "[codex-analytics] 컴팩션 분석 세부 정보 보고"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The embedded V8 toolchain was updated to `rusty_v8` 149.2.0. (#26464)",
+      "translated": "[codex] 외부 에이전트 세션 가져오기 속도 향상"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26741 fix(remote-control): preserve enrollment on generic websocket 404s",
+      "translated": "[plugins] 마켓플레이스 목록 JSON에 마켓플레이스 소스 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26804 fix(core-plugins): send Codex product SKU to plugin-service",
+      "translated": "저장소별 커스텀 러너 이름 템플릿화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26464 build(v8): update rusty_v8 to 149.2.0",
+      "translated": "Build(v8): update rusty_v8 to 149.2.0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26895 ci: use bazel environment for BuildBuddy secret",
+      "translated": "Ci: use bazel environment for BuildBuddy secret"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#24981 fix: preserve approval sandbox decisions in unified exec",
+      "translated": "Fix: preserve approval sandbox decisions in unified exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26818 fix(tui): accept prompts with resume and fork",
+      "translated": "Fix(tui): accept prompts with resume and fork"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#24820 deps: update starlark to 0.14.2",
+      "translated": "Deps: update starlark to 0.14.2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26639 fix(tui): scope MCP startup status by thread",
+      "translated": "Fix(tui): scope MCP startup status by thread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26719 [codex] Enable standalone web search in code mode",
+      "translated": "[codex] Enable standalone web search in code mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26632 feat: add v2 agent residency lru",
+      "translated": "Feat: add v2 agent residency lru"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26974 Ignore proc-macro-error2 advisory",
+      "translated": "Ignore proc-macro-error2 advisory"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26969 feat: count V2 concurrency by active execution",
+      "translated": "Feat: count V2 concurrency by active execution"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26994 Rename multi-agent v2 close_agent to interrupt_agent",
+      "translated": "Rename multi-agent v2 close_agent to interrupt_agent"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26997 Avoid reopening v2 descendants on resume",
+      "translated": "Avoid reopening v2 descendants on resume"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26821 [codex] Exclude external tool output from memories",
+      "translated": "[codex] Exclude external tool output from memories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26202 [codex] Restore release symbol artifacts with line tables",
+      "translated": "[codex] Restore release symbol artifacts with line tables"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26852 fix(app-server): avoid blocking connection cleanup",
+      "translated": "Fix(app-server): avoid blocking connection cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26923 Add HTTP window ID to Responses client metadata",
+      "translated": "Add HTTP window ID to Responses client metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26680 [codex-analytics] report compaction analytics details",
+      "translated": "[codex-analytics] report compaction analytics details"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26637 [codex] Speed up external agent session imports",
+      "translated": "[codex] Speed up external agent session imports"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27009 [plugins] Expose marketplace source in marketplace list JSON",
+      "translated": "[plugins] Expose marketplace source in marketplace list JSON"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27024 ci: template custom runner names by repo",
+      "translated": "Ci: template custom runner names by repo"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26230 fix: preserve auto review across config and delegation",
+      "translated": "Fix: preserve auto review across config and delegation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27038 [codex] Clarify PR babysitter state mutations",
+      "translated": "[codex] Clarify PR babysitter state mutations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27037 [codex] Calm multi-agent v2 usage prompts",
+      "translated": "[codex] Calm multi-agent v2 usage prompts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26687 Pair thread environment settings",
+      "translated": "Pair thread environment settings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27054 cli: add -P sandbox permissions profile alias",
+      "translated": "Cli: add -P sandbox permissions profile alias"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27035 Enforce configured network proxy in codex sandbox",
+      "translated": "Enforce configured network proxy in codex sandbox"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26486 Route image edits through referenced file paths",
+      "translated": "Route image edits through referenced file paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27060 [codex-analytics] stop sending codex error subreason",
+      "translated": "[codex-analytics] stop sending codex error subreason"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27044 [codex] Require complete main-agent skill reads",
+      "translated": "[codex] Require complete main-agent skill reads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#24118 feat: support oneOf and allOf in tool input schemas",
+      "translated": "Feat: support oneOf and allOf in tool input schemas"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26934 [codex] Prune stale curated plugin caches",
+      "translated": "[codex] Prune stale curated plugin caches"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26932 Use cached remote plugin catalog for plugin list",
+      "translated": "Use cached remote plugin catalog for plugin list"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26091 [codex] Add OTEL counter descriptions",
+      "translated": "[codex] Add OTEL counter descriptions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27081 feat(doctor): report editor and pager environment",
+      "translated": "Feat(doctor): report editor and pager environment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27084 chore: preserve one more schema layer during large tool compaction",
+      "translated": "Chore: preserve one more schema layer during large tool compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26840 Add typed file URIs",
+      "translated": "Add typed file URIs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27088 fix(tui): linkify complete bare URLs with tildes",
+      "translated": "Fix(tui): linkify complete bare URLs with tildes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#27068 Show effective sandbox modes in /debug-config",
+      "translated": "Show effective sandbox modes in /debug-config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27092 Add extra config to StoredThread, leave empty for now",
+      "translated": "Add extra config to StoredThread, leave empty for now"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27096 Update web search citation prompt",
+      "translated": "Update web search citation prompt"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25177 Preserve cloud requirements across TUI thread resets",
+      "translated": "Preserve cloud requirements across TUI thread resets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27106 [codex] Remove remote compaction failure log",
+      "translated": "[codex] Remove remote compaction failure log"
+    }
+  ],
+  "translatedAt": "2026-06-09T20:22:51.803Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 2208
+}
