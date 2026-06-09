@@ -1,0 +1,704 @@
+{
+  "version": "0.138.0",
+  "date": "2026-06-08",
+  "parsedAt": "2026-06-09T04:37:48.620Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The `/app` command can now hand off the current CLI thread into Codex Desktop on macOS and native Windows, and Windows workspace launches can open directly into Desktop instead of stopping at a manual prompt. (#25638, #26500)",
+      "translated": "[codex] Python SDK를 런타임 0.137.0a4 버전으로 고정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Local image attachments and standalone image generations now expose their saved file paths to the model, which makes follow-up edits and file references more reliable. (#25944, #25947)",
+      "translated": "원격 플러그인 기본 프롬프트 유지"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Reasoning effort selection is more flexible: the TUI adds fallback shortcuts for terminals that miss `Alt` bindings, and model-defined effort levels now flow through in the order advertised by the model. (#25623, #26444, #26446)",
+      "translated": "모델에 로컬 이미지 경로 노출"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server integrations can now read account token usage, and Codex auth supports v2 personal access tokens in CLI and app-server flows. (#25344, #25731)",
+      "translated": "[profile-switcher][rust] -- [1/2] app-server 계정 세션 프로토콜 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Plugin automation got richer structured output: add/remove and marketplace commands support `--json`, plugin list JSON includes marketplace source, and plugin detail data now exposes default prompts, remote MCP servers, and unavailable app templates. (#26631, #26417, #25887, #26453, #26317)",
+      "translated": "포크된 스레드 이름 상속 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Goal workflows are more predictable: multiline paste in `/goal edit` no longer submits early, idle auto-turns stay out of Plan mode, and goals stop auto-continuing after terminal turn failures. (#26047, #26147, #26690)",
+      "translated": "코드 모드 이미지 생성 노출에 대한 Windows 지원 복구"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Forked threads now keep user-renamed titles instead of falling back to the original first-prompt name. (#26075)",
+      "translated": "[codex] Python 런타임 릴리스 워크플로 분리"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The TUI no longer adds extra blank space while streaming, and cancelled prompts reopen with the cursor at the end so you can keep editing naturally. (#26636, #26457)",
+      "translated": "멀티 에이전트 v2 구성 카탈로그화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TUI config write failures now show the underlying cause, making validation problems and read-only filesystem issues much easier to diagnose. (#26537)",
+      "translated": "원격 압축(compaction) 중 크기가 초과된 도구 출력 재작성"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Startup is more resilient across environments, with support for `/usr/bin/bash`, shorter Linux proxy socket paths, and pre-refresh of expired OAuth-backed MCP credentials. (#26538, #26553, #26482)",
+      "translated": "Codex-pr-body: 기밀 정보 참조 방지"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Workspace instruction loading is more accurate for remote and symlinked workspaces, so the right `AGENTS.md` files are picked up consistently. (#26205, #26465)",
+      "translated": "Windows 설정 마커를 완료 신호로 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The CLI README was refreshed to remove stale guidance and better match the current documentation flow. (#26313)",
+      "translated": "플러그인 MCP 서버 이름 로깅"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "TUI startup does less repeated plugin work by reusing discovery results and loading only hook metadata on the critical path. (#26469, #26272)",
+      "translated": "추론 노력(reasoning effort) 폴백 단축키 추가"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`resume --last` now finds the newest matching session through the state DB first, which speeds up restore on large local histories. (#26462)",
+      "translated": "/app 데스크톱 핸"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Large MCP/Ollama streams and long message histories process much faster thanks to optimized byte scanning. (#26265)",
+      "translated": "Large MCP/Ollama streams and long message histories process much faster thanks to optimized byte scanning. (#26265)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26179 nit: small prompt update for MAv2",
+      "translated": "Nit: small prompt update for MAv2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26175 feat: guard git enrichment",
+      "translated": "Feat: guard git enrichment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26047 Fix multiline paste in /goal edit",
+      "translated": "Fix multiline paste in /goal edit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25700 core: stop threading SandboxPolicy through exec",
+      "translated": "Core: stop threading SandboxPolicy through exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25925 [codex] Copy user Bazel settings into Codex worktrees",
+      "translated": "[codex] Copy user Bazel settings into Codex worktrees"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26216 [codex] Pin Python SDK to runtime 0.137.0a4",
+      "translated": "[codex] Pin Python SDK to runtime 0.137.0a4"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25887 Preserve remote plugin default prompts",
+      "translated": "Preserve remote plugin default prompts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25944 Expose local image paths to models",
+      "translated": "Expose local image paths to models"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25469 [profile-switcher][rust] -- [1/2] Add app-server account session protocol",
+      "translated": "[profile-switcher][rust] -- [1/2] Add app-server account session protocol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26075 Fix forked thread name inheritance",
+      "translated": "Fix forked thread name inheritance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25960 Restore Windows coverage for code-mode image generation exposure",
+      "translated": "Restore Windows coverage for code-mode image generation exposure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26226 [codex] Split Python runtime release workflow",
+      "translated": "[codex] Split Python runtime release workflow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26254 feat: catalog multi-agent v2 config",
+      "translated": "Feat: catalog multi-agent v2 config"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26251 Rewrite oversized tool outputs during remote compaction",
+      "translated": "Rewrite oversized tool outputs during remote compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26260 codex-pr-body: avoid confidential references",
+      "translated": "Codex-pr-body: avoid confidential references"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26074 Use Windows setup marker as completion signal",
+      "translated": "Use Windows setup marker as completion signal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26002 log plugin MCP server names",
+      "translated": "Log plugin MCP server names"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25623 fix(tui): add reasoning effort fallback shortcuts",
+      "translated": "Fix(tui): add reasoning effort fallback shortcuts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25638 feat(tui): add /app desktop handoff",
+      "translated": "Feat(tui): add /app desktop handoff"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26189 cli: add package path from install context",
+      "translated": "Cli: add package path from install context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25946 [codex-analytics] report compaction request token counts",
+      "translated": "[codex-analytics] report compaction request token counts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26252 ci: sign macOS release artifacts with Azure Key Vault",
+      "translated": "Ci: sign macOS release artifacts with Azure Key Vault"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26367 chore: calm down",
+      "translated": "Chore: calm down"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26147 Gate automatic idle turns in Plan mode",
+      "translated": "Gate automatic idle turns in Plan mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26172 Bridge host-loaded skills into the skills extension",
+      "translated": "Bridge host-loaded skills into the skills extension"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26265 Optimize unbounded byte scans with memchr",
+      "translated": "Optimize unbounded byte scans with memchr"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#26396 Reduce SQLite contention from OpenTelemetry SDK debug logs",
+      "translated": "Reduce SQLite contention from OpenTelemetry SDK debug logs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26272 Load plugin hooks without other plugin capabilities",
+      "translated": "Load plugin hooks without other plugin capabilities"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26313 Simplify Codex CLI README",
+      "translated": "Simplify Codex CLI README"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25947 Add saved image path hint to standalone image generation",
+      "translated": "Add saved image path hint to standalone image generation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26291 Bound external agent session detection work",
+      "translated": "Bound external agent session detection work"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26417 Expose configured marketplace source in plugin list JSON",
+      "translated": "Expose configured marketplace source in plugin list JSON"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26436 app-server: support -c config overrides",
+      "translated": "App-server: support -c config overrides"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26435 external-agent-migration: avoid mixed MCP transport configs",
+      "translated": "External-agent-migration: avoid mixed MCP transport configs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26248 [codex-analytics] emit forked thread id on initialization",
+      "translated": "[codex-analytics] emit forked thread id on initialization"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26320 core: allow excluding tool namespaces from code mode",
+      "translated": "Core: allow excluding tool namespaces from code mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25945 Use Azure artifact signing environment secrets",
+      "translated": "Use Azure artifact signing environment secrets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26205 Route AGENTS.md loading through environment filesystems",
+      "translated": "Route AGENTS.md loading through environment filesystems"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26445 [codex] Fix Windows sandbox build script lint",
+      "translated": "[codex] Fix Windows sandbox build script lint"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23710 build: use ThinLTO for release binaries",
+      "translated": "Build: use ThinLTO for release binaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26447 Remove response.processed websocket request",
+      "translated": "Remove response.processed websocket request"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26312 Cleanup experimentalFeature/enablement/set",
+      "translated": "Cleanup experimentalFeature/enablement/set"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26444 [codex] Support model-defined reasoning efforts",
+      "translated": "[codex] Support model-defined reasoning efforts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26446 [codex] Use model-advertised reasoning effort order",
+      "translated": "[codex] Use model-advertised reasoning effort order"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26466 Use Winget release environment secret",
+      "translated": "Use Winget release environment secret"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26465 [codex] Preserve logical paths during AGENTS.md discovery",
+      "translated": "[codex] Preserve logical paths during AGENTS.md discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26453 fix(app-server): expose remote MCP servers in plugin read",
+      "translated": "Fix(app-server): expose remote MCP servers in plugin read"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26473 Add skill for pushing CI configuration changes",
+      "translated": "Add skill for pushing CI configuration changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26317 [codex] Expose unavailable app templates in plugin detail",
+      "translated": "[codex] Expose unavailable app templates in plugin detail"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26471 Improve Windows sandbox setup refresh diagnostics",
+      "translated": "Improve Windows sandbox setup refresh diagnostics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26431 Pull plugin service less frequently",
+      "translated": "Pull plugin service less frequently"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25000 ci: test windows cross build",
+      "translated": "Ci: test windows cross build"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25955 [codex] Emit sandbox outcome telemetry event",
+      "translated": "[codex] Emit sandbox outcome telemetry event"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26487 [codex] Add use_responses_lite 'override' logic",
+      "translated": "[codex] Add use_responses_lite 'override' logic"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26482 fix(rmcp): refresh expired OAuth tokens before startup",
+      "translated": "Fix(rmcp): refresh expired OAuth tokens before startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26256 [codex] Keep Bazel startup options stable across commands",
+      "translated": "[codex] Keep Bazel startup options stable across commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26499 core: derive exec policy filesystem policy from profile",
+      "translated": "Core: derive exec policy filesystem policy from profile"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26215 feat(remote-control): allow pairing while disabled",
+      "translated": "Feat(remote-control): allow pairing while disabled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26480 [codex] Add environment shell info",
+      "translated": "[codex] Add environment shell info"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26210 Encrypt multi-agent v2 message payloads",
+      "translated": "Encrypt multi-agent v2 message payloads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26566 nit: doc",
+      "translated": "Nit: doc"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25710 [codex] Forward turn moderation metadata through app-server",
+      "translated": "[codex] Forward turn moderation metadata through app-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26599 [codex] Keep v1 spawn metadata visible",
+      "translated": "[codex] Keep v1 spawn metadata visible"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26610 refactor: split agent control modules",
+      "translated": "Refactor: split agent control modules"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25344 feat(app-server): expose account token usage [1 of 2]",
+      "translated": "Feat(app-server): expose account token usage [1 of 2]"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26553 [codex] Fix long proxy socket paths",
+      "translated": "[codex] Fix long proxy socket paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26537 Surface TUI config write error causes",
+      "translated": "Surface TUI config write error causes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26500 Open Windows app workspaces via deep link",
+      "translated": "Open Windows app workspaces via deep link"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26551 Fix `/goal` usage text for control commands",
+      "translated": "Fix `/goal` usage text for control commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26554 Render code comment directives in TUI replay",
+      "translated": "Render code comment directives in TUI replay"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26623 feat: reload v2 agents on delivery",
+      "translated": "Feat: reload v2 agents on delivery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26532 Require absolute cwd in thread settings",
+      "translated": "Require absolute cwd in thread settings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26625 [codex] Allow socketpair in proxy-routed Linux sandbox",
+      "translated": "[codex] Allow socketpair in proxy-routed Linux sandbox"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26538 [codex] Add /usr/bin/bash shell fallback",
+      "translated": "[codex] Add /usr/bin/bash shell fallback"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26449 feat(remote-control): add pairing status transport",
+      "translated": "Feat(remote-control): add pairing status transport"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26433 Make turn diff tracker multi-env aware",
+      "translated": "Make turn diff tracker multi-env aware"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26636 fix(tui): avoid doubled blank rows while streaming",
+      "translated": "Fix(tui): avoid doubled blank rows while streaming"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26450 feat(app-server): add remote control pairing status RPC",
+      "translated": "Feat(app-server): add remote control pairing status RPC"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26335 Clean up Rust release workflow",
+      "translated": "Clean up Rust release workflow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26547 [1 of 2] Align goal extension with core behavior",
+      "translated": "[1 of 2] Align goal extension with core behavior"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26181 fix(tui): Windows composer background",
+      "translated": "Fix(tui): Windows composer background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26457 fix(tui): restore cancelled prompt cursor at end",
+      "translated": "Fix(tui): restore cancelled prompt cursor at end"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26307 [codex] Respect Windows sandbox backend in exec policy",
+      "translated": "[codex] Respect Windows sandbox backend in exec policy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26484 [codex] Add turn profiling analytics",
+      "translated": "[codex] Add turn profiling analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26552 Make runtime workspace roots absolute in app-server API",
+      "translated": "Make runtime workspace roots absolute in app-server API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26462 Use state DB first for `resume --last`",
+      "translated": "Use state DB first for `resume --last`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26469 Speed up TUI startup by reusing plugin discovery",
+      "translated": "Speed up TUI startup by reusing plugin discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26631 Add JSON output for plugin subcommands",
+      "translated": "Add JSON output for plugin subcommands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26669 [codex] Bound WSL local curated discovery",
+      "translated": "[codex] Bound WSL local curated discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26548 [2 of 2] Finish moving goal runtime to extension",
+      "translated": "[2 of 2] Finish moving goal runtime to extension"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26674 protocol: remove submission-side serde from Op",
+      "translated": "Protocol: remove submission-side serde from Op"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26690 Block active goals after terminal turn errors",
+      "translated": "Block active goals after terminal turn errors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25936 [codex] Remove legacy remote plugin startup sync",
+      "translated": "[codex] Remove legacy remote plugin startup sync"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26490 [codex] Use standalone tools for Responses Lite",
+      "translated": "[codex] Use standalone tools for Responses Lite"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26013 [codex] Gate terminal visualization instructions in TUI",
+      "translated": "[codex] Gate terminal visualization instructions in TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25731 [codex-rs] support v2 personal access tokens",
+      "translated": "[codex-rs] support v2 personal access tokens"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26542 [codex] Send Responses Lite transport header",
+      "translated": "[codex] Send Responses Lite transport header"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#24852 permissions: enforce managed permission profile allowlists",
+      "translated": "Permissions: enforce managed permission profile allowlists"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26698 [codex] Deduplicate skill load warnings",
+      "translated": "[codex] Deduplicate skill load warnings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26716 Remove `just bench-smoke` from `just test`.",
+      "translated": "Remove `just bench-smoke` from `just test`."
+    }
+  ],
+  "translatedAt": "2026-06-09T04:40:26.455Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 5280
+}
