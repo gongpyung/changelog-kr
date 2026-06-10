@@ -1,0 +1,194 @@
+{
+  "version": "2.1.172",
+  "date": "2026-06-10",
+  "parsedAt": "2026-06-10T20:46:34.480Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sub-agents can now spawn their own sub-agents (up to 5 levels deep)",
+      "translated": "하위 에이전트가 자체적으로 하위 에이전트를 생성할 수 있습니다 (최대 5단계 깊이까지)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Amazon Bedrock now reads the AWS region from `~/.aws` config files when `AWS_REGION` isn't set, matching AWS SDK precedence; `/status` shows where the region came from",
+      "translated": "`AWS_REGION`이 설정되지 않은 경우 Amazon Bedrock이 AWS SDK 우선순위에 따라 `~/.aws` 설정 파일에서 리전을 읽어옵니다. `/status`에서 리전 정보의 출처를 확인할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a search bar when browsing a marketplace's plugins in `/plugin`",
+      "translated": "`/plugin`에서 마켓플레이스 플러그인을 탐색할 때 사용할 수 있는 검색창을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `model` attribute to the `claude_code.lines_of_code.count` OTEL metric",
+      "translated": "`claude_code.lines_of_code.count` OTEL 메트릭에 `model` 속성을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sessions using 1M context without usage credits getting permanently stuck — the session now automatically compacts back under the standard context limit",
+      "translated": "사용 크레딧 없이 1M 컨텍스트를 사용하는 세션이 영구적으로 중단되던 문제를 수정했습니다. 이제 세션이 표준 컨텍스트 제한 이하로 자동 압축됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a repeating \"an image in the conversation could not be processed and was removed\" error when the conversation contained multiple images",
+      "translated": "대화에 여러 이미지가 포함된 경우 \"대화 중 이미지를 처리할 수 없어 제거되었습니다\"라는 오류가 반복되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the agents view keeping a session under Working with a busy spinner for up to 30 seconds after the worker replied",
+      "translated": "워커가 응답한 후에도 에이전트 뷰에서 세션이 최대 30초 동안 '작업 중(Working)' 상태로 유지되며 로딩 스피너가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents potentially reading another directory's project settings (`.mcp.json` approvals, trust) when dispatched onto a pre-warmed worker",
+      "translated": "백그라운드 에이전트가 미리 준비된(pre-warmed) 워커에 배치될 때 다른 디렉토리의 프로젝트 설정(`.mcp.json` 승인, 신뢰)을 읽을 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-session attach failing with EAUTH for sessions started on an older version after the daemon auto-updated",
+      "translated": "데몬 자동 업데이트 후 이전 버전에서 시작된 세션에 대해 백그라운드 세션 연결이 EAUTH 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a background sub-agent staying stuck as \"active\" in the agent panel after a nested agent it spawned was stopped",
+      "translated": "생성된 중첩 에이전트가 중지된 후에도 에이전트 패널에서 백그라운드 하위 에이전트가 \"활성(active)\" 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/model` suggestions in the `claude agents` dispatch input rendering with a misleading slash prefix and showing models disabled for your org",
+      "translated": "`claude agents` 디스패치 입력 시 `/model` 추천 항목에 잘못된 슬래시 접두사가 붙고 조직에서 비활성화된 모델이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `availableModels` restrictions not being applied to subagent model overrides, the agent dispatch model picker, and the advisor model",
+      "translated": "`availableModels` 제한 사항이 하위 에이전트 모델 오버라이드, 에이전트 디스패치 모델 선택기 및 어드바이저 모델에 적용되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `availableModels` allowlists hiding the `/model` picker's Opus and Sonnet 1M rows when entries use version-specific IDs like `claude-opus-4-8`",
+      "translated": "`availableModels` 허용 목록에서 `claude-opus-4-8`과 같은 특정 버전 ID를 사용할 때 `/model` 선택기의 Opus 및 Sonnet 1M 항목이 숨겨지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/model` picker on Bedrock offering models the provider doesn't serve — selecting one silently switched the session model and lit the selection marker on multiple rows",
+      "translated": "Bedrock의 `/model` 선택기에서 제공되지 않는 모델이 표시되던 문제를 수정했습니다. 해당 모델 선택 시 알림 없이 세션 모델이 변경되고 여러 행에 선택 표시가 나타나던 현상을 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model IDs getting a doubled 1M-context suffix (e.g. `[1M][1m]`) when `ANTHROPIC_DEFAULT_OPUS_MODEL` already includes one",
+      "translated": "`ANTHROPIC_DEFAULT_OPUS_MODEL`에 이미 접미사가 포함된 경우 모델 ID에 1M 컨텍스트 접미사가 중복(예: `[1M][1m]`)되어 붙던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `opusplan` model setting not shipping with 1M context in plan mode for entitled users; the `opusplan[1m]` workaround now also correctly switches to Opus in plan mode",
+      "translated": "권한이 있는 사용자의 플랜 모드에서 `opusplan` 모델 설정이 1M 컨텍스트와 함께 제공되지 않던 문제를 수정했습니다. 이제 `opusplan[1m]` 임시 해결책을 통해 플랜 모드에서도 Opus로 정상적으로 전환됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `WebFetch(domain:*.example.com)` wildcard domain rules never matching subdomains in allow, deny, and ask position, and file permission rules with mid-pattern wildcards (e.g. `Read(secrets-*/config.json)`) being rejected at startup",
+      "translated": "`WebFetch(domain:*.example.com)` 와일드카드 도메인 규칙이 허용, 거부, 확인 위치의 서브도메인과 일치하지 않던 문제와 패턴 중간에 와일드카드가 포함된 파일 권한 규칙(예: `Read(secrets-*/config.json)`)이 시작 시 거부되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed up-arrow prompt history showing the main agent's prompts while a subagent's chat tab is open",
+      "translated": "하위 에이전트의 채팅 탭이 열려 있는 동안 위쪽 화살표 키를 누르면 메인 에이전트의 프롬프트 기록이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory recall not finding mounted team memory stores (`CLAUDE_MEMORY_STORES`) in remote sessions",
+      "translated": "원격 세션에서 메모리 리콜 기능이 마운트된 팀 메모리 저장소(`CLAUDE_MEMORY_STORES`)를 찾지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflow validation rejecting scripts whose prompt strings or comments merely mention `Date.now()`/`Math.random()`",
+      "translated": "프롬프트 문자열이나 주석에 `Date.now()` 또는 `Math.random()`이 단순히 언급된 스크립트를 워크플로 유효성 검사에서 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Disable mouse tracking on Windows consoles that don't fully support it",
+      "translated": "마우스 트래킹을 완전히 지원하지 않는 Windows 콘솔에서 해당 기능을 비활성화했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/plugin` marketplace list losing its cursor after backing out of a long plugin list, and Esc from the plugin browser returning to the wrong tab",
+      "translated": "긴 플러그인 목록에서 뒤로가기 시 `/plugin` 마켓플레이스 목록의 커서가 사라지는 현상과, 플러그인 브라우저에서 Esc 키를 눌렀을 때 잘못된 탭으로 돌아가는 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved performance in long conversations by removing redundant message normalization and avoiding full message-history transforms when streaming tool-use state is unchanged",
+      "translated": "불필요한 메시지 정규화 과정을 제거하고, 스트리밍 중 도구 사용 상태가 변경되지 않았을 때 전체 메시지 기록 변환을 방지하여 긴 대화에서의 성능을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced idle CPU usage: `/goal` status chip no longer re-renders the terminal at 5 Hz while idle, and fewer UI re-renders while subagents run in parallel",
+      "translated": "유휴 상태의 CPU 사용량을 줄였습니다. 유휴 상태에서 `/goal` 상태 칩이 터미널을 5Hz로 다시 렌더링하지 않도록 변경하고, 서브 에이전트가 병렬로 실행되는 동안 UI 재렌더링 횟수를 줄였습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Claude in Chrome tool loading: browser tools now load in a single batched call instead of one per tool",
+      "translated": "Chrome용 Claude 도구 로딩 방식을 개선했습니다. 이제 브라우저 도구가 개별 호출이 아닌 단일 배치 호출로 로드됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the non-interactive Usage Policy refusal message to suggest starting a new session or changing your model",
+      "translated": "비대화형 모드에서 이용 정책 거부 메시지가 표시될 때, 새 세션을 시작하거나 모델을 변경하도록 제안하는 내용을 추가하여 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/code-review` now keeps the `ultra` option visible when you're not signed in to claude.ai, with an explanation that the cloud review requires a claude.ai account",
+      "translated": "claude.ai에 로그인하지 않은 상태에서도 `/code-review`의 `ultra` 옵션이 계속 표시되도록 변경했으며, 클라우드 리뷰를 이용하려면 claude.ai 계정이 필요하다는 설명을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Shortened the Remote Control footer indicator to \"/rc active\" and hid it on narrow terminals",
+      "translated": "원격 제어 푸터 표시기를 \"/rc active\"로 단축하고, 폭이 좁은 터미널에서는 숨기도록 처리했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stopped promoting `/loop` in remote sessions, where pending loops don't keep the container alive",
+      "translated": "대기 중인 루프가 컨테이너를 유지하지 못하는 원격 세션에서는 더 이상 `/loop` 사용을 권장하지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed PowerShell tool calls rendering as raw JSON instead of a proper command display and permission dialog, and stripped ANSI escape codes from displayed shell output",
+      "translated": "[VSCode] PowerShell 도구 호출이 적절한 명령 표시 및 권한 대화 상자 대신 원시 JSON으로 렌더링되던 문제를 수정하고, 표시되는 셸 출력에서 ANSI 이스케이프 코드를 제거했습니다."
+    }
+  ],
+  "translatedAt": "2026-06-10T20:47:42.674Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3951
+}
