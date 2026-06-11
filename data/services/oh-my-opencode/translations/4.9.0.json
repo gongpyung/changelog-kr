@@ -1,0 +1,1028 @@
+{
+  "version": "4.9.0",
+  "date": "2026-06-11",
+  "parsedAt": "2026-06-11T20:37:06.468Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**LSP no longer runs language servers in-process.** The LSP MCP server is now a thin proxy to the shared daemon. If the daemon is unreachable (after one retry) you get a structured `LSP daemon unreachable` result (it auto-starts on demand and retries next request) instead of a transparent in-process fallback.",
+      "translated": "**LSP no longer runs language servers in-process.** The LSP MCP server is now a thin proxy to the shared daemon. If the daemon is unreachable (after one retry) you get a structured `LSP daemon unreachable` result (it auto-starts on demand and retries next request) instead of a transparent in-process fallback."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`multi_agent_v2` is force-disabled on every Codex session start.** With it on, every Codex turn fails HTTP 400 (openai/codex#26753). The config-migration guard now always writes `enabled=false` and annotates your `config.toml`. Opt out with `LAZYCODEX_CONFIG_MIGRATION_DISABLED=1`.",
+      "translated": "**`multi_agent_v2` is force-disabled on every Codex session start.** With it on, every Codex turn fails HTTP 400 (openai/codex#26753). The config-migration guard now always writes `enabled=false` and annotates your `config.toml`. Opt out with `LAZYCODEX_CONFIG_MIGRATION_DISABLED=1`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Sparkshell spark summaries: default model fixed and secret redaction removed.** The default is now the real `gpt-5.3-codex-spark` (the old `gpt-5.5-codex-spark` didn't exist). Summaries now reproduce values verbatim and no longer mask secrets.",
+      "translated": "**Sparkshell spark summaries: default model fixed and secret redaction removed.** The default is now the real `gpt-5.3-codex-spark` (the old `gpt-5.5-codex-spark` didn't exist). Summaries now reproduce values verbatim and no longer mask secrets."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "**Removed: keyword-detector `search`/`analyze` modes** and the **`anthropic-effort` max-effort hook.** `\"search\"`/`\"analyze\"` are no longer valid `keyword_detector.disabled_keywords`, and `\"anthropic-effort\"` is no longer a valid `disabled_hooks` value.",
+      "translated": "**Removed: keyword-detector `search`/`analyze` modes** and the **`anthropic-effort` max-effort hook.** `\"search\"`/`\"analyze\"` are no longer valid `keyword_detector.disabled_keywords`, and `\"anthropic-effort\"` is no longer a valid `disabled_hooks` value."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`experimental.aggressive_truncation` is now honored** (previously always-on); it now gates on the flag and otherwise summarizes (#3899).",
+      "translated": "**`experimental.aggressive_truncation` is now honored** (previously always-on); it now gates on the flag and otherwise summarizes (#3899)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces.",
+      "translated": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior.",
+      "translated": "Task and tool behavior updates, including delegate-task contract and runtime registration behavior."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task-system default behavior alignment so omitted configuration behaves consistently across runtime paths.",
+      "translated": "Task-system default behavior alignment so omitted configuration behaves consistently across runtime paths."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Install and publish workflow hardening, including safer release sequencing and package/install fixes.",
+      "translated": "Install and publish workflow hardening, including safer release sequencing and package/install fixes."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8057508f3 fix(omo-codex): emit forward-slash hook target paths in assert error",
+      "translated": "Emit forward-slash hook target paths in assert error"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cd10059c5 ci(publish): build vendored lsp-daemon before test and codex-compat gates",
+      "translated": "Build vendored lsp-daemon before test and codex-compat gates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "200c4484a docs(agents-md): drop thinking-block-validator from the hook inventories",
+      "translated": "Drop thinking-block-validator from the hook inventories"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9a16b54e4 fix(omo-opencode): remove thinking block validator hook",
+      "translated": "Remove thinking block validator hook"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f426b823 fix(background-agent): stop duplicate parent-wake replies forking turns",
+      "translated": "Stop duplicate parent-wake replies forking turns"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8e7bedb3e docs(agents): mandate opencode-qa + isolated codex install QA with .omo/evidence on every harness-connected change",
+      "translated": "Mandate opencode-qa + isolated codex install QA with .omo/evidence on every harness-connected change"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03fc47f7c fix(publish): exclude plugin node_modules from the main npm tarballs",
+      "translated": "Exclude plugin node_modules from the main npm tarballs"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "56803fd5d test(codex): register the install-hook-targets suite in test:codex",
+      "translated": "Register the install-hook-targets suite in test:codex"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a921413a fix(script): add windows-x64-baseline to the local publish platform list",
+      "translated": "Add windows-x64-baseline to the local publish platform list"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a18477cf6 fix(publish): keep .ulw and .claude out of the marketplace sync",
+      "translated": "Keep .ulw and .claude out of the marketplace sync"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cadd22d2b fix(doctor): print the real failure stack instead of blaming memory pressure",
+      "translated": "Print the real failure stack instead of blaming memory pressure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f6460844c feat(install-codex): port the node CLI fallback into the TS runtime wrapper",
+      "translated": "Port the node CLI fallback into the TS runtime wrapper"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c975c30ac fix(test): inject which/spawn into getGhCliInfo instead of leaking module mocks",
+      "translated": "Inject which/spawn into getGhCliInfo instead of leaking module mocks"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b2f6bcdba refactor(keyword-detector): remove search and analyze modes",
+      "translated": "Remove search and analyze modes"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "34ed496eb refactor(omo-codex): compress hephaestus bundled rule with canonical-echo emphasis",
+      "translated": "Compress hephaestus bundled rule with canonical-echo emphasis"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "06cc15d11 feat(skills): rewrite ultraresearch for ulw coexistence with a contract test",
+      "translated": "Rewrite ultraresearch for ulw coexistence with a contract test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6193e143e docs(agents-md): refresh knowledge base for src to packages/omo-opencode move",
+      "translated": "Refresh knowledge base for src to packages/omo-opencode move"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b7d8503f3 refactor(omo-codex): make librarian/explorer prompts model-neutral",
+      "translated": "Make librarian/explorer prompts model-neutral"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6bb284503 fix(runtime): guard node CLI from Bun globals",
+      "translated": "Guard node CLI from Bun globals"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "96ad1974c feat(omo-codex): expose spawn_agent agent_type so installed role TOMLs are selectable",
+      "translated": "Expose spawn_agent agent_type so installed role TOMLs are selectable"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bfcef21fe test(omo-opencode): rename atlas prompt test to match surviving runtime-injection content",
+      "translated": "Rename atlas prompt test to match surviving runtime-injection content"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5df93bf17 test(omo-codex): remove prose-pinning skill and directive tests",
+      "translated": "Remove prose-pinning skill and directive tests"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6e47aa9b1 test(omo-opencode): remove diff-guarding prompt and byte-pinning tests",
+      "translated": "Remove diff-guarding prompt and byte-pinning tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3903af96e fix(runtime): bundle jsonc-parser into the node CLI instead of leaving it external",
+      "translated": "Bundle jsonc-parser into the node CLI instead of leaving it external"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bae3b6863 feat(runtime): fall back to a node-target CLI when bun is unavailable",
+      "translated": "Fall back to a node-target CLI when bun is unavailable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b4c96895c fix(publish): build Codex plugin components before any plugin-shipping package packs",
+      "translated": "Build Codex plugin components before any plugin-shipping package packs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5dafddb9d fix(git-bash-mcp): reject WSL launchers, forward env override, expose probe trail",
+      "translated": "Reject WSL launchers, forward env override, expose probe trail"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9ef62aa72 fix(ulw-loop): dispatch direct subcommands after wrapper prefix strip",
+      "translated": "Dispatch direct subcommands after wrapper prefix strip"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d28d39ce9 fix(prometheus): carve trivial intent out of fable delegated-discovery mandate",
+      "translated": "Carve trivial intent out of fable delegated-discovery mandate"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a4585b5d3 feat(prometheus): add per-model Claude prompt variants for opus 4.6/4.7/4.8 and fable 5",
+      "translated": "Add per-model Claude prompt variants for opus 4.6/4.7/4.8 and fable 5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c34b80c32 feat(model-core): add isClaudeOpus46Model family detector",
+      "translated": "Add isClaudeOpus46Model family detector"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "40c9339a0 docs: point contributor docs at packages/omo-opencode/src",
+      "translated": "Point contributor docs at packages/omo-opencode/src"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b631b3d30 test(publish): model the previous payload fixture without lsp references",
+      "translated": "Model the previous payload fixture without lsp references"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1708f7a24 fix(lsp-daemon): stamp dist/package.json so cached copies resolve the real version",
+      "translated": "Stamp dist/package.json so cached copies resolve the real version"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "121d7fe1d test(lsp-daemon): pin daemon version resolution from a dist-only layout",
+      "translated": "Pin daemon version resolution from a dist-only layout"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "64a145086 chore(omo-opencode): declare externally-imported runtime dependencies",
+      "translated": "Declare externally-imported runtime dependencies"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "309363235 fix(publish): regenerate bun.lock in the release version bump commit",
+      "translated": "Regenerate bun.lock in the release version bump commit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "238ed7061 fix(omo-codex): resolve bundled lsp runtimes from the installed plugin cache",
+      "translated": "Resolve bundled lsp runtimes from the installed plugin cache"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "456ac4aa8 test(publish): expect the version bump to regenerate and commit bun.lock",
+      "translated": "Expect the version bump to regenerate and commit bun.lock"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "84844fa6f test(omo-codex): pin lsp prebuild resolution across repo and installed-cache layouts",
+      "translated": "Pin lsp prebuild resolution across repo and installed-cache layouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c90290c36 fix(lsp-daemon): retry tool calls only when the request was never written",
+      "translated": "Retry tool calls only when the request was never written"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f707f235 fix(publish): reconstruct previous LazyCodex payloads without the bundled lsp-daemon dist",
+      "translated": "Reconstruct previous LazyCodex payloads without the bundled lsp-daemon dist"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a265101e9 fix(omo-codex): make the multi_agent_v2 guard tolerate inline TOML comments",
+      "translated": "Make the multi_agent_v2 guard tolerate inline TOML comments"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8cdec35d2 test(doctor): pin the findPackageJsonUp fallback skipping the interim workspace manifest",
+      "translated": "Pin the findPackageJsonUp fallback skipping the interim workspace manifest"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc471e57d fix(config): allow disabling debugging/visual-qa and honor disabled_commands for skill commands",
+      "translated": "Allow disabling debugging/visual-qa and honor disabled_commands for skill commands"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1431848a5 test(lsp-daemon): pin single execution when a written request times out or drops",
+      "translated": "Pin single execution when a written request times out or drops"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ff173411 test(config): pin disabling debugging/visual-qa skills and skill-backed command removal",
+      "translated": "Pin disabling debugging/visual-qa skills and skill-backed command removal"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2093edd68 test(omo-codex): pin comment-tolerant multi_agent_v2 guard corruption cases",
+      "translated": "Pin comment-tolerant multi_agent_v2 guard corruption cases"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "99904dbe2 test(publish): expect previous-payload reconstruction to tolerate missing bundled dists",
+      "translated": "Expect previous-payload reconstruction to tolerate missing bundled dists"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "02eb8b84d feat(omo-codex): notify restart after background auto-update",
+      "translated": "Notify restart after background auto-update"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "721c45071 fix(sparkshell): default to the real gpt-5.3-codex-spark and stop redacting output",
+      "translated": "Default to the real gpt-5.3-codex-spark and stop redacting output"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "290e92c50 feat(sparkshell): summarize oversized output with the spark model",
+      "translated": "Summarize oversized output with the spark model"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4d0829e12 test(ci): pin a dedicated CI gate for the vendored lsp-daemon suite",
+      "translated": "Pin a dedicated CI gate for the vendored lsp-daemon suite"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7b976513e docs(reference): document config-migration, sparkshell, and LSP-decision env switches",
+      "translated": "Document config-migration, sparkshell, and LSP-decision env switches"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "39ad3a5d2 feat(omo-codex): annotate the managed multi_agent_v2 section in config.toml",
+      "translated": "Annotate the managed multi_agent_v2 section in config.toml"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eb08ea7cb test(omo-codex): pin managed-comment annotation on the multi_agent_v2 guard",
+      "translated": "Pin managed-comment annotation on the multi_agent_v2 guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "44a5de4d3 fix(codex-lsp): stop caching daemon outages as unavailable extensions",
+      "translated": "Stop caching daemon outages as unavailable extensions"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3003e36cc test(codex-lsp): pin daemon-outage retry instead of per-session unavailable caching",
+      "translated": "Pin daemon-outage retry instead of per-session unavailable caching"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c8ba28a0b fix(publish): ship packages/lsp-daemon in the lazycodex-ai tarball",
+      "translated": "Ship packages/lsp-daemon in the lazycodex-ai tarball"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e95075f7d test(publish): expect packages/lsp-daemon in the lazycodex-ai files allowlist",
+      "translated": "Expect packages/lsp-daemon in the lazycodex-ai files allowlist"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "743ebc7a0 Merge pull request #5080 from MoerAI/fix/context-limit-ga1m-opus-4-8",
+      "translated": "Merge pull request #5080 from MoerAI/fix/context-limit-ga1m-opus-4-8"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "165b534a3 Merge pull request #4412 from PeterPonyu/fix/team-tmux-rollback-pane-cleanup",
+      "translated": "Merge pull request #4412 from PeterPonyu/fix/team-tmux-rollback-pane-cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f8709f895 Merge pull request #5032 from Nigmat-future/fix/runtime-skills-node-http-fallback",
+      "translated": "Merge pull request #5032 from Nigmat-future/fix/runtime-skills-node-http-fallback"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6f4aa197c Merge remote-tracking branch 'origin/dev' into dev",
+      "translated": "Merge remote-tracking branch 'origin/dev' into dev"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "49c6b434d feat(commands): register builtin skills as opencode slash commands",
+      "translated": "Register builtin skills as opencode slash commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b565be418 Merge pull request #5121 from code-yeongyu/worktree-deslop-packages",
+      "translated": "Merge pull request #5121 from code-yeongyu/worktree-deslop-packages"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6628c432f test(omo-opencode): extend cross-instance zod test timeout for slow CI runners",
+      "translated": "Extend cross-instance zod test timeout for slow CI runners"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4a2888d9c chore(omo-codex): drop stale planning clause from module comment",
+      "translated": "Drop stale planning clause from module comment"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "58cffa690 refactor(ast-grep-mcp): simplify best-effort lifecycle-log catches",
+      "translated": "Simplify best-effort lifecycle-log catches"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "15f80cb02 test(omo-opencode): replace any with precise types across test mocks",
+      "translated": "Replace any with precise types across test mocks"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b1803e327 refactor(omo-opencode): extract cohesive units and collapse duplicated blocks",
+      "translated": "Extract cohesive units and collapse duplicated blocks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d12dadf3c fix(omo-opencode): type client params and session callbacks instead of any",
+      "translated": "Type client params and session callbacks instead of any"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d37a6575 feat(skills): sharpen ulw-plan interview with option-first questions",
+      "translated": "Sharpen ulw-plan interview with option-first questions"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "92c4affb2 feat(skills): lock start-work into orchestrator-only delegation",
+      "translated": "Lock start-work into orchestrator-only delegation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "13dcb1f85 Merge remote-tracking branch 'origin/dev' into dev",
+      "translated": "Merge remote-tracking branch 'origin/dev' into dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f3cc10fc7 fix(omo-codex): gate git_bash mcp on availability",
+      "translated": "Gate git_bash mcp on availability"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fcdad9fcb feat(sparkshell): condense oversized output with session-goal-aware preservation",
+      "translated": "Condense oversized output with session-goal-aware preservation"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8e8e60c45 feat(prompts): scale ulw/start-work verification by fact-based tier triage",
+      "translated": "Scale ulw/start-work verification by fact-based tier triage"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0cf3643dc test(skills): expect lsp-setup in the synced aggregate Codex skills",
+      "translated": "Expect lsp-setup in the synced aggregate Codex skills"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a72e7f1ac feat(sparkshell): append codex session context to command output",
+      "translated": "Append codex session context to command output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9339faafd Protect caller tmux windows during team rollback",
+      "translated": "Protect caller tmux windows during team rollback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "976be43eb fix(runtime-skills): support node http source server",
+      "translated": "Support node http source server"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "be9494587 fix(model-core): recognize claude-opus-4-8 as GA 1M-context model (fixes #5070)",
+      "translated": "Recognize claude-opus-4-8 as GA 1M-context model (fixes #5070)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5173b917c fix(codex-rules): only inject sparkshell guidance when omo is resolvable",
+      "translated": "Only inject sparkshell guidance when omo is resolvable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "76b01e6c3 fix(install-codex): resolve bun via fallback paths in the omo runtime wrapper",
+      "translated": "Resolve bun via fallback paths in the omo runtime wrapper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "560d58432 feat(doctor): flag a missing omo runtime command as a Codex error",
+      "translated": "Flag a missing omo runtime command as a Codex error"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ff00c5883 ci(publish): smoke-test the real lazycodex-ai install and omo runtime bin",
+      "translated": "Smoke-test the real lazycodex-ai install and omo runtime bin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8c5f05d3 fix(install-codex): warn loudly when the omo runtime wrapper target is missing",
+      "translated": "Warn loudly when the omo runtime wrapper target is missing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ac27100b fix(publish): ship root dist/cli in lazycodex-ai tarball",
+      "translated": "Ship root dist/cli in lazycodex-ai tarball"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a6e6acf0d Merge pull request #5077 from code-yeongyu/move-src-to-omo-opencode",
+      "translated": "Merge pull request #5077 from code-yeongyu/move-src-to-omo-opencode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d26a29f4a fix(test): un-skip idle stdio timer test; keep event loop ref'd while awaiting",
+      "translated": "Un-skip idle stdio timer test; keep event loop ref'd while awaiting"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a0f8e7ca8 fix(test): skip idle stdio timer test on win32; cap test job at 30min",
+      "translated": "Skip idle stdio timer test on win32; cap test job at 30min"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "01717a299 fix(test): stop leaking spawn-with-windows-hide module mocks across files",
+      "translated": "Stop leaking spawn-with-windows-hide module mocks across files"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3ac3a8414 fix(test): exclude vendored lsp-daemon from root bun test",
+      "translated": "Exclude vendored lsp-daemon from root bun test"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f7e8221a9 refactor(omo-opencode): move plugin src into packages/omo-opencode",
+      "translated": "Move plugin src into packages/omo-opencode"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "9a0ac30ef refactor(test): sentinel-based repo-root discovery in audit/root tests",
+      "translated": "Sentinel-based repo-root discovery in audit/root tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "615b4916d fix(install-codex): raise findRepoRoot ancestor cap 5→7 for deeper package nesting",
+      "translated": "Raise findRepoRoot ancestor cap 5→7 for deeper package nesting"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "321309a40 Merge pull request #5115 from code-yeongyu/feature/lsp-daemon-overhaul",
+      "translated": "Merge pull request #5115 from code-yeongyu/feature/lsp-daemon-overhaul"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f9fed508 fix(skills): detect plain Dockerfile/Containerfile in lsp-setup detect script",
+      "translated": "Detect plain Dockerfile/Containerfile in lsp-setup detect script"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "daf188a84 fix(lsp): gate daemon source candidate on built engine dist, forward install-decisions env",
+      "translated": "Gate daemon source candidate on built engine dist, forward install-decisions env"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "441962b32 feat(skills): add lsp-setup skill with per-language references and scripts",
+      "translated": "Add lsp-setup skill with per-language references and scripts"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c094d5fdb feat(lsp-tools-mcp): resolve plain Dockerfile/Containerfile to the dockerfile server",
+      "translated": "Resolve plain Dockerfile/Containerfile to the dockerfile server"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "64b88fde7 refactor(lsp): route all MCP surfaces through the daemon, drop in-process fallback",
+      "translated": "Route all MCP surfaces through the daemon, drop in-process fallback"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "dd3170b33 feat(lsp-tools-mcp): ask-user install prompt with persisted decline state",
+      "translated": "Ask-user install prompt with persisted decline state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "48ff98fb1 Merge pull request #5114 from code-yeongyu/fix/parent-wake-noreply-liveness",
+      "translated": "Merge pull request #5114 from code-yeongyu/fix/parent-wake-noreply-liveness"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e330f43aa feat(lsp-tools-mcp): add julials and razor builtin servers",
+      "translated": "Add julials and razor builtin servers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0c9e82079 fix(background-agent): preserve reply liveness after noReply parent wake admission",
+      "translated": "Preserve reply liveness after noReply parent wake admission"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d43627403 feat(lazycodex): lcx-doctor skill + always-fresh /tmp source checkouts",
+      "translated": "Lcx-doctor skill + always-fresh /tmp source checkouts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0f62d150e Merge pull request #5111: align LazyCodex publish workflow test with stable-release sync gate",
+      "translated": "Merge pull request #5111: align LazyCodex publish workflow test with stable-release sync gate"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6fba05c41 test(publish): align LazyCodex workflow test with stable-release sync gate",
+      "translated": "Align LazyCodex workflow test with stable-release sync gate"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3c8eb3085 Merge pull request #5108: codex-rules post-compact read directive + per-event injection budgets",
+      "translated": "Merge pull request #5108: codex-rules post-compact read directive + per-event injection budgets"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0740aef97 feat(codex-rules): post-compact read directive + per-event injection budgets",
+      "translated": "Post-compact read directive + per-event injection budgets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d5909166f docs(lazycodex): cite openai/codex#26753 as basis for multi_agent_v2 force-disable",
+      "translated": "Cite openai/codex#26753 as basis for multi_agent_v2 force-disable"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c8fc5edbb feat(lazycodex): force-disable multi_agent_v2 on every Codex session start",
+      "translated": "Force-disable multi_agent_v2 on every Codex session start"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "97bcdb494 feat(agents): add Opus 4.8 and Fable 5 Sisyphus prompts; bound 4.7 over-exploration",
+      "translated": "Add Opus 4.8 and Fable 5 Sisyphus prompts; bound 4.7 over-exploration"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f1ac07d58 ci(publish): always sync Codex marketplace on stable releases",
+      "translated": "Always sync Codex marketplace on stable releases"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8cecb2ecd build(codex): derive every plugin version from a single source",
+      "translated": "Derive every plugin version from a single source"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9e8c6362e fix(doctor): coherent Codex version reporting",
+      "translated": "Coherent Codex version reporting"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3538003f0 fix(lazycodex): reset OMO_INVOCATION_NAME when delegating omo commands",
+      "translated": "Reset OMO_INVOCATION_NAME when delegating omo commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1d12c0e57 Merge pull request #5076: shared per-user LSP daemon",
+      "translated": "Merge pull request #5076: shared per-user LSP daemon"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37d179065 fix(lsp-daemon): never let a failed tool call crash the stdio proxy",
+      "translated": "Never let a failed tool call crash the stdio proxy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8d88f252a fix(lsp-daemon): reaper probes the daemon's recorded endpoint, not daemon.sock",
+      "translated": "Reaper probes the daemon's recorded endpoint, not daemon.sock"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "319dddd3f fix(lsp-tools-mcp): resolve user paths against the request-context cwd",
+      "translated": "Resolve user paths against the request-context cwd"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9446729f6 Merge pull request #5053 from Hungdoan565/codex/fix-4708-copilot-gpt54-variants",
+      "translated": "Merge pull request #5053 from Hungdoan565/codex/fix-4708-copilot-gpt54-variants"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a676083d3 Merge pull request #5052 from Hungdoan565/codex/fix-4700-zwsp-atlas-continuation",
+      "translated": "Merge pull request #5052 from Hungdoan565/codex/fix-4700-zwsp-atlas-continuation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2aff9ab6d Merge pull request #5051 from Hungdoan565/codex/fix-5035-openai-only-mixed-providers",
+      "translated": "Merge pull request #5051 from Hungdoan565/codex/fix-5035-openai-only-mixed-providers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "429b1a048 Merge pull request #5064 from MoerAI/fix/session-manager-sdk-transient-retry",
+      "translated": "Merge pull request #5064 from MoerAI/fix/session-manager-sdk-transient-retry"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d82544aa7 Merge pull request #4641 from MoerAI/fix/aggressive-truncation-respect-experimental-flag",
+      "translated": "Merge pull request #4641 from MoerAI/fix/aggressive-truncation-respect-experimental-flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "00a39ad1e Merge pull request #4602 from MoerAI/fix/handoff-first-user-request-from-session-read",
+      "translated": "Merge pull request #4602 from MoerAI/fix/handoff-first-user-request-from-session-read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba7bb1510 fix(lsp-daemon): use a named pipe for the socket on Windows",
+      "translated": "Use a named pipe for the socket on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4fcc7f0b8 harden(lsp-daemon): socket-confirm before reaping; tighter readiness timeout",
+      "translated": "Harden(lsp-daemon): socket-confirm before reaping; tighter readiness timeout"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "022b99aa9 ci(publish): build lsp-daemon before npm publish and lazycodex sync",
+      "translated": "Build lsp-daemon before npm publish and lazycodex sync"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "03c56d932 build(install): bundle and reap the lsp-daemon across distribution paths",
+      "translated": "Bundle and reap the lsp-daemon across distribution paths"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ec4a6e32a build(lsp-daemon): ship a self-contained bundle; route disposal through it",
+      "translated": "Ship a self-contained bundle; route disposal through it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "25935f13f feat(codex-lsp): route hook and lsp MCP through the shared daemon",
+      "translated": "Route hook and lsp MCP through the shared daemon"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "71c9115d5 feat(lsp-daemon): stdio proxy, daemon runner, cli, and public barrel",
+      "translated": "Stdio proxy, daemon runner, cli, and public barrel"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d0a59246c feat(lsp-daemon): daemon server + tool client with in-process fallback",
+      "translated": "Daemon server + tool client with in-process fallback"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2f33a2bbf feat(lsp-daemon): connect-or-spawn with lock, stale cleanup, readiness poll",
+      "translated": "Connect-or-spawn with lock, stale cleanup, readiness poll"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ad9b393f1 build(lsp-daemon): track package-lock for reproducible bundling",
+      "translated": "Track package-lock for reproducible bundling"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4b6559d5e feat(lsp-daemon): scaffold package with paths, framing, and lock",
+      "translated": "Scaffold package with paths, framing, and lock"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0481ddc18 feat(lsp-tools-mcp): add request-context ALS for per-request cwd/env",
+      "translated": "Add request-context ALS for per-request cwd/env"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2677087be refactor(hooks): remove anthropic-effort max-effort forcing hook",
+      "translated": "Remove anthropic-effort max-effort forcing hook"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bb24fdfdf fix(codex): refresh generated skill compatibility guidance",
+      "translated": "Refresh generated skill compatibility guidance"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cba70acce fix(lockfile): sync platform optional dependencies",
+      "translated": "Sync platform optional dependencies"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "bd7a883db refactor(omo-codex): migrate multiagent v2 tool references to v1 API",
+      "translated": "Migrate multiagent v2 tool references to v1 API"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d984ccd5b fix(session-manager): retry transient SDK failures before file fallback (fixes #4622)",
+      "translated": "Retry transient SDK failures before file fallback (fixes #4622)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8f3eeba58 test(model-core): cover Copilot GPT max variant cap",
+      "translated": "Cover Copilot GPT max variant cap"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "73a157fb4 fix(cli): sanitize generated fallback settings",
+      "translated": "Sanitize generated fallback settings"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "18daffd9d test(cli): cover Copilot GPT fallback variants",
+      "translated": "Cover Copilot GPT fallback variants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0a98967fe fix(model-core): cap Copilot GPT variants",
+      "translated": "Cap Copilot GPT variants"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3253bbf67 test(model-core): cover Copilot GPT variant caps",
+      "translated": "Cover Copilot GPT variant caps"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6febf3396 fix(todo-continuation): preserve registered Atlas alias",
+      "translated": "Preserve registered Atlas alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7c58b81b5 test(todo-continuation): cover ZWSP Atlas registry alias",
+      "translated": "Cover ZWSP Atlas registry alias"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "55b806d37 fix(cli): reuse OpenAI-only provider warning predicate",
+      "translated": "Reuse OpenAI-only provider warning predicate"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7ed1da7ea test(cli): cover ChatGPT-only mixed providers",
+      "translated": "Cover ChatGPT-only mixed providers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8e486f98 fix(cli): exclude fallback providers from OpenAI-only catalog",
+      "translated": "Exclude fallback providers from OpenAI-only catalog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b7e18f6c4 test(cli): cover OpenAI-only mixed providers",
+      "translated": "Cover OpenAI-only mixed providers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d8a14816c fix(anthropic-context-window-limit-recovery): honor experimental.aggressive_truncation flag in executor (fixes #3899)",
+      "translated": "Honor experimental.aggressive_truncation flag in executor (fixes #3899)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6ede73356 fix(handoff): bind USER REQUESTS to session_read output instead of in-context memory (fixes #4592)",
+      "translated": "Bind USER REQUESTS to session_read output instead of in-context memory (fixes #4592)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@Nigmat-future:",
+      "translated": "@Nigmat-future:"
+    }
+  ],
+  "translatedAt": "2026-06-11T20:39:11.162Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 14546
+}
