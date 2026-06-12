@@ -1,0 +1,110 @@
+{
+  "version": "4.9.2",
+  "date": "2026-06-12",
+  "parsedAt": "2026-06-12T05:05:41.747Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**No more wake deadlocks.** The prompt gate now looks through `noReply` tails, so a background completion that lands while the gate is busy no longer silently drops the wake. (Community fix by @acamq — thank you!)",
+      "translated": "**웨이크 데드락 해결.** `prompt gate`가 `noReply` 테일을 확인하도록 개선되어, 게이트가 사용 중일 때 도착한 백그라운드 완료 작업이 웨이크를 무시하고 누락되는 현상을 방지합니다. (@acamq 님의 커뮤니티 기여에 감사드립니다!)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Per-instance route scoping.** Multi-instance `serve()` registrations each get isolated route state, preventing cross-talk in advanced setups.",
+      "translated": "**인스턴스별 라우트 스코프 적용.** 다중 인스턴스 `serve()` 등록 시 각 인스턴스가 격리된 라우트 상태를 가지게 되어, 복잡한 설정에서도 상호 간섭이 발생하지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Escape hatch.** If the new routing causes issues, set `experimental.disable_live_parent_wake_routing: true` to fall back to the previous behavior.",
+      "translated": "**비상 대책.** 새로운 라우팅 방식에 문제가 발생할 경우, `experimental.disable_live_parent_wake_routing: true`로 설정하여 이전 동작으로 되돌릴 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a446e5dc4 Merge pull request #5171 from acamq/fix/noreply-tail-prompt-gate-deadlock",
+      "translated": "Acamq/fix/noreply-tail-prompt-gate-deadlock 브랜치로부터의 풀 리퀘스트 #5171 병합"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "02cd85050 refactor: deslop live-wake routing diff (portable harness path, canonical gate client types, test noise)",
+      "translated": "Live-wake 라우팅 차이점 정리 (portable harness path, canonical gate client types, 테스트 노이즈 제거)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dd6d5339b fix(live-server-route): synchronous fast-path resolution keeps dispatch ordering",
+      "translated": "동기식 fast-path 해결을 통한 디스패치 순서 유지"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f0f3701c3 test(opencode-qa): fake-LLM echoes the CLI no-regression marker",
+      "translated": "Fake-LLM이 CLI 회귀 방지 마커를 반환하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9932acadc fix(live-server-route): scope route state per server() registration for multi-instance serve",
+      "translated": "다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f70369a1e fix(background-agent): parent-wake flush busy-guard reads via resolved client",
+      "translated": "Parent-wake flush busy-guard reads via resolved client"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "11043948c feat(plugin): register live-server route at serverPlugin entry (fire-and-forget)",
+      "translated": "Register live-server route at serverPlugin entry (fire-and-forget)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ab32f747a feat(prompt-async-gate): route parent-targeted dispatches through live listener client",
+      "translated": "Route parent-targeted dispatches through live listener client"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "268135157 test(opencode-qa): serve-topology wake runner-split harness + fake-LLM fixture",
+      "translated": "Serve-topology wake runner-split harness + fake-LLM fixture"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1f6d0e4bb fix(background-agent): look through noReply tails in prompt gate to prevent wake deadlock",
+      "translated": "Look through noReply tails in prompt gate to prevent wake deadlock"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1b7fe799e feat(live-server-route): topology probe + cached live-listener client + dispatch resolution",
+      "translated": "Topology probe + cached live-listener client + dispatch resolution"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7083d1a08 feat(config): experimental.disable_live_parent_wake_routing escape hatch",
+      "translated": "Experimental.disable_live_parent_wake_routing escape hatch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5e928c936 test(prompt-async-gate): pin gate client-identity + busy-check characterization",
+      "translated": "Pin gate client-identity + busy-check characterization"
+    }
+  ],
+  "translatedAt": "2026-06-12T05:06:24.105Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 732
+}
