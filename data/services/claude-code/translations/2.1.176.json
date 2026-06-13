@@ -1,0 +1,146 @@
+{
+  "version": "2.1.176",
+  "date": "2026-06-12",
+  "parsedAt": "2026-06-13T04:53:38.568Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)",
+      "translated": "세션 제목이 이제 대화 언어로 생성됩니다 (특정 언어를 고정하려면 `language` 설정을 사용하세요)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `footerLinksRegexes` setting for regex-matched link badges in the footer row, configurable via user or managed settings",
+      "translated": "하단 행에 정규식 매칭 링크 배지를 표시하기 위한 `footerLinksRegexes` 설정이 추가되었으며, 사용자 또는 관리 설정에서 구성할 수 있습니다"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Bedrock credential caching: credentials from `awsCredentialExport` are now cached until their `Expiration` instead of a fixed 1 hour",
+      "translated": "Bedrock 자격 증명 캐싱 개선: `awsCredentialExport`의 자격 증명이 이제 고정된 1시간 대신 `Expiration` 만료 시점까지 캐싱됩니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `availableModels` enforcement: alias model picks can no longer be redirected to a blocked model via `ANTHROPIC_DEFAULT_*_MODEL` environment variables, and `/fast` now refuses to toggle when it would switch to a model outside the allowlist",
+      "translated": "`availableModels` 강제 적용 수정: 별칭 모델 선택이 `ANTHROPIC_DEFAULT_*_MODEL` 환경 변수를 통해 차단된 모델로 리다이렉트되지 않으며, `/fast` 명령어가 허용 목록 외부의 모델로 전환될 경우 작동하지 않도록 수정되었습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode failing on Fable 5 for organizations without Opus 4.8 enabled — the classifier now falls back to the best available Opus model",
+      "translated": "Opus 4.8이 활성화되지 않은 조직의 Fable 5에서 자동 모드가 실패하던 문제 수정 — 이제 분류기가 사용 가능한 최선의 Opus 모델로 폴백합니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hook `if` conditions for Read/Edit/Write tool paths: documented patterns like `Edit(src/**)`, `Read(~/.ssh/**)`, and `Read(.env)` now match correctly",
+      "translated": "Read/Edit/Write 도구 경로의 훅 `if` 조건 수정: `Edit(src/**)`, `Read(~/.ssh/**)`, `Read(.env)`와 같이 문서화된 패턴이 이제 올바르게 매칭됩니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Linux sandbox failing to start when `.claude/settings.json` is a symlink with an absolute target",
+      "translated": "`.claude/settings.json`이 절대 경로를 타겟으로 하는 심볼릭 링크일 때 Linux 샌드박스가 시작되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/copy` and mouse-selection copy not reaching the system clipboard inside tmux over SSH, and tmux paste buffer not loading on versions older than 3.2",
+      "translated": "SSH를 통한 tmux 내부에서 `/copy` 및 마우스 선택 복사가 시스템 클립보드에 전달되지 않던 문제와 3.2 미만 버전에서 tmux 붙여넣기 버퍼가 로드되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control connecting from web/mobile silently switching the session's model",
+      "translated": "웹/모바일에서 Remote Control 연결 시 세션 모델이 알림 없이 변경되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control disconnect notifications showing a bare numeric code instead of a human-readable reason, and connection failures adding a duplicate line to the conversation transcript",
+      "translated": "Remote Control 연결 해제 알림에 읽기 쉬운 이유 대신 숫자 코드만 표시되던 문제와 연결 실패 시 대화 기록에 중복된 줄이 추가되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions not disconnecting when you sign in to a different account",
+      "translated": "다른 계정으로 로그인할 때 Remote Control 세션이 연결 해제되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/cd` and worktree moves leaving the session reporting the previous directory's git branch",
+      "translated": "`/cd` 및 worktree 이동 후 세션에 이전 디렉토리의 git 브랜치가 계속 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents`: pressing back in one window no longer detaches other windows attached to the same session",
+      "translated": "`claude agents` 수정: 한 창에서 뒤로 가기를 눌러도 동일한 세션에 연결된 다른 창들이 분리되지 않습니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed backgrounded sessions showing \"Working\" forever when `/bg` mid-turn had nothing left to continue",
+      "translated": "턴 중간에 `/bg` 실행 시 더 이상 진행할 작업이 없는데도 백그라운드 세션이 \"Working\" 상태로 계속 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agent search by PR URL: PRs opened during scheduled wakeups or while a job was blocked now appear in `claude agents` search",
+      "translated": "PR URL을 통한 백그라운드 에이전트 검색 수정: 예약된 깨우기 도중이나 작업이 차단된 동안 열린 PR이 이제 `claude agents` 검색에 나타납니다"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the agents view input showing no text cursor on Windows",
+      "translated": "Windows에서 에이전트 뷰 입력창에 텍스트 커서가 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --bg -cn <name>` not seeding the session name",
+      "translated": "`claude --bg -cn <name>` 명령어가 세션 이름을 초기 설정하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions to neutralize Windows network paths in persisted state before respawn",
+      "translated": "백그라운드 세션 재시작(respawn) 전 유지된 상태(persisted state)에서 Windows 네트워크 경로를 무력화하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-session respawn rejecting malformed resume IDs from corrupted state files",
+      "translated": "손상된 상태 파일로 인해 백그라운드 세션 재시작 시 잘못된 형식의 resume ID를 거부하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Windows background-service daemon not starting when `~/.claude/daemon` has the ReadOnly attribute set",
+      "translated": "`~/.claude/daemon`에 읽기 전용(ReadOnly) 속성이 설정되어 있을 때 Windows 백그라운드 서비스 데몬이 시작되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions failing with \"Could not resolve authentication method\" when idle for too long before being claimed",
+      "translated": "클라우드 세션이 할당되기 전 너무 오랫동안 유휴 상태로 방치될 경우 \"Could not resolve authentication method\" 오류가 발생하며 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background sessions now show clearer guidance when a window left open across an auto-update can't submit a reply, and `claude daemon status` explains version-skew behavior",
+      "translated": "자동 업데이트 중에 열려 있던 창에서 답장을 제출할 수 없는 경우 백그라운드 세션에서 더 명확한 안내를 표시하며, `claude daemon status`에서 버전 불일치(version-skew) 동작에 대해 설명합니다."
+    }
+  ],
+  "translatedAt": "2026-06-13T04:54:09.958Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2706
+}
