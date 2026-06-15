@@ -1,0 +1,1262 @@
+{
+  "version": "0.140.0",
+  "date": "2026-06-15",
+  "parsedAt": "2026-06-15T21:24:24.359Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/usage` views for daily, weekly, and cumulative account token activity. (#27925)",
+      "translated": "일간, 주간 및 누적 계정 토큰 활동을 확인할 수 있는 `/usage` 뷰를 추가했습니다. (#27925)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`/goal` now preserves oversized text, large pasted blocks, and image attachments, including in remote app-server sessions. (#27508, #27509, #27510)",
+      "translated": "원격 app-server 세션을 포함하여, 이제 `/goal`에서 초과 크기 텍스트, 대량의 붙여넣기 블록 및 이미지 첨부 파일이 유지됩니다. (#27508, #27509, #27510)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added permanent session deletion through `codex delete`, `/delete`, and app-server `thread/delete`, with confirmation safeguards and subagent cleanup. (#25018, #27476)",
+      "translated": "확인 절차 및 서브에이전트 정리 기능을 포함하여, `codex delete`, `/delete`, app-server `thread/delete`를 통한 영구 세션 삭제 기능을 추가했습니다. (#25018, #27476)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/import` for selectively importing setup, project configuration, and recent chats from Claude Code. (#27070, #27071, #27703)",
+      "translated": "Claude Code에서 설정, 프로젝트 구성 및 최근 채팅을 선택적으로 가져올 수 있는 `/import` 기능을 추가했습니다. (#27070, #27071, #27703)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Typing `@` now opens the unified mentions menu for files, plugins, and skills by default. (#27499)",
+      "translated": "이제 `@`를 입력하면 기본적으로 파일, 플러그인, 스킬을 위한 통합 멘션 메뉴가 열립니다. (#27499)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added managed Amazon Bedrock API-key authentication and encrypted local storage for CLI and MCP OAuth credentials. (#27443, #27689, #27504, #27535, #27539, #27541)",
+      "translated": "관리형 Amazon Bedrock API-key 인증과 CLI 및 MCP OAuth 자격 증명을 위한 암호화된 로컬 스토리지를 추가했습니다. (#27443, #27689, #27504, #27535, #27539, #27541)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Corrupted SQLite state databases are now backed up and rebuilt automatically from rollout data, including malformed database-directory cases. (#26859, #27719)",
+      "translated": "손"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prevented `/review` from crashing when `Esc` is pressed with queued guidance, while preserving that guidance when the review is canceled. (#22879)",
+      "translated": "Prevented `/review` from crashing when `Esc` is pressed with queued guidance, while preserving that guidance when the review is canceled. (#22879)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved MCP reliability by retrying transient startup failures, reporting unusable OAuth credentials as logged out, and preserving explicitly disabled servers. (#25147, #26713, #27414)",
+      "translated": "Improved MCP reliability by retrying transient startup failures, reporting unusable OAuth credentials as logged out, and preserving explicitly disabled servers. (#25147, #26713, #27414)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote plugin uninstall requests and correctly surfaced apps requiring authentication during installation. (#27085, #27223)",
+      "translated": "Fixed remote plugin uninstall requests and correctly surfaced apps requiring authentication during installation. (#27085, #27223)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Persisted “Don’t remind me” update dismissals reliably and cleared stale running-hook indicators after completed turns. (#27619, #27783)",
+      "translated": "Persisted “Don’t remind me” update dismissals reliably and cleared stale running-hook indicators after completed turns. (#27619, #27783)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Non-TTY background commands can now be interrupted with Ctrl-C while preserving their final output and exit status. (#26734)",
+      "translated": "Non-TTY background commands can now be interrupted with Ctrl-C while preserving their final output and exit status. (#26734)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarified contributor guidance around keeping crate APIs narrow and supporting Linux, macOS, and Windows. (#27939, #27966)",
+      "translated": "Clarified contributor guidance around keeping crate APIs narrow and supporting Linux, macOS, and Windows. (#27939, #27966)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Improved responsiveness for large repositories and long sessions by preserving Git’s built-in filesystem monitor, avoiding duplicate history reads, accelerating archive lookup, and caching turn-diff rendering. (#26880, #27031, #27276, #27489)",
+      "translated": "Improved responsiveness for large repositories and long sessions by preserving Git’s built-in filesystem monitor, avoiding duplicate history reads, accelerating archive lookup, and caching turn-diff rendering. (#26880, #27031, #27276, #27489)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Removed the experimental `/realtime` voice controls and related audio dependencies from the TUI. (#27801)",
+      "translated": "Removed the experimental `/realtime` voice controls and related audio dependencies from the TUI. (#27801)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26880 [codex] preserve fsmonitor for worktree Git reads",
+      "translated": "[codex] preserve fsmonitor for worktree Git reads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27085 Use server app auth requirements for remote plugin install",
+      "translated": "Use server app auth requirements for remote plugin install"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27098 [codex] Return workspace directory installed plugins",
+      "translated": "[codex] Return workspace directory installed plugins"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27007 multi-agent: add path-based v2 activity tracking",
+      "translated": "Multi-agent: add path-based v2 activity tracking"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27166 app-server: clear stale thread watches after v2 agent interruption",
+      "translated": "App-server: clear stale thread watches after v2 agent interruption"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27080 [codex] Ignore pending PR review comments",
+      "translated": "[codex] Ignore pending PR review comments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26420 Avoid no-op backfill state writes",
+      "translated": "Avoid no-op backfill state writes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27031 Avoid rereading rollout history during cold resume",
+      "translated": "Avoid rereading rollout history during cold resume"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22879 fix: Prevent /review crash when entering Esc on steer message",
+      "translated": "Fix: Prevent /review crash when entering Esc on steer message"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27173 app-server: reject direct input to multi-agent v2 sub-agents",
+      "translated": "App-server: reject direct input to multi-agent v2 sub-agents"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27184 Load selected executor skills through extensions",
+      "translated": "Load selected executor skills through extensions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26835 [codex] Test extension API contracts",
+      "translated": "[codex] Test extension API contracts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27063 [codex-analytics] add extensible feature thread sources",
+      "translated": "[codex-analytics] add extensible feature thread sources"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26479 [codex] Speed up local nextest runs",
+      "translated": "[codex] Speed up local nextest runs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27223 fix: use plugin service route for remote uninstall",
+      "translated": "Fix: use plugin service route for remote uninstall"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#22685 Add SOCKS5 TCP MITM coverage",
+      "translated": "Add SOCKS5 TCP MITM coverage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26681 Allow creating a new goal after completion",
+      "translated": "Allow creating a new goal after completion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26711 Reduce TUI legacy core dependencies",
+      "translated": "Reduce TUI legacy core dependencies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27110 [1/6] Add Python goal routing foundation",
+      "translated": "[1/6] Add Python goal routing foundation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27191 Route hosted Apps MCP through extensions",
+      "translated": "Route hosted Apps MCP through extensions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26830 [codex] Characterize global instruction lifecycle",
+      "translated": "[codex] Characterize global instruction lifecycle"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26713 [codex] Report unusable MCP OAuth credentials as logged out",
+      "translated": "[codex] Report unusable MCP OAuth credentials as logged out"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26734 [codex] Handle Ctrl-C for non-TTY unified exec",
+      "translated": "[codex] Handle Ctrl-C for non-TTY unified exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27116 Stop mirroring Codex user input into realtime",
+      "translated": "Stop mirroring Codex user input into realtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27111 [2/6] Add private Python goal operations",
+      "translated": "[2/6] Add private Python goal operations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25147 [codex] Retry streamable HTTP initialize failures",
+      "translated": "[codex] Retry streamable HTTP initialize failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27257 [codex] Tighten MCP connection manager API visibility and order",
+      "translated": "[codex] Tighten MCP connection manager API visibility and order"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26701 TUI Plugin Sharing 1 - add remote plugin identity",
+      "translated": "TUI Plugin Sharing 1 - add remote plugin identity"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27129 feat: use provider defaults for memory models",
+      "translated": "Feat: use provider defaults for memory models"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27094 Add spans to build_tool_router",
+      "translated": "Add spans to build_tool_router"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#24999 Add per-session realtime model and version overrides",
+      "translated": "Add per-session realtime model and version overrides"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27078 [codex-analytics] emit goal lifecycle analytics",
+      "translated": "[codex-analytics] emit goal lifecycle analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27285 [codex] Fix post-merge analytics integration failures",
+      "translated": "[codex] Fix post-merge analytics integration failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27107 Add spans to run_turn",
+      "translated": "Add spans to run_turn"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27261 [codex] Make MCP connection startup fallible",
+      "translated": "[codex] Make MCP connection startup fallible"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27174 feat: keep child MCP warnings out of parent transcript",
+      "translated": "Feat: keep child MCP warnings out of parent transcript"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27198 Use plugin-service MCP as the hosted plugin runtime",
+      "translated": "Use plugin-service MCP as the hosted plugin runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27375 [codex] Tag multi-agent spawn metrics with version",
+      "translated": "[codex] Tag multi-agent spawn metrics with version"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27383 Remove async-trait from extension contributors",
+      "translated": "Remove async-trait from extension contributors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27259 Use latest-wins MCP manager replacement",
+      "translated": "Use latest-wins MCP manager replacement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27264 [codex] Store compact window id in rollout",
+      "translated": "[codex] Store compact window id in rollout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27280 [codex] add io PathUri native conversion APIs",
+      "translated": "[codex] add io PathUri native conversion APIs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27315 [codex] link Windows releases with LLD",
+      "translated": "[codex] link Windows releases with LLD"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27276 Reduce archive rollout lookup CPU",
+      "translated": "Reduce archive rollout lookup CPU"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27299 [codex] Outline ToolExecutor handler bodies",
+      "translated": "[codex] Outline ToolExecutor handler bodies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27391 Index visible thread list ordering",
+      "translated": "Index visible thread list ordering"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27407 Fix compressed rollout search path matching",
+      "translated": "Fix compressed rollout search path matching"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27304 [codex] Remove async_trait from ToolExecutor",
+      "translated": "[codex] Remove async_trait from ToolExecutor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26041 Add app-server background terminal process APIs",
+      "translated": "Add app-server background terminal process APIs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#25018 Add app-server `thread/delete` API",
+      "translated": "Add app-server `thread/delete` API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26859 fix: Auto-recover from corrupted sqlite databases",
+      "translated": "Fix: Auto-recover from corrupted sqlite databases"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27064 [codex] remove blocking external agent migration flow",
+      "translated": "[codex] remove blocking external agent migration flow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27421 [codex] Raise app-server recursion limit",
+      "translated": "[codex] Raise app-server recursion limit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27062 [codex] Retry transient Guardian review failures",
+      "translated": "[codex] Retry transient Guardian review failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27065 [codex] extract external agent import picker renderer",
+      "translated": "[codex] extract external agent import picker renderer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26409 [plugins] Inject remote_plugin_id into install elicitations",
+      "translated": "[plugins] Inject remote_plugin_id into install elicitations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27439 feat: make ThreadStore available on ThreadExtensionDependencies",
+      "translated": "Feat: make ThreadStore available on ThreadExtensionDependencies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27343 Guard core test subprocess cleanup",
+      "translated": "Guard core test subprocess cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27070 [codex] add external agent import picker UX",
+      "translated": "[codex] add external agent import picker UX"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27321 [codex] Move release platform rules into bazel package",
+      "translated": "[codex] Move release platform rules into bazel package"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27071 [codex] add /import for external agents",
+      "translated": "[codex] add /import for external agents"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27311 [codex] Skip local curated discovery for remote plugins",
+      "translated": "[codex] Skip local curated discovery for remote plugins"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27414 [codex] Preserve disabled MCP servers across runtime overlays",
+      "translated": "[codex] Preserve disabled MCP servers across runtime overlays"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27312 [codex] reuse release artifacts for npm staging",
+      "translated": "[codex] reuse release artifacts for npm staging"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27319 Forward standalone assistant output to realtime",
+      "translated": "Forward standalone assistant output to realtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27057 [codex] Add reusable OTEL gauge instruments",
+      "translated": "[codex] Add reusable OTEL gauge instruments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27245 image: add shared data URL preparation utilities",
+      "translated": "Image: add shared data URL preparation utilities"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27392 [codex-analytics] emit internally started turn events",
+      "translated": "[codex-analytics] emit internally started turn events"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27322 [codex] Preserve build-script dependencies in rules_rs annotations",
+      "translated": "[codex] Preserve build-script dependencies in rules_rs annotations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27489 core: cache turn diff rendering",
+      "translated": "Core: cache turn diff rendering"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27465 [codex] Remove redundant plugin app auth state",
+      "translated": "[codex] Remove redundant plugin app auth state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27484 Remove TUI legacy core test_support dependencies",
+      "translated": "Remove TUI legacy core test_support dependencies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27476 Add session delete commands in CLI and TUI",
+      "translated": "Add session delete commands in CLI and TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27247 core: resize all history images behind a feature flag",
+      "translated": "Core: resize all history images behind a feature flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27487 Trim TUI legacy telemetry and migration dependencies",
+      "translated": "Trim TUI legacy telemetry and migration dependencies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27438 [codex] Add token budget context feature",
+      "translated": "[codex] Add token budget context feature"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27501 [codex] Expand hosted web search citation guidance",
+      "translated": "[codex] Expand hosted web search citation guidance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27526 tools: simplify default tool search text",
+      "translated": "Tools: simplify default tool search text"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27488 [codex] Add new context window tool",
+      "translated": "[codex] Add new context window tool"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27443 feat: add Bedrock API key as a managed auth mode",
+      "translated": "Feat: add Bedrock API key as a managed auth mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27532 [codex] Add comp_hash to model metadata",
+      "translated": "[codex] Add comp_hash to model metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27246 core: strip image detail from Responses Lite requests",
+      "translated": "Core: strip image detail from Responses Lite requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27517 [codex] Pass auth mode to plugin manager",
+      "translated": "[codex] Pass auth mode to plugin manager"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27520 [codex] Compact when comp_hash changes",
+      "translated": "[codex] Compact when comp_hash changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27518 [codex] Add context remaining tool",
+      "translated": "[codex] Add context remaining tool"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27266 image: preserve metadata when resizing prompt images",
+      "translated": "Image: preserve metadata when resizing prompt images"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27103 [codex-analytics] report cached input tokens for v2 compaction",
+      "translated": "[codex-analytics] report cached input tokens for v2 compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27356 Use generic search metadata for dynamic tools",
+      "translated": "Use generic search metadata for dynamic tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27082 [codex-analytics] Emit structured compaction codex errors",
+      "translated": "[codex-analytics] Emit structured compaction codex errors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26513 [codex] Tune cloud config cache intervals",
+      "translated": "[codex] Tune cloud config cache intervals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27387 skills: make backend plugin skills invocable without an executor",
+      "translated": "Skills: make backend plugin skills invocable without an executor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27403 skills: cache remote catalog failures per thread",
+      "translated": "Skills: cache remote catalog failures per thread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27573 core: enable remote compaction v2 by default",
+      "translated": "Core: enable remote compaction v2 by default"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27388 skills: expose remote skill resource tools",
+      "translated": "Skills: expose remote skill resource tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27569 multi-agent: move concurrency guidance into v2 usage hints",
+      "translated": "Multi-agent: move concurrency guidance into v2 usage hints"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27585 nit: cap error",
+      "translated": "Nit: cap error"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27404 test: cover referenced backend skill reads without an executor",
+      "translated": "Test: cover referenced backend skill reads without an executor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27591 skills: render catalog locators by authority",
+      "translated": "Skills: render catalog locators by authority"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27413 skills: decouple the skills extension from core",
+      "translated": "Skills: decouple the skills extension from core"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27527 [codex] publish npm packages concurrently",
+      "translated": "[codex] publish npm packages concurrently"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27528 [codex] publish DotSlash alongside npm",
+      "translated": "[codex] publish DotSlash alongside npm"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27529 [codex] download only release artifacts",
+      "translated": "[codex] download only release artifacts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27490 Remove TUI legacy Windows sandbox dependency",
+      "translated": "Remove TUI legacy Windows sandbox dependency"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27483 Emit plugin ID on MCP tool call analytics events",
+      "translated": "Emit plugin ID on MCP tool call analytics events"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27417 Print TUI session info on fatal exits",
+      "translated": "Print TUI session info on fatal exits"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27507 lint: allow self-documenting builder arguments",
+      "translated": "Lint: allow self-documenting builder arguments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27420 [codex] Propagate plugin app categories",
+      "translated": "[codex] Propagate plugin app categories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27454 [codex] add cross-platform filesystem adapter coverage",
+      "translated": "[codex] add cross-platform filesystem adapter coverage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27415 [codex] Surface runtime warnings in codex exec",
+      "translated": "[codex] Surface runtime warnings in codex exec"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27639 [codex] revert concurrent npm publishing",
+      "translated": "[codex] revert concurrent npm publishing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27646 feat: disable orchestrator skills for now",
+      "translated": "Feat: disable orchestrator skills for now"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27323 [codex] Provide ARM64 MinGW powl compatibility support",
+      "translated": "[codex] Provide ARM64 MinGW powl compatibility support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27433 [codex] remove EnvironmentPathRef",
+      "translated": "[codex] remove EnvironmentPathRef"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27424 [codex] migrate ExecutorFileSystem paths to PathUri",
+      "translated": "[codex] migrate ExecutorFileSystem paths to PathUri"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27101 [codex] Load user instructions through an injected provider",
+      "translated": "[codex] Load user instructions through an injected provider"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27634 Resolve MCP server registrations through a catalog",
+      "translated": "Resolve MCP server registrations through a catalog"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27122 core: Consolidate Responses API Codex metadata",
+      "translated": "Core: Consolidate Responses API Codex metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27450 [codex-rs] enforce PAT workspace restrictions",
+      "translated": "[codex-rs] enforce PAT workspace restrictions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27653 [codex] migrate exec-server filesystem protocol to PathUri",
+      "translated": "[codex] migrate exec-server filesystem protocol to PathUri"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27663 Include thread id in token budget context",
+      "translated": "Include thread id in token budget context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26418 [codex] Avoid duplicate hooks.json discovery with profiles",
+      "translated": "[codex] Avoid duplicate hooks.json discovery with profiles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27689 feat: prefer managed Bedrock auth in model provider",
+      "translated": "Feat: prefer managed Bedrock auth in model provider"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27700 Remove fs/join and fs/parent from exec-server protocol",
+      "translated": "Remove fs/join and fs/parent from exec-server protocol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26426 Warn when hooks.json has unsupported top-level fields",
+      "translated": "Warn when hooks.json has unsupported top-level fields"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27318 [codex] Move persistence policy application into ThreadStore",
+      "translated": "[codex] Move persistence policy application into ThreadStore"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27498 Route image extension reads through turn environments v2",
+      "translated": "Route image extension reads through turn environments v2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27623 Add spans to turn lifecycle gaps",
+      "translated": "Add spans to turn lifecycle gaps"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27619 tui: clear stale hook row after turn completion",
+      "translated": "Tui: clear stale hook row after turn completion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27711 Fix image extension PathUri conversion",
+      "translated": "Fix image extension PathUri conversion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27475 [codex] Remove async_trait from first-party code",
+      "translated": "[codex] Remove async_trait from first-party code"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27719 fix: Recover from sqlite directory being a file",
+      "translated": "Fix: Recover from sqlite directory being a file"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27715 ci(v8): gate Windows source builds on relevant changes",
+      "translated": "Ci(v8): gate Windows source builds on relevant changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27702 [codex] parallelize release code generation",
+      "translated": "[codex] parallelize release code generation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27709 [codex] resolve environment shell metadata eagerly",
+      "translated": "[codex] resolve environment shell metadata eagerly"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27445 feat(app-server): persist remote-control desired state",
+      "translated": "Feat(app-server): persist remote-control desired state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27508 [1 of 3] Support long raw TUI goal objectives",
+      "translated": "[1 of 3] Support long raw TUI goal objectives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27256 Add request_user_input auto-resolution window contract",
+      "translated": "Add request_user_input auto-resolution window contract"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27724 code-mode standalone: extract protocol and add host crate",
+      "translated": "Code-mode standalone: extract protocol and add host crate"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27778 Translate non-English issues",
+      "translated": "Translate non-English issues"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27316 Keep request_user_input direct-model only",
+      "translated": "Keep request_user_input direct-model only"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27696 [codex] Load AGENTS.md from all bound environments",
+      "translated": "[codex] Load AGENTS.md from all bound environments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27670 Make MCP server contributions thread-scoped",
+      "translated": "Make MCP server contributions thread-scoped"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27732 [code-mode] Reject remote image URLs from output helpers",
+      "translated": "[code-mode] Reject remote image URLs from output helpers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27692 Add executor-owned plugin resolution",
+      "translated": "Add executor-owned plugin resolution"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27863 Extract shared plugin MCP config parsing",
+      "translated": "Extract shared plugin MCP config parsing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27703 [codex] restore source-specific import copy",
+      "translated": "[codex] restore source-specific import copy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27879 fix: serialize auth environment tests",
+      "translated": "Fix: serialize auth environment tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27791 Reject transcript backtrack in side conversations",
+      "translated": "Reject transcript backtrack in side conversations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27075 [ez][codex-rs] Support approvals reviewer in app defaults",
+      "translated": "[ez][codex-rs] Support approvals reviewer in app defaults"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27538 Use dependency groups for Python SDK tooling",
+      "translated": "Use dependency groups for Python SDK tooling"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27783 Persist update dismissal without cache",
+      "translated": "Persist update dismissal without cache"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27814 tui: Allow extra o's in /goal command",
+      "translated": "Tui: Allow extra o's in /goal command"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27901 Use uv as Python SDK build backend",
+      "translated": "Use uv as Python SDK build backend"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27720 realtime: add AVAS architecture override",
+      "translated": "Realtime: add AVAS architecture override"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27919 chore: prompt MAv2",
+      "translated": "Chore: prompt MAv2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27816 sandboxing: migrate cwd inputs to PathUri",
+      "translated": "Sandboxing: migrate cwd inputs to PathUri"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27890 [codex] expose remote plugin share URL",
+      "translated": "[codex] expose remote plugin share URL"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27913 [codex] unify apply patch parsing",
+      "translated": "[codex] unify apply patch parsing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27920 Handle standalone image generation failures as terminal items",
+      "translated": "Handle standalone image generation failures as terminal items"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27927 [codex] Add size to internal filesystem metadata",
+      "translated": "[codex] Add size to internal filesystem metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27504 feat: add secret auth storage configuration",
+      "translated": "Feat: add secret auth storage configuration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27674 [login] revoke existing auth before starting login",
+      "translated": "[login] revoke existing auth before starting login"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27535 feat: add auth-specific encrypted secret namespaces",
+      "translated": "Feat: add auth-specific encrypted secret namespaces"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27939 [codex] Add crate API surface review rule",
+      "translated": "[codex] Add crate API surface review rule"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27926 [codex] Align implicit skill reads with parser",
+      "translated": "[codex] Align implicit skill reads with parser"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#23254 fix(plugins) rm plugin descriptions",
+      "translated": "Fix(plugins) rm plugin descriptions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27830 Support plaintext agent messages",
+      "translated": "Support plaintext agent messages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27801 Remove TUI realtime voice support",
+      "translated": "Remove TUI realtime voice support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27539 feat: use encrypted local secrets for CLI auth",
+      "translated": "Feat: use encrypted local secrets for CLI auth"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27076 Warn for structured feature toggles",
+      "translated": "Warn for structured feature toggles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27541 feat: use encrypted local secrets for MCP OAuth",
+      "translated": "Feat: use encrypted local secrets for MCP OAuth"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27936 [codex] add roles to realtime append text",
+      "translated": "[codex] add roles to realtime append text"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27509 [2 of 3] Support long pasted text in TUI goals",
+      "translated": "[2 of 3] Support long pasted text in TUI goals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27109 Add Guardian catalog diagnostics metadata",
+      "translated": "Add Guardian catalog diagnostics metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27966 Specify platform support in AGENTS.md",
+      "translated": "Specify platform support in AGENTS.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27855 [codex] parallelize Windows compression",
+      "translated": "[codex] parallelize Windows compression"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27499 Promote TUI unified mentions in composer to default mentions feature",
+      "translated": "Promote TUI unified mentions in composer to default mentions feature"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27972 [codex] Let generic test turns inherit their environment",
+      "translated": "[codex] Let generic test turns inherit their environment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27856 [codex] package Windows symbols in parallel",
+      "translated": "[codex] package Windows symbols in parallel"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27976 [codex] make PathUri::from_abs_path infallible",
+      "translated": "[codex] make PathUri::from_abs_path infallible"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27854 [codex] parallelize Windows package archives",
+      "translated": "[codex] parallelize Windows package archives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27853 [codex] stage npm packages concurrently",
+      "translated": "[codex] stage npm packages concurrently"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27710 [codex] add latency tracing spans",
+      "translated": "[codex] add latency tracing spans"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27510 [3 of 3] Support images in TUI goals",
+      "translated": "[3 of 3] Support images in TUI goals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27925 feat(tui): reland token activity command",
+      "translated": "Feat(tui): reland token activity command"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27988 [codex] Limit app-based plugin suggestions to remote catalogs",
+      "translated": "[codex] Limit app-based plugin suggestions to remote catalogs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27652 [codex] Add auth mode to plugin manager constructor",
+      "translated": "[codex] Add auth mode to plugin manager constructor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27964 [codex] Add hermetic Wine test support",
+      "translated": "[codex] Add hermetic Wine test support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27459 [codex] Gate plugin MCP servers by auth route",
+      "translated": "[codex] Gate plugin MCP servers by auth route"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27961 feat(app-server): enforce managed remote control disable",
+      "translated": "Feat(app-server): enforce managed remote control disable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27937 [codex] Add hermetic Wine exec-server test",
+      "translated": "[codex] Add hermetic Wine exec-server test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27996 [codex] Send request-scoped turn state over WebSocket",
+      "translated": "[codex] Send request-scoped turn state over WebSocket"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28002 [codex] Send turn state through compact requests",
+      "translated": "[codex] Send turn state through compact requests"
+    }
+  ],
+  "translatedAt": "2026-06-15T21:25:08.510Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 11351
+}
