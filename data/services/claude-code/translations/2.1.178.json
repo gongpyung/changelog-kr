@@ -1,0 +1,146 @@
+{
+  "version": "2.1.178",
+  "date": "2026-06-15",
+  "parsedAt": "2026-06-16T05:36:07.515Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `Tool(param:value)` syntax for permission rules to match a tool's input parameters (with `*` wildcard), e.g. `Agent(model:opus)` to block Opus subagents",
+      "translated": "도구의 입력 파라미터와 일치하는 권한 규칙을 위해 `Tool(param:value)` 구문(와일드카드 `*` 포함)을 추가했습니다. 예: Opus 하위 에이전트를 차단하기 위한 `Agent(model:opus)`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills in nested `.claude/skills` directories now load when working on files there; on a name clash, the nested skill appears as `<dir>:<name>` so both stay available",
+      "translated": "중첩된 `.claude/skills` 디렉토리 내의 파일을 작업할 때 해당 디렉토리의 스킬이 로드됩니다. 이름이 충돌할 경우 중첩된 스킬은 `<dir>:<name>` 형식으로 표시되어 두 스킬 모두 사용할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Nested `.claude/` directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing `.claude/workflows/`",
+      "translated": "중첩된 `.claude/` 디렉토리: 이름이 충돌할 때 작업 디렉토리에 가장 가까운 에이전트, 워크플로우, 출력 스타일이 우선 적용됩니다. 프로젝트 범위의 워크플로우 저장은 이제 가장 가까운 기존 `.claude/workflows/`를 대상으로 합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: subagent spawns are now evaluated by the classifier before launch, closing a gap where a subagent could request a blocked action without review",
+      "translated": "자동 모드 개선: 하위 에이전트 생성이 시작 전 분류기(classifier)에 의해 평가됩니다. 이를 통해 하위 에이전트가 검토 없이 차단된 작업을 요청할 수 있었던 공백을 보완했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/doctor` with consistent flat tree layout across all sections, clearer section status icons, and highlighted command names",
+      "translated": "`/doctor` 개선: 모든 섹션에 일관된 플랫 트리 레이아웃을 적용하고, 섹션 상태 아이콘을 명확하게 개선했으며, 명령어 이름을 강조 표시했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the skill listing truncation warning to show how many skill descriptions are affected",
+      "translated": "스킬 목록 생략 경고를 개선하여 영향을 받는 스킬 설명의 개수를 표시하도록 했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the workflow prompt keyword to use a purple shimmer highlight and trigger only on explicit phrases like \"run a workflow\" or \"workflow:\", not on any mention of the word",
+      "translated": "워크플로우 프롬프트 키워드 변경: 보라색 반짝임(shimmer) 강조 효과를 사용하며, 단순히 단어가 언급될 때가 아닌 \"run a workflow\" 또는 \"workflow:\"와 같은 명시적인 문구에서만 트리거되도록 변경했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control error messages: connection failures now show a persistent red \"/rc failed\" indicator in the footer, and the \"not yet enabled\" error now explains whether it's a gate, a check failure, stale entitlement, or org policy",
+      "translated": "Remote Control 오류 메시지 개선: 연결 실패 시 푸터에 빨간색 \"/rc failed\" 표시가 유지되며, \"not yet enabled\" 오류 발생 시 게이트, 체크 실패, 만료된 권한 또는 조직 정책 때문인지 상세히 설명합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/bug` now requires a description before submitting, and no longer uses model-refusal text as the GitHub issue title",
+      "translated": "`/bug` 제출 시 설명을 반드시 입력해야 하며, 더 이상 모델 거부 텍스트를 GitHub 이슈 제목으로 사용하지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash (out-of-memory) when the CLI inherits a stale websocket/OAuth file-descriptor environment variable from a parent process",
+      "translated": "CLI가 부모 프로세스로부터 오래된 websocket/OAuth 파일 디스크립터 환경 변수를 상속받을 때 발생하는 크래시(메모리 부족) 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude in Chrome silently failing to connect when the OAuth token belongs to a different account than the Claude Code login",
+      "translated": "OAuth 토큰이 Claude Code 로그인 계정과 다른 계정에 속해 있을 때 Chrome의 Claude가 아무런 표시 없이 연결에 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed nested `.claude/skills` skills with directory-qualified names being blocked by permission prompts in non-interactive runs",
+      "translated": "비대화형(non-interactive) 실행 시 디렉토리 이름이 포함된 중첩된 `.claude/skills` 스킬이 권한 프롬프트에 의해 차단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several subagent issues: viewing a subagent's transcript now shows tool results and live progress, messages sent while it finishes its turn are no longer dropped, and backgrounding a running subagent (ctrl+b) no longer restarts it from scratch",
+      "translated": "여러 하위 에이전트 관련 문제 수정: 하위 에이전트의 트랜스크립트 보기에서 도구 결과와 실시간 진행 상황이 표시되며, 턴을 마치는 동안 전송된 메시지가 누락되지 않습니다. 또한 실행 중인 하위 에이전트를 백그라운드로 전환(`ctrl+b`)해도 처음부터 다시 시작되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` workers failing with `401 Invalid bearer token` when the daemon was started from a shell with a custom API gateway via `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN`",
+      "translated": "`ANTHROPIC_BASE_URL` 및 `ANTHROPIC_AUTH_TOKEN`을 통해 커스텀 API 게이트웨이가 설정된 쉘에서 데몬을 시작했을 때, `claude agents` 워커가 `401 Invalid bearer token` 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compaction not honoring `--fallback-model`: compaction now falls back to the configured fallback model chain on overload or model-availability errors",
+      "translated": "압축(compaction) 작업 시 `--fallback-model`이 적용되지 않던 문제를 수정했습니다. 이제 과부하 또는 모델 가용성 오류 발생 시 설정된 폴백 모델 체인으로 전환됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model requests continuing to fail with auth errors after credentials were refreshed outside the session, due to a stale cached request configuration",
+      "translated": "세션 외부에서 자격 증명을 갱신한 후에도 오래된 캐시 요청 설정으로 인해 모델 요청이 인증 오류로 계속 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions created with `/bg` or `←←` after a turn finished showing \"Working\" forever in the agents list",
+      "translated": "턴이 종료된 후 `/bg` 또는 `←←`로 생성된 백그라운드 세션이 에이전트 목록에서 계속 \"Working\"으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` preventing fresh marketplace installs from cloning",
+      "translated": "`CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` 설정 시 새로운 마켓플레이스 설치를 위한 클로닝이 방해받던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP server-level specs (`mcp__server`, `mcp__server__*`, `mcp__*`) in subagent `disallowedTools` being silently ignored",
+      "translated": "하위 에이전트의 `disallowedTools`에서 MCP 서버 수준 사양(`mcp__server`, `mcp__server__*`, `mcp__*`)이 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed vim mode undo: `u` now steps through NORMAL/VISUAL-mode commands one at a time instead of merging commands in quick succession into a single undo step",
+      "translated": "vim 모드 실행 취소 수정: `u` 키가 연속된 명령어를 하나의 실행 취소 단계로 병합하지 않고, NORMAL/VISUAL 모드 명령어를 하나씩 단계별로 실행 취소합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed statusline links with custom URI schemes (e.g. `vscode://`) not opening when clicked in `claude agents`",
+      "translated": "`claude agents`에서 사용자 정의 URI 스킴(예: `vscode://`)이 포함된 상태 표시줄 링크를 클릭해도 열리지 않던 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task",
+      "translated": "[VSCode] CJK IME 후보 창을 닫기 위해 Esc 키를 누를 때 실행 중인 Claude 작업이 취소되는 문제 수정"
+    }
+  ],
+  "translatedAt": "2026-06-16T05:37:40.122Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3306
+}
