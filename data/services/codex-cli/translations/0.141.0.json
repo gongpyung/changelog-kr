@@ -1,0 +1,536 @@
+{
+  "version": "0.141.0",
+  "date": "2026-06-18",
+  "parsedAt": "2026-06-18T10:49:32.720Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Remote executors now use authenticated, end-to-end encrypted Noise relay channels. (#26242, #26245)",
+      "translated": "Remote executors now use authenticated, end-to-end encrypted Noise relay channels. (#26242, #26245)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Cross-platform remote execution now preserves executor-native working directories and shells, including filesystem permission paths across app-server and exec-server boundaries. (#27819, #27995, #28032, #28122, #28165, #28367)",
+      "translated": "Cross-platform remote execution now preserves executor-native working directories and shells, including filesystem permission paths across app-server and exec-server boundaries. (#27819, #27995, #28032, #28122, #28165, #28367)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Selected executor plugins can activate their stdio MCP servers per thread; plugin discovery also adds a created-by-me marketplace and auth-specific curated catalogs. (#27870, #27884, #27893, #28203, #28383)",
+      "translated": "Selected executor plugins can activate their stdio MCP servers per thread; plugin discovery also adds a created-by-me marketplace and auth-specific curated catalogs. (#27870, #27884, #27893, #28203, #28383)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server clients can list immediate child threads, correlate external-agent imports with detailed results, and read or redeem rate-limit reset credits. (#26662, #28008, #28143)",
+      "translated": "App-server clients can list immediate child threads, correlate external-agent imports with detailed results, and read or redeem rate-limit reset credits. (#26662, #28008, #28143)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Realtime clients can explicitly append speech, control how Codex responses enter conversations, and omit startup context. (#27917, #28405)",
+      "translated": "Realtime clients can explicitly append speech, control how Codex responses enter conversations, and omit startup context. (#27917, #28405)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "TUI input prompts can auto-resolve after inactivity, with a countdown that pauses on interaction. (#28235)",
+      "translated": "TUI input prompts can auto-resolve after inactivity, with a countdown that pauses on interaction. (#28235)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hook trust bypass now persists through `codex exec` thread start and resume, while blocking `PostToolUse` hooks correctly reject code-mode tool calls. (#26434, #28365)",
+      "translated": "Hook trust bypass now persists through `codex exec` thread start and resume, while blocking `PostToolUse` hooks correctly reject code-mode tool calls. (#26434, #28365)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Plugin capabilities now route consistently by authentication mode, deduplicate conflicting App/MCP declarations, and preserve remote marketplace ordering. (#27461, #27602, #27607, #27902, #27958, #28395)",
+      "translated": "Plugin capabilities now route consistently by authentication mode, deduplicate conflicting App/MCP declarations, and preserve remote marketplace ordering. (#27461, #27602, #27607, #27902, #27958, #28395)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Windows sandbox execution repairs stale credentials automatically and gives PowerShell commands more time before backgrounding. (#27086, #27944)",
+      "translated": "Windows sandbox execution repairs stale credentials automatically and gives PowerShell commands more time before backgrounding. (#27086, #27944)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Idle exec-server relays remain connected, and steered user input immediately interrupts `wait_agent`. (#28286, #28341)",
+      "translated": "Idle exec-server relays remain connected, and steered user input immediately interrupts `wait_agent`. (#28286, #28341)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bundled SQLite is pinned to a version containing the WAL-reset corruption fix. (#27992)",
+      "translated": "Bundled SQLite is pinned to a version containing the WAL-reset corruption fix. (#27992)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "TLS connections now support P-521 certificate signatures commonly used by enterprise proxies. (#27706)",
+      "translated": "TLS connections now support P-521 certificate signatures commonly used by enterprise proxies. (#27706)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reduced latency and memory use in large, tool-heavy sessions by caching tool search and eliminating repeated request and history copies. (#27258, #27813, #28306, #28309, #28313, #28323, #28327)",
+      "translated": "Reduced latency and memory use in large, tool-heavy sessions by caching tool search and eliminating repeated request and history copies. (#27258, #27813, #28306, #28309, #28313, #28323, #28327)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Bounded prompt-image caching to 64 MiB and feedback uploads to eight related threads. (#28294, #28332)",
+      "translated": "Bounded prompt-image caching to 64 MiB and feedback uploads to eight related threads. (#28294, #28332)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Terminal resize reflow is now always enabled, ignoring obsolete disabled settings. (#27794)",
+      "translated": "Terminal resize reflow is now always enabled, ignoring obsolete disabled settings. (#27794)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28001 [codex] package Windows ARM64 on x64",
+      "translated": "[codex] package Windows ARM64 on x64"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28032 [codex] Carry exec-server cwd as PathUri",
+      "translated": "[codex] Carry exec-server cwd as PathUri"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27607 [codex] Dedupe plugin MCPs by app declaration name",
+      "translated": "[codex] Dedupe plugin MCPs by app declaration name"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27992 [codex] Pin bundled SQLite to fixed WAL-reset version",
+      "translated": "[codex] Pin bundled SQLite to fixed WAL-reset version"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28125 build: run buildifier from just fmt",
+      "translated": "Build: run buildifier from just fmt"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28120 bazel: add PowerShell to Wine test harness",
+      "translated": "Bazel: add PowerShell to Wine test harness"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27819 path-uri: render native paths across platforms",
+      "translated": "Path-uri: render native paths across platforms"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28122 [codex] exec-server honors remote environment cwd and shell",
+      "translated": "[codex] exec-server honors remote environment cwd and shell"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26662 feat(app-server): filter threads by parent",
+      "translated": "Feat(app-server): filter threads by parent"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27884 Add selected-plugin precedence and attribution to the MCP catalog",
+      "translated": "Add selected-plugin precedence and attribution to the MCP catalog"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27870 Discover stdio MCP servers from selected executor plugins",
+      "translated": "Discover stdio MCP servers from selected executor plugins"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28283 [codex] update multi-agent v2 prompts",
+      "translated": "[codex] update multi-agent v2 prompts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27602 [codex] Preserve plugin apps in connector listings",
+      "translated": "[codex] Preserve plugin apps in connector listings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27461 [codex] Skip plugin MCP OAuth for matching app routes",
+      "translated": "[codex] Skip plugin MCP OAuth for matching app routes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27893 Activate selected executor plugin MCPs in app-server",
+      "translated": "Activate selected executor plugin MCPs in app-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28332 [codex] Cap feedback upload subtrees",
+      "translated": "[codex] Cap feedback upload subtrees"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27365 Represent dynamic tools with explicit namespaces internally",
+      "translated": "Represent dynamic tools with explicit namespaces internally"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28333 skills: hide orchestrator skills with a local executor",
+      "translated": "Skills: hide orchestrator skills with a local executor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27756 [codex] simplify shell snapshot ownership",
+      "translated": "[codex] simplify shell snapshot ownership"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27794 Remove terminal resize reflow flag gates",
+      "translated": "Remove terminal resize reflow flag gates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28286 chore: restore exec-server relay keepalives",
+      "translated": "Chore: restore exec-server relay keepalives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28164 [codex] simplify memory read metrics",
+      "translated": "[codex] simplify memory read metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27371 Expose explicit dynamic tool namespaces in thread start",
+      "translated": "Expose explicit dynamic tool namespaces in thread start"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28309 linearize history output normalization",
+      "translated": "Linearize history output normalization"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28306 avoid cloning sampling request input",
+      "translated": "Avoid cloning sampling request input"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28323 serialize websocket requests directly",
+      "translated": "Serialize websocket requests directly"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28313 avoid cloning websocket request history",
+      "translated": "Avoid cloning websocket request history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28344 [codex] remove stale PathExt import",
+      "translated": "[codex] remove stale PathExt import"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27059 [codex] Cover OTLP HTTP log and trace event export",
+      "translated": "[codex] Cover OTLP HTTP log and trace event export"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28327 reuse encoded Responses request bodies",
+      "translated": "Reuse encoded Responses request bodies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27995 [codex] preserve explicit environment cwd",
+      "translated": "[codex] preserve explicit environment cwd"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28285 guardian: isolate review context from skills and memories",
+      "translated": "Guardian: isolate review context from skills and memories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26702 TUI Plugin Sharing 2 - add remote plugin section plumbing",
+      "translated": "TUI Plugin Sharing 2 - add remote plugin section plumbing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28294 bound prompt image cache retention",
+      "translated": "Bound prompt image cache retention"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28257 Support staging OAuth client ID overrides",
+      "translated": "Support staging OAuth client ID overrides"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28341 core: let steer interrupt wait_agent",
+      "translated": "Core: let steer interrupt wait_agent"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28336 skills: cache orchestrator resources per thread",
+      "translated": "Skills: cache orchestrator resources per thread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28357 Extract shared Windows sandbox session runner",
+      "translated": "Extract shared Windows sandbox session runner"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27706 Use aws-lc-rs for rustls crypto provider",
+      "translated": "Use aws-lc-rs for rustls crypto provider"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28347 [codex] add path-types skill",
+      "translated": "[codex] add path-types skill"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28235 Add request user input auto-resolution timer",
+      "translated": "Add request user input auto-resolution timer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28234 [mcp] Increase default tool timeout to 300 seconds",
+      "translated": "[mcp] Increase default tool timeout to 300 seconds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28008 [codex] Add external agent import result accounting",
+      "translated": "[codex] Add external agent import result accounting"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27944 recover stale Windows sandbox credentials",
+      "translated": "Recover stale Windows sandbox credentials"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27086 Add Windows unified exec yield floor",
+      "translated": "Add Windows unified exec yield floor"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28358 Add hidden Windows sandbox wrapper entrypoint",
+      "translated": "Add hidden Windows sandbox wrapper entrypoint"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27258 core: cache the tool search handler per session",
+      "translated": "Core: cache the tool search handler per session"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28143 feat(app-server): expose rate-limit reset credits",
+      "translated": "Feat(app-server): expose rate-limit reset credits"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28355 feat(core): add metadata field to ResponseItem",
+      "translated": "Feat(core): add metadata field to ResponseItem"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28203 [codex] Add created-by-me remote plugin marketplace",
+      "translated": "[codex] Add created-by-me remote plugin marketplace"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28365 Respect blocking PostToolUse hooks in code mode",
+      "translated": "Respect blocking PostToolUse hooks in code mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27813 [codex] Reuse Apps policy evaluation across MCP tool exposure",
+      "translated": "[codex] Reuse Apps policy evaluation across MCP tool exposure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28300 Deflake realtime handoff steering test",
+      "translated": "Deflake realtime handoff steering test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28395 [codex] Preserve remote plugin directory order",
+      "translated": "[codex] Preserve remote plugin directory order"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27955 [codex] retain resolved environments across turns",
+      "translated": "[codex] retain resolved environments across turns"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27917 Add realtime speech append control",
+      "translated": "Add realtime speech append control"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#27093 [codex-analytics] Analytics Capture to File in Debug Builds",
+      "translated": "[codex-analytics] Analytics Capture to File in Debug Builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26242 exec-server: add Noise relay transport",
+      "translated": "Exec-server: add Noise relay transport"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28165 Use PathUri in filesystem permission paths for exec-server",
+      "translated": "Use PathUri in filesystem permission paths for exec-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28415 [codex] Fix missing response item metadata in tests",
+      "translated": "[codex] Fix missing response item metadata in tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27058 [codex] Add second-based OTEL duration histograms",
+      "translated": "[codex] Add second-based OTEL duration histograms"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27902 [codex] Centralize plugin auth capability filtering",
+      "translated": "[codex] Centralize plugin auth capability filtering"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28405 Add a toggle for realtime startup context",
+      "translated": "Add a toggle for realtime startup context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26434 Preserve hook trust bypass in codex exec threads",
+      "translated": "Preserve hook trust bypass in codex exec threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#26245 exec-server: default remote transport to Noise",
+      "translated": "Exec-server: default remote transport to Noise"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28383 [codex] Load API curated marketplace by auth",
+      "translated": "[codex] Load API curated marketplace by auth"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#27958 [codex] Make plugin details capability aware",
+      "translated": "[codex] Make plugin details capability aware"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28367 Use ApiPathString in app-server filesystem permission paths",
+      "translated": "Use ApiPathString in app-server filesystem permission paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28421 [codex] Bind shell snapshots to retained thread environments",
+      "translated": "[codex] Bind shell snapshots to retained thread environments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28429 [codex] Add interruptible sleep tool",
+      "translated": "[codex] Add interruptible sleep tool"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28441 [codex] Use expect in integration tests",
+      "translated": "[codex] Use expect in integration tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#28163 [codex] Use local environment for user shell commands",
+      "translated": "[codex] Use local environment for user shell commands"
+    }
+  ],
+  "translatedAt": "2026-06-18T10:51:11.016Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 5955
+}
