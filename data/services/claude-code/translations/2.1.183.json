@@ -1,0 +1,116 @@
+{
+  "version": "2.1.183",
+  "date": "2026-06-19",
+  "parsedAt": "2026-06-19T10:58:39.727Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode safety: destructive git commands (`git reset --hard`, `git checkout -- .`, `git clean -fd`, `git stash drop`) are now blocked when you didn't ask to discard local work, `git commit --amend` is blocked when the commit wasn't made by the agent this session, and `terraform destroy`/`pulumi destroy`/`cdk destroy` are blocked unless you asked for the specific stack",
+      "translated": "자동 모드 안정성 개선: 로컬 작업 삭제를 요청하지 않은 경우 파괴적인 git 명령어(`git reset --hard`, `git checkout -- .`, `git clean -fd`, `git stash drop`) 실행이 차단됩니다. 또한 이번 세션에서 에이전트가 생성하지 않은 커밋에 대한 `git commit --amend` 실행과 특정 스택을 명시적으로 요청하지 않은 `terraform destroy`/`pulumi destroy`/`cdk destroy` 실행이 차단됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (`-p`) and now also covering models set in agent frontmatter",
+      "translated": "요청한 모델이 지원 중단되었거나 최신 모델로 자동 업데이트될 때의 경고를 추가했습니다. 이 경고는 출력 모드(`-p`)의 stderr에 표시되며, 이제 에이전트 frontmatter에 설정된 모델에도 적용됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `attribution.sessionUrl` setting to omit the claude.ai session link from commits and PRs in web and Remote Control sessions",
+      "translated": "웹 및 Remote Control 세션의 커밋과 PR에서 claude.ai 세션 링크를 제외할 수 있는 `attribution.sessionUrl` 설정을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/config --help` to list all available shorthand keys for `/config key=value`",
+      "translated": "`/config key=value`에 사용할 수 있는 모든 단축 키 목록을 확인하는 `/config --help`를 추가했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/config` toggle behavior: Enter and Space both change the selected setting, and Esc now saves and closes instead of reverting",
+      "translated": "`/config` 토글 동작 변경: Enter와 Space 키 모두 선택한 설정을 변경하며, Esc 키는 이제 변경 사항을 되돌리는 대신 저장하고 닫습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Removed the startup \"setup issues\" line under the logo — run `/doctor` to see configuration issues or use `--debug`",
+      "translated": "시작 시 로고 아래에 표시되던 \"setup issues\" 줄을 제거했습니다. 설정 문제는 `/doctor`를 실행하거나 `--debug`를 사용하여 확인할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `thinking.disabled.display: Extra inputs are not permitted` 400 errors on subagent spawns and session-title generation for affected configurations",
+      "translated": "특정 설정에서 서브에이전트 생성 및 세션 제목 생성 시 발생하는 `thinking.disabled.display: Extra inputs are not permitted` 400 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed WebSearch returning empty results in subagents",
+      "translated": "서브에이전트에서 WebSearch 결과가 비어 있는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the terminal cursor being stranded above the prompt after navigating history in vim mode with the native cursor enabled",
+      "translated": "네이티브 커서가 활성화된 vim 모드에서 히스토리 탐색 후 터미널 커서가 프롬프트 위에 멈춰 있는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fullscreen TUI corruption (statusline mid-screen, duplicated spinner rows, merged text) in Windows Terminal under heavy nested-subagent load",
+      "translated": "중첩된 서브에이전트 부하가 높은 상태의 Windows Terminal에서 전체 화면 TUI가 깨지는 현상(화면 중간의 상태 표시줄, 중복된 스피너 행, 텍스트 겹침 등)을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed turns silently completing with no visible output when the model returned only a thinking block; Claude now re-prompts once",
+      "translated": "모델이 생각(thinking) 블록만 반환했을 때 출력 없이 턴이 종료되던 문제를 수정했습니다. 이제 Claude가 한 번 더 프롬프트를 보냅니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed user-level skills appearing multiple times in slash-command autocomplete when multiple plugins are enabled",
+      "translated": "여러 플러그인이 활성화되었을 때 슬래시 명령어 자동 완성에서 사용자 레벨 스킬이 중복으로 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers requiring authentication exposing auth-stub tools to the model in headless/SDK mode",
+      "translated": "인증이 필요한 MCP 서버가 headless/SDK 모드에서 모델에 auth-stub 도구를 노출하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tmux teammate panes failing to launch when the shell has slow rc-file initialization, and keystrokes typed during agent spawn leaking into the new tmux pane instead of the leader prompt",
+      "translated": "셸의 rc 파일 초기화가 느릴 때 tmux teammate 패널이 실행되지 않는 문제와 에이전트 생성 중에 입력한 키가 리더 프롬프트 대신 새 tmux 패널로 전달되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background tasks started by a teammate being killed when the teammate finishes a turn",
+      "translated": "teammate가 턴을 마칠 때 해당 teammate가 시작한 백그라운드 작업이 종료되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scheduled task and webhook trigger deliveries being treated as keyboard input; they now classify as task notifications and can no longer approve a pending action or set the session title in auto mode",
+      "translated": "예약된 작업 및 웹훅 트리거 전달이 키보드 입력으로 처리되던 문제를 수정했습니다. 이제 이는 작업 알림으로 분류되며, 자동 모드에서 대기 중인 작업을 승인하거나 세션 제목을 설정할 수 없습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed focus mode showing \"Ran N PostToolUse hooks\" timing lines under each response",
+      "translated": "포커스 모드에서 각 응답 아래에 \"Ran N PostToolUse hooks\" 타이밍 라인이 표시되는 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-06-19T10:59:10.493Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2416
+}
