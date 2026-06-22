@@ -1,0 +1,212 @@
+{
+  "version": "2.1.186",
+  "date": "2026-06-22",
+  "parsedAt": "2026-06-22T21:15:05.156Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude mcp login <name>` and `claude mcp logout <name>` to authenticate MCP servers from the CLI without opening the interactive `/mcp` menu, with `--no-browser` stdin redirect support for completing over SSH",
+      "translated": "대화형 `/mcp` 메뉴를 열지 않고도 CLI에서 MCP 서버를 인증할 수 있는 `claude mcp login <name>` 및 `claude mcp logout <name>` 명령어를 추가했습니다. SSH 환경에서 인증을 완료할 수 있도록 `--no-browser` 표준 입력(stdin) 리디렉션 지원이 포함되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added status filtering (press `f`) to the `/workflows` agent detail view",
+      "translated": "`/workflows` 에이전트 상세 보기 화면에 상태 필터링 기능(`f` 키)을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a \"Skills\" section to the `/plugin` Installed tab",
+      "translated": "`/plugin` Installed 탭에 \"Skills\" 섹션을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `teammateMode: \"iterm2\"` setting with a warning when auto mode cannot find the `it2` CLI",
+      "translated": "자동 모드에서 `it2` CLI를 찾을 수 없을 때 경고를 표시하는 `teammateMode: \"iterm2\"` 설정을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added \"Claude Platform on AWS - refresh credentials\" option to `/login` when `awsAuthRefresh` is configured",
+      "translated": "`awsAuthRefresh`가 구성된 경우 `/login` 메뉴에 \"Claude Platform on AWS - refresh credentials\" 옵션을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`!` bash commands now trigger Claude to respond to the output automatically; set `\"respondToBashCommands\": false` in settings.json to keep the previous context-only behavior",
+      "translated": "`!` bash 명령 실행 시 Claude가 출력 결과에 자동으로 응답하도록 변경되었습니다. 이전처럼 컨텍스트만 유지하는 동작을 원하시면 settings.json에서 `\"respondToBashCommands\": false`로 설정하세요."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed streaming requests failing with \"Content block not found\" or JSON parse errors after the machine wakes from sleep",
+      "translated": "컴퓨터가 절전 모드에서 깨어난 후 스트리밍 요청이 \"Content block not found\" 또는 JSON 파싱 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent transcript scroll position bleeding into the main transcript on exit",
+      "translated": "서브 에이전트 기록 종료 시 스크롤 위치가 메인 기록으로 넘어오던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background task previews flashing raw tool names before the agent's plan loaded",
+      "translated": "에이전트의 계획이 로드되기 전 배경 작업 미리보기에 원시 도구 이름이 일시적으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Chrome tab-group isolation not applying when the in-product permissions gate is off for concurrent CLI sessions",
+      "translated": "동시 CLI 세션에서 제품 내 권한 게이트가 꺼져 있을 때 Chrome 탭 그룹 격리가 적용되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background session recaps being duplicated; the agent's own end-of-turn summary now shows as the recap line",
+      "translated": "배경 세션 요약이 중복되던 문제를 수정했습니다. 이제 에이전트의 자체 턴 종료 요약이 요약 줄에 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening a background session from `claude agents` leaving the previous screen painted behind it",
+      "translated": "`claude agents`에서 배경 세션을 열 때 이전 화면이 뒤에 남아있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `Agent(type)` deny rules and `Agent(x,y)` allowed-types restrictions not being enforced for named subagent spawns",
+      "translated": "이름이 지정된 서브 에이전트 생성 시 `Agent(type)` 거부 규칙 및 `Agent(x,y)` 허용 유형 제한이 적용되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc and Ctrl+C not responding while background agents are still running after the main turn ends",
+      "translated": "메인 턴이 종료된 후 배경 에이전트가 실행 중일 때 Esc 및 Ctrl+C가 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed misaligned option numbers in permission prompts when the option text overflows",
+      "translated": "권한 요청 프롬프트에서 옵션 텍스트가 줄바꿈될 때 옵션 번호 정렬이 어긋나던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pressing `x` on a finished subagent in the agent panel not dismissing it",
+      "translated": "에이전트 패널에서 완료된 서브 에이전트의 `x`를 눌러도 닫히지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a misleading \"MCP server disconnected\" notice for intentionally retired tools when resuming older sessions",
+      "translated": "이전 세션을 재개할 때 의도적으로 제거된 도구에 대해 \"MCP server disconnected\" 알림이 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/plugin` Installed showing a \"more above\" indicator when already scrolled to the top",
+      "translated": "`/plugin` Installed 탭에서 이미 맨 위로 스크롤했을 때 \"위로 더 보기\" 표시가 나타나던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `~~strikethrough~~` showing literal tildes in assistant messages instead of rendering as strikethrough",
+      "translated": "어시스턴트 메시지에서 `~~strikethrough~~`가 취소선으로 렌더링되지 않고 물결표가 그대로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--tools` allowing feature-gated tools to slip through before flags loaded on a cold first launch",
+      "translated": "최초 실행(cold launch) 시 플래그가 로드되기 전 `--tools`를 통해 기능 제한 도구가 실행될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background job status in `claude agents` showing a stale \"needs input\" message after replying",
+      "translated": "`claude agents`에서 답장 후에도 백그라운드 작업 상태에 오래된 \"needs input\" 메시지가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a dark-theme flash when opening a background session from `claude agents` on a light terminal",
+      "translated": "라이트 테마 터미널의 `claude agents`에서 백그라운드 세션을 열 때 다크 테마가 순간적으로 깜빡이던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mouse-selected text staying highlighted after deleting it in `claude agents`",
+      "translated": "`claude agents`에서 마우스로 선택한 텍스트를 삭제한 후에도 하이라이트가 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session cost not showing for usage-based Enterprise and Team subscribers",
+      "translated": "종량제 Enterprise 및 Team 구독자에게 세션 비용이 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent teams: teammates spawned via tmux/pane backends now inherit the leader's `--effort` level",
+      "translated": "에이전트 팀 수정: tmux/pane 백엔드를 통해 생성된 팀원이 이제 리더의 `--effort` 수준을 상속합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Workflow `agent({schema})` subagents looping forever on repeated schema validation failures instead of aborting after 5 attempts",
+      "translated": "워크플로 `agent({schema})` 하위 에이전트가 스키마 검증 실패가 반복될 때 5회 시도 후 중단되지 않고 무한 루프를 돌던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude mcp get` and `claude mcp remove` to suggest the closest configured server name on a typo and truncate long server lists",
+      "translated": "`claude mcp get` 및 `claude mcp remove` 사용 시 오타가 발생하면 설정된 서버 이름 중 가장 유사한 이름을 제안하고, 긴 서버 목록은 생략하여 표시하도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved memory: the agent is now reminded to compact its `MEMORY.md` index when nearing the size limit",
+      "translated": "메모리 개선: 에이전트가 크기 제한에 도달하면 `MEMORY.md` 인덱스를 압축하도록 알림을 보냅니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved skill frontmatter: `display-name`, `default-enabled`, `fallback`, and `metadata.*` keys now accept kebab-case, snake_case, and camelCase",
+      "translated": "스킬 frontmatter 개선: `display-name`, `default-enabled`, `fallback`, `metadata.*` 키에서 kebab-case, snake_case, camelCase 형식을 모두 지원합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved malformed `SKILL.md` YAML frontmatter handling: loads the skill body with empty metadata instead of failing silently",
+      "translated": "잘못된 형식의 `SKILL.md` YAML frontmatter 처리 개선: 오류 발생 시 자동 실패 대신 빈 메타데이터와 함께 스킬 본문을 로드합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `CLAUDE_CODE_MAX_RETRIES` to cap at 15; for unattended sessions, use `CLAUDE_CODE_RETRY_WATCHDOG` instead",
+      "translated": "`CLAUDE_CODE_MAX_RETRIES`의 최대치를 15로 변경했습니다. 무인 세션의 경우 대신 `CLAUDE_CODE_RETRY_WATCHDOG`을 사용하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed background subagents to surface permission prompts in the main session instead of auto-denying; the dialog shows which agent is asking, and Esc denies just that tool",
+      "translated": "백그라운드 하위 에이전트가 권한 요청을 자동으로 거부하는 대신 메인 세션에 표시하도록 변경했습니다. 대화 상자에 요청 중인 에이전트가 표시되며, Esc 키를 누르면 해당 도구의 권한만 거부됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/review <pr>` to use the same review engine as `/code-review medium`",
+      "translated": "`/review <pr>`이 `/code-review medium`과 동일한 리뷰 엔진을 사용하도록 변경했습니다."
+    }
+  ],
+  "translatedAt": "2026-06-22T21:15:45.450Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3596
+}
