@@ -1,0 +1,140 @@
+{
+  "version": "2.1.187",
+  "date": "2026-06-23",
+  "parsedAt": "2026-06-24T04:38:50.956Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `sandbox.credentials` setting to block sandboxed commands from reading credential files and secret environment variables",
+      "translated": "샌드박스 명령어가 자격 증명 파일 및 비밀 환경 변수를 읽지 못하도록 차단하는 `sandbox.credentials` 설정 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added org-configured model restrictions to the model picker, `--model`, `/model`, and `ANTHROPIC_MODEL`, with a \"restricted by your organization's settings\" message when a restricted model is selected",
+      "translated": "모델 선택기, `--model`, `/model`, `ANTHROPIC_MODEL`에 조직에서 구성한 모델 제한 사항 추가 및 제한된 모델 선택 시 \"조직 설정에 의해 제한됨\" 메시지 표시"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added mouse click support to select menus (permission prompts, `/model`, `/config`, etc.) in fullscreen mode",
+      "translated": "전체 화면 모드의 선택 메뉴(권한 프롬프트, `/model`, `/config` 등)에 마우스 클릭 지원 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume` failing with \"No conversation found\" when the original `-p` run produced no model turns",
+      "translated": "원래의 `-p` 실행에서 모델 턴이 생성되지 않았을 때 `--resume`이 \"No conversation found\" 오류와 함께 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--json-schema` and workflow `agent({schema})` structured output: the model can no longer re-call `StructuredOutput` indefinitely after a successful call, and follow-up turns now reliably return structured output",
+      "translated": "`--json-schema` 및 워크플로 `agent({schema})` 구조화된 출력 수정: 모델이 성공적인 호출 후 `StructuredOutput`을 무한히 다시 호출할 수 없으며, 후속 턴에서 구조화된 출력을 안정적으로 반환"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote MCP tool calls that hang with no response for 5 minutes — they now abort with an error instead of blocking indefinitely (override with `CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`)",
+      "translated": "5분 동안 응답 없이 멈춰 있던 원격 MCP 도구 호출 수정: 이제 무한히 대기하는 대신 에러와 함께 중단됨(`CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`으로 재설정 가능)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Code Remote sessions taking ~2.7s longer to start after the agent proxy CA system-trust install was added",
+      "translated": "에이전트 프록시 CA 시스템 신뢰 설치가 추가된 후 Claude Code Remote 세션 시작이 약 2.7초 더 오래 걸리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pasted Korean/CJK text turning into mojibake in terminals that deliver paste as per-byte extended-key events",
+      "translated": "붙여넣기를 바이트별 확장 키 이벤트로 전달하는 터미널에서 붙여넣은 한국어/CJK 텍스트가 깨지는 현상 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/update` over Remote Control hanging when a startup trust dialog would have shown",
+      "translated": "시작 시 신뢰 대화 상자가 표시되어야 할 때 Remote Control을 통한 `/update`가 멈추는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background jobs in the agents view getting stuck in \"working\" indefinitely when the agent ended a turn without producing structured output",
+      "translated": "에이전트가 구조화된 출력을 생성하지 않고 턴을 종료했을 때 에이전트 뷰의 백그라운드 작업이 \"working\" 상태로 무한히 멈춰 있던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed channel connections dropping after navigating to the agents view and back, and after `/bg`, `/tui`, or `/update`",
+      "translated": "에이전트 뷰로 이동했다가 돌아온 후, 그리고 `/bg`, `/tui`, `/update` 실행 후 채널 연결이 끊기는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent stop notifications not correctly attributing who stopped the agent, and improved wording (\"finished\"/\"stopped\" instead of \"came to rest\")",
+      "translated": "에이전트 중단 알림에서 중단 주체가 정확히 표시되지 않던 문제 수정 및 문구 개선(\"came to rest\" 대신 \"finished\"/\"stopped\" 사용)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent depth tracking: resumed subagents now restore their original spawn depth, and forked subagents now count toward the depth cap",
+      "translated": "서브 에이전트 깊이 추적 수정: 재개된 서브 에이전트는 이제 원래의 생성 깊이를 복구하며, 포크된 서브 에이전트는 깊이 제한에 포함됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed leaked agent worktree registrations: locked `.git/worktrees/` entries from killed agents are now cleaned up automatically",
+      "translated": "누수된 에이전트 작업 트리 등록 수정: 종료된 에이전트의 잠긴 `.git/worktrees/` 항목이 이제 자동으로 정리됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Cmd+click not opening URLs in fullscreen mode in Ghostty on macOS",
+      "translated": "macOS의 Ghostty에서 전체 화면 모드일 때 Cmd+클릭으로 URL이 열리지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --help` not listing the `--bg`/`--background` flag",
+      "translated": "`claude --help`에서 `--bg`/`--background` 플래그가 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading",
+      "translated": "`/share` 업로드 중에 Esc, Ctrl-C, Ctrl-D 키가 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/install-github-app`: GitHub Actions workflow setup is now optional — you can install just the GitHub App and skip the workflow/secret steps",
+      "translated": "`/install-github-app` 개선: GitHub Actions 워크플로 설정이 선택 사항이 되어, 워크플로/비밀 값 단계를 건너뛰고 GitHub App만 설치 가능"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/btw` with ←/→ arrow navigation to step through earlier answers",
+      "translated": "`/btw` 개선: ←/→ 화살표 탐색을 통해 이전 답변들을 단계별로 확인 가능"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/plugin` to surface plugins you haven't used recently so you can clean them up",
+      "translated": "`/plugin` 개선: 최근에 사용하지 않은 플러그인을 표시하여 정리할 수 있도록 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed extension becoming unresponsive when resuming a large session",
+      "translated": "[VSCode] 대규모 세션 재개 시 확장 프로그램이 응답하지 않는 현상 수정"
+    }
+  ],
+  "translatedAt": "2026-06-24T04:39:46.255Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2529
+}
