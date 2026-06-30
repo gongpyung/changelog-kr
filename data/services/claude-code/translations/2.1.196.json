@@ -1,0 +1,176 @@
+{
+  "version": "2.1.196",
+  "date": "2026-06-29",
+  "parsedAt": "2026-06-30T04:35:46.198Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added support for organization default models — admins set it in the org console; it shows as \"Org default\" (or \"Role default\") in `/model` when you haven't picked one yourself",
+      "translated": "조직 기본 모델 지원 추가 — 관리자가 조직 콘솔에서 설정할 수 있으며, 직접 모델을 선택하지 않은 경우 `/model`에서 \"Org default\"(또는 \"Role default\")로 표시됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added readable default names for sessions at start, making them easier to identify and message",
+      "translated": "시작 시 세션에 읽기 쉬운 기본 이름을 추가하여 식별 및 메시지 전송이 더 쉬워졌습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added clickable file attachments in chat — Cmd/Ctrl-click reveals the file in Finder/Explorer",
+      "translated": "채팅 내 클릭 가능한 파일 첨부 기능 추가 — Cmd/Ctrl-클릭 시 Finder/Explorer에서 해당 파일을 확인할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: `claude mcp list`/`get` no longer spawn `.mcp.json` servers that a repo self-approved via a committed `.claude/settings.json`; untrusted workspaces show `⏸ Pending approval`",
+      "translated": "보안: `claude mcp list`/`get` 실행 시 커밋된 `.claude/settings.json`을 통해 저장소가 자체 승인한 `.mcp.json` 서버를 더 이상 생성하지 않으며, 신뢰할 수 없는 워크스페이스는 `⏸ Pending approval`로 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed waking a background job permanently deleting its conversation and re-running the original prompt when the transcript probe misread a real transcript; the file is now set aside, never deleted",
+      "translated": "대화 기록 탐색(transcript probe) 과정에서 실제 기록을 잘못 읽었을 때, 백그라운드 작업을 재개하면 대화 내용이 영구 삭제되고 원래 프롬프트가 재실행되던 문제 수정. 이제 파일은 삭제되지 않고 별도로 보관됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the rate-limit warning flickering off and rate-limit telemetry being over-counted when multiple parallel requests were in flight at the moment a usage limit was hit",
+      "translated": "사용량 제한에 도달한 순간 여러 병렬 요청이 진행 중일 때 요율 제한 경고가 깜빡이며 사라지거나 요율 제한 텔레메트리가 과다 집계되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed duplicate recap lines after a background session's turn: a schema-rejected StructuredOutput attempt no longer renders alongside its retry",
+      "translated": "백그라운드 세션 턴 이후 요약 줄이 중복되던 문제 수정. 스키마 거부된 StructuredOutput 시도가 재시도 내용과 함께 렌더링되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell `git diff`/`git grep`, `egrep`/`fgrep`, and quoted search patterns containing `|` being reported as failures when they exit 1, matching Bash behavior",
+      "translated": "PowerShell에서 `git diff`/`git grep`, `egrep`/`fgrep` 및 `|`를 포함한 따옴표 붙은 검색 패턴이 종료 코드 1로 끝날 때 실패로 보고되던 문제를 Bash 동작과 일치하도록 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multiple `claude agents` side panel issues: keyboard focus getting stuck when opening an agent, background jobs losing their subagent types on every open, and sessions showing incorrect status while actively running",
+      "translated": "`claude agents` 사이드 패널의 여러 문제 수정: 에이전트를 열 때 키보드 포커스가 고정되는 현상, 열 때마다 백그라운드 작업의 서브에이전트 유형이 유실되는 현상, 실행 중인 세션의 상태가 잘못 표시되는 현상."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents --dangerously-skip-permissions` silently falling back to auto mode instead of showing the bypass disclaimer and applying bypass mode to spawned agents",
+      "translated": "`claude agents --dangerously-skip-permissions` 실행 시 우회 고지 사항을 표시하고 생성된 에이전트에 우회 모드를 적용하는 대신, 아무런 알림 없이 자동 모드로 돌아가던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mid-turn crash recovery for Remote sessions — sessions interrupted by a server restart now auto-resume on the next worker",
+      "translated": "원격 세션의 턴 중간 크래시 복구 기능 수정 — 서버 재시작으로 중단된 세션이 이제 다음 워커에서 자동으로 재개됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sessions moved with `/cd` reappearing in the old directory's resume list after a non-graceful exit when the old path contained special characters",
+      "translated": "이전 경로에 특수 문자가 포함된 경우, 비정상 종료 후 `/cd`로 이동한 세션이 이전 디렉토리의 재개 목록에 다시 나타나던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin validate` skipping local plugins whose source is \".\" and stopping after the first error class",
+      "translated": "`claude plugin validate`가 소스가 \".\"인 로컬 플러그인을 건너뛰고 첫 번째 오류 클래스 이후 중단되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc Esc at an idle prompt not opening the rewind menu (regression); use Ctrl+C or Ctrl+X Ctrl+K to stop background agents",
+      "translated": "대기 프롬프트에서 Esc Esc 입력 시 되감기 메뉴가 열리지 않던 문제(회귀 오류) 수정. 백그라운드 에이전트를 중지하려면 Ctrl+C 또는 Ctrl+X Ctrl+K를 사용하세요."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth requesting the authorization server's full `scopes_supported` catalog when no scope is specified, causing `invalid_scope` failures on GitLab self-hosted and other enterprise IdPs",
+      "translated": "스코프가 지정되지 않았을 때 MCP OAuth가 인증 서버의 전체 `scopes_supported` 목록을 요청하여, 자체 호스팅 GitLab 및 기타 엔터프라이즈 IdP에서 `invalid_scope` 오류가 발생하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/context` showing 0 tokens for all tool groups on Bedrock",
+      "translated": "Bedrock에서 `/context` 실행 시 모든 도구 그룹에 대해 토큰이 0으로 표시되던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/deep-research` misreporting verifier failures as \"all claims refuted\" instead of `unverified`",
+      "translated": "`/deep-research`에서 검증기 실패를 `unverified` 대신 \"모든 주장 반박됨\"으로 잘못 보고하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin dependency version pins not being honored when the marketplace was added as a local folder path backed by a git repo",
+      "translated": "마켓플레이스가 git 저장소 기반의 로컬 폴더 경로로 추가되었을 때 플러그인 의존성 버전 고정이 준수되지 않던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` session status: completed rows no longer flip between \"Done\" and \"Needs your input\", stalled agents are now labeled \"Needs attention\", and results that mention a PR show a clickable link",
+      "translated": "`claude agents` 세션 상태 수정: 완료된 행이 \"Done\"과 \"Needs your input\" 사이에서 번갈아 표시되지 않으며, 지연된 에이전트는 \"Needs attention\"으로 표시되고, PR을 언급하는 결과에는 클릭 가능한 링크가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice dictation swallowing spaces and spuriously starting a recording during very fast typing when voice mode is enabled",
+      "translated": "음성 모드가 활성화된 상태에서 매우 빠르게 타이핑할 때 음성 받아쓰기가 공백을 누락하거나 의도치 않게 녹음을 시작하던 문제 수정."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background session reliability: long-running commands and workflows now survive the session's process being stopped, restarted, or updated — including on Windows, where background shells are handed off instead of being killed",
+      "translated": "백그라운드 세션 안정성 개선: 세션 프로세스가 중지, 재시작 또는 업데이트되어도 실행 중인 명령과 워크플로우가 유지됩니다. 백그라운드 셸이 종료되는 대신 핸드오프되는 Windows 환경도 포함됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background agents: workers killed by a daemon restart are now automatically resumed from where they left off the next time the agents view opens",
+      "translated": "백그라운드 에이전트 개선: 데몬 재시작으로 인해 종료된 워커가 다음 에이전트 뷰를 열 때 중단된 지점부터 자동으로 재개됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/code-review` workflow: merged five cleanup finders into one, cutting token usage by roughly 25%",
+      "translated": "`/code-review` 워크플로우 개선: 5개의 정리 도구(cleanup finder)를 하나로 통합하여 토큰 사용량을 약 25% 절감했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced per-frame rendering work in the terminal UI by skipping no-op subtree walks during streaming",
+      "translated": "스트리밍 중 불필요한 하위 트리 탐색을 건너뛰어 터미널 UI의 프레임당 렌더링 작업을 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The streaming idle watchdog is now on by default for all providers — it aborts and retries when a response stream produces no events for 5 minutes. Set `CLAUDE_ENABLE_STREAM_WATCHDOG=0` to disable.",
+      "translated": "모든 제공자에 대해 스트리밍 유휴 와치독(watchdog)이 기본으로 활성화됩니다. 응답 스트림에 5분 동안 이벤트가 발생하지 않으면 중단 후 재시도합니다. 비활성화하려면 `CLAUDE_ENABLE_STREAM_WATCHDOG=0`으로 설정하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control is now disabled when `ANTHROPIC_BASE_URL` points at a non-Anthropic host, matching the existing behavior under `CLAUDE_CODE_USE_BEDROCK`/`_VERTEX`/`_FOUNDRY`",
+      "translated": "`ANTHROPIC_BASE_URL`이 Anthropic이 아닌 호스트를 가리킬 때 Remote Control이 비활성화됩니다. 이는 `CLAUDE_CODE_USE_BEDROCK`/`_VERTEX`/`_FOUNDRY` 환경에서의 기존 동작과 일치합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed opening the agents view from a foreground session to require a single `←` press instead of two, matching the behavior in background sessions",
+      "translated": "포그라운드 세션에서 에이전트 뷰를 열 때 `←` 키를 두 번 대신 한 번만 누르도록 변경하여 백그라운드 세션의 동작과 일치시켰습니다."
+    }
+  ],
+  "translatedAt": "2026-06-30T04:36:45.971Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4064
+}
