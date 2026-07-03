@@ -1,0 +1,116 @@
+{
+  "version": "2.1.200",
+  "date": "2026-07-03",
+  "parsedAt": "2026-07-03T19:52:03.493Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `AskUserQuestion` dialogs to no longer auto-continue by default; opt into an idle timeout via `/config`",
+      "translated": "`AskUserQuestion` 대화 상자가 기본적으로 자동 계속되지 않도록 변경되었습니다. 유휴 시간 제한은 `/config`를 통해 설정할 수 있습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the \"default\" permission mode to \"Manual\" across the CLI, `--help`, VS Code, and JetBrains; `--permission-mode manual` and `\"defaultMode\": \"manual\"` are accepted alongside `default`",
+      "translated": "CLI, `--help`, VS Code, JetBrains 전반에서 \"default\" 권한 모드를 \"Manual\"로 변경했습니다. `default`와 함께 `--permission-mode manual` 및 `\"defaultMode\": \"manual\"`도 허용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash at startup when `disabledMcpServers` or `enabledMcpServers` in `.claude.json` is set to a non-array value",
+      "translated": "`.claude.json`의 `disabledMcpServers` 또는 `enabledMcpServers`가 배열이 아닌 값으로 설정되었을 때 시작 시 발생하는 충돌을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions silently stopping mid-turn after sleep/wake or when reopening a stalled session",
+      "translated": "절전/깨우기 후 또는 중단된 세션을 다시 열 때 백그라운드 세션이 턴 중간에 자동으로 중단되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions re-running a turn cancelled with Esc after a stall respawn",
+      "translated": "중단 후 다시 생성될 때 Esc로 취소된 턴이 백그라운드 세션에서 다시 실행되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents never starting again after a crash left a stale `daemon.lock` whose PID the OS reused",
+      "translated": "충돌로 인해 남겨진 `daemon.lock`의 PID를 OS가 재사용하여 백그라운드 에이전트가 다시 시작되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-agent daemon handover so a reinstalled older build can no longer take over the daemon; build recency is now judged by the version's embedded build timestamp",
+      "translated": "재설치된 이전 빌드가 데몬을 제어할 수 없도록 백그라운드 에이전트 데몬 핸드오버를 수정했습니다. 이제 빌드 최신 여부는 버전에 포함된 빌드 타임스탬프로 판단합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-agent roster issues: transient corruption permanently disabling orphan cleanup, older binaries not preserving fields written by newer versions, and socket auth tokens being stripped during daemon restarts",
+      "translated": "백그라운드 에이전트 로스터 문제를 수정했습니다. 일시적인 손상으로 인한 고아 프로세스 정리 기능의 영구 비활성화, 이전 바이너리가 최신 버전에서 작성된 필드를 보존하지 못하는 문제, 데몬 재시작 시 소켓 인증 토큰이 제거되는 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents cut off by a rate limit before producing any text output returning an empty result instead of failing cleanly",
+      "translated": "텍스트 출력을 생성하기 전에 속도 제한으로 인해 중단된 서브 에이전트가 정상적으로 실패하는 대신 빈 결과를 반환하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed control bytes from background-agent output reaching the terminal in the agent view",
+      "translated": "백그라운드 에이전트 출력의 제어 바이트가 에이전트 뷰의 터미널에 도달하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents --plugin-dir <dir>` not showing the plugin's agents and skills in the agent view when the flag is placed after `agents`",
+      "translated": "`agents` 뒤에 플래그를 배치했을 때 `claude agents --plugin-dir <dir>` 명령어가 에이전트 뷰에서 플러그인의 에이전트와 스킬을 표시하지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed project-scoped plugins not loading correctly from git worktrees of the same repository",
+      "translated": "동일한 저장소의 git worktrees에서 프로젝트 범위 플러그인이 올바르게 로드되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/mcp` server list not tracking focus for screen readers and magnifiers",
+      "translated": "스크린 리더 및 돋보기 사용 시 `/mcp` 서버 목록이 포커스를 추적하지 못하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice dictation showing a misleading \"Voice connection failed\" message when a recording captures no audio",
+      "translated": "녹음된 오디오가 없을 때 음성 받아쓰기에서 \"Voice connection failed\"라는 잘못된 메시지가 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rendering flicker under tmux 3.4+ by enabling synchronized terminal output",
+      "translated": "동기화된 터미널 출력을 활성화하여 tmux 3.4 이상에서 발생하는 렌더링 깜빡임 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved screen-reader output: decorative glyphs are now hidden, transcript symbols read as short labels, and nested tables read as `Header: value.` lines",
+      "translated": "스크린 리더 출력을 개선했습니다. 장식용 글리프는 숨겨지고, 대화 기록 기호는 짧은 레이블로 읽히며, 중첩된 테이블은 `Header: value.` 줄로 읽힙니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the install script to explain when installation is killed by the system running out of memory",
+      "translated": "시스템 메모리 부족으로 인해 설치가 중단된 경우 이를 설명하도록 설치 스크립트를 개선했습니다."
+    }
+  ],
+  "translatedAt": "2026-07-03T19:52:33.301Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2080
+}
