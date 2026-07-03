@@ -1,0 +1,158 @@
+{
+  "version": "2.1.199",
+  "date": "2026-07-02",
+  "parsedAt": "2026-07-03T04:11:05.799Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stacked slash-skill invocations like `/skill-a /skill-b do XYZ` now load all leading skills (up to 5), not just the first",
+      "translated": "`/skill-a /skill-b do XYZ`와 같이 중첩된 슬래시 스킬 호출 시, 첫 번째 스킬뿐만 아니라 앞부분의 모든 스킬(최대 5개)을 로드하도록 개선되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SSL certificate errors (TLS-inspecting proxies, missing `NODE_EXTRA_CA_CERTS`, expired certs) burning retries before showing actionable guidance — they now fail immediately with the fix hint",
+      "translated": "SSL 인증서 오류(TLS 검사 프록시, `NODE_EXTRA_CA_CERTS` 누락, 만료된 인증서 등) 발생 시 해결 방법 안내 전 재시도를 반복하며 소모하던 문제를 수정했습니다. 이제 즉시 실패하며 해결 힌트를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed streaming responses being discarded when the API emits a mid-stream overloaded/server error after partial output — the partial is now kept with an incomplete-response notice",
+      "translated": "API가 일부 출력 후 스트리밍 도중 과부하 또는 서버 오류를 발생시킬 때 스트리밍 응답이 삭제되던 문제를 수정했습니다. 이제 부분적인 출력 내용은 유지되며 미완성 응답 알림이 함께 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents cut off by a rate limit or server error silently failing instead of returning their partial work to the parent",
+      "translated": "속도 제한이나 서버 오류로 중단된 서브 에이전트가 작업 내용을 상위 에이전트에게 반환하지 않고 아무런 알림 없이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents reporting API errors (e.g. usage limit reached) as successful results — the error is now reported to the parent agent",
+      "translated": "서브 에이전트가 API 오류(예: 사용량 한도 도달)를 성공적인 결과로 보고하던 문제를 수정했습니다. 이제 오류가 상위 에이전트에게 보고됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the background-agent daemon on Linux killing itself and every running agent every ~50 seconds after an unclean shutdown left a corrupted worker record",
+      "translated": "비정상 종료로 인해 손상된 워커 레코드가 남았을 때, Linux의 background-agent 데몬이 약 50초마다 자신과 실행 중인 모든 에이전트를 종료하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents failing to cold-start over SSH on macOS with \"Could not switch to audit session\" (regression in 2.1.196)",
+      "translated": "macOS에서 SSH를 통해 백그라운드 에이전트를 콜드 스타트할 때 \"Could not switch to audit session\" 오류와 함께 실패하던 문제를 수정했습니다(2.1.196 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude stop` being silently undone when it raced a background-agent respawn — the respawn now honors the stop",
+      "translated": "`claude stop` 명령이 background-agent 재실행과 충돌하여 무시되던 문제를 수정했습니다. 이제 재실행 시 중지 명령을 준수합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background job progress indicators stalling for minutes while the job ran long commands",
+      "translated": "백그라운드 작업이 긴 명령을 실행하는 동안 진행률 표시기가 몇 분 동안 멈춰 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions on memory-starved machines showing a generic error — they now indicate low memory and suggest freeing resources",
+      "translated": "메모리가 부족한 환경에서 백그라운드 세션이 일반적인 오류를 표시하던 문제를 수정했습니다. 이제 메모리 부족 상태임을 알리고 리소스 확보를 제안합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote sessions briefly flapping between Working and Idle in the agent view when a background agent completes",
+      "translated": "백그라운드 에이전트가 완료될 때 에이전트 뷰에서 원격 세션 상태가 '작업 중'과 '대기 중' 사이에서 일시적으로 요동치던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed idle subagents vanishing from the agent panel while other subagents were still working; surplus idle agents now collapse into an expandable summary row",
+      "translated": "다른 서브 에이전트가 작업 중일 때 대기 중인 서브 에이전트가 에이전트 패널에서 사라지던 문제를 수정했습니다. 이제 여분의 대기 중인 에이전트들은 확장 가능한 요약 행으로 축소되어 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed typing `/model` or `/fast` while viewing a subagent silently opening the lead's model picker — a notice now explains the command applies to the lead",
+      "translated": "서브 에이전트를 보는 동안 `/model` 또는 `/fast`를 입력하면 알림 없이 메인 에이전트의 모델 선택기가 열리던 문제를 수정했습니다. 이제 해당 명령이 메인 에이전트에 적용된다는 안내가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SessionStart`, `Setup`, and `SubagentStart` hooks silently hiding stderr when exiting with code 2 — the error is now shown in the transcript",
+      "translated": "`SessionStart`, `Setup`, 및 `SubagentStart` 훅이 종료 코드 2로 종료될 때 표준 에러(stderr)를 숨기던 문제를 수정했습니다. 이제 오류 내용이 트랜스크립트에 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude --dangerously-skip-permissions daemon <subcommand>` being treated as a chat prompt instead of running the subcommand",
+      "translated": "`claude --dangerously-skip-permissions daemon <subcommand>` 명령이 하위 명령을 실행하는 대신 채팅 프롬프트로 처리되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SendMessage` silently misrouting when a re-spawned agent reuses a previous agent's name — the tool now detects the mismatch and asks the caller to retarget",
+      "translated": "재실행된 에이전트가 이전 에이전트의 이름을 재사용할 때 `SendMessage`가 잘못된 경로로 전달되던 문제를 수정했습니다. 이제 도구가 불일치를 감지하고 호출자에게 대상을 다시 지정하도록 요청합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening or resuming a session with no new messages needlessly growing the transcript file",
+      "translated": "새 메시지가 없는 세션을 열거나 재개할 때 트랜스크립트 파일 크기가 불필요하게 커지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed backgrounding a session with `←` or `/background` dropping its `/color` from the agent view row",
+      "translated": "`←` 또는 `/background`를 사용하여 세션을 백그라운드로 전환할 때 에이전트 뷰 행에서 `/color` 설정이 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resetting a corrupted config file from the startup recovery dialog destroying it unrecoverably — it now backs up the file first",
+      "translated": "시작 복구 대화 상자에서 손상된 설정 파일을 초기화할 때 복구 불가능하게 삭제되던 문제를 수정했습니다. 이제 초기화 전 파일을 먼저 백업합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude in Chrome repeatedly opening the reconnect page when sessions run from different builds or config directories",
+      "translated": "서로 다른 빌드나 설정 디렉토리에서 세션이 실행될 때 Chrome의 Claude가 재연결 페이지를 반복해서 열던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan mode not prompting for state-changing browser tool calls; read-only `browser_batch` calls are now correctly auto-allowed",
+      "translated": "플랜 모드에서 상태를 변경하는 브라우저 도구 호출 시 확인 메시지가 표시되지 않던 문제를 수정했습니다. 이제 읽기 전용 `browser_batch` 호출은 정상적으로 자동 허용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Transient server rate-limit errors (429s unrelated to your usage limit) are now retried automatically with backoff for subscribers instead of failing the turn",
+      "translated": "구독자의 경우, 사용량 제한과 무관한 일시적인 서버 속도 제한 오류(429) 발생 시 작업을 실패 처리하는 대신 백오프를 적용하여 자동으로 재시도합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`CLAUDE_CODE_RETRY_WATCHDOG` now raises the default retry count for non-capacity transient errors to 300 and lifts the cap of 15 on `CLAUDE_CODE_MAX_RETRIES`",
+      "translated": "`CLAUDE_CODE_RETRY_WATCHDOG`가 용량 부족 이외의 일시적 오류에 대한 기본 재시도 횟수를 300회로 상향하고, `CLAUDE_CODE_MAX_RETRIES`에 적용되었던 15회의 제한을 해제합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude agents` session rows now show pull-request links as bare `#N` without the redundant \"PR\" label",
+      "translated": "`claude agents` 세션 행에서 풀 리퀘스트 링크가 불필요한 \"PR\" 라벨 없이 `#N` 형태로 표시됩니다."
+    }
+  ],
+  "translatedAt": "2026-07-03T04:11:47.031Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3249
+}
