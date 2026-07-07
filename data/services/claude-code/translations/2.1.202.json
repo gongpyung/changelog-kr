@@ -1,0 +1,122 @@
+{
+  "version": "2.1.202",
+  "date": "2026-07-06",
+  "parsedAt": "2026-07-07T04:18:14.958Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a \"Dynamic workflow size\" setting in `/config` for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap",
+      "translated": "`/config`에 Claude가 동적 워크플로를 생성할 때의 일반적인 규모(에이전트 수: 소형/중형/대형)를 제어하는 \"Dynamic workflow size\" 설정을 추가했습니다. 이는 권장 지침이며 강제적인 제한 사항은 아닙니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `workflow.run_id` and `workflow.name` OpenTelemetry attributes to telemetry emitted by workflow-spawned agents, so a workflow run's activity can be reconstructed from OTel data",
+      "translated": "워크플로에서 생성된 에이전트가 내보내는 텔레메트리에 `workflow.run_id` 및 `workflow.name` OpenTelemetry 속성을 추가하여, OTel 데이터를 통해 워크플로 실행 활동을 재구성할 수 있도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash in the inline Ctrl+R history search when accepting or cancelling while the search was still scanning the history file",
+      "translated": "히스토리 파일을 스캔하는 동안 검색을 수락하거나 취소할 때 인라인 Ctrl+R 히스토리 검색에서 발생하던 크래시를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/rename` on background sessions being reverted when the job restarts, which broke addressing the session by its new name",
+      "translated": "재시작 시 백그라운드 세션의 `/rename`이 초기화되어 새 이름으로 세션을 호출할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed transient mTLS handshake failures when settings were re-applied during an in-place client certificate rotation",
+      "translated": "클라이언트 인증서 교체 중에 설정이 다시 적용될 때 일시적으로 발생하던 mTLS 핸드셰이크 실패 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed commands sent from Remote Control (mobile/web) into an interactive session failing with \"Unknown command\"",
+      "translated": "Remote Control(모바일/웹)에서 대화형 세션으로 보낸 명령이 \"Unknown command\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed images and files sent from the Remote Control mobile or web app without a caption being silently dropped",
+      "translated": "Remote Control 모바일 또는 웹 앱에서 캡션 없이 전송된 이미지와 파일이 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the sign-in URL printed by `claude auth login` and `claude mcp login --no-browser` not being reliably clickable when it wraps over SSH — it is now emitted as a single hyperlink",
+      "translated": "SSH 환경에서 줄바꿈이 발생할 때 `claude auth login` 및 `claude mcp login --no-browser`가 출력하는 로그인 URL을 클릭하기 어렵던 문제를 수정했습니다. 이제 단일 하이퍼링크로 출력됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening a chat from `claude agents` sometimes failing with \"currently running as a background agent\" followed by a worker crash/respawn loop",
+      "translated": "`claude agents`에서 채팅을 열 때 간혹 \"currently running as a background agent\" 오류가 발생하며 워커 크래시 및 재실행 루프에 빠지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflow scripts with unicode quote escapes in strings being corrupted before parsing; workflow parse errors now show the offending line instead of always blaming TypeScript",
+      "translated": "문자열에 유니코드 따옴표 이스케이프가 포함된 워크플로 스크립트가 파싱 전 손상되던 문제를 수정했습니다. 이제 워크플로 파싱 오류 시 항상 TypeScript 오류로 표시하는 대신 문제가 발생한 줄을 보여줍니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice dictation retrying in an unbounded loop when the microphone or audio recorder fails — repeated capture failures now pause voice input",
+      "translated": "마이크 또는 오디오 녹음기 실패 시 음성 받아쓰기가 무한 루프로 재시도되던 문제를 수정했습니다. 이제 캡처 실패가 반복되면 음성 입력을 일시 중지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/remote-control` sessions showing the wrong permission mode in the mobile and web apps",
+      "translated": "모바일 및 웹 앱에서 `/remote-control` 세션의 권한 모드가 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a session by name, or opening the resume picker, taking minutes and using a large amount of memory in repositories with many git worktrees",
+      "translated": "git worktrees가 많은 저장소에서 이름으로 세션을 재개하거나 재개 선택창을 열 때 몇 분씩 걸리고 메모리를 과도하게 사용하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed installer and updater downloads failing immediately with \"aborted\" when a proxy or network drops the connection mid-download — transient connection drops now retry",
+      "translated": "다운로드 도중 프록시나 네트워크 연결이 끊기면 설치 프로그램 및 업데이트 프로그램 다운로드가 즉시 \"aborted\"와 함께 실패하던 문제를 수정했습니다. 이제 일시적인 연결 끊김 시 재시도합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed re-invoking an already-loaded skill appending a duplicate copy of its instructions to context",
+      "translated": "이미 로드된 스킬을 다시 호출할 때 컨텍스트에 지침 사본이 중복으로 추가되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/workflows` agent list layout: wider titles, a dedicated time column, shorter model names, and no per-row tool-call counts",
+      "translated": "`/workflows` 에이전트 목록 레이아웃을 개선했습니다. 제목 너비 확장, 전용 시간 열 추가, 모델 이름 단축, 행별 도구 호출 횟수 제거 등이 포함됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved MCP error messages: clearer error when a server config has `url` but no `type`, suggesting `\"type\": \"http\"` instead of the misleading \"command: expected string\"",
+      "translated": "MCP 오류 메시지를 개선했습니다. 서버 설정에 `url`은 있지만 `type`이 없는 경우, 오해의 소지가 있는 \"command: expected string\" 대신 `\"type\": \"http\"`를 제안하도록 명확한 오류 메시지를 제공합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/review <pr>` back to a fast single-pass review; use `/code-review <level> <pr#>` for the multi-agent review at a chosen effort level",
+      "translated": "`/review <pr>`을 다시 빠른 단일 패스 리뷰로 변경했습니다. 선택한 작업 수준에 따른 다중 에이전트 리뷰를 사용하려면 `/code-review <level> <pr#>`을 사용하세요."
+    }
+  ],
+  "translatedAt": "2026-07-07T04:18:38.681Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2584
+}
