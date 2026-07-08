@@ -1,0 +1,236 @@
+{
+  "version": "2.1.203",
+  "date": "2026-07-07",
+  "parsedAt": "2026-07-08T08:45:18.268Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted",
+      "translated": "로그인이 만료되기 직전에 경고를 표시하여, 백그라운드 세션이 중단되기 전에 다시 인증할 수 있도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a grey ⏸ badge to the footer when in manual permission mode, making the active mode always visible",
+      "translated": "수동 권한 모드일 때 푸터에 회색 ⏸ 배지를 추가하여, 활성화된 모드를 항상 확인할 수 있게 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the session's additional working directories to MCP `roots/list`, with `notifications/roots/list_changed` sent when the set changes",
+      "translated": "세션의 추가 작업 디렉토리를 MCP `roots/list`에 추가했으며, 목록이 변경될 때 `notifications/roots/list_changed`가 전송되도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed opening or switching background agent sessions on macOS stalling for 15–20 seconds due to a false low-memory detection (regression in 2.1.196)",
+      "translated": "macOS에서 메모리 부족 오탐지로 인해 백그라운드 에이전트 세션을 열거나 전환할 때 15~20초간 멈추던 문제를 수정했습니다 (2.1.196 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions becoming permanently unresponsive to attach, replies, and stop when the daemon's session token went stale — the session now recovers automatically",
+      "translated": "데몬의 세션 토큰이 만료되었을 때 백그라운드 세션이 연결(attach), 응답, 중지 명령에 영구적으로 반응하지 않던 문제를 수정했습니다. 이제 세션이 자동으로 복구됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed returning to `claude agents` silently stopping running subagents and re-running the prompt from scratch — their work now carries over",
+      "translated": "`claude agents`로 돌아갈 때 실행 중인 서브 에이전트가 아무런 알림 없이 중단되고 프롬프트가 처음부터 다시 실행되던 문제를 수정했습니다. 이제 작업 내용이 그대로 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory and per-turn CPU regression in interactive sessions: the context-usage indicator no longer re-analyzes the entire transcript after every turn",
+      "translated": "대화형 세션에서 발생하던 메모리 및 턴당 CPU 성능 저하 문제를 수정했습니다. 이제 컨텍스트 사용량 표시기가 매 턴마다 전체 대화 기록을 다시 분석하지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents inheriting a stale `PATH` from the daemon instead of the dispatching shell, causing missing tools on Windows",
+      "translated": "백그라운드 에이전트가 실행 쉘이 아닌 데몬으로부터 만료된 `PATH`를 상속받아, Windows에서 도구를 찾지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background and agent-view sessions dropping a shell-exported `ANTHROPIC_BASE_URL`, which sent API keys to the default endpoint and failed with 401",
+      "translated": "백그라운드 및 에이전트 뷰 세션에서 쉘에 내보낸 `ANTHROPIC_BASE_URL`이 누락되어 API 키가 기본 엔드포인트로 전송되고 401 오류가 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash failing with \"argument list too long\" in repos with many git worktrees",
+      "translated": "git worktrees가 많은 저장소에서 Bash가 \"argument list too long\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worktree-isolated subagents sometimes running shell commands in the parent checkout instead of their own worktree",
+      "translated": "워크트리(worktree)로 격리된 서브 에이전트가 가끔 자신의 워크트리가 아닌 상위 체크아웃에서 쉘 명령을 실행하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worktree creation rejecting nested repositories in multi-repo workspaces, leaving background sessions unable to isolate and edit",
+      "translated": "멀티 리포지토리 워크스페이스에서 워크트리 생성 시 중첩된 저장소를 거부하여, 백그라운드 세션이 격리 및 편집을 수행할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents crash-looping when their working directory was deleted, replaced by a file, or became an invalid path — they now fail once with a clear error",
+      "translated": "디렉토리가 삭제되거나 파일로 교체되거나 잘못된 경로가 되었을 때 백그라운드 에이전트가 무한 재시작(crash-looping)되던 문제를 수정했습니다. 이제 명확한 오류 메시지와 함께 한 번만 실패합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a background daemon auto-upgrade failure silently killing all running background sessions",
+      "translated": "백그라운드 데몬의 자동 업그레이드 실패 시 실행 중인 모든 백그라운드 세션이 아무런 알림 없이 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `TaskStop` and `TaskOutput` failing to find background agents spawned by another agent — errors now list running agents by id and description",
+      "translated": "`TaskStop` 및 `TaskOutput`이 다른 에이전트에 의해 생성된 백그라운드 에이전트를 찾지 못하던 문제를 수정했습니다. 이제 오류 메시지에 실행 중인 에이전트의 ID와 설명이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `claude agents` composer discarding your typed message when a slash command isn't available there",
+      "translated": "`claude agents` 컴포저에서 슬래시 명령어를 사용할 수 없는 경우 입력한 메시지가 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the agent list crashing when opening a stopped session whose conversation was already open in another session",
+      "translated": "다른 세션에서 이미 열려 있는 대화의 중지된 세션을 열 때 에이전트 목록이 충돌하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions showing \"Needs input\" in the agent list after the question was already answered",
+      "translated": "질문에 이미 답변했음에도 에이전트 목록에서 백그라운드 세션이 \"Needs input\"으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agent startup failures showing only \"exit_with_message\" instead of the actual error",
+      "translated": "백그라운드 에이전트 시작 실패 시 실제 오류 대신 \"exit_with_message\"만 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions ignoring `effortLevel` changes in settings.json when forked through the daemon",
+      "translated": "데몬을 통해 포크된 백그라운드 세션이 settings.json의 `effortLevel` 변경 사항을 무시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed attached background sessions ignoring `CLAUDE_CODE_DISABLE_MOUSE` and `CLAUDE_CODE_DISABLE_MOUSE_CLICKS` opt-outs",
+      "translated": "연결된 백그라운드 세션이 `CLAUDE_CODE_DISABLE_MOUSE` 및 `CLAUDE_CODE_DISABLE_MOUSE_CLICKS` 거부(opt-out) 설정을 무시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/exit` incorrectly warning about running background agents after all named agents had completed",
+      "translated": "모든 이름이 지정된 에이전트가 완료된 후에도 `/exit` 시 실행 중인 백그라운드 에이전트가 있다는 잘못된 경고가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions started from a non-git directory unable to edit files when a `WorktreeCreate` hook was configured",
+      "translated": "`WorktreeCreate` 훅이 설정된 환경에서 git 디렉토리가 아닌 곳에서 시작된 백그라운드 세션이 파일을 편집할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `@` directory picker in `claude agents` not showing registered git worktrees",
+      "translated": "`claude agents`의 `@` 디렉토리 선택기에서 등록된 git worktrees가 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background task output on Windows being permanently replaced by an empty file after `/clear`",
+      "translated": "Windows 환경에서 `/clear` 명령 후 백그라운드 작업 출력이 빈 파일로 영구적으로 대체되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed content jumping when scrolling up through long transcript history",
+      "translated": "긴 대화 기록을 위로 스크롤할 때 콘텐츠가 갑자기 튀는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the terminal flickering and jumping while typing in bash mode when a shell-history suggestion was shown",
+      "translated": "bash 모드에서 입력 중 쉘 기록 제안이 표시될 때 터미널이 깜빡이거나 위치가 튀는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed literal `^[[I` / `^[[O` escape codes being printed when reattaching to a background session",
+      "translated": "백그라운드 세션에 다시 연결할 때 `^[[I` 및 `^[[O` 이스케이프 코드가 문자 그대로 출력되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed LSP-only plugins being incorrectly flagged for disuse when their language servers deliver diagnostics or answer navigation requests",
+      "translated": "언어 서버가 진단 정보를 전달하거나 탐색 요청에 응답하는 중임에도 LSP 전용 플러그인이 미사용 상태로 잘못 분류되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved responsiveness while long responses stream: live-preview updates no longer re-render the whole screen",
+      "translated": "긴 응답이 스트리밍되는 동안의 응답성을 개선했습니다. 이제 라이브 프리뷰 업데이트 시 전체 화면을 다시 렌더링하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved subagent behavior: agents are now less likely to re-delegate their entire task to another subagent",
+      "translated": "서브에이전트 동작을 개선했습니다. 이제 에이전트가 자신의 전체 작업을 다른 서브에이전트에게 다시 위임하는 빈도가 줄어듭니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced binary size by ~7 MB and startup memory by ~7 MB by loading a large bundled dependency lazily instead of inlining it",
+      "translated": "대규모 번들 종속성을 인라인 방식 대신 지연 로딩(lazy loading) 방식으로 변경하여, 바이너리 크기와 시작 시 메모리 사용량을 각각 약 7MB씩 줄였습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed left arrow to no longer close the background tasks, diff, and workflow detail views — press Esc instead",
+      "translated": "왼쪽 화살표 키로 백그라운드 작업, diff, 워크플로우 상세 보기를 닫을 수 없도록 변경했습니다. 대신 Esc 키를 사용하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the empty `claude agents` view to always show the organized sections (Needs input / Working / Completed) with descriptions",
+      "translated": "비어 있는 `claude agents` 뷰에서도 설명과 함께 정리된 섹션(Needs input / Working / Completed)이 항상 표시되도록 변경했습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the startup \"claude command missing or broken\" warnings — they now appear in `/doctor` and `/status` instead",
+      "translated": "시작 시 표시되던 \"claude command missing or broken\" 경고를 제거했습니다. 해당 경고는 이제 `/doctor` 및 `/status`에서 확인할 수 있습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed a redundant navigation hint from the `claude agents` footer",
+      "translated": "`claude agents` 푸터에서 중복되는 탐색 힌트를 제거했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a Settings toggle for \"Enable Remote Control for all sessions\"",
+      "translated": "[VSCode] \"Enable Remote Control for all sessions\" 설정을 위한 토글을 추가했습니다."
+    }
+  ],
+  "translatedAt": "2026-07-08T08:46:13.199Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4317
+}
