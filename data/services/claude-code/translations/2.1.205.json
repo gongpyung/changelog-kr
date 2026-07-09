@@ -1,0 +1,152 @@
+{
+  "version": "2.1.205",
+  "date": "2026-07-08",
+  "parsedAt": "2026-07-09T04:15:39.075Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an auto mode rule that blocks tampering with session transcript files",
+      "translated": "세션 트랜스크립트 파일의 변조를 차단하는 auto mode 규칙을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--json-schema` silently producing unstructured output when the schema was invalid, and schemas using the `format` keyword being rejected",
+      "translated": "스키마가 유효하지 않을 때 `--json-schema`가 아무런 알림 없이 비정형 출력을 생성하던 문제와 `format` 키워드를 사용하는 스키마가 거부되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a message sent while Claude was working being silently lost when the turn ended at the `--max-turns` limit",
+      "translated": "Claude가 작업 중일 때 보낸 메시지가 `--max-turns` 제한으로 턴이 종료되면서 자동으로 유실되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows worktree removal deleting files outside the worktree when an NTFS junction or directory symlink existed inside it",
+      "translated": "Windows에서 worktree 내부에 NTFS junction이나 디렉터리 심볼릭 링크가 있을 경우, worktree 삭제 시 외부 파일까지 함께 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents staying shown as \"failed\" or \"completed\" in the agent list after being resumed with `SendMessage`",
+      "translated": "`SendMessage`로 재개된 후에도 에이전트 목록에서 백그라운드 에이전트가 \"failed\" 또는 \"completed\" 상태로 계속 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background jobs flipping from \"needs input\" back to \"working\" in the agent list when the agent's turn contained no readable text",
+      "translated": "에이전트의 턴에 읽을 수 있는 텍스트가 포함되지 않았을 때, 에이전트 목록에서 백그라운드 작업이 \"needs input\"에서 \"working\"으로 다시 바뀌던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude attach` erroring when a background agent was mid-upgrade restart instead of waiting for it to come back",
+      "translated": "백그라운드 에이전트가 업그레이드 재시작 중일 때 `claude attach`가 복구를 기다리지 않고 오류를 발생시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session-to-PR linking missing a PR created in a Bash call whose output exceeded the 30K inline limit",
+      "translated": "출력이 30K 인라인 제한을 초과하는 Bash 호출에서 생성된 PR이 세션-PR 연결에서 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude mcp add-from-claude-desktop` getting stuck when a server name contains unsupported characters; invalid names are now reported and remaining servers still import",
+      "translated": "서버 이름에 지원되지 않는 문자가 포함된 경우 `claude mcp add-from-claude-desktop`이 멈추던 문제를 수정했습니다. 이제 유효하지 않은 이름은 보고되며 나머지 서버는 정상적으로 가져옵니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a plugin LSP server that fails to initialize preventing a valid LSP server from another plugin handling the same file extension",
+      "translated": "플러그인 LSP 서버 초기화 실패 시, 동일한 파일 확장자를 처리하는 다른 플러그인의 유효한 LSP 서버까지 작동하지 못하게 하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Windows crash when the directory Claude was launched from is deleted, locked, or unmounted while a command is running",
+      "translated": "명령어가 실행 중일 때 Claude를 실행한 디렉터리가 삭제, 잠금 또는 마운트 해제될 경우 Windows에서 발생하던 크래시 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when a file watcher was closed while a directory scan was still in flight",
+      "translated": "디렉터리 스캔이 진행 중인 상태에서 파일 와처가 닫힐 때 발생하던 크래시 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed project verify skills being rewritten on every session instead of only when a documented command changed",
+      "translated": "문서화된 명령어가 변경될 때만 갱신되는 대신, 매 세션마다 프로젝트 검증 스킬이 다시 작성되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the agent view rendering one line too high and clipping its header when the job list slightly overflowed the screen",
+      "translated": "목록이 화면을 약간 초과할 때 에이전트 뷰가 한 줄 높게 렌더링되어 헤더가 잘리던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background tasks in the web and mobile Remote Control panels showing stale \"Running\" status by forwarding full task state on every membership change",
+      "translated": "멤버십이 변경될 때마다 전체 작업 상태를 전달하도록 하여, 웹 및 모바일 Remote Control 패널에서 백그라운드 작업이 오래된 \"Running\" 상태로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode to ask before running `rm -rf` on a variable it can't resolve from context",
+      "translated": "컨텍스트에서 확인할 수 없는 변수에 대해 `rm -rf`를 실행하기 전 확인을 요청하도록 auto mode를 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto-update binary downloads now stream to disk instead of buffering in memory, cutting the updater's peak memory usage by roughly 400 MB",
+      "translated": "자동 업데이트 바이너리 다운로드 시 메모리 버퍼링 대신 디스크 스트리밍 방식을 사용하여, 업데이트 프로그램의 최대 메모리 사용량을 약 400MB 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background task notifications now explicitly state that no human input has occurred, preventing fabricated in-transcript approvals from being acted on",
+      "translated": "백그라운드 작업 알림에 사용자 입력이 없었음을 명시하여, 트랜스크립트 내에 조작된 승인이 실행되는 것을 방지했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved agent view: sessions that edit, merge, comment on, or push to an existing PR now link it in `claude agents`",
+      "translated": "에이전트 뷰 개선: 기존 PR을 편집, 병합, 댓글 작성 또는 푸시하는 세션이 이제 `claude agents`에서 해당 PR과 연결됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved agent view: rows now show a colored state word and a classifier-written headline instead of raw tool call text, and the peek opens with full status including the exact ask for blocked sessions",
+      "translated": "에이전트 뷰 개선: 이제 각 행에 원시 도구 호출 텍스트 대신 색상으로 구분된 상태 단어와 분류기가 작성한 헤드라인이 표시되며, 피크(peek) 창을 열면 차단된 세션에 대한 정확한 요청 사항을 포함한 전체 상태가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/doctor` is now a full setup checkup that can diagnose and fix issues; `/checkup` is its alias",
+      "translated": "`/doctor`가 이제 문제를 진단하고 해결할 수 있는 전체 설정 점검 도구가 되었습니다. `/checkup`은 이 명령어의 별칭입니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reserved the \"Claude Browser\" MCP server name (alongside \"Claude Preview\") ahead of the Claude Desktop pane rename; user-configured MCP servers can no longer register under either name",
+      "translated": "Claude Desktop 창 이름 변경에 앞서 \"Claude Browser\" MCP 서버 이름을 (\"Claude Preview\"와 함께) 예약했습니다. 이제 사용자가 설정한 MCP 서버는 이 두 이름으로 등록할 수 없습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Cowork VM-mode local-agent sessions failing to start with \"Not logged in · Please run /login\" on CLI 2.1.203+",
+      "translated": "CLI 2.1.203 이상 버전에서 Cowork VM-mode local-agent 세션이 \"Not logged in · Please run /login\" 오류와 함께 시작되지 않던 문제를 해결했습니다."
+    }
+  ],
+  "translatedAt": "2026-07-09T04:17:05.293Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2930
+}
