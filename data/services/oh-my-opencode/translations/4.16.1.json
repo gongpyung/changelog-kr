@@ -1,0 +1,290 @@
+{
+  "version": "4.16.1",
+  "date": "2026-07-09",
+  "parsedAt": "2026-07-09T09:58:54.472Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Fork-bomb stopped.** A broken install could make the `omo` runtime wrapper call itself in an infinite loop — `wrapper → CLI → wrapper → …` — spawning thousands of wedged processes until memory ran out. Delegation now carries a one-hop sentinel and refuses to target a generated wrapper, so the chain can never recurse.",
+      "translated": "`non-negotiable line`의 범위를 `design-system` 게이트로 제한하고 `contract pins`를 강화함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Ledger no longer bloats.** Every steering entry used to embed the full plan four times, so `.omo/ulw-loop/ledger.jsonl` grew quadratically over a long run. Entries now store a compact snapshot of only the goals that changed — a real 189 KB entry dropped to **7.8 KB (~24× smaller)**, and reads/dedup stream the file instead of loading it all into memory.",
+      "translated": "오래된 `7-section` 포인터를 정렬하고 `designpowers` 로드 조건을 통합함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**No more stuck child processes.** The senpi `ulw-loop status` spawn no longer wedges on a full stderr pipe; it runs detached with a 30-second hard timeout.",
+      "translated": "`primitive-showcase` 게이트를 승격하고 `ui-ux-db` 무결성 검사를 연결함"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Rename transition updates across package detection, plugin/config compatibility, and install surfaces.",
+      "translated": "`designpowers lane-c` 및 `a11y/debt` 스키마를 기본 프론트엔드 흐름에 통합함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Install and publish workflow hardening, including safer release sequencing and package/install fixes.",
+      "translated": "프론트엔드 신규(greenfield) 연구를 기록 가능한 산출물 계약으로 전환함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9036899c0 fix(codex): show version in hook statuses",
+      "translated": "풀 리퀘스트 #5965 병합 (MoerAI/fix/lazycodex-ulw-planner-result)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c754caba8 fix(codex): limit git bash hooks to windows",
+      "translated": "풀 리퀘스트 #5930 병합 (MoerAI/fix/pretooluse-bash-command-cwd)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a4e29f509 Merge pull request #5993 from code-yeongyu/ci/pin-npm-sigstore",
+      "translated": "풀 리퀘스트 #5783 병합 (MoerAI/fix/version-check-warn-pinned-mismatch)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "828999711 ci(publish): pin npm to 11.18.0 to fix provenance sigstore crash",
+      "translated": "풀 리퀘스트 #5755 병합 (MoerAI/fix/ulw-loop-require-session-id-value)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "06c8a710d Merge pull request #5990 from code-yeongyu/release/v4.16.1-source-state",
+      "translated": "풀 리퀘스트 #5570 병합 (MoerAI/fix/start-work-atlas-label)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f4b0dad7f Merge pull request #5989 from code-yeongyu/fix/ulw-loop-memory-fork-bomb",
+      "translated": "풀 리퀘스트 #5357 병합 (BenjaminHalko/fix/model-"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0cbb0a533 fix(codex): guard ulw-loop delegation against fork bomb recursion",
+      "translated": "Guard ulw-loop delegation against fork bomb recursion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f7ea72962 fix(codex): compact ulw-loop steering ledger to end quadratic growth",
+      "translated": "Compact ulw-loop steering ledger to end quadratic growth"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7421e1bcf Merge pull request #5980 from code-yeongyu/code-yeongyu/fix-3824-bun-runtime-regression",
+      "translated": "Merge pull request #5980 from code-yeongyu/code-yeongyu/fix-3824-bun-runtime-regression"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "997d802fe test(omo-opencode): audit raw bun module imports",
+      "translated": "Audit raw bun module imports"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "216301f1e Merge pull request #5979 from code-yeongyu/feature/xterm-tui-qa-harness",
+      "translated": "Merge pull request #5979 from code-yeongyu/feature/xterm-tui-qa-harness"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e3082fde2 fix(opencode): route Bun runtime calls through shims",
+      "translated": "Route Bun runtime calls through shims"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0806e4161 docs(qa): route TUI visual evidence to the xterm.js web terminal, forbid tmux",
+      "translated": "Route TUI visual evidence to the xterm.js web terminal, forbid tmux"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "406ccdf5b feat(qa): render TUI evidence through real xterm.js + node-pty, not tmux",
+      "translated": "Render TUI evidence through real xterm.js + node-pty, not tmux"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8fe6674ef Merge pull request #5974 from code-yeongyu/code-yeongyu/frontend-skill-research-contract",
+      "translated": "Merge pull request #5974 from code-yeongyu/code-yeongyu/frontend-skill-research-contract"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0526d7cea fix(shared-skills): scope the non-negotiable line to the design-system gate and tighten contract pins",
+      "translated": "Scope the non-negotiable line to the design-system gate and tighten contract pins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6aa29c713 fix(shared-skills): align stale 7-section pointers and unify the designpowers load condition",
+      "translated": "Align stale 7-section pointers and unify the designpowers load condition"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8ec538b41 feat(shared-skills): promote the primitive-showcase gate and wire ui-ux-db sanity checks",
+      "translated": "Promote the primitive-showcase gate and wire ui-ux-db sanity checks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "59748e645 feat(shared-skills): fold designpowers lane-c and a11y/debt schema into the default frontend flow",
+      "translated": "Fold designpowers lane-c and a11y/debt schema into the default frontend flow"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f21aff74f feat(shared-skills): make frontend greenfield research a logged deliverable contract",
+      "translated": "Make frontend greenfield research a logged deliverable contract"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fa8e5bf0c Merge pull request #5965 from MoerAI/fix/lazycodex-ulw-planner-result",
+      "translated": "Merge pull request #5965 from MoerAI/fix/lazycodex-ulw-planner-result"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f39cc5bf7 Merge pull request #5930 from MoerAI/fix/pretooluse-bash-command-cwd",
+      "translated": "Merge pull request #5930 from MoerAI/fix/pretooluse-bash-command-cwd"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "baf722bc1 Merge pull request #5783 from MoerAI/fix/version-check-warn-pinned-mismatch",
+      "translated": "Merge pull request #5783 from MoerAI/fix/version-check-warn-pinned-mismatch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "25ba30637 Merge pull request #5755 from MoerAI/fix/ulw-loop-require-session-id-value",
+      "translated": "Merge pull request #5755 from MoerAI/fix/ulw-loop-require-session-id-value"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8082b5114 Merge pull request #5570 from MoerAI/fix/start-work-atlas-label",
+      "translated": "Merge pull request #5570 from MoerAI/fix/start-work-atlas-label"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "66e826d7e Merge pull request #5357 from BenjaminHalko/fix/model-fallback",
+      "translated": "Merge pull request #5357 from BenjaminHalko/fix/model-fallback"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c4dfcdee4 docs(omo-json): add a $schema-bearing example so the freshness gate validates it",
+      "translated": "Add a $schema-bearing example so the freshness gate validates it"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "95370921d fix(codex): mirror planner barrier into ulw-loop (fixes #5481)",
+      "translated": "Mirror planner barrier into ulw-loop (fixes #5481)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8ad8a4f39 fix(codex): keep planner liveness guidance (fixes #5481)",
+      "translated": "Keep planner liveness guidance (fixes #5481)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd99a5e38 fix(codex): preserve parallel planner waves (fixes #5481)",
+      "translated": "Preserve parallel planner waves (fixes #5481)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a70e667f0 fix(codex): prevent planning from outrunning spawned agents",
+      "translated": "Prevent planning from outrunning spawned agents"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2fbc4b098 feat(omo-config-core): generated omo.schema.json artifact with freshness gate",
+      "translated": "Generated omo.schema.json artifact with freshness gate"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "05288db93 Preserve Bash hook validation in the active worktree",
+      "translated": "Preserve Bash hook validation in the active worktree"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d857891ed Merge remote-tracking branch 'upstream/dev' into fix/model-fallback",
+      "translated": "Merge remote-tracking branch 'upstream/dev' into fix/model-fallback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5684dc837 fix(runtime-fallback): clear internallyAbortedSessions on session teardown",
+      "translated": "Clear internallyAbortedSessions on session teardown"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ff5ee4625 Merge remote-tracking branch 'origin/dev' into fix/start-work-atlas-label",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/start-work-atlas-label"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4bdb2a7b5 fix(cli): warn when a pinned plugin version differs from the running version (fixes #4734)",
+      "translated": "Warn when a pinned plugin version differs from the running version (fixes #4734)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f2ed3b10e fix(ulw-loop): require a value for explicit --session-id (fixes #5752)",
+      "translated": "Require a value for explicit --session-id (fixes #5752)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4e1a4d7b2 Merge remote-tracking branch 'origin/dev' into fix/start-work-atlas-label",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/start-work-atlas-label"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e7f500210 fix(start-work): name Atlas (not Sisyphus) in /start-work template and labels (fixes #5499)",
+      "translated": "Name Atlas (not Sisyphus) in /start-work template and labels (fixes #5499)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e788f6e2 fix(runtime-fallback): stop subagent stall on provider auto-retry signal",
+      "translated": "Stop subagent stall on provider auto-retry signal"
+    }
+  ],
+  "translatedAt": "2026-07-09T10:00:02.027Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 2904
+}
