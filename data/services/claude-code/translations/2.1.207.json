@@ -1,0 +1,158 @@
+{
+  "version": "2.1.207",
+  "date": "2026-07-11",
+  "parsedAt": "2026-07-11T03:45:00.178Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Auto mode is now available without `CLAUDE_CODE_ENABLE_AUTO_MODE` opt-in on Bedrock, Vertex AI, and Foundry; disable via `disableAutoMode` in settings",
+      "translated": "Bedrock, Vertex AI, Foundry에서 `CLAUDE_CODE_ENABLE_AUTO_MODE` 설정 없이도 자동 모드를 사용할 수 있습니다. 설정의 `disableAutoMode`를 통해 비활성화할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the terminal freezing and keystrokes lagging while streaming responses containing very long lists, tables, paragraphs, or code blocks",
+      "translated": "매우 긴 목록, 표, 단락 또는 코드 블록이 포함된 응답을 스트리밍할 때 터미널이 멈추거나 키 입력이 지연되는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote managed settings from a non-interactive run (`claude -p`, the SDK) being permanently recorded as consented without ever showing the security consent dialog",
+      "translated": "비대화형 실행(`claude -p`, SDK) 시 원격 관리 설정이 보안 동의 대화 상자 없이 영구적으로 동의된 것으로 기록되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed spurious prompt-injection warnings triggered by benign system-generated conversation updates",
+      "translated": "시스템에서 생성된 정상적인 대화 업데이트로 인해 잘못된 프롬프트 주입 경고가 발생하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the auto-updater overwriting a custom launcher script or symlink at `~/.local/bin/claude` on every release; `/doctor` now reports an externally managed launcher",
+      "translated": "자동 업데이트 시 매 릴리스마다 `~/.local/bin/claude`에 있는 사용자 정의 런처 스크립트나 심볼릭 링크를 덮어쓰는 문제를 수정했습니다. 이제 `/doctor` 명령어가 외부에서 관리되는 런처임을 보고합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compound commands with `cd` prompting for permission when the only output redirect was to `/dev/null`",
+      "translated": "출력 리다이렉션이 `/dev/null`로만 향하는 `cd` 포함 복합 명령어에서 권한 요청이 발생하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the transcript jumping above the start of the answer when a response finishes streaming",
+      "translated": "응답 스트리밍이 완료될 때 대화 기록이 답변 시작 부분 위로 튀어 오르는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `extensions.worktreeConfig` being left in the repo's `.git/config` (breaking go-git tools like `tea`) after the last `worktree.sparsePaths` worktree was removed",
+      "translated": "마지막 `worktree.sparsePaths` 작업 트리가 제거된 후에도 저장소의 `.git/config`에 `extensions.worktreeConfig`가 남아 `tea`와 같은 go-git 도구가 오작동하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed malformed bracket patterns in rules globs, skill paths, `.ignore`, and `.worktreeinclude` breaking file reads, file suggestions, and worktree creation",
+      "translated": "rules globs, skill paths, `.ignore`, `.worktreeinclude` 내의 잘못된 대괄호 패턴으로 인해 파일 읽기, 파일 제안 및 작업 트리 생성이 중단되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash loop in agent teams where a malformed teammate mailbox message caused repeated errors every second until the mailbox file was manually deleted",
+      "translated": "에이전트 팀에서 잘못된 형식의 팀원 사서함 메시지로 인해 사서함 파일을 수동으로 삭제할 때까지 매초 오류가 반복되는 크래시 루프 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions auto-named by accepting a plan not showing that name on their agent-view row",
+      "translated": "플랜 수락 시 자동으로 이름이 지정된 백그라운드 세션의 이름이 에이전트 뷰 행에 표시되지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions that entered a git worktree resuming blank after a cold reopen from the agent list",
+      "translated": "git 작업 트리에 진입한 백그라운드 세션을 에이전트 목록에서 콜드 리오픈(cold reopen)할 때 빈 화면으로 재개되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control task status updates being lost when the connection recovered from a network interruption or credential refresh",
+      "translated": "네트워크 중단 또는 자격 증명 갱신 후 연결이 복구될 때 Remote Control 작업 상태 업데이트가 유실되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions hosted by the desktop app not showing background agent and workflow progress on mobile and web",
+      "translated": "데스크톱 앱에서 호스팅되는 Remote Control 세션이 모바일 및 웹에서 백그라운드 에이전트 및 워크플로 진행 상황을 표시하지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Deep research runs labeling every Fetch-phase agent \"unknown\" — chips now show the source hostname",
+      "translated": "Deep research 실행 시 모든 Fetch 단계 에이전트가 \"unknown\"으로 표시되는 문제를 수정했습니다. 이제 칩에 소스 호스트 이름이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock repeatedly requesting fresh AWS SSO credentials from IAM Identity Center on every API request",
+      "translated": "Bedrock이 모든 API 요청마다 IAM Identity Center에서 새로운 AWS SSO 자격 증명을 반복적으로 요청하는 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved agent view: pasting the same text again now expands the collapsed `[Pasted text #N]` placeholder instead of adding a second one",
+      "translated": "에이전트 뷰 개선: 동일한 텍스트를 다시 붙여넣을 때 새로운 항목을 추가하는 대신 축소된 `[Pasted text #N]` 자리 표시자를 확장하도록 변경했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved agent view: blocked session peeks now lead with the question and show a worded staleness clock (`waiting 3m`) instead of the same timestamp twice",
+      "translated": "에이전트 뷰 개선: 차단된 세션 미리보기 시 질문을 먼저 표시하고, 동일한 타임스탬프를 두 번 보여주는 대신 경과 시간(`waiting 3m`)을 표시하도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Bedrock, Vertex, and Claude Platform on AWS to default to Claude Opus 4.8",
+      "translated": "Bedrock, Vertex, AWS 기반 Claude Platform의 기본 모델을 Claude Opus 4.8로 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed auto mode to no longer read `autoMode` from `.claude/settings.local.json` (repo-resident); use `~/.claude/settings.json` instead",
+      "translated": "자동 모드에서 더 이상 저장소 내의 `.claude/settings.local.json`으로부터 `autoMode` 설정을 읽지 않도록 변경했습니다. 대신 `~/.claude/settings.json`을 사용하세요."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an indefinite hang on Windows when AWS credential resolution stalls (e.g. a stuck `credential_process`): the 60-second stall guard now fires instead of waiting forever.",
+      "translated": "AWS 자격 증명 확인이 지연될 때(예: `credential_process` 중단) Windows에서 무한히 멈추던 문제를 수정했습니다. 이제 무한정 기다리는 대신 60초 지연 방지 기능이 작동합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin hooks/monitors/MCP headersHelper: `${user_config.*}` in shell-form commands is now rejected (shell-injection fix). Hooks: use exec form (`args` array) or `$CLAUDE_PLUGIN_OPTION_<KEY>`; monitors and headersHelper: read the value inside the script (config file or the server's `env` block).",
+      "translated": "Plugin hooks/monitors/MCP headersHelper: 쉘 형태 명령어에서 `${user_config.*}` 사용이 거부됩니다(쉘 인젝션 보안 수정). Hooks의 경우 exec 형태(`args` 배열)나 `$CLAUDE_PLUGIN_OPTION_<KEY>`를 사용하세요. monitors 및 headersHelper의 경우 스크립트 내부(설정 파일 또는 서버의 `env` 블록)에서 값을 읽어야 합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin option values (`pluginConfigs`) are no longer read from project-level `.claude/settings.json`; only user, `--settings`, and managed settings are honored",
+      "translated": "플러그인 옵션 값(`pluginConfigs`)을 더 이상 프로젝트 수준의 `.claude/settings.json`에서 읽지 않습니다. 이제 사용자 설정, `--settings` 및 관리형 설정만 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage-credits` amount inputs silently stripping malformed values (e.g. a pasted timestamp) to digits; malformed amounts are now rejected with an error, and amounts over $1,000 require a typed confirmation",
+      "translated": "`/usage-credits` 금액 입력 시 잘못된 형식의 값(예: 붙여넣은 타임스탬프)이 자동으로 숫자만 남기고 제거되던 문제를 수정했습니다. 이제 잘못된 형식의 금액은 에러와 함께 거부되며, $1,000를 초과하는 금액은 직접 입력을 통한 확인이 필요합니다."
+    }
+  ],
+  "translatedAt": "2026-07-11T03:45:31.371Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3422
+}
