@@ -1,0 +1,284 @@
+{
+  "version": "2.1.208",
+  "date": "2026-07-14",
+  "parsedAt": "2026-07-14T03:37:53.914Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added screen reader mode: opt-in plain-text rendering for screen reader users. Run `claude --ax-screen-reader`, set CLAUDE_AX_SCREEN_READER=1, or add \"axScreenReader\": true to settings.",
+      "translated": "스크린 리더 모드 추가: 스크린 리더 사용자를 위한 선택형 일반 텍스트 렌더링 기능을 제공합니다. `claude --ax-screen-reader`를 실행하거나, CLAUDE_AX_SCREEN_READER=1로 설정하거나, 설정에 \"axScreenReader\": true를 추가하여 사용할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `vimInsertModeRemaps` setting: map two-key insert-mode sequences like `jj` to Escape in vim mode",
+      "translated": "`vimInsertModeRemaps` 설정 추가: vim 모드에서 `jj`와 같은 두 키 입력 시퀀스를 Escape 키로 매핑할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_PROCESS_WRAPPER`: agent view and the background service now honor a corporate launcher by running every Claude Code self-spawn through a required wrapper executable",
+      "translated": "`CLAUDE_CODE_PROCESS_WRAPPER` 추가: 에이전트 뷰와 백그라운드 서비스가 모든 Claude Code 자체 실행 프로세스를 필수 래퍼 실행 파일을 통해 실행함으로써 기업용 런처를 준수하도록 개선되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added mouse-click support for multi-select menus and \"Other\" input rows in fullscreen mode",
+      "translated": "전체 화면 모드의 다중 선택 메뉴 및 \"Other\" 입력 행에 대한 마우스 클릭 지원을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fast mode staying off after switching back to a model that supports it — it now restores automatically when enabled in settings",
+      "translated": "빠른 모드를 지원하는 모델로 다시 전환한 후에도 해당 모드가 꺼져 있던 문제를 수정했습니다. 이제 설정에서 활성화된 경우 자동으로 복구됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed replies typed to a background agent being lost when delivery fails — the text is now saved and delivered when the session restarts",
+      "translated": "백그라운드 에이전트에 입력한 답장이 전송 실패 시 유실되던 문제를 수정했습니다. 이제 텍스트가 저장되어 세션 재시작 시 전송됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background-session attach failing permanently (\"Couldn't start the background daemon\") after an update replaced the binary a running `claude agents` process was launched from",
+      "translated": "실행 중인 `claude agents` 프로세스의 바이너리가 업데이트로 교체된 후 백그라운드 세션 연결이 영구적으로 실패(\"Couldn't start the background daemon\")하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the context window (and auto-compact indicator) briefly resetting to 200k after the CLI auto-updates, causing a false \"100% context used\" when resuming long-context sessions",
+      "translated": "CLI 자동 업데이트 후 컨텍스트 창(및 자동 압축 표시기)이 잠시 200k로 초기화되어, 긴 컨텍스트 세션을 재개할 때 \"100% context used\"라는 잘못된 메시지가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed supervised and background sessions crashing when a server closed an HTTP/2 connection with a GOAWAY while requests were in flight",
+      "translated": "요청이 진행 중인 동안 서버가 GOAWAY와 함께 HTTP/2 연결을 종료할 때 감독 및 백그라운드 세션이 충돌하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed truncated stream-json/JSON output and missing result message when piping large responses from `claude -p`",
+      "translated": "`claude -p`에서 대규모 응답을 파이프로 전달할 때 stream-json/JSON 출력이 잘리고 결과 메시지가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_MAX_OUTPUT_TOKENS` and similar env vars silently using the mantissa of scientific-notation values (`1e6` became `1`)",
+      "translated": "`CLAUDE_CODE_MAX_OUTPUT_TOKENS` 및 유사한 환경 변수가 지수 표기법 값의 가수부만 사용하던 문제(`1e6`이 `1`로 처리됨)를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed very large markdown tables stalling rendering or using excessive memory; tables over 200 rows show the first 200 with a \"… N more rows\" notice",
+      "translated": "매우 큰 마크다운 표가 렌더링을 지연시키거나 과도한 메모리를 사용하던 문제를 수정했습니다. 200행이 넘는 표는 처음 200행만 표시하고 \"… N more rows\" 알림을 보여줍니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Edit tool failing on files modified after reading when the target text still matches uniquely",
+      "translated": "대상 텍스트가 여전히 고유하게 일치함에도 불구하고, 파일을 읽은 후 수정된 경우 Edit 도구가 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Read reporting empty files as \"shorter than offset\", Grep silently returning \"No files found\" for invalid regex patterns, Grep count mode under-reporting totals when paginated, and Glob crashing with an unclear error when the pattern, path, or working directory contained a null byte",
+      "translated": "Read가 빈 파일을 \"shorter than offset\"으로 보고하는 문제, Grep이 유효하지 않은 정규식 패턴에 대해 \"No files found\"를 반환하는 문제, Grep count 모드에서 페이지가 나뉘었을 때 합계가 적게 보고되는 문제, 그리고 패턴, 경로 또는 작업 디렉토리에 널 바이트가 포함되었을 때 Glob이 불분명한 오류와 함께 충돌하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `apiKeyHelper` script failures being hidden behind a generic 401 after ~10 silent retries; the script's own error is now shown within 3 attempts",
+      "translated": "약 10회의 자동 재시도 후 `apiKeyHelper` 스크립트 실패가 일반적인 401 오류로 가려지던 문제를 수정했습니다. 이제 3회 시도 이내에 스크립트 자체의 오류가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock streaming requests failing with a misleading \"Truncated event message received\" when a gateway transforms the response — the error now names the content-type and points at the proxy",
+      "translated": "게이트웨이가 응답을 변환할 때 Bedrock 스트리밍 요청이 \"Truncated event message received\"라는 오해의 소지가 있는 오류와 함께 실패하던 문제를 수정했습니다. 이제 오류 메시지에 content-type을 명시하고 프록시를 지목합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/upgrade` showing a login flow instead of the upgrade URL when the browser fails to open",
+      "translated": "브라우저를 열지 못했을 때 `/upgrade` 명령어가 업그레이드 URL 대신 로그인 흐름을 표시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stream-json input killing the session on blank CRLF or whitespace-only lines from Windows-style SDK hosts",
+      "translated": "Windows 스타일 SDK 호스트의 빈 CRLF 또는 공백만 있는 줄로 인해 stream-json 입력 시 세션이 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed headless stream-json sessions hanging permanently when a `control_request` carried a non-string `set_model` payload; the CLI now answers with an error response",
+      "translated": "`control_request`에 문자열이 아닌 `set_model` 페이로드가 포함되었을 때 헤드리스 stream-json 세션이 영구적으로 중단되던 문제를 수정했습니다. 이제 CLI가 오류 응답을 반환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed repeated \"No completion record was found\" notices on session resume — orphaned background tasks now collapse into a single summary",
+      "translated": "세션 재개 시 \"No completion record was found\" 알림이 반복되던 문제를 수정했습니다. 이제 분리된 백그라운드 작업들이 하나의 요약으로 통합됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control clients attaching to a terminal-hosted session not seeing background agents and workflow progress until a task started or stopped",
+      "translated": "터미널 호스팅 세션에 연결된 Remote Control 클라이언트가 작업이 시작되거나 중단되기 전까지 백그라운드 에이전트 및 워크플로 진행 상황을 볼 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Agent tool launching with no tools when a subagent's `tools` list resolves to nothing — it now returns a clear error naming the unrecognized entries",
+      "translated": "하위 에이전트의 `tools` 목록이 비어 있을 때 Agent 도구가 도구 없이 실행되던 문제를 수정했습니다. 이제 인식되지 않은 항목을 명시하는 명확한 오류를 반환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage` showing stale cached bars over fresher data, and `/mcp` not reclassifying placeholder servers after config edits",
+      "translated": "`/usage`에서 최신 데이터 대신 오래된 캐시 바가 표시되던 문제와 설정 편집 후 `/mcp`가 플레이스홀더 서버를 재분류하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed \"Change directory\" in SDK hosts (e.g. Claude Desktop) failing with \"A turn is in progress\" on idle sessions that have a running background task",
+      "translated": "백그라운드 작업이 실행 중인 유휴 세션에서 Claude Desktop 등 SDK 호스트의 \"Change directory\"가 \"A turn is in progress\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the workflow save dialog showing `~/.claude/workflows/` instead of the `CLAUDE_CONFIG_DIR` location for user-scope saves",
+      "translated": "사용자 범위 저장 시 워크플로 저장 대화 상자에 `CLAUDE_CONFIG_DIR` 위치 대신 `~/.claude/workflows/`가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/release-notes` adding the viewed notes to the model's context — \"Show all\" previously injected the entire changelog into every subsequent request",
+      "translated": "`/release-notes` 확인 시 조회한 노트가 모델 컨텍스트에 추가되던 문제를 수정했습니다. 이전에는 \"Show all\" 선택 시 전체 변경 로그가 이후의 모든 요청에 포함되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory leak in the agent view where pasted images were retained for the screen's lifetime after sending peek replies",
+      "translated": "에이전트 뷰에서 peek 응답을 보낸 후 붙여넣은 이미지가 화면이 유지되는 동안 계속 남아있어 발생하던 메모리 누수 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK sessions losing agents defined via the initialize request when a plugin refresh ran before the client attached",
+      "translated": "클라이언트가 연결되기 전에 플러그인 새로고침이 실행될 경우 initialize 요청을 통해 정의된 에이전트를 SDK 세션이 유실하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed several memory leaks in long sessions: MCP stdio server stderr accumulating up to 64 MB per server, LSP documents staying open indefinitely (now LRU with 50-doc cap), async hook output retained after backgrounding, and unbounded growth in headless/SDK sessions from large tool-result payloads",
+      "translated": "장기 세션에서의 여러 메모리 누수 문제를 수정했습니다. MCP stdio 서버의 stderr가 서버당 최대 64MB까지 누적되던 문제, LSP 문서가 무기한 열려 있던 문제(이제 50개 제한의 LRU 방식 적용), 백그라운드 전환 후에도 async hook 출력이 유지되던 문제, headless/SDK 세션에서 대규모 도구 결과 페이로드로 인해 크기가 무제한으로 커지던 문제를 해결했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory blowup when reading files with extremely long single lines using offset/limit — the read now returns a clean error instead of loading the whole line",
+      "translated": "offset/limit을 사용하여 매우 긴 단일 행이 포함된 파일을 읽을 때 메모리가 폭증하던 문제를 수정했습니다. 이제 전체 행을 로드하는 대신 명확한 오류를 반환합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multi-second per-turn slowdowns in sessions with many permission deny/ask rules — rule matchers are now compiled once and cached",
+      "translated": "권한 거부/요청 규칙이 많은 세션에서 턴당 수 초간 속도가 저하되던 문제를 수정했습니다. 이제 규칙 매처를 한 번만 컴파일하고 캐싱합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved input responsiveness while agent task lists update — task updates no longer re-render the entire UI",
+      "translated": "에이전트 작업 목록이 업데이트되는 동안의 입력 응답성을 개선했습니다. 이제 작업 업데이트 시 전체 UI를 다시 렌더링하지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced per-tool-call CPU overhead in print/SDK sessions with many MCP tools by caching tool-pool assembly (up to 7x faster tool rounds at high tool counts)",
+      "translated": "MCP 도구가 많은 print/SDK 세션에서 tool-pool 어셈블리를 캐싱하여 도구 호출당 CPU 오버헤드를 줄였습니다. (도구 수가 많을 때 도구 라운드 속도 최대 7배 향상)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced memory usage by bounding the file edit read cache to 16 MB instead of pinning up to 1,000 full files",
+      "translated": "파일 편집 읽기 캐시를 최대 1,000개의 전체 파일 대신 16MB로 제한하여 메모리 사용량을 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced session transcript size (up to 79x in edit-heavy sessions) and bounded checkpoint disk usage by pruning superseded file-history backups",
+      "translated": "대체된 파일 히스토리 백업을 정리하여 세션 트랜스크립트 크기를 줄이고(편집이 많은 세션에서 최대 79배) 체크포인트 디스크 사용량을 제한했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced memory usage when resuming sessions with background agents or forks spawned from large conversations",
+      "translated": "대규모 대화에서 생성된 백그라운드 에이전트나 포크가 포함된 세션을 재개할 때의 메모리 사용량을 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Completed background agents now stay listed in `/tasks` until cleanup instead of vanishing the moment they finish",
+      "translated": "완료된 백그라운드 에이전트가 종료 즉시 사라지지 않고 정리가 수행될 때까지 `/tasks` 목록에 유지됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Attaching to a stopped background agent now shows its transcript immediately while the session warms up, instead of a blank \"Session is starting\" screen",
+      "translated": "중단된 백그라운드 에이전트에 연결할 때 \"Session is starting\"이라는 빈 화면 대신 세션이 준비되는 동안 트랜스크립트를 즉시 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background sessions: an older daemon no longer silently restarts workers spawned by a newer version onto the older binary",
+      "translated": "백그라운드 세션에서 이전 버전의 데몬이 새 버전에서 생성된 워커를 이전 버전의 바이너리로 자동 재시작하지 않도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent view: Ctrl+X now deletes renamed-branch worktrees, never destroys unpushed commits, keeps the session row when a worktree is kept, and reused worktree names reset to the current base",
+      "translated": "에이전트 뷰에서 Ctrl+X 사용 시 이름이 변경된 브랜치 워크트리를 삭제하고, 푸시되지 않은 커밋은 삭제하지 않으며, 워크트리가 유지될 때 세션 행을 보존하고, 재사용된 워크트리 이름이 현재 베이스로 재설정되도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Catastrophic removals (e.g. `rm -rf ~`) in commands containing `$(…)`/backticks/`<(…)` now prompt in `--dangerously-skip-permissions` and auto mode, matching the plain form",
+      "translated": "`$(…)`, 백틱, `<(…)`을 포함하는 명령어에서 치명적인 삭제(예: `rm -rf ~`)가 발생할 경우, 이제 `--dangerously-skip-permissions` 및 자동 모드에서도 일반 형태와 동일하게 확인 프롬프트를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/install-github-app` and the `/mcp` settings menu no longer open in background sessions",
+      "translated": "`/install-github-app` 및 `/mcp` 설정 메뉴가 더 이상 백그라운드 세션에서 열리지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP servers configured with an empty URL now show as \"not configured\" in `/mcp` instead of a config error",
+      "translated": "빈 URL로 설정된 MCP 서버는 이제 설정 오류 대신 `/mcp`에서 \"not configured\"로 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/usage` now shows your last-known usage bars with an \"as of\" note when the usage endpoint is rate-limited, instead of an error screen",
+      "translated": "usage 엔드포인트에 속도 제한이 적용된 경우, `/usage`는 이제 오류 화면 대신 \"as of\" 문구와 함께 마지막으로 확인된 사용량 표시줄을 보여줍니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock auth failing with \"Session token not found or invalid\" for AWS SSO profiles whose sso_region differs from the Bedrock region (2.1.207 regression)",
+      "translated": "sso_region이 Bedrock 리전과 다른 AWS SSO 프로필에서 Bedrock 인증이 \"Session token not found or invalid\" 오류와 함께 실패하던 문제를 수정했습니다 (2.1.207 회귀 버그)."
+    }
+  ],
+  "translatedAt": "2026-07-14T03:39:32.793Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6518
+}
