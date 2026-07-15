@@ -1,0 +1,212 @@
+{
+  "version": "2.1.210",
+  "date": "2026-07-14",
+  "parsedAt": "2026-07-15T03:38:43.728Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck",
+      "translated": "축소된 도구 요약 줄에 실시간 경과 시간 카운터를 추가하여, 실행 시간이 긴 도구 호출이 멈춘 것처럼 보이지 않고 시간이 흐르는 것을 시각적으로 확인할 수 있게 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a startup warning for `Write(path)`, `NotebookEdit(path)`, and `Glob(path)` permission rules — use `Edit(path)` or `Read(path)` instead",
+      "translated": "`Write(path)`, `NotebookEdit(path)`, `Glob(path)` 권한 규칙에 대한 시작 경고를 추가했습니다. 대신 `Edit(path)` 또는 `Read(path)`를 사용하세요."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `isolation: 'worktree'` subagents being able to run git-mutating commands against the main repo checkout instead of their own isolated worktree",
+      "translated": "`isolation: 'worktree'` 설정의 하위 에이전트가 격리된 자체 작업 트리가 아닌 메인 저장소 체크아웃에 대해 git 변경 명령을 실행할 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `ultracode` keyword opt-in firing on non-human-originated input such as webhook payloads and relayed PR comments",
+      "translated": "웹훅 페이로드나 전달된 PR 댓글과 같이 사람이 작성하지 않은 입력에서 `ultracode` 키워드 옵트인이 활성화되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rendered text fragment leaking into crash telemetry when a UI component returned content outside a styled text element",
+      "translated": "UI 컴포넌트가 스타일이 지정된 텍스트 요소 외부의 콘텐츠를 반환할 때 렌더링된 텍스트 조각이 크래시 텔레메트리에 포함되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed paste markers leaking into external editors opened from Claude Code, which could appear as stray È/É characters around pasted text",
+      "translated": "Claude Code에서 연 외부 편집기에 붙여넣기 마커가 유출되어 붙여넣은 텍스트 주변에 È/É와 같은 불필요한 문자가 나타날 수 있는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude attach` sometimes failing with \"job not found\" or \"agent is still starting\" errors during session transitions — attach now waits for the daemon to settle, and terminal resizes during a slow attach are applied once it completes",
+      "translated": "세션 전환 중에 `claude attach`가 \"job not found\" 또는 \"agent is still starting\" 오류로 실패하던 문제를 수정했습니다. 이제 attach가 데몬이 안정될 때까지 대기하며, 연결이 지연되는 동안의 터미널 크기 조정은 완료된 후 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a session crash when a tool's result renderer returned a numeric bigint value or plain text instead of a UI element",
+      "translated": "도구의 결과 렌더러가 UI 요소 대신 숫자형 bigint 값이나 일반 텍스트를 반환할 때 세션이 충돌하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hook callback timeout being misreported to the model as a user rejection, which made unattended sessions stop and wait",
+      "translated": "후크 콜백 타임아웃이 모델에 사용자 거부로 잘못 보고되어 자동 세션이 중단되고 대기하게 되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude assuming a `cd` took effect after its command was moved to the background; the tool result now states the working directory is unchanged",
+      "translated": "`cd` 명령이 백그라운드로 이동된 후 Claude가 변경 사항이 적용된 것으로 간주하던 문제를 수정했습니다. 이제 도구 결과에 작업 디렉터리가 변경되지 않았음이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin-provided MCP servers being torn down when MCP servers are re-synced mid-session",
+      "translated": "세션 중간에 MCP 서버가 다시 동기화될 때 플러그인에서 제공하는 MCP 서버가 종료되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan approvals without edits being labeled \"(edited by user)\" and overwriting the plan file with a stale snapshot",
+      "translated": "없이 승인된 계획이 \"(edited by user)\"로 표시되고 이전 스냅샷으로 계획 파일을 덮어쓰는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/doctor` skipping its auto-mode-default proposal on Bedrock, Vertex, and Foundry, where auto mode no longer needs an opt-in",
+      "translated": "자동 모드 옵트인이 더 이상 필요하지 않은 Bedrock, Vertex, Foundry에서 `/doctor`가 자동 모드 기본 제안을 건너뛰는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Grep content mode claiming \"No matches found\" when paginating past the end of results",
+      "translated": "Grep 콘텐츠 모드에서 결과 끝부분 이후로 페이지를 넘길 때 \"No matches found\"라고 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unmatched `$1`/`$2` positional placeholders in skills and commands being silently stripped; they are now preserved verbatim",
+      "translated": "스킬 및 명령에서 일치하지 않는 `$1`/`$2` 위치 자리 표시자가 자동으로 제거되는 문제를 수정했습니다. 이제 해당 표시자들은 그대로 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin cache writes leaving temp files behind on failure and failing on locked-file renames on Windows and network filesystems",
+      "translated": "플러그인 캐시 쓰기 실패 시 임시 파일이 남거나, Windows 및 네트워크 파일 시스템에서 잠긴 파일의 이름을 바꿀 때 발생하는 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background workers crash-looping when a client resets its connection to the background service",
+      "translated": "클라이언트가 백그라운드 서비스와의 연결을 재설정할 때 백그라운드 워커가 무한 재시작(crash-looping)되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents --effort ultracode` not reaching dispatched sessions; the value was silently dropped",
+      "translated": "`claude agents --effort ultracode` 설정이 할당된 세션에 전달되지 않고 값이 무시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed pressing ← to open the agents view dropping the task tracker when returning to the session",
+      "translated": "←를 눌러 에이전트 뷰를 열었다가 세션으로 돌아올 때 작업 추적기가 사라지는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the agents dashboard retaining pasted images from abandoned reply drafts after their session was deleted",
+      "translated": "세션이 삭제된 후에도 중단된 답장 초안에 붙여넣었던 이미지가 에이전트 대시보드에 남아 있는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed killed background sessions leaving a permanent `git worktree lock` behind; the periodic sweep now releases locks whose owning process is gone",
+      "translated": "종료된 백그라운드 세션이 `git worktree lock`을 영구적으로 남기던 문제를 수정했습니다. 이제 정기 스윕(sweep) 작업이 소유 프로세스가 사라진 잠금을 해제합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK MCP servers registered via an `initialize` control request waiting until the next turn to start connecting",
+      "translated": "`initialize` 제어 요청을 통해 등록된 SDK MCP 서버가 연결을 시작하기 위해 다음 턴까지 대기하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed returning to the agents view from a session leaving overlapping ghost frames with `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1`",
+      "translated": "`CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1` 설정 시 세션에서 에이전트 뷰로 돌아갈 때 잔상 프레임이 겹쳐서 남던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed late-appearing `.claude/*` symlinks not being reconciled into the sandbox deny-write list",
+      "translated": "나중에 생성된 `.claude/*` 심볼릭 링크가 샌드박스 쓰기 금지 목록에 반영되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hardened the Agent tool against indirect prompt injection via content a subagent read",
+      "translated": "서브 에이전트가 읽은 콘텐츠를 통한 간접 프롬프트 인젝션에 대비해 에이전트 도구의 보안을 강화했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Bash/PowerShell tool message when a command hits its timeout and is auto-backgrounded, so the model can distinguish a hang from an explicit background request",
+      "translated": "명령어가 타임아웃에 도달하여 자동으로 백그라운드로 전환될 때의 Bash/PowerShell 도구 메시지를 개선하여, 모델이 응답 없음(hang) 상태와 명시적인 백그라운드 요청을 구분할 수 있도록 했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: the permission classifier now defaults to Sonnet 5 for external sessions, validated on the session's first request and pinned for the session",
+      "translated": "자동 모드 개선: 외부 세션의 권한 분류기가 기본적으로 Sonnet 5를 사용하며, 세션의 첫 번째 요청에서 검증된 후 해당 세션 동안 고정됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the bundled dataviz skill's chart color validation with perceptual OKLab color difference and recalibrated color-blindness thresholds",
+      "translated": "내장된 데이터 시각화(dataviz) 스킬의 차트 색상 검증 기능을 지각적 OKLab 색차를 적용하고 색맹 대응 임계값을 재조정하여 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory writes that leave a MEMORY.md index over its read limit now produce an explicit error instead of silent truncation",
+      "translated": "MEMORY.md 인덱스가 읽기 제한을 초과하게 만드는 메모리 쓰기 작업 시, 내용이 자동으로 잘리는 대신 명시적인 오류를 발생시킵니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Screen reader mode now announces permission mode changes aloud when cycling modes with Shift+Tab",
+      "translated": "화면 읽기 모드에서 Shift+Tab으로 모드를 전환할 때 권한 모드 변경 사항을 음성으로 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The agents footer hint now shows how many background agents are waiting on your input, with a brief color emphasis when the count changes",
+      "translated": "에이전트 하단 힌트에 사용자 입력을 기다리는 백그라운드 에이전트 수가 표시되며, 숫자가 변경될 때 짧은 색상 강조 효과가 나타납니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Agent view: the session you pressed ← from stays visibly marked even after mouse hover or arrow keys move the selection",
+      "translated": "에이전트 뷰: ← 키를 눌러 빠져나온 세션이 마우스 호버나 화살표 키로 선택 항목을 이동한 후에도 시각적으로 표시된 상태를 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Fable temporarily shows as unavailable in the advisor picker while a server-side issue causing Fable advisor failures is fixed",
+      "translated": "Fable 어드바이저 오류를 일으키는 서버 측 문제가 수정되는 동안, 어드바이저 선택기에서 Fable이 일시적으로 비활성화된 상태로 표시됩니다."
+    }
+  ],
+  "translatedAt": "2026-07-15T03:39:26.232Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4191
+}
