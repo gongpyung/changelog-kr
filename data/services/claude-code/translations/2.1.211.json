@@ -1,0 +1,236 @@
+{
+  "version": "2.1.211",
+  "date": "2026-07-15",
+  "parsedAt": "2026-07-16T03:40:47.098Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--forward-subagent-text` flag and `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` environment variable to include subagent text and thinking in stream-json output",
+      "translated": "`stream-json` 출력에 서브에이전트 텍스트와 사고 과정을 포함할 수 있도록 `--forward-subagent-text` 플래그와 `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` 환경 변수를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission previews relayed to chat channels not neutralizing bidirectional-override, zero-width, and look-alike quote characters, so tool inputs cannot visually alter the approval message",
+      "translated": "채팅 채널로 전달되는 권한 미리보기에서 양방향 오버라이드, 제로 너비 문자, 유사 따옴표 문자가 중립화되지 않아 도구 입력이 승인 메시지를 시각적으로 변조할 수 있었던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode overriding a PreToolUse hook's `ask` decision for unsandboxed Bash — a hook `ask` now floors the decision at a prompt",
+      "translated": "샌드박스 처리되지 않은 Bash에 대해 자동 모드가 PreToolUse 훅의 `ask` 결정을 무시하던 문제를 수정했습니다. 이제 훅의 `ask` 결정은 프롬프트 확인 단계로 고정됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed parallel Claude Code sessions all logging out simultaneously after wake-from-sleep when many sessions share one credential store",
+      "translated": "여러 세션이 하나의 자격 증명 저장소를 공유할 때, 절전 모드 해제 후 병렬 Claude Code 세션이 모두 동시에 로그아웃되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin MCP servers not reconnecting after an idle web session woke, leaving MCP calls failing until the next message",
+      "translated": "유휴 웹 세션이 재개된 후 플러그인 MCP 서버가 재연결되지 않아 다음 메시지가 전송될 때까지 MCP 호출이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Code on Vertex and Bedrock attempting the default Opus model at startup and printing a spurious fallback notice when a model is explicitly configured",
+      "translated": "Vertex 및 Bedrock의 Claude Code에서 모델이 명시적으로 설정되었음에도 시작 시 기본 Opus 모델을 시도하고 잘못된 폴백 알림을 표시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagents spawned with an explicit model override reverting to the parent's model when resumed or sent a follow-up message",
+      "translated": "명시적인 모델 오버라이드로 생성된 서브에이전트가 재개되거나 후속 메시지를 받을 때 부모 모델의 설정으로 돌아가는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed nested `.claude/rules/*.md` files loading even when setting sources exclude project settings",
+      "translated": "설정 소스에서 프로젝트 설정을 제외하더라도 중첩된 `.claude/rules/*.md` 파일이 로드되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed file upload validation: filenames ending in a DOS device suffix (`.prn`) or trailing dot are now accepted, and files with multiple hard links are refused",
+      "translated": "파일 업로드 유효성 검사 수정: DOS 장치 접미사(`.prn`)로 끝나거나 마침표로 끝나는 파일 이름을 허용하고, 여러 개의 하드 링크가 있는 파일은 거부하도록 변경했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed file uploads to Claude in Chrome from remote and CLI sessions",
+      "translated": "원격 및 CLI 세션에서 Claude in Chrome으로의 파일 업로드 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed edits that leave the input as \"?\" being silently swallowed and toggling the shortcuts panel",
+      "translated": "입력을 \"?\"로 남겨두는 수정 사항이 무시되고 단축키 패널이 토글되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a startup hang when the Claude in Chrome extension is enabled but Chrome is not running",
+      "translated": "Claude in Chrome 확장 프로그램이 활성화되어 있지만 Chrome이 실행 중이지 않을 때 시작 시 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a 300ms delay revealing async content (Settings tabs, Stats, diff views, and other loading states)",
+      "translated": "비동기 콘텐츠(설정 탭, 통계, diff 뷰 및 기타 로딩 상태)를 표시할 때 발생하는 300ms의 지연 시간을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed reopening a just-stopped background session from the agents view starting a blank conversation under the same session id",
+      "translated": "에이전트 뷰에서 방금 중단된 백그라운드 세션을 다시 열 때 동일한 세션 ID로 빈 대화가 시작되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/loop` hiding the session from `/resume` after a single use",
+      "translated": "`/loop`를 한 번 사용한 후 `/resume` 목록에서 해당 세션이 사라지는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed screen reader users losing the audible terminal bell after `/terminal-setup` or onboarding terminal setup",
+      "translated": "`/terminal-setup` 또는 온보딩 터미널 설정 후 스크린 리더 사용자가 터미널 벨 소리를 들을 수 없게 되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background jobs on LLM gateway auth (`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`) coming back \"Not logged in\" after the daemon respawns them",
+      "translated": "데몬이 백그라운드 작업을 다시 생성한 후 LLM 게이트웨이 인증(`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`)을 사용하는 작업이 \"로그인되지 않음\"으로 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` jobs becoming permanently undeletable when git no longer recognizes their worktree — the row now shows why the delete was refused instead of silently reappearing",
+      "translated": "git이 더 이상 작업 트리를 인식하지 못할 때 `claude agents` 작업이 영구적으로 삭제되지 않던 문제를 수정했습니다. 이제 삭제가 거부된 이유를 표시하며, 삭제 후 행이 다시 나타나지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/clear` not resetting the session cost counter — the statusline's cost now starts at $0 after `/clear`",
+      "translated": "`/clear` 명령어가 세션 비용 카운터를 초기화하지 않던 문제를 수정했습니다. 이제 `/clear` 후 상태 표시줄의 비용이 $0부터 시작됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude in Chrome setup pages failing to open in the browser on Windows",
+      "translated": "Windows에서 Claude in Chrome 설정 페이지가 브라우저에서 열리지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed headless print-mode sessions on Windows crashing or silently exiting when stdin is unreadable",
+      "translated": "Windows에서 stdin을 읽을 수 없을 때 헤드리스 print-mode 세션이 충돌하거나 예기치 않게 종료되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background session titles in the agents view showing the naming model's refusal text when the prompt contains a link",
+      "translated": "프롬프트에 링크가 포함된 경우 에이전트 뷰의 백그라운드 세션 제목에 모델의 거부 텍스트가 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background agents killed by the user auto-respawning, and revived agents re-running stale prompts from old sessions",
+      "translated": "사용자가 종료한 백그라운드 에이전트가 자동으로 다시 생성되거나, 복구된 에이전트가 이전 세션의 오래된 프롬프트를 다시 실행하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed routines with no schedule reporting a next run time in the year 1",
+      "translated": "일정이 없는 루틴의 다음 실행 시간이 서기 1년으로 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after `/clear`",
+      "translated": "Windows에서 동기화된 스킬/플러그인 디렉터리 명명 규칙을 강화하고, `/clear` 실행 후에도 CCR 웹 페치/검색 프록시가 계속 작동하도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved terminal layout and rendering performance",
+      "translated": "터미널 레이아웃 및 렌더링 성능을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background agent result reporting — Claude now reports the status of still-running agents and waits for the real completion instead of fabricating results",
+      "translated": "백그라운드 에이전트 결과 보고 기능을 개선했습니다. 이제 Claude는 결과를 임의로 생성하는 대신 실행 중인 에이전트의 상태를 보고하고 실제 완료될 때까지 대기합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the memory index over-limit warning to measure only loaded content, excluding frontmatter and HTML comments",
+      "translated": "메모리 인덱스 초과 경고 시 frontmatter 및 HTML 주석을 제외하고 로드된 콘텐츠만 측정하도록 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like `1e6` and `64_000`",
+      "translated": "정수형 환경 변수(타임아웃, 토큰 예산, 재시도 횟수)에서 `1e6`이나 `64_000`과 같은 지수 표기법 및 숫자 구분 기호를 사용할 수 있도록 업데이트했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated documentation links to the current docs sites",
+      "translated": "링크를 최신 사이트로 업데이트했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed \"always allow\" permission rules to save at the repository root, so approvals granted in a git worktree persist across sessions and worktrees",
+      "translated": "\"항상 허용\" 권한 규칙이 저장소 루트에 저장되도록 변경하여, git worktree에서 부여된 승인이 세션과 작업 트리 간에 유지되도록 했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/usage-credits` to ask for confirmation before sending a request to organization admins",
+      "translated": "`/usage-credits` 명령어가 조직 관리자에게 요청을 보내기 전 확인을 거치도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Vim mode `s` and `S` (substitute char/line) to work in NORMAL mode, matching vim behavior",
+      "translated": "Vim 모드의 `s` 및 `S`(문자/줄 교체)가 실제 Vim 동작과 일치하도록 NORMAL 모드에서 작동하게 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Updated the Remote Control banner to describe what it does",
+      "translated": "[VSCode] Remote Control 배너에 기능 설명을 업데이트했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude in Chrome: hardened file-upload path validation",
+      "translated": "Chrome용 Claude: 파일 업로드 경로 검증을 강화했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude in Chrome: `save_to_disk` on screenshot actions now writes the image to disk and returns the path; previously it did nothing",
+      "translated": "Chrome용 Claude: 스크린샷 작업의 `save_to_disk`가 이제 이미지를 디스크에 저장하고 경로를 반환합니다. (기존에는 아무 동작도 하지 않았습니다.)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a prompt-caching regression on Bedrock, Vertex, Mantle, and Foundry that billed the trailing system context block as fresh input tokens on every request.",
+      "translated": "Bedrock, Vertex, Mantle, Foundry에서 마지막 시스템 컨텍스트 블록이 매 요청마다 새로운 입력 토큰으로 과금되던 프롬프트 캐싱 회귀 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-07-16T03:41:31.458Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4292
+}
