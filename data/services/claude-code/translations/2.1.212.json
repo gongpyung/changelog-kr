@@ -1,0 +1,302 @@
+{
+  "version": "2.1.212",
+  "date": "2026-07-17",
+  "parsedAt": "2026-07-17T03:40:51.182Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/fork` now copies your conversation into a new background session (its own row in `claude agents`) while you keep working; the in-session subagent it used to launch is now `/subtask`",
+      "translated": "`/fork` 명령어가 이제 대화를 새로운 백그라운드 세션(`claude agents` 내 별도 행)으로 복사하여 작업을 계속할 수 있게 하며, 기존에 실행되던 세션 내 서브에이전트는 이제 `/subtask`로 변경되었습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude auto-mode reset` to restore the default auto-mode configuration, with a confirmation prompt (pass `--yes` to skip)",
+      "translated": "기본 auto-mode 설정을 복구하는 `claude auto-mode reset` 명령어를 추가했으며, 확인 프롬프트가 표시됩니다 (`--yes`를 전달하여 생략 가능)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a session-wide limit on WebSearch tool calls (default 200, tunable via `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`) to stop runaway search loops",
+      "translated": "무한 검색 루프를 방지하기 위해 세션 전체 WebSearch 도구 호출 제한(기본값 200, `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`을 통해 조정 가능)을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a per-session cap on subagent spawns (default 200, override with `CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION`) to stop runaway delegation loops; `/clear` resets the budget",
+      "translated": "무한 위임 루프를 방지하기 위해 세션당 서브에이전트 생성 제한(기본값 200, `CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION`으로 재설정 가능)을 추가했습니다. `/clear` 명령어로 이 제한을 초기화할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP tool calls running longer than 2 minutes now move to the background automatically so the session stays usable; configure the threshold or disable with `CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS`",
+      "translated": "2분 이상 실행되는 MCP 도구 호출이 자동으로 백그라운드로 이동하여 세션을 계속 사용할 수 있게 되었습니다. `CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS`를 통해 임계값을 설정하거나 기능을 비활성화할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Typing `/resume` in the agent view now opens a picker of past sessions — including sessions deleted from the list — and resumes your pick as a background session",
+      "translated": "에이전트 뷰에서 `/resume`을 입력하면 목록에서 삭제된 세션을 포함한 과거 세션 선택 창이 열리며, 선택한 세션을 백그라운드 세션으로 재개합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plan mode auto-running file-modifying Bash commands (e.g. `touch`, `rm`) without a permission prompt or SDK `canUseTool` callback",
+      "translated": "plan mode에서 권한 확인 프롬프트나 SDK `canUseTool` 콜백 없이 파일 수정 Bash 명령어(예: `touch`, `rm`)가 자동으로 실행되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worktree creation following a repository-committed symlink at `.claude/worktrees`, which could create files outside the repository",
+      "translated": "`.claude/worktrees`에 커밋된 심볼릭 링크를 따라 worktree를 생성할 때 저장소 외부에 파일이 생성될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a `continue:false` hook's halt being dropped when the tool fails or completes mid-stream, and hook infrastructure errors being misreported as user rejections",
+      "translated": "도구가 실패하거나 스트림 중간에 완료될 때 `continue:false` 훅의 중단 처리가 누락되는 문제와 훅 인프라 오류가 사용자 거부로 잘못 보고되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SIGTERM during a running Bash tool orphaning the command's process tree in print/SDK mode; the CLI now aborts the turn, kills the tree, and exits 143",
+      "translated": "Bash 도구 실행 중 SIGTERM이 발생했을 때 print/SDK 모드에서 해당 명령어의 프로세스 트리가 고립(orphan)되는 문제를 수정했습니다. 이제 CLI는 해당 턴을 중단하고 프로세스 트리를 종료한 뒤 종료 코드 143으로 종료합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/background` and `claude --bg` failing with \"EUNKNOWN: unknown error, uv_spawn\" on Windows when Group Policy blocks PowerShell 5.1; the daemon now prefers PowerShell 7",
+      "translated": "그룹 정책이 PowerShell 5.1을 차단하는 Windows 환경에서 `/background` 및 `claude --bg` 실행 시 \"EUNKNOWN: unknown error, uv_spawn\" 오류가 발생하던 문제를 수정했습니다. 이제 데몬은 PowerShell 7을 우선적으로 사용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed shell mode (`!`) not executing commands containing file paths while the path autocomplete popup was open",
+      "translated": "경로 자동 완성 팝업이 열려 있는 동안 shell mode(`!`)에서 파일 경로가 포함된 명령어가 실행되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto-mode denial notifications rendering broken characters when a long denial reason was truncated mid-emoji",
+      "translated": "auto-mode 거부 알림에서 긴 거부 사유가 이모지 중간에서 잘릴 때 문자가 깨져서 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+J not inserting a newline in the agent view dispatch input on terminals with extended key reporting, and surfaced the newline shortcut in the `?` help overlay",
+      "translated": "확장 키 보고 기능이 있는 터미널의 에이전트 뷰 입력창에서 Ctrl+J로 줄바꿈이 삽입되지 않던 문제를 수정하고, `?` 도움말 오버레이에 줄바꿈 단축키를 표시했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview` rejecting PR references like `#123`, `PR 123`, and pasted PR URLs; error hints now name the command you actually typed",
+      "translated": "`/ultrareview`가 `#123`, `PR 123` 및 붙여넣은 PR URL과 같은 PR 참조를 거부하던 문제를 수정했습니다. 이제 오류 힌트에 실제로 입력한 명령어가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview <branch>` not fetching the branch from origin when it exists remotely; it now suggests the closest branch name on typos",
+      "translated": "`/ultrareview <branch>` 실행 시 원격에 브랜치가 존재함에도 origin에서 가져오지 못하던 문제를 수정했습니다. 이제 오타가 발생하면 가장 유사한 브랜치 이름을 제안합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview` skipping the billing confirmation in a new conversation after `/clear`",
+      "translated": "`/clear` 이후 새로운 대화에서 `/ultrareview`가 결제 확인 단계를 건너뛰던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview`'s \"not a git repository\" error on Claude Desktop now suggesting the project's repository folder instead of terminal commands",
+      "translated": "Claude Desktop에서 `/ultrareview` 실행 시 발생하는 \"not a git repository\" 오류가 이제 터미널 명령어 대신 프로젝트의 저장소 폴더를 제안하도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hosted (host-managed) sessions failing at startup when repository settings configured mTLS certs, extra CA bundles, or OAuth scopes; these transport settings are now ignored with a warning",
+      "translated": "저장소 설정에 mTLS 인증서, 추가 CA 번들 또는 OAuth 스코프가 구성된 경우 호스팅(호스트 관리) 세션이 시작 시 실패하던 문제를 수정했습니다. 이제 이러한 전송 설정은 경고와 함께 무시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a spurious \"File has not been read yet\" error when editing a file that had been read with offset/limit before resuming a session",
+      "translated": "세션 재개 전 offset/limit으로 읽었던 파일을 편집할 때 \"File has not been read yet\" 오류가 잘못 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ExitWorktree` failing with \"no active EnterWorktree session\" after resuming a session with `--continue`/`--resume` in print/SDK mode",
+      "translated": "print/SDK 모드에서 `--continue`/`--resume`으로 세션을 재개한 후 `ExitWorktree`가 \"no active EnterWorktree session\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the workflow agent grid staying empty for Remote Control clients that join a session mid-run",
+      "translated": "실행 도중 세션에 참여한 Remote Control 클라이언트의 워크플로 에이전트 그리드가 비어 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed streaming-mode control requests being marked complete before their handler finished, which could lose the request on session restart",
+      "translated": "스트리밍 모드 제어 요청이 핸들러가 완료되기 전에 완료된 것으로 표시되어, 세션 재시작 시 요청이 유실될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions created with `/fork` losing their live-parent protection after a state write failure",
+      "translated": "`/fork`로 생성된 백그라운드 세션이 상태 쓰기 실패 후 라이브 부모 보호(live-parent protection) 기능을 상실하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed reopening a stopped background session from the agent view failing silently — it now resumes the session, or shows why it can't and lets you force a restart",
+      "translated": "에이전트 뷰에서 중지된 백그라운드 세션을 다시 열 때 아무런 반응 없이 실패하던 문제를 수정했습니다. 이제 세션을 재개하거나, 재개가 불가능한 이유를 표시하고 강제 재시작을 선택할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent teams: a stopping teammate could send the leader duplicate idle notifications when team initialization re-ran within a session",
+      "translated": "에이전트 팀 관련 수정: 세션 내에서 팀 초기화가 재실행될 때 중지 중인 팀원이 리더에게 중복된 유휴(idle) 알림을 보낼 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the plan-approval dialog footer splitting \"ctrl+g to edit in <editor>\" apart when the file path is long",
+      "translated": "파일 경로가 길 때 플랜 승인 대화상자 하단의 \"ctrl+g to edit in <editor>\" 문구가 잘리거나 분리되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the welcome banner keeping its old panel widths after a combined width+height terminal resize in fullscreen mode",
+      "translated": "전체 화면 모드에서 터미널의 가로와 세로 크기를 동시에 조정한 후에도 웰컴 배너가 이전 패널 너비를 유지하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed diff previews losing their line numbers and +/- markers in narrow layouts",
+      "translated": "좁은 레이아웃에서 diff 미리보기의 줄 번호와 +/- 표시가 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed @-mentions attaching nothing after a partial file read, plugin uninstall targeting the wrong marketplace, and false \"Command timed out\" on exit code 143",
+      "translated": "파일 일부 읽기 후 @-멘션에 아무것도 첨부되지 않던 문제, 플러그인 삭제 시 잘못된 마켓플레이스를 대상으로 하던 문제, 종료 코드 143에서 \"Command timed out\" 오류가 잘못 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OpenTelemetry HTTP exports being rejected with 411/400 by Azure Monitor and other endpoints that don't accept chunked transfer encoding",
+      "translated": "청크 전송 인코딩(chunked transfer encoding)을 허용하지 않는 Azure Monitor 및 기타 엔드포인트에서 OpenTelemetry HTTP 내보내기가 411/400 오류로 거부되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OTLP event log records missing `trace_id`/`span_id` when `TRACEPARENT` is set in SDK/headless mode",
+      "translated": "SDK/headless 모드에서 `TRACEPARENT`가 설정되어 있을 때 OTLP 이벤트 로그 레코드에 `trace_id`/`span_id`가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed conversations with many images incorrectly failing with \"Request too large\" errors, and improved the error message to explain the actual cause",
+      "translated": "이미지가 많은 대화에서 \"Request too large\" 오류가 잘못 발생하던 문제를 수정하고, 실제 원인을 설명하도록 오류 메시지를 개선했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed web search and web fetch returning \"API Error\" text as search results or page content when the API was overloaded",
+      "translated": "API 부하 발생 시 웹 검색 및 웹 페치 결과에 \"API Error\" 텍스트가 검색 결과나 페이지 내용으로 반환되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved web search and web fetch reliability by retrying 529 errors and rate-limited requests with bounded backoff",
+      "translated": "529 오류 및 속도 제한(rate-limit) 요청에 대해 제한된 백오프(bounded backoff)로 재시도하도록 하여 웹 검색 및 웹 페치의 안정성을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved prompt caching: the mid-conversation system block now works behind LLM gateways and custom base URLs (Bedrock, Vertex, 1P)",
+      "translated": "프롬프트 캐싱 개선: 이제 LLM 게이트웨이 및 커스텀 베이스 URL(Bedrock, Vertex, 1P) 환경에서도 대화 중간의 시스템 블록이 작동합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved background agent attach: cold-attaching now instantly shows the formatted transcript while the session boots, instead of a blank wait",
+      "translated": "백그라운드 에이전트 연결 개선: 콜드 어태치(cold-attaching) 시 세션이 부팅되는 동안 빈 화면으로 대기하는 대신 서식이 지정된 트랜스크립트를 즉시 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced token usage in inter-agent messaging: `SendMessage` bodies are no longer duplicated into replayed history and tool results",
+      "translated": "에이전트 간 메시징의 토큰 사용량 감소: `SendMessage` 본문이 재생된 히스토리 및 도구 결과에 더 이상 중복되어 포함되지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/fork` to name the copy after your prompt when the session has no title, so the row is recognizable in the agent view",
+      "translated": "세션 제목이 없는 경우 `/fork` 시 복사본의 이름을 프롬프트에 따라 지정하여 에이전트 뷰에서 해당 항목을 쉽게 식별할 수 있도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed bare `/btw` to reopen the side-question panel on your most recent exchange so you can browse earlier answers",
+      "translated": "인자 없이 `/btw`만 입력할 경우 가장 최근 대화의 사이드 질문 패널을 다시 열어 이전 답변들을 찾아볼 수 있도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the `←` footer hint to pulse `N done` for a moment when a background agent finishes while nothing needs your input",
+      "translated": "사용자의 입력이 필요하지 않은 상태에서 백그라운드 에이전트가 종료되면 `←` 푸터 힌트가 잠시 동안 `N done`으로 깜빡이도록 변경되었습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Deprecated the Task tool's `mode` parameter (now ignored); subagents inherit the parent session's permission mode by default",
+      "translated": "Task 도구의 `mode` 파라미터를 지원 중단했습니다(현재는 무시됨). 이제 서브 에이전트는 기본적으로 상위 세션의 권한 모드를 상속합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Enterprise `forceLoginMethod` to be enforced for VS Code extension, SDK, `setup-token`, and `install-github-app` logins, not just the terminal",
+      "translated": "Enterprise `forceLoginMethod`가 터미널뿐만 아니라 VS Code extension, SDK, `setup-token`, `install-github-app` 로그인 시에도 적용되도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed session transcripts to record the reasoning effort level on each assistant message",
+      "translated": "세션 기록 시 각 어시스턴트 메시지에 추론 노력 수준(reasoning effort level)이 기록되도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed headless/SDK sessions to apply a `set_model` control request mid-turn; the next model round-trip uses the new model instead of waiting for the next turn",
+      "translated": "headless/SDK 세션에서 턴 중간에 `set_model` 제어 요청을 적용하도록 변경되었습니다. 다음 모델 라운드트립은 다음 턴까지 기다리지 않고 새 모델을 사용합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed agent view / `claude agents --json`: sessions waiting on a sandbox, MCP-input, or managed-settings prompt now show as \"Needs input\" instead of \"Working\"",
+      "translated": "에이전트 뷰 및 `claude agents --json`에서 샌드박스, MCP-input 또는 managed-settings 프롬프트를 대기 중인 세션이 \"Working\" 대신 \"Needs input\"으로 표시되도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the auth status panel title from \"Cloud authentication\" to \"Authentication\"",
+      "translated": "인증 상태 패널의 제목을 \"Cloud authentication\"에서 \"Authentication\"으로 업데이트했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Corrected an earlier release note (2.1.200): tmux through the 3.6 series lacks synchronized output; newer tmux with support is detected automatically",
+      "translated": "이전 릴리스 노트(2.1.200) 내용을 수정했습니다. tmux 3.6 시리즈까지는 출력 동기화 기능이 없으며, 해당 기능을 지원하는 최신 버전의 tmux는 자동으로 감지됩니다."
+    }
+  ],
+  "translatedAt": "2026-07-17T03:42:13.080Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6541
+}
