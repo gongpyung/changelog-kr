@@ -1,0 +1,296 @@
+{
+  "version": "2.1.214",
+  "date": "2026-07-18",
+  "parsedAt": "2026-07-18T03:35:14.513Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed single-segment `dir/**` allow rules like `Edit(src/**)` auto-approving writes to nested `dir/` directories anywhere in the tree instead of only `<cwd>/dir`",
+      "translated": "`Edit(src/**)`와 같은 단일 세그먼트 `dir/**` 허용 규칙이 `<cwd>/dir`뿐만 아니라 트리 내 모든 위치의 중첩된 `dir/` 디렉터리에 대한 쓰기 작업을 자동 승인하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a permission-check bypass affecting commands run in Windows PowerShell 5.1 sessions",
+      "translated": "Windows PowerShell 5.1 세션에서 실행되는 명령에 영향을 미치는 권한 확인 우회 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission checks to fail closed on file-descriptor redirect forms that bash parses differently than the permission analyzer",
+      "translated": "Bash가 권한 분석기와 다르게 해석하는 파일 디스크립터 리다이렉션 형식에 대해 Bash 권한 확인이 안전하게 거부(fail closed)되도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission checks misjudging very long commands — commands over 10,000 characters now always prompt instead of running automatically",
+      "translated": "매우 긴 명령에 대해 Bash 권한 확인이 오판하던 문제를 수정했습니다. 10,000자가 넘는 명령은 이제 자동으로 실행되지 않고 항상 승인 요청을 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission checks treating zsh variable subscripts and modifiers in `[[ ]]` comparisons as inert text — these commands now prompt for approval",
+      "translated": "Bash 권한 확인 시 `[[ ]]` 비교 구문 내의 zsh 변수 첨자(subscripts) 및 수정자(modifiers)를 일반 텍스트로 취급하던 문제를 수정했습니다. 이제 이러한 명령은 승인 요청을 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission checks to no longer auto-approve certain `help` and `man` commands that could run unsafe options, command substitutions, or backslash paths",
+      "translated": "안전하지 않은 옵션, 명령 치환 또는 백슬래시 경로를 실행할 수 있는 특정 `help` 및 `man` 명령을 Bash 권한 확인에서 더 이상 자동 승인하지 않도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission prompts on remote sessions that could proceed before the local confirmation dialog",
+      "translated": "원격 세션에서 로컬 확인 대화 상자가 나타나기 전에 권한 요청이 진행될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the EndConversation tool: Claude can end sessions with highly abusive users or jailbreak attempts, as on claude.ai since 2025 — see https://www.anthropic.com/research/end-subset-conversations",
+      "translated": "EndConversation 도구를 추가했습니다. 2025년부터 claude.ai에 적용된 것과 같이, Claude가 심각한 남용 사용자나 탈옥(jailbreak) 시도가 있는 세션을 종료할 수 있습니다. 자세한 내용은 https://www.anthropic.com/research/end-subset-conversations를 참조하세요."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a periodic progress heartbeat for long-running tool calls that previously went silent",
+      "translated": "이전에는 응답이 없던 장시간 실행되는 도구 호출에 대해 주기적인 진행 상태 하트비트(heartbeat)를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an ISO `modified` timestamp to memory file frontmatter",
+      "translated": "메모리 파일 프런트매터(frontmatter)에 ISO 형식의 `modified` 타임스탬프를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `message.uuid`, `client_request_id`, and `tool_source` attributes to OpenTelemetry log events for message-level correlation and tool provenance",
+      "translated": "메시지 수준의 상관관계 분석 및 도구 출처 확인을 위해 OpenTelemetry 로그 이벤트에 `message.uuid`, `client_request_id`, `tool_source` 속성을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH` to configure the 60 KB truncation limit on OpenTelemetry content attributes",
+      "translated": "OpenTelemetry 콘텐츠 속성의 60 KB 생략 제한을 설정할 수 있는 `CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH`를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added reasoning effort to the `subagentStatusLine` payload, so custom agent rows can render model and effort",
+      "translated": "`subagentStatusLine` 페이로드에 추론 작업량(reasoning effort)을 추가하여, 커스텀 에이전트 행에서 모델과 작업량을 렌더링할 수 있도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added permission prompts for `docker` commands (including the Podman `docker` shim) carrying daemon-redirect flags (`--url`, `--connection`, `--identity`, and Podman's remote mode) that previously ran without one",
+      "translated": "이전에는 승인 없이 실행되었던 데몬 리다이렉트 플래그(`--url`, `--connection`, `--identity` 및 Podman의 원격 모드)가 포함된 `docker` 명령(Podman의 `docker` 심(shim) 포함)에 대해 권한 요청을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when a GrowthBook feature evaluates to null, and a bug where a malformed flag payload could wipe the cached feature flags",
+      "translated": "GrowthBook 기능이 null로 평가될 때 발생하는 충돌과 잘못된 형식의 플래그 페이로드로 인해 캐시된 기능 플래그가 삭제될 수 있는 버그를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash tool killing the Claude session when a `pkill -f` pattern accidentally matched the CLI's own process (Linux)",
+      "translated": "(Linux) `pkill -f` 패턴이 실수로 CLI 자체 프로세스와 일치할 경우 Bash 도구가 Claude 세션을 종료하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth when `--settings` points at a device file or multi-GB file; oversized (>2 MiB) settings files now fail at startup with a clear error",
+      "translated": "`--settings`가 장치 파일이나 수 GB 크기의 파일을 가리킬 때 메모리가 무제한으로 증가하던 문제를 수정했습니다. 이제 2 MiB를 초과하는 너무 큰 설정 파일은 시작 시 명확한 오류와 함께 실패 처리됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed streaming turns failing with \"Socket is closed\" behind corporate proxies on Windows",
+      "translated": "Windows의 기업용 프록시 환경에서 스트리밍 턴(turn)이 \"Socket is closed\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stream-json output truncation at exit for slow-reading SDK/pipeline consumers; the exit drain now scales with queued bytes instead of a flat 2s cap",
+      "translated": "읽기 속도가 느린 SDK 또는 파이프라인 소비자의 경우 종료 시 stream-json 출력이 잘리던 문제를 수정했습니다. 이제 종료 시 데이터 배출(drain) 시간이 고정된 2초 제한 대신 대기 중인 바이트 수에 따라 조절됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scheduled tasks refusing their own configured prompt as untrusted input — the fired prompt is now delivered as the session's assigned task",
+      "translated": "예약된 작업이 자체 설정된 프롬프트를 신뢰할 수 없는 입력으로 거부하던 문제를 수정했습니다. 이제 실행된 프롬프트는 세션에 할당된 작업으로 정상 전달됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell tool commands hanging until timeout when a child process waited on standard input (Windows)",
+      "translated": "자식 프로세스가 표준 입력을 대기할 때 PowerShell 도구 명령이 타임아웃될 때까지 응답하지 않던 문제 수정 (Windows)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Python scripts under the PowerShell tool crashing with UnicodeDecodeError when reading non-UTF-8 data from standard input (Windows)",
+      "translated": "PowerShell 도구에서 실행되는 Python 스크립트가 표준 입력으로부터 비 UTF-8 데이터를 읽을 때 `UnicodeDecodeError`와 함께 충돌하던 문제 수정 (Windows)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Python scripts run via the PowerShell tool crashing with UnicodeEncodeError on non-ASCII output, and PowerShell 7 error messages containing raw ANSI escape sequences (Windows)",
+      "translated": "PowerShell 도구를 통해 실행된 Python 스크립트가 비 ASCII 출력 시 `UnicodeEncodeError`로 충돌하던 문제 및 PowerShell 7 오류 메시지에 원시 ANSI 이스케이프 시퀀스가 포함되던 문제 수정 (Windows)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the PowerShell tool reporting `where.exe`, `fc.exe`, and `diff.exe` as errors when they return a valid negative answer (Windows)",
+      "translated": "PowerShell 도구에서 `where.exe`, `fc.exe`, `diff.exe`가 유효한 부정적 응답을 반환할 때 이를 오류로 보고하던 문제 수정 (Windows)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `>` and `>>` under the PowerShell tool on Windows PowerShell 5.1 writing UTF-16LE files that other tools couldn't read as UTF-8",
+      "translated": "Windows PowerShell 5.1의 PowerShell 도구에서 `>` 및 `>>`가 다른 도구에서 UTF-8로 읽을 수 없는 UTF-16LE 파일을 생성하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a displaced background daemon deleting its successor's control socket on shutdown, which made the next client kill the healthy replacement daemon",
+      "translated": "교체된 백그라운드 데몬이 종료될 때 후속 데몬의 제어 소켓을 삭제하여, 다음 클라이언트가 정상적인 대체 데몬을 종료시키던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions parked with `←` or `/background` and left idle keeping the background daemon and a worker process alive indefinitely",
+      "translated": "`←` 또는 `/background`로 전환된 후 유휴 상태로 남은 백그라운드 세션이 백그라운드 데몬과 워커 프로세스를 무기한 유지하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed completed background sessions being impossible to remove via `claude rm` or the agent view once the background service had gone idle",
+      "translated": "백그라운드 서비스가 유휴 상태가 된 후 완료된 백그라운드 세션을 `claude rm` 또는 에이전트 뷰에서 삭제할 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions dispatched from a non-git folder being impossible to delete from the agents view",
+      "translated": "git 폴더가 아닌 곳에서 시작된 백그라운드 세션을 에이전트 뷰에서 삭제할 수 없던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed reopening a stopped background session failing to restore its saved conversation when an unreadable folder exists in the session store",
+      "translated": "세션 저장소에 읽을 수 없는 폴더가 있을 경우, 중지된 백그라운드 세션을 다시 열 때 저장된 대화 내용을 복원하지 못하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Remote Control \"session ready\" push notification firing for sessions where Remote Control was not explicitly enabled",
+      "translated": "Remote Control이 명시적으로 활성화되지 않은 세션에서 Remote Control \"세션 준비 완료\" 푸시 알림이 발생하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/install-github-app` and the `/mcp` settings menu being blocked in agent-view sessions — they're now refused only in background sessions with no terminal attached",
+      "translated": "에이전트 뷰 세션에서 `/install-github-app` 및 `/mcp` 설정 메뉴가 차단되던 문제 수정 (이제 터미널이 연결되지 않은 백그라운드 세션에서만 거부됨)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugins enabled via the `--settings` CLI flag not loading (regression since v2.1.181)",
+      "translated": "`--settings` CLI 플래그를 통해 활성화된 플러그인이 로드되지 않던 문제 수정 (v2.1.181 이후 발생한 회귀 오류)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed feature flags going stale in long-running sessions after the OAuth token rotates",
+      "translated": "OAuth 토큰이 갱신된 후 장시간 실행 중인 세션에서 기능 플래그가 만료되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview` refusing to run in repos with no merge base — it now offers to review all tracked files",
+      "translated": "머지 베이스(merge base)가 없는 저장소에서 `/ultrareview` 실행이 거부되던 문제 수정 (이제 추적 중인 모든 파일에 대한 리뷰를 제안함)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude update` and `claude doctor` hanging silently, and the `/status` System diagnostics section going blank, when a shell-config path is a directory",
+      "translated": "shell-config 경로가 디렉토리일 때 `claude update` 및 `claude doctor`가 응답 없이 멈추고 `/status` 시스템 진단 섹션이 빈칸으로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory frontmatter values being silently truncated at an inline `#` when memory files are saved",
+      "translated": "메모리 파일을 저장할 때 인라인 `#` 기호에서 메모리 frontmatter 값이 예고 없이 잘리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session cost and token telemetry double-counting on streams that emit multiple cumulative `message_delta` frames",
+      "translated": "누적된 `message_delta` 프레임을 여러 번 전송하는 스트림에서 세션 비용 및 토큰 텔레메트리가 중복 집계되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a spurious \"check your network\" warning that appeared while the advisor was thinking",
+      "translated": "어드바이저가 생각하는 동안 잘못된 \"네트워크를 확인하세요\" 경고가 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hooks with exit code 2 not blocking as documented when the hook's stdout JSON fails schema validation",
+      "translated": "훅의 표준 출력 JSON이 스키마 검증에 실패했을 때, 종료 코드 2를 가진 훅이 문서에 명시된 대로 차단되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OTel log events emitted outside the turn's async context missing the interaction span's trace context",
+      "translated": "턴의 비동기 컨텍스트 외부에서 발생한 OTel 로그 이벤트에 인터랙션 스팬의 트레이스 컨텍스트가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP transient errors during prompts/resources refresh clearing the server's slash commands and resources",
+      "translated": "프롬프트 및 리소스 새로고침 중 발생한 MCP 일시적 오류로 인해 서버의 슬래시 명령어와 리소스가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the `claude rc` workspace-trust error in the home directory to say trust there is never saved and to suggest running from a project directory",
+      "translated": "홈 디렉터리에서 `claude rc` 실행 시 발생하는 워크스페이스 신뢰 오류 메시지를 개선하여, 해당 위치에서는 신뢰 설정이 저장되지 않음을 안내하고 프로젝트 디렉터리에서 실행하도록 권장합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed single-segment `dir/**` hook `if:` conditions to match only `<cwd>/dir`; write `**/dir/**` for any-depth matching. `deny`/`ask` permission rules keep their any-depth match.",
+      "translated": "단일 세그먼트 `dir/**` 훅의 `if:` 조건이 `<cwd>/dir`만 일치하도록 변경되었습니다. 모든 깊이에서 일치시키려면 `**/dir/**`를 사용하세요. `deny` 및 `ask` 권한 규칙은 기존의 모든 깊이 일치 방식을 유지합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `file` commands using `-m`/`--magic-file` or `-f`/`--files-from` to require permission instead of being auto-allowed as read-only",
+      "translated": "`-m`/`--magic-file` 또는 `-f`/`--files-from` 옵션을 사용하는 `file` 명령어가 읽기 전용으로 자동 허용되는 대신 권한 승인을 요구하도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed keep-alive connection pooling to disable after a stale-connection error, so retries open a fresh socket",
+      "translated": "연결 만료(stale-connection) 오류 발생 시 keep-alive 연결 풀링을 비활성화하여, 재시도 시 새로운 소켓을 열도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed SessionStart hooks to report source `\"fork\"` when a session begins as a fork instead of `\"resume\"`",
+      "translated": "세션이 포크로 시작될 때 SessionStart 훅이 `\"resume\"` 대신 `\"fork\"` 소스를 보고하도록 변경되었습니다."
+    }
+  ],
+  "translatedAt": "2026-07-18T03:36:28.925Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6103
+}
