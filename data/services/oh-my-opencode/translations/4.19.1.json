@@ -1,0 +1,998 @@
+{
+  "version": "4.19.1",
+  "date": "2026-07-22",
+  "parsedAt": "2026-07-22T14:25:03.837Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9c81de52a Merge pull request #6300 from code-yeongyu/release/v4.19.1-source-state",
+      "translated": "Merge pull request #6300 from code-yeongyu/release/v4.19.1-source-state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "499b52358 Merge pull request #6293 from code-yeongyu/fix/config-watch-rejection-reregister",
+      "translated": "Merge pull request #6293 from code-yeongyu/fix/config-watch-rejection-reregister"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "166d2e1ab Merge pull request #6294 from code-yeongyu/fix/windows-flaky-coalesced-flush-wait",
+      "translated": "Merge pull request #6294 from code-yeongyu/fix/windows-flaky-coalesced-flush-wait"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ad0085b2b test(background-agent): await guaranteed flush-settle signal, not a poll-cap race",
+      "translated": "Await guaranteed flush-settle signal, not a poll-cap race"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "97b05026f Merge pull request #6290 from code-yeongyu/fix/139-marketplace-root-manifest",
+      "translated": "Merge pull request #6290 from code-yeongyu/fix/139-marketplace-root-manifest"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3d0e683d fix(script): also write marketplace.json to the lazycodex repo root",
+      "translated": "Also write marketplace.json to the lazycodex repo root"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4ae3be456 Merge pull request #6289 from code-yeongyu/test/136-codex-only-install-exit-status",
+      "translated": "Merge pull request #6289 from code-yeongyu/test/136-codex-only-install-exit-status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "85a1bec60 Merge pull request #6285 from code-yeongyu/fix/108-sync-component-clis",
+      "translated": "Merge pull request #6285 from code-yeongyu/fix/108-sync-component-clis"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8cfd05ce8 Merge pull request #6287 from code-yeongyu/fix/137-npm-ci-lock-drift",
+      "translated": "Merge pull request #6287 from code-yeongyu/fix/137-npm-ci-lock-drift"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "66a174fe3 test(install): regression-lock codex-only install failure exit status\\n\\nProves cli/tui installers exit non-zero when a codex-only Codex install fails, preserving the platform=both partial-success path. Reported in lazycodex#136.",
+      "translated": "Regression-lock codex-only install failure exit status\\n\\nProves cli/tui installers exit non-zero when a codex-only Codex install fails, preserving the platform=both partial-success path. Reported in lazycodex#136."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "102caa9bf Merge pull request #6288 from code-yeongyu/fix/131-orca-duplicate-agent-roles",
+      "translated": "Merge pull request #6288 from code-yeongyu/fix/131-orca-duplicate-agent-roles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1dfb1f56f Merge pull request #6286 from code-yeongyu/fix/111-no-excuse-ts-resolution",
+      "translated": "Merge pull request #6286 from code-yeongyu/fix/111-no-excuse-ts-resolution"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4368a3798 test(codex-install): parity test expects npm install after outside-plugin file dep rewrite",
+      "translated": "Parity test expects npm install after outside-plugin file dep rewrite"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "855ff8f93 fix(script): normalize managed bin target path to POSIX for win32 validation",
+      "translated": "Normalize managed bin target path to POSIX for win32 validation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b302c91f fix(codex-bootstrap): do not re-register roles already declared in config.toml\\n\\nAvoids 13 duplicate-role warnings under Orca-mirrored CODEX_HOME. Reported in lazycodex#131.",
+      "translated": "Do not re-register roles already declared in config.toml\\n\\nAvoids 13 duplicate-role warnings under Orca-mirrored CODEX_HOME. Reported in lazycodex#131."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b2a11b54 fix(codex-install): use npm install when the local file dep rewrite changed package.json\\n\\nAvoids npm ci EUSAGE after the rewrite desyncs the lock. Reported in lazycodex#137, approach from oh-my-openagent#6202.",
+      "translated": "Use npm install when the local file dep rewrite changed package.json\\n\\nAvoids npm ci EUSAGE after the rewrite desyncs the lock. Reported in lazycodex#137, approach from oh-my-openagent#6202."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0e4841e4b Merge pull request #6284 from code-yeongyu/fix/windows-ci-timing-flakes",
+      "translated": "Merge pull request #6284 from code-yeongyu/fix/windows-ci-timing-flakes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "90eb338c0 fix(programming): resolve typescript from caller project in check-no-excuse-rules\\n\\nDynamic caller-scoped resolution so the script works from an installed skill cache. Reported in lazycodex#111.",
+      "translated": "Resolve typescript from caller project in check-no-excuse-rules\\n\\nDynamic caller-scoped resolution so the script works from an installed skill cache. Reported in lazycodex#111."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1bf0f4363 fix(script): bundle component bin CLIs and drop nested gitignore from marketplace payload\\n\\nNested component .gitignore beat the lazycodex root negation so start-work-continuation and ulw-loop dist CLIs were skipped by git add. Reported in lazycodex#108.",
+      "translated": "Bundle component bin CLIs and drop nested gitignore from marketplace payload\\n\\nNested component .gitignore beat the lazycodex root negation so start-work-continuation and ulw-loop dist CLIs were skipped by git add. Reported in lazycodex#108."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d59736a10 Merge pull request #6281 from code-yeongyu/fix/133-sessionstart-timeout-headroom",
+      "translated": "Merge pull request #6281 from code-yeongyu/fix/133-sessionstart-timeout-headroom"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "96b8c9700 Merge pull request #6282 from code-yeongyu/fix/128-service-tier-optout",
+      "translated": "Merge pull request #6282 from code-yeongyu/fix/128-service-tier-optout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b7ff3f1a6 Merge pull request #6280 from code-yeongyu/fix/138-doctor-codex-win-shim",
+      "translated": "Merge pull request #6280 from code-yeongyu/fix/138-doctor-codex-win-shim"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "04c45517d Merge pull request #6278 from code-yeongyu/fix/117-antigravity-gemini-transform",
+      "translated": "Merge pull request #6278 from code-yeongyu/fix/117-antigravity-gemini-transform"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4c6f1872a Merge pull request #6279 from code-yeongyu/fix/124-ulw-plan-ultrawork-collision",
+      "translated": "Merge pull request #6279 from code-yeongyu/fix/124-ulw-plan-ultrawork-collision"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0d9180a54 docs(codex): document and lock the explorer/librarian service-tier opt-out",
+      "translated": "Document and lock the explorer/librarian service-tier opt-out"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "401dda2d2 fix(codex): raise cold-start SessionStart hook timeouts to 15s\\n\\nTelemetry/auto-update/codegraph SessionStart manifests 5s -> 15s to survive Windows cold starts. Reported in lazycodex#133.",
+      "translated": "Raise cold-start SessionStart hook timeouts to 15s\\n\\nTelemetry/auto-update/codegraph SessionStart manifests 5s -> 15s to survive Windows cold starts. Reported in lazycodex#133."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d47759973 fix(codex-install): resolve codex .cmd shim on Windows for doctor spawn\\n\\nAdd codex to the win32 cmd-shim set so doctor spawns codex.cmd instead of ENOENTing. Reported in lazycodex#138.",
+      "translated": "Resolve codex .cmd shim on Windows for doctor spawn\\n\\nAdd codex to the win32 cmd-shim set so doctor spawns codex.cmd instead of ENOENTing. Reported in lazycodex#138."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "454cb1630 Merge pull request #6276 from code-yeongyu/fix/129-stop-resume-path-traversal",
+      "translated": "Merge pull request #6276 from code-yeongyu/fix/129-stop-resume-path-traversal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1db84c906 Merge pull request #6277 from code-yeongyu/fix/125-postcompact-gpt56-budget",
+      "translated": "Merge pull request #6277 from code-yeongyu/fix/125-postcompact-gpt56-budget"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d0b86901e fix(ultrawork): stop ulw-plan/ulw-research from triggering ultrawork mode\\n\\nNegative lookahead carves ulw-plan and ulw-research out of the trigger pattern; ultrawork/ulw/ulw-loop still match. Reported in lazycodex#124.",
+      "translated": "Stop ulw-plan/ulw-research from triggering ultrawork mode\\n\\nNegative lookahead carves ulw-plan and ulw-research out of the trigger pattern; ultrawork/ulw/ulw-loop still match. Reported in lazycodex#124."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "71557afab fix(model-core): keep antigravity-gemini-3-flash out of the -preview rewrite\\n\\nNegative lookbehind so antigravity-prefixed gemini-3-flash ids are not rewritten to an invalid -preview id. Reported in lazycodex#117.",
+      "translated": "Keep antigravity-gemini-3-flash out of the -preview rewrite\\n\\nNegative lookbehind so antigravity-prefixed gemini-3-flash ids are not rewritten to an invalid -preview id. Reported in lazycodex#117."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9e428f568 fix(rules): add GPT-5.6 context budgets for PostCompact\\n\\nAdd gpt-5.6-sol/terra/luna at 372k so PostCompact stops applying the 200k fallback. Reported in lazycodex#125.",
+      "translated": "Add GPT-5.6 context budgets for PostCompact\\n\\nAdd gpt-5.6-sol/terra/luna at 372k so PostCompact stops applying the 200k fallback. Reported in lazycodex#125."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "60415873e fix(ulw-loop): contain stop-resume writes to the session state dir\\n\\nValidate goal-id path containment before writing auto-resume counter/stuck files, denying resumes for ids that escape the session state dir. Reported in lazycodex#129.",
+      "translated": "Contain stop-resume writes to the session state dir\\n\\nValidate goal-id path containment before writing auto-resume counter/stuck files, denying resumes for ids that escape the session state dir. Reported in lazycodex#129."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2999a1790 Merge pull request #6271 from code-yeongyu/docs/codegraph-daemon-hygiene",
+      "translated": "Merge pull request #6271 from code-yeongyu/docs/codegraph-daemon-hygiene"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "562730173 docs: codegraph daemon opt-in and process hygiene",
+      "translated": "Codegraph daemon opt-in and process hygiene"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d60e7511c Merge pull request #6262 from code-yeongyu/feat/omo-process-hygiene",
+      "translated": "Merge pull request #6262 from code-yeongyu/feat/omo-process-hygiene"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6d9583674 test(codegraph): guard held-open watchdog facade test on win32",
+      "translated": "Guard held-open watchdog facade test on win32"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f4a31019f Merge remote-tracking branch 'origin/dev' into feat/omo-process-hygiene",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-process-hygiene"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e3c6299f fix(codegraph): destroy held-open test streams so bun test exits on win32",
+      "translated": "Destroy held-open test streams so bun test exits on win32"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c44f565d4 Merge pull request #6265 from code-yeongyu/feature/upgrade-agent-gpts-to-5-6-sol",
+      "translated": "Merge pull request #6265 from code-yeongyu/feature/upgrade-agent-gpts-to-5-6-sol"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8ff0aeb52 test(opencode): keep fallback coverage zero-growth",
+      "translated": "Keep fallback coverage zero-growth"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c6872cf7 fix(mcp-stdio-core): make isProcessAlive never throw so the watchdog cannot wedge on Windows",
+      "translated": "Make isProcessAlive never throw so the watchdog cannot wedge on Windows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "64dec99cd test(models): pin Sol fallback progression",
+      "translated": "Pin Sol fallback progression"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cafc9e794 fix(models): close Sol routing review gaps",
+      "translated": "Close Sol routing review gaps"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9271f83dc fix(agents): align Sol prompt identity and guardrails",
+      "translated": "Align Sol prompt identity and guardrails"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "35ab4c0d8 test(opencode): split model fallback coverage",
+      "translated": "Split model fallback coverage"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2173bfc51 feat(models): route active GPT defaults through 5.6 Sol",
+      "translated": "Route active GPT defaults through 5.6 Sol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "58b3176cb Merge remote-tracking branch 'origin/dev' into feat/omo-process-hygiene",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-process-hygiene"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6554b3ce8 test(omo-opencode): normalize separators before stripping trailing slash in root assertion",
+      "translated": "Normalize separators before stripping trailing slash in root assertion"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d128431b4 test(process-sweep): use a valid NodeJS.Platform value for forced kill paths",
+      "translated": "Use a valid NodeJS.Platform value for forced kill paths"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0243dc4a6 test(omo-opencode): fix backslash regex in plugin-root assertion",
+      "translated": "Fix backslash regex in plugin-root assertion"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b62b3fa8b test(process-sweep): pin kill paths to injected posix platform and normalize separators in root assertion",
+      "translated": "Pin kill paths to injected posix platform and normalize separators in root assertion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8aac3c9b0 fix(mcp-stdio-core): reword watchdog comment to keep the package harness-neutral",
+      "translated": "Reword watchdog comment to keep the package harness-neutral"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "703b67c40 Merge pull request #6261 from code-yeongyu/code-yeongyu/omo-config-watch",
+      "translated": "Merge pull request #6261 from code-yeongyu/code-yeongyu/omo-config-watch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a6dd5bf90 merge: sync origin/dev into omo-config-watch",
+      "translated": "Merge: sync origin/dev into omo-config-watch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c8bffd2c9 test(utils): add process-sweep family matrix tests",
+      "translated": "Add process-sweep family matrix tests"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "20ee9eabd feat(utils): family-based omo process sweep (codegraph + lsp)",
+      "translated": "Family-based omo process sweep (codegraph + lsp)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ce0f2a14 fix(omo-codex): terminate codegraph bridge when parent dies",
+      "translated": "Terminate codegraph bridge when parent dies"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e41cbc635 fix(lsp,git-bash): exit MCP server processes when the parent dies",
+      "translated": "Exit MCP server processes when the parent dies"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "818382852 feat(lsp-daemon): add version-reap module and tests",
+      "translated": "Add version-reap module and tests"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4fef01293 feat(lsp-daemon): reap older-version daemons at startup",
+      "translated": "Reap older-version daemons at startup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5632e6a6e feat(mcp-stdio-core): parent-liveness watchdog for stdio servers",
+      "translated": "Parent-liveness watchdog for stdio servers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d772785b9 Merge pull request #6251 from code-yeongyu/feat/codegraph-daemon-optin",
+      "translated": "Merge pull request #6251 from code-yeongyu/feat/codegraph-daemon-optin"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e3d1e47a3 Merge pull request #6253 from code-yeongyu/docs/refresh-model-defaults",
+      "translated": "Merge pull request #6253 from code-yeongyu/docs/refresh-model-defaults"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d30753d65 Merge remote-tracking branch 'origin/dev' into feat/codegraph-daemon-optin",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/codegraph-daemon-optin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cda04875a test(codegraph): compute expected CODEGRAPH_INSTALL_DIR via join for win32",
+      "translated": "Compute expected CODEGRAPH_INSTALL_DIR via join for win32"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "538df7478 Merge pull request #6252 from code-yeongyu/fix/inprocess-resident-false-lost",
+      "translated": "Merge pull request #6252 from code-yeongyu/fix/inprocess-resident-false-lost"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b0ff7ee77 Merge latest dev into fix/inprocess-resident-false-lost",
+      "translated": "Merge latest dev into fix/inprocess-resident-false-lost"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "de67397fb Merge origin/dev into fix/inprocess-resident-false-lost",
+      "translated": "Merge origin/dev into fix/inprocess-resident-false-lost"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e96b6f75b docs: refresh model defaults to current fallback chains",
+      "translated": "Refresh model defaults to current fallback chains"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3aab709c fix: preserve live in-process residents during reconcile",
+      "translated": "Preserve live in-process residents during reconcile"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a09cb9bd7 Merge remote-tracking branch 'origin/dev' into feat/codegraph-daemon-optin",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/codegraph-daemon-optin"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bf033ac46 feat(omo-config-core): export config path resolution helpers",
+      "translated": "Export config path resolution helpers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3e29a584f fix(codegraph): forward CODEGRAPH_DAEMON_IDLE_TIMEOUT_MS through the child env allowlist",
+      "translated": "Forward CODEGRAPH_DAEMON_IDLE_TIMEOUT_MS through the child env allowlist"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6d53dc8d6 Merge pull request #6249 from code-yeongyu/fix/purge-gpt55-fallbacks",
+      "translated": "Merge pull request #6249 from code-yeongyu/fix/purge-gpt55-fallbacks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "391e3543c Merge pull request #6250 from code-yeongyu/fix/lsp-daemon-accurate-failure-labels",
+      "translated": "Merge pull request #6250 from code-yeongyu/fix/lsp-daemon-accurate-failure-labels"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "abb059f72 test(opencode): align fallback selection coverage",
+      "translated": "Align fallback selection coverage"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c7d4c1df fix(lsp-daemon): report cancelled and timed-out requests accurately",
+      "translated": "Report cancelled and timed-out requests accurately"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "aec6aa814 feat(omo-opencode): codegraph daemon opt-in and exclusion parity",
+      "translated": "Codegraph daemon opt-in and exclusion parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7cb37389a test(models): cover gpt-5.5 fallback removal",
+      "translated": "Cover gpt-5.5 fallback removal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "05179d010 fix(models): purge gpt-5.5 fallback rungs",
+      "translated": "Purge gpt-5.5 fallback rungs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "720dcd0b6 Merge pull request #6248 from code-yeongyu/feature/ulw-loop-batch-efficiency-v2",
+      "translated": "Merge pull request #6248 from code-yeongyu/feature/ulw-loop-batch-efficiency-v2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5912b9491 Merge pull request #6247 from code-yeongyu/fix/kimi-k3-defaults",
+      "translated": "Merge pull request #6247 from code-yeongyu/fix/kimi-k3-defaults"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8ade283be chore(ulw-loop): record reviewer blocker evidence",
+      "translated": "Record reviewer blocker evidence"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3e2adaf4a Merge remote-tracking branch 'origin/dev' into fix/kimi-k3-defaults",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/kimi-k3-defaults"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "05c47ef3e test(defaults): cover Kimi K3 builtin routing",
+      "translated": "Cover Kimi K3 builtin routing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "80a57345f fix(ulw-loop): close independent review blockers",
+      "translated": "Close independent review blockers"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c91d58d5d feat(omo-codex): opt-in shared codegraph daemon mode",
+      "translated": "Opt-in shared codegraph daemon mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7332547f5 fix(defaults): promote builtin Kimi fallbacks to K3",
+      "translated": "Promote builtin Kimi fallbacks to K3"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "71752b396 Merge pull request #6246 from code-yeongyu/feature/ulw-plan-mode-announcement",
+      "translated": "Merge pull request #6246 from code-yeongyu/feature/ulw-plan-mode-announcement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "de9c5457d Merge pull request #6245 from code-yeongyu/feat/realtime-tool-progress",
+      "translated": "Merge pull request #6245 from code-yeongyu/feat/realtime-tool-progress"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "26f929b33 chore(ulw-loop): record final gajae-adoption verification",
+      "translated": "Record final gajae-adoption verification"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3c661ed2a chore(ulw-loop): record codex-qa evidence for gajae-adoption features",
+      "translated": "Record codex-qa evidence for gajae-adoption features"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "45516ec6f chore(skills): regenerate synced codex ulw-plan skill copy",
+      "translated": "Regenerate synced codex ulw-plan skill copy"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "35837c547 feat(skills): enforce mandatory opening announcement in ulw-plan",
+      "translated": "Enforce mandatory opening announcement in ulw-plan"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "26352f678 Merge remote-tracking branch 'origin/dev' into feat/realtime-tool-progress",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/realtime-tool-progress"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b36ecdd17 fix(ulw-loop): allow batch-final aggregate completion",
+      "translated": "Allow batch-final aggregate completion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3b0897bc0 fix(ulw-loop): default batched steering CLI source",
+      "translated": "Default batched steering CLI source"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1c41f2fff docs(ulw-loop): document auto-advance, batch steering, validation batches",
+      "translated": "Document auto-advance, batch steering, validation batches"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "05df4b1fd feat(ulw-loop): enforce validation-batch review boundaries",
+      "translated": "Enforce validation-batch review boundaries"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4b5e237ce feat(ulw-loop): add validation-batch schema to create-goals",
+      "translated": "Add validation-batch schema to create-goals"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b424d6371 fix(codegraph): exempt live detached daemons from zombie sweep",
+      "translated": "Exempt live detached daemons from zombie sweep"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ce628f877 feat(ulw-loop): add steer --proposals-json atomic batch steering",
+      "translated": "Add steer --proposals-json atomic batch steering"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b7f73f184 feat(ulw-loop): fuse next-goal auto-advance into checkpoint",
+      "translated": "Fuse next-goal auto-advance into checkpoint"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6a6b37ebc Merge pull request #6243 from code-yeongyu/fix/defaults-oracle-gpt56-opus48",
+      "translated": "Merge pull request #6243 from code-yeongyu/fix/defaults-oracle-gpt56-opus48"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "072882cf3 test(opencode): record isolated Oracle routing QA",
+      "translated": "Record isolated Oracle routing QA"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5c6af0eb9 test(opencode): align fallback routing coverage",
+      "translated": "Align fallback routing coverage"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6b050e0de feat(opencode): route Oracle through GPT-5.6 Sol",
+      "translated": "Route Oracle through GPT-5.6 Sol"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d47e52e95 feat(models): update Opus aliases and migration targets",
+      "translated": "Update Opus aliases and migration targets"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "58d1fd355 feat(codegraph): optional daemon mode in codegraph env builder",
+      "translated": "Optional daemon mode in codegraph env builder"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fb0fb5e2e Merge pull request #6242 from code-yeongyu/feat/codegraph-141-upgrade",
+      "translated": "Merge pull request #6242 from code-yeongyu/feat/codegraph-141-upgrade"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "44f56d504 test(codegraph): block win32 hang probe in cmd.exe stdin instead of a lingering grandchild",
+      "translated": "Block win32 hang probe in cmd.exe stdin instead of a lingering grandchild"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4c11abaf5 test(codegraph): bound win32 hang fake to 4s and retry probe-dir cleanup past the lock window",
+      "translated": "Bound win32 hang fake to 4s and retry probe-dir cleanup past the lock window"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2586ef703 test(codegraph): use index-signature env access in probeEnv (TS4111)",
+      "translated": "Use index-signature env access in probeEnv (TS4111)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0bdc3537b test(codegraph): inherit system PATH for the win32 status probe",
+      "translated": "Inherit system PATH for the win32 status probe"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2634a6fff test(codegraph): make store-upgrade hook tests cross-platform",
+      "translated": "Make store-upgrade hook tests cross-platform"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "60dfdbb78 build(codegraph): rebuild vendored codex component dist for the 1.4.1 pin",
+      "translated": "Rebuild vendored codex component dist for the 1.4.1 pin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a2e27a931 fix(codegraph): align MCP init guidance with CodeGraph 1.4.1 output shapes",
+      "translated": "Align MCP init guidance with CodeGraph 1.4.1 output shapes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7e499c5af test(codegraph): pin 1.0.1-era store handling under the 1.4.1 binary",
+      "translated": "Pin 1.0.1-era store handling under the 1.4.1 binary"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0f3be7079 build(codegraph): bump vendored CodeGraph pin to 1.4.1",
+      "translated": "Bump vendored CodeGraph pin to 1.4.1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9b45c0d30 Merge pull request #6239 from code-yeongyu/fix/lazycodex-model-routing",
+      "translated": "Merge pull request #6239 from code-yeongyu/fix/lazycodex-model-routing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "67fb6a736 fix(codex): update lazycodex agent model routing",
+      "translated": "Update lazycodex agent model routing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "50d9307ea Merge pull request #6210 from acamq/fix/notepad-auto-scaffold-on-start-work",
+      "translated": "Merge pull request #6210 from acamq/fix/notepad-auto-scaffold-on-start-work"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "96194aaf8 Merge pull request #6140 from MoerAI/fix/6131-lsp-diagnostics-silent-server",
+      "translated": "Merge pull request #6140 from MoerAI/fix/6131-lsp-diagnostics-silent-server"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "438142a57 test(lsp-core): record QA evidence for the #6131 stale-cache fallback guard",
+      "translated": "Record QA evidence for the #6131 stale-cache fallback guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d9fb51e65 fix(lsp-core): guard silent-server diagnostics fallback with version-current pull cache",
+      "translated": "Guard silent-server diagnostics fallback with version-current pull cache"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "28571cd26 Merge remote-tracking branch 'origin/dev' into fix/6131-lsp-diagnostics-silent-server",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6131-lsp-diagnostics-silent-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d3c72a873 Merge pull request #5924 from Hungdoan565/codex/docs-glm52-model-guide-5848-20260706",
+      "translated": "Merge pull request #5924 from Hungdoan565/codex/docs-glm52-model-guide-5848-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bd496651f docs(model-matching): clarify GLM model detection",
+      "translated": "Clarify GLM model detection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ec0113523 docs(model-matching): narrow GLM selector wording",
+      "translated": "Narrow GLM selector wording"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aefc478cf Merge remote-tracking branch 'origin/dev' into review/pr-5924-repair",
+      "translated": "Merge remote-tracking branch 'origin/dev' into review/pr-5924-repair"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "012aa3f27 docs(model-matching): correct GLM fuzzy fallback guidance",
+      "translated": "Correct GLM fuzzy fallback guidance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9255f472c Merge pull request #5925 from Hungdoan565/codex/docs-scarce-premium-models-5821-20260706",
+      "translated": "Merge pull request #5925 from Hungdoan565/codex/docs-scarce-premium-models-5821-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ee1e997d0 docs(orchestration): remove stale Momus criteria",
+      "translated": "Remove stale Momus criteria"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "29a4977a5 docs(model-matching): clarify experimental GLM 5.2 guidance",
+      "translated": "Clarify experimental GLM 5.2 guidance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1f4aef3de docs(orchestration): update Momus approval contract",
+      "translated": "Update Momus approval contract"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "acb7f8e97 docs(orchestration): align dual-review diagrams",
+      "translated": "Align dual-review diagrams"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "adf00f02f docs(orchestration): correct premium model placement",
+      "translated": "Correct premium model placement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cdc560b02 Merge origin/dev into codex/docs-glm52-model-guide-5848-20260706",
+      "translated": "Merge origin/dev into codex/docs-glm52-model-guide-5848-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0738f9860 Merge origin/dev into codex/docs-scarce-premium-models-5821-20260706",
+      "translated": "Merge origin/dev into codex/docs-scarce-premium-models-5821-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "799c0fd87 Merge pull request #5926 from Hungdoan565/codex/docs-opencode-auto-update-5367-20260706",
+      "translated": "Merge pull request #5926 from Hungdoan565/codex/docs-opencode-auto-update-5367-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "067f3fa0c docs(known-issues): preserve plugin config scope",
+      "translated": "Preserve plugin config scope"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f324cfb5d Merge branch 'dev' into codex/docs-opencode-auto-update-5367-20260706",
+      "translated": "Merge branch 'dev' into codex/docs-opencode-auto-update-5367-20260706"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "00235071f Merge pull request #5938 from Hungdoan565/codex/docs-community-model-tools-5346-20260707",
+      "translated": "Merge pull request #5938 from Hungdoan565/codex/docs-community-model-tools-5346-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d3b3db9ef Merge pull request #5936 from Hungdoan565/codex/docs-agent-policy-boundary-5404-20260707",
+      "translated": "Merge pull request #5936 from Hungdoan565/codex/docs-agent-policy-boundary-5404-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7dee01882 docs(installation): clarify community tool boundaries",
+      "translated": "Clarify community tool boundaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "93417663a Merge pull request #5937 from Hungdoan565/codex/docs-brownfield-kiss-5280-20260707",
+      "translated": "Merge pull request #5937 from Hungdoan565/codex/docs-brownfield-kiss-5280-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2c6dfb1d9 Merge origin/dev into codex/docs-agent-policy-boundary-5404-20260707",
+      "translated": "Merge origin/dev into codex/docs-agent-policy-boundary-5404-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f79569af4 Merge pull request #5942 from Hungdoan565/codex/docs-known-issue-5911-worktree-status-20260707",
+      "translated": "Merge pull request #5942 from Hungdoan565/codex/docs-known-issue-5911-worktree-status-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "24b426582 Merge origin/dev into codex/docs-agent-policy-boundary-5404-20260707",
+      "translated": "Merge origin/dev into codex/docs-agent-policy-boundary-5404-20260707"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9622bc6e5 docs(orchestration): qualify brownfield guidance",
+      "translated": "Qualify brownfield guidance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "404da72d2 docs(known-issues): note worktree merge status gap",
+      "translated": "Note worktree merge status gap"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1345dfe99 docs(notepad): notepads are auto-scaffolded; use edit/bash-append not write",
+      "translated": "Notepads are auto-scaffolded; use edit/bash-append not write"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "27beb30dd feat(start-work): auto-scaffold notepad files on plan commit",
+      "translated": "Auto-scaffold notepad files on plan commit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8af398565 Merge pull request #6197 from acamq/fix-remove-stale-release-framining",
+      "translated": "Merge pull request #6197 from acamq/fix-remove-stale-release-framining"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "04717bff7 fix(release): remove stale framing block from generated release notes",
+      "translated": "Remove stale framing block from generated release notes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "13e072cc7 fix(lsp-core): resolve clean diagnostics for silent no-pull servers instead of freshness timeout",
+      "translated": "Resolve clean diagnostics for silent no-pull servers instead of freshness timeout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3c3f16d03 docs(installation): note community model tools",
+      "translated": "Note community model tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "70227d75b docs(orchestration): clarify Sisyphus display names",
+      "translated": "Clarify Sisyphus display names"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ae1dbc79a docs(orchestration): document brownfield KISS mode",
+      "translated": "Document brownfield KISS mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a96e0f908 docs(agents): clarify policy enforcement boundary",
+      "translated": "Clarify policy enforcement boundary"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "43401d671 docs(known-issues): document OpenCode update cache workaround",
+      "translated": "Document OpenCode update cache workaround"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2e83c47df docs(orchestration): guide scarce premium model placement",
+      "translated": "Guide scarce premium model placement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "04e86f728 docs(model-matching): add GLM 5.2 Sisyphus guidance",
+      "translated": "Add GLM 5.2 Sisyphus guidance"
+    }
+  ],
+  "translatedAt": "2026-07-22T14:25:45.847Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 13996
+}
