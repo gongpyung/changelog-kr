@@ -1,0 +1,2150 @@
+{
+  "version": "0.145.0",
+  "date": "2026-07-21",
+  "parsedAt": "2026-07-22T03:50:02.537Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added experimental paginated thread history with efficient resume, search, persisted names, sub-agent support, and memories. (#33364, #33907, #34085, #34229, #34386)",
+      "translated": "효율적인 재개, 검색, 이름 유지, 서브 에이전트 지원 및 메모리 기능을 갖춘 실험적인 페이지네이션 스레드 기록 기능을 추가했습니다. (#33364, #33907, #34085, #34229, #34386)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Expanded `/import` to migrate Cursor and Claude Code settings, MCP servers, plugins, sessions, commands, and project-scoped memories. (#31672, #33411, #33426, #33444)",
+      "translated": "Cursor 및 Claude Code 설정, MCP 서버, 플러그인, 세션, 명령어, 프로젝트 범위의 메모리를 마이그레이션할 수 있도록 `/import` 기능을 확장했습니다. (#31672, #33411, #33426, #33444)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added experimental Amazon Bedrock login, custom endpoint and authentication support, and GPT-5.6 Sol as the default Bedrock model. (#31327, #33170, #33175, #32288, #33695)",
+      "translated": "실험적인 Amazon Bedrock 로그인, 커스텀 엔드포인트 및 인증 지원을 추가하고, GPT-5.6 Sol을 기본 Bedrock 모델로 설정했습니다. (#31327, #33170, #33175, #32288, #33695)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added audio inputs and tool outputs, including common local audio formats, and introduced streaming realtime V3 conversations. (#33261, #33856, #33932, #34080, #34385)",
+      "translated": "일반적인 로컬 오디오 형식을 포함한 오디오 입력 및 도구 출력을 추가하고, 스트리밍 방식의 실시간 V3 대화 기능을 도입했습니다. (#33261, #33856, #33932, #34080, #34385)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Stabilized the opt-in multi-agent V2 experience with configurable sub-agent models, reasoning levels, concurrency, restored roles, and improved agent navigation. (#33550, #33631, #33657, #33841, #34383)",
+      "translated": "설정 가능한 서브 에이전트 모델, 추론 수준, 동시성, 복구된 역할 및 개선된 에이전트 탐색 기능을 통해 선택형 멀티 에이전트 V2 환경을 안정화했습니다. (#33550, #33631, #33657, #33841, #34383)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added secure, clickable inline visualization links in the terminal UI. (#33925, #34217, #34346)",
+      "translated": "터미널 UI에 안전하고 클릭 가능한 인라인 시각화 링크를 추가했습니다. (#33925, #34217, #34346)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Editing an earlier prompt or retrying a safety-buffered turn now creates a contextual branch, preserving the original conversation, attachments, and mention bindings. (#33201, #33207, #33211)",
+      "translated": "이전 프롬프트를 편집하거나 안전 버퍼링된 턴을 재시도할 때, 기존 대화와 첨부 파일, 멘션 바인딩을 유지하면서 컨텍스트 브랜치를 생성합니다. (#33201, #33207, #33211)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved terminal responsiveness for long conversations and streamed output through incremental Markdown rendering, fewer redraws, caching, and bounded command output. (#34045, #34049, #34216, #34223, #34359)",
+      "translated": "증분 Markdown 렌더링, 리드로우 횟수 감소, 캐싱, 제한된 명령어 출력을 통해 긴 대화 및 스트리밍 출력 시의 터미널 응답성을 개선했습니다. (#34045, #34049, #34216, #34223, #34359)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prevented slow or conflicting MCP startup and authentication flows by enforcing startup timeouts, avoiding blocking OAuth discovery, serializing refreshes, and reusing tool catalogs safely. (#32229, #32781, #32825, #33184, #33297)",
+      "translated": "시작 제한 시간 강제 적용, OAuth 탐색 블로킹 방지, 리프레시 직렬화, 도구 카탈로그의 안전한 재사용을 통해 느리거나 충돌하는 MCP 시작 및 인증 흐름을 방지했습니다. (#32229, #32781, #32825, #33184, #33297)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved Windows execution and sandbox reliability, including native exec-server sandboxing, network-proxy enforcement, hidden helper consoles, and correctly quoted hook commands. (#32849, #32857, #33926, #34423)",
+      "translated": "네이티브 exec-server 샌드박싱, 네트워크 프록시 강제 적용, 숨겨진 헬퍼 콘솔, 올바르게 따옴표가 지정된 훅 명령어를 포함하여 Windows 실행 및 샌드박스 안정성을 개선했습니다. (#32849, #32857, #33926, #34423)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compact release-metadata parsing and macOS code-mode installation, with an in-process fallback when the external code-mode host is unavailable. (#31667, #31876, #31899)",
+      "translated": "컴팩트 릴리스 메타데이터 파싱 및 macOS code-mode 설치 문제를 수정했으며, 외부 code-mode 호스트를 사용할 수 없을 때를 대비한 인프로세스 폴백을 추가했습니다. (#31667, #31876, #31899)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Strengthened safety and approval handling with better forced-`rm` detection, consistent full-access confirmation, and preserved rejection reasons across tools. (#32989, #33464, #34400)",
+      "translated": "강제 `rm` 감지 개선, 일관된 전체 액세스 확인, 도구 간 거부 사유 유지 등을 통해 보안 및 승인 처리 기능을 강화했습니다. (#32989, #33464, #34400)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the bundled OpenAI Docs skill with current GPT-5.6 model resolution, prompting, and migration guidance across macOS, Linux, and Windows. (#31842, #33121)",
+      "translated": "macOS, Linux, Windows 전반에 걸쳐 최신 GPT-5.6 모델 확인, 프롬프팅 및 마이그레이션 가이드를 포함하도록 번들된 OpenAI Docs 스킬을 업데이트했습니다. (#31842, #33121)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Migrated bundled GPT-5.4 selections and internal uses to the corresponding GPT-5.6 Terra and Luna variants. (#33173)",
+      "translated": "번들된 GPT-5.4 선택 항목 및 내부 용도를 그에 대응하는 GPT-5.6 Terra 및 Luna 변체로 마이그레이션했습니다. (#33173)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reduced startup and large-context overhead with concurrent skill/plugin discovery and more efficient remote compaction. (#31566, #33369, #33423, #34431)",
+      "translated": "스킬/플러그인 동시 탐색 및 더 효율적인 원격 압축을 통해 시작 시 및 대규모 컨텍스트에서의 오버헤드를 줄였습니다. (#31566, #33369, #33423, #34431)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the packaged ripgrep binary to 15.2.0. (#34384)",
+      "translated": "패키징된 ripgrep 바이너리를 15.2.0 버전으로 업데이트했습니다. (#34384)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31667 fix: parse compact release metadata in installer",
+      "translated": "설치 프로그램의 컴팩트 릴리스 메타데이터 파싱 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31362 core: route realtime and memories through HTTP client factory",
+      "translated": "실시간 통신 및 메모리를 HTTP 클라이언트 팩토리를 통해 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31566 perf(skills): reuse walk inventory for host loading",
+      "translated": "호스트 로딩 시 walk 인벤토리 재사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31576 Bound exec-server process event reordering",
+      "translated": "Exec-server 프로세스 이벤트 재정렬 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31756 test(skills): assert symlinked metadata loading",
+      "translated": "심볼릭 링크된 메타데이터 로딩 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31581 Resolve selected capability roots without starting executors",
+      "translated": "실행기를 시작하지 않고 선택된 기능 루트 확인"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31789 Stop persisting RMCP service traces",
+      "translated": "RMCP 서비스 추적 정보의 영구 저장 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31792 Summarize streamed response item logs",
+      "translated": "스트리밍된 응답 항목 로그 요약"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31791 Filter routine Hyper logs from SQLite",
+      "translated": "SQLite에서 일상적인 Hyper 로그 필터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31790 Reduce MCP tool-list trace volume",
+      "translated": "MCP 도구 목록 추적 데이터 양 감소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31804 Stabilize the memories feature flag",
+      "translated": "Memories 기능 플래그 안정화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31803 fix(mcp): default Apps product SKU to codex",
+      "translated": "Apps 제품 SKU 기본값을 codex로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31745 code-mode: retain shared MCP types for deferred tools",
+      "translated": "지연된 도구를 위해 공유 MCP 유형 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31672 Import enabled plugins from known marketplaces",
+      "translated": "알려진 마켓플레이스에서 활성화된 플러그인 가져오기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31652 fix(tui): hide empty reasoning summaries",
+      "translated": "비어 있는 추론 요약 숨기기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31767 Remove the network proxy config wrapper",
+      "translated": "네트워크 프록시 설정 래퍼 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31481 fix: forward originator to Codex Apps MCP",
+      "translated": "Codex Apps MCP로 생성자 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31363 codex-api: route file uploads through HTTP client factory",
+      "translated": "HTTP 클라이언트 팩토리를 통해 파일 업로드 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31813 tui: update safety buffering copy",
+      "translated": "안전 버퍼링 문구 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31830 fix(sandboxing): initialize network proxy config inline",
+      "translated": "네트워크 프록시 설정을 인라인으로 초기화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31431 build: ratchet direct reqwest dependencies",
+      "translated": "직접적인 reqwest 의존성 버전 상향 조정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31876 code-mode: fix installation on darwin",
+      "translated": "Darwin 환경에서 설치 문제 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31842 Update bundled OpenAI Docs skill for GPT-5.6",
+      "translated": "GPT-5.6을 위한 번들 OpenAI Docs 스킬 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31637 login: route raw auth flows through HTTP client",
+      "translated": "HTTP 클라이언트를 통해 원시 인증 흐름 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31686 [codex-apps] Filter optional file fields by tool schema",
+      "translated": "[codex-apps] 도구 스키마에 따라 선택적 파일 필드 필터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31899 code-mode: fall back to using in process v8 if we fail to resolve external process",
+      "translated": "Code-mode: 외부 프로세스 확인 실패 시 프로세스 내 v8 사용으로 대체"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31805 Bound remote MCP stdio lines",
+      "translated": "원격 MCP stdio 라인 제한 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#30293 Resolve and pin MCP OAuth credential stores",
+      "translated": "MCP OAuth 자격 증명 저장소 확인 및 고정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31892 exec-server: materialize filesystem workspace roots",
+      "translated": "Exec-server: 파일 시스템 워크스페이스 루트 구체화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31327 feat: add managed Bedrock login API",
+      "translated": "관리형 Bedrock 로그인 API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31295 bench: add codex help e2e macrobenchmark",
+      "translated": "Codex 도움말 e2e 매크로 벤치마크 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31428 bench: add e2e benchmark entrypoints",
+      "translated": "E2e 벤치마크 진입점 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#31937 exec-server: expose process helper to outer sandbox",
+      "translated": "Exec-server: 외부 샌드박스에 프로세스 헬퍼 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32093 Remove the legacy exec policy engine",
+      "translated": "레거시 exec 정책 엔진 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32106 Reduce startup latency for ancestor discovery",
+      "translated": "상위 요소 탐색(ancestor discovery) 시작 지연 시간 단축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32112 Bound streamed exec-server HTTP response bodies",
+      "translated": "스트리밍된 exec-server HTTP 응답 본문 크기 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32122 Test the shared exec-server HTTP response byte budget",
+      "translated": "공유된 exec-server HTTP 응답 바이트 예산 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32123 Bound exec-server stdio JSON-RPC messages",
+      "translated": "Exec-server stdio JSON-RPC 메시지 크기 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32126 Test bounded concurrency in ancestor discovery",
+      "translated": "상위 요소 탐색(ancestor discovery)의 제한된 동시성 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32134 Test stdio JSON-RPC size limits with LF and CRLF",
+      "translated": "LF 및 CRLF를 사용한 stdio JSON-RPC 크기 제한 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32135 Propagate tracing subscribers to exec start tasks",
+      "translated": "Exec 시작 작업에 추적 구독자(tracing subscribers) 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32150 Keep unified exec output collection bounded",
+      "translated": "통합된 exec 출력 수집 크기 제한 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32193 Validate memory consolidation artifacts before succeeding",
+      "translated": "완료 전 메모리 통합 아티팩트 유효성 검사"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32197 Rebind memory consolidation workspace roots",
+      "translated": "메모리 통합 워크스페이스 루트 재바인딩"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32200 Add a skill invocation extension contributor",
+      "translated": "스킬 호출 확장 기여자 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32206 Always send reasoning parameters in Responses requests",
+      "translated": "Responses 요청 시 항상 추론 파라미터 전송"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32213 Generate unique IDs for review rollout messages",
+      "translated": "리뷰 롤아웃 메시지에 대한 고유 ID 생성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32214 Propagate workspace roots to exec-server sandboxes",
+      "translated": "Exec-server 샌드박스에 워크스페이스 루트 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32229 Serialize MCP OAuth credential refreshes",
+      "translated": "MCP OAuth 자격 증명 갱신 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32231 Support pending remote environment registration",
+      "translated": "대기 중인 원격 환경 등록 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32232 Let permission hooks resolve strict auto-review requests",
+      "translated": "권한 훅이 엄격한 자동 리뷰 요청을 처리하도록 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32234 Add dedicated storage for paginated thread history",
+      "translated": "페이지가 매겨진 스레드 기록을 위한 전용 저장소 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32246 Extract reverse JSONL scanning from session indexing",
+      "translated": "세션 인덱싱에서 역방향 JSONL 스캔 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32256 Improve Responses WebSocket timing telemetry",
+      "translated": "Responses WebSocket 타이밍 텔레메트리 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32261 Preserve local path conventions in automatic approvals",
+      "translated": "자동 승인 시 로컬 경로 규칙 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32263 Include start times in terminal turn events",
+      "translated": "터미널 턴 이벤트에 시작 시간 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32272 Expose scheduled tasks in plugin details",
+      "translated": "플러그인 상세 정보에 예약된 작업 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32274 Remove the personality migration",
+      "translated": "퍼스낼리티 마이그레이션 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32276 Repair unterminated rollout files before appending",
+      "translated": "추가하기 전에 종료되지 않은 롤아웃 파일 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32277 Honor `personality = \"none\"` in model instructions",
+      "translated": "모델 지침에서 `personality = \"none\"` 설정 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32280 Include terminal errors in turn completion events",
+      "translated": "턴 완료 이벤트에 터미널 오류 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32286 Clarify waiting behavior in safety buffering prompts",
+      "translated": "안전 버퍼링 프롬프트의 대기 동작 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32288 Make GPT-5.6 Sol the default Bedrock model",
+      "translated": "GPT-5.6 Sol을 기본 Bedrock 모델로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32289 Persist paginated items in the local thread store",
+      "translated": "로컬 스레드 저장소에 페이지가 매겨진 항목 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32290 Respect model support for reasoning summaries",
+      "translated": "추론 요약에 대한 모델 지원 여부 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32301 Trust hooks from materialized workspace plugins",
+      "translated": "구체화된 워크스페이스 플러그인의 훅(hooks) 신뢰"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32302 Prefer the Codex home socket for Unix IDE context",
+      "translated": "Unix IDE 컨텍스트에 Codex 홈 소켓 우선 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32305 Improve file blob upload diagnostics",
+      "translated": "파일 blob 업로드 진단 기능 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32312 Require prefixes for outbound response item IDs",
+      "translated": "아웃바운드 응답 항목 ID에 접두사 필수 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32316 Stop falling back to older model availability announcements",
+      "translated": "이전 모델 가용성 공지로의 폴백(fallback) 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32326 Use canonical links in the moved config notice",
+      "translated": "이동된 설정 알림에 표준(canonical) 링크 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32332 Add ordinals to paginated rollout records",
+      "translated": "페이지가 매겨진 롤아웃 레코드에 서수 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32441 Preserve parent sandbox enforcement for memory consolidation",
+      "translated": "메모리 통합 시 부모 샌드박스 강제 적용 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32460 Emit thread-idle lifecycle after guardian interrupts",
+      "translated": "Guardian 인터럽트 후 thread-idle 수명 주기 이벤트 발생"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32461 Expand tabs when rendering TUI diffs",
+      "translated": "TUI diff 렌더링 시 탭 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32485 Use available width for skill names in the toggle view",
+      "translated": "토글 뷰의 스킬 이름에 사용 가능한 너비 활용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32628 Improve composer completion target resolution",
+      "translated": "Composer 완성 대상 확인(resolution) 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32698 Extract connector runtime snapshot management",
+      "translated": "커넥터 런타임 스냅샷 관리 기능 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32744 Log missing personality messages at trace level",
+      "translated": "누락된 페르소나 메시지를 trace 레벨로 로깅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32746 Make advanced reasoning selection explicit in the TUI",
+      "translated": "TUI에서 고급 추론 선택을 명시적으로 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32747 Align Guardian reviews with session configuration",
+      "translated": "Guardian 리뷰를 세션 설정에 맞게 조정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32749 Expose model overrides for multi-agent v2 spawns",
+      "translated": "멀티 에이전트 v2 생성 시 모델 오버라이드 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32751 Restrict spawned-agent models to the active backend",
+      "translated": "생성된 에이전트 모델을 활성 백엔드로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32761 Add shadow metrics for lexical skill selection",
+      "translated": "어휘 스킬 선택을 위한 섀도우 메트릭 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32768 Align shadow skill selection with observable sources",
+      "translated": "섀도우 스킬 선택을 관찰 가능한 소스와 일치시킴"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32780 Enable skill search shadow selection by default",
+      "translated": "스킬 검색 섀도우 선택을 기본으로 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32781 Apply MCP startup timeouts during client creation",
+      "translated": "클라이언트 생성 시 MCP 시작 타임아웃 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32801 Refactor OAuth store lock contention tests",
+      "translated": "OAuth 스토어 락 경합 테스트 리팩토링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32822 Make explicit multi-agent mode override proactive delegation",
+      "translated": "명시적 멀티 에이전트 모드가 선제적 위임보다 우선하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32825 Avoid blocking thread startup on MCP OAuth discovery",
+      "translated": "MCP OAuth 검색 시 스레드 시작이 차단되지 않도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32835 Forward turn metadata in standalone web search",
+      "translated": "독립형 웹 검색에서 턴 메타데이터 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32837 Restore V2 agent identities on root thread resume",
+      "translated": "루트 스레드 재개 시 V2 에이전트 식별 정보 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32838 Reap exited PID-managed app-server children",
+      "translated": "종료된 PID 관리 앱 서버 자식 프로세스 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32844 Expand millisecond duration histogram boundaries",
+      "translated": "밀리초 단위 지속 시간 히스토그램 경계 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32849 Hide Windows filesystem helper console windows",
+      "translated": "Windows 파일 시스템 헬퍼 콘솔 창 숨기기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32857 Require the elevated Windows sandbox for network proxies",
+      "translated": "네트워크 프록시 사용 시 권한이 승격된 Windows 샌드박스 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32858 Persist slash-command popup dismissal",
+      "translated": "슬래시 명령 팝업 닫기 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32864 Coalesce concurrent Windows sandbox setup requests",
+      "translated": "동시 Windows 샌드박스 설정 요청 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32866 Allow responses after image generation",
+      "translated": "이미지 생성 후 응답 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32867 Include connector IDs in MCP tool call analytics",
+      "translated": "MCP 도구 호출 분석에 커넥터 ID 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32875 Use model catalog policies for Guardian auto review",
+      "translated": "Guardian 자동 리뷰에 모델 카탈로그 정책 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32881 Broaden remote compaction model fallback",
+      "translated": "원격 압축 모델 폴백 범위 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32884 Prepare external agent migration for source adapters",
+      "translated": "소스 어댑터를 위한 외부 에이전트 마이그레이션 준비"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32887 Tag shell tool telemetry by command category",
+      "translated": "명령 카테고리별로 셸 도구 텔레메트리 태그 지정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32891 Attach connector caches to diagnostic uploads",
+      "translated": "진단 업로드에 커넥터 캐시 첨부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32894 Serialize plugin install requests",
+      "translated": "플러그인 설치 요청 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32896 Load model context from a bounded rollout suffix",
+      "translated": "제한된 롤아웃 접미사에서 모델 컨텍스트 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32897 Route blocked network requests to their owning calls",
+      "translated": "차단된 네트워크 요청을 해당 호출로 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32898 Expose structured standalone web search results",
+      "translated": "구조화된 독립형 웹 검색 결과 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32899 Add exec-server environment status checks",
+      "translated": "Exec-server 환경 상태 확인 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32900 Derive collaboration settings from turn context",
+      "translated": "턴 컨텍스트에서 협업 설정 도출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32903 Include session IDs in tool item analytics events",
+      "translated": "도구 항목 분석 이벤트에 세션 ID 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32905 Timestamp app-server notifications at emission",
+      "translated": "App-server 알림 발송 시 타임스탬프 기록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32911 Allow injecting the models manager into `ThreadManager`",
+      "translated": "`ThreadManager`에 모델 관리자 주입 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32920 Expose environment status through app-server",
+      "translated": "App-server를 통해 환경 상태 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32923 Materialize paginated thread history in SQLite",
+      "translated": "SQLite에 페이지가 매겨진 스레드 기록 구체화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32928 Resume thread history projection from its SQLite checkpoint",
+      "translated": "SQLite 체크포인트에서 스레드 기록 프로젝션 재개"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32945 Restrict Guardian reviewer tools",
+      "translated": "Guardian 리뷰어 도구 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32949 Tighten recommended plugin install suggestions",
+      "translated": "권장 플러그인 설치 제안 강화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32952 Scope runtime workspace roots to execution environments",
+      "translated": "런타임 작업 공간 루트의 범위를 실행 환경으로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32985 Expose exact per-response usage in raw app-server events",
+      "translated": "원시 app-server 이벤트에 응답별 정확한 사용량 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#32989 Always confirm before enabling full access",
+      "translated": "전체 액세스 활성화 전 항상 확인"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33013 Bound exec-server JSON-RPC decoding complexity",
+      "translated": "Exec-server JSON-RPC 디코딩 복잡도 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33026 Include raw response completions in TypeScript envelopes",
+      "translated": "TypeScript 엔벨로프에 원시 응답 완성본 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33030 Remove task messages from `list_agents` output",
+      "translated": "`list_agents` 출력에서 태스크 메시지 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33031 Preserve JSON number precision in exec-server RPC messages",
+      "translated": "Exec-server RPC 메시지에서 JSON 숫자 정밀도 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33035 Use session IDs for prompt cache keys",
+      "translated": "프롬프트 캐시 키에 세션 ID 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33040 Send plugin analytics with API key authentication",
+      "translated": "API 키 인증 시 플러그인 분석 데이터 전송"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33076 Add an agent extension runner",
+      "translated": "에이전트 확장 러너 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33093 Preserve streamed output during capped history replay",
+      "translated": "제한된 히스토리 재생 중 스트리밍 출력 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33105 Fix TUI status visibility around streamed output",
+      "translated": "스트리밍 출력 관련 TUI 상태 가시성 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33107 Preserve special filesystem subpaths as wire strings",
+      "translated": "특수 파일 시스템 하위 경로를 wire string으로 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33109 Reject forks of paginated threads",
+      "translated": "페이지가 매겨진 스레드의 포크 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33113 Allow injecting the Codex Apps tools cache",
+      "translated": "Codex Apps 도구 캐시 주입 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33121 Refine GPT-5.6 prompting and migration guidance",
+      "translated": "GPT-5.6 프롬프팅 및 마이그레이션 가이드 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33147 Support model catalog permission messages",
+      "translated": "모델 카탈로그 권한 메시지 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33149 Build MCP tool runtimes before router planning",
+      "translated": "라우터 계획 전 MCP 도구 런타임 빌드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33150 Clarify exec yield timing on Windows",
+      "translated": "Windows에서의 exec yield 타이밍 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33152 Support paginated thread history in app-server list APIs",
+      "translated": "App-server 목록 API에서 페이지가 매겨진 스레드 히스토리 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33155 Trace startup prewarm tasks",
+      "translated": "시작 시 프리웜(prewarm) 태스크 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33156 Run detached reviews as review-agent turns",
+      "translated": "분리된 리뷰를 review-agent 턴으로 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33159 Move sleep items to the extension-owned lifecycle path",
+      "translated": "대기(sleep) 항목을 확장 소유 수명 주기 경로로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33166 Defer Noise environment connections until registration",
+      "translated": "등록 전까지 Noise 환경 연결 지연"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33167 Document the Windows exec yield time range",
+      "translated": "Windows exec yield 시간 범위 문서화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33170 Support Amazon Bedrock login in the app server",
+      "translated": "앱 서버에서 Amazon Bedrock 로그인 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33173 Migrate GPT-5.4 uses to GPT-5.6 variants",
+      "translated": "GPT-5.4 사용 사례를 GPT-5.6 변체로 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33175 Handle Amazon Bedrock credentials during logout",
+      "translated": "로그아웃 시 Amazon Bedrock 자격 증명 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33177 Support model catalog templates for Guardian policy prompts",
+      "translated": "Guardian 정책 프롬프트를 위한 모델 카탈로그 템플릿 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33180 Serialize concurrent MCP stdin writes",
+      "translated": "동시 MCP stdin 쓰기 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33182 Preserve plugin install failure subtypes during imports",
+      "translated": "가져오기 중 플러그인 설치 실패 하위 유형 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33184 Reuse MCP tool catalogs across sessions",
+      "translated": "세션 간 MCP 도구 카탈로그 재사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33185 Keep approval test targets in the temporary home",
+      "translated": "승인 테스트 대상을 임시 홈에 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33187 Honor workspace spend controls in rate-limit handling",
+      "translated": "속도 제한 처리 시 워크스페이스 지출 제어 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33198 Keep interrupted prompts in conversation history",
+      "translated": "중단된 프롬프트를 대화 기록에 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33200 Separate exec permission paths from core models",
+      "translated": "핵심 모델에서 exec 권한 경로 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33201 Branch conversations when editing earlier TUI prompts",
+      "translated": "이전 TUI 프롬프트 편집 시 대화 분기 생성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33203 Preserve in-flight state when restoring thread input",
+      "translated": "스레드 입력 복원 시 처리 중인(in-flight) 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33207 Retry safety-buffered turns on a forked thread",
+      "translated": "분기된 스레드에서 안전 버퍼링된 턴 재시도"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33209 Separate session state from session I/O",
+      "translated": "세션 I/O에서 세션 상태 분리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33211 Preserve thread context when retrying or editing turns",
+      "translated": "턴 재시도 또는 편집 시 스레드 컨텍스트 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33213 Prepare Python SDK 0.144.4 stable release",
+      "translated": "Python SDK 0.144.4 안정 버전 릴리스 준비"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33223 Instrument environment and plugin resolution paths",
+      "translated": "환경 및 플러그인 확인 경로 계측"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33232 Disambiguate skill mentions from shell parameters",
+      "translated": "셸 파라미터와 스킬 멘션 간의 모호성 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33237 Fix skill completion around bound mentions with suffixes",
+      "translated": "접미사가 있는 바인딩된 멘션 주변의 스킬 완성 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33239 Render TUI composer tabs as single-column spaces",
+      "translated": "TUI 컴포저 탭을 단일 열 공백으로 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33243 Add auto-compaction fallback token-budget settings",
+      "translated": "자동 압축(auto-compaction) 폴백을 위한 토큰 예산 설정 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33251 Report selected environment connection transitions",
+      "translated": "선택된 환경 연결 상태 전환 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33255 Add a fallback phase before automatic context rollover",
+      "translated": "자동 컨텍스트 롤오버 전 폴백 단계 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33261 Add Frameless Bidi support for realtime conversations",
+      "translated": "실시간 대화를 위한 Frameless Bidi 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33297 Allow MCP servers to opt out of tool catalog caching",
+      "translated": "MCP 서버가 도구 카탈로그 캐싱을 거부할 수 있도록 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33308 Expand MCP tool catalog cache regression coverage",
+      "translated": "MCP 도구 카탈로그 캐시 회귀 테스트 범위 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33364 Enable paginated thread history in app-server",
+      "translated": "App-server에서 페이지가 매겨진 스레드 기록 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33367 Respect final-answer boundaries for queued agent mail",
+      "translated": "대기 중인 에이전트 메일에 대해 최종 답변 경계 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33369 Scan skill roots concurrently",
+      "translated": "스킬 루트를 병렬로 스캔"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33373 Render TUI prompts before submitting user turns",
+      "translated": "사용자 턴을 제출하기 전 TUI 프롬프트 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33411 Migrate plugin commands into skills on install",
+      "translated": "설치 시 플러그인 명령어를 스킬로 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33412 Refactor world-state rendering tests into snapshots",
+      "translated": "World-state 렌더링 테스트를 스냅샷으로 리팩터링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33414 Expose connector candidates from imported sessions",
+      "translated": "가져온 세션에서 커넥터 후보 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33421 Fetch workspace connectors concurrently",
+      "translated": "워크스페이스 커넥터를 병렬로 가져오기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33423 Load executor plugin declarations concurrently",
+      "translated": "실행기 플러그인 선언을 병렬로 로드"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33424 Attribute OpenAI docs MCP requests to Codex",
+      "translated": "OpenAI 문서 MCP 요청을 Codex로 할당"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33425 Refresh host skill catalogs through world state",
+      "translated": "World state를 통해 호스트 스킬 카탈로그 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33426 Add Cursor support to setup import",
+      "translated": "설정 가져오기에 Cursor 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33427 Propagate deferred environment capability roots to MCP",
+      "translated": "지연된 환경 기능 루트를 MCP로 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33430 Avoid creating metadata paths in the Windows sandbox",
+      "translated": "Windows sandbox에서 메타데이터 경로 생성을 방지합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33432 Preserve paginated history for spawned subagents",
+      "translated": "생성된 하위 에이전트의 페이지별 기록을 보존합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33435 Warn on conflicting capability root locations",
+      "translated": "기능 루트 위치가 충돌하는 경우 경고를 표시합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33441 Shut down Codex threads after approval scenarios",
+      "translated": "승인 시나리오 이후 Codex 스레드를 종료합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33444 Add external agent memory migration",
+      "translated": "외부 에이전트 메모리 마이그레이션 기능을 추가합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33445 Select the elevated Windows sandbox for network proxies",
+      "translated": "네트워크 프록시용으로 권한이 상승된 Windows sandbox를 선택합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33446 Remove the unused network proxy loader",
+      "translated": "사용되지 않는 네트워크 프록시 로더를 제거합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33454 Track prompt cache write token usage",
+      "translated": "프롬프트 캐시 쓰기 토큰 사용량을 추적합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33456 Move external agent migration into its crate",
+      "translated": "외부 에이전트 마이그레이션을 해당 crate로 이동합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33457 Use final answers in turn history summaries",
+      "translated": "턴 기록 요약에 최종 답변을 사용합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33459 Allow more time for image generation in code mode",
+      "translated": "코드 모드에서 이미지 생성 시간을 더 허용합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33464 Strengthen forced `rm` command detection",
+      "translated": "강제 `rm` 명령어 감지를 강화합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33467 Remove template IDs from MCP tool call metadata",
+      "translated": "MCP 도구 호출 메타데이터에서 템플릿 ID를 제거합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33500 Add cache-write tokens to the raw response schema",
+      "translated": "원시 응답 스키마에 cache-write 토큰을 추가합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33509 Preserve encrypted content in MCP tool outputs",
+      "translated": "MCP 도구 출력에서 암호화된 콘텐츠를 보존합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33550 Unify multi-agent settings under `agents`",
+      "translated": "다중 에이전트 설정을 `agents` 아래로 통합합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33572 Expose spawn agent types only when roles are configured",
+      "translated": "역할이 구성된 경우에만 생성 에이전트 유형을 노출합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33605 Add fielded BM25 to shadow skill selection",
+      "translated": "Shadow 기술 선택에 필드별 BM25를 추가합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33613 Add character n-gram skill selection",
+      "translated": "문자 n-gram 기술 선택 기능을 추가합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33614 Add multi-query lexical skill selection",
+      "translated": "다중 쿼리 어휘 기술 선택 기능을 추가합니다"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33631 Honor configured model defaults for spawned agents",
+      "translated": "생성된 에이전트에 대해 설정된 모델 기본값 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33632 Remove generated-default filesystem path variants",
+      "translated": "생성된 기본 파일 시스템 경로 변형 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33633 Clarify when to wait for starting environments",
+      "translated": "환경 시작 대기 시점에 대한 설명 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33636 Clarify when to wait for starting environments",
+      "translated": "환경 시작 대기 시점에 대한 설명 명확화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33639 Remove the unused realtime WebRTC crate",
+      "translated": "사용되지 않는 실시간 WebRTC 크레이트 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33640 Avoid duplicate cached app list update notifications",
+      "translated": "캐시된 앱 목록 업데이트 알림의 중복 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33645 Run `write_stdin` concurrently across terminal sessions",
+      "translated": "여러 터미널 세션에서 `write_stdin`을 동시에 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33651 Add an app-server API for reading app metadata",
+      "translated": "앱 메타데이터를 읽기 위한 app-server API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33656 Validate reasoning effort after applying spawn roles",
+      "translated": "생성 역할 적용 후 추론 노력(reasoning effort) 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33657 Restore agent roles when reloading v2 sub-agents",
+      "translated": "V2 하위 에이전트 재로드 시 에이전트 역할 복구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33658 Keep active-turn environments stable across settings updates",
+      "translated": "설정 업데이트 시 활성 턴(active-turn) 환경의 안정성 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33659 Require data URLs for code-mode image output",
+      "translated": "코드 모드 이미지 출력 시 데이터 URL 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33665 Refresh step world state for all sessions",
+      "translated": "모든 세션의 단계별 월드 상태(world state) 갱신"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33677 Forward thread originators from standalone extensions",
+      "translated": "독립형 확장 프로그램에서 스레드 생성자 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33680 Reword the apply_patch tool description",
+      "translated": "`apply_patch` 도구 설명 문구 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33683 Preserve scope and provenance for imported agent memory",
+      "translated": "가져온 에이전트 메모리의 범위 및 출처 보존"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33684 Extract TUI approval request payloads into structs",
+      "translated": "TUI 승인 요청 페이로드를 구조체로 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33687 Avoid unnecessary writes during migration repair",
+      "translated": "마이그레이션 복구 중 불필요한 쓰기 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33695 Support custom transports for Amazon Bedrock",
+      "translated": "Amazon Bedrock용 사용자 정의 전송(transport) 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33841 Make parent-owned sub-agent threads read-only in the TUI",
+      "translated": "TUI에서 부모 소유의 하위 에이전트 스레드를 읽기 전용으로 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33842 Give the zsh fork decline test more execution time",
+      "translated": "Zsh fork decline 테스트의 실행 시간 연장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33843 Add an API for reading installed app runtime state",
+      "translated": "설치된 앱의 런타임 상태를 읽기 위한 API 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33845 Confirm usage-limit resets before redemption",
+      "translated": "사용 전 사용량 제한 초기화 확인"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33848 Fix the managed Bedrock logout test assertion",
+      "translated": "관리형 Bedrock 로그아웃 테스트의 단언문(assertion) 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33851 Record web search result payload sizes",
+      "translated": "웹 검색 결과의 페이로드 크기 기록"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33852 Add batched executor capability discovery",
+      "translated": "배치 실행기(batched executor) 기능 탐색 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33855 Tag realtime transcript tail flush delegations",
+      "translated": "실시간 트랜스크립트 tail flush 위임 태그 지정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33856 Stream realtime V3 Codex handoff output",
+      "translated": "실시간 V3 Codex 핸드오프 출력 스트리밍"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33858 Isolate core tests from shell and rollout persistence",
+      "translated": "셸 및 롤아웃 영속성으로부터 코어 테스트 격리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33861 Test workspace write isolation across exec servers",
+      "translated": "실행 서버 간 워크스페이스 쓰기 격리 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33862 Suppress empty multi-agent mode messages",
+      "translated": "멀티 에이전트 모드의 빈 메시지 억제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33863 Report detailed session import error types",
+      "translated": "세션 가져오기 오류 유형 상세 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33864 Keep feature tests focused on behavior",
+      "translated": "기능 테스트가 동작에 집중하도록 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33866 Remove the redundant tool dispatch wrapper",
+      "translated": "불필요한 도구 디스패치 래퍼 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33867 Add grace period to code-mode yield timeouts",
+      "translated": "Code-mode yield 타임아웃에 유예 기간 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33868 Remove stale ignored core tests",
+      "translated": "오래된 무시된 코어 테스트 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33870 Remove the redundant borrowed line wrapping helper",
+      "translated": "불필요한 줄 바꿈 헬퍼 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33872 Remove unused TUI collaboration mode indicators",
+      "translated": "사용되지 않는 TUI 협업 모드 표시기 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33876 Track collaboration mode instructions in world state",
+      "translated": "World state에서 협업 모드 지침 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33883 Report CLI as the external agent config import source",
+      "translated": "외부 에이전트 설정 가져오기 소스로 CLI 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33889 Centralize thread MCP connections in `McpRuntime`",
+      "translated": "`McpRuntime`에서 스레드 MCP 연결 중앙 집중화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33892 Limit rollout metadata reads to headers",
+      "translated": "롤아웃 메타데이터 읽기를 헤더로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33893 Track realtime conversation state in world state",
+      "translated": "World state에서 실시간 대화 상태 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33895 Add SessionEnd hooks for thread teardown",
+      "translated": "스레드 종료를 위한 SessionEnd 훅 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33896 Expose plugin installation interstitial requirements",
+      "translated": "플러그인 설치 중간 단계(interstitial) 요구 사항 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33901 Support ChatGPT-branded Desktop app builds",
+      "translated": "ChatGPT 브랜드 데스크톱 앱 빌드 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33902 Add bounded batch lookups for message history",
+      "translated": "메시지 기록에 대한 제한된 배치 조회 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33903 Route realtime V3 handoffs by response channel",
+      "translated": "응답 채널별 실시간 V3 핸드오프 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33905 Batch persistent history reads during reverse search",
+      "translated": "역방향 검색 중 영구 기록 읽기 일괄 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33906 Launch managed network proxies on remote executors",
+      "translated": "원격 실행기에서 관리형 네트워크 프록시 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33907 Add occurrence search for paginated threads",
+      "translated": "페이지가 매겨진 스레드에 대한 발생 검색 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33908 Allow publishing plugins through share updates",
+      "translated": "공유 업데이트를 통한 플러그인 게시 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33921 Preserve sub-agent liveness in the agent picker",
+      "translated": "에이전트 선택기에서 하위 에이전트의 활성 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33922 Allow selecting path-backed agents in the TUI picker",
+      "translated": "TUI 선택기에서 경로 기반 에이전트 선택 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33923 Add audio variants to user input protocols",
+      "translated": "사용자 입력 프로토콜에 오디오 변체 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33925 Render inline visualization links in the TUI",
+      "translated": "TUI에서 인라인 시각화 링크 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33926 Fix quoted hook commands on Windows",
+      "translated": "Windows에서 따옴표가 포함된 훅 명령 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33929 Handle audio inputs and Bazel unit test arguments",
+      "translated": "오디오 입력 및 Bazel 유닛 테스트 인자 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33930 Track inherited paginated rollout prefixes",
+      "translated": "상속된 페이지네이션 롤아웃 접두사 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33932 Forward audio inputs to the Responses API",
+      "translated": "Responses API로 오디오 입력 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33938 Centralize SQLite connection configuration",
+      "translated": "SQLite 연결 설정 중앙화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33944 Track permission instructions in world state",
+      "translated": "World state에서 권한 지침 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33950 Let users remember the working directory for resumed sessions",
+      "translated": "재개된 세션의 작업 디렉터리 기억 기능 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33961 Refresh bundled model metadata",
+      "translated": "내장된 모델 메타데이터 갱신"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33963 Add context to sampling retry logs",
+      "translated": "샘플링 재시도 로그에 컨텍스트 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#33982 Gate audio history by model input modalities",
+      "translated": "모델 입력 모달리티에 따른 오디오 기록 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34038 Handle compressed rollouts in doctor thread inventory",
+      "translated": "Doctor thread 인벤토리의 압축된 rollout 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34045 Render streamed Markdown incrementally",
+      "translated": "스트리밍된 Markdown을 점진적으로 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34047 Avoid resending the model for reasoning shortcuts",
+      "translated": "추론 단축 시 모델 재전송 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34049 Avoid redundant TUI redraws while streaming",
+      "translated": "스트리밍 중 불필요한 TUI 다시 그리기 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34067 Seed realtime V3 sessions with initial text items",
+      "translated": "Realtime V3 세션에 초기 텍스트 항목 시딩"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34080 Add audio output support to dynamic tools and code mode",
+      "translated": "동적 도구 및 코드 모드에 오디오 출력 지원 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34085 Support legacy views for paginated thread history",
+      "translated": "페이지가 매겨진 스레드 기록에 대한 레거시 뷰 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34194 Avoid cloning thread data when rendering transcripts",
+      "translated": "트랜스크립트 렌더링 시 스레드 데이터 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34197 Use the Markdown collector as the streaming source of truth",
+      "translated": "Markdown 수집기를 스트리밍의 단일 진실 공급원(source of truth)으로 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34198 Start side conversations without replaying inherited turns",
+      "translated": "상속된 턴을 재생하지 않고 사이드 대화 시작"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34199 Avoid liveness races when starting side conversations",
+      "translated": "사이드 대화 시작 시 liveness 레이스 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34204 Avoid cloning buffered TUI history lines",
+      "translated": "버퍼링된 TUI 기록 라인 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34206 Avoid retaining decoded MCP images in history cells",
+      "translated": "기록 셀에 디코딩된 MCP 이미지 유지 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34216 Speed up TUI Markdown layout",
+      "translated": "TUI Markdown 레이아웃 속도 향상"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34217 Keep incremental rendering with visualization context",
+      "translated": "시각화 컨텍스트와 함께 점진적 렌더링 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34218 Track TUI command completion separately from output",
+      "translated": "TUI 명령어 완료를 출력과 별도로 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34222 Avoid buffering replay-irrelevant thread notifications",
+      "translated": "재생과 관련 없는 스레드 알림의 버퍼링 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34223 Cache finalized Markdown history rendering",
+      "translated": "완료된 Markdown 히스토리 렌더링 캐싱"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34224 Avoid cloning file changes in TUI diff rendering",
+      "translated": "TUI diff 렌더링 시 파일 변경 사항 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34226 Backfill completion items only for the active exec turn",
+      "translated": "활성 실행 턴에 대해서만 완료 항목 백필"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34229 Persist names for paginated threads",
+      "translated": "페이지가 매겨진 스레드의 이름 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34232 Remeasure dynamic cells in the transcript overlay",
+      "translated": "트랜스크립트 오버레이의 동적 셀 재측정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34234 Avoid redundant TUI subagent metadata requests",
+      "translated": "불필요한 TUI 서브에이전트 메타데이터 요청 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34271 Migrate legacy exec policy allow rules",
+      "translated": "레거시 실행 정책 허용 규칙 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34293 Preserve zsh tied PATH exports in shell snapshots",
+      "translated": "셸 스냅샷에서 zsh의 연결된 PATH 내보내기 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34344 Reject unsupported history modes when loading rollouts",
+      "translated": "롤아웃 로드 시 지원되지 않는 히스토리 모드 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34345 Remove unused Rust helpers",
+      "translated": "사용되지 않는 Rust 헬퍼 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34346 Track inline visualization directives during streaming",
+      "translated": "스트리밍 중 인라인 시각화 지시문 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34347 Avoid cloning deferred TUI lifecycle payloads",
+      "translated": "지연된 TUI 라이프사이클 페이로드 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34348 Cache TUI flex heights across frame passes",
+      "translated": "프레임 패스 간 TUI flex 높이 캐싱"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34355 Parallelize TUI bootstrap requests",
+      "translated": "TUI 부트스트랩 요청 병렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34357 Render streamed command output through preview iterators",
+      "translated": "프리뷰 이터레이터를 통한 스트리밍 명령어 출력 렌더링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34359 Keep streamed command output bounded in the TUI",
+      "translated": "TUI에서 스트리밍된 명령어 출력 범위 제한 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34361 Avoid cloning thread history for token usage replay",
+      "translated": "토큰 사용량 재생을 위한 스레드 히스토리 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34365 Animate Max and Ultra reasoning effort changes",
+      "translated": "Max 및 Ultra 추론 노력 변경 사항에 애니메이션 적용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34366 Avoid cloning hyperlink text during TUI rendering",
+      "translated": "TUI 렌더링 시 하이퍼링크 텍스트 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34368 Use app-server skill metadata directly in the TUI",
+      "translated": "TUI에서 app-server 스킬 메타데이터 직접 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34371 Clear stale Guardian reviews when turns end",
+      "translated": "턴 종료 시 오래된 Guardian 리뷰 삭제"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34375 Extend second-based latency histogram buckets",
+      "translated": "초 단위 지연 시간 히스토그램 버킷 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34378 Avoid rendering generated images twice",
+      "translated": "생성된 이미지의 중복 렌더링 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34380 Stop retrying turns with invalid tool images",
+      "translated": "유효하지 않은 도구 이미지가 포함된 턴의 재시도 중단"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34381 Avoid cloning Responses WebSocket payloads",
+      "translated": "Responses WebSocket 페이로드 복제 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34382 Keep paginated thread Git metadata in SQLite",
+      "translated": "페이지네이션된 스레드의 Git 메타데이터를 SQLite에 보관"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34383 Mark multi-agent v2 as stable",
+      "translated": "멀티 에이전트 v2를 안정 버전으로 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34384 Update packaged ripgrep to 15.2.0",
+      "translated": "패키징된 ripgrep을 15.2.0으로 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34385 Preserve audio across history and tool outputs",
+      "translated": "히스토리 및 도구 출력 간 오디오 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34386 Enable memories for paginated threads",
+      "translated": "페이지네이션된 스레드에 메모리 기능 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34387 Refresh bundled model metadata",
+      "translated": "번들된 모델 메타데이터 갱신"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34389 Route Codex Apps MCP through plugin service",
+      "translated": "Codex Apps MCP를 플러그인 서비스를 통해 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34390 Use copy-on-write storage for history snapshots",
+      "translated": "히스토리 스냅샷에 copy-on-write 스토리지 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34392 Ignore inherited ACEs when refreshing Windows write roots",
+      "translated": "Windows 쓰기 루트 갱신 시 상속된 ACE 무시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34393 Add configurable hook context spill limits",
+      "translated": "설정 가능한 hook context spill 제한 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34396 Run compact session-start hooks before turn continuation",
+      "translated": "턴 지속 전 compact session-start 훅 실행"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34400 Propagate approval rejection reasons",
+      "translated": "승인 거부 사유 전파"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34403 Update tests for history and hook API changes",
+      "translated": "History 및 hook API 변경 사항에 따른 테스트 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34407 Resolve paginated rollout lineages",
+      "translated": "페이지네이션된 롤아웃 계보(lineage) 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34408 Support threadless MCP connections without event channels",
+      "translated": "이벤트 채널이 없는 스레드리스 MCP 연결 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34409 Limit the Linux `/proc` preflight filesystem view",
+      "translated": "Linux `/proc` 프리플라이트 파일 시스템 뷰 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34411 Require absolute paths for test SQLite configuration",
+      "translated": "테스트 SQLite 설정에 절대 경로 요구"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34413 Remove CSV-backed agent jobs",
+      "translated": "CSV 기반 에이전트 작업 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34416 Show completed hook warnings in TUI headers",
+      "translated": "TUI 헤더에 완료된 hook 경고 표시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34417 Enrich app/read connector metadata",
+      "translated": "App/read 커넥터 메타데이터 보강"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34423 Support Windows sandboxing in the exec server",
+      "translated": "Exec 서버 내 Windows 샌드박싱 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34429 Move shared skill models into `codex-skills`",
+      "translated": "공유 스킬 모델을 `codex-skills`로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34431 Optimize remote compaction history handling",
+      "translated": "원격 압축(compaction) 이력 처리 최적화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34434 Support catalog messages for non-request approval policies",
+      "translated": "비요청 승인 정책에 대한 카탈로그 메시지 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34435 Resolve outbound proxy routes explicitly",
+      "translated": "아웃바운드 프록시 경로 명시적 해결"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34436 Honor managed permission profiles in network proxy resolution",
+      "translated": "네트워크 프록시 해결 시 관리형 권한 프로필 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34438 Increase the patch approval test timeout",
+      "translated": "패치 승인 테스트 타임아웃 증가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#34441 Add buffered code-mode exec yields",
+      "translated": "버퍼링된 code-mode exec yield 추가"
+    }
+  ],
+  "translatedAt": "2026-07-22T03:56:59.232Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 20692
+}

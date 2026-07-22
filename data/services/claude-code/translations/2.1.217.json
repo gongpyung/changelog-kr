@@ -1,0 +1,134 @@
+{
+  "version": "2.1.217",
+  "date": "2026-07-21",
+  "parsedAt": "2026-07-22T03:49:50.890Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added emoji shortcode autocomplete in the prompt input: type `:heart:` to insert ❤️, or `:hea` for suggestions — disable with the `emojiCompletionEnabled` setting",
+      "translated": "프롬프트 입력창에 이모지 단축 코드 자동 완성 기능 추가: `:heart:`를 입력하여 ❤️를 삽입하거나 `:hea`를 입력하여 제안 확인 가능 — `emojiCompletionEnabled` 설정으로 비활성화 가능"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added warnings when transcript writes are failing (e.g. disk full) or when session saving is off due to an inherited environment variable, instead of losing transcripts silently",
+      "translated": "트랜스크립트가 자동으로 유실되는 대신, 트랜스크립트 쓰기 실패(예: 디스크 꽉 참) 또는 상속된 환경 변수로 인해 세션 저장이 꺼져 있는 경우 경고 표시 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a memory leak where truncated MCP tool outputs kept the full untruncated result in memory for the rest of the session",
+      "translated": "잘린 MCP 도구 출력이 세션의 남은 시간 동안 잘리지 않은 전체 결과를 메모리에 유지하여 발생하던 메모리 누수 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows auto-update failures that could leave `claude.exe` missing; failed updates now restore the preserved executable automatically",
+      "translated": "Windows 자동 업데이트 실패 시 `claude.exe`가 사라질 수 있던 문제 수정. 이제 업데이트 실패 시 보존된 실행 파일을 자동으로 복구함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background session isolation not canonicalizing symlinked working directories, which could let sessions escape their workspace folder",
+      "translated": "백그라운드 세션 격리 시 심볼릭 링크된 작업 디렉토리를 정규화하지 않아 세션이 워크스페이스 폴더를 벗어날 수 있던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto-compact never triggering for Claude Opus 4.8 on Bedrock and `/compact` failing once over the limit",
+      "translated": "Bedrock의 Claude Opus 4.8에서 자동 압축이 트리거되지 않던 문제와 제한을 초과했을 때 `/compact`가 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed corporate mTLS, TLS-verify, OAuth scope, and proxy settings being ignored in Claude Desktop sessions",
+      "translated": "Claude Desktop 세션에서 기업용 mTLS, TLS-verify, OAuth 범위 및 프록시 설정이 무시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed screen reader mode's startup announcement being cut off by the first prompt render, and the thinking status row re-rendering every few seconds to update elapsed time and token counts",
+      "translated": "스크린 리더 모드의 시작 안내가 첫 프롬프트 렌더링에 의해 끊기던 문제와 경과 시간 및 토큰 수를 업데이트하기 위해 생각 중 상태 행이 몇 초마다 다시 렌더링되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed settings that set `OTEL_EXPORTER_OTLP_ENDPOINT` not governing all signals — lower-scope signal-specific overrides no longer redirect telemetry away from the managed endpoint",
+      "translated": "`OTEL_EXPORTER_OTLP_ENDPOINT`를 설정하는 관리형 설정이 모든 신호를 제어하지 못하던 문제 수정. 이제 낮은 범위의 신호별 오버라이드가 텔레메트리를 관리형 엔드포인트 외부로 리다이렉트하지 않음"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--resume`/`--continue` and `/resume` failing with a TypeError when a transcript has a malformed attachment entry",
+      "translated": "트랜스크립트에 잘못된 형식의 첨부 파일 항목이 있을 때 `--resume`/`--continue` 및 `/resume`이 TypeError와 함께 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions not showing a pending permission prompt or dialog to viewers that connected after it appeared",
+      "translated": "원격 제어 세션에서 권한 요청 프롬프트나 대화 상자가 나타난 이후에 접속한 뷰어에게 해당 내용이 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background shells sometimes becoming impossible to stop after a session is sent to the background (`/background` or `←`) or when the session exits on a heavily loaded machine, most visible on Windows",
+      "translated": "세션이 백그라운드로 전송되거나(`/background` 또는 `←`) 부하가 심한 머신에서 세션이 종료된 후 백그라운드 셸을 중지할 수 없게 되던 문제 수정(Windows에서 주로 발생)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a `CLAUDE.md` or `SKILL.md` paths frontmatter value with many brace groups OOM-killing or stalling the CLI at startup — brace expansion is now budget-bounded",
+      "translated": "`CLAUDE.md` 또는 `SKILL.md` 경로의 frontmatter 값에 중괄호 그룹이 많을 경우 시작 시 CLI가 메모리 부족(OOM)으로 종료되거나 멈추던 문제 수정. 이제 중괄호 확장에 제한이 적용됨"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the transcript preview sitting flush against the input area when attaching to a starting background session; it now leaves the same one-line gap as the live layout, so the transcript no longer shifts when the session takes over",
+      "translated": "시작 중인 백그라운드 세션에 연결할 때 트랜스크립트 미리보기가 입력 영역에 바로 붙어 있던 문제 수정. 이제 라이브 레이아웃과 동일하게 한 줄의 공백을 두어 세션이 전환될 때 트랜스크립트 위치가 어긋나지 않음"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved footer PR badge links to be clickable hyperlinks even when terminal support can't be detected (e.g. over ssh/tmux); set `FORCE_HYPERLINK=0` to opt out",
+      "translated": "터미널 지원 여부를 감지할 수 없는 경우(예: ssh/tmux 사용 시)에도 푸터의 PR 배지 링크를 클릭 가능한 하이퍼링크로 개선. `FORCE_HYPERLINK=0`으로 설정하여 비활성화 가능"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the login-expiry warning to appear 3 days before expiry instead of 5",
+      "translated": "로그인 만료 경고가 만료 5일 전이 아닌 3일 전에 나타나도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Capped the frontend-design plugin suggestion tip at 3 lifetime impressions instead of repeating indefinitely",
+      "translated": "프론트엔드 디자인 플러그인 제안 팁이 무한히 반복되는 대신 누적 3회 노출로 제한되도록 수정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a cap on concurrently-running subagents (default 20, override with `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`) so one message can't fan out unbounded background agents",
+      "translated": "하나의 메시지가 무제한으로 백그라운드 에이전트를 생성하지 못하도록 동시 실행 서브 에이전트 수 제한 추가(기본값 20, `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`로 변경 가능)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed subagents to no longer spawn nested subagents by default; set `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` to allow deeper nesting",
+      "translated": "서브 에이전트가 기본적으로 중첩된 서브 에이전트를 생성하지 않도록 변경. 더 깊은 중첩을 허용하려면 `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` 설정 필요"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--max-budget-usd` not stopping background subagents: once the cap is reached, new spawns are denied and running background agents are halted",
+      "translated": "`--max-budget-usd`가 백그라운드 서브 에이전트를 중지시키지 못하던 문제 수정. 이제 한도에 도달하면 새로운 에이전트 생성이 거부되고 실행 중인 백그라운드 에이전트가 중단됨"
+    }
+  ],
+  "translatedAt": "2026-07-22T03:50:13.907Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2964
+}
