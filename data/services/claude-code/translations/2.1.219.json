@@ -1,0 +1,176 @@
+{
+  "version": "2.1.219",
+  "date": "2026-07-24",
+  "parsedAt": "2026-07-24T19:48:52.645Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added Claude Opus 5 (`claude-opus-5`), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok",
+      "translated": "`claude-opus-5`를 추가하고 기본 Opus 모델로 설정했습니다. 1M 컨텍스트를 지원하며, 고속 모드 비용은 Mtok당 $10/$50입니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `sandbox.network.strictAllowlist` setting to deny non-allowlisted hosts for sandboxed commands without prompting",
+      "translated": "샌드박스 명령 실행 시 허용 목록에 없는 호스트를 확인 절차 없이 거부하는 `sandbox.network.strictAllowlist` 설정을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_repo_root` control request registers a new working directory mid-session",
+      "translated": "세션 중간에 `/add-dir` 또는 SDK의 `register_repo_root` 제어 요청으로 새 작업 디렉터리가 등록된 후 실행되는 `DirectoryAdded` 훅을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp-config` entries skipped by config validation; terminal runs print a startup warning",
+      "translated": "헤드리스 stream-json 초기화 이벤트에 `mcp_server_errors`를 추가하여 설정 검증에서 제외된 `--mcp-config` 항목을 나열합니다. 터미널 실행 시에는 시작 경고가 출력됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the `/config` row is hidden while one does",
+      "translated": "모든 설정 파일에서 권고용 동적 워크플로 크기 가이드라인을 설정할 수 있도록 `workflowSizeGuideline` 설정 키를 추가했습니다. 설정 중에는 `/config` 행이 숨겨집니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when `--forward-subagent-text` is set, keyed by their spawning Agent `tool_use` id",
+      "translated": "stream-json에 중첩된 서브에이전트 전달 기능을 추가했습니다. `--forward-subagent-text` 설정 시 깊이 2 이상의 서브에이전트가 표시되며, 이를 생성한 에이전트의 `tool_use` ID를 키로 사용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -p` text output dropping the answer already produced when a turn dies on a mid-stream API error",
+      "translated": "스트림 도중 API 오류로 턴이 중단될 때 `claude -p` 텍스트 출력에서 이미 생성된 답변이 유실되던 문제를 수정했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
+      "translated": "서버 연결 실패 시 `claude mcp list` 및 `/mcp`에 HTTP 상태 및 오류 텍스트를 추가했으며, MCP 설정 값 앞뒤에 숨겨진 공백이 있는 경우 경고를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs",
+      "translated": "셀프 호스팅 러너 재시작 중에 승인한 권한이 세션 재개 시 누락되던 문제를 수정하여, 이제 승인된 작업이 정상적으로 실행됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Fable model row showing \"Requires usage credits\" for plans that include it, when a stale cache had baked the label in",
+      "translated": "오래된 캐시로 인해 Fable 모델이 포함된 요금제임에도 불구하고 해당 모델 행에 \"사용 크레딧 필요(Requires usage credits)\"라고 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly",
+      "translated": "셀프 호스팅 러너 시작 중 SIGTERM이 발생하면 임대 만료 전까지 활성 행이 남아있던 문제를 수정했습니다. 이제 정상적으로 등록이 해제됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart",
+      "translated": "셀프 호스팅 러너 생성 및 세션 실패 시 구조화된 실패 카테고리를 추가하여 훅 오류, 러너 충돌, 설정 오류를 구분할 수 있게 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/model` picker showing the merged Opus row as plain \"Opus\" instead of \"Opus (1M context)\"",
+      "translated": "`/model` 선택기에서 통합된 Opus 행이 \"Opus (1M context)\" 대신 단순히 \"Opus\"로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection",
+      "translated": "GNU screen 내부에서 선택 시 복사 기능이 선택 영역을 복사하는 대신 터미널에 base64를 출력하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check",
+      "translated": "모델 전환, 재연결 또는 조직 확인 실패 후 원격 제어 클라이언트가 이전의 고속 모드 상태를 유지하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_GIT_BASH_PATH` on Windows exiting or being used as bash when the path isn't a bash/sh binary; it's now ignored with a warning",
+      "translated": "Windows에서 `CLAUDE_CODE_GIT_BASH_PATH` 경로가 bash/sh 바이너리가 아님에도 종료되거나 bash로 사용되던 문제를 수정했습니다. 이제 경고와 함께 해당 경로를 무시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Vim mode: pressing ← on an empty prompt now returns to the agent view from NORMAL mode, not just INSERT",
+      "translated": "Vim 모드 수정: 빈 프롬프트에서 ← 키를 누르면 이제 INSERT 모드뿐만 아니라 NORMAL 모드에서도 에이전트 뷰로 돌아갑니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed screen-reader mode rewriting the entire input line on every keystroke instead of echoing only the typed character",
+      "translated": "스크린 리더 모드에서 키를 누를 때마다 입력된 문자만 출력하는 대신 전체 입력 줄을 다시 쓰던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the \"Remote Control is only available via api.anthropic.com\" error to name the specific setting that caused it",
+      "translated": "\"원격 제어는 api.anthropic.com을 통해서만 사용할 수 있습니다\" 오류 메시지에 해당 오류를 유발한 특정 설정을 명시하도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude --teleport` to show which repo your current checkout points at when it doesn't match the session's repo",
+      "translated": "`claude --teleport` 실행 시 현재 체크아웃된 저장소가 세션의 저장소와 일치하지 않는 경우, 현재 가리키고 있는 저장소를 표시하도록 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed dynamic workflows to default to a medium size guideline (aim for fewer than 15 agents); pick another size or unrestricted with Dynamic workflow size in `/config`",
+      "translated": "다이나믹 워크플로우의 기본 설정을 중간 크기 가이드라인(에이전트 15개 미만 권장)으로 변경했습니다. 다른 크기나 제한 없음 설정은 `/config`의 Dynamic workflow size에서 선택할 수 있습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed managed MCP allowlist/denylist `${VAR}` entries to resolve from the startup environment and managed-settings env instead of settings-file env",
+      "translated": "관리형 MCP allowlist/denylist의 `${VAR}` 항목이 settings-file env 대신 시작 환경 및 managed-settings env에서 확인되도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+      "translated": "`/model` 선택기에서 최신 모델의 이름만 강조 표시되도록 변경하여, 목록의 임의의 하위 집합이 아닌 새로운 릴리스가 강조되도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the current default workflow size to the running-workflow status line, with a pointer to `/config` for changing it",
+      "translated": "실행 중인 워크플로우 상태 표시줄에 현재 기본 워크플로우 크기를 추가하고, 이를 변경할 수 있는 `/config` 안내를 포함했습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed Opus 4.7 from fast mode; `/fast` now applies to Opus 5 and Opus 4.8",
+      "translated": "fast mode에서 Opus 4.7을 제거했습니다. 이제 `/fast`는 Opus 5 및 Opus 4.8에 적용됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8",
+      "translated": "claude-api 스킬의 기본값을 Claude Opus 5로 업데이트했으며, Opus 4.8에서의 마이그레이션 경로를 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting",
+      "translated": "서브 에이전트가 기본적으로 최대 3단계 깊이까지 중첩된 서브 에이전트를 생성할 수 있도록 변경되었습니다(기존 1단계). 중첩을 비활성화하려면 CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1로 설정하세요."
+    }
+  ],
+  "translatedAt": "2026-07-24T19:49:58.775Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3563
+}
