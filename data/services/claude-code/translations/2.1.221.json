@@ -1,0 +1,248 @@
+{
+  "version": "2.1.221",
+  "date": "2026-08-04",
+  "parsedAt": "2026-08-04T03:40:58.393Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with `Ctrl+Alt+F` or the \"Claude Code: Toggle Focus view\" command",
+      "translated": "[VSCode] 포커스 뷰 추가: 채팅 메뉴 토글을 통해 도구 활동을 확장 가능한 턴별 요약 뒤로 숨기고 실시간 도구 실행 상태를 표시하며, `Ctrl+Alt+F` 또는 \"Claude Code: Toggle Focus view\" 명령어로 전환할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `mode: \"mask\"` for sandbox credential files on Linux and WSL — sandboxed commands read a sentinel copy (the whole file, or just the spans captured by an `extract` regex) while the sandbox proxy substitutes the real value on egress; on macOS file masking falls back to `deny`",
+      "translated": "Linux 및 WSL의 샌드박스 자격 증명 파일에 `mode: \"mask\"` 추가 — 샌드박스 명령은 감시용 복사본(전체 파일 또는 `extract` 정규식으로 캡처된 구간)을 읽고, 샌드박스 프록시는 외부로 나갈 때 실제 값으로 대체합니다. macOS에서 파일 마스킹은 `deny`로 대체됩니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added warnings to `claude plugin validate` when a marketplace or plugin name would be rejected by Claude Desktop's managed marketplace sync",
+      "translated": "Claude Desktop의 관리형 마켓플레이스 동기화에서 마켓플레이스 또는 플러그인 이름이 거부될 경우 `claude plugin validate`에 경고를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a `prompt-audit` subcommand to the `claude-api` skill for auditing prompts and tool descriptions for patterns written for older models",
+      "translated": "이전 모델용으로 작성된 패턴에 대해 프롬프트 및 도구 설명을 감사할 수 있도록 `claude-api` 스킬에 `prompt-audit` 하위 명령어를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Bash tool permission-check bypass where zsh could execute hidden commands in `[[ ]]` regex conditionals; affected commands now prompt for permission",
+      "translated": "zsh가 `[[ ]]` 정규식 조건문 내에서 숨겨진 명령을 실행할 수 있었던 Bash 도구 권한 확인 우회 문제를 수정했습니다. 이제 해당 명령은 권한 승인을 요청합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell permission checks mishandling paths containing quote characters on Windows; such paths now prompt for approval",
+      "translated": "Windows에서 따옴표 문자가 포함된 경로를 PowerShell 권한 확인 시 잘못 처리하던 문제를 수정했습니다. 이제 해당 경로는 승인을 요청합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the thinking toggle having no effect for the rest of a session that started with thinking off; disabling an MCP server mid-connect no longer silently reverts",
+      "translated": "Thinking 기능이 꺼진 상태로 시작된 세션의 나머지 부분에서 Thinking 토글이 작동하지 않던 문제를 수정했습니다. 연결 도중 MCP 서버를 비활성화해도 더 이상 자동으로 되돌아가지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers from `--mcp-config` not being connected before the first turn in print mode (`-p`), which made the model emit tool calls as literal text",
+      "translated": "출력 모드(`-p`)에서 첫 번째 턴 이전에 `--mcp-config`의 MCP 서버가 연결되지 않아 모델이 도구 호출을 일반 텍스트로 출력하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed @-mentioned files being silently dropped when pressing Esc to retract a prompt and resubmitting it",
+      "translated": "Esc 키를 눌러 프롬프트를 취소하고 다시 제출할 때 @로 멘션된 파일이 자동으로 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when preparing API requests for SDK MCP tools named after built-in object properties such as `constructor`",
+      "translated": "`constructor`와 같은 내장 객체 속성 이름과 동일한 SDK MCP 도구의 API 요청을 준비할 때 발생하던 충돌을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed WebSearch failing with a 400 error at effort `xhigh`/`max` when thinking is disabled",
+      "translated": "Thinking 기능이 비활성화되었을 때 effort가 `xhigh` 또는 `max`인 경우 WebSearch가 400 오류로 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandboxed large uploads failing with TLS errors through the sandbox proxy",
+      "translated": "샌드박스 프록시를 통한 대용량 업로드 시 TLS 오류로 인해 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Team and Enterprise spend-limit message incorrectly blaming the org's monthly limit instead of your individual spend limit",
+      "translated": "Team 및 Enterprise 요금제의 지출 한도 메시지가 개인 지출 한도 대신 조직의 월간 한도 때문인 것으로 잘못 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bedrock authentication with AWS SSO named profiles failing in desktop-managed sessions on Windows machines that set a stray `HOME` environment variable",
+      "translated": "`HOME` 환경 변수가 설정된 Windows 환경의 데스크톱 관리 세션에서 AWS SSO 명명된 프로필을 사용한 Bedrock 인증이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN=0` not disabling interrupted-turn auto-resume; falsy values are now honored",
+      "translated": "`CLAUDE_CODE_RESUME_INTERRUPTED_TURN=0`이 중단된 턴의 자동 재개를 비활성화하지 못하던 문제를 수정했습니다. 이제 false 값이 정상적으로 적용됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare wake-from-sleep race where two Claude Code processes could both refresh the same MCP connector or WIF OAuth token at once, forcing re-authentication",
+      "translated": "절전 모드 해제 시 드물게 발생하는 레이스 컨디션으로 인해 두 개의 Claude Code 프로세스가 동일한 MCP 커넥터 또는 WIF OAuth 토큰을 동시에 갱신하여 재인증이 강제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed renaming a session from Claude Code Desktop or claude.ai not updating the CLI's session name; session names from every rename surface are now sanitized",
+      "translated": "Claude Code Desktop 또는 claude.ai에서 세션 이름을 변경해도 CLI의 세션 이름이 업데이트되지 않던 문제를 수정했습니다. 이제 모든 이름 변경 경로에서 세션 이름이 정상적으로 처리됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g. `/help`, `/feedback`) being un-invocable in non-interactive sessions",
+      "translated": "터미널 전용 내장 명령어(예: `/help`, `/feedback`)와 이름이 같은 플러그인 및 조직 제공 스킬을 비대화형 세션에서 호출할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the \"Plugins changed\" notification lingering after plugins were reloaded instead of clearing",
+      "translated": "플러그인이 다시 로드된 후에도 \"Plugins changed\" 알림이 사라지지 않고 남아 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Vim mode: the yank register now survives dialogs, history search, and the transcript view instead of being silently emptied",
+      "translated": "Vim 모드 수정: 이제 yank 레지스터가 대화창, 기록 검색, 트랜스크립트 뷰를 거쳐도 비워지지 않고 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Vim mode: undoing back to an empty prompt now arms the \"press ← again\" confirm before returning to the agent view",
+      "translated": "Vim 모드 수정: 빈 프롬프트로 실행 취소 시 에이전트 뷰로 돌아가기 전 \"←를 다시 누르세요\" 확인 단계가 활성화됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved tool search on Google Vertex AI: re-enabled for Claude 4.5-generation and newer models",
+      "translated": "Google Vertex AI의 도구 검색 개선: Claude 4.5 세대 및 이후 모델에서 다시 활성화되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: permission checks for parallel tool calls are now cache-efficient, and switching modes while a check is pending reliably prompts instead of applying the stale result",
+      "translated": "자동 모드 개선: 병렬 도구 호출에 대한 권한 확인이 캐시 효율적으로 변경되었으며, 확인 대기 중 모드를 전환할 때 이전 결과를 적용하는 대신 안정적으로 프롬프트를 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced prompt-cache costs for auto-mode permission checks by reusing the cached conversation prefix across decisions",
+      "translated": "결정 과정에서 캐시된 대화 접두사를 재사용하여 자동 모드 권한 확인에 드는 프롬프트 캐시 비용을 줄였습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Stats panel to count cache tokens in its token totals, with a breakdown by input, output, cache read, and cache write",
+      "translated": "통계 패널 개선: 전체 토큰 수에 캐시 토큰을 포함하며 입력, 출력, 캐시 읽기, 캐시 쓰기별 상세 내역을 제공합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/ultrareview` error messages when a repo shares no history with its base: a checkout with no branches is now refused up front with advice to create one, and refusal hints no longer suggest `git fetch --unshallow` on clones that are already complete",
+      "translated": "`/ultrareview` 오류 메시지 개선: 베이스와 이력을 공유하지 않는 저장소의 경우 브랜치가 없는 체크아웃을 즉시 거부하고 브랜치 생성을 권장하며, 이미 완료된 클론에 대해 `git fetch --unshallow`를 제안하지 않도록 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Windows startup: process creation times are now read via a native kernel32 call instead of spawning PowerShell, so endpoint security tools that gate `powershell.exe` no longer prompt",
+      "translated": "Windows 시작 성능 개선: 프로세스 생성 시간을 PowerShell 실행 대신 네이티브 kernel32 호출로 읽어와, `powershell.exe`를 차단하는 엔드포인트 보안 도구의 알림이 더 이상 발생하지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed background sessions to commit and push to preserve work, open a draft PR only when the task calls for one, follow your CLAUDE.md git instructions, and always end by reporting where the work lives",
+      "translated": "백그라운드 세션 변경: 작업 보존을 위해 커밋 및 푸시를 수행하고, 작업에 필요한 경우에만 초안 PR을 생성하며, CLAUDE.md의 git 지침을 따르고 항상 작업 위치를 보고하며 종료합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/plugin install` to refresh a stale marketplace catalog and retry before reporting a plugin not found",
+      "translated": "`/plugin install` 변경: 플러그인을 찾을 수 없다고 보고하기 전에 오래된 마켓플레이스 카탈로그를 새로고침하고 다시 시도합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plugins installed from `/plugin` to activate immediately when safe, instead of always requiring `/reload-plugins`",
+      "translated": "`/plugin`으로 설치된 플러그인 변경: 매번 `/reload-plugins`를 실행할 필요 없이 안전한 경우 즉시 활성화됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plugins to accept `\".\"` as a `skills` path, and the root-level `SKILL.md` validation error now suggests using the plugin root",
+      "translated": "플러그인 변경: `skills` 경로로 `\".\"`을 허용하며, 루트 레벨의 `SKILL.md` 유효성 검사 오류 시 플러그인 루트 사용을 제안합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/status` to show the session kind: `interactive`, or a background job that is `attached` or `unattended`",
+      "translated": "`/status` 변경: 세션 종류(`interactive` 또는 `attached`/`unattended` 상태의 백그라운드 작업)를 표시합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed emoji autocomplete to accept common alternate shortcodes like `:thumbsup:`, `:thumbsdown:`, and `:love:`",
+      "translated": "이모지 자동 완성 변경: `:thumbsup:`, `:thumbsdown:`, `:love:`와 같은 일반적인 대체 숏코드를 지원합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed sessions forked with `/fork` to create a new worktree of their own instead of working in the original session's checkout",
+      "translated": "`/fork`로 포크된 세션 변경: 기존 세션의 체크아웃에서 작업하는 대신 자체적인 새 worktree를 생성합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Claude in Chrome to close the browser tabs it opens once it no longer needs them",
+      "translated": "Chrome용 Claude 변경: 더 이상 필요하지 않은 브라우저 탭을 자동으로 닫습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed fast mode to report on the stream when usage credits run out mid-session, instead of failing silently",
+      "translated": "빠른 모드 변경: 세션 도중 사용 크레딧이 소진될 경우 아무런 알림 없이 실패하는 대신 스트림에 해당 내용을 보고합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Monitor: a watch that exits without producing any output now says so instead of reporting \"stream ended\"",
+      "translated": "Monitor 변경: 출력을 생성하지 않고 종료된 watch에 대해 \"stream ended\" 대신 해당 상태를 명시적으로 표시합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the Gateway `model` field validation: non-string values are rejected with a 400 instead of being forwarded",
+      "translated": "Gateway `model` 필드 유효성 검사 변경: 문자열이 아닌 값은 전달되지 않고 400 오류로 거부됩니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the repeated \"Permission mode changed while the auto-mode classifier call was queued\" notice from approval prompts",
+      "translated": "승인 프롬프트에서 반복되는 \"Permission mode changed while the auto-mode classifier call was queued\" 알림을 제거했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-04T03:42:12.911Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5423
+}
