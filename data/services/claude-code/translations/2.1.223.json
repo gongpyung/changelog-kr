@@ -1,0 +1,128 @@
+{
+  "version": "2.1.223",
+  "date": "2026-08-06",
+  "parsedAt": "2026-08-06T03:41:58.722Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added owner wildcard entries (`\"owner/*\"`) to the `strictKnownMarketplaces` and `blockedMarketplaces` managed settings for allowing or blocking all marketplace repos under a GitHub org",
+      "translated": "`strictKnownMarketplaces` 및 `blockedMarketplaces` 관리형 설정에 소유자 와일드카드 항목(`\"owner/*\"`)을 추가하여 GitHub 조직 아래의 모든 마켓플레이스 리포지토리를 허용하거나 차단할 수 있게 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a warning when workflow agents, forked skills, slash commands, or resumed background agents' requested subagent model is restricted and the parent model runs instead",
+      "translated": "워크플로 에이전트, 포크된 스킬, 슬래시 명령어 또는 재개된 백그라운드 에이전트가 요청한 서브에이전트 모델이 제한되어 대신 부모 모델이 실행될 때 경고를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a `/teleport` hint in cloud sessions showing how to continue locally with `claude --teleport <session id>`",
+      "translated": "클라우드 세션에서 `claude --teleport <session id>`를 통해 로컬에서 작업을 이어가는 방법을 보여주는 `/teleport` 힌트를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Bash permission bypass where a crafted command could hide parts of itself from permission checks",
+      "translated": "조작된 명령어가 권한 확인 시 자신의 일부를 숨길 수 있었던 Bash 권한 우회 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission prompts so commands padded with tabs or invisible Unicode can no longer hide part of the command from the approval dialog",
+      "translated": "탭이나 보이지 않는 유니코드가 포함된 명령어가 승인 대화 상자에서 명령어의 일부를 숨길 수 없도록 권한 프롬프트를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflow scripts being able to use dynamic `import()` to run code outside the workflow sandbox",
+      "translated": "워크플로 스크립트가 동적 `import()`를 사용하여 워크플로 샌드박스 외부에서 코드를 실행할 수 있었던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a permission gap where an agent definition's `bypassPermissions` mode ignored the org bypass-permissions disable policy",
+      "translated": "에이전트 정의의 `bypassPermissions` 모드가 조직의 권한 우회 비활성화 정책을 무시하던 권한 격차 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a session after a mid-session `/cd` coming back empty",
+      "translated": "세션 중간에 `/cd`를 실행한 후 세션을 재개하면 내용이 비어 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed gateway model discovery hiding Claude models registered under provider-prefixed IDs such as `vertex_ai/claude-*` or `bedrock/anthropic.claude-*`",
+      "translated": "`vertex_ai/claude-*` 또는 `bedrock/anthropic.claude-*`와 같이 제공자 접두사가 붙은 ID로 등록된 Claude 모델이 게이트웨이 모델 검색에서 숨겨지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `modelOverrides` keys that aren't Anthropic model IDs being treated as the session's canonical model ID; unknown keys are now ignored as documented",
+      "translated": "Anthropic 모델 ID가 아닌 `modelOverrides` 키가 세션의 표준 모델 ID로 취급되던 문제를 수정했습니다. 이제 문서에 명시된 대로 알 수 없는 키는 무시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed settings: server-delivered settings no longer disable the env block of a machine-local `managed-settings.json` or MDM profile; admin env now merges per key",
+      "translated": "관리형 설정 수정: 서버에서 전달된 설정이 더 이상 로컬 머신의 `managed-settings.json` 또는 MDM 프로필의 env 블록을 비활성화하지 않습니다. 이제 관리자 env는 키별로 병합됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandboxed commands failing to start on Linux when `sandbox.filesystem.denyWrite` covers the working directory",
+      "translated": "`sandbox.filesystem.denyWrite`가 작업 디렉토리를 포함할 때 Linux에서 샌드박스 명령어가 시작되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed forked background agents getting stuck \"already resuming\" for the rest of the session when rebuilding the fork's parent prompt failed during resume",
+      "translated": "재개 중 포크의 부모 프롬프트 재구축에 실패했을 때, 포크된 백그라운드 에이전트가 남은 세션 동안 \"이미 재개 중(already resuming)\" 상태로 멈춰 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a resumed session failing every turn, or leaving the interactive app on an unresponsive error screen, when its history held a malformed diagnostics attachment",
+      "translated": "세션 기록에 잘못된 형식의 진단 첨부 파일이 포함되어 있을 때, 재개된 세션이 매 턴마다 실패하거나 대화형 앱이 응답 없는 오류 화면에 머물던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare hang when parsing unusual `git push` output",
+      "translated": "비정상적인 `git push` 출력을 파싱할 때 드물게 발생하던 멈춤 현상을 수정했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `CLAUDE_CODE_DISABLE_1M_CONTEXT` to hold every Claude model with a native 1M window to 200K via auto-compaction, not just a fixed list; a startup warning now appears when auto-compaction isn't holding the session to 200K",
+      "translated": "`CLAUDE_CODE_DISABLE_1M_CONTEXT`가 고정된 목록뿐만 아니라 기본 1M 윈도우를 가진 모든 Claude 모델을 자동 압축을 통해 200K로 유지하도록 변경했습니다. 자동 압축이 세션을 200K로 유지하지 못할 경우 시작 시 경고가 표시됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed auto-compact to keep sessions on unrecognized model IDs within the assumed context window instead of letting them grow past it; set `CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1` to restore the previous behavior",
+      "translated": "인식되지 않는 모델 ID의 세션이 가정된 컨텍스트 윈도우를 초과하지 않도록 자동 압축 방식을 변경했습니다. 이전 동작으로 복구하려면 `CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1`을 설정하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/review` to be an alias of `/code-review`, which reviews the current diff or a PR (`/code-review <level> <pr#>`); use `/code-review ultra` for a deep cloud review",
+      "translated": "`/review`를 현재 diff 또는 PR을 리뷰하는 `/code-review`(`/code-review <level> <pr#>`)의 별칭으로 변경했습니다. 심층 클라우드 리뷰를 원하시면 `/code-review ultra`를 사용하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/code-review` with no effort level to reuse the level you typed last; type a level like `/code-review high` to change it",
+      "translated": "노력 수준(effort level) 없이 `/code-review`를 실행할 경우 마지막으로 입력한 수준을 재사용하도록 변경했습니다. 수준을 변경하려면 `/code-review high`와 같이 입력하세요."
+    }
+  ],
+  "translatedAt": "2026-08-06T03:42:21.026Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2719
+}
