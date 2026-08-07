@@ -1,0 +1,200 @@
+{
+  "version": "2.1.224",
+  "date": "2026-08-07",
+  "parsedAt": "2026-08-07T07:43:37.278Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added self-hosted environments: `claude self-hosted-runner` turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans",
+      "translated": "Added self-hosted environments: `claude self-hosted-runner` turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `archive` plugin source: install plugins from a zip over HTTPS without git or npm, with optional SHA-256 pinning",
+      "translated": "Added `archive` plugin source: install plugins from a zip over HTTPS without git or npm, with optional SHA-256 pinning"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a cancel-and-confirm step when removing an unavailable paste changes a command's text",
+      "translated": "Added a cancel-and-confirm step when removing an unavailable paste changes a command's text"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ANTHROPIC_BEDROCK_REGION_PREFIX` env var for Bedrock to prefer a specific cross-region inference profile over the `AWS_REGION`-derived one",
+      "translated": "Added `ANTHROPIC_BEDROCK_REGION_PREFIX` env var for Bedrock to prefer a specific cross-region inference profile over the `AWS_REGION`-derived one"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `crossSessionInbound` and `dialogExpiry` settings: cross-session messages sent to a session running with bypassed permissions are held for your approval, and messages to other sessions auto-deliver",
+      "translated": "Added `crossSessionInbound` and `dialogExpiry` settings: cross-session messages sent to a session running with bypassed permissions are held for your approval, and messages to other sessions auto-deliver"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added sandbox credential-masking options: `extract` and `onExtractNoMatch` for structured env values, `decode: \"jwt\"` with `maskClaims` for JWT-aware masking, and `awsPairs`/`sigv4` for AWS SigV4 re-signing; these need `network.tlsTerminate` and are honored only from user, managed, or `--settings` settings",
+      "translated": "Added sandbox credential-masking options: `extract` and `onExtractNoMatch` for structured env values, `decode: \"jwt\"` with `maskClaims` for JWT-aware masking, and `awsPairs`/`sigv4` for AWS SigV4 re-signing; these need `network.tlsTerminate` and are honored only from user, managed, or `--settings` settings"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added cross-session `SendMessage`: Claude Code sessions can now message each other, on any of your machines, with `ListAgents` to discover them (macOS and Linux)",
+      "translated": "Added cross-session `SendMessage`: Claude Code sessions can now message each other, on any of your machines, with `ListAgents` to discover them (macOS and Linux)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed long (>200 char) project paths resolving to another project's session directory under a shared sanitized prefix; session list, rename, fork, delete and `/resume` no longer cross projects",
+      "translated": "Fixed long (>200 char) project paths resolving to another project's session directory under a shared sanitized prefix; session list, rename, fork, delete and `/resume` no longer cross projects"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SendMessage` reporting \"Message sent\" when the write to a teammate's inbox had actually failed; failed deliveries are now reported as errors",
+      "translated": "Fixed `SendMessage` reporting \"Message sent\" when the write to a teammate's inbox had actually failed; failed deliveries are now reported as errors"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandbox filesystem deny entries written with a trailing slash (e.g. `denyRead: \"~/.aws/\"`) being silently bypassable on Linux and macOS",
+      "translated": "Fixed sandbox filesystem deny entries written with a trailing slash (e.g. `denyRead: \"~/.aws/\"`) being silently bypassable on Linux and macOS"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sandbox violation details never appearing in Bash tool results; Claude now sees which file or network access was denied and why",
+      "translated": "Fixed sandbox violation details never appearing in Bash tool results; Claude now sees which file or network access was denied and why"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP tools that connect mid-turn being deferred for tool search without their names announced to the model",
+      "translated": "Fixed MCP tools that connect mid-turn being deferred for tool search without their names announced to the model"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin install records being silently corrupted when the same plugin is installed in multiple projects",
+      "translated": "Fixed plugin install records being silently corrupted when the same plugin is installed in multiple projects"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed recalled or restored paste content occasionally attaching wrong data or silently losing text when the paste had aged out or placeholder numbers collided",
+      "translated": "Fixed recalled or restored paste content occasionally attaching wrong data or silently losing text when the paste had aged out or placeholder numbers collided"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed copy-on-select on Wayland sometimes not reaching the clipboard; the two selection writes no longer race",
+      "translated": "Fixed copy-on-select on Wayland sometimes not reaching the clipboard; the two selection writes no longer race"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the feedback survey's transcript share silently failing on long sessions; a failed share now shows an error instead of a success message",
+      "translated": "Fixed the feedback survey's transcript share silently failing on long sessions; a failed share now shows an error instead of a success message"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control auto-start intermittently failing with \"Remote credentials fetch failed\" on a cold start with a stale login token",
+      "translated": "Fixed Remote Control auto-start intermittently failing with \"Remote credentials fetch failed\" on a cold start with a stale login token"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control and SDK clients showing a blank \"(no content)\" message after `/clear` and other output-less commands",
+      "translated": "Fixed Remote Control and SDK clients showing a blank \"(no content)\" message after `/clear` and other output-less commands"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Remote Control session recreated after its server session expired uploading prior local conversation history into the new session",
+      "translated": "Fixed a Remote Control session recreated after its server session expired uploading prior local conversation history into the new session"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved fullscreen mode to keep the full pre-compaction history in scrollback across repeated compactions, instead of only the most recent interval",
+      "translated": "Improved fullscreen mode to keep the full pre-compaction history in scrollback across repeated compactions, instead of only the most recent interval"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control: attached web and mobile clients now see compaction progress and the post-compaction boundary instead of a silent pause; `/clear` resets now propagate to attached clients",
+      "translated": "Improved Remote Control: attached web and mobile clients now see compaction progress and the post-compaction boundary instead of a silent pause; `/clear` resets now propagate to attached clients"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control: connection failures now show a persistent failure indicator with details and a reconnect shortcut, instead of only an 8-second toast",
+      "translated": "Improved Remote Control: connection failures now show a persistent failure indicator with details and a reconnect shortcut, instead of only an 8-second toast"
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the 200-subagent-per-session spawn cap; long-running sessions no longer refuse new agents (concurrency and depth limits still apply)",
+      "translated": "Removed the 200-subagent-per-session spawn cap; long-running sessions no longer refuse new agents (concurrency and depth limits still apply)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed managed settings: the approval prompt no longer re-appears after re-login or org switching when the organization's settings are unchanged",
+      "translated": "Changed managed settings: the approval prompt no longer re-appears after re-login or org switching when the organization's settings are unchanged"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the feedback-survey transcript share: with your consent it now also uploads the last request's model settings — the system prompt (which includes your `CLAUDE.md` instructions), tool definitions, and model parameters. Secrets are redacted as before, and these fields are dropped first if the share is too large",
+      "translated": "Changed the feedback-survey transcript share: with your consent it now also uploads the last request's model settings — the system prompt (which includes your `CLAUDE.md` instructions), tool definitions, and model parameters. Secrets are redacted as before, and these fields are dropped first if the share is too large"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the Bash tool description to always note that command output is displayed to the model, not reliably to the user",
+      "translated": "Changed the Bash tool description to always note that command output is displayed to the model, not reliably to the user"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed recalled paste placeholder numbers to renumber when accepted into the input",
+      "translated": "Changed recalled paste placeholder numbers to renumber when accepted into the input"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Remote Control to archive the stale server session instead of leaving a dead one listed when a fresh session is minted after compaction or `/resume`",
+      "translated": "Changed Remote Control to archive the stale server session instead of leaving a dead one listed when a fresh session is minted after compaction or `/resume`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the extension showing Remote Control as connected after the connection failed",
+      "translated": "[VSCode] Fixed the extension showing Remote Control as connected after the connection failed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a session resume silently reconnecting Remote Control after the user turned it off (`--resume`, SDK hosts, and the VS Code extension)",
+      "translated": "Fixed a session resume silently reconnecting Remote Control after the user turned it off (`--resume`, SDK hosts, and the VS Code extension)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed sessions not honoring `remoteControlAtStartup` when explicitly enabled",
+      "translated": "[VSCode] Fixed sessions not honoring `remoteControlAtStartup` when explicitly enabled"
+    }
+  ],
+  "translatedAt": "2026-08-07T07:44:51.667Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 4629
+}
