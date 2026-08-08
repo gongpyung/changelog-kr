@@ -1,0 +1,290 @@
+{
+  "version": "2026.6.34",
+  "date": "2026-08-08",
+  "parsedAt": "2026-08-08T13:14:05.953Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer browser and network boundaries:** sandboxed browser routes, trusted DNS targets, custom browser origins, and loopback provider endpoints now reject unsafe access paths. (#97958, #38290, #103075, #110693) Thanks @eleqtrizit, @brunowowk, @mosidevv, @pgondhi987, and @lsr911.",
+      "translated": "**더 안전한 브라우저 및 네트워크 경계:** 샌드박스 처리된 브라우저 라우트, 신뢰할 수 있는 DNS 대상, 사용자 정의 브라우저 오리진 및 루프백 프로바이더 엔드포인트에서 안전하지 않은 액세스 경로를 거부하도록 개선되었습니다. (#97958, #38290, #103075, #110693) @eleqtrizit, @brunowowk, @mosidevv, @pgondhi987, @lsr911님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**More resilient agent and provider runs:** retained session writes, provider fallbacks, stream progress handling, and stdio failures now recover without silently ending active work. (#96100, #97128, #90908, #99803, #100521) Thanks @xialonglee, @sallyom, @richwilson-bloom, @LiuwqGit, @vincentkoc, @yetval, @shengting, and @cxbAsDev.",
+      "translated": "**에이전트 및 프로바이더 실행의 복원력 강화:** 유지된 세션 쓰기, 프로바이더 폴백, 스트림 진행 처리 및 stdio 오류 발생 시 활성 작업이 예기치 않게 종료되지 않고 복구되도록 개선되었습니다. (#96100, #97128, #90908, #99803, #100521) @xialonglee, @sallyom, @richwilson-bloom, @LiuwqGit, @vincentkoc, @yetval, @shengting, @cxbAsDev님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Stronger channel recovery:** pending channel work resumes after recovery, acknowledgements are idempotent, and sustained Discord gateway bursts stay bounded. (#79811, #97041, #104919, #109108, #110954, #103793, #94016) Thanks @indulgeback, @cuiyuxin-gif, @Pick-cat, @Glucksberg, @evan-YM, @zhangguiping-xydt, @yetval, @sheyanmin, and @thomasthelen-kibeauftragter.",
+      "translated": "**채널 복구 기능 강화:** 복구 후 대기 중인 채널 작업이 재개되고, 승인(acknowledgements)의 멱등성이 보장되며, 지속적인 Discord 게이트웨이 버스트가 제한 범위 내에서 유지됩니다. (#79811, #97041, #104919, #109108, #110954, #103793, #94016) @indulgeback, @cuiyuxin-gif, @Pick-cat, @Glucksberg, @evan-YM, @zhangguiping-xydt, @yetval, @sheyanmin, @thomasthelen-kibeauftragter님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer operator diagnostics:** command and status surfaces keep owner-only actions protected and prevent credentials from appearing in account URLs or summaries. (#98260, #107754, #105017) Thanks @eleqtrizit, @joshavant, @ooiuuii, @aniruddhaadak80, and @tzy-17.",
+      "translated": "**더 안전한 운영자 진단:** 명령 및 상태 인터페이스에서 소유자 전용 작업을 보호하고, 계정 URL이나 요약 정보에 자격 증명이 노출되지 않도록 방지합니다. (#98260, #107754, #105017) @eleqtrizit, @joshavant, @ooiuuii, @aniruddhaadak80, @tzy-17님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**More robust local runtime state:** SQLite checkpoints, workspace reads, gateway process signalling, plugin HTTP responses, and dependency handling no longer turn transient host conditions into failed runs. (#99067, #100910, #102125, #109590, #112406) Thanks @ooiuuii, @masatohoshino, @vincentkoc, @mushuiyu886, and @krissding.",
+      "translated": "**로컬 런타임 상태의 견고함 개선:** SQLite 체크포인트, 워크스페이스 읽기, 게이트웨이 프로세스 신호 처리, 플러그인 HTTP 응답 및 종속성 처리가 일시적인 호스트 상태로 인해 실행 실패로 이어지지 않도록 개선되었습니다. (#99067, #100910, #102125, #109590, #112406) @ooiuuii, @masatohoshino, @vincentkoc, @mushuiyu886, @krissding님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Extended-stable hardening:** this maintenance release carries targeted security and reliability repairs without adding new release-line features.",
+      "translated": "**Extended-stable 강화:** 이번 유지 관리 릴리스에는 새로운 기능 추가 없이 보안 및 안정성 향상을 위한 수정 사항이 포함되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**OpenCode Go:** use the documented `hy3` model identifier instead of the failing `hy3-preview` alias.",
+      "translated": "**OpenCode Go:** 오류가 발생하는 `hy3-preview` 별칭 대신 문서화된 `hy3` 모델 식별자를 사용합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Codex native subagents:** retain the parent app-server subscription and recognize multi-agent V2 child activity until a yielded child completion reaches its requester.",
+      "translated": "**Codex 네이티브 서브에이전트:** 상위 app-server 구독을 유지하고, 생성된 하위 완료 결과가 요청자에게 도달할 때까지 멀티 에이전트 V2 하위 활동을 인식합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Dependency security:** updates production dependency resolutions for patched `brace-expansion`, PostCSS, `fast-uri`, `ip-address`, and Undici versions. (#113428, #118804)",
+      "translated": "**종속성 보안:** 패치된 `brace-expansion`, PostCSS, `fast-uri`, `ip-address` 및 Undici 버전에 대한 프로덕션 종속성 해결을 업데이트합니다. (#113428, #118804)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Execution and transport safety:** browser, sandbox, exec, MCP, and secret-resolution paths reject unsafe inputs and handle stream failures without crashing the host process.",
+      "translated": "**실행 및 전송 안전성:** 브라우저, 샌드박스, exec, MCP 및 비밀 해제(secret-resolution) 경로에서 안전하지 않은 입력을 거부하고, 호스트 프로세스의 충돌 없이 스트림 오류를 처리합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Delivery and channel stability:** outbound receipts, delivery evidence, channel lifecycle, health monitoring, and gateway queues recover cleanly under retries, restarts, and overload.",
+      "translated": "**전송 및 채널 안정성:** 아웃바운드 영수증, 전송 증거, 채널 수명 주기, 상태 모니터링 및 게이트웨이 큐가 재시도, 재시작 및 과부하 상황에서도 정상적으로 복구됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Gateway and storage reliability:** plugin responses, process probes, workspace bootstrap reads, and SQLite writes tolerate expected transient failures while preserving correct state.",
+      "translated": "**게이트웨이 및 스토리지 안정성:** 플러그인 응답, 프로세스 프로브, 워크스페이스 부트스트랩 읽기 및 SQLite 쓰기가 올바른 상태를 유지하면서 예상되는 일시적 오류를 허용하도록 개선되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Plugin SDK migration:** `before_agent_start`, root `openclaw/plugin-sdk` imports, `providerAuthEnvVars`, and `channelEnvVars` are scheduled for removal after July 24. Migrate to the modern hook stages, focused SDK subpath imports, and manifest setup descriptors. See [Plugin SDK migration](/plugins/sdk-migration) and [plugin manifests](/plugins/manifest).",
+      "translated": "**플러그인 SDK 마이그레이션:** `before_agent_start`, 루트 `openclaw/plugin-sdk` 임포트, `providerAuthEnvVars` 및 `channelEnvVars`가 7월 24일 이후 삭제될 예정입니다. 최신 훅 단계, 세분화된 SDK 하위 경로 임포트 및 매니페스트 설정 기술자(descriptors)로 마이그레이션하세요. [플러그인 SDK 마이그레이션](/plugins/sdk-migration) 및 [플러그인 매니페스트](/plugins/manifest)를 참조하시기 바랍니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96100** Related #95915. Thanks @xialonglee, @sallyom, and @richwilson-bloom.",
+      "translated": "**PR #96100** 관련 #95915. @xialonglee, @sallyom, @richwilson-bloom님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #79811** Related #79753. Thanks @indulgeback and @cuiyuxin-gif.",
+      "translated": "**PR #79811** 관련 #79753. @indulgeback, @cuiyuxin-gif님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97041** Thanks @Pick-cat and @vincentkoc.",
+      "translated": "**PR #97041** @Pick-cat, @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97128** Related #96518. Thanks @LiuwqGit, @vincentkoc, and @yetval.",
+      "translated": "**PR #97128** 관련 #96518. @LiuwqGit, @vincentkoc, @yetval님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #90908** Thanks @shengting.",
+      "translated": "**PR #90908** @shengting님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97958** Thanks @eleqtrizit.",
+      "translated": "**PR #97958** @eleqtrizit님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98260** Thanks @eleqtrizit.",
+      "translated": "**PR #98260** @eleqtrizit님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99803** Thanks @cxbAsDev and @vincentkoc.",
+      "translated": "**PR #99803** @cxbAsDev 님과 @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99067** Related #99066. Thanks @ooiuuii.",
+      "translated": "**PR #99067** #99066 관련. @ooiuuii 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100521** Thanks @cxbAsDev.",
+      "translated": "**PR #100521** @cxbAsDev 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100910** Thanks @masatohoshino and @vincentkoc.",
+      "translated": "**PR #100910** @masatohoshino 님과 @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102125** Thanks @mushuiyu886.",
+      "translated": "**PR #102125** @mushuiyu886 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #38290** Related #46520. Thanks @brunowowk and @mosidevv.",
+      "translated": "**PR #38290** #46520 관련. @brunowowk 님과 @mosidevv 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103075** Thanks @pgondhi987.",
+      "translated": "**PR #103075** @pgondhi987 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104919** Related #104903. Thanks @Glucksberg and @evan-YM.",
+      "translated": "**PR #104919** #104903 관련. @Glucksberg 님과 @evan-YM 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #107754** Related #98633, #102932, #105427. Thanks @joshavant, @ooiuuii, and @aniruddhaadak80.",
+      "translated": "**PR #107754** #98633, #102932, #105427 관련. @joshavant 님, @ooiuuii 님, @aniruddhaadak80 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #109108** Thanks @zhangguiping-xydt.",
+      "translated": "**PR #109108** @zhangguiping-xydt 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #105017** Thanks @tzy-17.",
+      "translated": "**PR #105017** @tzy-17 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #109590** Thanks @krissding.",
+      "translated": "**PR #109590** @krissding 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #110693** Thanks @lsr911.",
+      "translated": "**PR #110693** @lsr911 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #110954** Thanks @zhangguiping-xydt.",
+      "translated": "**PR #110954** @zhangguiping-xydt 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103793** Thanks @yetval.",
+      "translated": "**PR #103793** @yetval 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #94016** Related #94008. Thanks @sheyanmin and @thomasthelen-kibeauftragter.",
+      "translated": "**PR #94016** #94008 관련. @sheyanmin 님과 @thomasthelen-kibeauftragter 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #112406** Thanks @vincentkoc.",
+      "translated": "**PR #112406** @vincentkoc 님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #107938**.",
+      "translated": "**PR #107938**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: [`openclaw@2026.6.34`](https://www.npmjs.com/package/openclaw/v/2026.6.34)",
+      "translated": "npm 패키지: [`openclaw@2026.6.34`](https://www.npmjs.com/package/openclaw/v/2026.6.34)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm registry tarball: [`openclaw-2026.6.34.tgz`](https://registry.npmjs.org/openclaw/-/openclaw-2026.6.34.tgz)",
+      "translated": "npm 레지스트리 타르볼: [`openclaw-2026.6.34.tgz`](https://registry.npmjs.org/openclaw/-/openclaw-2026.6.34.tgz)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm integrity: `sha512-Rm4khBrWn9HYqE99NBryCFgjwlsIuwBqK5jIANn2773CGXJ1JIZkDn5twEHB+8SVFdh0FPNPHRVgZepzNJDfHg==`",
+      "translated": "npm 무결성: `sha512-Rm4khBrWn9HYqE99NBryCFgjwlsIuwBqK5jIANn2773CGXJ1JIZkDn5twEHB+8SVFdh0FPNPHRVgZepzNJDfHg==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm signatures and [SLSA provenance attestation](https://registry.npmjs.org/-/npm/v1/attestations/openclaw@2026.6.34) are published",
+      "translated": "npm 서명 및 [SLSA provenance attestation](https://registry.npmjs.org/-/npm/v1/attestations/openclaw@2026.6.34)이 게시되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Container images: [GHCR](https://github.com/openclaw/openclaw/pkgs/container/openclaw) and [Docker Hub](https://hub.docker.com/r/openclaw/openclaw/tags?name=2026.6.34), with exact tags `2026.6.34`, `2026.6.34-slim`, and `2026.6.34-browser` for amd64 and arm64",
+      "translated": "컨테이너 이미지: amd64 및 arm64용 `2026.6.34`, `2026.6.34-slim`, `2026.6.34-browser` 태그가 [GHCR](https://github.com/openclaw/openclaw/pkgs/container/openclaw) 및 [Docker Hub](https://hub.docker.com/r/openclaw/openclaw/tags?name=2026.6.34)에 게시되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Container manifest digests: default/slim `sha256:47d342bafe83bd3b2dca6f1d8d8b608ba7b542a1952564960648943346206759`; browser `sha256:55203a7abced818c0378aac0a128a2fceee5448c08f36be7e0058762a3b3ff41`. The matching `extended-stable`, `extended-stable-slim`, and `extended-stable-browser` aliases resolve to those same digests in both registries.",
+      "translated": "컨테이너 매니페스트 다이제스트: default/slim `sha256:47d342bafe83bd3b2dca6f1d8d8b608ba7b542a1952564960648943346206759`, browser `sha256:55203a7abced818c0378aac0a128a2fceee5448c08f36be7e0058762a3b3ff41`. 두 레지스트리에서 해당 `extended-stable`, `extended-stable-slim`, `extended-stable-browser` 별칭은 동일한 다이제스트를 참조합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release commit: [`5c38f996d4059ebd9080cf74dc611ec3a17f4d50`](https://github.com/openclaw/openclaw/commit/5c38f996d4059ebd9080cf74dc611ec3a17f4d50)",
+      "translated": "릴리스 커밋: [`5c38f996d4059ebd9080cf74dc611ec3a17f4d50`](https://github.com/openclaw/openclaw/commit/5c38f996d4059ebd9080cf74dc611ec3a17f4d50)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Successful release workflows: [npm preflight](https://github.com/openclaw/openclaw/actions/runs/30904124224), [Full Release Validation](https://github.com/openclaw/openclaw/actions/runs/30904149739), [plugin npm publish](https://github.com/openclaw/openclaw/actions/runs/30916791876), and [Docker Release](https://github.com/openclaw/openclaw/actions/runs/30916780768)",
+      "translated": "성공한 릴리스 워크플로: [npm preflight](https://github.com/openclaw/openclaw/actions/runs/30904124224), [Full Release Validation](https://github.com/openclaw/openclaw/actions/runs/30904149739), [plugin npm publish](https://github.com/openclaw/openclaw/actions/runs/30916791876), [Docker Release](https://github.com/openclaw/openclaw/actions/runs/30916780768)"
+    }
+  ],
+  "translatedAt": "2026-08-08T13:15:06.041Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5790
+}
