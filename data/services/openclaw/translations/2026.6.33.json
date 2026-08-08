@@ -1,0 +1,1136 @@
+{
+  "version": "2026.6.33",
+  "date": "2026-08-08",
+  "parsedAt": "2026-08-08T07:17:30.846Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer network and secret boundaries:** provider streams, Discord REST responses, browser fetches, OAuth paths, and logs now cap hostile response sizes and keep Telegram credentials out of diagnostics. (#96989, #95412, #99428) Thanks @wangmiao0668000666, @Alix-007, @xialonglee, @liuhaiyang14, @Pick-cat, @mushuiyu886, @vincentkoc, @ZOOWH, @Pandah97, @solodmd, @zhangguiping-xydt, and @obviyus.",
+      "translated": "**PR #97693** @Alix-007님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**More reliable long-running agents:** run release, liveness checks, and watchdog semantics now distinguish genuine stalls from active long model calls and wedged backends. (#102160) Thanks @obviyus, @kiagentkronos-cell, @alvelda, @alkor2000, and @vincentkoc.",
+      "translated": "**PR #98496** @Pandah97님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Stronger channel delivery:** Discord reconnects no longer silently drop queued messages or repeat ambiguous non-idempotent sends, while Telegram bot-to-bot and reply-fence handling preserve the intended thread and authorization result. (#100896, #103867, #106755) Thanks @tiffanychum, @Godecule, @yetval, @xialonglee, and @RomneyDa.",
+      "translated": "**PR #97784** @Alix-007님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer credential recovery:** service restarts preserve SecretRef-backed Telegram credentials, and OAuth repair no longer overwrites an already-valid destination profile. (#99124, #97541) Thanks @mushuiyu886, @1Wanker, @liuhao1024, @yetval, @Darren2030, @obviyus, and @RomneyDa.",
+      "translated": "**PR #97140** #97091 관련. @galiniliev님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Extended-stable updates:** package installations can select, update from, and receive availability notices for the `extended-stable` channel without silently falling back to another release line. (#99811, #100438) Thanks @kevinslin.",
+      "translated": "**PR #95543** #95474 관련. @mikasa0818님과 @ElliotDrel님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Approval and tool authority:** Codex app-server commands now require an actual human/plugin approval, exec auto-review stays bound to the exact resolved command, and narrow tool allowlists remain owned by the factory that constructs them. (#103430, #103457, #104213) Thanks @obviyus, @brokemac79, @Pandah97, @wangmiao0668000666, and @pgondhi987.",
+      "translated": "**PR #97504** @hugenshen님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Scoped external tooling:** external MCP loopback clients use short-lived session-bound attach grants instead of inheriting mutable child-process authority, and Gateway message actions retain trusted requester provenance and reject untrusted callers. (#102031) Thanks @pgondhi987, @Glucksberg, @wings1029, @Alix-007, @machine3at, and @anagnorisis2peripeteia.",
+      "translated": "**PR #90908** @shengting님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Authorization and disclosure:** Gateway HTTP rejects disallowed browser origins before unauthenticated handling, permission repair stays confined to its intended include, MCP status output redacts secrets, and Gateway action bridges reject untrusted requesters. (#102881, #103267, #103396, #102031) Thanks @wangyan2026, @yetval, @NianJiuZst, @obviyus, @pgondhi987, and @brokemac79.",
+      "translated": "**PR #97356** @miorbnli님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Gateway and process stability:** agent-run caches are bounded, lock probes stop leaking file descriptors, close reasons preserve valid UTF-8, and heartbeat reads survive transient filesystem races. (#77973, #99291, #100047, #100389) Thanks @fede-kamel, @chenyangjun-xy, @zhangLei99586, @NarahariRaghava, @ogarciarevett, @markr9805, @849261680, @mushuiyu886, @vincentkoc, @wings1029, and @masatohoshino.",
+      "translated": "**PR #97541** #97522 관련. @liuhao1024님과 @yetval님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Provider and browser reliability:** Anthropic-compatible partial streams stop hanging at their size bound, OpenAI Realtime uses the correct authentication and transcription secret flow, and remote CDP credentials stay out of responses. (#100686, #102518, #103139) Thanks @zhangguiping-xydt, @cxbAsDev, @sjf-oa, @sjf, @vincentkoc, and @obviyus.",
+      "translated": "**PR #97520** #97313 관련. @zhangguiping-xydt님과 @pmdvedar-ai님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Ingress and webhook safety:** replayed Twilio requests are rejected under sustained traffic, corrupt queued channel rows are tombstoned without blocking later work, and Telegram tokens are redacted even when split across log chunks. (#101107, #105259, #103861) Thanks @zhangguiping-xydt, @vincentkoc, @mushuiyu886, @Pick-cat, and @xialonglee.",
+      "translated": "**PR #96544** @yetval님과 @vincentkoc님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98835** Related #98672. Thanks @moguangyu5-design and @jalehman and @AaronFaby.",
+      "translated": "**PR #97579** @hugenshen님"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96989** Thanks @wangmiao0668000666 and @vincentkoc.",
+      "translated": "**PR #96989** Thanks @wangmiao0668000666 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95412** Thanks @Alix-007.",
+      "translated": "**PR #95412** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95108** Thanks @vincentkoc.",
+      "translated": "**PR #95108** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97499** Thanks @wangmiao0668000666.",
+      "translated": "**PR #97499** Thanks @wangmiao0668000666."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102953** Thanks @ZOOWH.",
+      "translated": "**PR #102953** Thanks @ZOOWH."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97551** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #97551** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97540** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #97540** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95416** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #95416** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97614** Thanks @cxbAsDev.",
+      "translated": "**PR #97614** Thanks @cxbAsDev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97808** Thanks @Pick-cat.",
+      "translated": "**PR #97808** Thanks @Pick-cat."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96445** Thanks @lin-hongkuan.",
+      "translated": "**PR #96445** Thanks @lin-hongkuan."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97961** Thanks @eleqtrizit.",
+      "translated": "**PR #97961** Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97838** Thanks @pgondhi987.",
+      "translated": "**PR #97838** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98455** Thanks @wings1029.",
+      "translated": "**PR #98455** Thanks @wings1029."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100889** Thanks @mushuiyu886.",
+      "translated": "**PR #100889** Thanks @mushuiyu886."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #77973** Related #77976. Thanks @fede-kamel and @vincentkoc.",
+      "translated": "**PR #77973** Related #77976. Thanks @fede-kamel and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99291** Related #98958. Thanks @chenyangjun-xy and @zhangLei99586.",
+      "translated": "**PR #99291** Related #98958. Thanks @chenyangjun-xy and @zhangLei99586."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99428** Related #96982. Thanks @xialonglee and @liuhaiyang14.",
+      "translated": "**PR #99428** Related #96982. Thanks @xialonglee and @liuhaiyang14."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98130** Thanks @Pick-cat.",
+      "translated": "**PR #98130** Thanks @Pick-cat."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100047** Related #99976. Thanks @NarahariRaghava.",
+      "translated": "**PR #100047** Related #99976. Thanks @NarahariRaghava."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100389** Related #99994. Thanks @ogarciarevett and @markr9805.",
+      "translated": "**PR #100389** Related #99994. Thanks @ogarciarevett and @markr9805."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98682** Thanks @wings1029.",
+      "translated": "**PR #98682** Thanks @wings1029."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99479** Thanks @Pandah97.",
+      "translated": "**PR #99479** Thanks @Pandah97."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101079** Thanks @cxbAsDev.",
+      "translated": "**PR #101079** Thanks @cxbAsDev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101160** Thanks @cxbAsDev.",
+      "translated": "**PR #101160** Thanks @cxbAsDev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102105** Thanks @wangmiao0668000666.",
+      "translated": "**PR #102105** Thanks @wangmiao0668000666."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102450** Thanks @qingminglong.",
+      "translated": "**PR #102450** Thanks @qingminglong."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100483** Related #100423. Thanks @versatagent.",
+      "translated": "**PR #100483** Related #100423. Thanks @versatagent."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102050** Thanks @Alix-007.",
+      "translated": "**PR #102050** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102952** Related #55365. Thanks @lidge-jun and @Mdx2025.",
+      "translated": "**PR #102952** Related #55365. Thanks @lidge-jun and @Mdx2025."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102160** Related #85826, #96168. Thanks @obviyus and @kiagentkronos-cell and @alvelda.",
+      "translated": "**PR #102160** Related #85826, #96168. Thanks @obviyus and @kiagentkronos-cell and @alvelda."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96224** Related #77986. Thanks @eleqtrizit and @fede-kamel.",
+      "translated": "**PR #96224** Related #77986. Thanks @eleqtrizit and @fede-kamel."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96599** Thanks @sjf-oa and @sjf.",
+      "translated": "**PR #96599** Thanks @sjf-oa and @sjf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96615** Related #96589. Thanks @liuhao1024 and @yetval.",
+      "translated": "**PR #96615** Related #96589. Thanks @liuhao1024 and @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #89812** Related #89626. Thanks @Petru2224.",
+      "translated": "**PR #89812** Related #89626. Thanks @Petru2224."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #92274** Related #91527. Thanks @fsdwen and @zackchiutw.",
+      "translated": "**PR #92274** Related #91527. Thanks @fsdwen and @zackchiutw."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96396** Related #95784. Thanks @849261680 and @velvet-shark and @BryceMurray.",
+      "translated": "**PR #96396** Related #95784. Thanks @849261680 and @velvet-shark and @BryceMurray."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96096** Related #85900. Thanks @849261680 and @velvet-shark and @fanispoulinakisai-boop.",
+      "translated": "**PR #96096** Related #85900. Thanks @849261680 and @velvet-shark and @fanispoulinakisai-boop."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96831** Related #94083. Thanks @velvet-shark and @ooiuuii.",
+      "translated": "**PR #96831** Related #94083. Thanks @velvet-shark and @ooiuuii."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96142** Related #95574. Thanks @brokemac79 and @riazrahaman.",
+      "translated": "**PR #96142** Related #95574. Thanks @brokemac79 and @riazrahaman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97044** Related #96983. Thanks @zw-xysk and @vincentkoc and @liuhaiyang14.",
+      "translated": "**PR #97044** Related #96983. Thanks @zw-xysk and @vincentkoc and @liuhaiyang14."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #94452** Related #94040. Thanks @mushuiyu886 and @xrow.",
+      "translated": "**PR #94452** Related #94040. Thanks @mushuiyu886 and @xrow."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96772** Thanks @wangmiao0668000666 and @vincentkoc.",
+      "translated": "**PR #96772** Thanks @wangmiao0668000666 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96042** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #96042** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96038** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #96038** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96031** Thanks @Alix-007.",
+      "translated": "**PR #96031** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95103** Thanks @vincentkoc.",
+      "translated": "**PR #95103** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97620** Thanks @Alix-007 and @vincentkoc.",
+      "translated": "**PR #97620** Thanks @Alix-007 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97693** Thanks @Alix-007.",
+      "translated": "**PR #97693** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98496** Thanks @Pandah97.",
+      "translated": "**PR #98496** Thanks @Pandah97."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97784** Thanks @Alix-007.",
+      "translated": "**PR #97784** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97140** Related #97091. Thanks @galiniliev.",
+      "translated": "**PR #97140** Related #97091. Thanks @galiniliev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95543** Related #95474. Thanks @mikasa0818 and @ElliotDrel.",
+      "translated": "**PR #95543** Related #95474. Thanks @mikasa0818 and @ElliotDrel."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97504** Thanks @hugenshen.",
+      "translated": "**PR #97504** Thanks @hugenshen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #90908** Thanks @shengting.",
+      "translated": "**PR #90908** Thanks @shengting."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97356** Thanks @miorbnli.",
+      "translated": "**PR #97356** Thanks @miorbnli."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97541** Related #97522. Thanks @liuhao1024 and @yetval.",
+      "translated": "**PR #97541** Related #97522. Thanks @liuhao1024 and @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97520** Related #97313. Thanks @zhangguiping-xydt and @pmdvedar-ai.",
+      "translated": "**PR #97520** Related #97313. Thanks @zhangguiping-xydt and @pmdvedar-ai."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96544** Thanks @yetval and @vincentkoc.",
+      "translated": "**PR #96544** Thanks @yetval and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97579** Thanks @hugenshen.",
+      "translated": "**PR #97579** Thanks @hugenshen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96644** Thanks @solodmd.",
+      "translated": "**PR #96644** Thanks @solodmd."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97214** Thanks @masatohoshino and @vincentkoc.",
+      "translated": "**PR #97214** Thanks @masatohoshino and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97372** Thanks @masatohoshino.",
+      "translated": "**PR #97372** Thanks @masatohoshino."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95774** Thanks @mushuiyu886.",
+      "translated": "**PR #95774** Thanks @mushuiyu886."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95084** Related #90684. Thanks @jailbirt and @studentzhou-svg.",
+      "translated": "**PR #95084** Related #90684. Thanks @jailbirt and @studentzhou-svg."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97367** Thanks @masatohoshino.",
+      "translated": "**PR #97367** Thanks @masatohoshino."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98693** Thanks @ZengWen-DT and @cursoragent.",
+      "translated": "**PR #98693** Thanks @ZengWen-DT and @cursoragent."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #89817** Thanks @masatohoshino.",
+      "translated": "**PR #89817** Thanks @masatohoshino."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96965** Related #96929. Thanks @zw-xysk and @YouToco.",
+      "translated": "**PR #96965** Related #96929. Thanks @zw-xysk and @YouToco."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100107** Thanks @frank-beans.",
+      "translated": "**PR #100107** Thanks @frank-beans."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97861** Thanks @yetval.",
+      "translated": "**PR #97861** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96444** Thanks @lin-hongkuan.",
+      "translated": "**PR #96444** Thanks @lin-hongkuan."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96492** Thanks @yetval.",
+      "translated": "**PR #96492** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97870** Thanks @eleqtrizit.",
+      "translated": "**PR #97870** Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98142** Thanks @RomneyDa.",
+      "translated": "**PR #98142** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98226** Related #98225. Thanks @ooiuuii.",
+      "translated": "**PR #98226** Related #98225. Thanks @ooiuuii."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99460** Related #99459. Thanks @ooiuuii.",
+      "translated": "**PR #99460** Related #99459. Thanks @ooiuuii."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98354** Thanks @Pick-cat.",
+      "translated": "**PR #98354** Thanks @Pick-cat."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98508** Thanks @lzyyzznl.",
+      "translated": "**PR #98508** Thanks @lzyyzznl."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #93379** Related #77755. Thanks @xialonglee and @jiveshkalra.",
+      "translated": "**PR #93379** Related #77755. Thanks @xialonglee and @jiveshkalra."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99070** Thanks @LeonidasLux.",
+      "translated": "**PR #99070** Thanks @LeonidasLux."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98720** Related #98463. Thanks @wangmiao0668000666 and @zhangLei99586.",
+      "translated": "**PR #98720** Related #98463. Thanks @wangmiao0668000666 and @zhangLei99586."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99800** Thanks @cxbAsDev and @vincentkoc.",
+      "translated": "**PR #99800** Thanks @cxbAsDev and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100744** Thanks @lsr911 and @vincentkoc.",
+      "translated": "**PR #100744** Thanks @lsr911 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #98262** Related #98239. Thanks @brokemac79.",
+      "translated": "**PR #98262** Related #98239. Thanks @brokemac79."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101366** Related #84600. Thanks @deepujain and @13884379776l.",
+      "translated": "**PR #101366** Related #84600. Thanks @deepujain and @13884379776l."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100835** Thanks @machine3at.",
+      "translated": "**PR #100835** Thanks @machine3at."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102035** Thanks @pgondhi987.",
+      "translated": "**PR #102035** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101617** Thanks @zhangguiping-xydt.",
+      "translated": "**PR #101617** Thanks @zhangguiping-xydt."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101744** Thanks @hugenshen and @cursoragent.",
+      "translated": "**PR #101744** Thanks @hugenshen and @cursoragent."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101739** Thanks @Alix-007.",
+      "translated": "**PR #101739** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102089** Thanks @Alix-007.",
+      "translated": "**PR #102089** Thanks @Alix-007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102661** Related #98038. Thanks @mabaty.",
+      "translated": "**PR #102661** Related #98038. Thanks @mabaty."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102403** Thanks @yetval.",
+      "translated": "**PR #102403** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102398** Thanks @yetval.",
+      "translated": "**PR #102398** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102426** Thanks @pgondhi987.",
+      "translated": "**PR #102426** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102840** Thanks @yetval.",
+      "translated": "**PR #102840** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103441** Related #68691. Thanks @hobo-l-20230331 and @aaajiao.",
+      "translated": "**PR #103441** Related #68691. Thanks @hobo-l-20230331 and @aaajiao."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103267** Thanks @NianJiuZst.",
+      "translated": "**PR #103267** Thanks @NianJiuZst."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104015**",
+      "translated": "**PR #104015**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103619** Thanks @pgondhi987.",
+      "translated": "**PR #103619** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104337** Related #104330.",
+      "translated": "**PR #104337** Related #104330."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102881** Related #102834. Thanks @wangyan2026 and @yetval.",
+      "translated": "**PR #102881** Related #102834. Thanks @wangyan2026 and @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #105769** Thanks @mushuiyu886.",
+      "translated": "**PR #105769** Thanks @mushuiyu886."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102924** Thanks @hugenshen.",
+      "translated": "**PR #102924** Thanks @hugenshen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #106056** Thanks @pgondhi987.",
+      "translated": "**PR #106056** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #106806** Related #103056. Thanks @yetval.",
+      "translated": "**PR #106806** Related #103056. Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96143** Related #77616. Thanks @brokemac79 and @RomneyDa and @slideshow-dingo.",
+      "translated": "**PR #96143** Related #77616. Thanks @brokemac79 and @RomneyDa and @slideshow-dingo."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97271** Thanks @hugenshen.",
+      "translated": "**PR #97271** Thanks @hugenshen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96762** Thanks @wangmiao0668000666 and @vincentkoc.",
+      "translated": "**PR #96762** Thanks @wangmiao0668000666 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97235** Thanks @zhangguiping-xydt and @vincentkoc.",
+      "translated": "**PR #97235** Thanks @zhangguiping-xydt and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #95542** Related #95519. Thanks @mikasa0818 and @altaywtf and @zjx111234.",
+      "translated": "**PR #95542** Related #95519. Thanks @mikasa0818 and @altaywtf and @zjx111234."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #97571** Related #97564. Thanks @liuhao1024 and @nicelysalted.",
+      "translated": "**PR #97571** Related #97564. Thanks @liuhao1024 and @nicelysalted."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #86088** Thanks @liaoandi and @altaywtf.",
+      "translated": "**PR #86088** Thanks @liaoandi and @altaywtf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99960** Thanks @masatohoshino and @vincentkoc.",
+      "translated": "**PR #99960** Thanks @masatohoshino and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #85296** Thanks @alkor2000 and @vincentkoc.",
+      "translated": "**PR #85296** Thanks @alkor2000 and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100484** Thanks @vincentkoc and @litang9.",
+      "translated": "**PR #100484** Thanks @vincentkoc and @litang9."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100722** Related #98864. Thanks @cxbAsDev and @carterstebbins23-spec.",
+      "translated": "**PR #100722** Related #98864. Thanks @cxbAsDev and @carterstebbins23-spec."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #94149** Related #84698. Thanks @ZengWen-DT and @cursoragent and @zus-assistant.",
+      "translated": "**PR #94149** Related #84698. Thanks @ZengWen-DT and @cursoragent and @zus-assistant."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #96065** Thanks @Darren2030 and @obviyus.",
+      "translated": "**PR #96065** Thanks @Darren2030 and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99124** Related #98107. Thanks @mushuiyu886 and @1Wanker.",
+      "translated": "**PR #99124** Related #98107. Thanks @mushuiyu886 and @1Wanker."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99931** Related #98357. Thanks @ooiuuii.",
+      "translated": "**PR #99931** Related #98357. Thanks @ooiuuii."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #91584** Thanks @hiragram and @openclaw-agent.",
+      "translated": "**PR #91584** Thanks @hiragram and @openclaw-agent."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100896** Related #56610. Thanks @tiffanychum and @Godecule.",
+      "translated": "**PR #100896** Related #56610. Thanks @tiffanychum and @Godecule."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103867** Thanks @yetval.",
+      "translated": "**PR #103867** Thanks @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101378** Related #91489, #92054, #98573. Thanks @wendy-chsy and @Vilard7 and @arturomagdiel and @studiodevlabs.",
+      "translated": "**PR #101378** Related #91489, #92054, #98573. Thanks @wendy-chsy and @Vilard7 and @arturomagdiel and @studiodevlabs."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101394** Thanks @cxbAsDev.",
+      "translated": "**PR #101394** Thanks @cxbAsDev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100686** Thanks @zhangguiping-xydt.",
+      "translated": "**PR #100686** Thanks @zhangguiping-xydt."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102518**",
+      "translated": "**PR #102518**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103139**",
+      "translated": "**PR #103139**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103353** Related #103317.",
+      "translated": "**PR #103353** Related #103317."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103247**",
+      "translated": "**PR #103247**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103430** Related #103427.",
+      "translated": "**PR #103430** Related #103427."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103457** Related #103427.",
+      "translated": "**PR #103457** Related #103427."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103617** Related #103610.",
+      "translated": "**PR #103617** Related #103610."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103396** Related #103053. Thanks @obviyus and @yetval.",
+      "translated": "**PR #103396** Related #103053. Thanks @obviyus and @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103074** Thanks @pgondhi987.",
+      "translated": "**PR #103074** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103822**",
+      "translated": "**PR #103822**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #101107** Thanks @zhangguiping-xydt.",
+      "translated": "**PR #101107** Thanks @zhangguiping-xydt."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103620** Thanks @pgondhi987.",
+      "translated": "**PR #103620** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103861** Thanks @vincentkoc.",
+      "translated": "**PR #103861** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #105259** Thanks @Pick-cat.",
+      "translated": "**PR #105259** Thanks @Pick-cat."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104213** Related #104208. Thanks @obviyus.",
+      "translated": "**PR #104213** Related #104208. Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104715** Thanks @Leon-SK668.",
+      "translated": "**PR #104715** Thanks @Leon-SK668."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #105082**",
+      "translated": "**PR #105082**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102031** Thanks @pgondhi987.",
+      "translated": "**PR #102031** Thanks @pgondhi987."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #106755**",
+      "translated": "**PR #106755**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #106854**",
+      "translated": "**PR #106854**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103994**",
+      "translated": "**PR #103994**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102996**",
+      "translated": "**PR #102996**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99811** Related #99808. Thanks @kevinslin.",
+      "translated": "**PR #99811** Related #99808. Thanks @kevinslin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100438** Thanks @kevinslin.",
+      "translated": "**PR #100438** Thanks @kevinslin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102759** Related #102757. Thanks @vincentkoc.",
+      "translated": "**PR #102759** Related #102757. Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102858**",
+      "translated": "**PR #102858**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102896**",
+      "translated": "**PR #102896**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103737** Thanks @vincentkoc.",
+      "translated": "**PR #103737** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103759** Thanks @vincentkoc.",
+      "translated": "**PR #103759** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103906**",
+      "translated": "**PR #103906**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104162** Related #104161. Thanks @vincentkoc.",
+      "translated": "**PR #104162** Related #104161. Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #104697**",
+      "translated": "**PR #104697**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #105746** Thanks @vincentkoc.",
+      "translated": "**PR #105746** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99266** Thanks @RomneyDa.",
+      "translated": "**PR #99266** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #100448** Thanks @kevinslin.",
+      "translated": "**PR #100448** Thanks @kevinslin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #107832** Thanks @RomneyDa.",
+      "translated": "**PR #107832** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #99212**",
+      "translated": "**PR #99212**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #107872** Thanks @RomneyDa.",
+      "translated": "**PR #107872** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #102600**",
+      "translated": "**PR #102600**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #103204** Related #103189.",
+      "translated": "**PR #103204** Related #103189."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: [`openclaw@2026.6.33`](https://www.npmjs.com/package/openclaw/v/2026.6.33)",
+      "translated": "npm package: [`openclaw@2026.6.33`](https://www.npmjs.com/package/openclaw/v/2026.6.33)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm registry tarball: [`openclaw-2026.6.33.tgz`](https://registry.npmjs.org/openclaw/-/openclaw-2026.6.33.tgz)",
+      "translated": "npm registry tarball: [`openclaw-2026.6.33.tgz`](https://registry.npmjs.org/openclaw/-/openclaw-2026.6.33.tgz)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm integrity: `sha512-53MCYfnMEzQmrh/mFNpqfUcQunZASPZ2qYOmqn6wq3K4gZPzV0QOMwjxOCU2C+VmQ5FqzVU8exy7j7pyL3EBzQ==`",
+      "translated": "npm integrity: `sha512-53MCYfnMEzQmrh/mFNpqfUcQunZASPZ2qYOmqn6wq3K4gZPzV0QOMwjxOCU2C+VmQ5FqzVU8exy7j7pyL3EBzQ==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Container images: [GHCR](https://github.com/openclaw/openclaw/pkgs/container/openclaw) and [Docker Hub](https://hub.docker.com/r/openclaw/openclaw/tags?name=2026.6.33), with exact tags `2026.6.33`, `2026.6.33-slim`, and `2026.6.33-browser` for amd64 and arm64",
+      "translated": "Container images: [GHCR](https://github.com/openclaw/openclaw/pkgs/container/openclaw) and [Docker Hub](https://hub.docker.com/r/openclaw/openclaw/tags?name=2026.6.33), with exact tags `2026.6.33`, `2026.6.33-slim`, and `2026.6.33-browser` for amd64 and arm64"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Container manifest digests: default/slim `sha256:99546785a121ccac065263d4b609c3dc08a396d260b20c837722e7998be0a6ee`; browser `sha256:91b9af17a0a5667defbb74a411da668054374c6165033e990a935f6a154cc48c`",
+      "translated": "Container manifest digests: default/slim `sha256:99546785a121ccac065263d4b609c3dc08a396d260b20c837722e7998be0a6ee`; browser `sha256:91b9af17a0a5667defbb74a411da668054374c6165033e990a935f6a154cc48c`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release commit: [`7af0cfc9c5488e03c4e2f528bdc7ac9f7778b35e`](https://github.com/openclaw/openclaw/commit/7af0cfc9c5488e03c4e2f528bdc7ac9f7778b35e)",
+      "translated": "Release commit: [`7af0cfc9c5488e03c4e2f528bdc7ac9f7778b35e`](https://github.com/openclaw/openclaw/commit/7af0cfc9c5488e03c4e2f528bdc7ac9f7778b35e)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release workflows: [npm preflight](https://github.com/openclaw/openclaw/actions/runs/29817136995), [Full Release Validation](https://github.com/openclaw/openclaw/actions/runs/29817162968), [plugin npm publish](https://github.com/openclaw/openclaw/actions/runs/29825338302), [OpenClaw npm publish](https://github.com/openclaw/openclaw/actions/runs/29825660318), and [Docker Release](https://github.com/openclaw/openclaw/actions/runs/29817086729)",
+      "translated": "Release workflows: [npm preflight](https://github.com/openclaw/openclaw/actions/runs/29817136995), [Full Release Validation](https://github.com/openclaw/openclaw/actions/runs/29817162968), [plugin npm publish](https://github.com/openclaw/openclaw/actions/runs/29825338302), [OpenClaw npm publish](https://github.com/openclaw/openclaw/actions/runs/29825660318), and [Docker Release](https://github.com/openclaw/openclaw/actions/runs/29817086729)"
+    }
+  ],
+  "translatedAt": "2026-08-08T07:19:47.275Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 8477
+}
