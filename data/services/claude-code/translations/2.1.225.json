@@ -1,0 +1,98 @@
+{
+  "version": "2.1.225",
+  "date": "2026-08-08",
+  "parsedAt": "2026-08-08T02:23:28.550Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added gateway spend-limit support to Claude Code's usage warning; the limit-reached message now names the cap, its reset time, and the operator's message (requires the gateway on 2.1.225)",
+      "translated": "Claude Code의 사용량 경고에 게이트웨이 spend-limit 지원을 추가했습니다. 이제 한도 도달 메시지에 제한 금액, 초기화 시간 및 운영자 메시지가 표시됩니다 (게이트웨이 버전 2.1.225 이상 필요)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a workspace trust prompt to `claude agents` for untrusted directories, matching the behavior of `claude`",
+      "translated": "`claude`와 동일하게 신뢰할 수 없는 디렉터리에 대해 `claude agents`에서 워크스페이스 신뢰 확인 프롬프트를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a transient 401 replacing a long-lived `CLAUDE_CODE_OAUTH_TOKEN` with a stored login's short-lived token, breaking headless sessions until restart",
+      "translated": "수명이 긴 `CLAUDE_CODE_OAUTH_TOKEN`이 저장된 로그인의 수명이 짧은 토큰으로 교체되어 일시적인 401 오류가 발생하고, 재시작 전까지 헤드리스 세션이 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP OAuth servers on macOS intermittently failing with a burst of 401 errors, as if never authenticated, after a keychain read timed out",
+      "translated": "macOS에서 키체인 읽기 시간 초과 후 MCP OAuth 서버가 인증되지 않은 것처럼 간헐적으로 다수의 401 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode counting a safety-filter refusal of its own permission check toward the consecutive-block limit; the action is still denied, but the model is now told to move on rather than retry",
+      "translated": "자동 모드에서 권한 확인 중 safety-filter에 의해 거부된 경우를 연속 차단 횟수에 포함하던 문제를 수정했습니다. 해당 작업은 여전히 거부되지만, 모델은 이제 재시도하는 대신 다음 단계로 넘어가도록 안내받습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cross-session messages staying parked without a notice or expiry in headless sessions and during startup",
+      "translated": "헤드리스 세션 및 시작 중에 교차 세션 메시지가 알림이나 만료 없이 대기 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed conversation history breaking on Remote Control session resume after very large conversations were compacted",
+      "translated": "매우 큰 대화 내용이 압축된 후 Remote Control 세션을 재개할 때 대화 기록이 손상되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hovering over a session in another project in the agents list changing the directory the next agent starts in",
+      "translated": "에이전트 목록에서 다른 프로젝트의 세션 위에 마우스를 올리면 다음 에이전트가 시작되는 디렉터리가 변경되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude self-hosted-runner` registering and then failing every session when `--base-dir` cannot be created or written; it now exits at startup with a clear error",
+      "translated": "`--base-dir`을 생성하거나 쓸 수 없을 때 `claude self-hosted-runner`가 등록된 후 모든 세션에서 실패하던 문제를 수정했습니다. 이제 시작 시 명확한 오류 메시지와 함께 종료됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Code on the web sessions being misreported as stuck, re-sending a growing event backlog on every reconnect",
+      "translated": "웹용 Claude Code 세션이 중단된 것으로 잘못 보고되어 재연결 시마다 누적된 이벤트 백로그를 다시 전송하던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control: photos attached from the Claude app are now shown to Claude directly instead of being read from disk with a separate tool call",
+      "translated": "Remote Control 개선: Claude 앱에서 첨부된 사진을 별도의 도구 호출을 통해 디스크에서 읽는 대신 Claude에게 직접 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Focus view folding away the latest to-do list, a pending question's context, and settled answers; thinking-only folds show \"Thought for Ns\" and re-collapse when their turn completes",
+      "translated": "[VSCode] Focus 뷰에서 최신 할 일 목록, 대기 중인 질문의 컨텍스트 및 확정된 답변이 접히던 문제를 수정했습니다. 생각만 포함된 접기 영역은 \"Thought for Ns\"로 표시되며 해당 차례가 완료되면 다시 접힙니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SendMessage can now start a conversation with your Remote Control sessions on other machines by name (`ListAgents` shows them as `name [ref]`), instead of only replying after they message you first",
+      "translated": "SendMessage가 먼저 메시지를 받을 때까지 기다리지 않고, 다른 기기의 Remote Control 세션 이름을 지정하여(`ListAgents`에서 `name [ref]` 형식으로 표시됨) 대화를 시작할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SendMessage: a Remote Control recipient you already confirmed is never swapped for a same-named session on this machine when its own list couldn't be checked",
+      "translated": "SendMessage 사용 시, 이미 확인된 Remote Control 수신자의 목록을 확인할 수 없는 경우에도 해당 수신자가 현재 기기의 동일한 이름을 가진 세션으로 교체되지 않도록 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-08T02:23:41.634Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2112
+}
