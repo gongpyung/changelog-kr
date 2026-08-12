@@ -1,0 +1,122 @@
+{
+  "version": "2.1.228",
+  "date": "2026-08-11",
+  "parsedAt": "2026-08-12T02:46:46.519Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed interactive sessions that could stop redrawing entirely, while the process kept running, after a rare internal layout error",
+      "translated": "드문 내부 레이아웃 오류 발생 후 프로세스는 계속 실행 중임에도 대화형 세션의 화면 갱신이 완전히 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `git` / Git Bash not being found on Windows when Claude Code is launched from a parent folder of the git installation",
+      "translated": "Claude Code를 git 설치 경로의 상위 폴더에서 실행할 때 Windows에서 `git` 또는 Git Bash를 찾지 못하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/tui` reverting the session to an earlier model when `/model` had been changed since the last response",
+      "translated": "마지막 응답 이후 `/model`을 변경했을 때 `/tui` 명령어가 세션을 이전 모델로 되돌리던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cross-session messaging sometimes starting without an inbox in the first session after install or upgrade",
+      "translated": "설치 또는 업그레이드 후 첫 번째 세션에서 세션 간 메시징이 수신함 없이 시작되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control `/resume` while connected leaking the resumed conversation's title or history into the connected session",
+      "translated": "연결된 상태에서 Remote Control `/resume`을 사용할 때 재개된 대화의 제목이나 기록이 현재 세션으로 유출되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude self-hosted-runner` sessions failing on every fresh runner when the `checkout` hook fails for a repository the session doesn't push to; that repository is now skipped with a warning",
+      "translated": "세션이 푸시하지 않는 저장소에서 `checkout` 훅이 실패할 때 모든 새 러너에서 `claude self-hosted-runner` 세션이 실패하던 문제를 수정했습니다. 이제 해당 저장소는 경고와 함께 건너뜁니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed self-hosted runners ending sessions in the gap between a background task finishing and the follow-up turn starting",
+      "translated": "백그라운드 작업 종료와 후속 턴 시작 사이의 공백기에 셀프 호스팅 러너가 세션을 종료하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session cleanup deleting contents inside a project's memory folder",
+      "translated": "세션 정리 시 프로젝트의 메모리 폴더 내부 콘텐츠가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background plugin-cache cleanup deleting a plugin's cache when its only version is a symlinked development checkout",
+      "translated": "플러그인의 유일한 버전이 심볼릭 링크된 개발용 체크아웃인 경우, 백그라운드 플러그인 캐시 정리 시 해당 캐시가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a settings-merge issue where a marketplace entry redefined in a higher-precedence settings tier could inherit another tier's custom headers; marketplace entries now merge as whole entries",
+      "translated": "우선순위가 높은 설정 계층에서 재정의된 마켓플레이스 항목이 다른 계층의 커스텀 헤더를 상속받을 수 있던 설정 병합 문제를 수정했습니다. 이제 마켓플레이스 항목은 전체 단위로 병합됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the deferred-tools reminder occasionally being sent to the model twice after a skill invocation",
+      "translated": "스킬 호출 후 지연된 도구(deferred-tools) 알림이 모델에 가끔 두 번 전송되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don't run `!` commands or expand `@` files",
+      "translated": "claude.ai에서 동기화된 스킬의 보안을 강화했습니다. 이제 로컬 명령어나 MCP 프롬프트를 가리지 않으며, 설명이 정제되고 레이블이 지정됩니다. 또한 로컬 환경에서 스킬 본문이 `!` 명령어를 실행하거나 `@` 파일을 확장하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved cross-session messages: the sender and body now display inline instead of a collapsed line, and messages to Remote Control sessions on other machines show your Remote Control session name as the sender",
+      "translated": "세션 간 메시지 표시를 개선했습니다. 발신자와 본문이 축소된 줄 대신 인라인으로 표시되며, 다른 기기의 Remote Control 세션으로 보내는 메시지에는 현재 Remote Control 세션 이름이 발신자로 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Vertex AI credential handling: expired or missing Google Cloud credentials now fail within seconds instead of retrying for minutes",
+      "translated": "Vertex AI 자격 증명 처리를 개선했습니다. 만료되거나 누락된 Google Cloud 자격 증명은 이제 몇 분 동안 재시도하는 대신 몇 초 내에 실패 처리됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved compaction progress: the retry countdown and stall hint now appear during compaction instead of only a progress bar",
+      "translated": "압축(compaction) 진행 표시를 개선했습니다. 이제 진행 표시줄뿐만 아니라 재시도 카운트다운과 지연 힌트가 압축 중에 함께 표시됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals",
+      "translated": "일부 터미널의 탭 표시줄 떨림 현상을 줄이기 위해 터미널 제목의 비지 스피너(busy-spinner) 글리프를 업데이트했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the Write tool so newer models can overwrite an existing file they haven't read this session, matching the Edit tool's rules; older models still require the read first",
+      "translated": "Write 도구를 변경하여 최신 모델은 이번 세션에서 읽지 않은 기존 파일도 덮어쓸 수 있게 되었습니다(Edit 도구의 규칙과 동일). 이전 모델은 여전히 파일을 먼저 읽어야 합니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the outdated note about auto mode sessions costing slightly more from the first-use notice for Pro, Max, and Team plans",
+      "translated": "Pro, Max, Team 플랜의 첫 사용 안내에서 자동 모드 세션 비용이 약간 더 발생한다는 오래된 문구를 삭제했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-12T02:46:57.004Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2472
+}
