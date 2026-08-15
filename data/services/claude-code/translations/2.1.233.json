@@ -1,0 +1,134 @@
+{
+  "version": "2.1.233",
+  "date": "2026-08-14",
+  "parsedAt": "2026-08-15T01:51:30.375Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added GitLab merge request URL support to the `--worktree` flag and the `claude agents` view (where MRs display as `!N`)",
+      "translated": "`--worktree` 플래그와 `claude agents` 뷰(MR이 `!N`으로 표시됨)에 GitLab 머지 리퀘스트 URL 지원 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an opt-in `forward_user_identity` apps gateway setting on Anthropic upstreams that sends the signed-in user's identity as headers, so a proxy behind the gateway can attribute spend per user",
+      "translated": "Anthropic 업스트림에 선택 사항인 `forward_user_identity` 앱 게이트웨이 설정을 추가하여, 로그인한 사용자의 식별 정보를 헤더로 전송하고 게이트웨이 뒤의 프록시가 사용자별 비용을 할당할 수 있도록 개선"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added opt-in memory cgroup support for Bash tool commands on Linux (`CLAUDE_CODE_TOOL_MEMORY_LIMIT`) so a runaway build can't stall the session",
+      "translated": "Linux의 Bash 도구 명령에 선택 사항인 메모리 cgroup 지원(`CLAUDE_CODE_TOOL_MEMORY_LIMIT`)을 추가하여, 제어 불능 상태의 빌드가 세션을 중단시키지 않도록 방지"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` environment variable to configure the WebFetch session URL cache TTL (default unchanged: 15 minutes)",
+      "translated": "WebFetch 세션 URL 캐시의 TTL을 설정할 수 있는 `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` 환경 변수 추가 (기본값 15분 유지)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions occasionally being marked as lost when the environment shut down while Claude was waiting on a permission prompt",
+      "translated": "Claude가 권한 승인 프롬프트를 대기하는 동안 환경이 종료될 때 클라우드 세션이 간혹 유실된 것으로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP v2 connections endlessly reopening the subscriptions/listen stream against servers that terminate long-held streams on a fixed timeout (e.g. serverless hosts)",
+      "translated": "고정된 타임아웃으로 장기 연결 스트림을 종료하는 서버(예: 서버리스 호스트)에 대해 MCP v2 연결이 구독/리스닝 스트림을 끊임없이 다시 여는 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Notification hooks not firing for permission prompts when running under Claude Desktop or VS Code",
+      "translated": "Claude Desktop 또는 VS Code에서 실행 시 권한 승인 프롬프트에 대한 알림 훅이 실행되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed idle sessions on Linux sometimes keeping one CPU core at 100% when sandboxing is enabled",
+      "translated": "Fixed idle sessions on Linux sometimes keeping one CPU core at 100% when sandboxing is enabled"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed bundled skill aliases like `/checkup` and `/review` reporting \"Unknown command\" in `-p` mode or with plugins/MCP loaded when a user or project skill shadows the bundled skill",
+      "translated": "Fixed bundled skill aliases like `/checkup` and `/review` reporting \"Unknown command\" in `-p` mode or with plugins/MCP loaded when a user or project skill shadows the bundled skill"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skill/command argument substitution to prevent argument values from being re-expanded as template markers",
+      "translated": "Fixed skill/command argument substitution to prevent argument values from being re-expanded as template markers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Windows paths spelled with the NT `\\??\\` device prefix bypassing UNC path validation, closing an NTLM credential-leak vector",
+      "translated": "Fixed Windows paths spelled with the NT `\\??\\` device prefix bypassing UNC path validation, closing an NTLM credential-leak vector"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude self-hosted-runner` session start time: the session branch is now created without rewriting the working tree, and two server round trips no longer block the agent's launch",
+      "translated": "Improved `claude self-hosted-runner` session start time: the session branch is now created without rewriting the working tree, and two server round trips no longer block the agent's launch"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved apps gateway error forwarding: 400/413 errors from Vertex, Foundry, and Claude Platform on AWS upstreams now carry the upstream's own message; fixes a bug with auto-compact on apps gateway",
+      "translated": "Improved apps gateway error forwarding: 400/413 errors from Vertex, Foundry, and Claude Platform on AWS upstreams now carry the upstream's own message; fixes a bug with auto-compact on apps gateway"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `claude plugin validate` to check a bare `.claude/skills` directory, reporting SKILL.md files whose frontmatter fails to parse",
+      "translated": "Improved `claude plugin validate` to check a bare `.claude/skills` directory, reporting SKILL.md files whose frontmatter fails to parse"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved screen reader mode: the `/effort` selector renders as a numbered list with a typed-number prompt, and hint and dialog text is no longer clipped",
+      "translated": "Improved screen reader mode: the `/effort` selector renders as a numbered list with a typed-number prompt, and hint and dialog text is no longer clipped"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved print mode diagnostics: a `[claude-code:unrecognized_model]` line is written to stderr when a request goes out for a model ID Claude Code doesn't recognize; map it with `modelOverrides` to silence",
+      "translated": "Improved print mode diagnostics: a `[claude-code:unrecognized_model]` line is written to stderr when a request goes out for a model ID Claude Code doesn't recognize; map it with `modelOverrides` to silence"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the GitHub app setup tip to no longer appear in repositories whose origin remote is on gitlab.com or bitbucket.org; the enterprise marketplace tip now covers non-GitHub internal git hosts",
+      "translated": "Changed the GitHub app setup tip to no longer appear in repositories whose origin remote is on gitlab.com or bitbucket.org; the enterprise marketplace tip now covers non-GitHub internal git hosts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Todo/task-tracking tools (TaskCreate/Get/Update/List, TodoWrite) are no longer available on Opus 4.8, Sonnet 5, Fable 5, Mythos 5, and newer models; set `CLAUDE_CODE_ENABLE_TODO_TOOLS=1` to bring them back",
+      "translated": "Todo/task-tracking tools (TaskCreate/Get/Update/List, TodoWrite) are no longer available on Opus 4.8, Sonnet 5, Fable 5, Mythos 5, and newer models; set `CLAUDE_CODE_ENABLE_TODO_TOOLS=1` to bring them back"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: fixed auto mode repeatedly stopping for manual approval on ordinary `cd <dir> && <command> > file` Bash commands (a 2.1.232 regression)",
+      "translated": "Windows: fixed auto mode repeatedly stopping for manual approval on ordinary `cd <dir> && <command> > file` Bash commands (a 2.1.232 regression)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reverted the 2.1.232 Bash permission changes for Cygwin-style symlinks on Windows and for input redirections (`< file`); a narrower version will return in a later release",
+      "translated": "Reverted the 2.1.232 Bash permission changes for Cygwin-style symlinks on Windows and for input redirections (`< file`); a narrower version will return in a later release"
+    }
+  ],
+  "translatedAt": "2026-08-15T01:51:58.446Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 2106
+}
