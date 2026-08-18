@@ -1,0 +1,320 @@
+{
+  "version": "2.1.234",
+  "date": "2026-08-17",
+  "parsedAt": "2026-08-18T01:52:21.494Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the optional `CLAUDE_CODE_PROJECT_DIR_NAME` environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory",
+      "translated": "선택 사항인 `CLAUDE_CODE_PROJECT_DIR_NAME` 환경 변수를 추가했습니다. 각 세션에 고유한 설정 디렉터리를 제공하는 호스트는 프로젝트별 기록 디렉터리의 짧은 이름을 선택할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the `selection:clear` keybinding action, so a key can be bound to clear an in-app text selection; also works in the agents view",
+      "translated": "앱 내 텍스트 선택을 해제하는 키를 바인딩할 수 있도록 `selection:clear` 키바인딩 액션을 추가했습니다. 에이전트 뷰에서도 작동합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a GitLab merge request badge to the footer and statusline: repos with a GitLab remote and an authenticated glab CLI show MR !N with draft/pending/green states",
+      "translated": "푸터와 상태 표시줄에 GitLab 머지 리퀘스트 배지를 추가했습니다. GitLab 원격 저장소가 있고 인증된 glab CLI를 사용하는 저장소에서 초안/대기/성공 상태와 함께 MR !N을 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude Code now continues your session automatically when a claude.ai usage limit resets; turn it off in `/config` (\"Continue automatically at usage limit\")",
+      "translated": "claude.ai 사용량 제한이 초기화되면 Claude Code가 세션을 자동으로 재개합니다. `/config`(\"사용량 제한 시 자동 재개\")에서 이 기능을 끌 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude is now told to use your account email only to identify you, and not to send it to unrelated services unless you ask",
+      "translated": "Claude가 사용자를 식별하는 용도로만 계정 이메일을 사용하며, 요청하지 않는 한 관련 없는 서비스로 이메일을 전송하지 않도록 설정되었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Security: remote file reads, session restore, CLAUDE.md includes, workflow scripts and file uploads now reject Windows NT-namespace (`\\??\\`) paths, hardening the remaining pre-approval file accesses against the NTLM credential-leak vector",
+      "translated": "보안: 원격 파일 읽기, 세션 복구, CLAUDE.md 포함, 워크플로 스크립트 및 파일 업로드 시 Windows NT 네임스페이스(`\\??\\`) 경로를 거부하도록 변경되었습니다. 이를 통해 NTLM 자격 증명 유출 벡터에 대해 남은 사전 승인 파일 액세스 보안을 강화했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode in very long sessions repeatedly re-checking and denying sandboxed commands' network access after the conversation had been compacted",
+      "translated": "대화 내용이 압축된 후 매우 긴 세션의 자동 모드에서 샌드박스 명령의 네트워크 액세스를 반복적으로 재확인하고 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed session-scoped permission answers (including denies) being dropped when answering background subagent tool permission prompts",
+      "translated": "백그라운드 서브 에이전트 도구 권한 프롬프트에 응답할 때 세션 범위의 권한 응답(거부 포함)이 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when an API response on the non-streaming fallback path (typically via third-party gateways) contained a thinking block missing its thinking field or a text block missing its text field",
+      "translated": "비스트리밍 폴백 경로(주로 서드파티 게이트웨이 경유)의 API 응답에 thinking 필드가 없는 thinking 블록이나 text 필드가 없는 텍스트 블록이 포함될 때 발생하던 크래시를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed markdown rendering becoming extremely slow for some messages containing unusual Unicode sequences",
+      "translated": "특이한 유니코드 시퀀스가 포함된 일부 메시지에서 마크다운 렌더링이 매우 느려지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SendMessage` rejecting a recipient copied from `ListAgents` when the session name is at the 200-character cap or emoji-heavy",
+      "translated": "세션 이름이 200자 제한에 도달했거나 이모지가 많은 경우, `ListAgents`에서 복사한 수신자를 `SendMessage`가 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed repository detection mis-reading the host of git remotes with unusual userinfo, producing links and repo-specific behavior for the wrong host",
+      "translated": "특이한 userinfo가 포함된 git 원격 저장소의 호스트를 잘못 읽어 엉뚱한 호스트에 대한 링크와 저장소별 동작을 생성하던 저장소 감지 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP diagnostics printing resolved secrets: scope-conflict warnings now show the configured `${VAR}` form, and connection-failure details show only the server origin",
+      "translated": "MCP 진단 시 확인된 비밀 정보(secrets)가 출력되던 문제를 수정했습니다. 이제 범위 충돌 경고에는 설정된 `${VAR}` 형식이 표시되며, 연결 실패 상세 정보에는 서버 오리진만 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `strictKnownMarketplaces` allowlists accepting SCP-style git marketplace sources whose host differs from the one git would actually connect to",
+      "translated": "`strictKnownMarketplaces` 허용 목록에서 실제 git이 연결할 호스트와 다른 SCP 스타일의 git 마켓플레이스 소스를 허용하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed modal text such as the `/login` OAuth URL losing characters when copied in fullscreen",
+      "translated": "전체 화면 모드에서 `/login` OAuth URL과 같은 모달 텍스트를 복사할 때 문자가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a `---` horizontal rule in rendered markdown running into the line after it",
+      "translated": "렌더링된 마크다운에서 `---` 수평선이 다음 줄까지 침범하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed consecutive shell commands splitting into multiple \"Ran 1 shell command\" rows when todo/task updates were interleaved between them",
+      "translated": "연속된 셸 명령 사이에 할 일/작업 업데이트가 끼어들 때 \"Ran 1 shell command\" 행이 여러 개로 나뉘던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed dialogs like `/permissions` opened while a `!` shell command was running being dismissed when the command finished",
+      "translated": "`!` 셸 명령이 실행되는 동안 열린 `/permissions`와 같은 대화 상자가 명령이 종료될 때 닫히던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a queued `!` shell command being sent to the model as plain text after pressing up-arrow to edit the queued input",
+      "translated": "대기 중인 입력을 수정하기 위해 위쪽 화살표 키를 누른 후, 대기 중인 `!` 셸 명령이 모델에 일반 텍스트로 전송되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed queued messages reappearing in the prompt history while still queued, Esc while selecting a queued message no longer interrupts the turn, and `!` mode no longer sticks after a mid-turn submit",
+      "translated": "대기 중인 메시지가 대기 상태임에도 프롬프트 기록에 다시 나타나던 문제를 수정했습니다. 이제 대기 중인 메시지를 선택한 상태에서 Esc를 눌러도 턴이 중단되지 않으며, 턴 중간에 제출한 후에도 `!` 모드가 유지되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed accepting the \"Try the new fullscreen renderer?\" prompt restarting the session without its permission mode (e.g. `--dangerously-skip-permissions`), tool allow/deny rules, model or effort flags",
+      "translated": "\"새로운 전체 화면 렌더러를 사용하시겠습니까?\" 프롬프트를 수락했을 때 권한 모드(예: `--dangerously-skip-permissions`), 도구 허용/거부 규칙, 모델 또는 effort 플래그 없이 세션이 재시작되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when it restarts; it now declines to switch, with the reason, when the session has restrictions a restart can't carry over",
+      "translated": "`/tui` 재시작 시 실행 시의 `--allowed-tools`/`--disallowed-tools` 규칙이 누락되는 문제를 수정했습니다. 이제 재시작으로 유지할 수 없는 제한 사항이 있는 경우, 그 이유와 함께 전환을 거부합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed trust prompts omitting the repository-wide scope warning when the directory was first seen before the repository existed there",
+      "translated": "저장소가 생성되기 전에 디렉터리를 먼저 인식한 경우, 신뢰 프롬프트에서 저장소 전체 범위에 대한 경고가 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a case where an IDE diff tab closing during a permission re-prompt could answer the new prompt with the previous input",
+      "translated": "권한 재요청 중에 IDE diff 탭이 닫히면 이전 입력값이 새 프롬프트의 답변으로 입력될 수 있는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: files sent to the user during Remote Control sessions hosted by Claude Code Desktop or VS Code now upload, so they open on phone and web instead of showing an empty card",
+      "translated": "Claude Code Desktop 또는 VS Code에서 호스팅되는 원격 제어 세션 중에 사용자에게 전송된 파일이 이제 정상적으로 업로드되어, 빈 카드 대신 모바일 및 웹에서 정상적으로 열립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: after `/login` while `CLAUDE_CODE_OAUTH_TOKEN` is set, the stale-token reminder no longer leaks into Claude's automatically resumed turn — it now appears only to you",
+      "translated": "`CLAUDE_CODE_OAUTH_TOKEN`이 설정된 상태에서 `/login`을 수행한 후, 만료된 토큰 알림이 Claude의 자동 재개된 턴에 포함되지 않고 사용자에게만 표시되도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: permission previews now relay only to channel servers admitted by the inbound trust gate, and a server's explicit permission-capability opt-out is honored",
+      "translated": "권한 미리보기가 인바운드 신뢰 게이트에서 허용된 채널 서버로만 전달되도록 수정했으며, 서버의 명시적인 권한 기능 거부(opt-out) 설정을 준수합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: credential masking on relayed permission previews can no longer hide commands, paths, or destinations from the approver; oversized private-key blocks now redact under full-strength redaction",
+      "translated": "전달된 권한 미리보기의 자격 증명 마스킹이 승인자로부터 명령, 경로 또는 목적지를 숨기지 않도록 수정했습니다. 크기가 큰 개인 키 블록은 이제 강력한 리댁션(redaction) 규칙에 따라 가려집니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed: provider API tokens that mask on permission previews now mask even when directly followed by shell delimiters",
+      "translated": "권한 미리보기에서 마스킹되는 제공자 API 토큰이 셸 구분 기호 바로 다음에 오는 경우에도 마스킹되도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Desktop inter-session messages being silently dropped by the recipient session when cross-session messaging read as disabled, which left the sender's query \"thinking\" for many minutes",
+      "translated": "교차 세션 메시징이 비활성 상태일 때 Claude Desktop의 세션 간 메시지가 수신 세션에서 무시되어, 발신자의 쿼리가 몇 분 동안 \"생각 중\" 상태로 머무는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: signing this computer in to a different claude.ai account or organization now stops the running session within seconds and says why, instead of a misleading HTTP 404 hours later",
+      "translated": "원격 제어: 이 컴퓨터에서 다른 claude.ai 계정이나 조직으로 로그인하면, 몇 시간 뒤에 잘못된 HTTP 404 오류가 발생하는 대신 수 초 내에 실행 중인 세션을 중단하고 그 이유를 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control sessions started from Claude Code Desktop or VS Code now keep phones and claude.ai/code updated on the session's permission mode (and claude.ai/code on the model) as they change",
+      "translated": "Claude Code Desktop 또는 VS Code에서 시작된 원격 제어 세션의 권한 모드 변경 사항이 모바일 및 claude.ai/code에 실시간으로 반영됩니다. (claude.ai/code의 경우 모델 정보 포함)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: effort picks made on a phone or on claude.ai/code now apply to terminal- and Desktop/VS Code-hosted sessions, and the session publishes its effort level to connected clients",
+      "translated": "원격 제어: 모바일이나 claude.ai/code에서 선택한 effort 설정이 터미널 및 Desktop/VS Code 호스팅 세션에 적용되며, 세션의 effort 레벨이 연결된 클라이언트에 공유됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`SendMessage` and `ListAgents` now say when your account's session list was too long to check completely, instead of treating unseen sessions as absent",
+      "translated": "`SendMessage` 및 `ListAgents`에서 계정의 세션 목록이 너무 길어 전체를 확인하지 못한 경우, 확인되지 않은 세션을 누락된 것으로 처리하는 대신 해당 사실을 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Expired Anthropic profile credential now points you at `/login` when a claude.ai login would take precedence",
+      "translated": "Anthropic 프로필 자격 증명이 만료되었을 때 claude.ai 로그인이 우선되는 경우 `/login`으로 안내합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the transcript: your own prompts now render markdown (highlighted code blocks, inline code, lists) the same way replies do",
+      "translated": "대화 기록 개선: 사용자의 프롬프트도 답변과 동일하게 마크다운(코드 블록 강조, 인라인 코드, 목록 등)으로 렌더링됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the \"API returned an empty or malformed response\" error to say what came back (content type, body kind, size, request ID) and why the original streaming request failed",
+      "translated": "\"API가 비어 있거나 잘못된 응답을 반환했습니다\" 오류 메시지를 개선하여 반환된 내용(콘텐츠 유형, 본문 종류, 크기, 요청 ID)과 원래 스트리밍 요청이 실패한 이유를 표시합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved auto-generated session titles to read as short, specific names (e.g. \"Login button bug\") rather than sentences restating your request (e.g. \"Fix the login button on mobile\")",
+      "translated": "자동 생성된 세션 제목이 요청을 반복하는 문장(예: \"모바일에서 로그인 버튼 수정\") 대신 짧고 구체적인 이름(예: \"로그인 버튼 버그\")으로 표시되도록 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reduced the context cost of loading the built-in `claude-api` skill from ~200k+ tokens to ~25k by loading reference docs on demand",
+      "translated": "참조 문서를 필요할 때만 로드하도록 변경하여, 내장된 `claude-api` 스킬 로드 시 발생하는 컨텍스트 비용을 약 20만 개 이상의 토큰에서 약 2만 5천 개로 줄였습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/permissions` can now be opened while Claude is working — rule changes apply to the rest of the current turn",
+      "translated": "Claude가 작업 중인 동안에도 `/permissions`를 열 수 있으며, 변경된 규칙은 현재 턴의 남은 작업에 즉시 적용됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocompact`, `/theme`, `/help`, `/config` and `/advisor` dialogs open mid-turn in the fullscreen TUI",
+      "translated": "Claude가 작업 중일 때도 `/add-dir <path>`를 사용할 수 있습니다. 전체 화면 TUI에서 `/add-dir`, `/autocompact`, `/theme`, `/help`, `/config`, `/advisor` 대화 상자가 턴 중간에 열립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/goal` now clears itself with a notice when a turn dies on an unrecoverable error (e.g. revoked auth, an exhausted credit balance, or a context overflow) instead of staying armed",
+      "translated": "복구 불가능한 오류(예: 인증 취소, 잔액 부족, 컨텍스트 초과 등)로 인해 턴이 중단될 경우, `/goal`이 활성 상태를 유지하는 대신 알림과 함께 자동으로 해제됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/goal`: when background tasks keep a goal waiting for 30+ minutes, Claude now checks in on them instead of waiting indefinitely (set `CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0` to opt out)",
+      "translated": "`/goal`: 백그라운드 작업으로 인해 목표가 30분 이상 대기 상태일 때, Claude가 무한정 기다리는 대신 상태를 확인합니다 (비활성화하려면 `CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0`으로 설정하세요)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`claude setup-token` now rejects unexpected extra arguments instead of silently ignoring them",
+      "translated": "`claude setup-token` 실행 시 예상치 못한 추가 인자를 무시하는 대신 거부하도록 변경되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Esc in fullscreen mode to no longer clear a mouse text selection: it interrupts or dismisses as usual and the selection stays highlighted",
+      "translated": "전체 화면 모드에서 Esc 키를 눌러도 마우스로 선택한 텍스트가 해제되지 않도록 변경되었습니다. 작업 중단이나 창 닫기 기능은 기존과 동일하게 작동하며 선택 영역의 하이라이트가 유지됩니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the redundant \"Allowed by auto mode classifier\" line that auto mode showed under every Agent tool call",
+      "translated": "자동 모드에서 모든 Agent 도구 호출 아래에 표시되던 불필요한 \"Allowed by auto mode classifier\" 문구를 제거했습니다."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the \"Default teammate model\" setting from `/config`; agent-team teammates now use the leader's model unless the spawn names one",
+      "translated": "`/config`에서 \"Default teammate model\" 설정을 제거했습니다. 이제 agent-team 팀원은 생성 시 별도로 지정하지 않는 한 리더의 모델을 사용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dimmed the elapsed-time counter on the running tool header so it no longer competes with the bold counts",
+      "translated": "실행 중인 도구 헤더의 경과 시간 카운터를 흐리게 처리하여 굵게 표시된 수치와 시각적으로 대비되도록 조정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background task notifications delivered between turns are now sent to the model inside `<system-reminder>` tags, matching mid-turn delivery",
+      "translated": "턴 사이에 전달되는 백그라운드 작업 알림이 턴 중간 전달 방식과 동일하게 `<system-reminder>` 태그에 담겨 모델로 전송됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Mantle: skip the admin-pin availability probe at startup when a main-loop model is already picked",
+      "translated": "Mantle: main-loop 모델이 이미 선택된 경우 시작 시 admin-pin 가용성 확인 과정을 건너뜁니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: startup no longer stalls on repeated rename retries when `~/.claude.json` is read-only",
+      "translated": "Windows: `~/.claude.json` 파일이 읽기 전용일 때 이름 변경 재시도가 반복되어 시작이 지연되는 문제를 해결했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-18T01:53:30.404Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 7607
+}
