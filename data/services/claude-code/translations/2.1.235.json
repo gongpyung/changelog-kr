@@ -1,0 +1,128 @@
+{
+  "version": "2.1.235",
+  "date": "2026-08-18",
+  "parsedAt": "2026-08-19T01:54:36.888Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an optional `spellcheck` setting that underlines misspelled words in the prompt input as you type, using your installed `aspell`, `hunspell`, or `ispell`",
+      "translated": "입력 시 설치된 `aspell`, `hunspell` 또는 `ispell`을 사용하여 프롬프트 입력창의 철자가 틀린 단어에 밑줄을 표시하는 선택적 `spellcheck` 설정을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed whole-prompt-cache invalidation when a language server disconnected or reconnected mid-session",
+      "translated": "세션 도중 언어 서버의 연결이 끊기거나 재연결될 때 전체 프롬프트 캐시가 무효화되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed nested markdown list items misaligning at depth 3+ and added a hanging indent to wrapped list items in the terminal UI",
+      "translated": "중첩된 마크다운 리스트 항목이 3단계 이상의 깊이에서 어긋나는 문제를 수정하고, 터미널 UI에서 줄바꿈된 리스트 항목에 내어쓰기를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt input highlights (slash commands, keywords, mentions) appearing shifted by one or more characters in some multi-line prompts",
+      "translated": "일부 다중 행 프롬프트에서 프롬프트 입력 강조 표시(슬래시 명령, 키워드, 멘션)가 한 글자 이상 밀려 보이는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Shift+Tab inside the permission prompt's comment field approving the edit and granting session-wide edit permission instead of closing the field",
+      "translated": "권한 프롬프트의 코멘트 필드에서 Shift+Tab을 누를 때 필드를 닫는 대신 편집을 승인하고 세션 전체 편집 권한을 부여하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Agent tool advertising a general-purpose default in sessions where that agent is unavailable: an omitted `subagent_type` there now gets a clear error listing the available agents",
+      "translated": "에이전트를 사용할 수 없는 세션에서 에이전트 도구가 범용 기본값을 안내하던 문제를 수정했습니다. 이제 `subagent_type`이 누락된 경우 사용 가능한 에이전트 목록과 함께 명확한 오류 메시지가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed notebook cell delete/replace approval dialogs silently omitting the existing cell content when the notebook or cell could not be read; the dialog now says why",
+      "translated": "노트북이나 셀을 읽을 수 없을 때 노트북 셀 삭제/교체 승인 대화 상자에서 기존 셀 내용이 아무런 안내 없이 누락되던 문제를 수정했습니다. 이제 대화 상자에 그 이유가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed slash commands run while Claude is responding showing HTML entities instead of the actual characters",
+      "translated": "Claude가 응답하는 동안 실행된 슬래시 명령에서 실제 문자 대신 HTML 엔티티가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the prompt footer not showing the \"Update installed\" restart notice after a background auto-update",
+      "translated": "백그라운드 자동 업데이트 후 프롬프트 바닥글에 \"Update installed\" 재시작 공지가 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the expanded task list (`ctrl+t`) always starting collapsed when resuming or relaunching into a session that still has open tasks",
+      "translated": "열려 있는 작업이 남아 있는 세션을 재개하거나 다시 시작할 때 확장된 작업 목록(`ctrl+t`)이 항상 축소된 상태로 시작되던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved memory and CPU usage while cloud sessions such as `/ultrareview` or `/autofix-pr` run in the background — their event streams are no longer re-scanned and re-rendered on every update",
+      "translated": "`/ultrareview` 또는 `/autofix-pr`과 같은 클라우드 세션이 백그라운드에서 실행되는 동안의 메모리 및 CPU 사용량을 개선했습니다. 이제 업데이트마다 이벤트 스트림을 다시 스캔하고 렌더링하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved permission dialogs: display text and \"don't ask again\" options now always match what a grant would cover, and \"don't ask again\" is withheld when contents cannot be fully displayed",
+      "translated": "권한 대화 상자를 개선했습니다. 표시되는 텍스트와 \"다시 묻지 않음\" 옵션이 항상 권한 부여 범위와 일치하도록 변경했으며, 내용을 완전히 표시할 수 없는 경우 \"다시 묻지 않음\" 옵션을 제공하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the embedded `grep` in native macOS/Linux builds: pathological patterns now fail fast instead of exhausting memory, and `-m N` with `-A/-C` prints correct context",
+      "translated": "macOS/Linux 네이티브 빌드에 내장된 `grep`을 개선했습니다. 비정상적인 패턴은 메모리를 소진하는 대신 즉시 실패 처리되며, `-m N` 옵션을 `-A/-C`와 함께 사용할 때 올바른 컨텍스트를 출력합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the context-limit error to say when auto-compact is off and point to `/config` to re-enable it",
+      "translated": "컨텍스트 제한 오류 발생 시 자동 압축 기능이 꺼져 있는지 여부를 안내하고, `/config`에서 다시 활성화할 수 있도록 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Vim mode: NORMAL mode and cursor position are now preserved when toggling the detailed transcript (ctrl+o) or closing a panel",
+      "translated": "Vim 모드: 상세 기록(ctrl+o)을 토글하거나 패널을 닫을 때 NORMAL 모드와 커서 위치가 유지됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dialogs: arrow keys and Enter pressed in quick succession now select the option you navigated to instead of the previously highlighted one",
+      "translated": "대화 상자: 화살표 키와 Enter 키를 빠르게 연속해서 누를 때, 이전에 강조된 옵션 대신 새로 이동한 옵션이 선택되도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`SendMessage` now refuses messages too large for cross-session delivery up front instead of silently dropping them",
+      "translated": "`SendMessage` 사용 시 세션 간 전달에 너무 큰 메시지는 아무런 안내 없이 삭제하는 대신 사전에 거부하도록 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: `claude rc` now applies the same enterprise-gateway availability check as interactive startup",
+      "translated": "원격 제어: `claude rc` 실행 시 대화형 시작과 동일한 enterprise-gateway 가용성 확인을 적용합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed focus jumping between open Claude tabs on its own when a window with several Claude panels is restored or reloaded",
+      "translated": "[VSCode] 여러 개의 Claude 패널이 있는 창을 복구하거나 새로 고칠 때 열려 있는 Claude 탭 사이에서 포커스가 임의로 이동하는 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-19T01:55:02.955Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2635
+}
