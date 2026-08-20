@@ -1,0 +1,212 @@
+{
+  "version": "2.1.236",
+  "date": "2026-08-19",
+  "parsedAt": "2026-08-20T01:53:15.930Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `ANTHROPIC_DEFAULT_MODEL` environment variable: sets the model new sessions start on, while a `/model` pick still overrides it and persists across restarts (unlike `ANTHROPIC_MODEL`)",
+      "translated": "`ANTHROPIC_DEFAULT_MODEL` 환경 변수를 추가했습니다. 이 변수는 새 세션이 시작될 모델을 설정하며, `/model` 선택 시 이 설정보다 우선 적용되고 재시작 후에도 유지됩니다(`ANTHROPIC_MODEL`과 다름)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `notify_when_idle` to cross-session `SendMessage`: ask another Claude Code session on this machine to send one notice when it next goes idle — opt-in, one-shot, no polling (macOS and Linux)",
+      "translated": "세션 간 `SendMessage`에 `notify_when_idle`을 추가했습니다. 현재 기기의 다른 Claude Code 세션이 유휴 상태가 될 때 한 번 알림을 보내도록 요청합니다. 선택 사항이며, 일회성으로 작동하고 폴링을 하지 않습니다(macOS 및 Linux)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Sandbox: on macOS, wildcard read-deny rules (e.g. `**/.env`) now take precedence inside allowed read regions, cover matched directories' contents, and can't be bypassed by renaming the denied file",
+      "translated": "샌드박스: macOS에서 와일드카드 읽기 거부 규칙(예: `**/.env`)이 허용된 읽기 영역 내에서 우선순위를 가지며, 일치하는 디렉토리의 내용을 포함하고, 거부된 파일의 이름을 변경해도 우회할 수 없게 되었습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed clipboard copy, background housekeeping, background sessions, and local MCP logs breaking after the directory a session had switched into was removed (since 2.1.229)",
+      "translated": "세션이 전환된 디렉토리가 삭제된 후 클립보드 복사, 백그라운드 정리 작업, 백그라운드 세션 및 로컬 MCP 로그가 중단되는 문제를 수정했습니다(2.1.229 버전부터 발생)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the fullscreen renderer failing permanently after a single failed start: it now falls back to the classic renderer instead of exiting on every subsequent launch",
+      "translated": "전체 화면 렌더러가 한 번 시작에 실패하면 영구적으로 작동하지 않던 문제를 수정했습니다. 이제 이후 실행 시 종료되는 대신 클래식 렌더러로 전환됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/model` picker rendering taller than the terminal: it now shows only as many models as fit the window, with the rest reachable by scrolling",
+      "translated": "`/model` 선택기가 터미널보다 높게 렌더링되는 문제를 수정했습니다. 이제 창 크기에 맞는 수의 모델만 표시하며, 나머지는 스크롤하여 확인할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SendMessage` calls being rejected when a malformed closing tag left the message text inside the summary field",
+      "translated": "잘못된 형식의 닫기 태그로 인해 메시지 텍스트가 요약 필드에 남게 되어 `SendMessage` 호출이 거부되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unhandled promise rejections when a subprocess fails to start, for example `powershell.exe` on WSL with Windows interop disabled (regression in 2.1.234)",
+      "translated": "하위 프로세스 시작 실패 시 처리되지 않은 프로미스 거부(unhandled promise rejections)가 발생하는 문제를 수정했습니다. 예: Windows 상호 운용성이 비활성화된 WSL에서의 `powershell.exe`(2.1.234 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fullscreen mode sometimes not showing a newly sent message until the next update after the terminal was resized",
+      "translated": "전체 화면 모드에서 터미널 크기를 조정한 후 다음 업데이트 전까지 새로 보낸 메시지가 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a blank band that could remain above the prompt after clearing a multi-line prompt, and panes not repainting after resizing the terminal away and back, in fullscreen mode",
+      "translated": "전체 화면 모드에서 여러 줄 프롬프트를 지운 후 프롬프트 위에 빈 띠가 남는 문제와 터미널 크기를 조절했다가 되돌렸을 때 창이 다시 그려지지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the managed-settings approval prompt sometimes not appearing at startup while still capturing the first keypress as approval",
+      "translated": "시작 시 관리형 설정(managed-settings) 승인 프롬프트가 나타나지 않으면서도 첫 번째 키 입력을 승인으로 처리하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed terminal tab titles jumping in tmux (iTerm tmux integration): the title is now written only when its text changes instead of animating every 960ms",
+      "translated": "tmux(iTerm tmux 통합)에서 터미널 탭 제목이 튀는 현상을 수정했습니다. 이제 제목은 960ms마다 애니메이션 효과를 주는 대신 텍스트가 변경될 때만 작성됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an unclear error when the cloud environments list came back empty or malformed",
+      "translated": "클라우드 환경 목록이 비어 있거나 형식이 잘못되었을 때 오류 메시지가 불분명하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Fable 5 first-time usage-credits prompt auto-selecting the fallback model after 60 seconds with no answer when using Remote Control",
+      "translated": "Remote Control 사용 시 Fable 5 최초 사용 크레딧 프롬프트에서 60초 동안 응답이 없으면 대체 모델이 자동으로 선택되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed spinner tips never appearing, with a repeated background error, when the cached guest-pass reward in `~/.claude.json` was malformed",
+      "translated": "`~/.claude.json`에 캐시된 게스트 패스 보상 형식이 잘못된 경우, 백그라운드 오류가 반복되며 스피너 팁이 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skills hot-reload in SDK/VS Code sessions raising an error on every skills change after the session's working directory was deleted (2.1.229+)",
+      "translated": "세션의 작업 디렉토리가 삭제된 후 SDK/VS Code 세션에서 스킬을 변경할 때마다 스킬 핫 리로드 오류가 발생하는 문제를 수정했습니다(2.1.229+)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed self-hosted runner sessions released on idle, retire, or startup timeout occasionally resuming on another runner before the post-session hook had finished",
+      "translated": "유휴 상태, 종료 또는 시작 시간 초과로 해제된 셀프 호스팅 러너 세션이 세션 후 훅(post-session hook)이 완료되기 전에 다른 러너에서 재개되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Clawd mascot's eyes and feet rendering unevenly in iTerm2 at some font sizes",
+      "translated": "특정 글꼴 크기에서 iTerm2의 Clawd 마스코트 눈과 발이 불균형하게 렌더링되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed occasional runaway session recaps: recap text (automatic and `/recap`) is now capped at 400 characters, cut at a word boundary",
+      "translated": "간헐적으로 발생하는 세션 요약 폭주 현상을 수정했습니다. 요약 텍스트(자동 및 `/recap`)는 이제 최대 400자로 제한되며 단어 단위로 끊깁니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup performance: the session counter is now written in the background",
+      "translated": "시작 성능을 개선했습니다. 이제 세션 카운터가 백그라운드에서 기록됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: `Monitor` allow rules are now set aside while auto mode is active, so Monitor commands are reviewed the same way Bash commands are",
+      "translated": "자동 모드를 개선했습니다. 자동 모드가 활성화된 동안 `Monitor` 허용 규칙이 별도로 관리되어, Monitor 명령어가 Bash 명령어와 동일한 방식으로 검토됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode on Bedrock, Vertex AI, and Foundry, and when telemetry is disabled: the classifier now uses the same defaults as on the Claude API, including severity-scored classification",
+      "translated": "Bedrock, Vertex AI, Foundry 및 텔레메트리가 비활성화된 환경에서의 자동 모드를 개선했습니다. 이제 분류기(classifier)가 심각도 점수 기반 분류를 포함하여 Claude API와 동일한 기본값을 사용합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: the git status check can no longer be fooled by a repo's `status.showUntrackedFiles=no` setting into reporting a clean tree",
+      "translated": "자동 모드를 개선했습니다. 이제 git 상태 확인 시 저장소의 `status.showUntrackedFiles=no` 설정으로 인해 변경 사항이 없는 것으로 잘못 보고되지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the `/model` picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+      "translated": "`/model` 선택기에서 최신 모델의 이름만 강조하도록 변경했습니다. 이를 통해 목록의 임의의 하위 집합이 아닌 새로운 릴리스를 명확히 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/goal`: an idle session whose goal is parked behind long-running background work now checks in automatically after 30 minutes (then 1h, 2h) instead of waiting for you to return",
+      "translated": "`/goal`: 장시간 실행되는 백그라운드 작업으로 인해 목표 달성이 지연되는 유휴 세션이 사용자의 복귀를 기다리는 대신 30분(이후 1시간, 2시간 단위) 후에 자동으로 상태를 확인합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/usage` now shows the usage-credits spend row for Team and Enterprise members, and shows a capped row at 0% before anything is spent",
+      "translated": "`/usage`가 이제 Team 및 Enterprise 멤버를 위한 사용 크레딧 소모 행을 표시하며, 사용 전에는 0%로 제한된 행을 보여줍니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "SIGTERM in print/SDK mode no longer records an interrupted turn or synthetic tool denials before exiting; running commands are still terminated and the process still exits with code 143",
+      "translated": "print/SDK 모드에서 SIGTERM 발생 시 종료 전 중단된 턴이나 가상 도구 거부(synthetic tool denials)를 기록하지 않습니다. 실행 중인 명령어는 여전히 종료되며 프로세스는 종료 코드 143으로 종료됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Pressing Enter on a slash-command typo or a command unavailable in this session now reports it instead of running the closest fuzzy match; prefixes and aliases still run",
+      "translated": "슬래시 명령어 오타나 현재 세션에서 사용할 수 없는 명령어를 입력하고 Enter를 누르면, 가장 유사한 명령어를 실행하는 대신 오류를 보고합니다. 접두사 및 별칭(alias)은 여전히 작동합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control now marks a session offline within seconds when the CLI exits or its terminal closes",
+      "translated": "Remote Control 기능에서 CLI가 종료되거나 터미널이 닫히면 몇 초 내에 세션을 오프라인으로 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`SendMessage` now refuses further messages to a session up front once a rapid burst would exceed what that session's inbox accepts, instead of reporting them sent while they were dropped",
+      "translated": "`SendMessage`가 이제 세션의 인박스 수용량을 초과하는 급격한 메시지 폭주 시, 메시지가 누락되었음에도 전송된 것으로 보고하는 대신 사전에 추가 메시지 전송을 거부합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Aligned the session title chip on the prompt border with the footer's right edge",
+      "translated": "프롬프트 경계의 세션 제목 칩을 푸터의 오른쪽 가장자리에 맞게 정렬했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Right-aligned footer items (goal indicator, session state, background agent status) and truncated notices now share a consistent right margin with the rest of the prompt area",
+      "translated": "오른쪽으로 정렬된 푸터 항목(목표 표시기, 세션 상태, 백그라운드 에이전트 상태) 및 생략된 알림이 이제 프롬프트 영역의 나머지 부분과 일관된 오른쪽 여백을 공유합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added screen reader support for the transcript: live announcements for replies, permission requests, errors, and status changes, plus per-turn heading navigation",
+      "translated": "[VSCode] 트랜스크립트에 스크린 리더 지원을 추가했습니다. 답변, 권한 요청, 오류 및 상태 변경에 대한 실시간 안내와 턴 단위 제목 탐색 기능을 제공합니다."
+    }
+  ],
+  "translatedAt": "2026-08-20T01:53:57.787Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4895
+}
