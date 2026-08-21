@@ -1,0 +1,248 @@
+{
+  "version": "2.1.238",
+  "date": "2026-08-20",
+  "parsedAt": "2026-08-21T01:59:31.836Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a `keybindingFlavor` setting: set it to `\"readline\"` to make Ctrl+W in the prompt delete back to the previous whitespace, as in Bash; the default (`\"classic\"`) is unchanged",
+      "translated": "`keybindingFlavor` 설정을 추가했습니다. 이를 `\"readline\"`으로 설정하면 Bash와 같이 프롬프트에서 Ctrl+W를 눌렀을 때 이전 공백까지 삭제됩니다. 기본값(`\"classic\"`)은 변경되지 않았습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plugin marketplaces: `headersHelper` on a url marketplace or a catalog entry runs a command that mints HTTP headers (e.g. a short-lived token) for catalog and same-origin archive fetches",
+      "translated": "플러그인 마켓플레이스: url 마켓플레이스 또는 카탈로그 항목의 `headersHelper`가 카탈로그 및 동일 출처 아카이브 페치를 위한 HTTP 헤더(예: 수명이 짧은 토큰)를 생성하는 명령을 실행합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A catalog entry's `headersHelper` runs only when you install or update that plugin, after its command is shown; `claude plugin install/update` ask `[y/N]` (or pass `-y`)",
+      "translated": "카탈로그 항목의 `headersHelper`는 해당 플러그인을 설치하거나 업데이트할 때 명령어가 표시된 후 실행됩니다. `claude plugin install/update` 시 `[y/N]`을 묻거나 `-y`를 전달할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude self-hosted-runner --defer-shutdown-max-min <minutes>`: on SIGTERM, keep serving attached sessions, park what is left after that many minutes, then exit",
+      "translated": "`claude self-hosted-runner --defer-shutdown-max-min <minutes>`를 추가했습니다. SIGTERM 발생 시 연결된 세션을 계속 유지하며, 지정된 시간이 지난 후 남은 세션을 파킹(park)하고 종료합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude self-hosted-runner --proxy-authorization-command` / `--proxy-authorization-file` for egress proxies that require a freshly issued `Proxy-Authorization` header on every connection",
+      "translated": "모든 연결마다 새로 발급된 `Proxy-Authorization` 헤더가 필요한 아웃바운드 프록시를 위해 `claude self-hosted-runner --proxy-authorization-command` 및 `--proxy-authorization-file`을 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth in long interactive sessions: subagent tool results are now released once they leave the recent display window",
+      "translated": "긴 대화 세션에서 메모리가 무한히 증가하던 문제를 수정했습니다. 이제 서브에이전트 도구 결과가 최근 표시 창에서 벗어나면 메모리에서 해제됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed custom, project, and plugin output styles drifting back to the default voice mid-session",
+      "translated": "세션 도중 커스텀, 프로젝트 및 플러그인 출력 스타일이 기본 음성으로 돌아가던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=true` not keeping prompt suggestions on when your account is near, but not over, its usage limit",
+      "translated": "계정 사용량이 한도에 근접했지만 초과하지 않았을 때 `CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=true` 설정에도 프롬프트 제안이 유지되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worktree-isolation Bash refusals telling you to remove a redirect when the command had none",
+      "translated": "명령에 리다이렉션이 없음에도 불구하고 worktree-isolation Bash 거부 메시지에서 리다이렉션을 제거하라고 안내하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed self-hosted runners occasionally being removed by the server after a single slow or lost poll request, handing their healthy session to another runner",
+      "translated": "한 번의 느린 폴링이나 요청 누락으로 인해 서버가 셀프 호스팅 러너를 제거하고 정상적인 세션을 다른 러너로 넘기던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP elicitation dialogs showing nothing for URLs longer than 4,096 characters, and permission prompts dropping the \"don't ask again\" option when the project path didn't fit the terminal width",
+      "translated": "4,096자를 초과하는 URL에 대해 MCP 유도 대화 상자가 표시되지 않던 문제와 프로젝트 경로가 터미널 너비에 맞지 않을 때 권한 요청 프롬프트에서 \"다시 묻지 않음\" 옵션이 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed leftover `/tmp/claude-*-cwd` files when a Bash command is killed, times out, or is interrupted",
+      "translated": "Bash 명령이 강제 종료되거나 타임아웃 또는 중단되었을 때 `/tmp/claude-*-cwd` 파일이 남아있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed held Backspace being ignored on terminals that send Ctrl+H for Backspace when keystrokes arrive in large bursts (slow SSH/mosh links)",
+      "translated": "키 입력이 대량으로 발생하는 경우(느린 SSH/mosh 연결) 백스페이스에 대해 Ctrl+H를 전송하는 터미널에서 백스페이스를 길게 누를 때 무시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed text-wrapping in permission prompt diffs: lines containing wide multi-code-point characters (such as emoji) or tabs are no longer clipped",
+      "translated": "권한 요청 프롬프트 diff의 텍스트 줄바꿈 문제를 수정했습니다. 이모지와 같은 다중 코드 포인트 문자나 탭이 포함된 줄이 더 이상 잘리지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed killing a suspended (Ctrl+Z) session sometimes leaving the terminal in bracketed-paste mode with the cursor hidden",
+      "translated": "일시 중단된(Ctrl+Z) 세션을 종료할 때 간혹 터미널이 bracketed-paste 모드로 남거나 커서가 숨겨진 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stdio MCP servers receiving a `server/discover` request before `initialize`, forcing lazy servers to start their backend on every session open",
+      "translated": "stdio MCP 서버가 `initialize` 전에 `server/discover` 요청을 받아 지연 로딩(lazy) 서버가 세션을 열 때마다 백엔드를 시작해야 했던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a proxy's refusal of a connection being reported as a generic network error instead of naming the proxy",
+      "translated": "프록시의 연결 거부가 프록시 이름을 명시하지 않고 일반적인 네트워크 오류로 보고되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `/model` and `/effort` cache-miss warning appearing when the prompt cache had already expired",
+      "translated": "프롬프트 캐시가 이미 만료되었음에도 `/model` 및 `/effort` 캐시 미스 경고가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed per-task Stop from the Remote Control tasks panel doing nothing on CLI-hosted sessions",
+      "translated": "CLI 호스팅 세션에서 원격 제어 작업 패널의 작업별 중지(Stop) 기능이 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed remote sessions exiting when a client delivered a user message without a valid role",
+      "translated": "클라이언트가 유효한 역할(role) 없이 사용자 메시지를 전달할 때 원격 세션이 종료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions started by `claude remote-control` inheriting session-scoped environment variables from the launching shell",
+      "translated": "`claude remote-control`로 시작된 원격 제어 세션이 실행 셸의 세션 범위 환경 변수를 상속받던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Remote Control session whose process crashed staying unavailable until `claude remote-control` was restarted; it can now be reused when you next message it",
+      "translated": "프로세스가 충돌한 원격 제어 세션이 `claude remote-control`을 재시작하기 전까지 사용할 수 없던 문제를 수정했습니다. 이제 다음 메시지를 보낼 때 세션을 재사용할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control messages sent from the web or Desktop while Claude is mid-turn disappearing from the transcript after the turn finishes",
+      "translated": "Claude가 응답 중일 때 웹이나 데스크톱에서 보낸 원격 제어 메시지가 응답 종료 후 대화 기록에서 사라지던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control model picks made on a phone or web not updating the model shown in the terminal",
+      "translated": "모바일이나 웹에서 선택한 원격 제어 모델이 터미널에 표시되는 모델 정보에 반영되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control disconnecting with \"login expired\" when a brief network hiccup delays renewing your sign-in; it now retries and stays connected",
+      "translated": "일시적인 네트워크 오류로 로그인 갱신이 지연될 때 원격 제어 연결이 \"login expired\"와 함께 끊기던 문제를 수정했습니다. 이제 연결을 재시도하며 상태를 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control reporting a failed reconnect on sign-out; signing out now ends the session with a clear message",
+      "translated": "로그아웃 시 원격 제어에서 재연결 실패가 보고되던 문제를 수정했습니다. 이제 로그아웃하면 명확한 메시지와 함께 세션이 종료됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ListAgents`/`SendMessage` reporting \"Remote Control is not connected\" in sessions run by `claude remote-control` (server mode) or Desktop/IDE hosts; they now list and reach Remote Control peers",
+      "translated": "`claude remote-control`(서버 모드) 또는 데스크톱/IDE 호스트에서 실행되는 세션에서 `ListAgents`/`SendMessage`가 \"Remote Control is not connected\"를 보고하던 문제를 수정했습니다. 이제 원격 제어 피어를 나열하고 연결할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `ListAgents` and `SendMessage` exposing the idle worker that the agent view pre-warms for your next background session; it now appears only once a task claims it",
+      "translated": "`ListAgents` 및 `SendMessage`가 다음 백그라운드 세션을 위해 에이전트 뷰에서 미리 준비한 유휴 워커를 노출하던 문제를 수정했습니다. 이제 작업이 할당된 경우에만 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cross-session messaging: sending to a session on this machine that refuses inbound messages (e.g. `crossSessionInbound: \"refuse\"`) now reports \"refused\" to the sender instead of a silent success",
+      "translated": "교차 세션 메시징: 인바운드 메시지를 거부하는(예: `crossSessionInbound: \"refuse\"`) 로컬 세션으로 메시지를 보낼 때, 아무런 표시 없이 성공하는 대신 발신자에게 \"refused\"를 보고합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cross-session messaging: a session whose inbox drops your messages (rate limit or full queue) now tells your session, instead of the messages vanishing silently",
+      "translated": "교차 세션 메시징: 수신함에서 메시지가 누락된 경우(속도 제한 또는 큐 가득 참), 메시지가 자동으로 사라지는 대신 해당 세션에 상태를 알립니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup: bare `claude` starts sooner on macOS",
+      "translated": "시작 성능 개선: macOS에서 `claude` 명령어가 더 빠르게 실행됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Bash tool permission checking for zsh-specific syntax in shell conditionals",
+      "translated": "Bash 도구의 권한 확인 기능 개선: 셸 조건문의 zsh 전용 구문에 대한 확인 방식을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Remote Control connection resilience: brief HTTP 403 refusals from a network edge, VPN, or proxy are now tolerated for up to 3 minutes, with the refusing party named when a block persists",
+      "translated": "원격 제어 연결 안정성 개선: 네트워크 에지, VPN 또는 프록시에서 발생하는 일시적인 HTTP 403 거부를 최대 3분까지 허용하며, 차단이 지속될 경우 거부 주체를 표시합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup responsiveness: the automatic update check now runs about 10 seconds after launch instead of competing with startup for CPU",
+      "translated": "시작 응답성 개선: 자동 업데이트 확인이 시작 시 CPU 자원을 점유하지 않도록 실행 약 10초 후에 수행됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the bundled `claude-api` skill for the Managed Agents Aug 19 release: web search/fetch domain settings and memory stores on self-hosted sandboxes",
+      "translated": "Managed Agents 8월 19일 릴리스에 맞춰 번들된 `claude-api` 스킬을 업데이트했습니다. 셀프 호스팅 샌드박스의 웹 검색/가져오기 도메인 설정 및 메모리 저장소 기능이 포함되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Ctrl+L and Cmd+K in fullscreen to always just repaint — the double-press `/clear` shortcut was removed, and 1-row nvim terminals no longer trigger automatic `/clear` loops",
+      "translated": "전체 화면에서 Ctrl+L 및 Cmd+K 동작 변경: 이제 항상 화면을 다시 그리기만 합니다. 두 번 눌러 실행하던 `/clear` 단축키는 제거되었으며, 1행 nvim 터미널에서 `/clear` 루프가 자동으로 트리거되지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `claude mcp list` and `claude mcp get` to show disabled servers as `⊘ Disabled` instead of connecting to them for a health check",
+      "translated": "`claude mcp list` 및 `claude mcp get` 동작 변경: 비활성화된 서버에 상태 확인을 위해 연결하는 대신 `⊘ Disabled`로 표시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP `headersHelper` in a project `.mcp.json`, and inline MCP servers in project or `--add-dir` agent files, now require that folder's trust dialog to have been accepted (also under `claude -p`)",
+      "translated": "프로젝트 `.mcp.json`의 MCP `headersHelper` 및 프로젝트 또는 `--add-dir` 에이전트 파일의 인라인 MCP 서버를 사용하려면 해당 폴더의 신뢰 대화 상자 승인이 필요합니다(`claude -p` 포함)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP `headersHelper` from a project `.mcp.json`, plugin, or agent file runs without inherited credential env vars; user, managed and claude.ai-scope helpers now run from the Claude config dir",
+      "translated": "프로젝트 `.mcp.json`, 플러그인 또는 에이전트 파일의 MCP `headersHelper`가 상속된 인증 환경 변수 없이 실행됩니다. 사용자, 관리형 및 claude.ai 범위의 헬퍼는 이제 Claude 설정 디렉토리에서 실행됩니다."
+    }
+  ],
+  "translatedAt": "2026-08-21T02:00:22.897Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5608
+}
