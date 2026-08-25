@@ -1,0 +1,182 @@
+{
+  "version": "5.0.0-beta.14",
+  "date": "2026-08-21",
+  "parsedAt": "2026-08-25T13:13:29.550Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/btw <question>` creates *another* side instead of reusing the last one; starting BTW while viewing a side creates a sibling under the same main conversation.",
+      "translated": "`/btw <question>` creates *another* side instead of reusing the last one; starting BTW while viewing a side creates a sibling under the same main conversation."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Bare `/btw` opens a picker with three sections: Main conversation, retained sides listed oldest-first as `BTW #1`, `BTW #2` with question summaries, and a New BTW action. The current destination is preselected, and the picker and long transcripts scroll with the mouse wheel.",
+      "translated": "Bare `/btw` opens a picker with three sections: Main conversation, retained sides listed oldest-first as `BTW #1`, `BTW #2` with question summaries, and a New BTW action. The current destination is preselected, and the picker and long transcripts scroll with the mouse wheel."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Key semantics changed, retrain your fingers:** `Esc Esc` returns to Main *without deleting* the side (closing BTW used to delete it), `Ctrl+C` from an empty composer deletes only the visible side, and `Ctrl+/` opens the picker from any related view, now also recognized on terminals that encode it as `Ctrl+7`.",
+      "translated": "**Key semantics changed, retrain your fingers:** `Esc Esc` returns to Main *without deleting* the side (closing BTW used to delete it), `Ctrl+C` from an empty composer deletes only the visible side, and `Ctrl+/` opens the picker from any related view, now also recognized on terminals that encode it as `Ctrl+7`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The 64-message / 64 KiB read-only context inheritance and the guarantee that side traffic never touches the main transcript are unchanged.",
+      "translated": "The 64-message / 64 KiB read-only context inheritance and the guarantee that side traffic never touches the main transcript are unchanged."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Revived nodes stay in the run (#7106).** A node you revive mid-flight is now tracked by the scheduler itself; a run can no longer declare itself finished while your revived node is still working, and it fails loudly if it ever could.",
+      "translated": "**Revived nodes stay in the run (#7106).** A node you revive mid-flight is now tracked by the scheduler itself; a run can no longer declare itself finished while your revived node is still working, and it fails loudly if it ever could."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Parent-side verification directive (#7080).** DAG completion payloads now tell the orchestrating parent to treat the claim as false until proven: read the artifacts, run the commands, and send corrective instructions back to the exact node until its own verification passes. Non-DAG completions are byte-identical.",
+      "translated": "**Parent-side verification directive (#7080).** DAG completion payloads now tell the orchestrating parent to treat the claim as false until proven: read the artifacts, run the commands, and send corrective instructions back to the exact node until its own verification passes. Non-DAG completions are byte-identical."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Real errors, surfaced (#7105).** The eval SDK used to swallow non-start DAG errors as successes and report a `definition_conflict` as \"no run_id\". Every response now routes through a choke point that rethrows the tool's own code and message.",
+      "translated": "**Real errors, surfaced (#7105).** The eval SDK used to swallow non-start DAG errors as successes and report a `definition_conflict` as \"no run_id\". Every response now routes through a choke point that rethrows the tool's own code and message."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Windows lock contention (#7107).** Filesystems that refuse hard links (`EPERM`/`EACCES` on NTFS ACLs, ReFS, network shares) no longer crash the losing racer; the lock falls back to an equally atomic exclusive open and the loser waits as designed.",
+      "translated": "**Windows lock contention (#7107).** Filesystems that refuse hard links (`EPERM`/`EACCES` on NTFS ACLs, ReFS, network shares) no longer crash the losing racer; the lock falls back to an equally atomic exclusive open and the loser waits as designed."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Your message paints instantly.** Enter now renders an optimistic pending bubble at once instead of waiting for the provider round-trip; the canonical message replaces it in place, and rejected or command-handled inputs remove it.",
+      "translated": "**Your message paints instantly.** Enter now renders an optimistic pending bubble at once instead of waiting for the provider round-trip; the canonical message replaces it in place, and rejected or command-handled inputs remove it."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The TUI stops pegging a core under provider-error storms.** Contended settings-lock waiters used to busy-spin on the main thread and freeze the render loop; they now sleep through `Atomics.wait`, fallback-chain canonicalization is memoized per error burst, and OAuth-lane settings loads are cached by mtime and size.",
+      "translated": "**The TUI stops pegging a core under provider-error storms.** Contended settings-lock waiters used to busy-spin on the main thread and freeze the render loop; they now sleep through `Atomics.wait`, fallback-chain canonicalization is memoized per error burst, and OAuth-lane settings loads are cached by mtime and size."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Settings reads are lock-free.** Writers publish atomically via temp file plus rename, so reads never join a lock convoy and never observe a torn write.",
+      "translated": "**Settings reads are lock-free.** Writers publish atomically via temp file plus rename, so reads never join a lock convoy and never observe a torn write."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Claude policy refusals fail immediately** on the `claude-sdk-oauth` lane with the real reason, instead of hanging ~90 seconds into the watchdog and re-billing the conversation on retry.",
+      "translated": "**Claude policy refusals fail immediately** on the `claude-sdk-oauth` lane with the real reason, instead of hanging ~90 seconds into the watchdog and re-billing the conversation on retry."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`monitor` prompting matches the real PTY contract**, with worked recipes so the agent waits the way the tool actually behaves.",
+      "translated": "**`monitor` prompting matches the real PTY contract**, with worked recipes so the agent waits the way the tool actually behaves."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Provider catalogs refreshed:** the vercel-ai-gateway Grok vendor slug moved `xai/` to `spacexai/`, and opencode delisted `deepseek-v4-flash-free`.",
+      "translated": "**Provider catalogs refreshed:** the vercel-ai-gateway Grok vendor slug moved `xai/` to `spacexai/`, and opencode delisted `deepseek-v4-flash-free`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The auth store gets the same lock-spin fix**, so multi-session OAuth-refresh contention can no longer burn a core.",
+      "translated": "**The auth store gets the same lock-spin fix**, so multi-session OAuth-refresh contention can no longer burn a core."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The model picker releases before the auth round trip.** Choosing a subscription-OAuth model like Cursor no longer freezes a frame of the previous model on screen while the network call resolves.",
+      "translated": "**The model picker releases before the auth round trip.** Choosing a subscription-OAuth model like Cursor no longer freezes a frame of the previous model on screen while the network call resolves."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Cursor turns end when the server says they ended.** A decoded `turnEnded` is definitive completion with a 5s drain, and silent streams fail in 30s (90s if heartbeat-only) instead of sitting out the 5-minute idle timeout.",
+      "translated": "**Cursor turns end when the server says they ended.** A decoded `turnEnded` is definitive completion with a 5s drain, and silent streams fail in 30s (90s if heartbeat-only) instead of sitting out the 5-minute idle timeout."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**JavaScript eval cells accept `local://`** paths like every other kernel.",
+      "translated": "**JavaScript eval cells accept `local://`** paths like every other kernel."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**mass-ULW answers to more names (#7076):** `ulw mass`, `ulwmass`, `mulw`, and `meth` now trigger it alongside the existing spellings; the guard that keeps `ulw-plan` from matching is intact.",
+      "translated": "**mass-ULW answers to more names (#7076):** `ulw mass`, `ulwmass`, `mulw`, and `meth` now trigger it alongside the existing spellings; the guard that keeps `ulw-plan` from matching is intact."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Background completion notifications reach the right project (#7077):** the live server route now carries its registered directory into the SDK client instead of defaulting to the server's.",
+      "translated": "**Background completion notifications reach the right project (#7077):** the live server route now carries its registered directory into the SDK client instead of defaulting to the server's."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The ultrawork build fails loudly on stale tokens (#7081):** `wait_for` joined the forbidden-token list, so a directive can never again tell the model to call a tool that does not exist. #7085 briefly dropped the goal-registration mandate and #7088 restored it verbatim, netting to no change in the shipped directive.",
+      "translated": "**The ultrawork build fails loudly on stale tokens (#7081):** `wait_for` joined the forbidden-token list, so a directive can never again tell the model to call a tool that does not exist. #7085 briefly dropped the goal-registration mandate and #7088 restored it verbatim, netting to no change in the shipped directive."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Docs caught up with the code (#7093):** a 22-file sweep corrects `config migrate`, documents the `update` command, fixes `boulder` and `--codex-autonomous` claims, and describes the telemetry identifier and cleanup scope accurately.",
+      "translated": "**Docs caught up with the code (#7093):** a 22-file sweep corrects `config migrate`, documents the `update` command, fixes `boulder` and `--codex-autonomous` claims, and describes the telemetry identifier and cleanup scope accurately."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Provenance gate diagnoses partial clones (#7101):** an uninitialized submodule now reports itself, with the exact `git submodule update --init --recursive` fix, instead of raising a false license-pin alarm.",
+      "translated": "**Provenance gate diagnoses partial clones (#7101):** an uninitialized submodule now reports itself, with the exact `git submodule update --init --recursive` fix, instead of raising a false license-pin alarm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@ToToKr: the multi-session BTW picker (#7086) and its review follow-ups (#7087)",
+      "translated": "@ToToKr: the multi-session BTW picker (#7086) and its review follow-ups (#7087)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@feelsodev: ulw-loop session isolation (#6914) and co-authorship on the status-probe fix (#7112)",
+      "translated": "@feelsodev: ulw-loop session isolation (#6914) and co-authorship on the status-probe fix (#7112)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@sanguneo: the win32 memory reflection worker console fix with its windowsHide audit (#7082)",
+      "translated": "@sanguneo: the win32 memory reflection worker console fix with its windowsHide audit (#7082)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@grim-susemi: windowsHide across 11 detached and background spawn sites (#6991)",
+      "translated": "@grim-susemi: windowsHide across 11 detached and background spawn sites (#6991)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Altair Li: co-author on the ulw-loop status-probe session scoping (#7112)",
+      "translated": "Altair Li: co-author on the ulw-loop status-probe session scoping (#7112)"
+    }
+  ],
+  "translatedAt": "2026-08-25T13:14:34.541Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 5259
+}

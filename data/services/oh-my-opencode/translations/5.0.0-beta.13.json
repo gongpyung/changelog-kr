@@ -1,0 +1,758 @@
+{
+  "version": "5.0.0-beta.13",
+  "date": "2026-08-20",
+  "parsedAt": "2026-08-25T13:13:29.551Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`dag retry`** returns failed, cancelled, and skip-cascaded nodes to a fresh attempt while every completed node keeps its cached result. Prompt-corrected retries (`retry` + `prompt`) are supported for exactly one node.",
+      "translated": "**`dag retry`** returns failed, cancelled, and skip-cascaded nodes to a fresh attempt while every completed node keeps its cached result. Prompt-corrected retries (`retry` + `prompt`) are supported for exactly one node."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`dag send`** routes a message to one node's child with real delivery semantics — `steer` into a running child, `revive` a finished-but-resident child with its context intact, `queued` with a durable queue position when the child cannot take it yet. Non-continuable children get typed refusals (`node_not_continuable`, `node_has_no_task`; an unknown node gets `node_not_found`) that name the remedy.",
+      "translated": "**`dag send`** routes a message to one node's child with real delivery semantics — `steer` into a running child, `revive` a finished-but-resident child with its context intact, `queued` with a durable queue position when the child cannot take it yet. Non-continuable children get typed refusals (`node_not_continuable`, `node_has_no_task`; an unknown node gets `node_not_found`) that name the remedy."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`dag amend`** accepts an edited definition against the same run, SHA-256-fingerprint-diffs every node, and re-runs only changed + added nodes plus their transitive dependents. `load_skills` is deliberately outside the fingerprint, so a skills-only edit re-runs nothing.",
+      "translated": "**`dag amend`** accepts an edited definition against the same run, SHA-256-fingerprint-diffs every node, and re-runs only changed + added nodes plus their transitive dependents. `load_skills` is deliberately outside the fingerprint, so a skills-only edit re-runs nothing."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Per-node result artifacts are written atomically (temp file + fsync + rename), so a crash mid-retry can no longer leave a truncated result a reader would trust.",
+      "translated": "Per-node result artifacts are written atomically (temp file + fsync + rename), so a crash mid-retry can no longer leave a truncated result a reader would trust."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Three new journaled event types — `dag.node.retried`, `dag.node.steered`, `dag.definition.amended` — record every deliberate re-run and amendment explicitly in the journal. All strictly additive: `schemaVersion` stays 1, documented in `docs/reference/mass-ulw-protocol.md` with an explicit no-break guarantee.",
+      "translated": "Three new journaled event types — `dag.node.retried`, `dag.node.steered`, `dag.definition.amended` — record every deliberate re-run and amendment explicitly in the journal. All strictly additive: `schemaVersion` stays 1, documented in `docs/reference/mass-ulw-protocol.md` with an explicit no-break guarantee."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The status widget shows an `x<attempt>` badge on re-run nodes; `/dag` shows `amended x<n>` and prefixes node errors with the error **code**. A lost amend race is now a clean `run_still_active` refusal instead of a run wedged on journal replay.",
+      "translated": "The status widget shows an `x<attempt>` badge on re-run nodes; `/dag` shows `amended x<n>` and prefixes node errors with the error **code**. A lost amend race is now a clean `run_still_active` refusal instead of a run wedged on journal replay."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The JS SDK gains `retry`, `send`, and `amend` wrappers, and the mass-ulw skill documents the full refusal matrix.",
+      "translated": "The JS SDK gains `retry`, `send`, and `amend` wrappers, and the mass-ulw skill documents the full refusal matrix."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dedupe keys are scoped per model; a skipped retry returns its key instead of burning it forever.",
+      "translated": "Dedupe keys are scoped per model; a skipped retry returns its key instead of burning it forever."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Internal fallback retries carry an explicit marker so they stop being discarded as synthetic traffic.",
+      "translated": "Internal fallback retries carry an explicit marker so they stop being discarded as synthetic traffic."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Model identity travels as provider/model **plus variant** through the whole fallback path — your reasoning-effort selection survives a fallback and a recovery.",
+      "translated": "Model identity travels as provider/model **plus variant** through the whole fallback path — your reasoning-effort selection survives a fallback and a recovery."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Watchdog timers are generation-scoped, so a timer from an abandoned attempt can never hijack a later turn.",
+      "translated": "Watchdog timers are generation-scoped, so a timer from an abandoned attempt can never hijack a later turn."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A manual model change resets the fallback watchdog, in-flight retry flag, and the retry-key set.",
+      "translated": "A manual model change resets the fallback watchdog, in-flight retry flag, and the retry-key set."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**omo**: every CI, publish, and platform-build workflow moved from Bun 1.3.14 to **1.4.0** (cache keys included), and the committed omo-senpi extension bundles were regenerated under stable 1.4.0 so the CI freshness gate and your installed extension agree byte-for-byte.",
+      "translated": "**omo**: every CI, publish, and platform-build workflow moved from Bun 1.3.14 to **1.4.0** (cache keys included), and the committed omo-senpi extension bundles were regenerated under stable 1.4.0 so the CI freshness gate and your installed extension agree byte-for-byte."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**senpi 2026.8.20-2** (same-day re-release on top of 2026.8.20): the compiled `senpi` binary is now built with Bun **1.4.0 stable** (was 1.3.14), and npm publishing graduated from the Bun canary channel to stable 1.4.",
+      "translated": "**senpi 2026.8.20-2** (same-day re-release on top of 2026.8.20): the compiled `senpi` binary is now built with Bun **1.4.0 stable** (was 1.3.14), and npm publishing graduated from the Bun canary channel to stable 1.4."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safe dependency refresh** riding along — omo: posthog-node 5.49, puppeteer-core 25.8, @clack/prompts 1.7, MCP SDK 1.30, js-yaml 4.3.1, picomatch 4.0.5, bun-types 1.4.0; senpi: Biome 2.5.9, @types/node 26.2.0, vitest + coverage 4.1.11, AWS Bedrock/Smithy patches, protobuf 2.14.0. Deliberately excluded: anything major, the Anthropic SDKs (OAuth-lane sensitivity), @google/genai, @mistralai.",
+      "translated": "**Safe dependency refresh** riding along — omo: posthog-node 5.49, puppeteer-core 25.8, @clack/prompts 1.7, MCP SDK 1.30, js-yaml 4.3.1, picomatch 4.0.5, bun-types 1.4.0; senpi: Biome 2.5.9, @types/node 26.2.0, vitest + coverage 4.1.11, AWS Bedrock/Smithy patches, protobuf 2.14.0. Deliberately excluded: anything major, the Anthropic SDKs (OAuth-lane sensitivity), @google/genai, @mistralai."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`/resume` no longer stalls on big sessions**: exact byte-bounded streaming summaries are reused for unchanged files, and the visible transcript tail paints first while older messages warm progressively.",
+      "translated": "**`/resume` no longer stalls on big sessions**: exact byte-bounded streaming summaries are reused for unchanged files, and the visible transcript tail paints first while older messages warm progressively."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Startup sheds 680 modules**: the 1.2 MB Claude Agent SDK bundle and the jsdom/Readability/turndown HTML stack now load on first use, not at boot (14,203 → 13,523 modules).",
+      "translated": "**Startup sheds 680 modules**: the 1.2 MB Claude Agent SDK bundle and the jsdom/Readability/turndown HTML stack now load on first use, not at boot (14,203 → 13,523 modules)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**One process lighter per launch**: `cli.ts` runs the agent in-process unless an Inspector option or custom exec args genuinely require a child (measured -75 ms, -6.2% on `--help`).",
+      "translated": "**One process lighter per launch**: `cli.ts` runs the agent in-process unless an Inspector option or custom exec args genuinely require a child (measured -75 ms, -6.2% on `--help`)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**On-disk compile cache**: Node's `enableCompileCache()` is on for both CLI entries and published to children, so second launches skip recompiling the engine graph.",
+      "translated": "**On-disk compile cache**: Node's `enableCompileCache()` is on for both CLI entries and published to children, so second launches skip recompiling the engine graph."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Hot reload off the critical path**: recursive config watchers run in a worker thread on macOS too, watcher teardown leaves the reload path (1.5–62 s of shutdown stall eliminated), and MCP reconnect no longer blocks a reload.",
+      "translated": "**Hot reload off the critical path**: recursive config watchers run in a worker thread on macOS too, watcher teardown leaves the reload path (1.5–62 s of shutdown stall eliminated), and MCP reconnect no longer blocks a reload."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Watch scope fixed**: recursive watch targets now open one non-recursive subscription per in-scope directory — an extensions dir containing `node_modules` no longer drives `fseventsd` to 123% CPU and multi-GB RSS.",
+      "translated": "**Watch scope fixed**: recursive watch targets now open one non-recursive subscription per in-scope directory — an extensions dir containing `node_modules` no longer drives `fseventsd` to 123% CPU and multi-GB RSS."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Retry spinners throttle** on sessions with 1,000+ persisted entries; the countdown stays.",
+      "translated": "**Retry spinners throttle** on sessions with 1,000+ persisted entries; the countdown stays."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Goal footer tickers retire themselves on a stale extension context instead of ticking dead forever — the \"Pursuing goal\" label and continuation countdown no longer freeze the session after a reload.",
+      "translated": "Goal footer tickers retire themselves on a stale extension context instead of ticking dead forever — the \"Pursuing goal\" label and continuation countdown no longer freeze the session after a reload."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "TUI mode switches detach live components instead of disposing them; spinners and widget intervals survive the switch.",
+      "translated": "TUI mode switches detach live components instead of disposing them; spinners and widget intervals survive the switch."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A vetoed or failed `/reload` no longer destroys live extension footers and task widgets.",
+      "translated": "A vetoed or failed `/reload` no longer destroys live extension footers and task widgets."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Assistant text that arrives after the last tool call renders below the tool cards, so approval questions stay visible.",
+      "translated": "Assistant text that arrives after the last tool call renders below the tool cards, so approval questions stay visible."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0-token `resource_exhausted` is treated as overflow: surface on first failure → compact before any rotation; rotation persists under the agent dir and survives TUI restarts; a rotation skip at the 3-rotation cap remints a fresh wire id instead of poisoning the session.",
+      "translated": "0-token `resource_exhausted` is treated as overflow: surface on first failure → compact before any rotation; rotation persists under the agent dir and survives TUI restarts; a rotation skip at the 3-rotation cap remints a fresh wire id instead of poisoning the session."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Same-model retry after remint/compact instead of falling back to another provider; too-small overflow compacts drop to the last user turn; implausible billed `cacheRead` (3×/8× the live window) can no longer force useless compacts.",
+      "translated": "Same-model retry after remint/compact instead of falling back to another provider; too-small overflow compacts drop to the last user turn; implausible billed `cacheRead` (3×/8× the live window) can no longer force useless compacts."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Mid-turn compaction refuses while a native Run is live, so `conversationId` can't get poisoned mid-flight.",
+      "translated": "Mid-turn compaction refuses while a native Run is live, so `conversationId` can't get poisoned mid-flight."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Turns that end `stop` with pending toolCalls continue as `toolUse`; turns idle after completed tools end normally instead of hanging to the idle timeout.",
+      "translated": "Turns that end `stop` with pending toolCalls continue as `toolUse`; turns idle after completed tools end normally instead of hanging to the idle timeout."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ANTML invoke recovery is skipped on `cursor-agent`, so Claude-named Cursor models stop rejecting parallel tool starts.",
+      "translated": "ANTML invoke recovery is skipped on `cursor-agent`, so Claude-named Cursor models stop rejecting parallel tool starts."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Native `todo` calls persist even when the server resolves them without a local op; late `tool_execution_end` events draw their card instead of orphaning results; streamed task args survive an empty `{}` completion.",
+      "translated": "Native `todo` calls persist even when the server resolves them without a local op; late `tool_execution_end` events draw their card instead of orphaning results; streamed task args survive an empty `{}` completion."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Explicit thinking levels resolve to catalog suffix variant ids (`claude-fable-5-thinking-low`) on both the native and CLI lanes — no more `Connect error not_found`.",
+      "translated": "Explicit thinking levels resolve to catalog suffix variant ids (`claude-fable-5-thinking-low`) on both the native and CLI lanes — no more `Connect error not_found`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Exec-bridge ownership is airtight: handlers bind to the owning run's abort signal, fail closed without a captured run, re-check ownership after approval prompts, and emit `tool_execution_end` errors so nothing dangles.",
+      "translated": "Exec-bridge ownership is airtight: handlers bind to the owning run's abort signal, fail closed without a captured run, re-check ownership after approval prompts, and emit `tool_execution_end` errors so nothing dangles."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Session titles use the session model's own summarization auth — no more `unauthenticated` title calls under an explicit compaction model.",
+      "translated": "Session titles use the session model's own summarization auth — no more `unauthenticated` title calls under an explicit compaction model."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Goal continuations are **append-only**: per-request history rewriting invalidated the provider's cache prefix, so long team-mode sessions paid a full uncached re-read every turn and drove themselves into 429 storms.",
+      "translated": "Goal continuations are **append-only**: per-request history rewriting invalidated the provider's cache prefix, so long team-mode sessions paid a full uncached re-read every turn and drove themselves into 429 storms."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Same-model 429 retries floor every wait with the exponential schedule — a provider answering with the same tiny `retry-after` hint can't pin the cadence at milliseconds anymore.",
+      "translated": "Same-model 429 retries floor every wait with the exponential schedule — a provider answering with the same tiny `retry-after` hint can't pin the cadence at milliseconds anymore."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5d2742bf7 Merge pull request #7075 from code-yeongyu/fix/omo-ci-bun-1314-until-windows-tail",
+      "translated": "Merge pull request #7075 from code-yeongyu/fix/omo-ci-bun-1314-until-windows-tail"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b4d52a803 fix(test): build the absent-store fixture absent instead of deleting it back out",
+      "translated": "Build the absent-store fixture absent instead of deleting it back out"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3d91936a9 fix(test): give the Windows setup fixtures a real absent store and a real home",
+      "translated": "Give the Windows setup fixtures a real absent store and a real home"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "38092867c fix(test): let win32 teardown leak an OS-owned temp root instead of failing",
+      "translated": "Let win32 teardown leak an OS-owned temp root instead of failing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8cff72082 fix(test): widen the Windows EBUSY teardown budget with escalating backoff",
+      "translated": "Widen the Windows EBUSY teardown budget with escalating backoff"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f92deb89b fix(test): make the Windows suites correct under bun 1.4",
+      "translated": "Make the Windows suites correct under bun 1.4"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3a6fa0f65 test(omo-opencode): pin ResolveMessage identity instead of its prototype for bun 1.4",
+      "translated": "Pin ResolveMessage identity instead of its prototype for bun 1.4"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8d6a66fa0 Merge pull request #7074 from code-yeongyu/fix/btw-parent-remote-revalidation",
+      "translated": "Merge pull request #7074 from code-yeongyu/fix/btw-parent-remote-revalidation"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8aee39439 test(qa): check in BTW revalidation evidence",
+      "translated": "Check in BTW revalidation evidence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc2c5aa09 fix(opencode): require remote BTW parent confirmation",
+      "translated": "Require remote BTW parent confirmation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aff84c753 fix(qa): keep resolver imports side-effect free",
+      "translated": "Keep resolver imports side-effect free"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d92429e21 Merge pull request #7071 from code-yeongyu/feat/dag-node-resume-steer",
+      "translated": "Merge pull request #7071 from code-yeongyu/feat/dag-node-resume-steer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "37c5d6e5f Merge pull request #7068 from code-yeongyu/test/dag-happy-timeout-contract",
+      "translated": "Merge pull request #7068 from code-yeongyu/test/dag-happy-timeout-contract"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5a6f21d9b docs(omo): state the additive compatibility stance for dag node-control events",
+      "translated": "State the additive compatibility stance for dag node-control events"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1bbc2aa7d docs(omo): mass-ulw protocol additions for per-node retry/steer/amend",
+      "translated": "Mass-ulw protocol additions for per-node retry/steer/amend"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "26b2506d1 Merge pull request #7067 from code-yeongyu/fix/tui-notice-block-style",
+      "translated": "Merge pull request #7067 from code-yeongyu/fix/tui-notice-block-style"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "56df6d7fc Merge pull request #7066 from code-yeongyu/fix/dag-wait-residency-regression",
+      "translated": "Merge pull request #7066 from code-yeongyu/fix/dag-wait-residency-regression"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "81344928f Merge pull request #6611 from MoerAI/fix/6579-runtime-fallback-dedup",
+      "translated": "Merge pull request #6611 from MoerAI/fix/6579-runtime-fallback-dedup"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3932c9c66 fix(runtime-fallback): mark reused internal retry parts",
+      "translated": "Mark reused internal retry parts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b401eb4fc fix(runtime-fallback): clear first skipped retry key",
+      "translated": "Clear first skipped retry key"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "51573a146 fix(runtime-fallback): scope retry marker to fallback generation",
+      "translated": "Scope retry marker to fallback generation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "23057207d fix(runtime-fallback): recover skipped retry status keys",
+      "translated": "Recover skipped retry status keys"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d5c5918d5 test(qa): verify PR 6611 after dev rebase",
+      "translated": "Verify PR 6611 after dev rebase"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2ad216f3a test(qa): record pre-push fork head",
+      "translated": "Record pre-push fork head"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "486844975 test(qa): record PR 6611 fallback evidence",
+      "translated": "Record PR 6611 fallback evidence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc1c6312d fix(opencode): route only marked fallback retries",
+      "translated": "Route only marked fallback retries"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b7ee41a64 fix(runtime-fallback): preserve explicit retry effort",
+      "translated": "Preserve explicit retry effort"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "62491bd6c fix(runtime-fallback): restore effective primary variants",
+      "translated": "Restore effective primary variants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3aba9d1d6 fix(runtime-fallback): index registered category models",
+      "translated": "Index registered category models"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "891937ea1 fix(runtime-fallback): bind timeouts to state generations",
+      "translated": "Bind timeouts to state generations"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f603b5b37 fix(runtime-fallback): own queued retry generations",
+      "translated": "Own queued retry generations"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b097b73b fix(runtime-fallback): reject stale timeout generations",
+      "translated": "Reject stale timeout generations"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f4517c42b fix(runtime-fallback): acknowledge synthetic retries",
+      "translated": "Acknowledge synthetic retries"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0616cd628 fix(runtime-fallback): align created fallback identity",
+      "translated": "Align created fallback identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8bcfcc6c7 fix(runtime-fallback): retain queued fallback state",
+      "translated": "Retain queued fallback state"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "88d7cb4b4 test(lsp): isolate Windows compatibility checks",
+      "translated": "Isolate Windows compatibility checks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "671f69b0e fix(runtime-fallback): honor explicit retry variants",
+      "translated": "Honor explicit retry variants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "895b9d469 fix(runtime-fallback): align retry reasoning state",
+      "translated": "Align retry reasoning state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06eab0f71 fix(runtime-fallback): isolate retry generations",
+      "translated": "Isolate retry generations"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3e24b3942 fix(runtime-fallback): preserve effective retry state",
+      "translated": "Preserve effective retry state"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c09d25876 test(runtime-fallback): wire generation acknowledgment",
+      "translated": "Wire generation acknowledgment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c42be3ebd fix(runtime-fallback): align fallback generations",
+      "translated": "Align fallback generations"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9af2747b4 fix(runtime-fallback): scope model-less retry dedupe",
+      "translated": "Scope model-less retry dedupe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8c465e42b fix(runtime-fallback): preserve variant lifecycle state",
+      "translated": "Preserve variant lifecycle state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a5f5fee77 fix(runtime-fallback): persist effective fallback variant",
+      "translated": "Persist effective fallback variant"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8310d911d fix(runtime-fallback): preserve fallback variants",
+      "translated": "Preserve fallback variants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f01536361 fix(runtime-fallback): read variant from chat output",
+      "translated": "Read variant from chat output"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5f7b005ab test(runtime-fallback): prove source-current OpenCode QA",
+      "translated": "Prove source-current OpenCode QA"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bee902117 test(runtime-fallback): record variant reset QA",
+      "translated": "Record variant reset QA"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e6fa807d4 fix(runtime-fallback): reset retry keys on variant change",
+      "translated": "Reset retry keys on variant change"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b586cef81 fix(runtime-fallback): reset retry keys on manual model change",
+      "translated": "Reset retry keys on manual model change"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "26a2a8fbe fix(runtime-fallback): retain active retry keys",
+      "translated": "Retain active retry keys"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e3a12e74 fix(runtime-fallback): distinguish retry variants",
+      "translated": "Distinguish retry variants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "11798f876 fix(runtime-fallback): dedupe model-less retry statuses",
+      "translated": "Dedupe model-less retry statuses"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "617400982 fix(runtime-fallback): prevent repeated-error stalls (fixes #6579)",
+      "translated": "Prevent repeated-error stalls (fixes #6579)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e676fef9d Merge pull request #7062 from code-yeongyu/refactor/doctor-health-clock-thread",
+      "translated": "Merge pull request #7062 from code-yeongyu/refactor/doctor-health-clock-thread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b8b7b0954 Merge pull request #7060 from code-yeongyu/test/memory-teardown-efault-retry",
+      "translated": "Merge pull request #7060 from code-yeongyu/test/memory-teardown-efault-retry"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9dc8116e2 Merge pull request #7058 from code-yeongyu/feat/btw-codex-side-ui",
+      "translated": "Merge pull request #7058 from code-yeongyu/feat/btw-codex-side-ui"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6eb7e8cae fix(opencode): revalidate BTW parents",
+      "translated": "Revalidate BTW parents"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "198a1963c docs(opencode): update BTW hook inventory",
+      "translated": "Update BTW hook inventory"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "12807167b fix(opencode): preserve BTW cancellation semantics",
+      "translated": "Preserve BTW cancellation semantics"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28284f29c fix(opencode): reject deleted pending BTW",
+      "translated": "Reject deleted pending BTW"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e4ce3f658 docs(opencode): index BTW feature module",
+      "translated": "Index BTW feature module"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc2f49662 fix(opencode): preserve BTW route ownership",
+      "translated": "Preserve BTW route ownership"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1be110282 fix(opencode): own every BTW cleanup",
+      "translated": "Own every BTW cleanup"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "786d1955b fix(opencode): await pending BTW creation",
+      "translated": "Await pending BTW creation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b174d9872 fix(opencode): await BTW cleanup on dispose",
+      "translated": "Await BTW cleanup on dispose"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cdc106126 fix(opencode): close final BTW boundary gaps",
+      "translated": "Close final BTW boundary gaps"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed8682862 fix(opencode): propagate BTW classification failures",
+      "translated": "Propagate BTW classification failures"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "369be3608 fix(opencode): retry BTW session classification",
+      "translated": "Retry BTW session classification"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f3a3c0b5b fix(opencode): restrict unverified BTW sessions",
+      "translated": "Restrict unverified BTW sessions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "399ddb8fd fix(opencode): retry persisted BTW adoption",
+      "translated": "Retry persisted BTW adoption"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e015f8e7a fix(opencode): validate persisted BTW parents",
+      "translated": "Validate persisted BTW parents"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8b423d959 fix(opencode): enforce BTW execution bounds",
+      "translated": "Enforce BTW execution bounds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "113b49354 fix(opencode): bound BTW prompt inheritance",
+      "translated": "Bound BTW prompt inheritance"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "680973669 fix(opencode): block orphaned BTW nesting",
+      "translated": "Block orphaned BTW nesting"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "baf7d9255 fix(opencode): reject deleted BTW parents",
+      "translated": "Reject deleted BTW parents"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b3f4f0be1 fix(opencode): re-adopt persisted BTW sessions",
+      "translated": "Re-adopt persisted BTW sessions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3cbeeebc1 fix(opencode): cancel BTW on parent deletion",
+      "translated": "Cancel BTW on parent deletion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3981b98d fix(opencode): discard stale BTW adoption",
+      "translated": "Discard stale BTW adoption"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4586d135b fix(opencode): cancel pending BTW navigation",
+      "translated": "Cancel pending BTW navigation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "960947c42 fix(opencode): harden BTW deletion lifecycles",
+      "translated": "Harden BTW deletion lifecycles"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "559b3e22e fix(opencode): address BTW review feedback",
+      "translated": "Address BTW review feedback"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b5eb04896 feat(opencode): align BTW side conversation with Codex",
+      "translated": "Align BTW side conversation with Codex"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ec3d5afaa Merge pull request #7057 from code-yeongyu/fix/beta12-lockfile-sync",
+      "translated": "Merge pull request #7057 from code-yeongyu/fix/beta12-lockfile-sync"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "23db3d9cb fix(deps): sync bun.lock with the v5.0.0-beta.12 version bump",
+      "translated": "Sync bun.lock with the v5.0.0-beta.12 version bump"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "65f8540b3 Merge pull request #7056 from code-yeongyu/fix/windows-team-idle-wake-budget",
+      "translated": "Merge pull request #7056 from code-yeongyu/fix/windows-team-idle-wake-budget"
+    }
+  ],
+  "translatedAt": "2026-08-25T13:14:34.542Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 12543
+}
