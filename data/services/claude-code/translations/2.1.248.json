@@ -1,0 +1,308 @@
+{
+  "version": "2.1.248",
+  "date": "2026-08-27",
+  "parsedAt": "2026-08-27T22:18:19.837Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--restricted` (or `CLAUDE_CODE_RESTRICTED=1`): removes the built-in tools that run commands or code and `WebFetch` (unless named in `--tools`), keeps file tools inside the working directory, refuses `bypassPermissions`, and ignores user, project and local settings files",
+      "translated": "`--restricted` (또는 `CLAUDE_CODE_RESTRICTED=1`) 추가: 명령어나 코드를 실행하는 기본 도구 및 `WebFetch`(`--tools`에 명시된 경우 제외)를 제거하고, 파일 도구를 작업 디렉토리 내부로 제한하며, `bypassPermissions`를 거부하고 사용자, 프로젝트 및 로컬 설정 파일을 무시합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `experimental.cacheTtl` (`\"5m\"` or `\"1h\"`) to agent frontmatter: a per-agent prompt cache TTL used when no subagent TTL setting is configured",
+      "translated": "에이전트 frontmatter에 `experimental.cacheTtl` (`\"5m\"` 또는 `\"1h\"`) 추가: 하위 에이전트 TTL 설정이 구성되지 않은 경우 사용되는 에이전트별 프롬프트 캐시 TTL입니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `claude self-hosted-runner --client-label <label>` (or `SELF_HOSTED_RUNNER_CLIENT_LABEL`) to override the label the runner registers with (default: hostname)",
+      "translated": "러너가 등록할 때 사용하는 레이블(기본값: hostname)을 재정의하기 위한 `claude self-hosted-runner --client-label <label>` (또는 `SELF_HOSTED_RUNNER_CLIENT_LABEL`) 추가."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added server-managed settings diagnostics: a startup warning when the settings fail to load, and a `/doctor` and `/status` line explaining a load failure or why they weren't fetched (Bedrock/Vertex/third-party provider, custom `ANTHROPIC_BASE_URL`)",
+      "translated": "서버 관리 설정 진단 추가: 설정 로드 실패 시 시작 경고를 표시하고, `/doctor` 및 `/status`에 로드 실패 원인이나 가져오지 못한 이유(Bedrock/Vertex/제3자 제공업체, 사용자 정의 `ANTHROPIC_BASE_URL` 등)를 설명하는 행을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a warning in `/web-setup` when the GitHub CLI token lacks the `workflow` scope, since pushes to very large repositories can be rejected without it",
+      "translated": "GitHub CLI 토큰에 `workflow` 스코프가 없는 경우 `/web-setup`에 경고 추가: 이 스코프가 없으면 매우 큰 리포지토리에 대한 푸시가 거부될 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/usage-credits` for Enterprise organizations billed through AWS Marketplace, self-serve Enterprise, and Enterprise trials, so members can request a higher usage limit from their admin",
+      "translated": "AWS Marketplace를 통해 결제되는 엔터프라이즈 조직, 셀프 서비스 엔터프라이즈 및 엔터프라이즈 체험판을 위한 `/usage-credits` 추가: 구성원이 관리자에게 더 높은 사용 한도를 요청할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added cross-session messaging (`SendMessage` / `ListAgents`) between sessions on the same machine on Bedrock, Vertex, and Foundry, and when telemetry is disabled",
+      "translated": "Bedrock, Vertex, Foundry 및 텔레메트리가 비활성화된 경우 동일한 머신의 세션 간 교차 세션 메시징(`SendMessage` / `ListAgents`) 추가."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a prompt-cache miss (and lost extended-thinking context) roughly once an hour in long sessions, caused by tool definitions being re-rendered after an OAuth token refresh",
+      "translated": "긴 세션에서 약 한 시간마다 발생하던 프롬프트 캐시 미스(및 확장 사고 컨텍스트 손실) 수정: OAuth 토큰 갱신 후 도구 정의가 다시 렌더링되어 발생하던 문제입니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the `ScheduleWakeup` tool definition changing between a session and its `--resume` when the account had entered usage overage, causing a full prompt-cache miss on the resumed session's first turn",
+      "translated": "계정이 사용량 초과 상태일 때 세션과 `--resume` 사이에서 `ScheduleWakeup` 도구 정의가 변경되어, 재개된 세션의 첫 번째 턴에서 전체 프롬프트 캐시 미스가 발생하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Desktop and Cowork sessions disappearing after 30 days: the transcript cleanup now keeps desktop-written sessions while they are in the app (unless org policy manages retention); the new `desktopSessionCleanupPeriodDays` setting caps the exemption",
+      "translated": "Claude Desktop 및 Cowork 세션이 30일 후 사라지는 문제 수정: 이제 대화 기록 정리 시 앱에 남아 있는 데스크톱 작성 세션은 유지됩니다(조직 정책에서 보존을 관리하는 경우 제외). 새로운 `desktopSessionCleanupPeriodDays` 설정으로 이 예외 기간을 제한할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed being sent to the login screen when another Claude Code process held the token refresh lock while the session token had expired; the request now fails with a retryable error instead",
+      "translated": "세션 토큰이 만료된 상태에서 다른 Claude Code 프로세스가 토큰 갱신 잠금을 보유하고 있을 때 로그인 화면으로 이동되던 문제 수정: 이제 요청이 재시도 가능한 오류와 함께 실패합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed the `claude agents` list not responding to the keyboard after detaching from a session, or when launched in a terminal tab left in win32-input-mode",
+      "translated": "Windows: 세션에서 분리된 후 또는 win32-input-mode 상태인 터미널 탭에서 실행했을 때 `claude agents` 목록이 키보드 입력에 응답하지 않던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the recommended Console sign-in in `/login` failing with an OAuth error before showing a sign-in URL on machines where it can't be used (for example when `ANTHROPIC_API_KEY` or an API key helper is set); it now falls back to the API-key sign-in",
+      "translated": "`ANTHROPIC_API_KEY` 또는 API 키 헬퍼가 설정된 경우와 같이 콘솔 로그인을 사용할 수 없는 머신에서, `/login`의 권장 콘솔 로그인이 로그인 URL을 표시하기 전에 OAuth 오류로 실패하던 문제 수정: 이제 API 키 로그인으로 대체됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed model names in `/model` and fast-mode switch notices to render as code, so suffixes like `[1m]` display literally instead of as a link",
+      "translated": "`/model` 및 fast-mode 전환 알림의 모델 이름이 코드로 렌더링되도록 수정: `[1m]`과 같은 접미사가 링크 대신 텍스트 그대로 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` skipping the workspace trust prompt when the `CI` environment variable is set",
+      "translated": "`CI` 환경 변수가 설정된 경우 `claude agents`가 워크스페이스 신뢰 프롬프트를 건너뛰던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` crashing on launch when the PR-status cache held a malformed entry",
+      "translated": "PR 상태 캐시에 잘못된 형식의 항목이 있을 때 실행 시 `claude agents`가 충돌하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent view resurrecting a weeks-old background session after the machine was off: such a session now shows as stopped at its real end, and opening it asks before resuming its saved conversation",
+      "translated": "머신이 꺼진 후 에이전트 뷰에서 몇 주 된 백그라운드 세션이 다시 살아나던 문제 수정: 이제 이러한 세션은 실제 종료 시점에 중지된 것으로 표시되며, 세션을 열 때 저장된 대화를 재개할지 확인합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed agent view sometimes opening an older conversation, and dropping the typed prompt, when starting a new session",
+      "translated": "새 세션을 시작할 때 에이전트 뷰에서 가끔 이전 대화가 열리고 입력한 프롬프트가 사라지던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents`: opening a stopped session that you already resumed in another terminal no longer starts a second process on that conversation; the row now says it is open in a terminal",
+      "translated": "`claude agents` 수정: 다른 터미널에서 이미 재개한 중지된 세션을 열 때 해당 대화에 대해 두 번째 프로세스가 시작되지 않도록 수정했습니다. 이제 해당 행에 터미널에서 열려 있음이 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` and `claude rm` refusing to delete a session (\"has commits that are not pushed anywhere\") when its worktree branch was already merged into your checked-out default branch (e.g. local `main`) but not yet pushed",
+      "translated": "트리 브랜치가 이미 체크아웃된 기본 브랜치(예: 로컬 `main`)에 병합되었지만 아직 푸시되지 않은 경우, `claude agents` 및 `claude rm`에서 세션 삭제를 거부(\"어디에도 푸시되지 않은 커밋이 있음\")하던 문제 수정."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions waiting silently when a `PermissionRequest` or `PreToolUse` hook prints an invalid answer: the `claude agents` row now names the hook and the schema error",
+      "translated": "`PermissionRequest` 또는 `PreToolUse` 훅이 잘못된 응답을 출력할 때 백그라운드 세션이 아무런 표시 없이 대기하던 문제를 수정했습니다. 이제 `claude agents` 행에 해당 훅의 이름과 스키마 오류가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hooks silently treating a stdout `{…}` object that isn't valid JSON as plain text; it's now reported as a hook error with the parse message",
+      "translated": "유효한 JSON이 아닌 표준 출력(stdout) `{…}` 객체를 훅이 일반 텍스트로 처리하던 문제를 수정했습니다. 이제 파싱 메시지와 함께 훅 오류로 보고됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/mcp` listing a project `.mcp.json` entry that declares the claude.ai connector type under the trusted \"claude.ai\" heading; it now appears under its real scope",
+      "translated": "claude.ai 커넥터 유형을 선언하는 프로젝트 `.mcp.json` 항목이 `/mcp` 목록의 신뢰할 수 있는 \"claude.ai\" 헤딩 아래에 표시되던 문제를 수정했습니다. 이제 실제 스코프 아래에 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed MCP servers whose `headersHelper` supplies the `Authorization` header falling into OAuth discovery on a 401 instead of re-running the helper and retrying the call as documented",
+      "translated": "`headersHelper`가 `Authorization` 헤더를 제공하는 MCP 서버에서 401 오류 발생 시, 문서에 명시된 대로 헬퍼를 재실행하고 호출을 재시도하는 대신 OAuth 검색으로 넘어가던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/login` to a Claude apps gateway hanging when the managed-settings security approval dialog was required",
+      "translated": "관리형 설정(managed-settings) 보안 승인 대화 상자가 필요할 때 Claude 앱 게이트웨이로의 `/login`이 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed gateway model discovery (`CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY`) never running when `apiKeyHelper` is the only credential",
+      "translated": "`apiKeyHelper`가 유일한 자격 증명일 때 게이트웨이 모델 검색(`CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY`)이 실행되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude logs` leaving mouse tracking, bracketed paste and the alternate screen switched on in the terminal it was run from",
+      "translated": "`claude logs` 실행 후 터미널에서 마우스 트래킹, 브래킷 페이스트(bracketed paste), 대체 화면 모드가 켜진 채로 남아있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the trust dialog's list of repo permission rules showing a garbled character when a long rule was cut off in the middle of an emoji",
+      "translated": "신뢰 대화 상자의 저장소 권한 규칙 목록에서 긴 규칙이 이모지 중간에서 잘릴 때 문자가 깨져 보이던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the permission mode indicator staying hidden behind the \"Press Ctrl-C again to exit\" hint when you press shift+tab right after ctrl+c",
+      "translated": "ctrl+c를 누른 직후 shift+tab을 누르면 권한 모드 표시기가 \"종료하려면 Ctrl-C를 다시 누르세요\" 힌트 뒤에 숨겨져 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview` and locally seeded cloud sessions uploading uncommitted edits to `prod.env`-style and `*.tfvars` files, or to editor swap, temp, and backup copies of credential files (e.g. `key.pem.tmp`, `id_rsa.swo`); they now stay on your machine",
+      "translated": "`/ultrareview` 및 로컬에서 시작된 클라우드 세션이 `prod.env` 형식의 파일, `*.tfvars` 파일, 또는 자격 증명 파일의 에디터 스왑, 임시 및 백업 복사본(예: `key.pem.tmp`, `id_rsa.swo`)의 커밋되지 않은 수정 사항을 업로드하던 문제를 수정했습니다. 이제 해당 파일들은 로컬에만 유지됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions occasionally never showing a permission prompt or the latest messages on the connected device after the CLI silently reconnected",
+      "translated": "CLI가 자동으로 재연결된 후 원격 제어(Remote Control) 세션에서 연결된 기기에 권한 프롬프트나 최신 메시지가 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions occasionally failing at startup when the container's session credentials were not yet readable",
+      "translated": "컨테이너의 세션 자격 증명을 아직 읽을 수 없을 때 클라우드 세션 시작이 가끔 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude remote-control` rejecting its own flags (e.g. `--spawn`, `--name`) when a global flag or a wrapper-injected option precedes the subcommand",
+      "translated": "하위 명령 앞에 전역 플래그나 래퍼가 주입한 옵션이 올 경우 `claude remote-control`이 자체 플래그(예: `--spawn`, `--name`)를 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed startup warnings (e.g. \"N MCP servers need authentication\") rendering one column right of the rest of the transcript",
+      "translated": "시작 경고(예: \"N개의 MCP 서버에 인증이 필요합니다\")가 다른 기록보다 한 칸 오른쪽으로 치우쳐 렌더링되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a backgrounded worktree session losing its checkout: the background session now holds the worktree's lock while it runs, so cleanup and `git worktree remove` leave it alone",
+      "translated": "백그라운드 작업 트리(worktree) 세션의 체크아웃이 유실되던 문제를 수정했습니다. 이제 백그라운드 세션이 실행되는 동안 작업 트리의 잠금을 유지하여, 정리 작업이나 `git worktree remove` 시에도 영향을 받지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed @-mentions of other sessions not matching names typed with non-Latin characters (for example Korean entered through an IME)",
+      "translated": "다른 세션을 @-멘션할 때 비라틴 문자(예: IME를 통해 입력된 한국어)로 입력된 이름이 일치하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an invalid `crossSessionInbound` value being silently ignored: it now warns and holds cross-session messages (user settings) or refuses them (managed settings) until fixed",
+      "translated": "유효하지 않은 `crossSessionInbound` 값이 아무런 표시 없이 무시되던 문제를 수정했습니다. 이제 문제가 해결될 때까지 경고를 표시하고 세션 간 메시지를 보류(사용자 설정)하거나 거부(관리형 설정)합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed rate-limit, usage, and fast-mode messages telling you to run `/usage-credits` when that command isn't available for your organization (e.g. hidden with `DISABLE_EXTRA_USAGE_COMMAND`)",
+      "translated": "조직에서 `/usage-credits` 명령을 사용할 수 없는 경우에도(예: `DISABLE_EXTRA_USAGE_COMMAND`로 숨겨진 경우) 속도 제한, 사용량 및 패스트 모드 메시지에서 해당 명령을 실행하라고 안내하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a chat tab getting stuck on \"No conversation found\" when its session was never saved; it now starts a new conversation instead",
+      "translated": "[VSCode] 세션이 저장되지 않았을 때 채팅 탭이 \"대화를 찾을 수 없음\" 상태에서 멈추던 문제를 수정했습니다. 이제 대신 새 대화를 시작합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Workflow tool's prompt footprint: its description is now about 1k tokens instead of 5.7k, with the script-writing reference moved into a bundled `workflow-authoring` skill",
+      "translated": "Workflow 도구의 프롬프트 점유율을 개선했습니다. 설명이 약 5.7k 토큰에서 1k 토큰으로 줄었으며, 스크립트 작성 참조는 번들로 제공되는 `workflow-authoring` 스킬로 이동되었습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the prompt-footer PR badge to check GitHub less often while the pull request is unchanged; a push or a `gh pr` command still refreshes it right away",
+      "translated": "풀 리퀘스트가 변경되지 않은 동안 GitHub 확인 빈도를 줄이도록 prompt-footer PR badge를 개선했습니다. push나 `gh pr` 명령어를 사용하면 즉시 새로고침됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved managed settings: client-side timeout, MCP startup-mode, and stream-watchdog env vars no longer trigger the settings-approval prompt",
+      "translated": "관리형 설정 개선: client-side timeout, MCP startup-mode, stream-watchdog 환경 변수가 더 이상 settings-approval prompt를 트리거하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/ultrareview <PR#>` to check before launch that the GitHub account connected to your Claude account can access the repository, and to explain how to fix it, instead of failing after the cloud session starts",
+      "translated": "`/ultrareview <PR#>` 개선: 클라우드 세션이 시작된 후 실패하는 대신, 실행 전 Claude 계정에 연결된 GitHub 계정이 리포지토리에 액세스할 수 있는지 확인하고 해결 방법을 안내합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved cross-session messaging: falls back to a private per-user `/tmp` directory when the default one can't be used, and the notice and `/status` name the directory to fix",
+      "translated": "세션 간 메시징 개선: 기본 디렉토리를 사용할 수 없는 경우 사용자별 비공개 `/tmp` 디렉토리를 사용하며, 알림 및 `/status`에서 수정이 필요한 디렉토리 이름을 안내합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed shift+enter in the agent view dispatch input to insert a newline (matching the prompt); ctrl+enter now dispatches and attaches",
+      "translated": "에이전트 뷰의 전송 입력창에서 shift+enter 입력 시 (프롬프트와 동일하게) 줄바꿈이 삽입되도록 변경되었습니다. 이제 ctrl+enter로 전송 및 첨부를 수행합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/loop`: self-paced dynamic mode and the no-prompt autonomous default are now always available, including on Bedrock/Vertex/Foundry",
+      "translated": "`/loop` 변경: Bedrock/Vertex/Foundry를 포함하여 self-paced dynamic mode와 프롬프트 없는 자율 모드 기본값을 항상 사용할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Changed Anthropic telemetry export failures to log at debug level as `[Anthropic telemetry]` instead of `[3P telemetry] OTEL diag error`, so they are not mistaken for your OTel collector failing",
+      "translated": "Anthropic 텔레메트리 내보내기 실패 시 로그를 `[3P telemetry] OTEL diag error` 대신 `[Anthropic telemetry]`라는 이름의 디버그 레벨로 기록하여, 사용자의 OTel collector 실패로 오인되지 않도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed cross-session messaging in Linux user namespaces: root-equivalent trust for unmapped owners is limited to canonical system directories",
+      "translated": "Linux 사용자 네임스페이스의 세션 간 메시징 변경: 매핑되지 않은 소유자에 대한 루트 수준의 신뢰가 표준 시스템 디렉토리로 제한됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `SendMessage` from a subagent to another session: the result now notes that any reply is delivered to the parent session's conversation, not to the subagent",
+      "translated": "서브에이전트에서 다른 세션으로의 `SendMessage` 변경: 이제 모든 답장이 서브에이전트가 아닌 상위 세션의 대화로 전달된다는 내용이 결과에 명시됩니다."
+    }
+  ],
+  "translatedAt": "2026-08-27T22:19:36.621Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 8216
+}
