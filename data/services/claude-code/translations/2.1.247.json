@@ -1,0 +1,212 @@
+{
+  "version": "2.1.247",
+  "date": "2026-08-26",
+  "parsedAt": "2026-08-27T09:54:20.730Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the `SendFeedback` tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from `/feedback` (turn off with the `feedbackDrafts` setting)",
+      "translated": "`SendFeedback` 도구 추가: 세션 중 문제가 발생했을 때 Claude가 피드백 보고서 초안을 작성하며, 사용자는 `/feedback`에서 이를 검토하고 전송할 수 있습니다 (`feedbackDrafts` 설정으로 비활성화 가능)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `{id, text, cooldownSessions, priority}` entries, `tipsFile`, and `label` to `spinnerTipsOverride`, so organizations can rotate their own tips alongside the built-in ones",
+      "translated": "`spinnerTipsOverride`에 `{id, text, cooldownSessions, priority}` 항목, `tipsFile`, `label`을 추가하여 조직이 기본 팁과 함께 자체 팁을 순환하며 표시할 수 있도록 개선했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke \"Yes, and switch to auto mode\" option",
+      "translated": "Bash 권한 프롬프트에 자동 모드 안내 팁을 추가하고, 키 하나로 \"예, 자동 모드로 전환합니다\"를 선택할 수 있는 옵션을 제공합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/claude-api cost-optimize` to profile an existing project's Claude API spend and work through cost levers (caching, token hygiene, batch, effort, model choice) one measured change at a time",
+      "translated": "기존 프로젝트의 Claude API 비용을 분석하고 비용 절감 요소(caching, token hygiene, batch, effort, model choice)를 하나씩 측정하며 조정할 수 있는 `/claude-api cost-optimize` 명령어를 추가했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the `/claude-api` skill with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)",
+      "translated": "`/claude-api` 기술에 Admin API 지원 범위를 업데이트했습니다 (조직 구성원, 초대, 워크스페이스, API 키, 속도 제한 보고서, workload identity federation, CMEK 포함)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed fast arrow-key + Enter sequences acting on the row above the one you navigated to in history search, `/config`, `/mcp`, `/skills`, background tasks, and `/model`",
+      "translated": "히스토리 검색, `/config`, `/mcp`, `/skills`, 백그라운드 작업, `/model`에서 화살표 키와 Enter를 빠르게 입력할 때 탐색한 행의 바로 윗행이 선택되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sub-agents dying on a first-call model 404: they now use the session's fallback model chain, and the error returned to the parent includes the error type, status, request id, and model",
+      "translated": "첫 호출 시 모델 404 오류로 인해 서브 에이전트가 중단되던 문제를 수정했습니다. 이제 세션의 fallback model chain을 사용하며, 부모 에이전트에게 반환되는 오류 정보에 오류 유형, 상태, request id, 모델이 포함됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a hook or background agent that printed megabytes of error output being able to overflow the conversation and wedge the session on \"Prompt is too long\"",
+      "translated": "훅이나 백그라운드 에이전트가 수 메가바이트의 오류 출력을 생성하여 대화 용량을 초과하고 세션이 \"Prompt is too long\" 상태로 멈추던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl keyboard shortcuts not firing under non-Latin (e.g. Cyrillic) keyboard layouts in kitty-protocol terminals",
+      "translated": "kitty-protocol 터미널에서 비라틴계(예: 키릴 문자) 키보드 레이아웃 사용 시 Ctrl 단축키가 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed text like `<35;150;7M` being inserted into the prompt when a mouse report arrived split across reads right after the escape prefix",
+      "translated": "이스케이프 접두사 직후 마우스 리포트가 여러 번에 걸쳐 나뉘어 수신될 때 `<35;150;7M`과 같은 텍스트가 프롬프트에 삽입되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Bash sandbox's after-command cleanup deleting a dotfile-managed `~/.claude/settings.json` symlink (nix/home-manager, stow) when it is repointed outside the sandbox's writable area",
+      "translated": "Bash 샌드박스의 명령 실행 후 정리 과정에서, 샌드박스 쓰기 가능 영역 외부를 가리키는 도트파일 관리형(nix/home-manager, stow 등) `~/.claude/settings.json` 심볼릭 링크가 삭제되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/terminal-setup` overwriting your entire Zed `keymap.json` instead of merging in its keybinding",
+      "translated": "`/terminal-setup` 실행 시 Zed의 `keymap.json` 전체를 덮어쓰는 대신 키 바인딩을 병합하도록 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/rename` silently confirming when the session registry could not be updated; it now says other sessions may still show the old name",
+      "translated": "세션 레지스트리를 업데이트할 수 없을 때 `/rename`이 성공한 것처럼 표시되던 문제를 수정했습니다. 이제 다른 세션에서는 이전 이름이 계속 표시될 수 있다는 안내가 나타납니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/compact` and \"Summarize from here\" in sessions started with `--agent` summarizing under the default system prompt instead of the conversation's own",
+      "translated": "`--agent`로 시작된 세션에서 `/compact` 및 \"여기서부터 요약\" 기능이 대화 고유의 시스템 프롬프트 대신 기본 시스템 프롬프트를 사용하여 요약하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a background session showing \"opening…\" forever in `claude agents` after its terminal host process died; the row now fails within seconds with the reason, and Enter restarts it",
+      "translated": "터미널 호스트 프로세스가 종료된 후 `claude agents`에서 백그라운드 세션이 계속 \"opening…\"으로 표시되던 문제를 수정했습니다. 이제 몇 초 내에 실패 사유와 함께 오류 상태로 표시되며, Enter 키로 재시작할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed unbounded memory growth when a hook's or background task's output file could not be written; the file now notes where output was lost",
+      "translated": "훅이나 백그라운드 작업의 출력 파일을 쓸 수 없을 때 메모리가 무한히 증가하던 문제를 수정했습니다. 이제 파일에 출력이 누락된 위치가 기록됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/install-github-app` over SSH: the copy shortcut now says how the sign-in URL was copied instead of always claiming success, and the URL appears immediately when no browser can open",
+      "translated": "SSH 환경에서 `/install-github-app` 실행 시의 문제를 수정했습니다. 복사 단축키가 항상 성공했다고 표시하는 대신 로그인 URL이 복사된 방식을 안내하며, 브라우저를 열 수 없는 경우 URL이 즉시 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed shell commands carried over from the foreground logging an internal error or showing a misleading `[exited with code -1]` line when they finish in background sessions",
+      "translated": "포그라운드에서 이어진 셸 명령이 백그라운드 세션에서 종료될 때 내부 오류를 기록하거나 오해의 소지가 있는 `[exited with code -1]` 라인을 표시하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a version-less marketplace plugin's live cache directory being deleted and recreated on a second-scope install, which could disrupt a running session using it",
+      "translated": "버전 정보가 없는 마켓플레이스 플러그인을 두 번째 스코프에 설치할 때 라이브 캐시 디렉토리가 삭제 후 재생성되어, 해당 플러그인을 사용 중인 세션이 중단될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions started with `/remote-control` not reporting the working-tree diff to connected clients",
+      "translated": "`/remote-control`로 시작된 원격 제어 세션이 연결된 클라이언트에 작업 트리 변경 사항(diff)을 보고하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed self-hosted runner sessions reporting `running` before Claude Code had started, which could trigger a premature \"Claude is waiting for your input\" notification from the Claude desktop app",
+      "translated": "Claude Code가 시작되기 전에 셀프 호스팅 러너 세션이 `running` 상태로 보고되어, Claude 데스크톱 앱에서 \"Claude가 입력을 기다리고 있습니다\"라는 알림이 조기에 발생하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed first-run setup exiting with \"Unable to connect to Anthropic services\" when managed settings configure Claude apps gateway sign-in and Anthropic endpoints are unreachable",
+      "translated": "관리형 설정에서 Claude 앱 게이트웨이 로그인을 구성하고 Anthropic 엔드포인트에 접속할 수 없는 경우, 초기 실행 설정이 \"Unable to connect to Anthropic services\" 오류와 함께 종료되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions (Claude Code on the web, desktop and mobile apps) sometimes showing the previous permission mode when you switch modes right after sending a message",
+      "translated": "메시지를 보낸 직후 모드를 전환할 때 클라우드 세션(웹, 데스크톱 및 모바일 앱의 Claude Code)에서 간혹 이전 권한 모드가 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions going silent when the session's container restarts between turns while a background agent, shell, or monitor is still running — the resumed session now reports the lost work",
+      "translated": "백그라운드 에이전트, 셸 또는 모니터가 실행 중인 상태에서 턴 사이에 세션 컨테이너가 재시작될 때 클라우드 세션이 응답하지 않던 문제를 수정했습니다. 이제 재개된 세션에서 손실된 작업 내용을 보고합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved plugin marketplace hardening: names containing control or invisible characters are rejected, and marketplace-supplied text in `/plugin` and `claude plugin` output is escape-safe",
+      "translated": "플러그인 마켓플레이스 보안 강화: 제어 문자나 보이지 않는 문자가 포함된 이름은 거부되며, `/plugin` 및 `claude plugin` 출력에 포함된 마켓플레이스 제공 텍스트가 이스케이프 처리되어 안전하게 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Bedrock, Vertex, and Foundry sessions (and any with telemetry disabled): Claude is now told when a configured MCP server failed to connect, instead of concluding its tools don't exist",
+      "translated": "Bedrock, Vertex, Foundry 세션(및 텔레메트리가 비활성화된 세션) 개선: 구성된 MCP 서버 연결에 실패했을 때 Claude가 도구가 존재하지 않는다고 판단하는 대신 연결 실패 사실을 안내받도록 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Sonnet 5's default auto-compact window to its full 1M context, so sessions on the 1M window now auto-compact at about 967K tokens instead of about 934K",
+      "translated": "Sonnet 5의 기본 자동 압축 창을 전체 1M 컨텍스트로 변경했습니다. 이에 따라 1M 창 세션의 자동 압축 시점이 기존 약 934K 토큰에서 약 967K 토큰으로 조정되었습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed cross-session peer messages to collapse by default to a one-line `Message from @<sender>: <first line>` preview; Ctrl+O expands the full body",
+      "translated": "세션 간 피어 메시지가 기본적으로 `Message from @<sender>: <first line>` 형태의 한 줄 미리보기로 축소되도록 변경했습니다. Ctrl+O를 누르면 전체 내용을 볼 수 있습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed terminal hyperlinks in rendered markdown: link targets that point at a network or automounter path, contain a control character, or lead with an invisible character now render as plain text",
+      "translated": "렌더링된 마크다운의 터미널 하이퍼링크 변경: 네트워크 또는 자동 마운트 경로를 가리키거나, 제어 문자가 포함되었거나, 보이지 않는 문자로 시작하는 링크 대상은 이제 일반 텍스트로 렌더링됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the prompt-footer PR badge to skip its GitHub re-check on terminal refocus when the last check is under a minute old",
+      "translated": "프롬프트 바닥글의 PR 배지가 터미널로 다시 포커스될 때 수행하는 GitHub 재확인 작업을, 마지막 확인 후 1분이 지나지 않았을 경우 건너뛰도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed analytics to stay off from startup, not only after login, when managed settings force gateway login or a custom OAuth deployment is configured",
+      "translated": "관리형 설정에서 게이트웨이 로그인을 강제하거나 사용자 정의 OAuth 배포가 구성된 경우, 분석 기능이 로그인 이후뿐만 아니라 시작 시점부터 비활성 상태를 유지하도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Claude apps gateway sign-in requests to identify Claude Code (a `surface=claude_code` device-authorization parameter and a `claude-code/<version>` User-Agent)",
+      "translated": "Claude 앱 게이트웨이 로그인 요청 시 Claude Code를 식별하도록 변경했습니다(`surface=claude_code` 장치 인증 파라미터 및 `claude-code/<version>` User-Agent 사용)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed organization sign-in enforcement to exit at start when the administrator's managed settings cannot be read, even if host-supplied or per-user Windows registry settings exist",
+      "translated": "호스트 제공 설정이나 사용자별 Windows 레지스트리 설정이 있더라도 관리자의 관리형 설정을 읽을 수 없는 경우, 시작 시 조직 로그인 강제 적용 단계에서 종료되도록 변경했습니다."
+    }
+  ],
+  "translatedAt": "2026-08-27T09:55:18.229Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 5400
+}
