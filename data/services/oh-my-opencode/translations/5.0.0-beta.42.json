@@ -1,0 +1,104 @@
+{
+  "version": "5.0.0-beta.42",
+  "date": "2026-09-04",
+  "parsedAt": "2026-09-04T20:48:25.281Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo-senpi`: the conditional x-search skill ships and no longer logs at startup (#7745); Bun skill guidance in the ultrawork directive is gated instead of unconditional (#7754); the senpi hooks-state lock is granted to every memory sandbox (#7756); unsupported isolation traversal fails closed instead of looking complete (#7769)",
+      "translated": "`omo-senpi`: 조건부 x-search skill이 배포되어 더 이상 시작 시 로그를 남기지 않음 (#7745); ultrawork 지침의 Bun skill 가이드가 무조건적 방식에서 조건부 방식으로 변경됨 (#7754); 모든 memory sandbox에 senpi hooks-state 락 권한이 부여됨 (#7756); 지원되지 않는 isolation traversal이 완료된 것처럼 표시되지 않고 안전하게 실패(fail closed) 처리됨 (#7769)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`lsp-core`: a diagnostic pull that times out now awaits its cancellation write, so `$/cancelRequest` is not lost on Windows (#7773)",
+      "translated": "`lsp-core`: 타임아웃된 diagnostic pull이 이제 취소 쓰기 작업을 대기하여 Windows에서 `$/cancelRequest`가 유실되지 않음 (#7773)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`senpi-task`: PATH senpi executables that do not match the running engine are rejected (#7758); lead tasklist tools are deferred to tool_search (#7737)",
+      "translated": "`senpi-task`: 실행 중인 엔진과 일치하지 않는 PATH 내 senpi 실행 파일이 거부됨 (#7758); 주요 tasklist 도구들이 tool_search로 위임됨 (#7737)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo-native`/`omob`: hoisted bin dir resolution for scoped engine packages (#7755), architect blockers closed in the omob pipeline (#7747), skill-source filter + cache locking + provenance mirrors root-fixed (#7763), dev binary built from the latest commits with build provenance (#7740)",
+      "translated": "`omo-native`/`omob`: scoped 엔진 패키지를 위한 hoisted bin 디렉터리 확인 로직 구현 (#7755), omob 파이프라인의 설계상 차단 요소 해결 (#7747), skill-source 필터, 캐시 락, provenance 미러의 루트 수정 (#7763), 빌드 출처(provenance)가 포함된 최신 커밋 기반의 개발용 바이너리 빌드 (#7740)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`shared-skills`: page work routes to a real browser before the CLI (#7751), browser QA and research browsing go through the eval kernel (#7750), CloakBrowser's venv interpreter is used in the launch step too (#7757)",
+      "translated": "`shared-skills`: page work가 CLI보다 실제 브라우저로 우선 라우팅됨 (#7751), 브라우저 QA 및 리서치 브라우징이 eval kernel을 거치도록 변경 (#7750), 실행 단계에서도 CloakBrowser의 venv 인터프리터를 사용함 (#7757)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Dependencies: `@code-yeongyu/senpi` pin moved to 2026.9.4-2 then 2026.9.4-3 (#7749, #7772)",
+      "translated": "의존성: `@code-yeongyu/senpi` 고정 버전이 2026.9.4-2를 거쳐 2026.9.4-3으로 변경됨 (#7749, #7772)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Isolation QA snapshots assert the real per-platform contract instead of POSIX-only outcomes, so Windows reports capability failures explicitly (#7770, #7775)",
+      "translated": "Isolation QA 스냅샷이 POSIX 전용 결과 대신 실제 플랫폼별 계약을 검증하도록 수정되어, Windows에서 기능 실패가 명시적으로 보고됨 (#7770, #7775)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Terminal monitors and background Bash sessions are recorded per session, with a single startup notification for carried-over/lost/expired state, and monitors expose a stable `mon_` id while `bash_output`/`bash_input`/`bash_resize`/`kill_bash` accept either id",
+      "translated": "터미널 모니터 및 백그라운드 Bash 세션이 세션별로 기록되며, 이월/유실/만료된 상태에 대해 단일 시작 알림을 제공함. 또한 모니터가 안정적인 `mon_` ID를 노출하며, `bash_output`/`bash_input`/`bash_resize`/`kill_bash`에서 두 ID를 모두 사용할 수 있음."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A spawned RPC host that never answers `get_protocol_info` reports why instead of surfacing a raw `powershell.exe` failure, and no longer leaks its pidfile and socket",
+      "translated": "생성된 RPC 호스트가 `get_protocol_info`에 응답하지 않을 경우 가공되지 않은 `powershell.exe` 오류 대신 원인을 보고하며, 더 이상 pidfile과 소켓을 누출하지 않음."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "File-backed credential, auth and settings locks wait through bounded contention retries and report an actionable transient error instead of burning the provider fallback chain",
+      "translated": "파일 기반의 자격 증명, 인증 및 설정 락이 제한된 횟수만큼 경합 재시도를 수행하며, 제공자 폴백 체인을 소진하는 대신 조치 가능한 일시적 오류를 보고함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Image generation treats a seeded placeholder key as absent, so it falls through to a configured gateway instead of failing with an OpenAI 401",
+      "translated": "이미지 생성 시 시드된 플레이스홀더 키를 없는 것으로 간주하여, OpenAI 401 오류로 실패하는 대신 설정된 게이트웨이로 폴백함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hook trust-state reads fail open when the lock directory cannot be created (sandboxed/read-only children); writers still fail closed",
+      "translated": "락 디렉터리를 생성할 수 없는 경우(샌드박스 처리되거나 읽기 전용인 하위 프로세스) hook trust-state 읽기가 허용(fail open)되도록 변경됨. 쓰기 작업은 여전히 차단(fail closed)됨."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`bun install --frozen-lockfile` works on a clean checkout again",
+      "translated": "클린 체크아웃 상태에서 `bun install --frozen-lockfile` 명령이 다시 정상 작동함."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows `memory-core` unmerged-entry timing (#7767), omob default dirs asserted with the host path separator (#7759), isolation state-race suite determinism (#7770)",
+      "translated": "Windows `memory-core` 미병합 항목 타이밍 수정 (#7767), 호스트 경로 구분자를 사용한 omob 기본 디렉터리 검증 (#7759), isolation state-race 테스트 도구의 결정성 확보 (#7770)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Task and memory tool descriptions dieted (-369 tokens) (#7738), shipped skill descriptions rewritten as routing text (#7744), review-work replaced with orchestrator QA plus one gate reviewer (#7742), ulw-research browsing worker made binding and render-first (#7760)",
+      "translated": "및 메모리 도구 설명 최적화(-369 토큰) (#7738), 배포된 skill 설명을 라우팅 텍스트로 재작성 (#7744), review-work를 orchestrator QA 및 단일 게이트 검토자로 교체 (#7742), ulw-research 브라우징 워커를 바인딩 및 렌더링 우선 방식으로 변경 (#7760)"
+    }
+  ],
+  "translatedAt": "2026-09-04T20:50:20.672Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2725
+}

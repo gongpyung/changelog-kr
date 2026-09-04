@@ -1,0 +1,416 @@
+{
+  "version": "2.1.261",
+  "date": "2026-09-04",
+  "parsedAt": "2026-09-04T20:48:10.745Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an \"Organization policy\" line to `/status` and `claude doctor` that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through",
+      "translated": "`/status` 및 `claude doctor`에 \"Organization policy\" 항목을 추가하여, 프록시가 엔드포인트를 통과시키지 않는 경우 등 조직 정책을 로드할 수 없는 이유를 표시합니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `bashOutputMaxChars` and `taskOutputMaxChars` settings to raise how much command and background-task output Claude receives inline before it is saved to a file, up to 128K characters",
+      "translated": "`bashOutputMaxChars` 및 `taskOutputMaxChars` 설정을 추가하여, 명령 및 백그라운드 작업 출력이 파일로 저장되기 전 Claude가 인라인으로 수신하는 최대 문자 수를 128K까지 늘릴 수 있게 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--append-subagent-system-prompt-file` to read the subagent system prompt from a file, for prompts too large to pass on the command line",
+      "translated": "커맨드 라인에 전달하기 너무 큰 프롬프트를 위해 파일에서 서브에이전트 시스템 프롬프트를 읽어오는 `--append-subagent-system-prompt-file` 옵션을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `/skill-doctor` to show which loaded skills go unused and what they cost in context, so you can prune them",
+      "translated": "로드된 스킬 중 사용되지 않는 스킬과 해당 스킬이 컨텍스트에서 차지하는 비용을 보여주어 불필요한 스킬을 정리할 수 있도록 `/skill-doctor`를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed typed or pasted characters occasionally landing out of order or being dropped during fast input or key repeat",
+      "translated": "빠른 입력이나 키 반복 시 입력하거나 붙여넣은 문자가 가끔 순서가 바뀌거나 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/add-dir <subdirectory>` printing a false \"couldn't be resolved\" error when the working directory is on a `/net` automount",
+      "translated": "디렉토리가 `/net` 자동 마운트 지점에 있을 때 `/add-dir <subdirectory>` 명령이 잘못된 \"couldn't be resolved\" 오류를 출력하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Bedrock setup wizard hanging when AWS or an AWS credential helper never responds (it now times out with a clear error), and its model checks failing behind a TLS-inspecting proxy",
+      "translated": "AWS 또는 AWS 자격 증명 헬퍼가 응답하지 않을 때 Bedrock 설정 마법사가 멈추는 현상(이제 명확한 오류와 함께 타임아웃 처리됨)과 TLS 검사 프록시 환경에서 모델 확인이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions discarding a plugin synced from claude.ai when managed settings force-enable it in `enabledPlugins`, then falling back to a marketplace clone that could fail",
+      "translated": "관리형 설정의 `enabledPlugins`에서 플러그인을 강제로 활성화할 때 claude.ai에서 동기화된 플러그인이 무시되고, 실패 가능성이 있는 마켓플레이스 복제본으로 대체되던 클라우드 세션 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed being unable to delete the character immediately before an inline `[Image #N]` chip in the prompt input",
+      "translated": "프롬프트 입력창에서 인라인 `[Image #N]` 칩 바로 앞의 문자를 삭제할 수 없던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a session losing hook output and other context around parallel tool calls, which changed the resumed request",
+      "translated": "세션 재개 시 병렬 도구 호출 관련 훅 출력 및 기타 컨텍스트가 유실되어 재개된 요청 내용이 변경되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control showing a stale permission mode when a phone, browser, or claude.ai app attaches to a terminal session or after the mode changes in the terminal",
+      "translated": "휴대폰, 브라우저 또는 claude.ai 앱이 터미널 세션에 연결되거나 터미널에서 모드가 변경된 후 Remote Control에 이전 권한 모드가 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions showing as still working (stuck spinner and Stop button) after stopping a turn from a connected phone or browser, or after a local slash command like `/clear`",
+      "translated": "연결된 휴대폰이나 브라우저에서 턴을 중단하거나 `/clear`와 같은 로컬 슬래시 명령을 실행한 후에도 Remote Control 세션이 계속 작동 중인 것으로 표시(스피너 및 중지 버튼이 남음)되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SDK and cloud sessions ignoring a Stop or interrupt sent just after the first prompt, before the turn had started; the turn now stops instead of running to completion",
+      "translated": "첫 번째 프롬프트 직후 턴이 시작되기 전에 전송된 중지 또는 인터럽트 신호를 SDK 및 클라우드 세션이 무시하던 문제를 수정했습니다. 이제 턴이 끝까지 실행되지 않고 즉시 중단됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control uploading a session pulled with `/teleport` into the connected session, which appeared appended to the original on phone and web",
+      "translated": "Remote Control이 `/teleport`로 가져온 세션을 연결된 세션에 업로드하여 휴대폰 및 웹에서 원본 뒤에 덧붙여진 것처럼 보이던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control's inbound event stream failing behind TLS-inspecting corporate proxies on native Windows",
+      "translated": "Windows 환경에서 TLS를 검사하는 기업용 프록시 사용 시 Remote Control의 인바운드 이벤트 스트림이 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control sessions showing the default effort level on claude.ai when the effort comes from settings",
+      "translated": "설정에서 지정한 노력 수준(effort level)이 적용되었음에도 claude.ai의 Remote Control 세션에는 기본 수준으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `gcpAuthRefresh` opening a browser at startup when the Google credential check was slow, even though the credential was still valid",
+      "translated": "Google 자격 증명이 여전히 유효함에도 불구하고 자격 증명 확인이 느릴 경우 시작 시 `gcpAuthRefresh`가 브라우저를 열던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed claude.ai connectors staying absent for the whole session when the startup connector fetch timed out — the CLI now retries in the background",
+      "translated": "시작 시 커넥터 가져오기가 타임아웃되면 세션 내내 claude.ai 커넥터를 사용할 수 없던 문제를 수정했습니다. 이제 CLI가 백그라운드에서 재시도합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sustained high CPU usage when a background agent could not be resumed and its wake-up was retried in a tight loop",
+      "translated": "백그라운드 에이전트를 재개할 수 없어 짧은 주기의 루프(tight loop)로 깨우기를 재시도할 때 CPU 점유율이 계속 높게 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed feature flags gated to a newer version occasionally applying to an older Claude Code version running on the same machine",
+      "translated": "동일한 기기에서 실행 중인 이전 버전의 Claude Code에 최신 버전용 기능 플래그가 가끔 적용되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage` and the VS Code usage panel dropping a model-specific weekly limit row when the usage endpoint is rate limited or when opened right after startup",
+      "translated": "사용량 엔드포인트가 속도 제한에 걸리거나 시작 직후에 열었을 때, `/usage` 및 VS Code 사용량 패널에서 모델별 주간 제한 행이 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -p --resume <file>` adopting a malformed session ID recorded in the transcript; it now resumes under a fresh session ID instead",
+      "translated": "`claude -p --resume <file>` 명령어가 트랜스크립트에 기록된 잘못된 형식의 세션 ID를 가져오던 문제를 수정했습니다. 이제 대신 새로운 세션 ID로 재개됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the terminal progress indicator (iTerm2, Ghostty, ConEmu) showing the session as finished while a background workflow or agent was still running",
+      "translated": "백그라운드 워크플로나 에이전트가 여전히 실행 중임에도 터미널 진행률 표시기(iTerm2, Ghostty, ConEmu)에 세션이 종료된 것으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a rare layout glitch where a box could render with the wrong height after its container switched between row and column direction",
+      "translated": "컨테이너가 행(row)과 열(column) 방향 사이를 전환할 때 박스가 잘못된 높이로 렌더링되던 드문 레이아웃 오류를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude apps gateway client IP when a trusted proxy appends a port to `X-Forwarded-For`; with an access list set, an unreadable entry now gets 403",
+      "translated": "신뢰할 수 있는 프록시가 `X-Forwarded-For`에 포트를 추가할 때 Claude apps gateway의 클라이언트 IP 처리 방식을 수정했습니다. 액세스 리스트가 설정된 경우, 읽을 수 없는 항목은 이제 403 응답을 받습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude apps gateway telling Claude Desktop to export OpenTelemetry as JSON even when the terminal CLI uses protobuf, so protobuf-only collectors rejected Desktop's data",
+      "translated": "터미널 CLI가 protobuf를 사용함에도 Claude apps gateway가 Claude Desktop에 OpenTelemetry를 JSON으로 내보내도록 지시하여, protobuf 전용 수집기가 Desktop의 데이터를 거부하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Desktop and web showing a session as busy while it only watches an artifact for updates",
+      "translated": "Desktop 및 웹에 세션이 바쁨(busy)으로 표시되던 문제를 수정했습니다. 아티팩트의 업데이트만 감시 중인 상태에서는 더 이상 바쁨으로 표시되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude in Chrome `file_upload` failing with \"paths: expected array, received undefined\" in local Cowork sessions run from the Claude Desktop app",
+      "translated": "Claude Desktop 앱에서 실행되는 로컬 Cowork 세션 중 Chrome의 Claude에서 `file_upload`가 \"paths: expected array, received undefined\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `SendMessage` to an offline Remote Control session on another machine reading as delivered; the result now says delivery is queued until that machine reconnects",
+      "translated": "다른 기기의 오프라인 Remote Control 세션으로 보낸 `SendMessage`가 전송 완료로 표시되던 문제를 수정했습니다. 이제 해당 기기가 다시 연결될 때까지 전송이 대기 중이라는 결과가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed plugin install hints from CLIs run in background Bash commands: they are now detected, and the raw `<claude-code-hint>` tag no longer leaks into the conversation",
+      "translated": "백그라운드 Bash 명령에서 실행된 CLI의 플러그인 설치 힌트가 감지되도록 수정했으며, 원시 `<claude-code-hint>` 태그가 대화에 노출되지 않도록 했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed in-process agent-team teammates re-sending their first-turn tool and skill announcements on the second turn, which changed the request prefix and missed the prompt cache",
+      "translated": "프로세스 내 에이전트 팀원들이 두 번째 턴에서 첫 번째 턴의 도구 및 스킬 안내를 다시 전송하여 요청 접두사가 변경되고 프롬프트 캐시를 놓치던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the `/model` picker and the VS Code model pill to show a model's name instead of its raw Bedrock, Vertex AI, or LLM gateway ID when Claude Code recognizes it",
+      "translated": "Claude Code가 모델을 인식하는 경우, `/model` 선택기 및 VS Code 모델 필(pill)에 Bedrock, Vertex AI 또는 LLM gateway ID 대신 모델 이름이 표시되도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved startup on Google Vertex AI when `GOOGLE_APPLICATION_CREDENTIALS` is set: API client creation no longer re-runs Google Cloud project discovery or spawns extra `gcloud` processes",
+      "translated": "`GOOGLE_APPLICATION_CREDENTIALS`가 설정된 경우 Google Vertex AI에서의 시작 성능을 개선했습니다. 이제 API 클라이언트 생성 시 Google Cloud 프로젝트 검색을 재실행하거나 추가 `gcloud` 프로세스를 생성하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved streaming performance: already-rendered blocks are no longer re-checked by layout on each update",
+      "translated": "스트리밍 성능을 개선했습니다. 이미 렌더링된 블록은 업데이트 시마다 레이아웃에서 다시 확인하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the dangerous-`rm` safety prompt to also catch `rm -rf` on positional parameters and inside double-quoted `sh -c` scripts",
+      "translated": "위험한 `rm` 안전 프롬프트를 개선하여 위치 매개변수 및 큰따옴표로 묶인 `sh -c` 스크립트 내의 `rm -rf`도 감지하도록 했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved handling when the API sends no response headers: the retry now waits up to `API_TIMEOUT_MS` (10 minutes by default) instead of another 3 minutes, and the messages say what to change",
+      "translated": "API가 응답 헤더를 보내지 않을 때의 처리 방식을 개선했습니다. 이제 재시도 시 3분 대신 최대 `API_TIMEOUT_MS`(기본값 10분) 동안 대기하며, 메시지에 변경 사항이 안내됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed a Claude apps gateway 403 on the managed settings load (at startup or after `/login`) to say Claude Code may not be enabled for the organization, instead of advising a new sign-in",
+      "translated": "관리형 설정 로드 시(시작 시 또는 `/login` 후) 발생하는 Claude apps gateway 403 오류에 대해, 새 로그인을 권장하는 대신 조직에 Claude Code가 활성화되어 있지 않을 수 있다는 메시지를 표시하도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed machines whose managed settings pin `forceLoginMethod: \"gateway\"` to ignore a leftover API key or claude.ai login and ask for `/login`; Bedrock, Vertex AI, and Foundry sessions are unaffected",
+      "translated": "관리형 설정에서 `forceLoginMethod: \"gateway\"`로 고정된 기기는 기존 API 키나 claude.ai 로그인을 무시하고 `/login`을 요청하도록 변경했습니다. Bedrock, Vertex AI 및 Foundry 세션은 영향을 받지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed auto mode to treat a link that packs content into a public diagram renderer's URL as an upload to that site: no longer auto-approved unless you asked for it",
+      "translated": "자동 모드에서 공개 다이어그램 렌더러의 URL에 콘텐츠를 포함하는 링크를 해당 사이트로의 업로드로 취급하도록 변경했습니다. 이제 사용자가 요청하지 않는 한 자동으로 승인되지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the prompt's word-editing keys to match Bash: Ctrl+W deletes back to whitespace, Alt+F and Alt+D stop at word end, punctuation separates words; `keybindingFlavor` no longer has any effect",
+      "translated": "프롬프트의 단어 편집 키를 Bash와 일치하도록 변경했습니다. Ctrl+W는 공백까지 삭제하고, Alt+F와 Alt+D는 단어 끝에서 멈추며, 문장 부호는 단어를 구분합니다. `keybindingFlavor`는 더 이상 영향을 미치지 않습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/context` token counting to use a local estimate when the token-counting API is unavailable, instead of extra small-model requests",
+      "translated": "토큰 계산 API를 사용할 수 없을 때 추가적인 소형 모델 요청 대신 로컬 추정치를 사용하도록 `/context` 토큰 계산 방식을 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a \"Build a custom style\" walkthrough to the Output styles menu that writes a custom output style file and lists it right away",
+      "translated": "[VSCode] 출력 스타일 메뉴에 \"Build a custom style\" 가이드를 추가하여, 사용자 정의 출력 스타일 파일을 생성하고 즉시 목록에 표시되도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added an Add server form and a Remove action to the MCP servers dialog, so MCP servers can be added and removed without leaving the IDE",
+      "translated": "[VSCode] MCP 서버 대화 상자에 서버 추가 양식과 제거 액션을 추가하여, IDE를 벗어나지 않고도 MCP 서버를 추가하거나 제거할 수 있게 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a hollow ring in the session list for sessions open in a terminal, another VS Code window, or Claude Desktop, so they no longer look closed",
+      "translated": "[VSCode] 터미널, 다른 VS Code 창 또는 Claude Desktop에서 열려 있는 세션이 종료된 것처럼 보이지 않도록 세션 목록에 빈 원형 아이콘을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a fold button to permission and question prompts so the conversation behind them can be read without dismissing them; the space beside the prompt now scrolls the conversation",
+      "translated": "[VSCode] 권한 및 질문 프롬프트에 접기 버튼을 추가하여 프롬프트를 닫지 않고도 이전 대화 내용을 읽을 수 있게 했으며, 프롬프트 옆의 공간을 통해 대화를 스크롤할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added \"Archive session\" to the session list's right-click menu and gave Unarchive its own icon",
+      "translated": "[VSCode] 세션 목록의 우클릭 메뉴에 \"Archive session\"을 추가하고, 보관 취소(Unarchive) 기능에 전용 아이콘을 부여했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a session teleported from Claude Code on the web treating a question that was cut off when the cloud session shut down as declined",
+      "translated": "[VSCode] 웹용 Claude Code에서 가져온 세션에서 클라우드 세션 종료 시 중단된 질문을 거절된 것으로 처리하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the session tab's Rename box opening empty for a tab restored with the window; it now starts with the current name",
+      "translated": "[VSCode] 창과 함께 복구된 세션 탭의 이름 변경 상자가 비어 있는 상태로 열리던 문제를 수정했습니다. 이제 현재 이름이 입력된 상태로 시작됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed collapsed sections in the session list panel briefly showing expanded each time the panel loaded",
+      "translated": "[VSCode] 세션 목록 패널이 로드될 때마다 접혀 있던 섹션이 잠시 펼쳐져 보이던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Focus view showing a tool call as still running after Claude had moved on, such as while a question waited for your answer",
+      "translated": "[VSCode] 질문에 대한 답변을 기다리는 중 등 Claude가 다음 단계로 넘어갔음에도 Focus 뷰에서 도구 호출이 여전히 실행 중인 것으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the session list's active-row highlight going stale when an unfocused Claude tab's session ID is corrected",
+      "translated": "[VSCode] 포커스되지 않은 Claude 탭의 세션 ID가 수정될 때 세션 목록의 활성 행 하이라이트가 갱신되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Cmd/Ctrl+Shift+T reopen and deep-link opens placing the Claude tab outside the Claude editor group when a Claude tab has focus",
+      "translated": "[VSCode] Claude 탭에 포커스가 있을 때 Cmd/Ctrl+Shift+T 재열기 및 딥링크 열기 시 Claude 탭이 Claude 에디터 그룹 외부에 배치되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the session tab's \"Add to group\" putting a session opened from Claude Code on the Web in two groups; it now moves the entry the session list shows",
+      "translated": "[VSCode] 웹용 Claude Code에서 연 세션을 \"Add to group\"으로 추가할 때 두 개의 그룹에 표시되던 문제를 수정했습니다. 이제 세션 목록에 표시되는 항목이 이동됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the model picker showing models an organization has since disabled until the window was reloaded twice",
+      "translated": "[VSCode] 조직에서 비활성화한 모델이 창을 두 번 새로고침하기 전까지 모델 선택기에 계속 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a tab opened from the session list jumping back to that session, and a tab opened from a Web session restarting its teleport or staying empty, after VS Code reloads the tab's view",
+      "translated": "[VSCode] VS Code가 탭 뷰를 새로고침한 후, 세션 목록에서 연 탭이 이전 세션으로 돌아가거나 웹 세션에서 연 탭이 전송을 재시작하거나 비어 있는 상태로 유지되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed `/btw` side-question history from earlier sessions being overwritten when a question is asked right after a window reload or while a settings file has errors",
+      "translated": "[VSCode] 창 새로고침 직후나 설정 파일에 오류가 있을 때 질문을 하면 이전 세션의 `/btw` 사이드 질문 기록이 덮어씌워지던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the pending question card not reappearing after the Claude panel reloads when signed in with a Claude.ai or Console account",
+      "translated": "[VSCode] Claude.ai 또는 Console 계정으로 로그인한 상태에서 Claude 패널이 새로고침된 후 대기 중인 질문 카드가 다시 나타나지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed claude.ai-only features staying visible in a window's other Claude panels after one panel picked up a third-party provider from a settings file",
+      "translated": "[VSCode] 하나의 패널이 설정 파일에서 서드파티 제공업체 정보를 가져온 후에도 창의 다른 Claude 패널에서 claude.ai 전용 기능이 계속 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the sign-in screen appearing despite the Disable Login Prompt setting when Claude Code reports no login or a request fails for lack of one",
+      "translated": "[VSCode] Claude Code가 로그인되지 않았음을 보고하거나 로그인 부족으로 요청이 실패할 때, Disable Login Prompt 설정에도 불구하고 로그인 화면이 나타나던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the next queued permission prompt keeping text typed on the previous prompt and accepting an immediate second click",
+      "translated": "[VSCode] 대기 중인 다음 권한 프롬프트에 이전 프롬프트에서 입력한 텍스트가 남아 있고, 즉시 두 번째 클릭이 수락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed install-plugin links opening the Claude sidebar without the install dialog in a window where only the session list had been shown",
+      "translated": "[VSCode] 세션 목록만 표시된 창에서 install-plugin 링크를 클릭했을 때 설치 대화상자 없이 Claude 사이드바만 열리던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the sidebar usage meter staying empty on a new window until the Account & usage dialog was opened, and a 0% usage limit being left out of the meter",
+      "translated": "[VSCode] 새 창에서 Account & usage 대화상자를 열기 전까지 사이드바의 사용량 측정기가 비어 있던 문제와 사용량 제한이 0%일 때 측정기에 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed \"Start new session in this group\" losing the group after New conversation, and a missing unread dot for a session that finished before the sidebar's unread list loaded",
+      "translated": "[VSCode] \"Start new session in this group\" 실행 후 새 대화 시작 시 그룹 정보가 유실되던 문제와 사이드바의 읽지 않음 목록이 로드되기 전에 종료된 세션에 읽지 않음 표시(점)가 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the editor tab badge showing unread during a running turn or missing on a tab opened from the session list, and \"Add Session Tab to Group\" doing nothing for an archived session",
+      "translated": "[VSCode] 답변 생성 중에 에디터 탭 배지에 읽지 않음이 표시되거나 세션 목록에서 연 탭에 배지가 누락되던 문제, 그리고 보관된 세션에서 \"Add Session Tab to Group\" 기능이 작동하지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed \"Enable Remote Control for all sessions\" so flipping it also applies right away to sessions open in other VS Code windows",
+      "translated": "[VSCode] \"Enable Remote Control for all sessions\" 설정을 변경했을 때 다른 VS Code 창에 열려 있는 세션에도 즉시 적용되도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the session list's Open filter for sessions continued from claude.ai whose tab was still recorded under the web session, and labeled the filter menu's sections for screen readers",
+      "translated": "[VSCode] claude.ai에서 이어온 세션이 웹 세션으로 기록되어 있을 때 세션 목록의 Open 필터가 올바르게 작동하지 않던 문제를 수정하고, 스크린 리더를 위해 필터 메뉴 섹션에 레이블을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Changed the model picker to one flat list of every model, with rows kept for older model spellings listed last",
+      "translated": "[VSCode] 모델 선택기를 모든 모델이 포함된 단일 리스트 형식으로 변경하고, 이전 모델 명칭들은 리스트 하단에 유지되도록 개선했습니다."
+    }
+  ],
+  "translatedAt": "2026-09-04T20:49:58.137Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 10072
+}
