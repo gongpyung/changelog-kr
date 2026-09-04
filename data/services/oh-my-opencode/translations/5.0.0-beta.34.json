@@ -1,0 +1,290 @@
+{
+  "version": "5.0.0-beta.34",
+  "date": "2026-09-02",
+  "parsedAt": "2026-09-04T11:22:55.973Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`npx -y lazycodex-ai@5.0.0-beta.34 install` completes. The installer now materializes the prompts-core ultrawork directive inside the cached plugin root, and `sync:skills` resolves it checkout-first, plugin-internal second.",
+      "translated": "`npx -y lazycodex-ai@5.0.0-beta.34 install` completes. The installer now materializes the prompts-core ultrawork directive inside the cached plugin root, and `sync:skills` resolves it checkout-first, plugin-internal second."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The ultrawork directive is single-sourced from prompts-core with a bundled runtime export, so Codex and omo-senpi ship the same text.",
+      "translated": "The ultrawork directive is single-sourced from prompts-core with a bundled runtime export, so Codex and omo-senpi ship the same text."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The unavailable codegraph stub stays alive on the Codex host instead of idling out and dropping the tool.",
+      "translated": "The unavailable codegraph stub stays alive on the Codex host instead of idling out and dropping the tool."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Recall is now a two-step loop. At settle, omo collects recall candidates from your committed memory and launches a fire-and-forget \"memorian\" judge child. On your next turn, whatever the judge picked arrives as one hidden recall message with one sourced `<recalled-memory source=\"[[path]]\">` block per nudge, so the agent can open the file for detail. Your current turn pays nothing for it.",
+      "translated": "Recall is now a two-step loop. At settle, omo collects recall candidates from your committed memory and launches a fire-and-forget \"memorian\" judge child. On your next turn, whatever the judge picked arrives as one hidden recall message with one sourced `<recalled-memory source=\"[[path]]\">` block per nudge, so the agent can open the file for detail. Your current turn pays nothing for it."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Nudges are stamped with the compaction epoch. If the transcript gets compacted mid-flight, stale nudges are dropped instead of injected over a transcript that no longer exists.",
+      "translated": "Nudges are stamped with the compaction epoch. If the transcript gets compacted mid-flight, stale nudges are dropped instead of injected over a transcript that no longer exists."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`memory.recall` config shrinks to `enabled` and `max_items`, and `memory.agents.<id>.recall` lets you silence or tune recall for a single agent.",
+      "translated": "`memory.recall` config shrinks to `enabled` and `max_items`, and `memory.agents.<id>.recall` lets you silence or tune recall for a single agent."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Recall delivery fails open: an unwritable ledger degrades to a missing record, never a swallowed hint. Only whole candidates that fit the token budget are delivered, and extension-injected messages stay out of transcript search.",
+      "translated": "Recall delivery fails open: an unwritable ledger degrades to a missing record, never a swallowed hint. Only whole candidates that fit the token budget are delivered, and extension-injected messages stay out of transcript search."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Dreams reconcile at session start (an overdue identity gets a best-effort dream check), and dream scanning reads each conversation once, gated by journal byte offsets.",
+      "translated": "Dreams reconcile at session start (an overdue identity gets a best-effort dream check), and dream scanning reads each conversation once, gated by journal byte offsets."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Default git template files are skipped, and the memory-core fs layer is EINTR-resilient with proper abort-signal handling and Windows-tolerant lock candidates.",
+      "translated": "Default git template files are skipped, and the memory-core fs layer is EINTR-resilient with proper abort-signal handling and Windows-tolerant lock candidates."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`checkpoint --print-template` emits a surface-aware quality-gate skeleton and works without `--goal-id`. Gate validation errors are aggregated into one report, and snapshot, plan, and session-id errors come with guided recovery messages.",
+      "translated": "`checkpoint --print-template` emits a surface-aware quality-gate skeleton and works without `--goal-id`. Gate validation errors are aggregated into one report, and snapshot, plan, and session-id errors come with guided recovery messages."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Repeated review spawns are bounded: each quality-review agent gets three spawns per goal attempt, reset on explicit restart, and only allowed spawns count toward fan-out (fixes #7392). Fan-out eligibility is checked before reviewer quota is charged, and counter writes are atomic.",
+      "translated": "Repeated review spawns are bounded: each quality-review agent gets three spawns per goal attempt, reset on explicit restart, and only allowed spawns count toward fan-out (fixes #7392). Fan-out eligibility is checked before reviewer quota is charged, and counter writes are atomic."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The ulw reviewer agents (`omo-senpi-code-reviewer`, `omo-senpi-qa-executor`, `omo-senpi-gate-reviewer`) no longer carry hardcoded model chains: they resolve their model through the category router (code review -> `unspecified-high`, QA -> `deep` then `unspecified-low`, gate review -> `deep` then `unspecified-high`), so whatever you configure for those categories is what the reviewers run on.",
+      "translated": "The ulw reviewer agents (`omo-senpi-code-reviewer`, `omo-senpi-qa-executor`, `omo-senpi-gate-reviewer`) no longer carry hardcoded model chains: they resolve their model through the category router (code review -> `unspecified-high`, QA -> `deep` then `unspecified-low`, gate review -> `deep` then `unspecified-high`), so whatever you configure for those categories is what the reviewers run on."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "omo-senpi ships its own ulw reviewer builtin agents, reviewer identities resolve per toolkit surface, article-bearing reviewer roles (\"the V2 reviewer\") parse, and explicit V2 assignments are honored.",
+      "translated": "omo-senpi ships its own ulw reviewer builtin agents, reviewer identities resolve per toolkit surface, article-bearing reviewer roles (\"the V2 reviewer\") parse, and explicit V2 assignments are honored."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The senpi surface gate is gate-review-only with a category chain: `codeReview` is dropped and `manualQa` is pinned to the main session. omo-opencode gets a category-chain fallback verifier for ultrawork verification.",
+      "translated": "The senpi surface gate is gate-review-only with a category chain: `codeReview` is dropped and `manualQa` is pinned to the main session. omo-opencode gets a category-chain fallback verifier for ultrawork verification."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Grok: the output reserve is capped when the output limit equals the context window, so requests no longer fail admission (fixes #7541).",
+      "translated": "Grok: the output reserve is capped when the output limit equals the context window, so requests no longer fail admission (fixes #7541)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`terminal_quota_exhausted` is a non-retryable abort instead of a retry loop. `kimi-k3-ultrafast` registers with a 256k default context instead of the base model's 1M. Empty provider model segments are rejected, and the ulw reviewer fallback chains are gone (the fallback table now lists 11 agents).",
+      "translated": "`terminal_quota_exhausted` is a non-retryable abort instead of a retry loop. `kimi-k3-ultrafast` registers with a 256k default context instead of the base model's 1M. Empty provider model segments are rejected, and the ulw reviewer fallback chains are gone (the fallback table now lists 11 agents)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "LSP: workspace roots collapse to the git repository root, so a monorepo no longer spawns one language server per package (in-vivo: 4 TLS + 8 tsserver, ~2.4GB, now one). In-flight client stops are tombstoned and dead-client respawns are bounded. Document URIs are normalized at the `openByUri` boundary.",
+      "translated": "LSP: workspace roots collapse to the git repository root, so a monorepo no longer spawns one language server per package (in-vivo: 4 TLS + 8 tsserver, ~2.4GB, now one). In-flight client stops are tombstoned and dead-client respawns are bounded. Document URIs are normalized at the `openByUri` boundary."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "MCP: the ast-grep stdio server arms a 10-minute idle timeout (`OMO_AST_GREP_IDLE_TIMEOUT_MS` to override) and idle servers get stdin destroyed so abandoned children exit. Under a bun-compiled omo host, the ast-grep child runs as plain bun instead of re-executing the omo binary (which used to boot a ghost agent session per connection attempt). Slack MCP tokens are redacted in logs.",
+      "translated": "MCP: the ast-grep stdio server arms a 10-minute idle timeout (`OMO_AST_GREP_IDLE_TIMEOUT_MS` to override) and idle servers get stdin destroyed so abandoned children exit. Under a bun-compiled omo host, the ast-grep child runs as plain bun instead of re-executing the omo binary (which used to boot a ghost agent session per connection attempt). Slack MCP tokens are redacted in logs."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Session manager preserves platform path roots, keeps POSIX separators in directory normalization, and normalizes the directory before `session_list` filtering.",
+      "translated": "Session manager preserves platform path roots, keeps POSIX separators in directory normalization, and normalizes the directory before `session_list` filtering."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Frontmatter parses after a UTF-8 BOM, OneDrive path segments match, whitespace-delimited tool names normalize, tar-listed filename whitespace is preserved, and `contains path` falls back when realpath fails.",
+      "translated": "Frontmatter parses after a UTF-8 BOM, OneDrive path segments match, whitespace-delimited tool names normalize, tar-listed filename whitespace is preserved, and `contains path` falls back when realpath fails."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Skills loader normalizes allowed tools from both config and merged sources, and the security-research skill reads the `omo.jsonc` config path.",
+      "translated": "Skills loader normalizes allowed tools from both config and merged sources, and the security-research skill reads the `omo.jsonc` config path."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Delegated subagent lifecycle resources are released, the TUI mirror is wired into plugin disposal with its heartbeat unref'd and stopped, and continuation cleanup runs on every exit (anchors and revival cleanup preserved).",
+      "translated": "Delegated subagent lifecycle resources are released, the TUI mirror is wired into plugin disposal with its heartbeat unref'd and stopped, and continuation cleanup runs on every exit (anchors and revival cleanup preserved)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks: idle transcript cache snapshots are pruned on a TTL sweep, unmatched fsync-skip start times are dropped, hashline pending captures are swept, unbounded session-id hook sets drain, and Anthropic recovery maps clear on dispose. A legacy snapshot race is closed.",
+      "translated": "Hooks: idle transcript cache snapshots are pruned on a TTL sweep, unmatched fsync-skip start times are dropped, hashline pending captures are swept, unbounded session-id hook sets drain, and Anthropic recovery maps clear on dispose. A legacy snapshot race is closed."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Background tasks get a recovery hint and non-destructive truncation (backups are cleaned up after recovery), and the parent wake variant is preserved.",
+      "translated": "Background tasks get a recovery hint and non-destructive truncation (backups are cleaned up after recovery), and the parent wake variant is preserved."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`omo run` ignores idle boulder state when there's no active plan. omo-ai ships and hardens the Senpi runtime patch, including hoisted installs, and bundles OAuth with hardened hook state.",
+      "translated": "`omo run` ignores idle boulder state when there's no active plan. omo-ai ships and hardens the Senpi runtime patch, including hoisted installs, and bundles OAuth with hardened hook state."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reliability: a large sweep made the test suite deterministic on Windows and slow runners (event-driven waits, controlled clocks, isolated fixture roots, no subprocess-shaped wrappers).",
+      "translated": "Reliability: a large sweep made the test suite deterministic on Windows and slow runners (event-driven waits, controlled clocks, isolated fixture roots, no subprocess-shaped wrappers)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Claude Fable 5.1 preset.** `claude-fable-5-1` is the dieted Fable 5 core plus the 5.1 prompting-guide deltas: scope-is-the-deliverable, per-response tool-call batching, surgical-edit preference, test-scope discipline, formatting and narration recalibration. The dotted release resolves before the generic `fable-5` matcher, `promptPreset: \"claude-fable-5-1\"` forces it, and the default lanes (recommended model, fallback chain, startup tip) now point at 5.1. Sessions on the `claude-fable-5` chain keep it.",
+      "translated": "**Claude Fable 5.1 preset.** `claude-fable-5-1` is the dieted Fable 5 core plus the 5.1 prompting-guide deltas: scope-is-the-deliverable, per-response tool-call batching, surgical-edit preference, test-scope discipline, formatting and narration recalibration. The dotted release resolves before the generic `fable-5` matcher, `promptPreset: \"claude-fable-5-1\"` forces it, and the default lanes (recommended model, fallback chain, startup tip) now point at 5.1. Sessions on the `claude-fable-5` chain keep it."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Shared RPC host on Windows.** Socket endpoints resolve to `\\\\.\\pipe\\` named pipes derived from a per-endpoint secret with a constant-time authenticated handshake, pidfile ownership no longer depends on MSYS `ps`, and detached supervisor startup failures don't leak children. POSIX keeps unix sockets + `0600`.",
+      "translated": "**Shared RPC host on Windows.** Socket endpoints resolve to `\\\\.\\pipe\\` named pipes derived from a per-endpoint secret with a constant-time authenticated handshake, pidfile ownership no longer depends on MSYS `ps`, and detached supervisor startup failures don't leak children. POSIX keeps unix sockets + `0600`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`/quit` and `/exit` during startup (managed-tool downloads) now quit instead of being parked in the editor, which also used to disable Ctrl+D.",
+      "translated": "`/quit` and `/exit` during startup (managed-tool downloads) now quit instead of being parked in the editor, which also used to disable Ctrl+D."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`ctx.shutdown()` from an extension while the session is idle shuts down immediately instead of waiting for an `agent_settled` that never comes. Interactive quit keeps stderr capture installed while shutdown handlers drain, so diagnostics land in the debug log.",
+      "translated": "`ctx.shutdown()` from an extension while the session is idle shuts down immediately instead of waiting for an `agent_settled` that never comes. Interactive quit keeps stderr capture installed while shutdown handlers drain, so diagnostics land in the debug log."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "RPC: launch capabilities from `SENPI_RPC_CLIENT_CAPABILITIES` apply to bindings even when the client never sends `set_client_info` (this was breaking task/DAG/monitor liveness in omo-desktop-app). `abort` acks are sent as soon as the signal is dispatched. Clients can opt into native auto-titles with `auto_title_sessions`.",
+      "translated": "RPC: launch capabilities from `SENPI_RPC_CLIENT_CAPABILITIES` apply to bindings even when the client never sends `set_client_info` (this was breaking task/DAG/monitor liveness in omo-desktop-app). `abort` acks are sent as soon as the signal is dispatched. Clients can opt into native auto-titles with `auto_title_sessions`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Compaction no longer wedges when the summarizer answers with a bare tool call (seen on `gpt-5.6-sol` at high reasoning): one retry with tool calling forbidden, then the deterministic no-LLM fallback on required routes.",
+      "translated": "Compaction no longer wedges when the summarizer answers with a bare tool call (seen on `gpt-5.6-sol` at high reasoning): one retry with tool calling forbidden, then the deterministic no-LLM fallback on required routes."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Hooks trust-state reads keep a lock-free fast path for complete snapshots and take the bounded writer lock only on malformed reads, so mixed-version writers can't surface `ELOCKED`.",
+      "translated": "Hooks trust-state reads keep a lock-free fast path for complete snapshots and take the bounded writer lock only on malformed reads, so mixed-version writers can't surface `ELOCKED`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The shared multi-session RPC host reclaims itself: 30-minute idle eviction, 8 concurrent sessions, 15-minute empty-host exit, all overridable via `SENPI_RPC_SESSION_IDLE_EVICTION_MS`, `SENPI_RPC_MAX_SESSIONS`, `SENPI_RPC_HOST_EMPTY_EXIT_MS`.",
+      "translated": "The shared multi-session RPC host reclaims itself: 30-minute idle eviction, 8 concurrent sessions, 15-minute empty-host exit, all overridable via `SENPI_RPC_SESSION_IDLE_EVICTION_MS`, `SENPI_RPC_MAX_SESSIONS`, `SENPI_RPC_HOST_EMPTY_EXIT_MS`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows session resume no longer aborts on non-canonical `fs.watch()` paths. TTSR stream buffers keep only a tail window, and the in-memory session mirror is bounded at 64 MiB.",
+      "translated": "Windows session resume no longer aborts on non-canonical `fs.watch()` paths. TTSR stream buffers keep only a tail window, and the in-memory session mirror is bounded at 64 MiB."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Refusal-caused model fallbacks release their pin after a successful senpi-owned compaction and re-attempt the original model once; billing-caused pins never release.",
+      "translated": "Refusal-caused model fallbacks release their pin after a successful senpi-owned compaction and re-attempt the original model once; billing-caused pins never release."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d20c167da Merge pull request #7645 from code-yeongyu/release/v5.0.0-beta.34-source-state",
+      "translated": "Merge pull request #7645 from code-yeongyu/release/v5.0.0-beta.34-source-state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b840c2930 Merge pull request #7643 from code-yeongyu/test/team-message-windows-budget",
+      "translated": "Merge pull request #7643 from code-yeongyu/test/team-message-windows-budget"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "de78d4244 Merge pull request #7635 from code-yeongyu/feat/reviewer-agents-category-model-routing",
+      "translated": "Merge pull request #7635 from code-yeongyu/feat/reviewer-agents-category-model-routing"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d6a868fab test(team-mode): budget Windows fallback wake case",
+      "translated": "Budget Windows fallback wake case"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3216a23fa Merge pull request #7640 from code-yeongyu/fix/codex-cache-prompt-layout",
+      "translated": "Merge pull request #7640 from code-yeongyu/fix/codex-cache-prompt-layout"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "96f891e82 fix(codex-installer): materialize prompts-core directive into the plugin cache",
+      "translated": "Materialize prompts-core directive into the plugin cache"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "38a46e601 Merge pull request #7633 from code-yeongyu/refactor/model-core-drop-reviewer-agent-chains",
+      "translated": "Merge pull request #7633 from code-yeongyu/refactor/model-core-drop-reviewer-agent-chains"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2546845e1 docs(model-core): agent fallback table now lists 11 agents",
+      "translated": "Agent fallback table now lists 11 agents"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "0a9a3758b refactor(model-core): drop the ulw reviewer agent fallback chains",
+      "translated": "Drop the ulw reviewer agent fallback chains"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@sisyphus-dev-ai:",
+      "translated": "@sisyphus-dev-ai:"
+    }
+  ],
+  "translatedAt": "2026-09-04T11:28:12.581Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 8970
+}

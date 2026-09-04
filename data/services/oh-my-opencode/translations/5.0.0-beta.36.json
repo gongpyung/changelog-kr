@@ -1,0 +1,392 @@
+{
+  "version": "5.0.0-beta.36",
+  "date": "2026-09-03",
+  "parsedAt": "2026-09-04T11:22:55.972Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The baseline identity read is now guarded. When the probe runs past its budget, the baseline degrades to `UNKNOWN` instead of throwing.",
+      "translated": "The baseline identity read is now guarded. When the probe runs past its budget, the baseline degrades to `UNKNOWN` instead of throwing."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The watchdog starts without a baseline and keeps running. A slow `Get-CimInstance` no longer decides whether the host lives.",
+      "translated": "The watchdog starts without a baseline and keeps running. A slow `Get-CimInstance` no longer decides whether the host lives."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The fix landed in senpi 2026.9.3 (code-yeongyu/senpi#1307). beta.36 is the first omo build that pins a senpi with it, along with the rest of the 2026.9.3 shared RPC supervisor lifecycle fixes.",
+      "translated": "The fix landed in senpi 2026.9.3 (code-yeongyu/senpi#1307). beta.36 is the first omo build that pins a senpi with it, along with the rest of the 2026.9.3 shared RPC supervisor lifecycle fixes."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Interactive callbacks now ride the existing `extension_ui_request` dialog channel: `input` for pasted codes, text, and secrets, `select` for account choices. Any RPC client that already renders extension dialogs can answer them.",
+      "translated": "Interactive callbacks now ride the existing `extension_ui_request` dialog channel: `input` for pasted codes, text, and secrets, `select` for account choices. Any RPC client that already renders extension dialogs can answer them."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "An unanswered dialog never blocks the browser callback path. When the login settles through the browser, the pending dialog is released instead of holding the flow open.",
+      "translated": "An unanswered dialog never blocks the browser callback path. When the login settles through the browser, the pending dialog is released instead of holding the flow open."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Cancelling the dialog maps to `Login cancelled`, the same result a terminal user gets from Escape.",
+      "translated": "Cancelling the dialog maps to `Login cancelled`, the same result a terminal user gets from Escape."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixes code-yeongyu/senpi#1316 via PR code-yeongyu/senpi#1319. Other prompt-driven OAuth providers get the same path.",
+      "translated": "Fixes code-yeongyu/senpi#1316 via PR code-yeongyu/senpi#1319. Other prompt-driven OAuth providers get the same path."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`bash`, `powershell`, `workflow`, and now `monitor` leave the model's direct tool list whenever the session has an `eval` tool. They're called as `tool.bash(...)`, `tool.workflow(...)`, and `tool.monitor(...)` inside a cell; hooks and permission checks still apply.",
+      "translated": "`bash`, `powershell`, `workflow`, and now `monitor` leave the model's direct tool list whenever the session has an `eval` tool. They're called as `tool.bash(...)`, `tool.workflow(...)`, and `tool.monitor(...)` inside a cell; hooks and permission checks still apply."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A direct call returns a hint naming the eval form. A session without `eval` (codemode disabled, or a child agent whose allowlist omits it) keeps all four directly callable.",
+      "translated": "A direct call returns a hint naming the eval form. A session without `eval` (codemode disabled, or a child agent whose allowlist omits it) keeps all four directly callable."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`monitor` joined the set because 141 of ~225 solo `monitor` calls over 14 days of local sessions came one turn after an `eval` call, a two-turn split that collapses into one cell.",
+      "translated": "`monitor` joined the set because 141 of ~225 solo `monitor` calls over 14 days of local sessions came one turn after an `eval` call, a two-turn split that collapses into one cell."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The wait-as-subscription guidance moved from the presets into the `eval` tool description, where it can name `tool.monitor(...)`. The preset rule was gated on `monitor` being directly selectable and would've stopped rendering otherwise.",
+      "translated": "The wait-as-subscription guidance moved from the presets into the `eval` tool description, where it can name `tool.monitor(...)`. The preset rule was gated on `monitor` being directly selectable and would've stopped rendering otherwise."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`experimental.bashEvalOnly` and `experimental.workflowEvalOnly` are removed. Existing entries in a settings file are ignored.",
+      "translated": "`experimental.bashEvalOnly` and `experimental.workflowEvalOnly` are removed. Existing entries in a settings file are ignored."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "After a failed cold seed, `claude-sdk-oauth` kept a continuity binding whose session id had only been minted locally. The next turn chose `reattach`, Claude Code answered that the session didn't exist, and every later turn repeated the cycle with zero usage.",
+      "translated": "After a failed cold seed, `claude-sdk-oauth` kept a continuity binding whose session id had only been minted locally. The next turn chose `reattach`, Claude Code answered that the session didn't exist, and every later turn repeated the cycle with zero usage."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A session id is now resumable only once Claude Code acknowledged it, through a `system`/`init` message or the replay echo that claims the turn. Entries created from a resume start confirmed; locally minted ids start unconfirmed.",
+      "translated": "A session id is now resumable only once Claude Code acknowledged it, through a `system`/`init` message or the replay echo that claims the turn. Entries created from a resume start confirmed; locally minted ids start unconfirmed."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "An id Claude Code reports missing is dropped rather than retried.",
+      "translated": "An id Claude Code reports missing is dropped rather than retried."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`Bun.$` streams command output to fd 1/2 unless `.quiet()` is applied or a `.text()`-style reader is used, and `Bun.spawn` inherits stderr by default. Inside the JS eval kernel worker those fds are the interactive TUI's terminal.",
+      "translated": "`Bun.$` streams command output to fd 1/2 unless `.quiet()` is applied or a `.text()`-style reader is used, and `Bun.spawn` inherits stderr by default. Inside the JS eval kernel worker those fds are the interactive TUI's terminal."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A cell like `` $`vibe-notion page get <id> --pretty` `` dumped a Notion page's pretty-printed block JSON straight into the editor, where it got pasted into the next prompt. The existing `routeWrite` only intercepts JS-level `process.stdout.write`, so native child writes bypassed it.",
+      "translated": "A cell like `` $`vibe-notion page get <id> --pretty` `` dumped a Notion page's pretty-printed block JSON straight into the editor, where it got pasted into the next prompt. The existing `routeWrite` only intercepts JS-level `process.stdout.write`, so native child writes bypassed it."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A new `worker-shell-capture` layer installs beside the console/stdout routing while a cell is active and is restored with the rest of the worker state, so child output lands in the cell result like everything else.",
+      "translated": "A new `worker-shell-capture` layer installs beside the console/stdout routing while a cell is active and is restored with the rest of the worker state, so child output lands in the cell result like everything else."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The K3 core was written through the K2.6 lens (an overthinker that needs act-bias). Moonshot's own K3 notes describe the opposite failure, \"excessive proactiveness,\" and the old core stated act-bias in four places against one reflect-then-ask clause, so the trained prior won. The session corpus showed K3 writing more test files than any other model.",
+      "translated": "The K3 core was written through the K2.6 lens (an overthinker that needs act-bias). Moonshot's own K3 notes describe the opposite failure, \"excessive proactiveness,\" and the old core stated act-bias in four places against one reflect-then-ask clause, so the trained prior won. The session corpus showed K3 writing more test files than any other model."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The K3 core is rebuilt on the Fable 5.1 skeleton with each failure mode given one home: a Scope section makes the request the deliverable (pre-existing problems become follow-ups, tests only where the task or repo calls for them), the ambiguity gate does the answer-independent work first and then asks one question, a failure cap stops improvisation after three failed approaches, and delegation propagates a stop condition to subagents. The result is 11 fewer Kimi K3 tokens than before.",
+      "translated": "The K3 core is rebuilt on the Fable 5.1 skeleton with each failure mode given one home: a Scope section makes the request the deliverable (pre-existing problems become follow-ups, tests only where the task or repo calls for them), the ambiguity gate does the answer-independent work first and then asks one question, a failure cap stops improvisation after three failed approaches, and delegation propagates a stop condition to subagents. The result is 11 fewer Kimi K3 tokens than before."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Opus 5 is rebuilt on the same skeleton with the guide's outcome-first final-summary shape. Opus 4.7/4.8 keep only their documented deltas and gain same-turn subagent fan-out; Opus 4.6 drops tuning text the core now carries.",
+      "translated": "Opus 5 is rebuilt on the same skeleton with the guide's outcome-first final-summary shape. Opus 4.7/4.8 keep only their documented deltas and gain same-turn subagent fan-out; Opus 4.6 drops tuning text the core now carries."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "GLM 5.2/5.3 share one builder, gain the eval/monitor execution-tooling stance, and lose the lineage preamble, undefined-mode reference, and unconditional todo procedure. The shared core gains a conditional delegation rule and explains the auto-compaction mechanism behind the context-limits rule.",
+      "translated": "GLM 5.2/5.3 share one builder, gain the eval/monitor execution-tooling stance, and lose the lineage preamble, undefined-mode reference, and unconditional todo procedure. The shared core gains a conditional delegation rule and explains the auto-compaction mechanism behind the context-limits rule."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Failures now surface the SDK's actual assistant/result text, including API and version-floor errors, instead of `unknown`. Version-floor and model-not-found failures come with actionable guidance.",
+      "translated": "Failures now surface the SDK's actual assistant/result text, including API and version-floor errors, instead of `unknown`. Version-floor and model-not-found failures come with actionable guidance."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Results marked `is_error: true` count as failures even when their subtype is `success`, which lets model fallback and multi-account failover kick in for session limits and API errors.",
+      "translated": "Results marked `is_error: true` count as failures even when their subtype is `success`, which lets model fallback and multi-account failover kick in for session limits and API errors."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Token-refresh transport outages are classified as transient server errors rather than permanent auth blocks. The handling applies to ambient streams, managed failover, resident session pumps, and turn-success bookkeeping alike.",
+      "translated": "Token-refresh transport outages are classified as transient server errors rather than permanent auth blocks. The handling applies to ambient streams, managed failover, resident session pumps, and turn-success bookkeeping alike."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The launcher used to re-exec under bun only for `bun add -g` installs. npm, project-local, and `bunx` installs stayed on node even with bun on the machine, so the JS eval kernel ran under node and the bundled `bun-1-4` skill never surfaced.",
+      "translated": "The launcher used to re-exec under bun only for `bun add -g` installs. npm, project-local, and `bunx` installs stayed on node even with bun on the machine, so the JS eval kernel ran under node and the bundled `bun-1-4` skill never surfaced."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`resolveBunReexec` now applies a first-match policy. Stay on the current runtime if already on bun, if `OMO_RUNTIME=node`, or if no bun binary is found in `$BUN_INSTALL/bin`, `~/.bun/bin`, or PATH.",
+      "translated": "`resolveBunReexec` now applies a first-match policy. Stay on the current runtime if already on bun, if `OMO_RUNTIME=node`, or if no bun binary is found in `$BUN_INSTALL/bin`, `~/.bun/bin`, or PATH."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Re-exec with no version floor when `OMO_RUNTIME=bun`. Re-exec without a probe when the script sits in bun's global tree (trust the bun that installed it).",
+      "translated": "Re-exec with no version floor when `OMO_RUNTIME=bun`. Re-exec without a probe when the script sits in bun's global tree (trust the bun that installed it)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "For any other install, re-exec when `bun --version` reports 1.4.0 or newer. An older bun or a failed probe stays on node.",
+      "translated": "For any other install, re-exec when `bun --version` reports 1.4.0 or newer. An older bun or a failed probe stays on node."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows teardown timed out on `win32 EBUSY` because handles opened by the pinned `.omp`, `.gjc`, and unknown-schema fixtures weren't proven closed before the temp root was removed. Per-file process exit had hidden this until Windows shard 2 stopped running with `--parallel`.",
+      "translated": "Windows teardown timed out on `win32 EBUSY` because handles opened by the pinned `.omp`, `.gjc`, and unknown-schema fixtures weren't proven closed before the temp root was removed. Per-file process exit had hidden this until Windows shard 2 stopped running with `--parallel`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Every handle is now recorded, closed through the existing `withDatabase` helper, and asserted closed before the case ends. No timeout, retry budget, platform skip, or `--parallel` change was added.",
+      "translated": "Every handle is now recorded, closed through the existing `withDatabase` helper, and asserted closed before the case ends. No timeout, retry budget, platform skip, or `--parallel` change was added."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Per-phase worktrees: every plan phase runs in its own task-owned worktree that lands on the integration base before the next phase branches. ulw-execute used to require a worktree only for PR/branch work; `--worktree` is now optional reuse of a first-phase worktree, and `--make-pr` drops its worktree-implication clause.",
+      "translated": "Per-phase worktrees: every plan phase runs in its own task-owned worktree that lands on the integration base before the next phase branches. ulw-execute used to require a worktree only for PR/branch work; `--worktree` is now optional reuse of a first-phase worktree, and `--make-pr` drops its worktree-implication clause."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "One workflow run per phase: dependency-ordered lanes are dispatched as one `workflow` run per phase, recovered inside that run with `retry`/`amend`/`send`. The next phase is a new run or an `amend`, never one graph for the whole plan. mass-ulw's header now states this unit of use instead of \"in one call,\" and ulw-loop owns goals, criteria, evidence, and checkpoints while `workflow` is the per-phase dispatch surface.",
+      "translated": "One workflow run per phase: dependency-ordered lanes are dispatched as one `workflow` run per phase, recovered inside that run with `retry`/`amend`/`send`. The next phase is a new run or an `amend`, never one graph for the whole plan. mass-ulw's header now states this unit of use instead of \"in one call,\" and ulw-loop owns goals, criteria, evidence, and checkpoints while `workflow` is the per-phase dispatch surface."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Ideal end state and pre-existing defects: the ultrawork directive's discovery wave now produces the current problem, evidence-backed decision points, and the ideal end state the goal objective names. \"Smallest correct change. No drive-by refactors.\" is replaced by an owner doctrine: defects met mid-run, pre-existing ones included, become registered work in this run (subgoal, plan checkbox, or workflow node) and are fixed to the ideal state, while delegated-unit scope stays hard.",
+      "translated": "Ideal end state and pre-existing defects: the ultrawork directive's discovery wave now produces the current problem, evidence-backed decision points, and the ideal end state the goal objective names. \"Smallest correct change. No drive-by refactors.\" is replaced by an owner doctrine: defects met mid-run, pre-existing ones included, become registered work in this run (subgoal, plan checkbox, or workflow node) and are fixed to the ideal state, while delegated-unit scope stays hard."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Discovered defects route through the orchestrator: `add_subgoal` widens so they become stories rather than follow-up notes, and the poll/`wait()`-default framing is replaced with completion wakes.",
+      "translated": "Discovered defects route through the orchestrator: `add_subgoal` widens so they become stories rather than follow-up notes, and the poll/`wait()`-default framing is replaced with completion wakes."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Housekeeping: the bootstrap carve-out widens to the ulw-execute contract so `ulw execute` no longer double-bootstraps, duplicated child-handling sections are merged so the directive shrinks, stale `dag` tool references are gone, and the TUI visual-QA runner switches to `bun`.",
+      "translated": "Housekeeping: the bootstrap carve-out widens to the ulw-execute contract so `ulw execute` no longer double-bootstraps, duplicated child-handling sections are merged so the directive shrinks, stale `dag` tool references are gone, and the TUI visual-QA runner switches to `bun`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A `workflow_dispatch`-only soak workflow repeats one of 11 allowlisted focused test targets up to 50 times with per-iteration telemetry, stops at the first failure, always uploads artifacts, and writes a job summary. Each target maps to hardcoded test arguments, so the dispatch input never reaches the shell. Normal CI is untouched.",
+      "translated": "A `workflow_dispatch`-only soak workflow repeats one of 11 allowlisted focused test targets up to 50 times with per-iteration telemetry, stops at the first failure, always uploads artifacts, and writes a job summary. Each target maps to hardcoded test arguments, so the dispatch input never reaches the shell. Normal CI is untouched."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "All four Windows Bun invocations, including the previously uncovered `senpi-compatibility` job, now run through `.github/scripts/windows-ci-telemetry.ps1`, which captures process, timing, filesystem, and exit data. Artifacts upload with `continue-on-error`, and the Bun exit code stays authoritative.",
+      "translated": "All four Windows Bun invocations, including the previously uncovered `senpi-compatibility` job, now run through `.github/scripts/windows-ci-telemetry.ps1`, which captures process, timing, filesystem, and exit data. Artifacts upload with `continue-on-error`, and the Bun exit code stays authoritative."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The heaviest worktree-sweep test (seven worktrees) was the only one left on Bun's 5000 ms default and timed out mid `git worktree add` on the slower Windows runner. It now runs under the same 30 s budget as its siblings, and git setup failures name the stalled phase and elapsed time, e.g. `creating external worktree failed after 37ms`.",
+      "translated": "The heaviest worktree-sweep test (seven worktrees) was the only one left on Bun's 5000 ms default and timed out mid `git worktree add` on the slower Windows runner. It now runs under the same 30 s budget as its siblings, and git setup failures name the stalled phase and elapsed time, e.g. `creating external worktree failed after 37ms`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "776405ec0 Merge pull request #7684 from code-yeongyu/release/v5.0.0-beta.36-source-state",
+      "translated": "Merge pull request #7684 from code-yeongyu/release/v5.0.0-beta.36-source-state"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "12637f1b3 Merge pull request #7682 from code-yeongyu/fix/hooks-state-writer-cleanup",
+      "translated": "Merge pull request #7682 from code-yeongyu/fix/hooks-state-writer-cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "090bd9fcd docs(evidence): record hooks-state writer cleanup QA",
+      "translated": "Record hooks-state writer cleanup QA"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e54c7c18c Merge pull request #7681 from code-yeongyu/fix/setup-import-sqlite-handle-leak",
+      "translated": "Merge pull request #7681 from code-yeongyu/fix/setup-import-sqlite-handle-leak"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4103bea93 Merge pull request #7680 from code-yeongyu/feat/omo-native-bun-reexec-any-bun",
+      "translated": "Merge pull request #7680 from code-yeongyu/feat/omo-native-bun-reexec-any-bun"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e64b424a8 fix(omo-native): close setup-import database handles deterministically",
+      "translated": "Close setup-import database handles deterministically"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "16f213443 test(script): follow the bun-runtime test split in the command-string allowlist",
+      "translated": "Follow the bun-runtime test split in the command-string allowlist"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7c240ca65 docs(omo-native): document the any-bun runtime policy",
+      "translated": "Document the any-bun runtime policy"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "32bca4739 feat(omo-native): run on bun wherever a bun >= 1.4 exists",
+      "translated": "Run on bun wherever a bun >= 1.4 exists"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d2e807dfa Merge pull request #7674 from code-yeongyu/feat/ultrawork-ideal-state-owner-doctrine",
+      "translated": "Merge pull request #7674 from code-yeongyu/feat/ultrawork-ideal-state-owner-doctrine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e46e3a29f Merge pull request #7675 from code-yeongyu/docs/ulw-execute-phase-worktree",
+      "translated": "Merge pull request #7675 from code-yeongyu/docs/ulw-execute-phase-worktree"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2c6aee570 Merge pull request #7673 from code-yeongyu/docs/ulw-loop-mass-ulw-composition",
+      "translated": "Merge pull request #7673 from code-yeongyu/docs/ulw-loop-mass-ulw-composition"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d2632e623 docs(shared-skills): each ulw-execute phase carries its own concrete goal",
+      "translated": "Each ulw-execute phase carries its own concrete goal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "124e43294 docs(shared-skills): give each ulw-execute wave its own goal and route discovered defects through the orchestrator",
+      "translated": "Give each ulw-execute wave its own goal and route discovered defects through the orchestrator"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "529121594 docs(shared-skills): tighten the discovered-work checkbox rule in ulw-execute",
+      "translated": "Tighten the discovered-work checkbox rule in ulw-execute"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bcae3b346 docs(shared-skills): run web-terminal visual QA with bun in ulw-execute",
+      "translated": "Run web-terminal visual QA with bun in ulw-execute"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a41c75cbb docs(shared-skills): ulw-execute registers pre-existing defects as plan checkboxes",
+      "translated": "Ulw-execute registers pre-existing defects as plan checkboxes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4c8385a93 docs(shared-skills): ulw-execute dispatches each wave as one workflow run",
+      "translated": "Ulw-execute dispatches each wave as one workflow run"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "92ccdeefd docs(shared-skills): ulw-execute runs every phase in its own worktree",
+      "translated": "Ulw-execute runs every phase in its own worktree"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "130a5c516 Merge pull request #7672 from code-yeongyu/ci/windows-flake-soak",
+      "translated": "Merge pull request #7672 from code-yeongyu/ci/windows-flake-soak"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "48c7dc21c Merge pull request #7665 from code-yeongyu/fix/windows-ci-telemetry",
+      "translated": "Merge pull request #7665 from code-yeongyu/fix/windows-ci-telemetry"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aec983957 Merge pull request #7668 from code-yeongyu/fix/worktree-sweep-windows-budget",
+      "translated": "Merge pull request #7668 from code-yeongyu/fix/worktree-sweep-windows-budget"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ba323d227 test(omo-opencode): diagnose worktree sweep setup timeouts",
+      "translated": "Diagnose worktree sweep setup timeouts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@sisyphus-dev-ai:",
+      "translated": "@sisyphus-dev-ai:"
+    }
+  ],
+  "translatedAt": "2026-09-04T11:28:12.579Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 11053
+}

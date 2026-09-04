@@ -1,0 +1,74 @@
+{
+  "version": "5.0.0-beta.21",
+  "date": "2026-08-26",
+  "parsedAt": "2026-09-04T11:22:55.978Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Shared warm-up state across bundle copies** — both lazy boundaries (pi-tui and the senpi engine barrel) keep their memoized state on `globalThis` under process-wide symbols, so warming any copy satisfies every copy.",
+      "translated": "**Shared warm-up state across bundle copies** — both lazy boundaries (pi-tui and the senpi engine barrel) keep their memoized state on `globalThis` under process-wide symbols, so warming any copy satisfies every copy."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The task bundle warms its own copy at registration** — keeping its dynamic import alive through minification.",
+      "translated": "**The task bundle warms its own copy at registration** — keeping its dynamic import alive through minification."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Render-fault containment** — task/DAG status widgets render from bare timers; a faulting frame now logs once and skips instead of killing your session. Ever again.",
+      "translated": "**Render-fault containment** — task/DAG status widgets render from bare timers; a faulting frame now logs once and skips instead of killing your session. Ever again."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Plus artifact-level regression tests that inspect the *built bundles* so minification can never silently strand a lazy barrel again.",
+      "translated": "Plus artifact-level regression tests that inspect the *built bundles* so minification can never silently strand a lazy barrel again."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Long sessions no longer stop compacting after ten successful compactions (the absolute cap is telemetry-only now; the failure circuit breaker still guards runaways).",
+      "translated": "Long sessions no longer stop compacting after ten successful compactions (the absolute cap is telemetry-only now; the failure circuit breaker still guards runaways)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Todo snapshots no longer recursively retain full history (KB -> MB growth that refilled context right after compaction).",
+      "translated": "Todo snapshots no longer recursively retain full history (KB -> MB growth that refilled context right after compaction)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A manual `/compact` with nothing to summarize no longer aborts an in-flight continuation.",
+      "translated": "A manual `/compact` with nothing to summarize no longer aborts an in-flight continuation."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`bun i -g omo-ai@beta` no longer warns `incorrect peer dependency \"@anthropic-ai/sdk@0.91.1\"` — the SDK pin now satisfies claude-agent-sdk's `>=0.93.0` peer range (audited symbol-by-symbol, additive-only).",
+      "translated": "`bun i -g omo-ai@beta` no longer warns `incorrect peer dependency \"@anthropic-ai/sdk@0.91.1\"` — the SDK pin now satisfies claude-agent-sdk's `>=0.93.0` peer range (audited symbol-by-symbol, additive-only)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a17b91cdc Merge pull request #7356 from code-yeongyu/release/20260826-beta21-pin",
+      "translated": "Merge pull request #7356 from code-yeongyu/release/20260826-beta21-pin"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1007748e5 Merge pull request #7354 from code-yeongyu/fix/pi-tui-cross-bundle-warmup",
+      "translated": "Merge pull request #7354 from code-yeongyu/fix/pi-tui-cross-bundle-warmup"
+    }
+  ],
+  "translatedAt": "2026-09-04T11:28:12.590Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 1367
+}

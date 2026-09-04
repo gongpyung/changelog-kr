@@ -1,0 +1,134 @@
+{
+  "version": "5.0.0-beta.22",
+  "date": "2026-08-27",
+  "parsedAt": "2026-09-04T11:22:55.977Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "forward `SIGTERM` and `SIGHUP` to the engine",
+      "translated": "forward `SIGTERM` and `SIGHUP` to the engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "give it a bounded grace window to shut down cleanly (10s, tunable via `OMO_SIGNAL_GRACE_MS`)",
+      "translated": "give it a bounded grace window to shut down cleanly (10s, tunable via `OMO_SIGNAL_GRACE_MS`)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "re-raise the signal on themselves if the child ignores it, so supervisors still see the death they asked for",
+      "translated": "re-raise the signal on themselves if the child ignores it, so supervisors still see the death they asked for"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Wait detaches by default.** A model-facing `dag` wait used to hold the tool call open until the run settled, freezing the session turn for the whole run (38+ minutes observed in the wild). It now returns immediately with a detached envelope and a live snapshot; node completions and the terminal run wake still reach the session through the idle coordinator. Pass `detach: false` to restore blocking. The eval SDK and dag library keep blocking semantics internally, and an already-terminal run still returns its final result at once.",
+      "translated": "**Wait detaches by default.** A model-facing `dag` wait used to hold the tool call open until the run settled, freezing the session turn for the whole run (38+ minutes observed in the wild). It now returns immediately with a detached envelope and a live snapshot; node completions and the terminal run wake still reach the session through the idle coordinator. Pass `detach: false` to restore blocking. The eval SDK and dag library keep blocking semantics internally, and an already-terminal run still returns its final result at once."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Orphaned runs get adopted.** A paused run whose parent session id never returns (fork, compaction, restart under a new id) was skipped forever as foreign. Recovery now adopts a run when there's proof of abandonment: the lease holder is this process or a dead pid. Live foreign holders and absent-holder records stay untouched. Adopted runs are fully re-homed (parent and root) and the resume is journaled.",
+      "translated": "**Orphaned runs get adopted.** A paused run whose parent session id never returns (fork, compaction, restart under a new id) was skipped forever as foreign. Recovery now adopts a run when there's proof of abandonment: the lease holder is this process or a dead pid. Live foreign holders and absent-holder records stay untouched. Adopted runs are fully re-homed (parent and root) and the resume is journaled."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Bridge attaches after recovery.** The RPC bridge used to attach before paused runs resumed, so its first `omo.dag.updated` snapshot showed stale paused state and downstream consumers flipped threads to Ready while children kept working. The first pushed snapshot is now the recovered one.",
+      "translated": "**Bridge attaches after recovery.** The RPC bridge used to attach before paused runs resumed, so its first `omo.dag.updated` snapshot showed stale paused state and downstream consumers flipped threads to Ready while children kept working. The first pushed snapshot is now the recovered one."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Status UI** rows and formatting were updated alongside the detach work.",
+      "translated": "**Status UI** rows and formatting were updated alongside the detach work."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `unspecified-high` chain is rebuilt opus-first: `claude-opus-5 xhigh -> glm-5.3 max -> kimi-k3 max` (previously kimi-k3-led). The category default follows the new head on both harnesses.",
+      "translated": "The `unspecified-high` chain is rebuilt opus-first: `claude-opus-5 xhigh -> glm-5.3 max -> kimi-k3 max` (previously kimi-k3-led). The category default follows the new head on both harnesses."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The `vercel` provider leaves every builtin fallback lane; vercel-only registries fall through to the pinned system default, and the vercel-only `minimax-m2.7-highspeed` rung is dropped from explore/librarian.",
+      "translated": "The `vercel` provider leaves every builtin fallback lane; vercel-only registries fall through to the pinned system default, and the vercel-only `minimax-m2.7-highspeed` rung is dropped from explore/librarian."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`quotio-openai` is purged from chain sources; every rung listing `openai` now also carries `openai-codex`.",
+      "translated": "`quotio-openai` is purged from chain sources; every rung listing `openai` now also carries `openai-codex`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Telemetry vocabulary drops the `quotio-openai` key and gains `glm-5.3` for zai-coding-plan/opencode-go; the bundled capabilities snapshot gains the bare `glm-5.3` entry.",
+      "translated": "Telemetry vocabulary drops the `quotio-openai` key and gains `glm-5.3` for zai-coding-plan/opencode-go; the bundled capabilities snapshot gains the bare `glm-5.3` entry."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The dead-chain category alert (all providers of one builtin category unconnected) is now an info-level notice instead of a yellow warning, since every other category remains usable. Suppression config and once-per-session dedup are unchanged.",
+      "translated": "The dead-chain category alert (all providers of one builtin category unconnected) is now an info-level notice instead of a yellow warning, since every other category remains usable. Suppression config and once-per-session dedup are unchanged."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`omo-agent-toolkit ulw-loop help` (and bare `help`/`--help`/no-args) now prints real subcommand help instead of a self-referential pointer or an unknown-component error; each subcommand answers `--help`/`-h`.",
+      "translated": "`omo-agent-toolkit ulw-loop help` (and bare `help`/`--help`/no-args) now prints real subcommand help instead of a self-referential pointer or an unknown-component error; each subcommand answers `--help`/`-h`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The ulw-loop skill gets a minimal explicit 5-step run contract, drops a 40-line CLI-resolution bash blob in favor of the resolved CLI path now carried in the skill pointer, and fixes an `update_plan` leak (senpi exposes `todo`).",
+      "translated": "The ulw-loop skill gets a minimal explicit 5-step run contract, drops a 40-line CLI-resolution bash blob in favor of the resolved CLI path now carried in the skill pointer, and fixes an `update_plan` leak (senpi exposes `todo`)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "When the ulw-loop pointer accompanies the directive, bootstrap defers to the loop's run contract, ending the dual-bootstrap confusion.",
+      "translated": "When the ulw-loop pointer accompanies the directive, bootstrap defers to the loop's run contract, ending the dual-bootstrap confusion."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "mass-ulw, ultrawork, and dag-library skill docs are updated for the detached-wait default.",
+      "translated": "mass-ulw, ultrawork, and dag-library skill docs are updated for the detached-wait default."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Bun 1.4.0** is now the pinned workspace runtime in both CI and the devcontainer (previously 1.3.12 in the container), with a test guarding against drift.",
+      "translated": "**Bun 1.4.0** is now the pinned workspace runtime in both CI and the devcontainer (previously 1.3.12 in the container), with a test guarding against drift."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Root-test CI now shards every OS two ways, extending the proven Windows shape: shard 1 covers `packages/omo-opencode` + `packages/memory-core` in one serial process, and shard 2 runs a shared serial quarantine (one source of truth in `script/root-test-serial-quarantine.ts`) before the remainder. Job-level sharding replaced in-job `bun test --parallel` on Linux and macOS, which re-ran the heavy preload per file under `--isolate` and OOM-killed the 7 GB hosted runners; the dead `bunfig.root.parallel.toml` was removed. Two Windows tests that were running twice per shard now run once.",
+      "translated": "Root-test CI now shards every OS two ways, extending the proven Windows shape: shard 1 covers `packages/omo-opencode` + `packages/memory-core` in one serial process, and shard 2 runs a shared serial quarantine (one source of truth in `script/root-test-serial-quarantine.ts`) before the remainder. Job-level sharding replaced in-job `bun test --parallel` on Linux and macOS, which re-ran the heavy preload per file under `--isolate` and OOM-killed the 7 GB hosted runners; the dead `bunfig.root.parallel.toml` was removed. Two Windows tests that were running twice per shard now run once."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Parallel lsp-daemon build artifacts are isolated to avoid dist races.",
+      "translated": "Parallel lsp-daemon build artifacts are isolated to avoid dist races."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Committed Senpi extension bundles and the generated model-capabilities snapshot are regenerated fresh for this release, so shipped runtime payloads match the source and the 2026.8.26-2 pin.",
+      "translated": "Committed Senpi extension bundles and the generated model-capabilities snapshot are regenerated fresh for this release, so shipped runtime payloads match the source and the 2026.8.26-2 pin."
+    }
+  ],
+  "translatedAt": "2026-09-04T11:28:12.589Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 4124
+}
