@@ -1,0 +1,68 @@
+{
+  "version": "5.0.0-beta.44",
+  "date": "2026-09-06",
+  "parsedAt": "2026-09-06T20:27:23.987Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`oh-my-openagent@5.0.0-beta.43` died at `npm run sync:skills`** because the published tarball did not carry `packages/prompts-core/prompts/ultrawork/codex.md`, the canonical ultrawork directive the Codex cache install reads. The root `files` allowlist now ships it (#7835, thanks @LilMGenius) and the pre-publish payload verifier refuses a payload without it (#7836).",
+      "translated": "**`oh-my-openagent@5.0.0-beta.43` died at `npm run sync:skills`** because the published tarball did not carry `packages/prompts-core/prompts/ultrawork/codex.md`, the canonical ultrawork directive the Codex cache install reads. The root `files` allowlist now ships it (#7835, thanks @LilMGenius) and the pre-publish payload verifier refuses a payload without it (#7836)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**`lazycodex-ai@5.0.0-beta.43` died at the same step** because the curated lazycodex `files` list lacked `packages/shared-skills/skill-source-filter.mjs`. The list is fixed and the verifier now requires every shared-skills runtime export target (#7813).",
+      "translated": "**`lazycodex-ai@5.0.0-beta.43` died at the same step** because the curated lazycodex `files` list lacked `packages/shared-skills/skill-source-filter.mjs`. The list is fixed and the verifier now requires every shared-skills runtime export target (#7813)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Both packages would have failed again on dev** — the shared-skills imports in `sync-skills.mjs` had been changed (#7814) to checkout-relative paths that do not exist once the installer flattens `plugin/` into `<CODEX_HOME>/plugins/cache/<marketplace>/omo/<version>`. Restored to the package specifier the installer's `file:` link resolves, with a regression test that runs sync-skills inside a reproduction of that cache layout (#7848).",
+      "translated": "**Both packages would have failed again on dev** — the shared-skills imports in `sync-skills.mjs` had been changed (#7814) to checkout-relative paths that do not exist once the installer flattens `plugin/` into `<CODEX_HOME>/plugins/cache/<marketplace>/omo/<version>`. Restored to the package specifier the installer's `file:` link resolves, with a regression test that runs sync-skills inside a reproduction of that cache layout (#7848)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The `skipped OMO SOT seed/migration` warning is gone**: the installer no longer spawns a migration script that was removed from the payload (#7837).",
+      "translated": "**The `skipped OMO SOT seed/migration` warning is gone**: the installer no longer spawns a migration script that was removed from the payload (#7837)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**A failed Codex half now tells you how to retry it** (`bunx oh-my-openagent install --platform=codex`) instead of ending on a success banner (#7845).",
+      "translated": "**A failed Codex half now tells you how to retry it** (`bunx oh-my-openagent install --platform=codex`) instead of ending on a success banner (#7845)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The published-package smoke job actually installs both payloads through `installMarketplaceLocally` instead of dry-running (#7839).",
+      "translated": "The published-package smoke job actually installs both payloads through `installMarketplaceLocally` instead of dry-running (#7839)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The payload verifier reads both npm 11 and npm 12 `npm pack --json` shapes (#7840) and spawns npm through a shell on Windows so the gate can run locally there (#7844).",
+      "translated": "The payload verifier reads both npm 11 and npm 12 `npm pack --json` shapes (#7840) and spawns npm through a shell on Windows so the gate can run locally there (#7844)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Memory: the reflection payload is bounded and routed around context-window overflow (#7842); memorian nudges are triggered and delivered at tool-call boundaries (#7843, #7846).",
+      "translated": "Memory: the reflection payload is bounded and routed around context-window overflow (#7842); memorian nudges are triggered and delivered at tool-call boundaries (#7843, #7846)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ulw-loop footer refresh, x-search abort, and batch progress state (#7822); Luna / Luna Fast aligned with their 1M context (#7826); compaction-timeout admission overlap prevented in omo-opencode (#7824); repeated senpi runtime access errors suppressed (#7834); LSP push-diagnostics fallback tests synchronized (#7812); category docs aligned with the shipped chains (#7821).",
+      "translated": "ulw-loop footer refresh, x-search abort, and batch progress state (#7822); Luna / Luna Fast aligned with their 1M context (#7826); compaction-timeout admission overlap prevented in omo-opencode (#7824); repeated senpi runtime access errors suppressed (#7834); LSP push-diagnostics fallback tests synchronized (#7812); category docs aligned with the shipped chains (#7821)."
+    }
+  ],
+  "translatedAt": "2026-09-06T20:29:22.735Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 2206
+}
