@@ -1,0 +1,104 @@
+{
+  "version": "5.0.0-beta.46",
+  "date": "2026-09-07",
+  "parsedAt": "2026-09-07T12:39:51.407Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Context overflow is recoverable again, even with auto-compaction off.** `compaction.enabled=false` now switches off only proactive threshold compaction; a turn the provider rejects as a context overflow still gets its one-shot compact-and-retry recovery instead of leaving the session with no way forward. A goal no longer re-prompts a context the provider just rejected; the next user message resumes it (code-yeongyu/senpi#1425, #1422).",
+      "translated": "자동 압축(auto-compaction)이 꺼져 있어도 컨텍스트 오버플로를 다시 복구할 수 있습니다. 이제 `compaction.enabled=false`는 선제적 임계값 압축만 비활성화하며, 제공자가 컨텍스트 오버플로로 거부한 회차는 세션이 중단되는 대신 일회성 '압축 후 재시도' 복구 절차를 거칩니다. 제공자가 방금 거부한 컨텍스트를 목표(goal)가 다시 요청하지 않으며, 다음 사용자 메시지에서 재개됩니다 (code-yeongyu/senpi#1425, #1422)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**The RPC `set_auto_compaction` is session-scoped**: it no longer rewrites the persisted global `compaction.enabled`, so one OmO Desktop thread toggling auto-compaction cannot disable it for every other session on the machine. The desktop toggle keeps working (it reads the following `get_state`); the interactive `/settings` toggle still persists (#1425).",
+      "translated": "`set_auto_compaction` RPC의 범위가 세션으로 제한됩니다. 이제 영구 저장된 전역 `compaction.enabled` 설정을 덮어쓰지 않으므로, 하나의 OmO Desktop 스레드에서 자동 압축을 전환해도 기기의 다른 모든 세션에 영향을 주지 않습니다. 데스크톱 토글은 계속 작동하며(이후의 `get_state`를 읽음), 대화형 `/settings` 토글은 여전히 설정이 유지됩니다 (#1425)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Context windows in the catalog now show the real prompt budget.** OpenAI rejects a request with `context_too_large` once the prompt alone exceeds window minus max output, so the old 1,050,000 / 400,000 totals let sessions run past the point where compaction could still help — that is why sessions were dying around 916k. 128 catalog rows across OpenAI, OpenAI Codex, Azure, Bedrock, Copilot, OpenRouter, Vercel, OpenGateway, Cloudflare and OpenCode now carry the provider input caps (922,000 / 272,000); your UI footer shows a smaller denominator by design, and user `modelOverrides` still win (#1427, #1422).",
+      "translated": "카탈로그의 컨텍스트 창에 실제 프롬프트 가용량이 표시됩니다. OpenAI는 프롬프트만으로 '창 크기 - 최대 출력'을 초과할 경우 `context_too_large`로 요청을 거부하므로, 기존의 1,050,000 / 400,000 합계 방식에서는 압축이 도움이 될 수 있는 시점을 지나 세션이 중단되곤 했습니다. 이것이 약 916k 지점에서 세션이 종료되던 이유입니다. OpenAI, OpenAI Codex, Azure, Bedrock, Copilot, OpenRouter, Vercel, OpenGateway, Cloudflare, OpenCode에 걸친 128개의 카탈로그 항목에 제공자 입력 제한(922,000 / 272,000)이 적용되었습니다. UI 하단에는 의도적으로 더 작은 분모가 표시되며, 사용자의 `modelOverrides` 설정이 우선 적용됩니다 (#1427, #1422)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**No more whole-session freeze on a path token.** The permission system's external-directory check resolved paths with `realpathSync`, which under Bun opens every directory it walks and blocks forever on an autofs trigger such as macOS `/home`; it now resolves per component with `lstat`/`readlink` (#1419).",
+      "translated": "경로 토큰으로 인해 전체 세션이 멈추는 현상이 해결되었습니다. 권한 시스템의 외부 디렉터리 확인 시 `realpathSync`를 사용하여 경로를 해석했는데, Bun 환경에서는 탐색하는 모든 디렉터리를 열기 때문에 macOS `/home`과 같은 autofs 트리거에서 영구적으로 차단되는 문제가 있었습니다. 이제 `lstat`/`readlink`를 사용하여 각 구성 요소별로 경로를 해석합니다 (#1419)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Codemode: a missing sidecar now surfaces a clear error instead of a hang (#1426); skill packages are de-duplicated (#1424); fallback decision logs and the teardown test harness were hardened (#1416, #1417).",
+      "translated": "Codemode: 사이드카가 없을 때 멈추는 대신 명확한 오류를 표시합니다 (#1426); 스킬 패키지의 중복이 제거되었습니다 (#1424); 폴백 결정 로그와 티어다운 테스트 하네스가 강화되었습니다 (#1416, #1417)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "test(background-agent): stop the unreachable-server stale sweep from expiring on the wall clock (#7891, @LilMGenius)",
+      "translated": "연결할 수 없는 서버의 오래된 데이터 정리(stale sweep)가 실제 시간(wall clock)에 따라 만료되지 않도록 수정 (#7891, @LilMGenius)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fix(omo-senpi): make DAG owner-scope snapshot keys posix on Windows (#7893)",
+      "translated": "Windows 환경에서 DAG 소유자 범위 스냅샷 키를 posix 형식으로 변경 (#7893)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7869 fix(senpi-task): scope DAG recovery to the session and immediate fork source",
+      "translated": "DAG 복구 범위를 세션 및 직계 포크 소스로 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7882 fix(postinstall): bound the opencode version probe",
+      "translated": "Opencode 버전 조사의 범위를 제한"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7881 fix(omo-senpi): keep one omo-senpi package entry and isolate the local launcher",
+      "translated": "단일 omo-senpi 패키지 항목을 유지하고 로컬 런처를 격리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7877 ci: fail the build job when committed schema artifacts are stale",
+      "translated": "커밋된 스키마 아티팩트가 최신 상태가 아닐 경우 빌드 작업이 실패하도록 설정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7873 fix(schema): regenerate omo.schema.json after memory.tool_exposure was removed",
+      "translated": "`memory.tool_exposure` 제거 후 `omo.schema.json` 재생성"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7854 test(background-agent): pin the stale sweep against an unreachable server end to end",
+      "translated": "연결할 수 없는 서버에 대한 오래된 데이터 정리(stale sweep)를 엔드 투 엔드로 고정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7851 fix(background-agent): finalize a stale task whose session is gone and cannot be aborted",
+      "translated": "세션이 사라져 중단할 수 없는 오래된 작업(stale task)을 마무리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#7850 fix(background-agent): stop reading an unreachable server as a live session",
+      "translated": "연결할 수 없는 서버를 활성 세션으로 인식하지 않도록 수정"
+    }
+  ],
+  "translatedAt": "2026-09-07T12:40:15.082Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 2754
+}
