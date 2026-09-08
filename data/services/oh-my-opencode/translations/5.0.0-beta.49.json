@@ -1,0 +1,728 @@
+{
+  "version": "5.0.0-beta.49",
+  "date": "2026-09-08",
+  "parsedAt": "2026-09-08T21:12:53.704Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Tasks / DAG**: spawned task records persist `child_session_id` (#7978); never-started DAG nodes are re-admitted as a new attempt on reconcile (#7939); a vanished DAG state directory no longer exits the session (#7962); RPC process trees are awaited on termination (#7965); `omo.task.updated` snapshot pushes are coalesced so RPC queues stop overflowing in bursts (#7941); delegated children inherit the parent's fast mode through the `-fast` catalog sibling (#7938).",
+      "translated": "**Tasks / DAG**: 생성된 태스크 기록에 `child_session_id`가 유지됩니다 (#7978). 시작되지 않은 DAG 노드는 조정(reconcile) 시 새로운 시도로 다시 수용됩니다 (#7939). DAG 상태 디렉터리가 사라져도 더 이상 세션이 종료되지 않습니다 (#7962). 종료 시 RPC 프로세스 트리를 대기합니다 (#7965). `omo.task.updated` 스냅샷 푸시를 병합하여 일시적인 부하로 인한 RPC 큐 오버플로를 방지합니다 (#7941). 위임된 자식 프로세스는 `-fast` 카탈로그 형제를 통해 부모의 fast mode를 상속받습니다 (#7938)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Memory**: a bind superseded by session replacement is treated as a skip instead of an error (#7955); reflection completion swallows a stale extension ctx (#7951); the dream idle tick retires on a stale extension ctx (#7942, thanks @stevenahhh); ghost active memory reservations self-heal on reconcile (#7947); dead-launcher reflection reservations shadowed by retired runs are reclaimed (#7944).",
+      "translated": "**Memory**: 세션 교체로 대체된 바인딩을 오류 대신 건너뜀으로 처리합니다 (#7955). 리플렉션 완료 시 오래된 extension ctx를 무시합니다 (#7951). 오래된 extension ctx에서 dream idle tick이 종료됩니다 (#7942, @stevenahhh님께 감사드립니다). 조정(reconcile) 시 유령 활성 메모리 예약이 자동 복구됩니다 (#7947). 종료된 실행에 가려진 dead-launcher 리플렉션 예약이 회수됩니다 (#7944)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Packaging**: the bundled agent toolkit runs under Bun mode from the packaged binary (#7936); the tracked generated extension bundles are un-ignored (#7964).",
+      "translated": "**Packaging**: 번들된 에이전트 툴킷이 패키징된 바이너리에서 Bun 모드로 실행됩니다 (#7936). 추적되는 생성된 확장 번들의 무시 설정이 해제되었습니다 (#7964)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Ultrawork**: eval work is routed by dependency and every cell is compared with the state it was meant to produce (#7981, senpi#1500).",
+      "translated": "**Ultrawork**: eval 작업이 의존성에 따라 라우팅되며, 모든 셀이 생성하려던 상태와 비교됩니다 (#7981, senpi#1500)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Teams**: task records expose team membership (#7969); the thread tool family is registered (#7456).",
+      "translated": "**Teams**: 태스크 기록에 팀 멤버십이 노출됩니다 (#7969). thread 도구 제품군이 등록되었습니다 (#7456)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**LazyCodex**: the final gate is softened and subagent plan takeover is stopped (#7976).",
+      "translated": "**LazyCodex**: 최종 게이트가 완화되었으며 서브에이전트 플랜 인수가 중단되었습니다 (#7976)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Website**: the landing hero carries the desktop workflow graph (#7966), the DAG stylesheet ships and the desktop workflow view is legible (#7968), agents are described by role (#7970), and the social image is dynamic with live stars and larger typography (#7954, #7967).",
+      "translated": "**Website**: 랜딩 히어로 영역에 데스크톱 워크플로우 그래프가 표시됩니다 (#7966). DAG 스타일시트가 적용되어 데스크톱 워크플로우 뷰의 가독성이 향상되었습니다 (#7968). 에이전트가 역할별로 설명됩니다 (#7970). 소셜 이미지가 실시간 별점과 더 커진 타이포그래피를 포함한 동적 이미지로 변경되었습니다 (#7954, #7967)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**CI**: Windows test timeouts raised for git/fs-heavy tests (#7937); the thread live-surface test builds its path expectations with `node:path`, so the Windows senpi-compatibility leg is green again (#7982).",
+      "translated": "**CI**: git/fs 작업이 많은 테스트에 대해 Windows 테스트 타임아웃을 늘렸습니다 (#7937). thread live-surface 테스트가 `node:path`를 사용하여 경로 기대값을 생성하므로, Windows senpi 호환성 단계가 다시 정상화되었습니다 (#7982)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4b84102c3 Merge pull request #7985 from code-yeongyu/release/v5.0.0-beta.49-source-state",
+      "translated": "Code-yeongyu/release/v5.0.0-beta.49-source-state로부터 풀 리퀘스트 #7985 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "73248ccb0 Merge pull request #7982 from code-yeongyu/fix/live-surface-test-windows-paths",
+      "translated": "Code-yeongyu/fix/live-surface-test-windows-paths로부터 풀 리퀘스트 #7982 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "665abcc0b Merge pull request #7981 from code-yeongyu/feat/ulw-observe-then-act",
+      "translated": "Code-yeongyu/feat/ulw-observe-then-act로부터 풀 리퀘스트 #7981 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "771b83c29 Merge pull request #7978 from code-yeongyu/fix/persist-child-session-id",
+      "translated": "Code-yeongyu/fix/persist-child-session-id로부터 풀 리퀘스트 #7978 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a3691b5a9 Merge pull request #7976 from code-yeongyu/lcx/gate-softening",
+      "translated": "Code-yeongyu/lcx/gate-softening로부터 풀 리퀘스트 #7976 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "681950567 fix(ulw-loop): satisfy strict index-signature access in quality-gate test; repair evidence link",
+      "translated": "Quality-gate 테스트의 엄격한 인덱스 시그니처 액세스 요구사항을 충족하고 증거 링크를 복구했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9f4d59676 style(omo-codex): format ulw-execute-continuation cli test for biome",
+      "translated": "Biome에 맞춰 ulw-execute-continuation cli 테스트 형식을 정리했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "097be4c09 docs(omo-codex): PR B ship evidence (codex-qa install/app-server proofs)",
+      "translated": "PR B 배포 증거 (codex-qa 설치/앱 서버 증명)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8dde4e843 docs(omo-codex): close out PR B QA evidence (breaker RED/GREEN, remote cleanup receipts, installer probe)",
+      "translated": "PR B QA 증거 완료 (breaker RED/GREEN, 원격 정리 영수증, 설치 프로그램 프로브)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3451c0a8b test(omo-codex): update Codex overlay inverse for the shared-skill drift check",
+      "translated": "Shared-skill 드리프트 체크를 위해 Codex 오버레이 인버스를 업데이트했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "95f7e934f fix(ulw-loop): bundle the component CLI so dist/cli.js stays self-contained",
+      "translated": "`dist/cli.js`가 독립적으로 유지되도록 컴포넌트 CLI를 번들링했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eeeb3287e test(ulw-loop): expect lazycodex to accept codeReview-free final gates",
+      "translated": "Lazycodex가 codeReview가 없는 최종 게이트를 수용하도록 테스트를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8bd0c35b3 Merge pull request #7969 from code-yeongyu/feat/team-member-task-linkage",
+      "translated": "Code-yeongyu/feat/team-member-task-linkage로부터 #7969 풀 리퀘스트 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "adb92840f chore(omo-codex): regenerate tracked plugin skill after codex overlay change",
+      "translated": "Codex overlay 변경 후 추적된 플러그인 스킬 재생성"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "20c73b8a4 fix(ulw-loop): wrap spawn-admission hook manifest, evaluate breaker first, align legacy artifacts",
+      "translated": "Spawn-admission 훅 매니페스트 래핑, 차단기 우선 평가 및 레거시 아티팩트 정렬"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ca92f1741 test(ulw-loop): cover accepted quality-gate input forms in error text",
+      "translated": "오류 텍스트에 허용된 quality-gate 입력 양식 포함"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3f6d44739 fix(ulw-loop): validate codeReview acceptors via surface table on lazycodex",
+      "translated": "Lazycodex의 surface table을 통한 codeReview 수락자 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "40a5364ca Merge remote-tracking branch 'origin/dev' into feat/team-member-task-linkage",
+      "translated": "원격 추적 브랜치 'origin/dev'를 feat/team-member-task-linkage로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "602f72192 Merge pull request #7970 from code-yeongyu/feat/web-redesign-phosphor-20260908",
+      "translated": "Code-yeongyu/feat/web-redesign-phosphor-20260908로부터 #7970 풀 리퀘스트 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "64623f77e fix(web): give the DAG camera toolbar 44px hit targets",
+      "translated": "DAG 카메라 툴바에 44px 클릭 영역 적용"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "249a6308d refactor(web): describe agents by role instead of internal names on the public site",
+      "translated": "공개 사이트에서 에이전트를 내부 이름 대신 역할로 설명하도록 수정"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7f8071678 feat(ulw-loop): add subagent admission circuit breaker and align lazycodex gate artifacts",
+      "translated": "서브 에이전트 승인 서킷 브레이커 추가 및 lazycodex 게이트 아티팩트 정렬"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61acee06e fix(omo-codex): make Codex final verification self-review by default and warn on empty spawn fields",
+      "translated": "Codex 최종 검증을 기본적으로 셀프 리뷰로 설정하고 빈 spawn 필드에 대해 경고 표시"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b08bcbe51 fix(omo-codex): relax ulw-execute final gate and stop injecting root plans into subagents",
+      "translated": "Ulw-execute 최종 게이트 완화 및 서브 에이전트에 대한 루트 플랜 주입 중단"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0889c2467 feat(prompts-core): trigger ultrawork verification gate only on explicit review demands",
+      "translated": "명시적인 리뷰 요청 시에만 ultrawork 검증 게이트 트리거"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1999be1f6 fix(ulw-loop): explain accepted quality-gate input forms in errors and help",
+      "translated": "오류 및 도움말 메시지에 허용된 quality-gate 입력 양식 설명 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a94df2085 feat(ulw-loop): soften lazycodex quality gate to optional codeReview and self-review acceptors",
+      "translated": "Lazycodex 퀄리티 게이트를 선택적 codeReview 및 셀프 리뷰 수락자로 완화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dfe5289d1 Merge pull request #7968 from code-yeongyu/feat/web-redesign-phosphor-20260908",
+      "translated": "Code-yeongyu/feat/web-redesign-phosphor-20260908로부터 #7968 풀 리퀘스트 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ebccbc373 fix(web): ship the DAG stylesheet and make the desktop workflow view legible",
+      "translated": "DAG 스타일시트 배포 및 데스크톱 워크플로우 뷰 가독성 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "988f02d38 Merge pull request #7967 from code-yeongyu/feat/web-redesign-phosphor-20260908",
+      "translated": "Code-yeongyu/feat/web-redesign-phosphor-20260908로부터 #7967 풀 리퀘스트 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e22e8d63a style(web): format social image component",
+      "translated": "소셜 이미지 컴포넌트 포맷팅"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6ee1c7469 fix(web): enlarge star count on social image",
+      "translated": "소셜 이미지의 별 개수 표시 확대"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4a45e9755 fix(web): improve OmO social image typography",
+      "translated": "OmO 소셜 이미지 타이포그래피 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "efec42a81 Merge pull request #7942 from stevenahhh/fix/dream-idle-stale-ctx",
+      "translated": "stevenahhh/fix/dream-idle-stale-ctx로부터 풀 리퀘스트 #7942 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8878a3009 Merge pull request #7966 from code-yeongyu/feat/web-redesign-phosphor-20260908",
+      "translated": "code-yeongyu/feat/web-redesign-phosphor-20260908로부터 풀 리퀘스트 #7966 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e07fe0c23 Merge remote-tracking branch 'origin/dev' into fix/dream-idle-stale-ctx",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/dream-idle-stale-ctx에 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5769d9f1f Merge pull request #7965 from code-yeongyu/fix/rpc-terminate-tree",
+      "translated": "code-yeongyu/fix/rpc-terminate-tree로부터 풀 리퀘스트 #7965 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ae50dba22 feat(web): port desktop workflow graph into landing hero",
+      "translated": "데스크톱 워크플로우 그래프를 랜딩 히어로 섹션으로 이식"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bacec4c88 Merge remote-tracking branch 'origin/dev' into fix/rpc-terminate-tree",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/rpc-terminate-tree에 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4e90bf07e Merge pull request #7951 from code-yeongyu/fix/7946-reflection-stale-ctx",
+      "translated": "code-yeongyu/fix/7946-reflection-stale-ctx로부터 풀 리퀘스트 #7951 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d9a9bd18b Merge remote-tracking branch 'origin/dev' into fix/7946-reflection-stale-ctx",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/7946-reflection-stale-ctx에 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "50786ac15 Merge pull request #7955 from code-yeongyu/fix/memory-bind-stale-ctx",
+      "translated": "code-yeongyu/fix/memory-bind-stale-ctx로부터 풀 리퀘스트 #7955 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "936d255d3 Merge remote-tracking branch 'origin/dev' into fix/memory-bind-stale-ctx",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/memory-bind-stale-ctx에 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "493b6faaa Merge pull request #7937 from code-yeongyu/fix/windows-ci-timeout-7709",
+      "translated": "code-yeongyu/fix/windows-ci-timeout-7709로부터 풀 리퀘스트 #7937 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b717f0b21 Merge pull request #7962 from code-yeongyu/fix/dag-runs-dir-enoent",
+      "translated": "code-yeongyu/fix/dag-runs-dir-enoent로부터 풀 리퀘스트 #7962 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7a67160da Merge pull request #7960 from code-yeongyu/fix/aha-filler-test-removal",
+      "translated": "code-yeongyu/fix/aha-filler-test-removal로부터 풀 리퀘스트 #7960 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f7b4b43bd Merge pull request #7959 from code-yeongyu/feat/aha-unify",
+      "translated": "code-yeongyu/feat/aha-unify로부터 풀 리퀘스트 #7959 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bbc2fcc18 feat(web): re-skin docs shell and manifesto and close the mobile overflow debt",
+      "translated": "쉘 및 선언문 디자인 개편 및 모바일 오버플로우 부채 해결"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "14e5b2061 feat(web): rebuild the landing page to the Phosphor Ledger contract",
+      "translated": "Phosphor Ledger 계약에 맞춰 랜딩 페이지 재구축"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "be0b3a90d Merge pull request #7957 from code-yeongyu/revert/memorian-filler-hint",
+      "translated": "code-yeongyu/revert/memorian-filler-hint로부터 풀 리퀘스트 #7957 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2f07008f6 Revert \"Merge pull request #7956 from code-yeongyu/fix/memorian-filler-hint\"",
+      "translated": "\"code-yeongyu/fix/memorian-filler-hint로부터 풀 리퀘스트 #7956 병합\" 되돌리기"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7c1c66c61 Merge pull request #7956 from code-yeongyu/fix/memorian-filler-hint",
+      "translated": "code-yeongyu/fix/memorian-filler-hint로부터 풀 리퀘스트 #7956 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4cc218d7a docs(web): clarify animatable properties and the decorative-only faint text token",
+      "translated": "애니메이션 가능한 속성 및 장식 전용 faint text 토큰에 대한 설명 명확화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1b2d857c4 fix(web): serve a minimal social image when the branded render fails",
+      "translated": "브랜딩 렌더링 실패 시 최소 사양의 소셜 이미지 제공"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "064f9dd8b feat(web): add the 3D agent-graph hero scene with poster fallback and chunk budget",
+      "translated": "포스터 폴백 및 청크 버젯이 포함된 3D agent-graph 히어로 씬 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c9b324948 feat(web): add the Phosphor Ledger token layer, primitives, nav and footer",
+      "translated": "Phosphor Ledger 토큰 레이어, 프리미티브, 내비게이션 및 푸터 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c91bf480 fix(memory): reject filler nudge hints before they reach the recollection notice",
+      "translated": "filler nudge 힌트가 회상 알림에 도달하기 전 거부하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6595aa6b6 Merge pull request #7947 from code-yeongyu/fix/memory-ghost-active-self-heal",
+      "translated": "code-yeongyu/fix/memory-ghost-active-self-heal로부터의 풀 리퀘스트 #7947 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "11d5155a8 Merge pull request #7954 from code-yeongyu/feat/web-redesign-og-20260908",
+      "translated": "code-yeongyu/feat/web-redesign-og-20260908로부터의 풀 리퀘스트 #7954 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cdec4d8bc docs(web): rewrite DESIGN.md as the Phosphor Ledger redesign contract",
+      "translated": "DESIGN.md를 Phosphor Ledger 리디자인 규약으로 재작성"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "383d17954 feat(web): render the Open Graph image dynamically with live stars and the GitHub description",
+      "translated": "실시간 별점 및 GitHub 설명을 포함하여 Open Graph 이미지를 동적으로 렌더링"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9b52eac1c fix(web): correct landing copy, model labels, and edition list",
+      "translated": "랜딩 문구, 모델 라벨 및 에디션 목록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "102717bec docs: fix stale claims in READMEs and guides against current code",
+      "translated": "현재 코드와 맞지 않는 README 및 가이드의 오래된 내용 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a27dc31f5 Merge pull request #7939 from code-yeongyu/fix/7902-dag-readmit-never-started",
+      "translated": "code-yeongyu/fix/7902-dag-readmit-never-started로부터의 풀 리퀘스트 #7939 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fa9a3226d Merge pull request #7944 from code-yeongyu/fix/7912-reflection-reclaim",
+      "translated": "code-yeongyu/fix/7912-reflection-reclaim로부터의 풀 리퀘스트 #7944 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fac35d8e7 fix(memory): anchor stranded temporary matching to the full suffix",
+      "translated": "유실된 임시 매칭을 전체 접미사(full suffix)에 고정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b5f664772 fix(memory): read abandoned generation timestamps by artifact schema",
+      "translated": "아티팩트 스키마를 통해 중단된 생성 타임스탬프 읽기"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "405a45dc9 test(memory): preserve durable completions with temporary-like run ids",
+      "translated": "임시 형식의 run id를 가진 영구 완료 상태 유지"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "963c193cb test(memory): cover retired abandoned reservation generations",
+      "translated": "폐기된 중단 예약 생성에 대한 테스트 커버리지 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "22cdd1334 fix(memory): bound pending reflection snapshots with oldest-first eviction",
+      "translated": "오래된 항목 우선 삭제(oldest-first eviction) 방식으로 대기 중인 리플렉션 스냅샷 범위 제한"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "63102ce6b test(memory): cover persisted pending limits and legacy promotion",
+      "translated": "유지된 대기 제한 및 레거시 승격에 대한 테스트 커버리지 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0759323cb fix(memory): clean reservation temporaries while holding the scheduler lock",
+      "translated": "스케줄러 락을 보유한 상태에서 예약 임시 항목 정리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5f77ec83e docs(memory): document generation-aware reclaim and temporary retention",
+      "translated": "세대 인식 회수 및 임시 보존에 대한 문서화"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4fe4ba90b test(memory): exercise pending byte and conversation limits behaviorally",
+      "translated": "대기 중인 바이트 및 대화 제한 동작 테스트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d96b164f0 test(memory): pin reservation temporary cleanup under the scheduler lock",
+      "translated": "스케줄러 잠금 상태에서의 예약 임시 정리 고정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8ef47b5a fix(memory): clean failed artifact writes and sweep stranded run temporaries",
+      "translated": "실패한 아티팩트 쓰기 정리 및 분리된 실행 임시 파일 스윕"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d69e67401 fix(memory): reclaim dead launchers shadowed by retired reflection runs",
+      "translated": "종료된 리플렉션 실행에 의해 가려진 비활성 런처 회수"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "662cea3ab test(memory): exercise temporary cleanup through startup and publication",
+      "translated": "시작 및 게시 과정에서의 임시 정리 테스트"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e98aba39a test(memory): correct retired-generation fixture timestamps and imports",
+      "translated": "종료된 세대 픽스처의 타임스탬프 및 임포트 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "50025981e test(memory): pin the aggregate cap on pending reservation snapshot merges",
+      "translated": "대기 중인 예약 스냅샷 병합의 집계 한도 고정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2f89d28a2 test(memory): pin run artifact temporary cleanup and the stranded-temp sweep",
+      "translated": "실행 아티팩트 임시 정리 및 분리된 임시 파일 스윕 고정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "11b558fd6 test(memory): pin dead-launcher reclaim when a retired run dir shadows the reservation",
+      "translated": "종료된 실행 디렉터리가 예약을 가릴 때 비활성 런처 회수 고정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "90bab7c99 Merge pull request #7950 from code-yeongyu/feat/memorian-nudge-cooldown",
+      "translated": "Code-yeongyu/feat/memorian-nudge-cooldown 브랜치로부터의 풀 리퀘스트 #7950 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c6f9ef58b Merge pull request #7953 from code-yeongyu/fix/memorian-factual-negation",
+      "translated": "Code-yeongyu/fix/memorian-factual-negation 브랜치로부터의 풀 리퀘스트 #7953 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cc3800cdd docs(readme): hype up the mass-ulw caption under the DAG image",
+      "translated": "DAG 이미지 아래의 mass-ulw 캡션 강조"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "32d20eb1f docs(readme): frame sponsors as sustaining a personal side project",
+      "translated": "후원자를 개인 사이드 프로젝트의 유지자로 표현"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "60a71b368 fix(memory): narrow factual negation filtering",
+      "translated": "사실 부정 필터링 범위 축소"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8b764c6d4 Merge pull request #7948 from code-yeongyu/feat/memorian-transcript-filter",
+      "translated": "Code-yeongyu/feat/memorian-transcript-filter 브랜치로부터의 풀 리퀘스트 #7948 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "eb102205b docs(readme): state OpenGateway policy as no-logging of inference raw content",
+      "translated": "추론 원본 콘텐츠를 로깅하지 않는 OpenGateway 정책 명시"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b290ed0b2 docs(readme): unify caption style and add OpenGateway privacy note",
+      "translated": "캡션 스타일 통일 및 OpenGateway 개인정보 보호 참고 사항 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7e2c90c3d docs(readme): restore omo-herdr-dag image inside OmO Beta block",
+      "translated": "OmO Beta 블록 내 omo-herdr-dag 이미지 복구"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "97f85045a ci(cla): allowlist YeongYU account",
+      "translated": "YeongYU 계정 허용 목록 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3b562c57f docs(readme): nest mass-ulw caption inside OmO Beta block",
+      "translated": "OmO Beta 블록 내부에 mass-ulw 캡션 중첩"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4660153f3 docs(readme): add omo-herdr-dag showcase under OmO Beta block",
+      "translated": "OmO Beta 블록 아래에 omo-herdr-dag 쇼케이스 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dc847767e docs(readme): fix sponsor section rendering",
+      "translated": "스폰서 섹션 렌더링 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "791430499 docs(readme): add sponsor thank-you note under Sponsors title in all languages",
+      "translated": "모든 언어의 Sponsors 제목 아래에 스폰서 감사 문구 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6e6476136 docs(readme): add OpenGateway sponsor table with logo across all languages",
+      "translated": "모든 언어에 로고가 포함된 OpenGateway 스폰서 표 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b55ded074 Merge pull request #7949 from code-yeongyu/feat/memorian-hint-meta-validation",
+      "translated": "Code-yeongyu/feat/memorian-hint-meta-validation으로부터의 풀 리퀘스트 #7949 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ce7bcb82e fix(memory-core): reject decision-commentary memorian hints",
+      "translated": "Decision-commentary memorian 힌트 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2f2f03e33 Merge pull request #7945 from code-yeongyu/feat/memorian-same-turn-steer-ko",
+      "translated": "Code-yeongyu/feat/memorian-same-turn-steer-ko로부터의 풀 리퀘스트 #7945 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ffc8292fd feat(memory-core): render the recall hint header in Korean for Korean hints",
+      "translated": "한국어 힌트에 대해 recall 힌트 헤더를 한국어로 렌더링"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fccfb7a5a test(memory-core): cover Korean recall hint header",
+      "translated": "한국어 recall 힌트 헤더 테스트 보완"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7c78c1464 Merge pull request #7943 from code-yeongyu/feat/memorian-recall-openers",
+      "translated": "Code-yeongyu/feat/memorian-recall-openers로부터의 풀 리퀘스트 #7943 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "85d0cb795 fix(memory): retire dream idle tick on stale extension ctx",
+      "translated": "오래된 extension ctx에서 dream idle tick 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "81f1e7daf Merge pull request #7941 from code-yeongyu/fix/task-updated-coalesce",
+      "translated": "Code-yeongyu/fix/task-updated-coalesce로부터의 풀 리퀘스트 #7941 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f906270e1 Merge pull request #7938 from code-yeongyu/fix/task-fast-mode-inherit-6795",
+      "translated": "Code-yeongyu/fix/task-fast-mode-inherit-6795로부터의 풀 리퀘스트 #7938 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7855da5f0 Merge pull request #7456 from code-yeongyu/feat/thread-tools-registration",
+      "translated": "Code-yeongyu/feat/thread-tools-registration로부터의 풀 리퀘스트 #7456 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "22a79fa19 fix(task): delegated children inherit the parent's fast mode via the -fast catalog sibling",
+      "translated": "위임된 하위 작업이 -fast 카탈로그 형제를 통해 부모의 fast mode를 상속하도록 수정"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e5c39d30d ci(windows): raise test timeouts for git/fs-heavy tests",
+      "translated": "Git/fs 부하가 큰 테스트의 타임아웃 시간 상향"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "31721f19c Merge pull request #7936 from code-yeongyu/fix/ulw-loop-toolkit-bun-be-bun",
+      "translated": "Code-yeongyu/fix/ulw-loop-toolkit-bun-be-bun으로부터의 풀 리퀘스트 #7936 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@sisyphus-dev-ai:",
+      "translated": "@sisyphus-dev-ai:"
+    }
+  ],
+  "translatedAt": "2026-09-08T21:16:46.695Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 10782
+}
