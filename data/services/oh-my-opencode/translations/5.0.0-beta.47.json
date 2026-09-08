@@ -1,0 +1,212 @@
+{
+  "version": "5.0.0-beta.47",
+  "date": "2026-09-07",
+  "parsedAt": "2026-09-08T04:42:41.473Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**late-judge salvage:** nudges the judge already accepted before its deadline are delivered instead of dropped. tool-call-launched judges get a 90 s deadline (was 45 s, judge p90 was 44 s, you can see why).",
+      "translated": "**지연된 judge 구제:** 마감 기한 전에 이미 수락된 nudge가 삭제되지 않고 전달됩니다. tool-call로 실행된 judge의 마감 기한이 90초로 늘어났습니다 (기존 45초, judge p90이 44초였던 점을 고려함)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**a deadline is not a failure anymore.** a judge that runs out of time with zero accepted nudges is `dropped` (cause `deadline`), so the red *\"Memorian gate failed - deadline\"* notice is gone for that case. 44 zero-token deadline aborts in 36 h on one host were rendering as failures. real provider breakage still shows as `child_failed`.",
+      "translated": "**마감 기한 초과를 더 이상 실패로 간주하지 않음.** 수락된 nudge가 없는 상태에서 시간이 초과된 judge는 `dropped`(`deadline` 사유) 처리되어, 해당 경우에 빨간색 *\"Memorian gate failed - deadline\"* 알림이 표시되지 않습니다. 단일 호스트에서 36시간 동안 발생한 44건의 제로 토큰 마감 중단이 실패로 표시되던 문제를 해결했습니다. 실제 프로바이더 오류는 여전히 `child_failed`로 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**run retention:** every judge run writes `outcome.json`. run dirs are pruned after 7 days, 30 when nudged, failed or dropped, throttled hourly.",
+      "translated": "**실행 기록 보관:** 모든 judge 실행 시 `outcome.json`을 기록합니다. 실행 디렉토리는 7일 후 삭제되며, nudge가 발생했거나 실패/삭제된 경우 30일 동안 보관됩니다. 이 작업은 매시간 제한적으로 수행됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**cross-process state lock.** every mutating CLI command (`create-goals`, `record-evidence`, `checkpoint`, ...) takes an `O_EXCL` lock file carrying pid + a per-acquisition token. stale locks are reclaimed only when the owner pid is dead, `release` unlinks only its own token, and a waiter that cannot acquire fails closed with `ULW_LOOP_LOCK_TIMEOUT` instead of proceeding unlocked. before this, three parallel `record-evidence` calls landed 1 of 3 criteria in 4 of 4 rounds while every process exited 0 with `ok: true`.",
+      "translated": "**프로세스 간 상태 잠금.** 상태를 변경하는 모든 CLI 명령어(`create-goals`, `record-evidence`, `checkpoint` 등)는 pid와 획득 시마다 생성되는 토큰을 포함한 `O_EXCL` 잠금 파일을 생성합니다. 오래된 잠금은 소유자 pid가 종료된 경우에만 회수되며, `release`는 자신의 토큰만 해제합니다. 잠금을 획득하지 못한 대기 프로세스는 잠금 없이 진행하는 대신 `ULW_LOOP_LOCK_TIMEOUT`과 함께 안전하게 종료(fail-closed)됩니다. 이전에는 세 개의 `record-evidence`가 병렬로 호출될 때 모든 프로세스가 `ok: true`로 종료되었음에도 불구하고 4라운드 내내 3개의 기준 중 1개만 반영되는 문제가 있었습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**fail-closed session scope.** without `--session-id` and without a session env key the CLI fell back to the cwd-global `.omo/ulw-loop/` root. from an eval kernel, which does not carry `PI_SESSION_ID`, the same session could read a stranger's plan. it refuses now, and the `ulw-loop` pointer omo-senpi injects carries `--session-id` so eval calls land in the right scope.",
+      "translated": "**세션 범위 안전 종료(fail-closed).** `--session-id`나 세션 환경 변수 키가 없으면 CLI가 현재 디렉토리의 전역 `.omo/ulw-loop/` 루트를 사용했습니다. `PI_SESSION_ID`가 없는 eval 커널에서 동일 세션이 타인의 플랜을 읽을 수 있는 문제가 있었으나, 이제는 이를 거부합니다. omo-senpi가 주입하는 `ulw-loop` 포인터에 `--session-id`가 포함되어 eval 호출이 올바른 범위 내에서 이루어집니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**locked legacy-plan migration.** the aggregate-objective migration no longer runs from inside a read. an unlocked read of a legacy plan fails with `ULW_LOOP_MIGRATION_REQUIRED` and names the recovery (run any mutating command once).",
+      "translated": "**잠금 기반 레거시 플랜 마이그레이션.** aggregate-objective 마이그레이션이 더 이상 읽기 작업 내부에서 실행되지 않습니다. 잠금 없이 레거시 플랜을 읽으려고 하면 `ULW_LOOP_MIGRATION_REQUIRED` 오류가 발생하며 복구 방법(상태 변경 명령어를 한 번 실행)을 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw's reply-listener daemon is identified through `Win32_Process` (PowerShell addressed via `SystemRoot`, not PATH), so it can be detected and stopped instead of being orphaned on the first status check. (#7885, thank you @LilMGenius)",
+      "translated": "OpenClaw의 reply-listener 데몬을 `Win32_Process`를 통해 식별합니다(PowerShell은 PATH가 아닌 `SystemRoot`를 통해 접근). 이를 통해 첫 번째 상태 확인 시 데몬이 고립(orphan)되지 않고 감지 및 중지될 수 있습니다. (#7885, @LilMGenius 님께 감사드립니다)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**#7914**: `lsp-daemon`'s `spawnDaemonProcess` launches the daemon through the compiled `omo` binary without `BUN_BE_BUN=1`, so an `ensureDaemonRunning` retry can boot a **phantom agent session** instead of a daemon. present on `dev` and in this release, fix in progress. if you see short sessions you did not start, `omo doctor` lists orphaned engines.",
+      "translated": "**#7914**: `lsp-daemon`의 `spawnDaemonProcess`가 `BUN_BE_BUN=1` 없이 컴파일된 `omo` 바이너리를 통해 데몬을 실행하므로, `ensureDaemonRunning` 재시도 시 데몬 대신 **phantom agent session**이 시작될 수 있습니다. `dev` 및 이번 릴리스에 존재하며 수정 중입니다. 직접 시작하지 않은 짧은 세션이 보이면 `omo doctor`로 고립된 엔진을 확인할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**#7912**: reflection reservation not reclaimed after a dead launcher (see memory above).",
+      "translated": "**#7912**: 종료된 launcher 이후 reflection reservation이 회수되지 않는 현상 (위의 memory 섹션 참조)."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**#7902**: DAG reconcile fails never-started nodes as `task_lost` instead of re-admitting them.",
+      "translated": "**#7902**: DAG reconcile 시 시작되지 않은 노드를 재수용하는 대신 `task_lost`로 처리하여 실패하는 문제."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b885f13f8 Merge pull request #7915 from code-yeongyu/release/v5.0.0-beta.47-source-state",
+      "translated": "Code-yeongyu/release/v5.0.0-beta.47-source-state로부터의 풀 리퀘스트 #7915 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f52d0cb85 Merge pull request #7911 from code-yeongyu/fix/memory-child-chain-provenance",
+      "translated": "Code-yeongyu/fix/memory-child-chain-provenance로부터의 풀 리퀘스트 #7911 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "df30a8e51 Merge pull request #7913 from code-yeongyu/fix/ulw-loop-lock-ownership",
+      "translated": "Code-yeongyu/fix/ulw-loop-lock-ownership로부터의 풀 리퀘스트 #7913 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af000e465 fix(ulw-loop): track held locks per async continuation and record tokens in lock fixtures",
+      "translated": "비동기 연속성(async continuation)별로 보유한 잠금을 추적하고 lock fixtures에 토큰 기록"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "306aa832c fix(ulw-loop): refuse the legacy aggregate-objective migration on read paths",
+      "translated": "읽기 경로에서 레거시 aggregate-objective 마이그레이션 거부"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "39c168e47 fix(ulw-loop): never reclaim a live owner's lock and release only an owned lock",
+      "translated": "활성 소유자의 잠금을 회수하지 않으며 소유한 잠금만 해제하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c55d97dc2 Merge remote-tracking branch 'origin/dev' into fix/memory-child-chain-provenance",
+      "translated": "원격 추적 브랜치 'origin/dev'를 fix/memory-child-chain-provenance로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "04282b3f8 Merge pull request #7910 from code-yeongyu/fix/skill-pointer-intent-honesty",
+      "translated": "Code-yeongyu/fix/skill-pointer-intent-honesty로부터의 풀 리퀘스트 #7910 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f0dbd3110 Merge branch 'lane/facts-chain' into fix/memory-child-chain-provenance",
+      "translated": "'lane/facts-chain' 브랜치를 fix/memory-child-chain-provenance로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a67cb3815 Merge branch 'lane/provenance' into fix/memory-child-chain-provenance",
+      "translated": "'lane/provenance' 브랜치를 fix/memory-child-chain-provenance로 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "eb4f0b75c Merge pull request #7908 from code-yeongyu/fix/ulw-loop-state-integrity",
+      "translated": "Code-yeongyu/fix/ulw-loop-state-integrity로부터의 풀 리퀘스트 #7908 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4714a3ab3 Merge pull request #7907 from code-yeongyu/fix/memorian-judge-quick-chain-fallback",
+      "translated": "Code-yeongyu/fix/memorian-judge-quick-chain-fallback로부터의 풀 리퀘스트 #7907 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d4345c5d5 docs(ulw-loop): document the session-scope requirement and the cross-process state lock",
+      "translated": "Session-scope 요구 사항 및 프로세스 간 상태 잠금(cross-process state lock)에 대한 문서화"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "30b7168d3 fix(ulw-loop): refuse unscoped state instead of falling back to the shared root",
+      "translated": "공유 루트로 폴백하는 대신 범위가 지정되지 않은(unscoped) 상태를 거부"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2449a155d fix(ulw-loop): serialize state mutations with a cross-process lock",
+      "translated": "프로세스 간 잠금(cross-process lock)을 사용하여 상태 변경을 직렬화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b21052132 Merge pull request #7906 from code-yeongyu/feat/memorian-aha-moment",
+      "translated": "Code-yeongyu/feat/memorian-aha-moment로부터의 풀 리퀘스트 #7906 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5e49066b9 Merge pull request #7905 from code-yeongyu/fix/dag-recovery-desktop-resume-20260907",
+      "translated": "Code-yeongyu/fix/dag-recovery-desktop-resume-20260907로부터의 풀 리퀘스트 #7905 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b78afb5c2 feat(memory-core): reserve recall query slots for tool-argument terms",
+      "translated": "도구 인자 용어를 위한 회상 쿼리 슬롯 예약"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "767069606 Merge pull request #7899 from code-yeongyu/fix/shutdown-drain-journal-starvation",
+      "translated": "Code-yeongyu/fix/shutdown-drain-journal-starvation으로부터의 풀 리퀘스트 #7899 병합"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6d404434b Merge pull request #7885 from LilMGenius/fix/windows-reply-listener-daemon-identity",
+      "translated": "LilMGenius/fix/windows-reply-listener-daemon-identity로부터의 풀 리퀘스트 #7885 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ef2dfcc66 test(openclaw-core): identify the reply-listener daemon against real child processes",
+      "translated": "실제 자식 프로세스를 대상으로 reply-listener 데몬 식별"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2fbe86904 fix(openclaw): identify the reply-listener daemon on Windows",
+      "translated": "Windows에서 reply-listener 데몬 식별"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "@sisyphus-dev-ai:",
+      "translated": "@sisyphus-dev-ai:"
+    }
+  ],
+  "translatedAt": "2026-09-08T04:43:57.701Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4499
+}
