@@ -1,0 +1,332 @@
+{
+  "version": "2.1.267",
+  "date": "2026-09-09",
+  "parsedAt": "2026-09-10T04:48:14.450Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `maxEffortLevel` setting (top-level or per model under `modelSettings`): caps the effort level on every provider, including Bedrock, Vertex and Foundry; users can still pick a lower level",
+      "translated": "`maxEffortLevel` 설정 추가 (최상위 또는 `modelSettings` 내 모델별 설정 가능): Bedrock, Vertex, Foundry를 포함한 모든 제공자의 노력 수준(effort level)을 제한하며, 사용자는 이보다 낮은 수준을 선택할 수 있습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `--system-prompt-snapshot off` to render the system prompt fresh on every request instead of reusing the conversation's recorded prompt (for iterating on prompt text)",
+      "translated": "대화에 기록된 프롬프트를 재사용하는 대신 매 요청마다 시스템 프롬프트를 새로 렌더링하는 `--system-prompt-snapshot off` 옵션 추가 (프롬프트 텍스트 반복 작업용)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Cowork scheduled tasks in the cloud failing at startup for organizations whose managed settings require sandboxing",
+      "translated": "관리형 설정에서 샌드박싱이 필요한 조직의 경우 클라우드 내 Cowork 예약 작업이 시작 시 실패하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/context` and other local command output rendering blank on mobile clients",
+      "translated": "모바일 클라이언트에서 `/context` 및 기타 로컬 명령어의 출력이 빈 화면으로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed shift+enter and option+backspace not working after reconnecting to a tmux or ssh session inside an agent view",
+      "translated": "에이전트 뷰 내에서 tmux 또는 ssh 세션에 재연결한 후 shift+enter 및 option+backspace가 작동하지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the dim last-prompt header not appearing at the top of the conversation when scrolling up in fullscreen mode",
+      "translated": "전체 화면 모드에서 위로 스크롤할 때 대화 상단에 흐릿한 마지막 프롬프트 헤더가 나타나지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Workflow `agent()` calls with large output schemas being refused in auto mode instead of being checked by the safety classifier",
+      "translated": "출력 스키마가 큰 Workflow `agent()` 호출이 자동 모드에서 안전 분류기(safety classifier)의 검사를 받는 대신 거부되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a case where a marketplace entry path containing a backslash could bypass the containment check for fetched marketplaces on macOS and Linux",
+      "translated": "macOS 및 Linux에서 백슬래시가 포함된 마켓플레이스 항목 경로가 가져온 마켓플레이스에 대한 포함 여부 확인(containment check)을 우회할 수 있던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed expired AWS or Google Cloud credentials under a host app such as Claude Desktop retrying ten times with a generic \"request failed\" before the re-authenticate error appeared",
+      "translated": "Claude Desktop과 같은 호스트 앱에서 AWS 또는 Google Cloud 자격 증명이 만료되었을 때, 재인증 오류가 표시되기 전 일반적인 \"request failed\" 메시지와 함께 10번 재시도하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a session after `/compact` or another slash command ran via `-p --resume`: a spurious \"Continue from where you left off.\" turn is no longer inserted",
+      "translated": "`/compact` 또는 다른 슬래시 명령어를 `-p --resume`을 통해 실행한 후 세션을 재개할 때, 불필요한 \"Continue from where you left off.\" 턴이 더 이상 삽입되지 않도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a large session (transcript over 5 MB): parallel tool calls and their hook output are no longer dropped from the reloaded conversation",
+      "translated": "대규모 세션(트랜스크립트 5MB 초과) 재개 시, 다시 로드된 대화에서 병렬 도구 호출 및 해당 훅(hook) 출력이 누락되지 않도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed `allowedHttpHookUrls`, `httpHookAllowedEnvVars` and `allowedChannelPlugins` to admit nothing, not everything, when unreadable",
+      "translated": "관리형 `allowedHttpHookUrls`, `httpHookAllowedEnvVars`, `allowedChannelPlugins` 설정을 읽을 수 없는 경우, 모든 항목을 허용하는 대신 아무것도 허용하지 않도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/login` on machines whose managed settings require Claude apps gateway sign-in: Esc now closes the dialog instead of doing nothing",
+      "translated": "관리형 설정에서 Claude 앱 게이트웨이 로그인이 필요한 기기에서 `/login` 실행 시, Esc 키를 누르면 아무 반응이 없는 대신 대화 상자가 닫히도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed artifact publishes cut off by a dropped connection mid-upload: they now retry once when Claude Code can tell the upload never completed, instead of reporting an unknown outcome",
+      "translated": "업로드 도중 연결이 끊겨 아티팩트 게시가 중단된 경우, 알 수 없는 결과로 보고하는 대신 Claude Code가 업로드 미완료를 감지하면 한 번 더 재시도하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `effort:` frontmatter on custom commands, skills, and subagents being ignored on models whose default effort is still pinned (Opus 4.7, Opus 4.8, Fable 5)",
+      "translated": "기본 노력 수준(effort)이 고정된 모델(Opus 4.7, Opus 4.8, Fable 5)에서 커스텀 명령어, 스킬, 서브 에이전트의 `effort:` 프런트매터(frontmatter)가 무시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed artifact publish failing with an unhelpful error when the page file isn't valid UTF-8 or contains a replacement character (U+FFFD); the error now names the line and column to fix",
+      "translated": "페이지 파일이 유효한 UTF-8이 아니거나 대체 문자(U+FFFD)를 포함하고 있어 아티팩트 게시가 실패할 때, 불분명한 오류 대신 수정해야 할 행과 열을 표시하도록 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` `@` directory menu not listing repositories created after the session started",
+      "translated": "`claude agents`의 `@` 디렉토리 메뉴에서 세션 시작 후 생성된 저장소가 목록에 표시되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control clients that join a Claude Desktop or VS Code session showing a stale permission mode until it was changed again",
+      "translated": "Claude Desktop 또는 VS Code 세션에 참여한 Remote Control 클라이언트에서 권한 모드가 변경되기 전까지 이전 상태로 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude remote-control` exiting and dropping every attached session when its server credential expires (about 30 days after start); the host now re-registers and keeps going",
+      "translated": "서버 자격 증명이 만료(시작 후 약 30일)될 때 `claude remote-control`이 종료되며 연결된 모든 세션이 끊기던 문제 수정. 이제 호스트가 다시 등록하고 연결을 유지합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the usage-limit warning flickering on and off during a session when requests for different models or modes report different limit windows",
+      "translated": "서로 다른 모델이나 모드에 대한 요청이 각기 다른 제한 기간을 보고할 때, 세션 중 사용량 제한 경고가 깜빡거리며 나타났다 사라지던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed earlier reasoning being dropped when an MCP server re-sends, or a built-in tool re-renders, a tool the model already loaded",
+      "translated": "MCP 서버가 재전송하거나 내장 도구가 재렌더링할 때, 모델이 이미 로드한 도구의 이전 추론(reasoning) 내용이 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a tool that disappears mid-conversation, from a disconnected MCP server or an upgrade, rewriting the tool list and discarding earlier thinking",
+      "translated": "MCP 서버 연결 해제나 업그레이드로 인해 대화 도중 도구가 사라지면서 도구 목록이 다시 작성되고 이전 사고 과정이 삭제되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a background worker forked from a conversation adding EnterWorktree to the conversation's tool block mid-session, which broke prompt-cache reuse",
+      "translated": "대화에서 포크된 백그라운드 워커가 세션 도중 대화의 도구 블록에 `EnterWorktree`를 추가하여 프롬프트 캐시 재사용이 중단되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed mid-session MCP and plugin tools being added to the tool list in sessions without ToolSearch, which broke prompt-cache reuse; supported models now receive them as deferred definitions",
+      "translated": "`ToolSearch`가 없는 세션에서 세션 도중 MCP 및 플러그인 도구가 도구 목록에 추가되어 프롬프트 캐시 재사용이 중단되는 문제를 수정했습니다. 이제 지원되는 모델은 이를 지연된 정의(deferred definitions)로 수신합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed switching models with /model re-sending every tool definition (a prompt-cache miss); commit and PR attribution text now arrives as a conversation note that updates on model changes",
+      "translated": "`/model`로 모델을 전환할 때 모든 도구 정의를 재전송하여 프롬프트 캐시 미스가 발생하는 문제를 수정했습니다. 이제 커밋 및 PR 속성 텍스트는 모델 변경 시 업데이트되는 대화 노트로 전달됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resumed sessions rewriting the inline tool set when an MCP connector reconnects at a different moment than before",
+      "translated": "MCP 커넥터가 이전과 다른 시점에 재연결될 때 재개된 세션에서 인라인 도구 세트가 다시 작성되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resumed sessions re-rendering tool descriptions instead of replaying the recorded ones when the first turn ran a tool",
+      "translated": "첫 번째 턴에서 도구를 실행했을 때 재개된 세션에서 기록된 도구 설명을 재생하는 대신 다시 렌더링하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed prompt-cache misses and dropped extended thinking when a claude.ai connector's tools change between a session and its resume",
+      "translated": "세션과 세션 재개 사이에 claude.ai 커넥터의 도구가 변경될 때 프롬프트 캐시 미스가 발생하고 확장된 사고 과정이 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resumed sessions rewriting earlier MCP tool announcements (and dropping extended thinking) before their connectors reconnect",
+      "translated": "커넥터가 재연결되기 전에 재개된 세션에서 이전 MCP 도구 알림을 다시 작성하고 확장된 사고 과정을 누락하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a prompt-cache break when a print-mode (`-p`) conversation is resumed interactively: the system prompt prefix no longer changes",
+      "translated": "출력 모드(`-p`) 대화를 대화형으로 재개할 때 프롬프트 캐시가 깨지는 문제를 수정했습니다. 이제 시스템 프롬프트 접두사가 변경되지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the `/diff` panel: it no longer flashes \"0 files changed\" and a spinner before settling, and its empty state is centered in the panel",
+      "translated": "`/diff` 패널을 개선했습니다. 이제 로딩 전 \"0 files changed\" 메시지와 스피너가 깜빡이지 않으며, 빈 상태의 메시지가 패널 중앙에 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Bash tool's description guidance so Claude describes what a command does in plain words instead of echoing the command",
+      "translated": "Bash 도구의 설명 가이드를 개선하여 Claude가 명령어를 그대로 반복하는 대신 명령어가 수행하는 작업을 일반적인 언어로 설명하도록 했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved sandbox guidance so Claude suggests `/copy` when clipboard commands such as `pbcopy` fail inside the sandbox",
+      "translated": "샌드박스 내부에서 `pbcopy`와 같은 클립보드 명령어가 실패할 경우 Claude가 `/copy`를 제안하도록 샌드박스 가이드를 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `--resume` first-render time for sessions with many Bash tool calls",
+      "translated": "Bash 도구 호출이 많은 세션의 `--resume` 첫 렌더링 시간을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved prompt input responsiveness: keystrokes no longer occasionally wait a frame behind spinner or streaming repaints",
+      "translated": "프롬프트 입력 응답성을 개선했습니다. 이제 키 입력이 스피너나 스트리밍 리페인트보다 한 프레임 지연되는 현상이 발생하지 않습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved prompt-cache stability: subagents and sessions started with `--system-prompt` or `--append-system-prompt` now record the system prompt and tool definitions once instead of re-rendering them",
+      "translated": "프롬프트 캐시 안정성을 개선했습니다. `--system-prompt` 또는 `--append-system-prompt`로 시작된 서브 에이전트와 세션이 시스템 프롬프트와 도구 정의를 다시 렌더링하는 대신 한 번만 기록합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Artifact tool publish errors: when a publish is refused, the message now says why and what to do about it",
+      "translated": "Artifact 도구 게시 오류를 개선했습니다. 게시가 거부될 경우 그 이유와 조치 방법이 메시지에 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Changed `--use-anthropic-git-proxy` to be reported to the server at registration and to print a warning for each session that still clones through the legacy git proxy",
+      "translated": "셀프 호스팅 러너: 등록 시 `--use-anthropic-git-proxy`가 서버에 보고되도록 변경했으며, 여전히 레거시 git 프록시를 통해 클론하는 세션에 대해 경고를 출력하도록 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: Changed `forward_user_identity` upstreams to return a 429 as-is to a developer whose email was forwarded, instead of failing over to the next upstream, so the proxy's per-user limits hold",
+      "translated": "게이트웨이: `forward_user_identity` 업스트림이 다음 업스트림으로 페일오버하는 대신 이메일이 전달된 개발자에게 429 오류를 그대로 반환하도록 변경하여 프록시의 사용자별 제한이 유지되도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the extension host hanging at 100% CPU when forking, editing an earlier message, or rewinding in a conversation whose saved transcript contains a cyclic parent link",
+      "translated": "[VSCode] 저장된 트랜스크립트에 순환 부모 링크가 포함된 대화에서 포크, 이전 메시지 편집 또는 되감기를 할 때 확장 프로그램 호스트가 CPU 100% 점유 상태로 멈추는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed pasting a screenshot on WSL2/WSLg inserting raw image bytes into the chat input; the image is now attached when the clipboard provides it, otherwise the paste is ignored",
+      "translated": "[VSCode] WSL2/WSLg에서 스크린샷을 붙여넣을 때 채팅 입력창에 원시 이미지 바이트가 삽입되던 문제를 수정했습니다. 이제 클립보드에 이미지가 있으면 첨부되고, 그렇지 않으면 붙여넣기가 무시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed chat diff blocks always rendering with a dark editor theme; they now follow the active VS Code color theme, including high contrast",
+      "translated": "[VSCode] 채팅 diff 블록이 항상 어두운 에디터 테마로 렌더링되던 문제를 수정했습니다. 이제 고대비 테마를 포함하여 활성화된 VS Code 컬러 테마를 따릅니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed mixed right-to-left and English text rendering in the wrong order while typing in the message input",
+      "translated": "[VSCode] 메시지 입력창에서 오른쪽에서 왼쪽으로 쓰는(RTL) 텍스트와 영문 텍스트가 혼용될 때 렌더링 순서가 잘못되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed accepting an edit in the diff view on a file with Windows (CRLF) line endings failing with \"String not found in file\"",
+      "translated": "[VSCode] Windows(CRLF) 줄 바꿈 형식을 사용하는 파일의 diff 뷰에서 편집 내용을 수락할 때 \"String not found in file\" 오류와 함께 실패하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed @-mentions dropping files whose paths contain spaces",
+      "translated": "[VSCode] @-멘션 시 경로에 공백이 포함된 파일이 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the sessions list view failing to load in windows connected over Remote-SSH when the workspace folder exists only on the remote host",
+      "translated": "[VSCode] 워크스페이스 폴더가 원격 호스트에만 존재하는 경우, Remote-SSH로 연결된 창에서 세션 목록 뷰가 로드되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed runaway ripgrep processes when viewing files in large or symlink-heavy workspaces",
+      "translated": "[VSCode] 대규모 워크스페이스나 심볼릭 링크가 많은 워크스페이스에서 파일을 볼 때 ripgrep 프로세스가 폭주하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed GitHub Enterprise Server sessions showing your GitHub account as disconnected once its token expired; PR and issue operations now refresh it automatically",
+      "translated": "[Claude Code on the web] GitHub Enterprise Server 세션에서 토큰이 만료되면 GitHub 계정이 연결 해제된 것으로 표시되던 문제를 수정했습니다. 이제 PR 및 issue 작업 시 자동으로 토큰을 갱신합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed `gh` and GitHub API calls failing in organizations without the Claude GitHub App; they now use your connected GitHub account and say so when none is connected",
+      "translated": "[Claude Code on the web] Claude GitHub App이 없는 조직에서 `gh` 및 GitHub API 호출이 실패하던 문제를 수정했습니다. 이제 연결된 GitHub 계정을 사용하며, 연결된 계정이 없는 경우 이를 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Added a \"Use a custom connector\" link to the preset connection forms in Claude Tag admin settings, so you can switch to a custom connection without starting over",
+      "translated": "[Claude Tag] Claude Tag 관리자 설정의 프리셋 연결 양식에 \"Use a custom connector\" 링크를 추가하여, 처음부터 다시 시작하지 않고도 커스텀 연결로 전환할 수 있게 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude replying \"The API rejected the request as invalid\" when the organization has run out of usage credits; the reply now says so and explains how to add more",
+      "translated": "[Claude Tag] 조직의 사용 크레딧이 소진되었을 때 Claude가 \"The API rejected the request as invalid\"라고 응답하던 문제를 수정했습니다. 이제 크레딧 소진 사실을 알리고 충전 방법을 안내합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed thread requests to edit or delete a message Claude posted at the channel's top level being answered with a correction instead of reaching the session that posted it",
+      "translated": "[Claude Tag] 채널의 최상위 레벨에 Claude가 게시한 메시지를 편집하거나 삭제하라는 스레드 요청이 해당 메시지를 게시한 세션에 전달되지 않고 수정 답변으로 처리되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed **Connect** on Tool access requests under Admin settings > Review requests failing with \"Authorization failed\" or showing the requested access bundle as deleted",
+      "translated": "[Claude Tag] 관리자 설정 > Review requests의 도구 액세스 요청에서 **Connect** 클릭 시 \"Authorization failed\" 오류가 발생하거나 요청된 액세스 번들이 삭제된 것으로 표시되던 문제를 수정했습니다."
+    }
+  ],
+  "translatedAt": "2026-09-10T04:49:44.699Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 7792
+}

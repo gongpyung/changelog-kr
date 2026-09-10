@@ -1,0 +1,1580 @@
+{
+  "version": "0.154.0",
+  "date": "2026-09-09",
+  "parsedAt": "2026-09-10T04:48:28.141Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "GPT-6-Astra is now available in the model picker and Amazon Bedrock catalogs. (#42879, #42619)",
+      "translated": "GPT-6-Astra를 모델 선택기와 Amazon Bedrock 카탈로그에서 사용할 수 있습니다. (#42879, #42619)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Experimental worktree support lets you create isolated checkouts for new or forked sessions using `--worktree` or `/worktree`, then browse and resume them. (#42652, #43069, #43120, #43286)",
+      "translated": "실험적인 worktree 지원을 통해 `--worktree` 또는 `/worktree`를 사용하여 새 세션이나 포크된 세션을 위한 격리된 체크아웃을 생성하고, 이를 탐색하거나 다시 시작할 수 있습니다. (#42652, #43069, #43120, #43286)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Answer questions inline while Codex continues working, using suggested choices or custom text without losing your main draft. (#42891, #42894, #42897)",
+      "translated": "Codex가 작업을 계속하는 동안 메인 초안을 유지하면서 제안된 선택지나 사용자 지정 텍스트를 사용하여 인라인으로 질문에 답변할 수 있습니다. (#42891, #42894, #42897)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Windows sessions can now share a background Codex server, with daemon lifecycle commands and managed updates. (#42405, #42392)",
+      "translated": "Windows 세션에서 백그라운드 Codex 서버를 공유할 수 있으며, 데몬 수명 주기 명령과 관리형 업데이트 기능이 제공됩니다. (#42405, #42392)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Vim editing gains `R` replace mode with undo and dot-repeat, plus more reliable Escape handling in legacy terminals. (#42194, #42584)",
+      "translated": "Vim 편집 모드에 실행 취소 및 dot-repeat를 지원하는 `R` 교체 모드가 추가되었으며, 레거시 터미널에서의 Escape 처리가 더욱 안정화되었습니다. (#42194, #42584)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Copying responses preserves formatting in rich-text apps, and `/copy` can copy status output or individual session fields. (#42847, #43055)",
+      "translated": "응답 복사 시 서식 있는 텍스트 앱에서도 형식이 유지되며, `/copy` 명령으로 상태 출력이나 개별 세션 필드를 복사할 수 있습니다. (#42847, #43055)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Existing sessions pick up newly installed plugin tools and refresh skills and hooks after external plugin upgrades or rollbacks. (#42284, #42593, #42990)",
+      "translated": "외부 플러그인 업그레이드 또는 롤백 후, 기존 세션에서 새로 설치된 플러그인 도구를 인식하고 스킬 및 훅을 새로고침합니다. (#42284, #42593, #42990)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP connections coordinate OAuth token refreshes and surface login challenges when refresh fails, without automatically replaying rejected tool calls. (#42413, #42552)",
+      "translated": "MCP 연결 시 OAuth 토큰 갱신을 조율하고 갱신 실패 시 로그인 챌린지를 표시하며, 거부된 도구 호출을 자동으로 재실행하지 않습니다. (#42413, #42552)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Startup avoids running workspace-controlled helpers before trust is established, and the macOS sandbox blocks terminal input injection. (#42324, #42590)",
+      "translated": "시작 시 신뢰 관계가 구축되기 전에는 워크스페이스 제어 헬퍼 실행을 방지하며, macOS 샌드박스에서 터미널 입력 주입을 차단합니다. (#42324, #42590)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Remote resume and fork operations preserve saved permissions; fresh sessions and forks respect server model defaults unless explicitly overridden. (#43330, #43177, #43355)",
+      "translated": "원격 재개 및 포크 작업 시 저장된 권한이 유지되며, 새 세션과 포크는 명시적으로 재정의하지 않는 한 서버 모델 기본값을 따릅니다. (#43330, #43177, #43355)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Resuming a conversation open in another app now shows a read-only transcript with a retry option while preserving your draft. (#43253)",
+      "translated": "다른 앱에서 열려 있는 대화를 다시 시작할 때 초안을 유지하면서 재시도 옵션이 포함된 읽기 전용 스크립트를 표시합니다. (#43253)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Automatic approval reviews better preserve authorization context through compaction and reject approvals invalidated by new user instructions or answers. (#42844, #42852, #43442)",
+      "translated": "자동 승인 검토 시 압축을 통해 권한 컨텍스트를 더 잘 보존하며, 새로운 사용자 지시나 답변으로 인해 무효화된 승인을 거부합니다. (#42844, #42852, #43442)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the bundled OpenAI Docs skill with GPT-6-Astra migration, compatibility, and prompting guidance. (#42931)",
+      "translated": "번들로 제공되는 OpenAI Docs 스킬을 GPT-6-Astra 마이그레이션, 호환성 및 프롬프트 작성 가이드와 함께 업데이트했습니다. (#42931)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The deprecated `codex mcp-server` entry point is no longer available. (#42993)",
+      "translated": "더 이상 사용되지 않는 `codex mcp-server` 엔트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42188 Fix punctuation in npm packaging documentation",
+      "translated": "Fix punctuation in npm packaging documentation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42192 Use native spawning for bare macOS MCP commands",
+      "translated": "Use native spawning for bare macOS MCP commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42194 Add Vim replace mode to the TUI composer",
+      "translated": "Add Vim replace mode to the TUI composer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42196 Add managed worktree creation",
+      "translated": "Add managed worktree creation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42199 Refactor shared TUI input routing",
+      "translated": "Refactor shared TUI input routing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42202 Separate TUI preferences from server configuration",
+      "translated": "Separate TUI preferences from server configuration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42204 Add macOS voice runtime projection",
+      "translated": "Add macOS voice runtime projection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42207 Retry TUI reconnects while threads are closing",
+      "translated": "Retry TUI reconnects while threads are closing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42208 Add GNU Linux voice runtime preparation",
+      "translated": "Add GNU Linux voice runtime preparation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42209 Add Windows voice runtime preparation",
+      "translated": "Add Windows voice runtime preparation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42247 Track history notes thread hint outcomes",
+      "translated": "Track history notes thread hint outcomes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42256 Skip Guardian scoring in User approval mode",
+      "translated": "Skip Guardian scoring in User approval mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42270 Report the exec-server release version in environment info",
+      "translated": "Report the exec-server release version in environment info"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42284 Refresh plugin skills after out-of-process version changes",
+      "translated": "Refresh plugin skills after out-of-process version changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42288 Fetch rules_rs zlib packages from Ubuntu snapshots",
+      "translated": "Fetch rules_rs zlib packages from Ubuntu snapshots"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42290 Expand Guardian history coverage across resume and rollback",
+      "translated": "Expand Guardian history coverage across resume and rollback"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42293 Preserve verified answers across history compaction",
+      "translated": "Preserve verified answers across history compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42298 Preserve retained answers across steer rollbacks",
+      "translated": "Preserve retained answers across steer rollbacks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42306 Stabilize the detached exec-server session resume test",
+      "translated": "Stabilize the detached exec-server session resume test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42309 Separate Windows sandbox provisioning from ACL refresh",
+      "translated": "Separate Windows sandbox provisioning from ACL refresh"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42314 Preserve target-native cwd in permission approval requests",
+      "translated": "Preserve target-native cwd in permission approval requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42316 Refactor exec-server startup futures",
+      "translated": "Refactor exec-server startup futures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42318 Support packaged managed Codex binary paths",
+      "translated": "Support packaged managed Codex binary paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42319 Show live context compaction status in the TUI",
+      "translated": "Show live context compaction status in the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42320 Make the app-server thread unload delay configurable",
+      "translated": "Make the app-server thread unload delay configurable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42324 Avoid executing PATH helpers before workspace trust",
+      "translated": "Avoid executing PATH helpers before workspace trust"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42325 Render completed assistant messages directly during replay",
+      "translated": "Render completed assistant messages directly during replay"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42326 Harden Windows control socket rendezvous",
+      "translated": "Harden Windows control socket rendezvous"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42328 Support durable reasoning configuration updates",
+      "translated": "Support durable reasoning configuration updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42330 Protect Windows sandbox binaries from inherited write access",
+      "translated": "Protect Windows sandbox binaries from inherited write access"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42332 Package prepared runtimes with the voice host",
+      "translated": "Package prepared runtimes with the voice host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42334 Add a Windows sandbox provisioning protocol",
+      "translated": "Add a Windows sandbox provisioning protocol"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42337 Add an authenticated Windows sandbox provisioning client",
+      "translated": "Add an authenticated Windows sandbox provisioning client"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42341 Add Windows sandbox service lifecycle scaffolding",
+      "translated": "Add Windows sandbox service lifecycle scaffolding"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42342 Harden Windows sandbox provisioning file handling",
+      "translated": "Harden Windows sandbox provisioning file handling"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42344 Prepare managed policy validation for Windows sandbox provisioning",
+      "translated": "Prepare managed policy validation for Windows sandbox provisioning"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42348 Add Windows sandbox client authentication",
+      "translated": "Add Windows sandbox client authentication"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42351 Enable authenticated Windows sandbox provisioning",
+      "translated": "Enable authenticated Windows sandbox provisioning"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42353 Add experimental Windows sandbox service provisioning",
+      "translated": "Add experimental Windows sandbox service provisioning"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42354 Add free-form asynchronous user messages",
+      "translated": "Add free-form asynchronous user messages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42356 Initialize questions in buffered replay test messages",
+      "translated": "Initialize questions in buffered replay test messages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42358 Extend rate limit reads with usage capabilities",
+      "translated": "Extend rate limit reads with usage capabilities"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42364 Support graceful daemon shutdown on Windows",
+      "translated": "Support graceful daemon shutdown on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42366 List managed worktrees for a repository",
+      "translated": "List managed worktrees for a repository"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42369 Keep SQLite history projection moving past invalid records",
+      "translated": "Keep SQLite history projection moving past invalid records"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42370 Improve MCP server startup error logging",
+      "translated": "Improve MCP server startup error logging"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42372 Add Luna Reserve usage fallback to the TUI",
+      "translated": "Add Luna Reserve usage fallback to the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42373 Add attributed exec process lifecycle telemetry",
+      "translated": "Add attributed exec process lifecycle telemetry"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42374 Extract PID startup into a dedicated module",
+      "translated": "Extract PID startup into a dedicated module"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42375 Clean up Windows sandbox resources on app uninstall",
+      "translated": "Clean up Windows sandbox resources on app uninstall"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42377 Make app-server realtime sessions always available",
+      "translated": "Make app-server realtime sessions always available"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42378 Route rollout reads through the canonical JSON decoder",
+      "translated": "Route rollout reads through the canonical JSON decoder"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42380 Require confirmation for safety-buffered retries",
+      "translated": "Require confirmation for safety-buffered retries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42381 Support managed app-server lifecycle on Windows",
+      "translated": "Support managed app-server lifecycle on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42383 Update rmcp to 3.2.0",
+      "translated": "Update rmcp to 3.2.0"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42384 Add an RMCP OAuth credential store adapter",
+      "translated": "Add an RMCP OAuth credential store adapter"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42385 Add experimental context management activation",
+      "translated": "Add experimental context management activation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42386 Expose loaded thread environments in app-server responses",
+      "translated": "Expose loaded thread environments in app-server responses"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42388 Recover deferred environments after provisioning failure",
+      "translated": "Recover deferred environments after provisioning failure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42391 Authorize `apply_patch` in the executor path context",
+      "translated": "Authorize `apply_patch` in the executor path context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42392 Support managed daemon updates on Windows",
+      "translated": "Support managed daemon updates on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42395 Expose the Codex version to commands and turn metadata",
+      "translated": "Expose the Codex version to commands and turn metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42397 Extract focused TUI logic into submodules",
+      "translated": "Extract focused TUI logic into submodules"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42399 Preserve restored input after resolved misalignment errors",
+      "translated": "Preserve restored input after resolved misalignment errors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42401 Discover TUI collaboration modes from the app server",
+      "translated": "Discover TUI collaboration modes from the app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42403 Expose the last accepted environment ready report",
+      "translated": "Expose the last accepted environment ready report"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42404 Read voice helper frames independently of pipe chunks",
+      "translated": "Read voice helper frames independently of pipe chunks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42405 Support the app-server daemon on Windows",
+      "translated": "Support the app-server daemon on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42406 Honor explicit plugin mentions during MCP startup",
+      "translated": "Honor explicit plugin mentions during MCP startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42408 Harden embedded composer input handling",
+      "translated": "Harden embedded composer input handling"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42410 Allow reviewing and continuing misalignment-paused chats",
+      "translated": "Allow reviewing and continuing misalignment-paused chats"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42413 Enable coordinated MCP OAuth refresh",
+      "translated": "Enable coordinated MCP OAuth refresh"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42417 Expose managed application network requirements",
+      "translated": "Expose managed application network requirements"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42419 Add session resume to the agent command center",
+      "translated": "Add session resume to the agent command center"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42422 Honor model requirements in Guardian computer-use scoring",
+      "translated": "Honor model requirements in Guardian computer-use scoring"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42425 Discover TUI experimental features from the server",
+      "translated": "Discover TUI experimental features from the server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42428 Use the shared composer in the agent command center",
+      "translated": "Use the shared composer in the agent command center"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42432 Box the TUI resume picker future",
+      "translated": "Box the TUI resume picker future"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42445 Include originator in plugin measurement analytics",
+      "translated": "Include originator in plugin measurement analytics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42451 Acknowledge pending TUI steers by submission ID",
+      "translated": "Acknowledge pending TUI steers by submission ID"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42453 Discover permission profiles from the app server",
+      "translated": "Discover permission profiles from the app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42455 Show live task details in the agent command center",
+      "translated": "Show live task details in the agent command center"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42458 Expose thread originators through the app-server API",
+      "translated": "Expose thread originators through the app-server API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42529 Register the Guardian thread context feature flag",
+      "translated": "Register the Guardian thread context feature flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42552 Preserve MCP authentication challenges on tool calls",
+      "translated": "Preserve MCP authentication challenges on tool calls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42577 Preserve target-native paths in command approvals",
+      "translated": "Preserve target-native paths in command approvals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42579 Persist verified user answers in Guardian thread context",
+      "translated": "Persist verified user answers in Guardian thread context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42584 Recover Vim escape input in legacy terminals",
+      "translated": "Recover Vim escape input in legacy terminals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42588 Require Guardian review for incompatible compaction checkpoints",
+      "translated": "Require Guardian review for incompatible compaction checkpoints"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42590 Harden the macOS sandbox against terminal input injection",
+      "translated": "Harden the macOS sandbox against terminal input injection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42593 Reload user config after local plugin installation",
+      "translated": "Reload user config after local plugin installation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42596 Record Windows sandbox private desktop usage",
+      "translated": "Record Windows sandbox private desktop usage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42598 Report MCP tool discovery errors in server status",
+      "translated": "Report MCP tool discovery errors in server status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42602 Deprecate detached review delivery",
+      "translated": "Deprecate detached review delivery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42603 Expose global metrics installation in `codex-otel`",
+      "translated": "Expose global metrics installation in `codex-otel`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42606 Support trusted headers for remote exec WebSockets",
+      "translated": "Support trusted headers for remote exec WebSockets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42607 Add GPT-6-Astra to the bundled model catalog",
+      "translated": "Add GPT-6-Astra to the bundled model catalog"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42609 Condense TUI startup warnings",
+      "translated": "Condense TUI startup warnings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42619 Add GPT-6-Astra to Amazon Bedrock catalogs",
+      "translated": "Add GPT-6-Astra to Amazon Bedrock catalogs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42623 Bound Noise handshakes by the exec server initialization timeout",
+      "translated": "Bound Noise handshakes by the exec server initialization timeout"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42624 Centralize prompt image detail modes",
+      "translated": "Centralize prompt image detail modes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42631 Initialize the packaged GStreamer runtime in the voice host",
+      "translated": "Initialize the packaged GStreamer runtime in the voice host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42634 Add an injectable attachment store to ThreadManager",
+      "translated": "Add an injectable attachment store to ThreadManager"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42638 Update GPT-6-Astra Fast tier speed description",
+      "translated": "Update GPT-6-Astra Fast tier speed description"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42639 Warn when saved model defaults are overridden",
+      "translated": "Warn when saved model defaults are overridden"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42640 Harden TUI parsing of assistant markup",
+      "translated": "Harden TUI parsing of assistant markup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42641 Restore the inline TUI after full-screen overlays",
+      "translated": "Restore the inline TUI after full-screen overlays"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42650 Render assistant file citations as local links",
+      "translated": "Render assistant file citations as local links"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42652 Add managed worktrees to `codex exec`",
+      "translated": "Add managed worktrees to `codex exec`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42654 Update the stable exec-server test to Codex 0.153.1",
+      "translated": "Update the stable exec-server test to Codex 0.153.1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42657 Use a generic fallback model name in status tests",
+      "translated": "Use a generic fallback model name in status tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42667 Tailor TUI cyber refusal notices to Daybreak eligibility",
+      "translated": "Tailor TUI cyber refusal notices to Daybreak eligibility"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42668 Cancel remote control enrollment on stdio shutdown",
+      "translated": "Cancel remote control enrollment on stdio shutdown"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42671 Preserve TUI sessions while starting replacement threads",
+      "translated": "Preserve TUI sessions while starting replacement threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42674 Persist server-advertised experimental features from the TUI",
+      "translated": "Persist server-advertised experimental features from the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42676 Add WebRTC negotiation to the voice host",
+      "translated": "Add WebRTC negotiation to the voice host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42677 Narrow async user message guidance",
+      "translated": "Narrow async user message guidance"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42682 Fix the worktrees experimental feature test fixture",
+      "translated": "Fix the worktrees experimental feature test fixture"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42716 Allow trusted symlinks beneath CODEX_HOME on macOS",
+      "translated": "Allow trusted symlinks beneath CODEX_HOME on macOS"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42718 Gate unified exec TTY support behind a feature flag",
+      "translated": "Gate unified exec TTY support behind a feature flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42741 Make the TUI symlink startup test Bazel-compatible",
+      "translated": "Make the TUI symlink startup test Bazel-compatible"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42744 Honor model-provided Guardian review policies",
+      "translated": "Honor model-provided Guardian review policies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42746 Handle pending network reviews after process completion",
+      "translated": "Handle pending network reviews after process completion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42749 Improve automatic thread naming in the TUI",
+      "translated": "Improve automatic thread naming in the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42752 Preserve response IDs for fast collaborator tool events",
+      "translated": "Preserve response IDs for fast collaborator tool events"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42755 Stabilize the interactive tmux startup safety test",
+      "translated": "Stabilize the interactive tmux startup safety test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42758 Propagate response tickets to Guardian reviews",
+      "translated": "Propagate response tickets to Guardian reviews"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42762 Retain user instructions in guardian thread context",
+      "translated": "Retain user instructions in guardian thread context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42767 Avoid port races in streamable HTTP tests",
+      "translated": "Avoid port races in streamable HTTP tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42770 Preserve acceptance order in retained thread context",
+      "translated": "Preserve acceptance order in retained thread context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42773 Avoid holding metadata permit during cold resume config load",
+      "translated": "Avoid holding metadata permit during cold resume config load"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42781 Add direct SigV4 transport to exec-server",
+      "translated": "Add direct SigV4 transport to exec-server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42791 Keep TUI prompt history tied to local settings",
+      "translated": "Keep TUI prompt history tied to local settings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42792 Extract the note input view into its own module",
+      "translated": "Extract the note input view into its own module"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42798 Add data-use disclosures to the user report dialog",
+      "translated": "Add data-use disclosures to the user report dialog"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42801 Keep the Windows sandbox command runner hidden",
+      "translated": "Keep the Windows sandbox command runner hidden"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42807 Add request-scoped Guardian approval decisions",
+      "translated": "Add request-scoped Guardian approval decisions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42811 Enable staging login issuer overrides in packaged builds",
+      "translated": "Enable staging login issuer overrides in packaged builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42814 Support custom report event titles",
+      "translated": "Support custom report event titles"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42819 Route Guardian approvals independently of async scoring",
+      "translated": "Route Guardian approvals independently of async scoring"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42821 Report managed filesystem policy in `codex doctor`",
+      "translated": "Report managed filesystem policy in `codex doctor`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42823 Expose managed WebMCP policy through the app server",
+      "translated": "Expose managed WebMCP policy through the app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42824 Refine user input guidance for GPT-6",
+      "translated": "Refine user input guidance for GPT-6"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42832 Preserve root authorization context in Guardian reviews",
+      "translated": "Preserve root authorization context in Guardian reviews"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42833 Preserve SystemRoot for Windows sandbox wrapper setup",
+      "translated": "Preserve SystemRoot for Windows sandbox wrapper setup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42835 Preserve Windows managed deny reads in the sandbox CLI",
+      "translated": "Preserve Windows managed deny reads in the sandbox CLI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42836 Make GPT-6-Astra user input guidance conditional",
+      "translated": "Make GPT-6-Astra user input guidance conditional"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42838 Preserve executor paths in Guardian approval reviews",
+      "translated": "Preserve executor paths in Guardian approval reviews"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42841 Add a native Windows MXC sandbox adapter",
+      "translated": "Add a native Windows MXC sandbox adapter"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42842 Add Astra sparkle effects to the TUI composer",
+      "translated": "Add Astra sparkle effects to the TUI composer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42844 Retain user instructions in Guardian context",
+      "translated": "Retain user instructions in Guardian context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42847 Preserve Markdown formatting when copying TUI responses",
+      "translated": "Preserve Markdown formatting when copying TUI responses"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42850 Use jemalloc for Linux musl binaries",
+      "translated": "Use jemalloc for Linux musl binaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42852 Harden Guardian reviews after context compaction",
+      "translated": "Harden Guardian reviews after context compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42854 Persist Daybreak preferences in thread metadata",
+      "translated": "Persist Daybreak preferences in thread metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42863 Preserve precedence across feature requirement aliases",
+      "translated": "Preserve precedence across feature requirement aliases"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42870 Avoid redundant filesystem sandbox path resolution",
+      "translated": "Avoid redundant filesystem sandbox path resolution"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42879 List GPT-6-Astra in the model picker",
+      "translated": "List GPT-6-Astra in the model picker"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42883 Add client-side exec-server RPC attempt metrics",
+      "translated": "Add client-side exec-server RPC attempt metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42889 Add TUI building blocks for inline async question editing",
+      "translated": "Add TUI building blocks for inline async question editing"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42891 Integrate asynchronous questions into the TUI",
+      "translated": "Integrate asynchronous questions into the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42894 Support selectable answers for asynchronous TUI questions",
+      "translated": "Support selectable answers for asynchronous TUI questions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42897 Add inline Other answers to async question choices",
+      "translated": "Add inline Other answers to async question choices"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42900 Establish root turn identity for independent tasks and memory requests",
+      "translated": "Establish root turn identity for independent tasks and memory requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42903 Preserve TUI question state and integrate history and queue navigation",
+      "translated": "Preserve TUI question state and integrate history and queue navigation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42904 Use static instructions for the Default collaboration mode",
+      "translated": "Use static instructions for the Default collaboration mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42931 Update OpenAI Docs skill guidance for GPT-6 Astra",
+      "translated": "Update OpenAI Docs skill guidance for GPT-6 Astra"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42933 Wait for turn analytics before shutting down the Guardian v2 test",
+      "translated": "Wait for turn analytics before shutting down the Guardian v2 test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42990 Refresh session hooks after external plugin updates",
+      "translated": "Refresh session hooks after external plugin updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#42993 Remove the deprecated `codex mcp-server` command",
+      "translated": "Remove the deprecated `codex mcp-server` command"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43000 Preserve the resolved multi-agent version when reverting threads",
+      "translated": "Preserve the resolved multi-agent version when reverting threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43002 Replace Guardian tickets with parent response IDs",
+      "translated": "Replace Guardian tickets with parent response IDs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43005 Add Guardian V2 failure reasons and connection timing metrics",
+      "translated": "Add Guardian V2 failure reasons and connection timing metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43031 Keep refreshed MCP tool catalogs with their clients",
+      "translated": "Keep refreshed MCP tool catalogs with their clients"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43039 Refresh live thread tools through `app/installed`",
+      "translated": "Refresh live thread tools through `app/installed`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43043 Avoid filesystem scans when seeding the agents overview",
+      "translated": "Avoid filesystem scans when seeding the agents overview"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43055 Allow `/copy` to copy status output and individual fields",
+      "translated": "Allow `/copy` to copy status output and individual fields"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43069 Support managed worktrees for interactive sessions and forks",
+      "translated": "Support managed worktrees for interactive sessions and forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43070 Clarify comments in CI setup and the Rust workflow",
+      "translated": "Clarify comments in CI setup and the Rust workflow"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43074 Show a retryable error when the apps popup fails to load",
+      "translated": "Show a retryable error when the apps popup fails to load"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43079 Add opt-in local audio devices to the voice helper",
+      "translated": "Add opt-in local audio devices to the voice helper"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43083 Supply Bazel-managed CMake and Ninja for the bundled Opus build",
+      "translated": "Supply Bazel-managed CMake and Ninja for the bundled Opus build"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43090 Send processed microphone audio over RTP in voice-host",
+      "translated": "Send processed microphone audio over RTP in voice-host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43097 Add a helper-backed realtime WebRTC session API",
+      "translated": "Add a helper-backed realtime WebRTC session API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43099 Add receipt-verified native voice SDK export",
+      "translated": "Add receipt-verified native voice SDK export"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43100 Add bounded incoming Opus RTP handling to the voice host",
+      "translated": "Add bounded incoming Opus RTP handling to the voice host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43102 Include GIO in voice SDKs and native runtimes",
+      "translated": "Include GIO in voice SDKs and native runtimes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43104 Move Guardian thread context into `guardianv2` configuration",
+      "translated": "Move Guardian thread context into `guardianv2` configuration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43109 Add explicit toolchain inputs for native voice builds",
+      "translated": "Add explicit toolchain inputs for native voice builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43110 Record reasoning effort changes in conversation history behind a flag",
+      "translated": "Record reasoning effort changes in conversation history behind a flag"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43111 Add a Bazel target for native voice dependencies",
+      "translated": "Add a Bazel target for native voice dependencies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43113 Save subagent and memory opt-ins through the app server",
+      "translated": "Save subagent and memory opt-ins through the app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43114 Add Bazel preparation for native voice runtimes",
+      "translated": "Add Bazel preparation for native voice runtimes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43117 Link Unix Bazel bindings against the prepared voice runtime",
+      "translated": "Link Unix Bazel bindings against the prepared voice runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43120 Add managed worktree creation to TUI session commands",
+      "translated": "Add managed worktree creation to TUI session commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43121 Require a prepared runtime when assembling voice helper packages",
+      "translated": "Require a prepared runtime when assembling voice helper packages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43125 Add explicit Windows tool selection for native voice builds",
+      "translated": "Add explicit Windows tool selection for native voice builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43126 Expose native Windows build tools through Bazel targets",
+      "translated": "Expose native Windows build tools through Bazel targets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43144 Add Windows MSVC Bazel targets for native voice libraries",
+      "translated": "Add Windows MSVC Bazel targets for native voice libraries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43147 Gate experimental context by model capability at session startup",
+      "translated": "Gate experimental context by model capability at session startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43177 Use server model defaults for fresh TUI startup",
+      "translated": "Use server model defaults for fresh TUI startup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43178 Allow guarded legacy resume with background migration enabled",
+      "translated": "Allow guarded legacy resume with background migration enabled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43244 Add bounded GStreamer playback components to the voice host",
+      "translated": "Add bounded GStreamer playback components to the voice host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43248 Connect voice-host RTP audio to speaker playback",
+      "translated": "Connect voice-host RTP audio to speaker playback"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43253 Show read-only conversations when resume encounters an active writer",
+      "translated": "Show read-only conversations when resume encounters an active writer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43261 Use server defaults when starting TUI background tasks",
+      "translated": "Use server defaults when starting TUI background tasks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43265 Add experimental user verification API contracts",
+      "translated": "Add experimental user verification API contracts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43279 Include linked worktrees in TUI session discovery",
+      "translated": "Include linked worktrees in TUI session discovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43281 Move npm package staging into a separate release workflow job",
+      "translated": "Move npm package staging into a separate release workflow job"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43282 Make Bazel binary stamping opt-in",
+      "translated": "Make Bazel binary stamping opt-in"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43286 Add a managed worktree browser to the TUI",
+      "translated": "Add a managed worktree browser to the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43289 Add capability-gated MCP user-verification handling",
+      "translated": "Add capability-gated MCP user-verification handling"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43298 Defer managed worktree transitions to fresh TUI loop iterations",
+      "translated": "Defer managed worktree transitions to fresh TUI loop iterations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43304 Isolate Bazel build commit metadata from Rust compilation inputs",
+      "translated": "Isolate Bazel build commit metadata from Rust compilation inputs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43308 Replace Windows app-server shutdown files with socket requests",
+      "translated": "Replace Windows app-server shutdown files with socket requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43315 Resolve session labels uniquely before acting on them",
+      "translated": "Resolve session labels uniquely before acting on them"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43325 Sort JSON schema object keys for consistent Cargo and Bazel output",
+      "translated": "Sort JSON schema object keys for consistent Cargo and Bazel output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43330 Preserve saved permissions when resuming or forking remote tasks",
+      "translated": "Preserve saved permissions when resuming or forking remote tasks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43340 Enable remote named permission profile selection in the TUI",
+      "translated": "Enable remote named permission profile selection in the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43352 Add opt-in MCP user-verification transport",
+      "translated": "Add opt-in MCP user-verification transport"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43355 Let the app server resolve implicit model settings for CLI forks",
+      "translated": "Let the app server resolve implicit model settings for CLI forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43359 Show the server's model provider ID in TUI status",
+      "translated": "Show the server's model provider ID in TUI status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43360 Use app-server metadata for TUI session restoration",
+      "translated": "Use app-server metadata for TUI session restoration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43376 Defer resume picker and directory changes to a fresh TUI stack",
+      "translated": "Defer resume picker and directory changes to a fresh TUI stack"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43408 Avoid WebSocket connection waits in Guardian v2 classification",
+      "translated": "Avoid WebSocket connection waits in Guardian v2 classification"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43419 Initialize `cwd` in TUI resume and fork test fixtures",
+      "translated": "Initialize `cwd` in TUI resume and fork test fixtures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43421 Remove the app-server README and its contributor guidance references",
+      "translated": "Remove the app-server README and its contributor guidance references"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43423 Remove the app-server docs update requirement from `AGENTS.md`",
+      "translated": "Remove the app-server docs update requirement from `AGENTS.md`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43426 Handle Luna HTTP requests in guardian history tests",
+      "translated": "Handle Luna HTTP requests in guardian history tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43428 Notify opted-in stdio MCP servers of auth changes",
+      "translated": "Notify opted-in stdio MCP servers of auth changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43432 Route approvals through the extension decision API",
+      "translated": "Route approvals through the extension decision API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43442 Keep Guardian review evidence consistent and reject stale approvals",
+      "translated": "Keep Guardian review evidence consistent and reject stale approvals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43444 Pin V8 release manifests and prevent published release replacement",
+      "translated": "Pin V8 release manifests and prevent published release replacement"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43447 Route MCP elicitations through the shared approval decision path",
+      "translated": "Route MCP elicitations through the shared approval decision path"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43454 Add diagnostic labels to shell snapshot capture metrics",
+      "translated": "Add diagnostic labels to shell snapshot capture metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43456 Wait for thread idle before rollback in model-switching tests",
+      "translated": "Wait for thread idle before rollback in model-switching tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43458 Centralize Guardian context mode and checkpoint policy",
+      "translated": "Centralize Guardian context mode and checkpoint policy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43462 Remove legacy Guardian approval review paths",
+      "translated": "Remove legacy Guardian approval review paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43472 Recover missing Guardian root instructions in acceptance order",
+      "translated": "Recover missing Guardian root instructions in acceptance order"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43478 Retain inherited Guardian instructions in standalone forks",
+      "translated": "Retain inherited Guardian instructions in standalone forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43490 Expose shared Guardian reviewer helpers through `guardian_review`",
+      "translated": "Expose shared Guardian reviewer helpers through `guardian_review`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43491 Include unloaded children in multi-agent v2 environment context",
+      "translated": "Include unloaded children in multi-agent v2 environment context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43494 Limit archive rollout reads to requested threads",
+      "translated": "Limit archive rollout reads to requested threads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43495 Allow internal sessions to fork from selected history",
+      "translated": "Allow internal sessions to fork from selected history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43504 Treat zombie processes as inactive in the Unix PID backend",
+      "translated": "Treat zombie processes as inactive in the Unix PID backend"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43513 Expose a stable executor build identity in environment metadata",
+      "translated": "Expose a stable executor build identity in environment metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#43519 Set `recursion_limit` to 256 for app-server, exec, and TUI",
+      "translated": "Set `recursion_limit` to 256 for app-server, exec, and TUI"
+    }
+  ],
+  "translatedAt": "2026-09-10T04:50:15.293Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 14237
+}
