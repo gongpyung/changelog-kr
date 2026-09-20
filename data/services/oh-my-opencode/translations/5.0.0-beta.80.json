@@ -1,0 +1,356 @@
+{
+  "version": "5.0.0-beta.80",
+  "date": "2026-09-20",
+  "parsedAt": "2026-09-20T20:52:24.626Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A machine that cannot persist its telemetry stamp no longer reports itself active on every launch. The daily-active gate read the stamp, wrote it back, and decided from the read while swallowing any write failure, so an unwritable state directory reported a new active day indefinitely, and several processes starting at once on a fresh day each reported one. The decision is now the result of an exclusive file create, so exactly one caller per UTC day proceeds and an unwritable directory is capped at one report per process. Event names, properties and identity derivation are untouched, and a day already stamped still returns without writing anything. ([#8519](https://github.com/code-yeongyu/oh-my-openagent/issues/8519))",
+      "translated": "텔레메트리 스탬프를 유지할 수 없는 기기가 실행될 때마다 활성 상태로 보고되던 문제를 해결했습니다. 일일 활성 게이트가 스탬프를 읽고 다시 쓰는 과정에서 쓰기 실패를 무시했기 때문에, 쓰기 권한이 없는 상태 디렉토리가 새 활성일을 무한히 보고하거나 여러 프로세스가 동시에 시작될 때 각각 보고하는 문제가 있었습니다. 이제 배타적 파일 생성을 통해 결정되므로 UTC 기준 하루에 단 하나의 호출자만 진행되며, 쓰기 불가능한 디렉토리는 프로세스당 한 번의 보고로 제한됩니다. 이벤트 이름, 속성 및 ID 파생 방식은 변경되지 않았으며, 이미 스탬프가 찍힌 날은 아무것도 기록하지 않고 반환됩니다. ([#8519](https://github.com/code-yeongyu/oh-my-openagent/issues/8519))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The memory pressure advisory counts the text your model is actually shown again. A recent change estimated from the sizes git stored, which reads low for any `system/` file holding invalid UTF-8 and reported no pressure at all when the repository could not be read; both are restored, and the estimate is still computed once per commit rather than once per prompt.",
+      "translated": "메모리 압박 권고 기능이 모델에 실제로 표시되는 텍스트를 다시 계산합니다. 최근 변경 사항에서 git에 저장된 크기를 기준으로 추정했으나, 이는 유효하지 않은 UTF-8이 포함된 `system/` 파일의 크기를 낮게 측정하거나 저장소를 읽을 수 없을 때 압박을 전혀 보고하지 않는 문제가 있었습니다. 이 두 가지를 모두 복구했으며, 추정치는 여전히 프롬프트당 한 번이 아닌 커밋당 한 번 계산됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo doctor` sees your running sessions again. It recognised engines by one spelling of their command line, and the launcher stopped producing that spelling when it moved onto the engine's pre-linked bundle, so the stale-session report and its reap command had been looking at an empty list on current installs.",
+      "translated": "`omo doctor`가 실행 중인"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The reminder that your soul files changed no longer re-reads the whole memory history to find out. It asked git for every commit since the last notice that touched `system/`, which on an identity with thousands of commits costs most of a second on every prompt; it now reads a page and only looks further when that page is entirely memory-tool writes. The notice it produces is the same one.",
+      "translated": "The reminder that your soul files changed no longer re-reads the whole memory history to find out. It asked git for every commit since the last notice that touched `system/`, which on an identity with thousands of commits costs most of a second on every prompt; it now reads a page and only looks further when that page is entirely memory-tool writes. The notice it produces is the same one."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Every prompt in a directory with a memory identity re-read the same files from git. The memory pressure advisory listed the repository tree and read each `system/*.md` blob again on every turn, and the save reminder asked git for the entire commit history and searched it here. Both answers only change when the memory repository gains a commit, so both are now derived once per commit: five fewer git processes per prompt, and a megabyte of commit history that no longer crosses the process boundary on a repository with three thousand commits. What the model receives is unchanged.",
+      "translated": "Every prompt in a directory with a memory identity re-read the same files from git. The memory pressure advisory listed the repository tree and read each `system/*.md` blob again on every turn, and the save reminder asked git for the entire commit history and searched it here. Both answers only change when the memory repository gains a commit, so both are now derived once per commit: five fewer git processes per prompt, and a megabyte of commit history that no longer crosses the process boundary on a repository with three thousand commits. What the model receives is unchanged."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2dd4002e9 Merge pull request #8546 from code-yeongyu/release/v5.0.0-beta.80-source-state",
+      "translated": "Merge pull request #8546 from code-yeongyu/release/v5.0.0-beta.80-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8ad4f4157 Merge pull request #8542 from code-yeongyu/docs/changelog-omob-daily-active-20260920",
+      "translated": "Merge pull request #8542 from code-yeongyu/docs/changelog-omob-daily-active-20260920"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "83275ac58 docs(changelog): record the omob speed work and the daily-active claim",
+      "translated": "Record the omob speed work and the daily-active claim"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "91ca94f64 Merge pull request #8537 from code-yeongyu/fix/8532-pressure-decoded-bytes",
+      "translated": "Merge pull request #8537 from code-yeongyu/fix/8532-pressure-decoded-bytes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "628414f51 test(memory): pin the failure contract at the prompt seam, not only in the unit",
+      "translated": "Pin the failure contract at the prompt seam, not only in the unit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "80f56c095 docs(changelog): record the pressure-estimate repair",
+      "translated": "Record the pressure-estimate repair"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c660b2d27 fix(memory): count the decoded system text again in the pressure estimate",
+      "translated": "Count the decoded system text again in the pressure estimate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c0b58c9b Merge pull request #8534 from code-yeongyu/fix/8528-doctor-engine-marker",
+      "translated": "Merge pull request #8534 from code-yeongyu/fix/8528-doctor-engine-marker"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "208fff2a5 docs(changelog): record the doctor engine-marker fix",
+      "translated": "Record the doctor engine-marker fix"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "589907d6f fix(omo-native): let doctor see engines started from the bundled entry",
+      "translated": "Let doctor see engines started from the bundled entry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "128d4263a Merge pull request #8533 from code-yeongyu/perf/soul-watermark-bounded",
+      "translated": "Merge pull request #8533 from code-yeongyu/perf/soul-watermark-bounded"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3ffd717dd docs(changelog): record the bounded soul-notice scan",
+      "translated": "Record the bounded soul-notice scan"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e62688916 perf(memory): bound the soul-notice scan to a page before widening",
+      "translated": "Bound the soul-notice scan to a page before widening"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e60c510d Merge pull request #8526 from code-yeongyu/feat/category-deep-split",
+      "translated": "Merge pull request #8526 from code-yeongyu/feat/category-deep-split"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c6878589a fix(omo-opencode): point the edition's own deep tests at the split lanes",
+      "translated": "Point the edition's own deep tests at the split lanes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "64ca5135c fix(skills,config): finish the rename at the sync overlay and stop deprecation from failing validation",
+      "translated": "Finish the rename at the sync overlay and stop deprecation from failing validation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24a91a879 docs(changelog,agents): document the deep lane split and regenerate the bundles",
+      "translated": "Document the deep lane split and regenerate the bundles"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2a3e8609a feat(config,skills,docs): carry the deep-low/deep-high split across every consumer",
+      "translated": "Carry the deep-low/deep-high split across every consumer"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "404881ff0 feat(categories): split deep into deep-low and deep-high routed by capability",
+      "translated": "Split deep into deep-low and deep-high routed by capability"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7b54c7c31 Merge pull request #8532 from code-yeongyu/perf/memory-first-prompt-git",
+      "translated": "Merge pull request #8532 from code-yeongyu/perf/memory-first-prompt-git"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3f080c0aa Merge pull request #8531 from code-yeongyu/fix/omob-marker-content-digest",
+      "translated": "Merge pull request #8531 from code-yeongyu/fix/omob-marker-content-digest"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e980dfd7 Merge pull request #8514 from code-yeongyu/fix/task-host-product-gates",
+      "translated": "Merge pull request #8514 from code-yeongyu/fix/task-host-product-gates"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ec816b3d7 docs(changelog): record the per-prompt memory git reduction",
+      "translated": "Record the per-prompt memory git reduction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b229d8f40 perf(memory): let git find the nudge's last save instead of reading every commit",
+      "translated": "Let git find the nudge's last save instead of reading every commit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a8788e07a perf(memory): memoize the prompt's pressure estimate by HEAD",
+      "translated": "Memoize the prompt's pressure estimate by HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c4af9eef5 fix(omob): verify the executable's bytes, not just its stat metadata",
+      "translated": "Verify the executable's bytes, not just its stat metadata"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5ca575fc1 Merge pull request #8530 from code-yeongyu/fix/omob-gate-blockers",
+      "translated": "Merge pull request #8530 from code-yeongyu/fix/omob-gate-blockers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14324a988 fix(omob): close the gate blockers in the dev-binary build and refresh",
+      "translated": "Close the gate blockers in the dev-binary build and refresh"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f7df95ba4 Merge pull request #8527 from code-yeongyu/chore/writing-chain-low-rungs",
+      "translated": "Merge pull request #8527 from code-yeongyu/chore/writing-chain-low-rungs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc403b39f fix(telemetry,script): ship claude-opus-4-6 as a current recommendation",
+      "translated": "Ship claude-opus-4-6 as a current recommendation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "80d21b93e feat(categories): run writing at low and add a claude-opus-4-6 rung",
+      "translated": "Run writing at low and add a claude-opus-4-6 rung"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4ec2cdf65 Merge pull request #8524 from code-yeongyu/perf/8522-omob-native-build-profile",
+      "translated": "Merge pull request #8524 from code-yeongyu/perf/8522-omob-native-build-profile"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0d2dba3a8 test(script): assert the build graph from its module, not build.ts source text",
+      "translated": "Assert the build graph from its module, not build.ts source text"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7f8cf033d Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b8dce8d5e perf(omob): build only what the dev binary embeds",
+      "translated": "Build only what the dev binary embeds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d37a7f2ed Merge pull request #8523 from code-yeongyu/perf/8521-omob-launcher-fast-path",
+      "translated": "Merge pull request #8523 from code-yeongyu/perf/8521-omob-launcher-fast-path"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ccae8754a perf(omob): stop spending four git processes per repo on the refresh",
+      "translated": "Stop spending four git processes per repo on the refresh"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "684bb25a7 perf(omob): cut the managed launcher's pre-exec refresh",
+      "translated": "Cut the managed launcher's pre-exec refresh"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "444cd9dda Merge pull request #8520 from code-yeongyu/fix/daily-active-dedupe-fail-closed",
+      "translated": "Merge pull request #8520 from code-yeongyu/fix/daily-active-dedupe-fail-closed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a38b89dab Merge remote-tracking branch 'origin/dev' into fix/daily-active-dedupe-fail-closed",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/daily-active-dedupe-fail-closed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1f573a926 Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fcf503f1e Merge pull request #8518 from code-yeongyu/fix/fallback-architect-any-refusal",
+      "translated": "Merge pull request #8518 from code-yeongyu/fix/fallback-architect-any-refusal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7fd71c871 fix(telemetry-core): claim the UTC day atomically so daily-active cannot repeat",
+      "translated": "Claim the UTC day atomically so daily-active cannot repeat"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cf461d52a Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-host-product-gates"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fd02a47cf Merge pull request #8515 from code-yeongyu/fix/detached-session-four-sites-20260920",
+      "translated": "Merge pull request #8515 from code-yeongyu/fix/detached-session-four-sites-20260920"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e614da3ce Merge pull request #8508 from code-yeongyu/fix/task-host-e2e-storm-loop-guard",
+      "translated": "Merge pull request #8508 from code-yeongyu/fix/task-host-e2e-storm-loop-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d56cc0522 Merge pull request #8504 from code-yeongyu/fix/8501-windows-console-hide",
+      "translated": "Merge pull request #8504 from code-yeongyu/fix/8501-windows-console-hide"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ce3d11cb4 Merge pull request #8506 from code-yeongyu/fix/task-host-e2e-observe-budget",
+      "translated": "Merge pull request #8506 from code-yeongyu/fix/task-host-e2e-observe-budget"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "155602b9c fix(test): normalize win32 directory entries in the console-hide gates",
+      "translated": "Normalize win32 directory entries in the console-hide gates"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "51847483d docs(qa): record the #8501 console-hide QA evidence",
+      "translated": "Record the #8501 console-hide QA evidence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e337811f7 chore(changelog): record the win32 console-flash fix",
+      "translated": "Record the win32 console-flash fix"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f1ba91438 fix(memory-core): keep memory git and start-identity spawns off a console on win32",
+      "translated": "Keep memory git and start-identity spawns off a console on win32"
+    }
+  ],
+  "translatedAt": "2026-09-20T20:52:55.624Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 5195
+}
