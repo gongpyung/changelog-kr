@@ -1,0 +1,698 @@
+{
+  "version": "2.1.280",
+  "date": "2026-09-22",
+  "parsedAt": "2026-09-22T17:00:16.068Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added Claude Opus 5.5 (`claude-opus-5-5`), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads",
+      "translated": "Added Claude Opus 5.5 (`claude-opus-5-5`), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added mouse support to more lists in fullscreen mode: the wheel scrolls the `/skills` list, and a skill's state options in `/plugin` can be clicked",
+      "translated": "Added mouse support to more lists in fullscreen mode: the wheel scrolls the `/skills` list, and a skill's state options in `/plugin` can be clicked"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH` to change the 2,048-character cap on MCP tool descriptions and server instructions for every MCP server in the session",
+      "translated": "Added `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH` to change the 2,048-character cap on MCP tool descriptions and server instructions for every MCP server in the session"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added hook output sizes and the number of oversized outputs saved to a file to the `hook_execution_complete` OpenTelemetry event",
+      "translated": "Added hook output sizes and the number of oversized outputs saved to a file to the `hook_execution_complete` OpenTelemetry event"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed writes through a symlinked path being judged by their in-tree spelling: the prompt names where the write lands, and `acceptEdits`, allow rules and auto mode no longer approve one landing outside",
+      "translated": "Fixed writes through a symlinked path being judged by their in-tree spelling: the prompt names where the write lands, and `acceptEdits`, allow rules and auto mode no longer approve one landing outside"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode retrying an action over and over when a safety check declined to review it; the action is now denied once, noting that retrying won't help",
+      "translated": "Fixed auto mode retrying an action over and over when a safety check declined to review it; the action is now denied once, noting that retrying won't help"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode denying actions over and over without pause when a safety check gave no answer; retries now back off, and the turn stops with a message after ten in a row",
+      "translated": "Fixed auto mode denying actions over and over without pause when a safety check gave no answer; retries now back off, and the turn stops with a message after ten in a row"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Write calls failing validation when a model sends `path`, `file_text`, `file_content` or a stray `description` instead of `file_path` and `content`",
+      "translated": "Fixed Write calls failing validation when a model sends `path`, `file_text`, `file_content` or a stray `description` instead of `file_path` and `content`"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/config`, `/status`, `/usage`, `/plugin`, `/sandbox`, `/permissions`, `/artifacts`, `/mobile`, `/login`, `/upgrade`, `/usage-credits`, `/install-github-app`, `/setup-bedrock`, `/setup-vertex`) quitting Claude Code instead of closing the dialog",
+      "translated": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/config`, `/status`, `/usage`, `/plugin`, `/sandbox`, `/permissions`, `/artifacts`, `/mobile`, `/login`, `/upgrade`, `/usage-credits`, `/install-github-app`, `/setup-bedrock`, `/setup-vertex`) quitting Claude Code instead of closing the dialog"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a click that only brought the terminal window to the front also triggering the item under the pointer — in search pickers, tab bars, agent/workflow rows, slash-command links and suggestion dropdowns",
+      "translated": "Fixed a click that only brought the terminal window to the front also triggering the item under the pointer — in search pickers, tab bars, agent/workflow rows, slash-command links and suggestion dropdowns"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a stray `n` closing dialogs and a stray `y` confirming them; Enter and Esc accept and cancel (bind `y`/`n` to `confirm:yes`/`confirm:no` in `keybindings.json` to restore)",
+      "translated": "Fixed a stray `n` closing dialogs and a stray `y` confirming them; Enter and Esc accept and cancel (bind `y`/`n` to `confirm:yes`/`confirm:no` in `keybindings.json` to restore)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed text fields in dialogs losing a typed letter, digit or Space to a keybinding on that key",
+      "translated": "Fixed text fields in dialogs losing a typed letter, digit or Space to a keybinding on that key"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the prompt line staying scrambled on Windows terminals after invisible characters were removed on Enter; the screen is now repainted so you review the exact text that will be sent",
+      "translated": "Fixed the prompt line staying scrambled on Windows terminals after invisible characters were removed on Enter; the screen is now repainted so you review the exact text that will be sent"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the invisible-character cleanup removing the zero-width non-joiner that Persian and Arabic text uses to attach a suffix to a Latin word or number, such as the plural of \"PDF\"",
+      "translated": "Fixed the invisible-character cleanup removing the zero-width non-joiner that Persian and Arabic text uses to attach a suffix to a Latin word or number, such as the plural of \"PDF\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed voice dictation not stopping on Ctrl+C (the prompt cleared but the microphone kept recording), Esc not cancelling while a transcript was processing, and held Space starting dictation from the transcript view and vim NORMAL mode",
+      "translated": "Fixed voice dictation not stopping on Ctrl+C (the prompt cleared but the microphone kept recording), Esc not cancelling while a transcript was processing, and held Space starting dictation from the transcript view and vim NORMAL mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a model switch made from a host app (Claude Desktop, VS Code, SDK) while Claude is working causing a prompt-cache miss on the next prompt",
+      "translated": "Fixed a model switch made from a host app (Claude Desktop, VS Code, SDK) while Claude is working causing a prompt-cache miss on the next prompt"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resumed fork subagents rebuilding their tool list instead of re-sending the one they first used, which broke prompt caching for that agent",
+      "translated": "Fixed resumed fork subagents rebuilding their tool list instead of re-sending the one they first used, which broke prompt caching for that agent"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent hand-back messages showing an internal provenance preamble when expanded outside verbose mode",
+      "translated": "Fixed subagent hand-back messages showing an internal provenance preamble when expanded outside verbose mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `installed_plugins.json` keeping the install-time commit after updating a plugin from a GitHub repository or git URL that tracks a branch or tag",
+      "translated": "Fixed `installed_plugins.json` keeping the install-time commit after updating a plugin from a GitHub repository or git URL that tracks a branch or tag"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skills in `~/.claude/skills/` being moved to `~/.claude/skills/.trash/` when a `manifest.json` in that folder listed their names",
+      "translated": "Fixed skills in `~/.claude/skills/` being moved to `~/.claude/skills/.trash/` when a `manifest.json` in that folder listed their names"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the session feedback survey showing no hover highlight on light and ANSI themes",
+      "translated": "Fixed the session feedback survey showing no hover highlight on light and ANSI themes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/workflows` briefly showing a one-row list before opening the only run",
+      "translated": "Fixed `/workflows` briefly showing a one-row list before opening the only run"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the mouse wheel not scrolling selection lists with hidden options (such as `/model` and `/permissions`) in fullscreen mode",
+      "translated": "Fixed the mouse wheel not scrolling selection lists with hidden options (such as `/model` and `/permissions`) in fullscreen mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a skill you switched off showing the same red ✘ as a plugin that failed to load in `/plugin` and `/skills`; off now shows a dim ◯",
+      "translated": "Fixed a skill you switched off showing the same red ✘ as a plugin that failed to load in `/plugin` and `/skills`; off now shows a dim ◯"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed multi-select option descriptions being indented under the option number instead of under the label",
+      "translated": "Fixed multi-select option descriptions being indented under the option number instead of under the label"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the search box in `/plugin`, `/skills` and `/mcp` losing its right border in fullscreen mode",
+      "translated": "Fixed the search box in `/plugin`, `/skills` and `/mcp` losing its right border in fullscreen mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/mcp` showing △ in the server list but ⚠ in the detail view for the same server; the list, detail views and `/plugin` now all show ⚠",
+      "translated": "Fixed `/mcp` showing △ in the server list but ⚠ in the detail view for the same server; the list, detail views and `/plugin` now all show ⚠"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Home and End doing nothing in the `/config` settings list and in selection lists such as `/model`, `/memory` and permission prompts",
+      "translated": "Fixed Home and End doing nothing in the `/config` settings list and in selection lists such as `/model`, `/memory` and permission prompts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PgUp/PgDn in the `/skills` menu wrapping past the first or last skill instead of stopping there",
+      "translated": "Fixed PgUp/PgDn in the `/skills` menu wrapping past the first or last skill instead of stopping there"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Tab silently changing the selected setting's value in the `/config` list; it now does nothing there",
+      "translated": "Fixed Tab silently changing the selected setting's value in the `/config` list; it now does nothing there"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed conversations failing on every turn with a \"role 'system' must precede an 'assistant' message\" API error",
+      "translated": "Fixed conversations failing on every turn with a \"role 'system' must precede an 'assistant' message\" API error"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed conversations with the advisor on failing every turn with API Error 400 \"Input tag 'advisor_20260301'\" behind a proxy or gateway that doesn't support it; the request now retries without it",
+      "translated": "Fixed conversations with the advisor on failing every turn with API Error 400 \"Input tag 'advisor_20260301'\" behind a proxy or gateway that doesn't support it; the request now retries without it"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a session failing on every turn and `/compact` when its saved history held a malformed notice about MCP tools that could not be loaded",
+      "translated": "Fixed a session failing on every turn and `/compact` when its saved history held a malformed notice about MCP tools that could not be loaded"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a crash when resuming a session whose saved transcript holds a malformed system message or a memory-saved notice without its file list",
+      "translated": "Fixed a crash when resuming a session whose saved transcript holds a malformed system message or a memory-saved notice without its file list"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed one cause of long-running fullscreen sessions exiting with \"Claude Code exited after an unrecoverable interface error\": a damaged cached message list is now rebuilt",
+      "translated": "Fixed one cause of long-running fullscreen sessions exiting with \"Claude Code exited after an unrecoverable interface error\": a damaged cached message list is now rebuilt"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude Code hanging when a settings file, or a file it re-reads after an edit, is replaced by a named pipe mid-read",
+      "translated": "Fixed Claude Code hanging when a settings file, or a file it re-reads after an edit, is replaced by a named pipe mid-read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/config` crashing and some on/off preferences being misread when a preference that has moved to `settings.json` still holds a value like `null` or `\"false\"` in `~/.claude.json`",
+      "translated": "Fixed `/config` crashing and some on/off preferences being misread when a preference that has moved to `settings.json` still holds a value like `null` or `\"false\"` in `~/.claude.json`"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resuming a session with unfinished background agents, shells or workflows starting a model turn on its own before you typed anything",
+      "translated": "Fixed resuming a session with unfinished background agents, shells or workflows starting a model turn on its own before you typed anything"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed messages sent to a background subagent being silently lost in headless and SDK sessions when the subagent was finishing its turn",
+      "translated": "Fixed messages sent to a background subagent being silently lost in headless and SDK sessions when the subagent was finishing its turn"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a finished subagent's report being lost when the conversation that launched it was compacted before the report was read",
+      "translated": "Fixed a finished subagent's report being lost when the conversation that launched it was compacted before the report was read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background subagents being unable to use the LSP tool when an LSP plugin is active",
+      "translated": "Fixed background subagents being unable to use the LSP tool when an LSP plugin is active"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background shell tasks reporting benign non-zero exits (e.g. grep with no matches) as failures",
+      "translated": "Fixed background shell tasks reporting benign non-zero exits (e.g. grep with no matches) as failures"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background sessions (`claude --bg`) being unable to run git, hooks, plugins and other helper programs when an environment variable handed to the session contained a NUL character",
+      "translated": "Fixed background sessions (`claude --bg`) being unable to run git, hooks, plugins and other helper programs when an environment variable handed to the session contained a NUL character"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Ctrl+C needing three or four presses to exit while background subagents are running; two presses now exit",
+      "translated": "Fixed Ctrl+C needing three or four presses to exit while background subagents are running; two presses now exit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed IDE selection being dropped when a sent prompt comes back into the input, such as pressing Esc to edit it, rewinding to it, or pressing Esc while startup hooks run",
+      "translated": "Fixed IDE selection being dropped when a sent prompt comes back into the input, such as pressing Esc to edit it, rewinding to it, or pressing Esc while startup hooks run"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a `!` shell-mode prompt stashed with Ctrl+S coming back as a plain prompt when restored, and `/` listing file paths right after stashing one",
+      "translated": "Fixed a `!` shell-mode prompt stashed with Ctrl+S coming back as a plain prompt when restored, and `/` listing file paths right after stashing one"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude agents` showing a blank, unresponsive screen instead of an error when the temp directory is full, not writable or owned by another user",
+      "translated": "Fixed `claude agents` showing a blank, unresponsive screen instead of an error when the temp directory is full, not writable or owned by another user"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an MCP server re-added under the same name after `claude mcp remove` still showing as needing authentication instead of reconnecting",
+      "translated": "Fixed an MCP server re-added under the same name after `claude mcp remove` still showing as needing authentication instead of reconnecting"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background plugin marketplace auto-update ignoring git credential helpers, so private-repo marketplaces were re-cloned every run or never updated",
+      "translated": "Fixed background plugin marketplace auto-update ignoring git credential helpers, so private-repo marketplaces were re-cloned every run or never updated"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin update` clearing a plugin's recorded commit and moving it to version \"unknown\" when the official marketplace's snapshot file is a link or too large",
+      "translated": "Fixed `claude plugin update` clearing a plugin's recorded commit and moving it to version \"unknown\" when the official marketplace's snapshot file is a link or too large"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Artifact tool silently disappearing when your organization's policy can't be loaded (for example behind a web proxy); Claude now says what's blocking it",
+      "translated": "Fixed the Artifact tool silently disappearing when your organization's policy can't be loaded (for example behind a web proxy); Claude now says what's blocking it"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed artifact republishes silently resetting stored database access rules or dropping the viewer profile scope when that capability was re-sent without them; they are now refused",
+      "translated": "Fixed artifact republishes silently resetting stored database access rules or dropping the viewer profile scope when that capability was re-sent without them; they are now refused"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/ultrareview` reporting a stopped cloud review as completed or as an error to retry, and waiting out the full timeout when its session was deleted or the signed-in account changed",
+      "translated": "Fixed `/ultrareview` reporting a stopped cloud review as completed or as an error to retry, and waiting out the full timeout when its session was deleted or the signed-in account changed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Claude app showing a missing or stale context usage figure for Remote Control and cloud sessions right after /compact or /clear",
+      "translated": "Fixed the Claude app showing a missing or stale context usage figure for Remote Control and cloud sessions right after /compact or /clear"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Claude app's diff view for Remote Control and cloud sessions dropping a branch's committed files whenever there are also uncommitted changes",
+      "translated": "Fixed the Claude app's diff view for Remote Control and cloud sessions dropping a branch's committed files whenever there are also uncommitted changes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud and self-hosted runner sessions failing with \"Authentication failed\" after waiting out a long overload during which the session's access token was rotated",
+      "translated": "Fixed cloud and self-hosted runner sessions failing with \"Authentication failed\" after waiting out a long overload during which the session's access token was rotated"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed memory write conflicts in Cowork sessions showing Claude only the start and end of a memory file over about 10,800 characters, so the retried write dropped the middle",
+      "translated": "Fixed memory write conflicts in Cowork sessions showing Claude only the start and end of a memory file over about 10,800 characters, so the retried write dropped the middle"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Fixed lifecycle-hook commits failing to sign under `--configure-git`",
+      "translated": "Self-hosted runner: Fixed lifecycle-hook commits failing to sign under `--configure-git`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed background cleanup deleting a directory symlink or junction used to relocate `~/.claude/session-env`, `image-cache` or another cleaned-up folder",
+      "translated": "Windows: Fixed background cleanup deleting a directory symlink or junction used to relocate `~/.claude/session-env`, `image-cache` or another cleaned-up folder"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Fixed a turn that ended right at a `--retire-at` release losing its finished signal; the runner now briefly waits for the turn to be reported before stopping the session",
+      "translated": "Self-hosted runner: Fixed a turn that ended right at a `--retire-at` release losing its finished signal; the runner now briefly waits for the turn to be reported before stopping the session"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reverted `ctrl+l` / `cmd+k` in fullscreen mode clearing the transcript view (added in 2.1.260); they redraw the screen again",
+      "translated": "Reverted `ctrl+l` / `cmd+k` in fullscreen mode clearing the transcript view (added in 2.1.260); they redraw the screen again"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/permissions`: focus returns to the rule list after viewing, adding or deleting a rule, and the delete-rule and remove-directory confirmations now default to No",
+      "translated": "Improved `/permissions`: focus returns to the rule list after viewing, adding or deleting a rule, and the delete-rule and remove-directory confirmations now default to No"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/permissions` tab navigation: ←/→ and Tab pressed in a rule list now switch tabs without moving focus to the tab bar",
+      "translated": "Improved `/permissions` tab navigation: ←/→ and Tab pressed in a rule list now switch tabs without moving focus to the tab bar"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/cost` cache-miss causes to name thinking mode and thinking display changes",
+      "translated": "Improved `/cost` cache-miss causes to name thinking mode and thinking display changes"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the Artifact tool so that when Claude cannot read an artifact link it was given, it tells the user before continuing",
+      "translated": "Improved the Artifact tool so that when Claude cannot read an artifact link it was given, it tells the user before continuing"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/install-github-app`: the GitHub CLI check and repository selection steps now show \"Esc to cancel\"",
+      "translated": "Improved `/install-github-app`: the GitHub CLI check and repository selection steps now show \"Esc to cancel\""
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the `/artifacts` and `/workflows` lists: a scrollbar at the right edge shows how much of a long list is hidden and where you are in it",
+      "translated": "Improved the `/artifacts` and `/workflows` lists: a scrollbar at the right edge shows how much of a long list is hidden and where you are in it"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the workflow progress tree: running agents and phases now show a dim dot instead of ⟳",
+      "translated": "Improved the workflow progress tree: running agents and phases now show a dim dot instead of ⟳"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/plugin`'s Add Marketplace form in fullscreen: it no longer draws a box inside the pane, and its text and key hints line up with the rest of `/plugin`",
+      "translated": "Improved `/plugin`'s Add Marketplace form in fullscreen: it no longer draws a box inside the pane, and its text and key hints line up with the rest of `/plugin`"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the `/workflows` detail view in fullscreen: it no longer draws a second horizontal rule under the pane's divider",
+      "translated": "Improved the `/workflows` detail view in fullscreen: it no longer draws a second horizontal rule under the pane's divider"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved code blocks that don't name a language: they are now colored like inline code, so commands stand out from the surrounding text",
+      "translated": "Improved code blocks that don't name a language: they are now colored like inline code, so commands stand out from the surrounding text"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/btw` asked while a tool is still running: the side question now knows that call is in progress instead of reading it as a failed one",
+      "translated": "Improved `/btw` asked while a tool is still running: the side question now knows that call is in progress instead of reading it as a failed one"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved the UserPromptSubmit hook timeout notice and the debug log to name which hook command timed out",
+      "translated": "Improved the UserPromptSubmit hook timeout notice and the debug log to name which hook command timed out"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `@` file suggestions: a file whose name contains the query now ranks above one that only matches across its folder names",
+      "translated": "Improved `@` file suggestions: a file whose name contains the query now ranks above one that only matches across its folder names"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved artifact pages: no Print buttons, confirm dialogs or device features the viewer blocks, email and phone details shown as text, and dark mode that reaches form controls and scrollbars",
+      "translated": "Improved artifact pages: no Print buttons, confirm dialogs or device features the viewer blocks, email and phone details shown as text, and dark mode that reaches form controls and scrollbars"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/ultrareview` uploads: renamed copies of key files, such as `id_rsa copy` or `kubeconfig (1).yaml`, now also stay on your machine",
+      "translated": "Improved `/ultrareview` uploads: renamed copies of key files, such as `id_rsa copy` or `kubeconfig (1).yaml`, now also stay on your machine"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved the cross-session messaging startup warning to explain that `--debug-file` writes a debug log to a path you choose",
+      "translated": "Improved the cross-session messaging startup warning to explain that `--debug-file` writes a debug log to a path you choose"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the default model on Pro and Team Standard plans from Sonnet to Opus, matching Max, Team Premium, and Enterprise",
+      "translated": "Changed the default model on Pro and Team Standard plans from Sonnet to Opus, matching Max, Team Premium, and Enterprise"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed an effort level saved before `/effort` became per-model to no longer apply to newly released models such as Opus 5.5; they start at their default until you pick a level",
+      "translated": "Changed an effort level saved before `/effort` became per-model to no longer apply to newly released models such as Opus 5.5; they start at their default until you pick a level"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Opus 4.7, Opus 4.8 and Fable 5 to stop holding their launch-default effort over `/effort` in `-p` or the Agent SDK, a project, managed or `--settings` `effortLevel`, or a per-model level",
+      "translated": "Changed Opus 4.7, Opus 4.8 and Fable 5 to stop holding their launch-default effort over `/effort` in `-p` or the Agent SDK, a project, managed or `--settings` `effortLevel`, or a per-model level"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/autocompact`'s footer hint to name ←/→, the keys that adjust other ordered values",
+      "translated": "Changed `/autocompact`'s footer hint to name ←/→, the keys that adjust other ordered values"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/fast`'s footer to name Space as the toggle key",
+      "translated": "Changed `/fast`'s footer to name Space as the toggle key"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Changed git in lifecycle hooks to ignore hook folders and programs named in the runner's shared git files; local-path and `git://` remotes there now need `GIT_ALLOW_PROTOCOL`",
+      "translated": "Self-hosted runner: Changed git in lifecycle hooks to ignore hook folders and programs named in the runner's shared git files; local-path and `git://` remotes there now need `GIT_ALLOW_PROTOCOL`"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plugin marketplaces whose name imitates a reserved marketplace name to be refused when added, and to stop loading if one was already added",
+      "translated": "Changed plugin marketplaces whose name imitates a reserved marketplace name to be refused when added, and to stop loading if one was already added"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `PermissionRequest` hooks: an agent-type hook no longer runs there, since its answer could never allow or deny the request; it now shows an error pointing to command or http hooks",
+      "translated": "Changed `PermissionRequest` hooks: an agent-type hook no longer runs there, since its answer could never allow or deny the request; it now shows an error pointing to command or http hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a Status dialog, with a typed `/status`, showing the session's version, account, model and server details",
+      "translated": "[VSCode] Added a Status dialog, with a typed `/status`, showing the session's version, account, model and server details"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a Sandbox dialog for the sandbox mode, the unsandboxed fallback and excluded commands, opened from the panel menu or by typing `/sandbox`",
+      "translated": "[VSCode] Added a Sandbox dialog for the sandbox mode, the unsandboxed fallback and excluded commands, opened from the panel menu or by typing `/sandbox`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a Claude in Chrome dialog (extension status, the install, reconnect and permissions pages, the enabled-by-default setting), opened from the panel menu or by typing `/chrome`",
+      "translated": "[VSCode] Added a Claude in Chrome dialog (extension status, the install, reconnect and permissions pages, the enabled-by-default setting), opened from the panel menu or by typing `/chrome`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added Export conversation, with a typed `/export`, to copy or save the conversation as plain text",
+      "translated": "[VSCode] Added Export conversation, with a typed `/export`, to copy or save the conversation as plain text"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added each skill's source, token estimate and on/off state to the Slash commands dialog, with a click to change the state, and a typed `/skills` that opens it",
+      "translated": "[VSCode] Added each skill's source, token estimate and on/off state to the Slash commands dialog, with a click to change the state, and a typed `/skills` that opens it"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a typed `/plan` that switches to plan mode, sends a first planning prompt, or shows the session's plan",
+      "translated": "[VSCode] Added a typed `/plan` that switches to plan mode, sends a first planning prompt, or shows the session's plan"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Improved pasted-text handling in the chat box: a paste over 800 characters or over 2 line breaks is now marked so Claude can tell it from what you typed",
+      "translated": "[VSCode] Improved pasted-text handling in the chat box: a paste over 800 characters or over 2 line breaks is now marked so Claude can tell it from what you typed"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Improved prompt handling in the chat box: invisible Unicode formatting and tag characters are removed from pasted text with a notice, and from anything else before it is sent",
+      "translated": "[VSCode] Improved prompt handling in the chat box: invisible Unicode formatting and tag characters are removed from pasted text with a notice, and from anything else before it is sent"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Changed \"Open in New Tab\" to open Claude beside the editor group you are working in rather than after the last group",
+      "translated": "[VSCode] Changed \"Open in New Tab\" to open Claude beside the editor group you are working in rather than after the last group"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the effort chip showing a stale saved effort level instead of the level the session runs at",
+      "translated": "[VSCode] Fixed the effort chip showing a stale saved effort level instead of the level the session runs at"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed Claude Code never starting when the Python extension hangs while activating; it now starts after 60 seconds without the Python environment",
+      "translated": "[VSCode] Fixed Claude Code never starting when the Python extension hangs while activating; it now starts after 60 seconds without the Python environment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the plan approval card never offering auto mode: when auto mode is available, its first option is now \"Yes, and use auto mode\", as in the terminal",
+      "translated": "[VSCode] Fixed the plan approval card never offering auto mode: when auto mode is available, its first option is now \"Yes, and use auto mode\", as in the terminal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed arrow-key navigation in the session list stopping after archiving or unarchiving a session from the keyboard",
+      "translated": "[VSCode] Fixed arrow-key navigation in the session list stopping after archiving or unarchiving a session from the keyboard"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed paste marker lines showing in your own messages after reopening a session",
+      "translated": "[VSCode] Fixed paste marker lines showing in your own messages after reopening a session"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Changed the admin Routines on/off setting to live under Admin settings → Capabilities → Remote sessions; the Claude Code admin page now links to it",
+      "translated": "[Claude Code on the web] Changed the admin Routines on/off setting to live under Admin settings → Capabilities → Remote sessions; the Claude Code admin page now links to it"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed `gh` and GitHub API calls inside a cloud session on a GitHub Enterprise Server repository failing after about eight hours; the token now renews automatically",
+      "translated": "[Claude Code on the web] Fixed `gh` and GitHub API calls inside a cloud session on a GitHub Enterprise Server repository failing after about eight hours; the token now renews automatically"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed a routine that resumes an existing session running with its old prompt and name when it was edited moments before the scheduled run started",
+      "translated": "[Claude Code on the web] Fixed a routine that resumes an existing session running with its old prompt and name when it was edited moments before the scheduled run started"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed file links in a cloud session transcript that point outside the session's working directory opening a file card that never loads; they're now disabled and say why",
+      "translated": "[Claude Code on the web] Fixed file links in a cloud session transcript that point outside the session's working directory opening a file card that never loads; they're now disabled and say why"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Fixed auto mode refusing to retry a tool call because an approval prompt that expired unanswered, or was superseded by a newer message, had been recorded as your rejection",
+      "translated": "[Claude Code on the web] Fixed auto mode refusing to retry a tool call because an approval prompt that expired unanswered, or was superseded by a newer message, had been recorded as your rejection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Improved cloud sessions viewed in the Claude app: Claude now saves files meant for you where the app can open them",
+      "translated": "[Claude Code on the web] Improved cloud sessions viewed in the Claude app: Claude now saves files meant for you where the app can open them"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Code on the web] Removed the empty repository picker shown when starting a session on a self-hosted environment in an organization where an admin has turned GitHub off",
+      "translated": "[Claude Code on the web] Removed the empty repository picker shown when starting a session on a self-hosted environment in an organization where an admin has turned GitHub off"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Added Slack's native Working indicator, Stop button and thread title to Claude's threads in channels; the indicator stays up until Claude finishes, and Stop interrupts the task",
+      "translated": "[Claude Tag] Added Slack's native Working indicator, Stop button and thread title to Claude's threads in channels; the indicator stays up until Claude finishes, and Stop interrupts the task"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Added a short notice in the Slack channel when a guest joining, or the last guest leaving, changes how Claude responds there under a Restrict or Channel only guest setting",
+      "translated": "[Claude Tag] Added a short notice in the Slack channel when a guest joining, or the last guest leaving, changes how Claude responds there under a Restrict or Channel only guest setting"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed scheduled routines silently failing to run in Slack workspaces that were connected to Claude before the workspace joined its Enterprise Grid",
+      "translated": "[Claude Tag] Fixed scheduled routines silently failing to run in Slack workspaces that were connected to Claude before the workspace joined its Enterprise Grid"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude asking you to re-upload a Slack file when a brief file-scanning outage, not the file, was the problem; it now retries the scan and is told when the scanner is down",
+      "translated": "[Claude Tag] Fixed Claude asking you to re-upload a Slack file when a brief file-scanning outage, not the file, was the problem; it now retries the scan and is told when the scanner is down"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed a bullet in Claude's Slack reply whose text starts with +, - or * rendering as an empty bullet with a stray nested item; it now shows as one bullet with the character kept",
+      "translated": "[Claude Tag] Fixed a bullet in Claude's Slack reply whose text starts with +, - or * rendering as an empty bullet with a stray nested item; it now shows as one bullet with the character kept"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed the Slack notice for a failed cloud environment setup script sometimes being a generic \"mention me to retry\"; it now names the setup script and says to fix it first",
+      "translated": "[Claude Tag] Fixed the Slack notice for a failed cloud environment setup script sometimes being a generic \"mention me to retry\"; it now names the setup script and says to fix it first"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Improved the GitHub banner in Claude Tag admin settings to say why GitHub isn't connected: not signed in, app not linked or not installed, sign-in expired, or SSO not authorized",
+      "translated": "[Claude Tag] Improved the GitHub banner in Claude Tag admin settings to say why GitHub isn't connected: not signed in, app not linked or not installed, sign-in expired, or SSO not authorized"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Improved the Code Review check run to say when REVIEW.md instructions were cut or left out of a review for exceeding a size limit, naming the file and the limit",
+      "translated": "[Code Review] Improved the Code Review check run to say when REVIEW.md instructions were cut or left out of a review for exceeding a size limit, naming the file and the limit"
+    }
+  ],
+  "translatedAt": "2026-09-22T17:00:25.612Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 16895
+}
