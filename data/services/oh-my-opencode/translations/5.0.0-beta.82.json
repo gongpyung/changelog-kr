@@ -1,0 +1,476 @@
+{
+  "version": "5.0.0-beta.82",
+  "date": "2026-09-22",
+  "parsedAt": "2026-09-22T05:02:44.855Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The OpenCode edition now tells you the standalone Senpi edition exists. Finishing `oh-my-openagent install` — the interactive setup or `--no-tui` — prints a short pointer: omo also ships as a standalone Senpi edition with one `omo` command and no OpenCode host, installed with `bun add -g omo-ai@beta`, with a link to the installation guide. The package postinstall prints the same one-line notice. Installs that target the senpi platform itself do not get the pointer. ([#8593](https://github.com/code-yeongyu/oh-my-openagent/issues/8593))",
+      "translated": "OpenCode 에디션에서 이제 독립형 Senpi 에디션의 존재를 안내합니다. 대화형 설정 또는 `--no-tui`를 통한 `oh-my-openagent install` 완료 시, OpenCode 호스트 없이 단일 `omo` 명령어로 실행되는 독립형 Senpi 에디션에 대한 짧은 안내와 설치 가이드 링크가 출력됩니다. `bun add -g omo-ai@beta`로 설치할 수 있으며, 패키지 postinstall 시에도 동일한 한 줄 안내가 표시됩니다. senpi 플랫폼 자체를 대상으로 하는 설치 시에는 이 안내가 표시되지 않습니다. ([#8593](https://github.com/code-yeongyu/oh-my-openagent/issues/8593))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`@oh-my-opencode/isolation-core`, a copy-on-write task isolation PAL with baseline capture and merge-back. Filesystem backends — APFS clonefile, btrfs and ZFS reflink clones, fuse-overlayfs, ReFS block clone, and a git-worktree rcopy fallback — write only inside the supplied context base directory; an unavailable backend surfaces as a typed `IsolationUnavailableError` and falls through to the next candidate. Baselines capture staged, unstaged and untracked work under a per-repository budget, and merge-back replays it as a patch or a task branch without ever committing the user's overlapping WIP: a failed replay retains the isolated tree with a manual recovery command. A new Linux CI job exercises publication, copy-on-write and teardown on real loopback btrfs and ZFS. ([#8573](https://github.com/code-yeongyu/oh-my-openagent/issues/8573))",
+      "translated": "베이스라인 캡처 및 머지백(merge-back) 기능을 갖춘 쓰기 시 복사(copy-on-write) 작업 격리 PAL인 `@oh-my-opencode/isolation-core`가 추가되었습니다. APFS clonefile, btrfs 및 ZFS reflink clone, fuse-overlayfs, ReFS block clone, git-worktree rcopy 폴백 등 파일 시스템 백엔드는 제공된 컨텍스트 기본 디렉터리 내에서만 쓰기 작업을 수행합니다. 사용 불가능한 백엔드는 형식화된 `IsolationUnavailableError`를 발생시키고 다음 후보로 넘어갑니다. 베이스라인은 저장소별 예산 내에서 staged, unstaged, unt"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**A delegated task can now run in a copy-on-write clone of your checkout.** Pass `isolated: true` to the task tool (or turn on `task.isolation.enabled`) and the child works in a clone instead of your working tree, so its edits cannot collide with what you are doing. When the child completes, its changes are merged back and the clone is removed; any other ending merges nothing and keeps the delta as a patch and a summary you can read. A merge that cannot apply cleanly leaves your files untouched, reports the conflict, and parks the clone beside its original with the exact `git apply --3way` command to finish by hand. A repository that cannot be cloned refuses the spawn instead of quietly using the real checkout, and if the host dies mid-run the next session salvages the clone's delta before reclaiming it. ([#8574](https://github.com/code-yeongyu/oh-my-openagent/issues/8574))",
+      "translated": "**A delegated task can now run in a copy-on-write clone of your checkout.** Pass `isolated: true` to the task tool (or turn on `task.isolation.enabled`) and the child works in a clone instead of your working tree, so its edits cannot collide with what you are doing. When the child completes, its changes are merged back and the clone is removed; any other ending merges nothing and keeps the delta as a patch and a summary you can read. A merge that cannot apply cleanly leaves your files untouched, reports the conflict, and parks the clone beside its original with the exact `git apply --3way` command to finish by hand. A repository that cannot be cloned refuses the spawn instead of quietly using the real checkout, and if the host dies mid-run the next session salvages the clone's delta before reclaiming it. ([#8574](https://github.com/code-yeongyu/oh-my-openagent/issues/8574))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6885e24ad Merge pull request #8606 from code-yeongyu/release/v5.0.0-beta.82-source-state",
+      "translated": "Merge pull request #8606 from code-yeongyu/release/v5.0.0-beta.82-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bb6557033 Merge pull request #8614 from code-yeongyu/fix/8609-pin-idle-before-crash",
+      "translated": "Merge pull request #8614 from code-yeongyu/fix/8609-pin-idle-before-crash"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc40cb90d Merge pull request #8610 from code-yeongyu/fix/worker-compile-windows-cleanup-ebusy",
+      "translated": "Merge pull request #8610 from code-yeongyu/fix/worker-compile-windows-cleanup-ebusy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba7db7a1a Merge pull request #8613 from code-yeongyu/fix/8609-fake-host-rebind",
+      "translated": "Merge pull request #8613 from code-yeongyu/fix/8609-fake-host-rebind"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f74d03598 test(build): retry the Windows temp cleanup in the compiled-worker test",
+      "translated": "Retry the Windows temp cleanup in the compiled-worker test"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e894a6ef Merge pull request #8607 from code-yeongyu/fix/isolation-core-windows-suite-20260921",
+      "translated": "Merge pull request #8607 from code-yeongyu/fix/isolation-core-windows-suite-20260921"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8ca7ff56d fix(isolation-core): classify fsutil probe failures as a capability gap",
+      "translated": "Classify fsutil probe failures as a capability gap"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "397304a88 fix(isolation-core): keep killTree's taskkill branch win32-only",
+      "translated": "Keep killTree's taskkill branch win32-only"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "865f05e26 fix(isolation-core): land the native-resolver canonical and POSIX-literal overlay targets",
+      "translated": "Land the native-resolver canonical and POSIX-literal overlay targets"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1fe1d17a5 fix(isolation-core): green the windows-latest suite (#8604)",
+      "translated": "Green the windows-latest suite (#8604)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "40872be36 Merge pull request #8603 from code-yeongyu/fix/isolation-core-fixture-auto-maintenance-20260921",
+      "translated": "Merge pull request #8603 from code-yeongyu/fix/isolation-core-fixture-auto-maintenance-20260921"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b0a632bf1 test(isolation-core): disable git auto-maintenance in fixture repositories",
+      "translated": "Disable git auto-maintenance in fixture repositories"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ac6addd6d Merge pull request #8601 from code-yeongyu/fix/reflection-sandbox-agent-dir-8595",
+      "translated": "Merge pull request #8601 from code-yeongyu/fix/reflection-sandbox-agent-dir-8595"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "82434c418 test(qa): record the reflection sandbox credential-lock evidence",
+      "translated": "Record the reflection sandbox credential-lock evidence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f1ac4a3ad docs(memory): record where the reflection child's agent directory comes from",
+      "translated": "Record where the reflection child's agent directory comes from"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "238478840 fix(memory): grant the reflection child the agent directory the engine resolved",
+      "translated": "Grant the reflection child the agent directory the engine resolved"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "76dd673d3 Merge pull request #8600 from code-yeongyu/refactor/thread-contracts-tools-loc-split",
+      "translated": "Merge pull request #8600 from code-yeongyu/refactor/thread-contracts-tools-loc-split"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dbfe31117 docs(evidence): record the isolation e2e run on the rebased dev",
+      "translated": "Record the isolation e2e run on the rebased dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "943532f88 docs(changelog): describe isolated task children (#8574)",
+      "translated": "Describe isolated task children (#8574)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e411f323 Merge pull request #8594 from code-yeongyu/feat/task-lease-parking-20260921",
+      "translated": "Merge pull request #8594 from code-yeongyu/feat/task-lease-parking-20260921"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b82abd23f Merge pull request #8588 from code-yeongyu/feat/thread-tools-revival-session-control",
+      "translated": "Merge pull request #8588 from code-yeongyu/feat/thread-tools-revival-session-control"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e7ce22cd2 docs(changelog): describe the foreground-wait lane-lease parking fix (#8575)",
+      "translated": "Describe the foreground-wait lane-lease parking fix (#8575)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2bccd5fd7 test(qa): add the session-control scenario for the thread tools",
+      "translated": "Add the session-control scenario for the thread tools"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1b21dc9bd Merge pull request #8587 from code-yeongyu/feat/isolation-core-20260921",
+      "translated": "Merge pull request #8587 from code-yeongyu/feat/isolation-core-20260921"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1414cab7c Merge pull request #8591 from code-yeongyu/fix/web-app-icons-pipeline-20260921",
+      "translated": "Merge pull request #8591 from code-yeongyu/fix/web-app-icons-pipeline-20260921"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c5e3213b fix(web): pin app icon artwork against icon.svg and ship maskable PWA icons",
+      "translated": "Pin app icon artwork against icon.svg and ship maskable PWA icons"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "495f6df91 fix(isolation-core): tear down git's process tree on budget breach and signal it by pid in tests",
+      "translated": "Tear down git's process tree on budget breach and signal it by pid in tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e0b28f663 fix(isolation-core): preserve the caller's error through teardown signal deaths",
+      "translated": "Preserve the caller's error through teardown signal deaths"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b05db8124 fix(isolation-core): keep runGit's signal, spawn-error and stream contracts on node:child_process",
+      "translated": "Keep runGit's signal, spawn-error and stream contracts on node:child_process"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3b02bda1d test(isolation-core): exercise the apfs loader classification on every platform",
+      "translated": "Exercise the apfs loader classification on every platform"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "62c15da7b fix(isolation-core): decide btrfs sameness by filesystem UUID, not st_dev",
+      "translated": "Decide btrfs sameness by filesystem UUID, not st_dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "349957bc7 fix(isolation-core): satisfy repo audits for workflows, registration and child processes",
+      "translated": "Satisfy repo audits for workflows, registration and child processes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9061c9cc7 fix(isolation-core): treat unprivileged btrfs B-tree search as inconclusive",
+      "translated": "Treat unprivileged btrfs B-tree search as inconclusive"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3d9dc695f fix(isolation-core): keep the sandbox base outside subvolume repository roots",
+      "translated": "Keep the sandbox base outside subvolume repository roots"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6cc01b813 fix(isolation-core): scope review findings in stash, rcopy, detachment and backend classification",
+      "translated": "Scope review findings in stash, rcopy, detachment and backend classification"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ac8c41c73 fix(isolation-core): keep reflink walks out of their own destination and trust the btrfs CLI over st_dev",
+      "translated": "Keep reflink walks out of their own destination and trust the btrfs CLI over st_dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c18758c6 docs(changelog): describe the isolation-core task isolation PAL",
+      "translated": "Describe the isolation-core task isolation PAL"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6be7162d0 feat(isolation-core): btrfs, zfs, reflink, fuse-overlayfs and ReFS block-clone backends with a Linux fs CI job",
+      "translated": "Btrfs, zfs, reflink, fuse-overlayfs and ReFS block-clone backends with a Linux fs CI job"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c4f9cf2c feat(isolation-core): patch and branch merge-back with fail-closed retention",
+      "translated": "Patch and branch merge-back with fail-closed retention"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3d7c29c69 feat(isolation-core): baseline capture and synthetic-tree delta patches",
+      "translated": "Baseline capture and synthetic-tree delta patches"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "101f317fe feat(isolation-core): apfs clonefile and git-worktree rcopy backends with detachGitDir",
+      "translated": "Apfs clonefile and git-worktree rcopy backends with detachGitDir"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c3e6f37c feat(isolation-core): backend contract, candidate resolution, base dir and owner markers",
+      "translated": "Backend contract, candidate resolution, base dir and owner markers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed985de4d Revert \"feat(omo-native): inherit opencode content in omo setup\"",
+      "translated": "Revert \"feat(omo-native): inherit opencode content in omo setup\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "16a74cf60 Revert \"docs(omo-native): correct the postinstall execution evidence\"",
+      "translated": "Revert \"docs(omo-native): correct the postinstall execution evidence\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "027217282 Revert \"fix(omo-native): preserve migration semantics across both launchers\"",
+      "translated": "Revert \"fix(omo-native): preserve migration semantics across both launchers\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9e1fc2bc5 Revert \"fix(omo-native): preserve literal credentials and consent snapshots\"",
+      "translated": "Revert \"fix(omo-native): preserve literal credentials and consent snapshots\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e3457cc8b Revert \"fix(omo-native): honor source config layers and validate MCP imports\"",
+      "translated": "Revert \"fix(omo-native): honor source config layers and validate MCP imports\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7a43afaa8 Revert \"fix(omo-native): validate model imports and normalize migration failures\"",
+      "translated": "Revert \"fix(omo-native): validate model imports and normalize migration failures\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "58d805f33 Revert \"fix(omo-native): skip restricted agent imports that conflict with enabled state\"",
+      "translated": "Revert \"fix(omo-native): skip restricted agent imports that conflict with enabled state\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "954be6589 Revert \"fix(omo-native): honor harness and profile agent restrictions\"",
+      "translated": "Revert \"fix(omo-native): honor harness and profile agent restrictions\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c35e6d1d7 Revert \"fix(omo-native): translate legacy agents through native safety checks\"",
+      "translated": "Revert \"fix(omo-native): translate legacy agents through native safety checks\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5f1a07b5c Revert \"fix(omo-native): preserve tracked ignore rules during default builds\"",
+      "translated": "Revert \"fix(omo-native): preserve tracked ignore rules during default builds\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d3afc6adf Revert \"fix(omo-native): align provider definitions with migrated default aliases\"",
+      "translated": "Revert \"fix(omo-native): align provider definitions with migrated default aliases\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "726f43359 Revert \"fix(omo-native): validate defaults against preserved provider catalogs\"",
+      "translated": "Revert \"fix(omo-native): validate defaults against preserved provider catalogs\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "afd888df7 Revert \"fix(omo-native): resolve defaults against the complete planned catalog\"",
+      "translated": "Revert \"fix(omo-native): resolve defaults against the complete planned catalog\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "41e90d9b4 docs(omo-native): keep migration QA artifacts out of the PR",
+      "translated": "Keep migration QA artifacts out of the PR"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d90456a10 fix(omo-native): merge dev and resolve migration PR conflicts",
+      "translated": "Merge dev and resolve migration PR conflicts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f277285f6 fix(omo-native): resolve defaults against the complete planned catalog",
+      "translated": "Resolve defaults against the complete planned catalog"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3861edcb fix(omo-native): validate defaults against preserved provider catalogs",
+      "translated": "Validate defaults against preserved provider catalogs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "821e05d66 fix(omo-native): align provider definitions with migrated default aliases",
+      "translated": "Align provider definitions with migrated default aliases"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "11536e90b fix(omo-native): preserve tracked ignore rules during default builds",
+      "translated": "Preserve tracked ignore rules during default builds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a6a63a364 fix(omo-native): translate legacy agents through native safety checks",
+      "translated": "Translate legacy agents through native safety checks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "18f7b544a fix(omo-native): honor harness and profile agent restrictions",
+      "translated": "Honor harness and profile agent restrictions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cd731e23b fix(omo-native): skip restricted agent imports that conflict with enabled state",
+      "translated": "Skip restricted agent imports that conflict with enabled state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28192dfeb fix(omo-native): validate model imports and normalize migration failures",
+      "translated": "Validate model imports and normalize migration failures"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "844f6650d fix(omo-native): honor source config layers and validate MCP imports",
+      "translated": "Honor source config layers and validate MCP imports"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5695fc209 fix(omo-native): preserve literal credentials and consent snapshots",
+      "translated": "Preserve literal credentials and consent snapshots"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4b42ec544 fix(omo-native): preserve migration semantics across both launchers",
+      "translated": "Preserve migration semantics across both launchers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5c87c70f2 docs(omo-native): correct the postinstall execution evidence",
+      "translated": "Correct the postinstall execution evidence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5fb0807bf fix(omo-native): preserve setup state and translate import references",
+      "translated": "Preserve setup state and translate import references"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9a6028354 docs(guide): note the cosmetic npm allow-scripts warning on omo-ai installs",
+      "translated": "Note the cosmetic npm allow-scripts warning on omo-ai installs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "de5d25b0e docs(guide): migration guide and transition policy for opencode users",
+      "translated": "Migration guide and transition policy for opencode users"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "decdc060d feat(omo-native): add omo migrate codemod for opencode state",
+      "translated": "Add omo migrate codemod for opencode state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "753cc669a feat(omo-native): inherit opencode content in omo setup",
+      "translated": "Inherit opencode content in omo setup"
+    }
+  ],
+  "translatedAt": "2026-09-22T05:04:30.593Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 7185
+}
