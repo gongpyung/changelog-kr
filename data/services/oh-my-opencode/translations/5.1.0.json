@@ -1,0 +1,2732 @@
+{
+  "version": "5.1.0",
+  "date": "2026-09-28",
+  "parsedAt": "2026-09-28T23:19:30.253Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Experimental:** OmO Native agents can now drive your real desktop. They take screenshots, list windows, click, type, scroll, press keys, read the accessibility tree and use the clipboard, through a `computer` tool and a `computer` global in the eval kernels. Behaviour may still change, so please send feedback and bug reports.",
+      "translated": "**Experimental:** OmO Native agents can now drive your real desktop. They take screenshots, list windows, click, type, scroll, press keys, read the accessibility tree and use the clipboard, through a `computer` tool and a `computer` global in the eval kernels. Behaviour may still change, so please send feedback and bug reports."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Per OS:**",
+      "translated": "**Per OS:**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Turning it on:** it is on by default on supported hosts, but its code and native engine load only on first use, so sessions that never use it pay nothing at startup. The agent finds `computer` through tool search, or you run `/computer on`. `/computer status` shows the engine, the stop path and the OS permissions. Set `computer.enabled: false` to remove it entirely. macOS needs Screen Recording and Accessibility.",
+      "translated": "**Turning it on:** it is on by default on supported hosts, but its code and native engine load only on first use, so sessions that never use it pay nothing at startup. The agent finds `computer` through tool search, or you run `/computer on`. `/computer status` shows the engine, the stop path and the OS permissions. Set `computer.enabled: false` to remove it entirely. macOS needs Screen Recording and Accessibility."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Scrolling:** `dx`/`dy` are pixels on every OS (one wheel notch is 40 px), and a positive `dy` scrolls down everywhere, macOS included. ([#9101](https://github.com/code-yeongyu/oh-my-openagent/issues/9101), [#9055](https://github.com/code-yeongyu/oh-my-openagent/issues/9055))",
+      "translated": "**Scrolling:** `dx`/`dy` are pixels on every OS (one wheel notch is 40 px), and a positive `dy` scrolls down everywhere, macOS included. ([#9101](https://github.com/code-yeongyu/oh-my-openagent/issues/9101), [#9055](https://github.com/code-yeongyu/oh-my-openagent/issues/9055))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Kill switch:** Control+Option+Command+Escape on macOS, or Ctrl+Alt+Shift+Escape on Linux and Windows, stops all computer input at once, including typing already in progress. Input stays stopped until you run `/computer resume`; the agent cannot resume it.",
+      "translated": "**Kill switch:** Control+Option+Command+Escape on macOS, or Ctrl+Alt+Shift+Escape on Linux and Windows, stops all computer input at once, including typing already in progress. Input stays stopped until you run `/computer resume`; the agent cannot resume it."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safety:** screenshots need `computer:read` and input needs `computer:exec`. Before input, OmO checks the stop path, the screen lock, the OS permissions and that the target point is uncovered.",
+      "translated": "**Safety:** screenshots need `computer:read` and input needs `computer:exec`. Before input, OmO checks the stop path, the screen lock, the OS permissions and that the target point is uncovered."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Known limits:** some toolkits ignore synthetic background input; OmO then reports it instead of pretending it worked. X11 background input doesn't reach GTK, Qt or Chromium yet (#9108). Wayland's stop chord needs the GlobalShortcuts portal. Full guide: [`docs/guide/computer-use.md`](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/computer-use.md).",
+      "translated": "**Known limits:** some toolkits ignore synthetic background input; OmO then reports it instead of pretending it worked. X11 background input doesn't reach GTK, Qt or Chromium yet (#9108). Wayland's stop chord needs the GlobalShortcuts portal. Full guide: [`docs/guide/computer-use.md`](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/computer-use.md)."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`omo app-server` threads load the OmO plugin, so they get `task`, `workpool`, `memory`, `lsp_*` and the other OmO tools, and `app-server daemon restart` keeps it. ([#9117](https://github.com/code-yeongyu/oh-my-openagent/issues/9117), [#9122](https://github.com/code-yeongyu/oh-my-openagent/pull/9122), [senpi#2313](https://github.com/code-yeongyu/senpi/issues/2313))",
+      "translated": "`omo app-server` threads load the OmO plugin, so they get `task`, `workpool`, `memory`, `lsp_*` and the other OmO tools, and `app-server daemon restart` keeps it. ([#9117](https://github.com/code-yeongyu/oh-my-openagent/issues/9117), [#9122](https://github.com/code-yeongyu/oh-my-openagent/pull/9122), [senpi#2313](https://github.com/code-yeongyu/senpi/issues/2313))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Durable scheduled prompts: the `schedule_prompt` tool stores a reminder, follow-up or recurring prompt, and `schedule run` fires it later, also for `--print` runs. ([senpi#2216](https://github.com/code-yeongyu/senpi/issues/2216))",
+      "translated": "Durable scheduled prompts: the `schedule_prompt` tool stores a reminder, follow-up or recurring prompt, and `schedule run` fires it later, also for `--print` runs. ([senpi#2216](https://github.com/code-yeongyu/senpi/issues/2216))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Sessions follow a moved or re-cloned repository: `--session`, `--resume` and `/resume` offer to move them here, keeping their history, goal, loops and monitors. ([senpi#2181](https://github.com/code-yeongyu/senpi/issues/2181), [senpi#2184](https://github.com/code-yeongyu/senpi/issues/2184))",
+      "translated": "Sessions follow a moved or re-cloned repository: `--session`, `--resume` and `/resume` offer to move them here, keeping their history, goal, loops and monitors. ([senpi#2181](https://github.com/code-yeongyu/senpi/issues/2181), [senpi#2184](https://github.com/code-yeongyu/senpi/issues/2184))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`models discover <provider>` fills an OpenAI-compatible provider's model list in `models.json` from its `/models` endpoint, including the reasoning levels it advertises. ([senpi#2196](https://github.com/code-yeongyu/senpi/issues/2196))",
+      "translated": "`models discover <provider>` fills an OpenAI-compatible provider's model list in `models.json` from its `/models` endpoint, including the reasoning levels it advertises. ([senpi#2196](https://github.com/code-yeongyu/senpi/issues/2196))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Eval kernels say when they hold a lot of memory, name the largest globals, and restart once past a ceiling (`memory.noticeMb`, `memory.ceilingMb`). ([senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261))",
+      "translated": "Eval kernels say when they hold a lot of memory, name the largest globals, and restart once past a ceiling (`memory.noticeMb`, `memory.ceilingMb`). ([senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`host status --all` lists every RPC host endpoint, `host gc` clears the state of hosts that are provably gone, and `host status` shows `memory_pressure`. ([senpi#2226](https://github.com/code-yeongyu/senpi/issues/2226), [senpi#2245](https://github.com/code-yeongyu/senpi/issues/2245))",
+      "translated": "`host status --all` lists every RPC host endpoint, `host gc` clears the state of hosts that are provably gone, and `host status` shows `memory_pressure`. ([senpi#2226](https://github.com/code-yeongyu/senpi/issues/2226), [senpi#2245](https://github.com/code-yeongyu/senpi/issues/2245))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "A native crash of an interactive or print session leaves one entry in `process-crashes/crashes.jsonl` on the next start. ([senpi#2194](https://github.com/code-yeongyu/senpi/issues/2194))",
+      "translated": "A native crash of an interactive or print session leaves one entry in `process-crashes/crashes.jsonl` on the next start. ([senpi#2194](https://github.com/code-yeongyu/senpi/issues/2194))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "OmO Native moves from senpi 2026.9.27 to senpi 2026.9.28-7; the engine fixes below come with it.",
+      "translated": "OmO Native moves from senpi 2026.9.27 to senpi 2026.9.28-7; the engine fixes below come with it."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "A parent no longer runs out of room for its task children: `task.residency_max_children` defaults to `\"unlimited\"`. Set a number in `omo.json` to keep a bound. ([#8999](https://github.com/code-yeongyu/oh-my-openagent/issues/8999))",
+      "translated": "A parent no longer runs out of room for its task children: `task.residency_max_children` defaults to `\"unlimited\"`. Set a number in `omo.json` to keep a bound. ([#8999](https://github.com/code-yeongyu/oh-my-openagent/issues/8999))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Memory extracts facts from one very long conversation entry (up to 512 KiB) in a bounded extra run instead of parking it forever, which can mean extra model calls. ([#8984](https://github.com/code-yeongyu/oh-my-openagent/issues/8984), contributed by @deadcode-walker in [#8985](https://github.com/code-yeongyu/oh-my-openagent/pull/8985))",
+      "translated": "Memory extracts facts from one very long conversation entry (up to 512 KiB) in a bounded extra run instead of parking it forever, which can mean extra model calls. ([#8984](https://github.com/code-yeongyu/oh-my-openagent/issues/8984), contributed by @deadcode-walker in [#8985](https://github.com/code-yeongyu/oh-my-openagent/pull/8985))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "After an account-wide usage limit, a task's fallback tries the next provider's models first and keeps the spent provider as the last resort; a limit on one model or family still moves to the next model in order. ([#8296](https://github.com/code-yeongyu/oh-my-openagent/issues/8296))",
+      "translated": "After an account-wide usage limit, a task's fallback tries the next provider's models first and keeps the spent provider as the last resort; a limit on one model or family still moves to the next model in order. ([#8296](https://github.com/code-yeongyu/oh-my-openagent/issues/8296))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "A fallback-chain model that keeps failing is skipped for a cooldown (60 s, doubling up to 30 minutes) by every session in the process, and a provider's `Retry-After` is honored. ([senpi#2198](https://github.com/code-yeongyu/senpi/issues/2198))",
+      "translated": "A fallback-chain model that keeps failing is skipped for a cooldown (60 s, doubling up to 30 minutes) by every session in the process, and a provider's `Retry-After` is honored. ([senpi#2198](https://github.com/code-yeongyu/senpi/issues/2198))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "GPT-6 Astra, Sol and Luna stay on the stated goal and report unrelated errors in the final message instead of chasing them. ([senpi#2256](https://github.com/code-yeongyu/senpi/issues/2256))",
+      "translated": "GPT-6 Astra, Sol and Luna stay on the stated goal and report unrelated errors in the final message instead of chasing them. ([senpi#2256](https://github.com/code-yeongyu/senpi/issues/2256))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "OpenCode Go and Fireworks default to `kimi-k3`, since their old Kimi defaults left the catalogs. ([senpi#2295](https://github.com/code-yeongyu/senpi/issues/2295), [senpi#2175](https://github.com/code-yeongyu/senpi/issues/2175))",
+      "translated": "OpenCode Go and Fireworks default to `kimi-k3`, since their old Kimi defaults left the catalogs. ([senpi#2295](https://github.com/code-yeongyu/senpi/issues/2295), [senpi#2175](https://github.com/code-yeongyu/senpi/issues/2175))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude subscription sessions no longer hit `401 OAuth access token has been revoked` and end up \"blocked until re-login\" when several sessions run at once; they pick up the refreshed token instead. ([#8762](https://github.com/code-yeongyu/oh-my-openagent/issues/8762), [senpi#2225](https://github.com/code-yeongyu/senpi/issues/2225), [senpi#2281](https://github.com/code-yeongyu/senpi/issues/2281), [senpi#2282](https://github.com/code-yeongyu/senpi/issues/2282))",
+      "translated": "Claude subscription sessions no longer hit `401 OAuth access token has been revoked` and end up \"blocked until re-login\" when several sessions run at once; they pick up the refreshed token instead. ([#8762](https://github.com/code-yeongyu/oh-my-openagent/issues/8762), [senpi#2225](https://github.com/code-yeongyu/senpi/issues/2225), [senpi#2281](https://github.com/code-yeongyu/senpi/issues/2281), [senpi#2282](https://github.com/code-yeongyu/senpi/issues/2282))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/login` into a blocked Claude account now replaces the revoked token instead of keeping it. ([senpi#2222](https://github.com/code-yeongyu/senpi/issues/2222))",
+      "translated": "`/login` into a blocked Claude account now replaces the revoked token instead of keeping it. ([senpi#2222](https://github.com/code-yeongyu/senpi/issues/2222))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A Claude subscription turn no longer fails with \"pre-replay buffer overflow\" while Claude Code runs a background turn of its own. ([senpi#2192](https://github.com/code-yeongyu/senpi/issues/2192))",
+      "translated": "A Claude subscription turn no longer fails with \"pre-replay buffer overflow\" while Claude Code runs a background turn of its own. ([senpi#2192](https://github.com/code-yeongyu/senpi/issues/2192))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "GitHub Copilot recovers when GitHub revokes its cached token: the token is re-exchanged once and the request re-sent, so every model no longer fails with HTTP 403 until `/login`. ([senpi#2297](https://github.com/code-yeongyu/senpi/issues/2297), [senpi#2302](https://github.com/code-yeongyu/senpi/issues/2302))",
+      "translated": "GitHub Copilot recovers when GitHub revokes its cached token: the token is re-exchanged once and the request re-sent, so every model no longer fails with HTTP 403 until `/login`. ([senpi#2297](https://github.com/code-yeongyu/senpi/issues/2297), [senpi#2302](https://github.com/code-yeongyu/senpi/issues/2302))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "GitHub Copilot Business and Enterprise accounts reach their own API host instead of failing with `421 Misdirected Request`, for chat, `/btw` and web search. ([#8662](https://github.com/code-yeongyu/oh-my-openagent/issues/8662), [senpi#2309](https://github.com/code-yeongyu/senpi/issues/2309), [senpi#2310](https://github.com/code-yeongyu/senpi/issues/2310))",
+      "translated": "GitHub Copilot Business and Enterprise accounts reach their own API host instead of failing with `421 Misdirected Request`, for chat, `/btw` and web search. ([#8662](https://github.com/code-yeongyu/oh-my-openagent/issues/8662), [senpi#2309](https://github.com/code-yeongyu/senpi/issues/2309), [senpi#2310](https://github.com/code-yeongyu/senpi/issues/2310))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Copilot turns no longer fail with a bare HTTP 400 when more than 128 tools are exposed; the extras are left out and you're told how many. ([senpi#2298](https://github.com/code-yeongyu/senpi/issues/2298))",
+      "translated": "Copilot turns no longer fail with a bare HTTP 400 when more than 128 tools are exposed; the extras are left out and you're told how many. ([senpi#2298](https://github.com/code-yeongyu/senpi/issues/2298))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Copilot models compact before Copilot's own prompt limit instead of failing the turn. ([senpi#2299](https://github.com/code-yeongyu/senpi/issues/2299))",
+      "translated": "Copilot models compact before Copilot's own prompt limit instead of failing the turn. ([senpi#2299](https://github.com/code-yeongyu/senpi/issues/2299))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A Copilot 402, 403 or quota 429 says whether it's a quota or a refusal and includes the GitHub request id. ([senpi#2297](https://github.com/code-yeongyu/senpi/issues/2297))",
+      "translated": "A Copilot 402, 403 or quota 429 says whether it's a quota or a refusal and includes the GitHub request id. ([senpi#2297](https://github.com/code-yeongyu/senpi/issues/2297))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A goal stops on the first 401 or 403 a provider keeps returning and tells you what to do (for example `Run /login github-copilot ...`) instead of looping to the continuation cap; your next message resumes it. ([senpi#2293](https://github.com/code-yeongyu/senpi/issues/2293))",
+      "translated": "A goal stops on the first 401 or 403 a provider keeps returning and tells you what to do (for example `Run /login github-copilot ...`) instead of looping to the continuation cap; your next message resumes it. ([senpi#2293](https://github.com/code-yeongyu/senpi/issues/2293))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The first message no longer fails on providers that only accept automatic tool choice, for example Kiro behind a proxy; `compat.supportsForcedToolChoice: false` skips the forced choice entirely. ([#9096](https://github.com/code-yeongyu/oh-my-openagent/issues/9096), [senpi#2218](https://github.com/code-yeongyu/senpi/issues/2218), [senpi#2224](https://github.com/code-yeongyu/senpi/issues/2224))",
+      "translated": "The first message no longer fails on providers that only accept automatic tool choice, for example Kiro behind a proxy; `compat.supportsForcedToolChoice: false` skips the forced choice entirely. ([#9096](https://github.com/code-yeongyu/oh-my-openagent/issues/9096), [senpi#2218](https://github.com/code-yeongyu/senpi/issues/2218), [senpi#2224](https://github.com/code-yeongyu/senpi/issues/2224))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Devin SWE-2 lists only the lanes Devin serves (`swe-2-medium`, `swe-2-high`, `swe-2-max`), `devin/swe-2-medium` gets the SWE-2 prompt preset, and a config naming `swe-2`, `swe-2-low` or `swe-2-high-lite` gets a startup warning. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111), [senpi#2306](https://github.com/code-yeongyu/senpi/issues/2306), [senpi#2308](https://github.com/code-yeongyu/senpi/issues/2308))",
+      "translated": "Devin SWE-2 lists only the lanes Devin serves (`swe-2-medium`, `swe-2-high`, `swe-2-max`), `devin/swe-2-medium` gets the SWE-2 prompt preset, and a config naming `swe-2`, `swe-2-low` or `swe-2-high-lite` gets a startup warning. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111), [senpi#2306](https://github.com/code-yeongyu/senpi/issues/2306), [senpi#2308](https://github.com/code-yeongyu/senpi/issues/2308))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Kibitzer and the other memory sidecars fall back to their category's builtin models when a pinned model refuses, instead of failing every wake. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111))",
+      "translated": "Kibitzer and the other memory sidecars fall back to their category's builtin models when a pinned model refuses, instead of failing every wake. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The Kibitzer failure notice names the model that failed and the `omo.json` setting to change. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111))",
+      "translated": "The Kibitzer failure notice names the model that failed and the `omo.json` setting to change. ([#9111](https://github.com/code-yeongyu/oh-my-openagent/issues/9111))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory reflection moves to the next model when one hits a spent usage or quota limit, instead of ending the run. ([#8296](https://github.com/code-yeongyu/oh-my-openagent/issues/8296), [#6808](https://github.com/code-yeongyu/oh-my-openagent/issues/6808))",
+      "translated": "Memory reflection moves to the next model when one hits a spent usage or quota limit, instead of ending the run. ([#8296](https://github.com/code-yeongyu/oh-my-openagent/issues/8296), [#6808](https://github.com/code-yeongyu/oh-my-openagent/issues/6808))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory dreaming sees which skills and memory files you actually read again. ([#8864](https://github.com/code-yeongyu/oh-my-openagent/issues/8864), reported by @katamana, fixed by @MoerAI in [#8865](https://github.com/code-yeongyu/oh-my-openagent/pull/8865))",
+      "translated": "Memory dreaming sees which skills and memory files you actually read again. ([#8864](https://github.com/code-yeongyu/oh-my-openagent/issues/8864), reported by @katamana, fixed by @MoerAI in [#8865](https://github.com/code-yeongyu/oh-my-openagent/pull/8865))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Task children wait for a busy task host instead of failing with \"Task runner failed to start.\" within 30 s. ([#9067](https://github.com/code-yeongyu/oh-my-openagent/issues/9067), [senpi#2209](https://github.com/code-yeongyu/senpi/issues/2209))",
+      "translated": "Task children wait for a busy task host instead of failing with \"Task runner failed to start.\" within 30 s. ([#9067](https://github.com/code-yeongyu/oh-my-openagent/issues/9067), [senpi#2209](https://github.com/code-yeongyu/senpi/issues/2209))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A task child that kept working through a host hiccup or handoff is no longer left \"suspended\" until the parent restarts. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))",
+      "translated": "A task child that kept working through a host hiccup or handoff is no longer left \"suspended\" until the parent restarts. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A task waiting for a free slot on its fallback model shows as queued with its position, not as running. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))",
+      "translated": "A task waiting for a free slot on its fallback model shows as queued with its position, not as running. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A task's status follows its child: a nudged child no longer shows as failed, and a child that wakes up on its own sends a `task completion (resumed turn)`. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))",
+      "translated": "A task's status follows its child: a nudged child no longer shows as failed, and a child that wakes up on its own sends a `task completion (resumed turn)`. ([#9069](https://github.com/code-yeongyu/oh-my-openagent/issues/9069))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A delegated task no longer hangs in `running` (and `omo -p` no longer stays open) when its first model fails and it moves to the next one.",
+      "translated": "A delegated task no longer hangs in `running` (and `omo -p` no longer stays open) when its first model fails and it moves to the next one."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A task child whose host restarted mid-turn continues its interrupted turn when the parent resumes. ([#9003](https://github.com/code-yeongyu/oh-my-openagent/issues/9003))",
+      "translated": "A task child whose host restarted mid-turn continues its interrupted turn when the parent resumes. ([#9003](https://github.com/code-yeongyu/oh-my-openagent/issues/9003))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A suspended task child frees its concurrency slot, so `task_send` no longer answers `lane_capacity` after a few restarts. ([#8973](https://github.com/code-yeongyu/oh-my-openagent/issues/8973))",
+      "translated": "A suspended task child frees its concurrency slot, so `task_send` no longer answers `lane_capacity` after a few restarts. ([#8973](https://github.com/code-yeongyu/oh-my-openagent/issues/8973))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Task start failures say why the child couldn't start instead of only `Task runner failed to start.` ([#8960](https://github.com/code-yeongyu/oh-my-openagent/issues/8960))",
+      "translated": "Task start failures say why the child couldn't start instead of only `Task runner failed to start.` ([#8960](https://github.com/code-yeongyu/oh-my-openagent/issues/8960))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A child whose host dies while it opens reports `host_unreachable`. ([#9020](https://github.com/code-yeongyu/oh-my-openagent/issues/9020))",
+      "translated": "A child whose host dies while it opens reports `host_unreachable`. ([#9020](https://github.com/code-yeongyu/oh-my-openagent/issues/9020))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A re-prompted child on a loaded host no longer prints `Timeout waiting for response to prompt` over the parent's screen. ([#9093](https://github.com/code-yeongyu/oh-my-openagent/issues/9093))",
+      "translated": "A re-prompted child on a loaded host no longer prints `Timeout waiting for response to prompt` over the parent's screen. ([#9093](https://github.com/code-yeongyu/oh-my-openagent/issues/9093))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A task whose whole fallback chain failed says so in its transcript. ([#8301](https://github.com/code-yeongyu/oh-my-openagent/issues/8301), contributed by @MoerAI in [#9022](https://github.com/code-yeongyu/oh-my-openagent/pull/9022))",
+      "translated": "A task whose whole fallback chain failed says so in its transcript. ([#8301](https://github.com/code-yeongyu/oh-my-openagent/issues/8301), contributed by @MoerAI in [#9022](https://github.com/code-yeongyu/oh-my-openagent/pull/9022))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Live task progress, stats and transcripts keep updating after a child reconnects to its host. ([#8983](https://github.com/code-yeongyu/oh-my-openagent/issues/8983), contributed by @deadcode-walker in [#8978](https://github.com/code-yeongyu/oh-my-openagent/pull/8978))",
+      "translated": "Live task progress, stats and transcripts keep updating after a child reconnects to its host. ([#8983](https://github.com/code-yeongyu/oh-my-openagent/issues/8983), contributed by @deadcode-walker in [#8978](https://github.com/code-yeongyu/oh-my-openagent/pull/8978))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "DAG nodes finish when their child task finishes, also in projects reached through a symlink. ([#8932](https://github.com/code-yeongyu/oh-my-openagent/issues/8932), reported by @ayalcoh)",
+      "translated": "DAG nodes finish when their child task finishes, also in projects reached through a symlink. ([#8932](https://github.com/code-yeongyu/oh-my-openagent/issues/8932), reported by @ayalcoh)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A cancel, a cleanup sweep or a reload during a model fallback no longer ends a revived run, loses a lane slot, or starts the next model beside a child that's still closing.",
+      "translated": "A cancel, a cleanup sweep or a reload during a model fallback no longer ends a revived run, loses a lane slot, or starts the next model beside a child that's still closing."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The shared host keeps opening sessions after a session's directory is deleted, instead of failing every new task child with `ENOENT`. ([senpi#2206](https://github.com/code-yeongyu/senpi/issues/2206))",
+      "translated": "The shared host keeps opening sessions after a session's directory is deleted, instead of failing every new task child with `ENOENT`. ([senpi#2206](https://github.com/code-yeongyu/senpi/issues/2206))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The shared host no longer refuses task children when its memory is high, and it leaves memory pressure once memory is actually freed. ([#8960](https://github.com/code-yeongyu/oh-my-openagent/issues/8960), [senpi#2207](https://github.com/code-yeongyu/senpi/issues/2207), [senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261))",
+      "translated": "The shared host no longer refuses task children when its memory is high, and it leaves memory pressure once memory is actually freed. ([#8960](https://github.com/code-yeongyu/oh-my-openagent/issues/8960), [senpi#2207](https://github.com/code-yeongyu/senpi/issues/2207), [senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A transient task daemon idle-exits again while omo runs, and polling `host status` no longer keeps hosts alive. ([#9041](https://github.com/code-yeongyu/oh-my-openagent/issues/9041), [senpi#2242](https://github.com/code-yeongyu/senpi/issues/2242), [senpi#2227](https://github.com/code-yeongyu/senpi/issues/2227))",
+      "translated": "A transient task daemon idle-exits again while omo runs, and polling `host status` no longer keeps hosts alive. ([#9041](https://github.com/code-yeongyu/oh-my-openagent/issues/9041), [senpi#2242](https://github.com/code-yeongyu/senpi/issues/2242), [senpi#2227](https://github.com/code-yeongyu/senpi/issues/2227))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "An old host generation exits after a handoff even when one of its sessions misbehaves, and a handoff no longer inherits the calling session's identity or model. ([senpi#2285](https://github.com/code-yeongyu/senpi/issues/2285), [senpi#2208](https://github.com/code-yeongyu/senpi/issues/2208))",
+      "translated": "An old host generation exits after a handoff even when one of its sessions misbehaves, and a handoff no longer inherits the calling session's identity or model. ([senpi#2285](https://github.com/code-yeongyu/senpi/issues/2285), [senpi#2208](https://github.com/code-yeongyu/senpi/issues/2208))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/ulw-execute <plan>` and every bundled skill name work as bare commands, like `/skill:<name>`. ([#9042](https://github.com/code-yeongyu/oh-my-openagent/issues/9042))",
+      "translated": "`/ulw-execute <plan>` and every bundled skill name work as bare commands, like `/skill:<name>`. ([#9042](https://github.com/code-yeongyu/oh-my-openagent/issues/9042))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A bare `/skill` or `/skill:` opens the skill list instead of going to the model. ([senpi#2249](https://github.com/code-yeongyu/senpi/issues/2249), [senpi#2251](https://github.com/code-yeongyu/senpi/issues/2251))",
+      "translated": "A bare `/skill` or `/skill:` opens the skill list instead of going to the model. ([senpi#2249](https://github.com/code-yeongyu/senpi/issues/2249), [senpi#2251](https://github.com/code-yeongyu/senpi/issues/2251))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`/thinking` works again, `/sessions` opens the session picker, and `/help` says how to change the thinking level and reopen a session. ([senpi#1437](https://github.com/code-yeongyu/senpi/issues/1437))",
+      "translated": "`/thinking` works again, `/sessions` opens the session picker, and `/help` says how to change the thinking level and reopen a session. ([senpi#1437](https://github.com/code-yeongyu/senpi/issues/1437))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Answering `y` to \"Fork this session into current directory?\" forks it instead of printing `Aborted.` ([senpi#2180](https://github.com/code-yeongyu/senpi/issues/2180), [senpi#1042](https://github.com/code-yeongyu/senpi/pull/1042) by @beengineer500)",
+      "translated": "Answering `y` to \"Fork this session into current directory?\" forks it instead of printing `Aborted.` ([senpi#2180](https://github.com/code-yeongyu/senpi/issues/2180), [senpi#1042](https://github.com/code-yeongyu/senpi/pull/1042) by @beengineer500)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Starting omo no longer empties an upstream pi install, and a `~/.pi/agent` an earlier start drained gets its files copied back. ([#8039](https://github.com/code-yeongyu/oh-my-openagent/issues/8039), [senpi#2215](https://github.com/code-yeongyu/senpi/issues/2215))",
+      "translated": "Starting omo no longer empties an upstream pi install, and a `~/.pi/agent` an earlier start drained gets its files copied back. ([#8039](https://github.com/code-yeongyu/oh-my-openagent/issues/8039), [senpi#2215](https://github.com/code-yeongyu/senpi/issues/2215))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP tools register once per session instead of twice. ([senpi#2177](https://github.com/code-yeongyu/senpi/issues/2177))",
+      "translated": "MCP tools register once per session instead of twice. ([senpi#2177](https://github.com/code-yeongyu/senpi/issues/2177))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Unhandled errors go to the debug log instead of over the TUI, and a fatal crash prints one line with the log path. ([senpi#2284](https://github.com/code-yeongyu/senpi/issues/2284))",
+      "translated": "Unhandled errors go to the debug log instead of over the TUI, and a fatal crash prints one line with the log path. ([senpi#2284](https://github.com/code-yeongyu/senpi/issues/2284))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ulw plan progress counts `T1.2`, `F1`-style task ids and blocked `- [~]` rows, and a plan with no countable tasks no longer triggers a `0/0` continuation. ([#9019](https://github.com/code-yeongyu/oh-my-openagent/issues/9019), [#6233](https://github.com/code-yeongyu/oh-my-openagent/issues/6233))",
+      "translated": "ulw plan progress counts `T1.2`, `F1`-style task ids and blocked `- [~]` rows, and a plan with no countable tasks no longer triggers a `0/0` continuation. ([#9019](https://github.com/code-yeongyu/oh-my-openagent/issues/9019), [#6233](https://github.com/code-yeongyu/oh-my-openagent/issues/6233))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Session search in the `coding-agent-sessions` skill finds prompts from the middle of a session. ([#9012](https://github.com/code-yeongyu/oh-my-openagent/issues/9012))",
+      "translated": "Session search in the `coding-agent-sessions` skill finds prompts from the middle of a session. ([#9012](https://github.com/code-yeongyu/oh-my-openagent/issues/9012))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "When the formatter rewrites a file after `write`, `edit` or `apply_patch`, the model always gets the \"auto-formatted, re-read before exact-text edits\" notice, also when diagnostics come back clean. ([#9123](https://github.com/code-yeongyu/oh-my-openagent/issues/9123))",
+      "translated": "When the formatter rewrites a file after `write`, `edit` or `apply_patch`, the model always gets the \"auto-formatted, re-read before exact-text edits\" notice, also when diagnostics come back clean. ([#9123](https://github.com/code-yeongyu/oh-my-openagent/issues/9123))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The comment checker replaces a stale cached binary with the pinned release, and warns in the session when it can't run instead of going quiet. ([#8850](https://github.com/code-yeongyu/oh-my-openagent/issues/8850), contributed by @cynkai in [#8877](https://github.com/code-yeongyu/oh-my-openagent/pull/8877) and [#8880](https://github.com/code-yeongyu/oh-my-openagent/pull/8880))",
+      "translated": "The comment checker replaces a stale cached binary with the pinned release, and warns in the session when it can't run instead of going quiet. ([#8850](https://github.com/code-yeongyu/oh-my-openagent/issues/8850), contributed by @cynkai in [#8877](https://github.com/code-yeongyu/oh-my-openagent/pull/8877) and [#8880](https://github.com/code-yeongyu/oh-my-openagent/pull/8880))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`new Bun.WebView()` works in eval cells on Windows and Linux, and with `backend: \"chrome\"` on macOS, and no longer leaves Chrome running. ([senpi#2248](https://github.com/code-yeongyu/senpi/issues/2248), [senpi#2272](https://github.com/code-yeongyu/senpi/issues/2272))",
+      "translated": "`new Bun.WebView()` works in eval cells on Windows and Linux, and with `backend: \"chrome\"` on macOS, and no longer leaves Chrome running. ([senpi#2248](https://github.com/code-yeongyu/senpi/issues/2248), [senpi#2272](https://github.com/code-yeongyu/senpi/issues/2272))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Eval memory goes back to the machine without a reset, settled cells no longer pin their images in memory, and retired workers don't leave zombie processes. ([senpi#2259](https://github.com/code-yeongyu/senpi/issues/2259), [senpi#2260](https://github.com/code-yeongyu/senpi/issues/2260), [senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261), [senpi#1962](https://github.com/code-yeongyu/senpi/issues/1962))",
+      "translated": "Eval memory goes back to the machine without a reset, settled cells no longer pin their images in memory, and retired workers don't leave zombie processes. ([senpi#2259](https://github.com/code-yeongyu/senpi/issues/2259), [senpi#2260](https://github.com/code-yeongyu/senpi/issues/2260), [senpi#2261](https://github.com/code-yeongyu/senpi/issues/2261), [senpi#1962](https://github.com/code-yeongyu/senpi/issues/1962))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Eval cells that print a lot of output finish about 4x faster. ([senpi#2262](https://github.com/code-yeongyu/senpi/issues/2262))",
+      "translated": "Eval cells that print a lot of output finish about 4x faster. ([senpi#2262](https://github.com/code-yeongyu/senpi/issues/2262))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo update` on a compiled binary picks the newest release on its own channel and the asset it was built as, and prints a command that replaces the running binary; the TUI update notice says `omo update`.",
+      "translated": "`omo update` on a compiled binary picks the newest release on its own channel and the asset it was built as, and prints a command that replaces the running binary; the TUI update notice says `omo update`."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo doctor` treats a standalone omo binary as an OmO install instead of an unknown file to delete, and warns once when it and omo-ai are both on PATH.",
+      "translated": "`omo doctor` treats a standalone omo binary as an OmO install instead of an unknown file to delete, and warns once when it and omo-ai are both on PATH."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "On Windows, `omo doctor` and `install --platform=native` recognize a Bun-installed omo, and `omo update` uses `bun add -g` for a legacy Bun home install. ([#8909](https://github.com/code-yeongyu/oh-my-openagent/issues/8909))",
+      "translated": "On Windows, `omo doctor` and `install --platform=native` recognize a Bun-installed omo, and `omo update` uses `bun add -g` for a legacy Bun home install. ([#8909](https://github.com/code-yeongyu/oh-my-openagent/issues/8909))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The computer use engine for Intel Macs starts: it was built for macOS 10.12 and could not load its Swift libraries, and the release now runs its selftest under Rosetta. ([#9139](https://github.com/code-yeongyu/oh-my-openagent/pull/9139))",
+      "translated": "The computer use engine for Intel Macs starts: it was built for macOS 10.12 and could not load its Swift libraries, and the release now runs its selftest under Rosetta. ([#9139](https://github.com/code-yeongyu/oh-my-openagent/pull/9139))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d859bc2b2 Merge pull request #9139 from code-yeongyu/fix/desktop-engine-standard-macos-runners",
+      "translated": "Merge pull request #9139 from code-yeongyu/fix/desktop-engine-standard-macos-runners"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "36b7f5146 docs(changelog): note the Intel Mac computer use engine fix in 5.1.0",
+      "translated": "Note the Intel Mac computer use engine fix in 5.1.0"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5f7d77def fix(release): build Darwin desktop engines on standard macOS runners and launchable on x64",
+      "translated": "Build Darwin desktop engines on standard macOS runners and launchable on x64"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "669f132fc Merge pull request #9138 from code-yeongyu/release/v5.1.0-source-state",
+      "translated": "Merge pull request #9138 from code-yeongyu/release/v5.1.0-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "13505873d Merge pull request #9137 from code-yeongyu/release/5.1.0-notes",
+      "translated": "Merge pull request #9137 from code-yeongyu/release/5.1.0-notes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "27e71628a docs(changelog): write the 5.1.0 release notes",
+      "translated": "Write the 5.1.0 release notes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2eb2b2617 Merge pull request #9122 from code-yeongyu/fix/9117-app-server-plugin",
+      "translated": "Merge pull request #9122 from code-yeongyu/fix/9117-app-server-plugin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "befd417f1 fix(omo-native): load the OmO plugin into omo app-server (fixes #9117)",
+      "translated": "Load the OmO plugin into omo app-server (fixes #9117)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e22d52cff Merge pull request #9128 from code-yeongyu/docs/computer-use-experimental",
+      "translated": "Merge pull request #9128 from code-yeongyu/docs/computer-use-experimental"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e184dfef Merge remote-tracking branch 'origin/dev' into docs/computer-use-experimental",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/computer-use-experimental"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "045c2ddfc Merge pull request #9130 from code-yeongyu/fix/formatter-notice-clean-diagnostics",
+      "translated": "Merge pull request #9130 from code-yeongyu/fix/formatter-notice-clean-diagnostics"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a398f3d1b docs(computer-use): say computer use is experimental on every user-facing surface (#9124)",
+      "translated": "Say computer use is experimental on every user-facing surface (#9124)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ea4f66aa1 Merge pull request #9118 from code-yeongyu/fix/9113-lazy-computer-use-runtime",
+      "translated": "Merge pull request #9118 from code-yeongyu/fix/9113-lazy-computer-use-runtime"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "367f7185e Merge remote-tracking branch 'origin/dev' into fix/9113-lazy-computer-use-runtime",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9113-lazy-computer-use-runtime"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3eed4f952 Merge pull request #9132 from code-yeongyu/fix/8296-limit-fallback",
+      "translated": "Merge pull request #9132 from code-yeongyu/fix/8296-limit-fallback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0fc451789 perf(computer-use): ship the prelude texts as a lazily read JSON asset (#9113)",
+      "translated": "Ship the prelude texts as a lazily read JSON asset (#9113)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8da20553b perf(computer-use): load the implementation on first use, not at session start (#9113)",
+      "translated": "Load the implementation on first use, not at session start (#9113)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "adcf55368 fix(model-core): move usage and quota limits to the next fallback model (#8296)",
+      "translated": "Move usage and quota limits to the next fallback model (#8296)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14a2da242 Merge pull request #9127 from code-yeongyu/fix/materialize-test-isolation",
+      "translated": "Merge pull request #9127 from code-yeongyu/fix/materialize-test-isolation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8321aa201 Merge pull request #9120 from nahwan-kim/fix/formatter-text-content-blocks",
+      "translated": "Merge pull request #9120 from nahwan-kim/fix/formatter-text-content-blocks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e7ac99b3f test(package-layout): pack the exclusion guards from a fixture package, not the checkout (#9125)",
+      "translated": "Pack the exclusion guards from a fixture package, not the checkout (#9125)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9cb164d99 test(shared-skills): materialize frontend refs into a private root, not the checkout (#9125)",
+      "translated": "Materialize frontend refs into a private root, not the checkout (#9125)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6e6aae1a9 Merge upstream dev to resolve formatter PR bundle conflict",
+      "translated": "Merge upstream dev to resolve formatter PR bundle conflict"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "863dc58dc Merge pull request #9114 from code-yeongyu/fix/kibitzer-sidecar-refusal-fallback",
+      "translated": "Merge pull request #9114 from code-yeongyu/fix/kibitzer-sidecar-refusal-fallback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37691f38a Merge pull request #9065 from code-yeongyu/fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge pull request #9065 from code-yeongyu/fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c0561edfe Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ace1a1184 Merge pull request #9074 from code-yeongyu/fix/8959-ax-click-owner",
+      "translated": "Merge pull request #9074 from code-yeongyu/fix/8959-ax-click-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b4fc94ae8 Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cb6c584ff Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24a0557bc Merge pull request #9098 from code-yeongyu/fix/9095-windows-foreground-pointer",
+      "translated": "Merge pull request #9098 from code-yeongyu/fix/9095-windows-foreground-pointer"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3d582da24 test(desktop-qa): scroll the pointer scenarios by 120 px, three notches under #9101's mapping (#9095)",
+      "translated": "Scroll the pointer scenarios by 120 px, three notches under #9101's mapping (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "760aeed89 test(desktop-qa): return scroll-direction-foreground to --all (#9095)",
+      "translated": "Return scroll-direction-foreground to --all (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "553188679 fix(desktop): Windows foreground pointer input waits for the compositor and a placed cursor (#9095)",
+      "translated": "Windows foreground pointer input waits for the compositor and a placed cursor (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e98b348d test(desktop-qa): drop the #9095 diagnostics, keep the pointer scenarios (RED)",
+      "translated": "Drop the #9095 diagnostics, keep the pointer scenarios (RED)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1c30047b7 test(desktop): temporary #9095 compositor-settle experiment (DwmFlush, sleep placement)",
+      "translated": "Temporary #9095 compositor-settle experiment (DwmFlush, sleep placement)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f4076ea2a test(desktop): temporary #9095 settle-variant experiment for foreground scroll",
+      "translated": "Temporary #9095 settle-variant experiment for foreground scroll"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "87e0bb59e test(desktop-qa): keep Add-Type warnings off the pointer host's ready line (#9095)",
+      "translated": "Keep Add-Type warnings off the pointer host's ready line (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7719ec177 test(desktop): temporary #9095 timeline of foreground pointer delivery",
+      "translated": "Temporary #9095 timeline of foreground pointer delivery"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b5c1eb8ee test(desktop-qa): cover the target point for real and add #9062's same-rect shape (#9095)",
+      "translated": "Cover the target point for real and add #9062's same-rect shape (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5724e6c3e test(desktop-qa): fix the pointer probe and trace routed mouse events (#9095)",
+      "translated": "Fix the pointer probe and trace routed mouse events (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e1ee81bd test(desktop-qa): reproduce Windows foreground pointer misdelivery (#9095)",
+      "translated": "Reproduce Windows foreground pointer misdelivery (#9095)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fe427efee Merge pull request #9105 from code-yeongyu/fix/9101-scroll-pixels",
+      "translated": "Merge pull request #9105 from code-yeongyu/fix/9101-scroll-pixels"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "00e8d765f Merge remote-tracking branch 'origin/dev' into fix/9101-scroll-pixels",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9101-scroll-pixels"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8fb1692f9 Merge pull request #9062 from code-yeongyu/fix/9055-scroll-direction",
+      "translated": "Merge pull request #9062 from code-yeongyu/fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6424050d2 Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cb0a990f4 Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c7114838 Merge pull request #9081 from code-yeongyu/fix/doctor-standalone-binary",
+      "translated": "Merge pull request #9081 from code-yeongyu/fix/doctor-standalone-binary"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8844d40f0 Merge remote-tracking branch 'origin/fix/9055-scroll-direction' into fix/9101-scroll-pixels",
+      "translated": "Merge remote-tracking branch 'origin/fix/9055-scroll-direction' into fix/9101-scroll-pixels"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e37abb332 Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3eabfe378 test(audit): count the doctor changes.md entry in the command-string allowlist",
+      "translated": "Count the doctor changes.md entry in the command-string allowlist"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "22dca929b fix(omo-native): recognize standalone omo binaries in doctor (fixes #9080)",
+      "translated": "Recognize standalone omo binaries in doctor (fixes #9080)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e3d2409d9 Merge pull request #9103 from code-yeongyu/fix/9093-reattach-continuation-rejection",
+      "translated": "Merge pull request #9103 from code-yeongyu/fix/9093-reattach-continuation-rejection"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e2c6403f6 test(desktop-qa): read the X11 scroll view after an event-ordered pointer marker (#9101)",
+      "translated": "Read the X11 scroll view after an event-ordered pointer marker (#9101)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a66bc7ff7 test(desktop-qa): assert the pixel distance of a 120 px scroll on Windows and X11 (#9101)",
+      "translated": "Assert the pixel distance of a 120 px scroll on Windows and X11 (#9101)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "51c59c59b fix(computer-use): scroll dx/dy are pixels on every OS, 40 px per wheel notch (#9101)",
+      "translated": "Scroll dx/dy are pixels on every OS, 40 px per wheel notch (#9101)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "db8f80c3a Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "736d190da Merge pull request #9089 from code-yeongyu/fix/9084-macos-restore-live-front",
+      "translated": "Merge pull request #9089 from code-yeongyu/fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cca40a234 Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c624307d9 Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc73a80a2 Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "95d62df84 Merge pull request #9099 from code-yeongyu/fix/9097-macos-background-scroll-once",
+      "translated": "Merge pull request #9099 from code-yeongyu/fix/9097-macos-background-scroll-once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9fc550de6 Merge remote-tracking branch 'origin/dev' into fix/9097-macos-background-scroll-once",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9097-macos-background-scroll-once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0c06d1b97 Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3f651fe5a fix(desktop-wayland): keep EisRegion dependency-free so the Linux QA fake EIS builds",
+      "translated": "Keep EisRegion dependency-free so the Linux QA fake EIS builds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e98a682d6 Merge pull request #9090 from code-yeongyu/fix/9069-host-session-liveness",
+      "translated": "Merge pull request #9090 from code-yeongyu/fix/9069-host-session-liveness"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3fcebc50 Merge remote-tracking branch 'origin/dev' into fix/9097-macos-background-scroll-once",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9097-macos-background-scroll-once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3bffcaae5 Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d6f563e49 Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af1e49f9f fix(desktop): post a macOS background scroll through one route so it moves once",
+      "translated": "Post a macOS background scroll through one route so it moves once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "41bde3ed6 Merge pull request #9086 from code-yeongyu/fix/9069-queued-fallback-start",
+      "translated": "Merge pull request #9086 from code-yeongyu/fix/9069-queued-fallback-start"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d563d6f26 test(desktop-qa): keep the Windows foreground scroll repro out of --all until #9095",
+      "translated": "Keep the Windows foreground scroll repro out of --all until #9095"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "647d237c1 test(desktop-qa): add a SendInput wheel control to the foreground scroll scenario",
+      "translated": "Add a SendInput wheel control to the foreground scroll scenario"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3f599fef test(desktop-qa): catch a wheel delivered to the front window",
+      "translated": "Catch a wheel delivered to the front window"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc67110ec Merge pull request #9075 from code-yeongyu/fix/9067-busy-host-start",
+      "translated": "Merge pull request #9075 from code-yeongyu/fix/9067-busy-host-start"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "948e33454 test(desktop-qa): report the window under the cursor and window rects",
+      "translated": "Report the window under the cursor and window rects"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6450815d1 test(desktop-qa): log what the Windows scroll host receives",
+      "translated": "Log what the Windows scroll host receives"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f73bfb8d4 test(desktop-qa): prove the semantic scroll direction on Windows and X11",
+      "translated": "Prove the semantic scroll direction on Windows and X11"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ca2f53ada test(desktop-wayland): live Screenshot-portal check against the compositor layout",
+      "translated": "Live Screenshot-portal check against the compositor layout"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "607791243 docs(desktop): describe libei-derived geometry for scale-less Wayland captures",
+      "translated": "Describe libei-derived geometry for scale-less Wayland captures"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4fd70d539 fix(desktop-wayland): derive scale-less capture geometry from the libei layout",
+      "translated": "Derive scale-less capture geometry from the libei layout"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7ef715bb docs(changes): X11 ax.click resolves the element's window (#8959)",
+      "translated": "X11 ax.click resolves the element's window (#8959)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2009d62cf test(desktop): live X11 AX-owner checks for overlapped and same-title windows",
+      "translated": "Live X11 AX-owner checks for overlapped and same-title windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7b1595a6c fix(desktop): resolve an AX element's X11 owner by pid, title and geometry",
+      "translated": "Resolve an AX element's X11 owner by pid, title and geometry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b63deaa64 test(desktop-wayland): reproduce scale-less captures that ignore the libei layout",
+      "translated": "Reproduce scale-less captures that ignore the libei layout"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "33007de78 Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8d16752d2 docs(desktop): state the scroll contract semantically, independent of natural scrolling",
+      "translated": "State the scroll contract semantically, independent of natural scrolling"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fae778aec Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ad402f478 Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2403c6625 Merge pull request #9082 from code-yeongyu/fix/macos-foreground-point-owner",
+      "translated": "Merge pull request #9082 from code-yeongyu/fix/macos-foreground-point-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "81fb5ae38 Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9055-scroll-direction"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03e881e10 test(desktop-wayland): pin that a Screenshot-portal fallback frame refuses coordinate input",
+      "translated": "Pin that a Screenshot-portal fallback frame refuses coordinate input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "897b44565 Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-fallback-refuse-coordinate-input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "15f8f5cad Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "529aca831 Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7b2dc6408 Merge pull request #9088 from code-yeongyu/fix/windows-qa-pid-identity",
+      "translated": "Merge pull request #9088 from code-yeongyu/fix/windows-qa-pid-identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "229088895 fix(desktop): leave an app the user switched to in front after a restore",
+      "translated": "Leave an app the user switched to in front after a restore"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba5a3f1d9 Merge pull request #9085 from code-yeongyu/fix/9069-truthful-child-records",
+      "translated": "Merge pull request #9085 from code-yeongyu/fix/9069-truthful-child-records"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "74139cd8a Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9084-macos-restore-live-front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "04b14c311 fix(desktop): restore the macOS app the user had in front",
+      "translated": "Restore the macOS app the user had in front"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cfb1d05a5 fix(qa): keep Windows desktop QA teardown off recycled pids",
+      "translated": "Keep Windows desktop QA teardown off recycled pids"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "02962d217 Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ece60b032 Merge pull request #9083 from code-yeongyu/fix/9076-musl-engine-host",
+      "translated": "Merge pull request #9083 from code-yeongyu/fix/9076-musl-engine-host"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "75e9de1f0 Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/macos-foreground-point-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "29d454681 Merge pull request #9078 from code-yeongyu/fix/compiled-update-hint",
+      "translated": "Merge pull request #9078 from code-yeongyu/fix/compiled-update-hint"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c1da5dd4 Merge pull request #8969 from code-yeongyu/fix/wayland-input-capture-gaps-20260927-v2",
+      "translated": "Merge pull request #8969 from code-yeongyu/fix/wayland-input-capture-gaps-20260927-v2"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f967a127a Merge pull request #9073 from code-yeongyu/fix/web-native-download-count",
+      "translated": "Merge pull request #9073 from code-yeongyu/fix/web-native-download-count"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "66e663dca Merge remote-tracking branch 'origin/dev' into fix/9076-musl-engine-host",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9076-musl-engine-host"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bb4a2853e fix(desktop): refuse macOS foreground pointer input on a covered point",
+      "translated": "Refuse macOS foreground pointer input on a covered point"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "138397130 Merge pull request #9071 from code-yeongyu/fix/stats-omo-ai-package",
+      "translated": "Merge pull request #9071 from code-yeongyu/fix/stats-omo-ai-package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b0820678c fix(desktop-engine): name the musl host so musl Linux never fetches the glibc engine (#9076)",
+      "translated": "Name the musl host so musl Linux never fetches the glibc engine (#9076)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b0bea70ef fix(omo-native): resolve compiled omo update by channel, flavor and destination (fixes #9077)",
+      "translated": "Resolve compiled omo update by channel, flavor and destination (fixes #9077)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4016c1e54 Merge pull request #9060 from code-yeongyu/fix/doctor-computer-use-not-installed",
+      "translated": "Merge pull request #9060 from code-yeongyu/fix/doctor-computer-use-not-installed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37f519805 Merge remote-tracking branch 'origin/dev' into fix/wayland-input-capture-gaps-20260927-v2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-input-capture-gaps-20260927-v2"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba8519b7c Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8959-ax-click-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c66cb9de Merge pull request #9058 from MoerAI/fix/8843-preview-safe-handlers",
+      "translated": "Merge pull request #9058 from MoerAI/fix/8843-preview-safe-handlers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "264d2acac Merge remote-tracking branch 'origin/dev' into fix/doctor-computer-use-not-installed",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/doctor-computer-use-not-installed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4c0493146 fix(desktop): send AX coordinate clicks to the element's own window",
+      "translated": "Send AX coordinate clicks to the element's own window"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "713775ced Merge pull request #9064 from code-yeongyu/fix/omob-desktop-engine",
+      "translated": "Merge pull request #9064 from code-yeongyu/fix/omob-desktop-engine"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3c1742db fix(web): count compiled release binaries in the download totals (fixes #9072)",
+      "translated": "Count compiled release binaries in the download totals (fixes #9072)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e535d3d3 fix(stats): count omo-ai in the weekly download stats (fixes #9070)",
+      "translated": "Count omo-ai in the weekly download stats (fixes #9070)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af5d73e4c test(script): count the new omo doctor changelog mentions in the command audit",
+      "translated": "Count the new omo doctor changelog mentions in the command audit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2b8901e90 fix(desktop): refuse coordinate input on Wayland Screenshot-portal frames",
+      "translated": "Refuse coordinate input on Wayland Screenshot-portal frames"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b07f30b6e fix(omob): build the desktop engine the compiled binary embeds",
+      "translated": "Build the desktop engine the compiled binary embeds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b8191599 Merge remote-tracking branch 'origin/dev' into fix/wayland-input-capture-gaps-20260927-v2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/wayland-input-capture-gaps-20260927-v2"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3059a86b0 fix(desktop): scroll in the same direction on every OS",
+      "translated": "Scroll in the same direction on every OS"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c133b7381 Merge remote-tracking branch 'origin/dev' into fix/doctor-computer-use-not-installed",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/doctor-computer-use-not-installed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e53287a7 fix(omo-native): doctor reports a not-yet-installed computer-use engine as info",
+      "translated": "Doctor reports a not-yet-installed computer-use engine as info"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14ec7647d Merge pull request #9057 from code-yeongyu/fix/9056-macos-preserve-newer-focus",
+      "translated": "Merge pull request #9057 from code-yeongyu/fix/9056-macos-preserve-newer-focus"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0251eb222 fix(desktop): keep the user's newer front app after macOS background typing",
+      "translated": "Keep the user's newer front app after macOS background typing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "85c2d1d13 Merge pull request #9053 from code-yeongyu/fix/clipboard-engine-operations-20260927",
+      "translated": "Merge pull request #9053 from code-yeongyu/fix/clipboard-engine-operations-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2fe068e82 Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d83d692b9 Merge pull request #9052 from code-yeongyu/fix/9048-computer-actions-activation",
+      "translated": "Merge pull request #9052 from code-yeongyu/fix/9048-computer-actions-activation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "72d65e126 Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ceee133a0 feat(desktop): implement clipboard.read and clipboard.write",
+      "translated": "Implement clipboard.read and clipboard.write"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "270c8513f Merge pull request #9046 from code-yeongyu/fix/embed-probe-ebusy",
+      "translated": "Merge pull request #9046 from code-yeongyu/fix/embed-probe-ebusy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6cbef3344 Merge pull request #8991 from code-yeongyu/fix/8940-computer-use-telemetry-followup",
+      "translated": "Merge pull request #8991 from code-yeongyu/fix/8940-computer-use-telemetry-followup"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "608d9a8d6 Merge pull request #8993 from code-yeongyu/fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge pull request #8993 from code-yeongyu/fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "081280287 Merge commit 'acf85c552d09d43f0f22475638b7b2a435e71e8c' into HEAD",
+      "translated": "Merge commit 'acf85c552d09d43f0f22475638b7b2a435e71e8c' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a474bdd47 Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "acf85c552 Merge pull request #9049 from code-yeongyu/fix/computer-tool-root-object-schema",
+      "translated": "Merge pull request #9049 from code-yeongyu/fix/computer-tool-root-object-schema"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c778629ec Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/clipboard-engine-operations-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3f429c19e wip(desktop): clipboard backend methods and fake support (#9009)",
+      "translated": "Wip(desktop): clipboard backend methods and fake support (#9009)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b18045b8 Merge commit '0c76f2d9838a664884739877da1692aa754eab1a' into HEAD",
+      "translated": "Merge commit '0c76f2d9838a664884739877da1692aa754eab1a' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "46cde1edd Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "715083adb fix(build): leave a win32-busy embed-probe root to the OS instead of failing (#9045)",
+      "translated": "Leave a win32-busy embed-probe root to the OS instead of failing (#9045)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "32666401c refactor(build): move the embedded-payload probe and asset naming out of build-omo-binary",
+      "translated": "Move the embedded-payload probe and asset naming out of build-omo-binary"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b0d190224 Merge pull request #9007 from code-yeongyu/fix/9004-windows-python-facade-timeouts",
+      "translated": "Merge pull request #9007 from code-yeongyu/fix/9004-windows-python-facade-timeouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "795a7d331 fix(changes): restore the changes.md history dropped by the schema entry",
+      "translated": "Restore the changes.md history dropped by the schema entry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e7543248 Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e10c6c8c7 Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bbd79cd81 Revert \"ci(desktop): TEMP measure Windows Python cold start (drop before merge)\"",
+      "translated": "Revert \"ci(desktop): TEMP measure Windows Python cold start (drop before merge)\""
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b9b535ad9 Merge remote-tracking branch 'origin/dev' into fix/computer-tool-root-object-schema",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/computer-tool-root-object-schema"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d39903f7c fix(desktop): publish root-object schemas for the computer tools",
+      "translated": "Publish root-object schemas for the computer tools"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "00a116a43 ci(desktop): TEMP measure Windows Python cold start (drop before merge)",
+      "translated": "TEMP measure Windows Python cold start (drop before merge)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06b7d99a8 test(desktop): start the Python facade interpreter before test deadlines",
+      "translated": "Start the Python facade interpreter before test deadlines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06592e06f Merge pull request #8982 from code-yeongyu/fix/windows-computer-use-gap-closure-rebased2-20260927",
+      "translated": "Merge pull request #8982 from code-yeongyu/fix/windows-computer-use-gap-closure-rebased2-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5c2fd2209 Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4ff52e59a Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "997293253 fix(x11): restore the pointer only from emitted XTEST motion",
+      "translated": "Restore the pointer only from emitted XTEST motion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1cb9406a0 Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/x11-computer-use-gap-closure-20260927"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1f126e291 Merge remote-tracking branch 'origin/dev' into fix/windows-computer-use-gap-closure",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/windows-computer-use-gap-closure"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0c76f2d98 Merge pull request #9044 from code-yeongyu/fix/9042-bare-skill-commands",
+      "translated": "Merge pull request #9044 from code-yeongyu/fix/9042-bare-skill-commands"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e89647df0 Merge pull request #9040 from code-yeongyu/fix/win-ci-git-survivor",
+      "translated": "Merge pull request #9040 from code-yeongyu/fix/win-ci-git-survivor"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "145b49a86 test(isolation-core): prove the survivor run settles before the survivor exits (#9039)",
+      "translated": "Prove the survivor run settles before the survivor exits (#9039)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6f65ada72 Merge pull request #8961 from code-yeongyu/ci/win-ci-integration",
+      "translated": "Merge pull request #8961 from code-yeongyu/ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8fd5baab5 Merge remote-tracking branch 'origin/fix/win-ci-worker-compile-teardown' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-worker-compile-teardown' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5ae2e1bfc Merge remote-tracking branch 'origin/fix/win-ci-isolation-nested-hang' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-isolation-nested-hang' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "211696d05 Merge remote-tracking branch 'origin/fix/win-ci-comment-checker-probe' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-comment-checker-probe' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d306de76b Merge remote-tracking branch 'origin/fix/win-ci-parent-wake-empty-turn' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-parent-wake-empty-turn' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f4691ea32 Merge remote-tracking branch 'origin/fix/win-ci-lsp-applyedit' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-lsp-applyedit' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a1323fe7 Merge remote-tracking branch 'origin/fix/win-ci-session-client-deny' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-session-client-deny' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "239f1dcc8 Merge remote-tracking branch 'origin/fix/win-ci-mailbox-caps' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-mailbox-caps' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba02302ea Merge remote-tracking branch 'origin/fix/win-ci-kibitzer-wake-slot' into ci/win-ci-integration",
+      "translated": "Merge remote-tracking branch 'origin/fix/win-ci-kibitzer-wake-slot' into ci/win-ci-integration"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0bbc35b87 Merge pull request #9038 from code-yeongyu/fix/9036-task-depth-ancestry",
+      "translated": "Merge pull request #9038 from code-yeongyu/fix/9036-task-depth-ancestry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4a646d995 test(memory-core): give the sharing-violation waiters a circuit-breaker budget and surface their real error (#8953)",
+      "translated": "Give the sharing-violation waiters a circuit-breaker budget and surface their real error (#8953)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e5f0a82eb fix(memory-core): a Windows sharing violation on the head wake ticket keeps its place instead of rejecting the waiter (#8953)",
+      "translated": "A Windows sharing violation on the head wake ticket keeps its place instead of rejecting the waiter (#8953)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1fa259e73 Merge pull request #9037 from code-yeongyu/fix/9035-omob-test-temp-dir-hold",
+      "translated": "Merge pull request #9037 from code-yeongyu/fix/9035-omob-test-temp-dir-hold"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a6f035d04 Merge pull request #9034 from code-yeongyu/fix/9030-team-lock-delete-pending",
+      "translated": "Merge pull request #9034 from code-yeongyu/fix/9030-team-lock-delete-pending"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3b3e8ef96 fix(team-core): acquire team locks without fsync and reclaim stale ones exactly once",
+      "translated": "Acquire team locks without fsync and reclaim stale ones exactly once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "911293e10 test(lsp-core): synchronize unscoped applyEdit response",
+      "translated": "Synchronize unscoped applyEdit response"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "20f9852dd Merge pull request #9033 from code-yeongyu/fix/win-ci-cc-stdin-fake",
+      "translated": "Merge pull request #9033 from code-yeongyu/fix/win-ci-cc-stdin-fake"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "70cc9791d test(script): leave a win32-busy omob fixture temp root to the OS (#9035)",
+      "translated": "Leave a win32-busy omob fixture temp root to the OS (#9035)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "29e34bc07 Merge pull request #9021 from code-yeongyu/fix/open-session-transport-loss-reason",
+      "translated": "Merge pull request #9021 from code-yeongyu/fix/open-session-transport-loss-reason"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ee18a23d2 Merge pull request #9031 from code-yeongyu/fix/9029-cold-child-import-stall",
+      "translated": "Merge pull request #9031 from code-yeongyu/fix/9029-cold-child-import-stall"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "76967b693 Merge pull request #8877 from cynkai/fix/8850-comment-checker-versioned-cache",
+      "translated": "Merge pull request #8877 from cynkai/fix/8850-comment-checker-versioned-cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "500886563 Merge remote-tracking branch 'origin/dev' into fix/8850-comment-checker-versioned-cache",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8850-comment-checker-versioned-cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6bf6df8b5 Merge pull request #9022 from MoerAI/fix/8301-runtime-fallback-exhausted",
+      "translated": "Merge pull request #9022 from MoerAI/fix/8301-runtime-fallback-exhausted"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6ee1c2398 ci(compiled-worker): relocate the removeTree helper beside the worker test (#9025)",
+      "translated": "Relocate the removeTree helper beside the worker test (#9025)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1560b3360 fix(comment-checker): show the could-not-run warning in the session",
+      "translated": "Show the could-not-run warning in the session"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c86021e4 fix(comment-checker): report a checker that never starts instead of treating it as clean",
+      "translated": "Report a checker that never starts instead of treating it as clean"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24c4ec5ff fix(comment-checker): keep reporting a checker that exits before reading its input",
+      "translated": "Keep reporting a checker that exits before reading its input"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0780dac7c fix(comment-checker): disable the Native checker for the session when it cannot run",
+      "translated": "Disable the Native checker for the session when it cannot run"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a18ad681e Merge commit '8c7cf899d906bd86b2d8e8ecc497b35b12092603' into fix/8850-comment-checker-versioned-cache",
+      "translated": "Merge commit '8c7cf899d906bd86b2d8e8ecc497b35b12092603' into fix/8850-comment-checker-versioned-cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8c7cf899d Merge pull request #8971 from code-yeongyu/fix/win-ci-foreign-owner",
+      "translated": "Merge pull request #8971 from code-yeongyu/fix/win-ci-foreign-owner"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "77c013181 Merge pull request #8884 from effortprogrammer/fix/rpc-host-idle-settle",
+      "translated": "Merge pull request #8884 from effortprogrammer/fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9fa910857 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "735536c98 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ebd01f84e Merge pull request #9027 from code-yeongyu/fix/host-reopen-continuation",
+      "translated": "Merge pull request #9027 from code-yeongyu/fix/host-reopen-continuation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b3104a32 test(build): give the compiled-worker teardown the Windows image-release window (#9025)",
+      "translated": "Give the compiled-worker teardown the Windows image-release window (#9025)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dd0f8ac50 Merge pull request #9019 from MoerAI/fix/6233-plan-progress-task-ids",
+      "translated": "Merge pull request #9019 from MoerAI/fix/6233-plan-progress-task-ids"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c9b4e665f docs(changes): name the OpenCode run command by its CLI name",
+      "translated": "Name the OpenCode run command by its CLI name"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "836a574ab Merge remote-tracking branch 'origin/dev' into pr-9019-head",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr-9019-head"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "01b387da0 docs(changes): record the boulder plan grammar, [~] and 0/0 stop",
+      "translated": "Record the boulder plan grammar, [~] and 0/0 stop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3cf5f3cec fix(omo-codex): count plans with the shared boulder task grammar in the Stop hook",
+      "translated": "Count plans with the shared boulder task grammar in the Stop hook"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ef32a1645 fix(plan-format-validator): judge task rows with the progress counter's grammar",
+      "translated": "Judge task rows with the progress counter's grammar"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c47e98da fix(atlas): stop boulder continuation when the plan has no countable tasks",
+      "translated": "Stop boulder continuation when the plan has no countable tasks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03fd51589 Merge pull request #9012 from MoerAI/fix/6468-agent-sessions-search",
+      "translated": "Merge pull request #9012 from MoerAI/fix/6468-agent-sessions-search"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d66661e1d fix(boulder-state): count [~] rows as in-progress, not done",
+      "translated": "Count [~] rows as in-progress, not done"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "520d173b8 refactor(boulder-state): move markdown fence scanning out of the plan parser",
+      "translated": "Move markdown fence scanning out of the plan parser"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "171438f49 Merge pull request #9017 from MoerAI/fix/8909-bun-windows-doctor",
+      "translated": "Merge pull request #9017 from MoerAI/fix/8909-bun-windows-doctor"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e5978e3c6 Merge remote-tracking branch 'origin/dev' into fix/6468-agent-sessions-search",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6468-agent-sessions-search"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "12eac0a09 docs(coding-agent-sessions): explain the user_message match reason",
+      "translated": "Explain the user_message match reason"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43e6084cc docs(omo-native): record the Bun Windows doctor fix",
+      "translated": "Record the Bun Windows doctor fix"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e1fb2d790 fix(install-native): recognize Bun's Windows omo.exe through its .bunx sidecar",
+      "translated": "Recognize Bun's Windows omo.exe through its .bunx sidecar"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed964d2e6 fix(omo-native): resolve Bun's relative .bunx target in doctor",
+      "translated": "Resolve Bun's relative .bunx target in doctor"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c00ee3ddb Merge remote-tracking branch 'origin/dev' into fix/6233-plan-progress-task-ids",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6233-plan-progress-task-ids"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ab7f4e933 Merge pull request #9018 from code-yeongyu/fix/macos-foreground-click-key-window",
+      "translated": "Merge pull request #9018 from code-yeongyu/fix/macos-foreground-click-key-window"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c53dc9e38 Merge remote-tracking branch 'origin/dev' into fix/6468-agent-sessions-search",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6468-agent-sessions-search"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f7fab48a2 fix(coding-agent-sessions): search middle prompts in droid, kimi and aside transcripts",
+      "translated": "Search middle prompts in droid, kimi and aside transcripts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e54b35ce perf(coding-agent-sessions): search the user prompts the scan already read",
+      "translated": "Search the user prompts the scan already read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cfca1e458 fix(boulder-state): parse common task IDs (fixes #6233)",
+      "translated": "Parse common task IDs (fixes #6233)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7780b7b61 fix(desktop): make macOS foreground input land in the target window",
+      "translated": "Make macOS foreground input land in the target window"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b76fdd06f test(isolation-core): drive the baseline read retry with a typed timeout instead of a real stalled git (#8997)",
+      "translated": "Drive the baseline read retry with a typed timeout instead of a real stalled git (#8997)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "29e101261 fix(omo-native): recognize Bun Windows shims (fixes #8909)",
+      "translated": "Recognize Bun Windows shims (fixes #8909)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d292f6b34 fix(coding-agent-sessions): search middle user events and reject old Python (fixes #6468)",
+      "translated": "Search middle user events and reject old Python (fixes #6468)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4d150290b Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3ffb9644f Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cd1e20caa Merge pull request #9005 from code-yeongyu/fix/windows-start-failure-fixture",
+      "translated": "Merge pull request #9005 from code-yeongyu/fix/windows-start-failure-fixture"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "233ac0630 fix(desktop): release held Windows keys after focus changes",
+      "translated": "Release held Windows keys after focus changes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2bd23aa63 Merge remote-tracking branch 'origin/dev' into fix/windows-computer-use-gap-closure",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/windows-computer-use-gap-closure"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c9b9a3ae Merge dev and verify Windows input recovery",
+      "translated": "Merge dev and verify Windows input recovery"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61320f814 Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9004-windows-python-facade-timeouts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7d73a7fb7 test(background-agent): await the retry prompt instead of sleep-polling (#8951)",
+      "translated": "Await the retry prompt instead of sleep-polling (#8951)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f88105977 fix(background-agent): a parent wake retry no longer waits a second promptAsync hold (#8951)",
+      "translated": "A parent wake retry no longer waits a second promptAsync hold (#8951)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2a74ca597 Merge pull request #9006 from code-yeongyu/qa/canary-off-scenario",
+      "translated": "Merge pull request #9006 from code-yeongyu/qa/canary-off-scenario"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fd7aa4f9b fix(desktop): provision the Windows Python facade runtime",
+      "translated": "Provision the Windows Python facade runtime"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6cfd61c1 fix(isolation-core): retry hardened baseline reads",
+      "translated": "Retry hardened baseline reads"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "817fa31c1 fix(isolation-core): bound baseline git reads",
+      "translated": "Bound baseline git reads"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d82857960 fix(isolation-core): bound git command lifetimes",
+      "translated": "Bound git command lifetimes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0e97f94b8 test(opencode): probe every comment-checker download target in one process (#8979)",
+      "translated": "Probe every comment-checker download target in one process (#8979)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "54a2f91c9 test(desktop): measure Windows Python facade startup",
+      "translated": "Measure Windows Python facade startup"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "364bef259 test(qa): check the macOS canary off policy live",
+      "translated": "Check the macOS canary off policy live"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "63c9267cd Merge pull request #9002 from code-yeongyu/fix/8945-canary-stop-integration-20260928",
+      "translated": "Merge pull request #9002 from code-yeongyu/fix/8945-canary-stop-integration-20260928"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b1e101a0e Merge remote-tracking branch 'origin/dev' into fix/8945-canary-stop-integration-20260928",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8945-canary-stop-integration-20260928"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "208a00069 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1c1a38a68 Merge pull request #9001 from code-yeongyu/fix/8999-no-residency-cap-default",
+      "translated": "Merge pull request #9001 from code-yeongyu/fix/8999-no-residency-cap-default"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "db8744687 Merge remote-tracking branch 'origin/dev' into fix/8945-canary-stop-integration-20260928",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8945-canary-stop-integration-20260928"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "516b42371 build: regenerate the bundles that embed the task settings defaults",
+      "translated": "Regenerate the bundles that embed the task settings defaults"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "642cb7f52 fix(task): make task residency unlimited by default (#8999)",
+      "translated": "Make task residency unlimited by default (#8999)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "231126b3f Merge pull request #9000 from code-yeongyu/fix/8973-suspended-children-lane-capacity",
+      "translated": "Merge pull request #9000 from code-yeongyu/fix/8973-suspended-children-lane-capacity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fe402859f fix(desktop): honor the macOS canary policy",
+      "translated": "Honor the macOS canary policy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "be5795a6d Merge pull request #8992 from code-yeongyu/fix/8960-task-start-failure-reason",
+      "translated": "Merge pull request #8992 from code-yeongyu/fix/8960-task-start-failure-reason"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "89d6e0d10 Merge pull request #8996 from code-yeongyu/docs/computer-use-gap-sync",
+      "translated": "Merge pull request #8996 from code-yeongyu/docs/computer-use-gap-sync"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c5a8b0f17 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b883777ae docs(computer-use): an in-progress type now stops at the stop chord",
+      "translated": "An in-progress type now stops at the stop chord"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "31829293c Merge pull request #8987 from code-yeongyu/fix/8937-kill-switch-inflight-typing",
+      "translated": "Merge pull request #8987 from code-yeongyu/fix/8937-kill-switch-inflight-typing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c1dd1c3f6 Merge remote-tracking branch 'origin/dev' into fix/8937-kill-switch-inflight-typing",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8937-kill-switch-inflight-typing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ca064ae2 Merge remote-tracking branch 'upstream/dev' into fix/8850-comment-checker-versioned-cache",
+      "translated": "Merge remote-tracking branch 'upstream/dev' into fix/8850-comment-checker-versioned-cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "50d719af2 docs(desktop): record X11 safety fixes",
+      "translated": "Record X11 safety fixes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ef71492c fix(desktop): preserve current X11 input state",
+      "translated": "Preserve current X11 input state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e61be11fc fix(desktop): keep X11 offscreen frames targetable",
+      "translated": "Keep X11 offscreen frames targetable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6d35ebf7e Merge pull request #8985 from code-yeongyu/feat/facts-oversized-admission",
+      "translated": "Merge pull request #8985 from code-yeongyu/feat/facts-oversized-admission"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3fb7945e2 Merge remote-tracking branch 'origin/dev' into fix/8937-kill-switch-inflight-typing",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8937-kill-switch-inflight-typing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "82d968a32 Merge pull request #8989 from code-yeongyu/docs/computer-use-final-sync",
+      "translated": "Merge pull request #8989 from code-yeongyu/docs/computer-use-final-sync"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f746cdfed Merge dev into feat/facts-oversized-admission",
+      "translated": "Merge dev into feat/facts-oversized-admission"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e4b7263bd docs(computer-use): name the telemetry events and track the click-order follow-up",
+      "translated": "Name the telemetry events and track the click-order follow-up"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "493d1d72c Merge pull request #8986 from code-yeongyu/feat/computer-use-telemetry",
+      "translated": "Merge pull request #8986 from code-yeongyu/feat/computer-use-telemetry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8473b5351 docs(memory): document the oversized facts budget as a visible behavior change",
+      "translated": "Document the oversized facts budget as a visible behavior change"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c99424107 Merge dev into feat/facts-oversized-admission",
+      "translated": "Merge dev into feat/facts-oversized-admission"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1273d540c Merge pull request #8978 from deadcode-walker/fix/task-progress-and-facts-bounds",
+      "translated": "Merge pull request #8978 from deadcode-walker/fix/task-progress-and-facts-bounds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "95393e51a fix(desktop): stop in-flight typing between characters when input is suspended",
+      "translated": "Stop in-flight typing between characters when input is suspended"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0c4370e31 Merge upstream QA sandbox isolation changes",
+      "translated": "Merge upstream QA sandbox isolation changes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6e8bbb906 fix(desktop): classify XAML hosts by window class",
+      "translated": "Classify XAML hosts by window class"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "63bd5c30f test(desktop): assert Win32 physical gaps and Return keys",
+      "translated": "Assert Win32 physical gaps and Return keys"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c8cedb533 fix(desktop): preserve focus at restore time",
+      "translated": "Preserve focus at restore time"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b27066eaa fix(desktop): reset Win32 focus preservation per action",
+      "translated": "Reset Win32 focus preservation per action"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f4230773d fix(desktop): detect XAML hosts by executable",
+      "translated": "Detect XAML hosts by executable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed09a928e test(desktop): cover negative Win32 monitor origins",
+      "translated": "Cover negative Win32 monitor origins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9db76a47a fix(desktop): harden Win32 input routing and cleanup",
+      "translated": "Harden Win32 input routing and cleanup"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ce4ddad01 fix(desktop): make Win32 delivery decisions truthful",
+      "translated": "Make Win32 delivery decisions truthful"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9a163f431 fix(desktop): keep Win32 capture in physical pixels",
+      "translated": "Keep Win32 capture in physical pixels"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0f5806a82 Merge pull request #8976 from code-yeongyu/fix/8967-qa-sandbox-env",
+      "translated": "Merge pull request #8976 from code-yeongyu/fix/8967-qa-sandbox-env"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e2a1d66ff Merge pull request #8952 from code-yeongyu/feat/web-computer-use-landing",
+      "translated": "Merge pull request #8952 from code-yeongyu/feat/web-computer-use-landing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "31e6fcbdb test(desktop): keep Wayland EIS recorder compatible",
+      "translated": "Keep Wayland EIS recorder compatible"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d3f1dd17c fix(desktop): preflight Wayland input and capture",
+      "translated": "Preflight Wayland input and capture"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "19f523cbf test(desktop): reproduce Wayland display selection gap",
+      "translated": "Reproduce Wayland display selection gap"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cb5ca4984 test(desktop): reproduce Wayland input admission gaps",
+      "translated": "Reproduce Wayland input admission gaps"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c9e0aa4d Merge pull request #8965 from code-yeongyu/fix/doctor-computer-use-windows",
+      "translated": "Merge pull request #8965 from code-yeongyu/fix/doctor-computer-use-windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a17d73687 fix(omo-native): run the doctor probe fixtures through the runtime on Windows",
+      "translated": "Run the doctor probe fixtures through the runtime on Windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "943dabdbe Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ec31da034 Merge pull request #8936 from code-yeongyu/fix/8925-macos-focus-guard",
+      "translated": "Merge pull request #8936 from code-yeongyu/fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f1234f44c Merge pull request #8947 from code-yeongyu/feat/doctor-computer-use",
+      "translated": "Merge pull request #8947 from code-yeongyu/feat/doctor-computer-use"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4703681c2 fix(docs): keep computer guide in parent lane",
+      "translated": "Keep computer guide in parent lane"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61bc3335b fix(web): make a live crafted state wait for its moment again on re-entry",
+      "translated": "Make a live crafted state wait for its moment again on re-entry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8842dea30 test(script): allow the omo doctor mention in the computer-use guide",
+      "translated": "Allow the omo doctor mention in the computer-use guide"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "860c6d261 fix(omo-native): report the idle stop path as not armed instead of a warning",
+      "translated": "Report the idle stop path as not armed instead of a warning"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "be3bba455 Merge dev into fix/8925-macos-focus-guard",
+      "translated": "Merge dev into fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "085144d1c fix(docs): keep doctor command audit stable",
+      "translated": "Keep doctor command audit stable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f1a9d25ad docs(omo-native): document computer doctor checks",
+      "translated": "Document computer doctor checks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b925a9059 feat(omo-native): diagnose computer use in doctor",
+      "translated": "Diagnose computer use in doctor"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7a5b60e9 Merge pull request #8949 from code-yeongyu/feat/computer-use-skill-loop",
+      "translated": "Merge pull request #8949 from code-yeongyu/feat/computer-use-skill-loop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b3ebff7e1 Merge dev into fix/8925-macos-focus-guard",
+      "translated": "Merge dev into fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f98562c96 feat(web): add computer use to the crafted section",
+      "translated": "Add computer use to the crafted section"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4fd217ba7 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "31f06465e Merge pull request #8946 from code-yeongyu/docs/computer-use-release",
+      "translated": "Merge pull request #8946 from code-yeongyu/docs/computer-use-release"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "57f76f0ed Merge remote-tracking branch 'origin/dev' into fix/8925-macos-focus-guard",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8a627359 feat(computer-use): tell the model to stop on missing permissions and ask when stuck",
+      "translated": "Tell the model to stop on missing permissions and ask when stuck"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0be21fc92 docs(computer-use): document setup per OS, settings, safety, privacy and troubleshooting",
+      "translated": "Document setup per OS, settings, safety, privacy and troubleshooting"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "93da69d23 Merge pull request #8943 from code-yeongyu/test/computer-tool-search-qa",
+      "translated": "Merge pull request #8943 from code-yeongyu/test/computer-tool-search-qa"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "93dd08652 test(computer-use): prove tool_search discovery in the live QA",
+      "translated": "Prove tool_search discovery in the live QA"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6163eb5d4 Merge dev into fix/8925-macos-focus-guard",
+      "translated": "Merge dev into fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "153a92141 Merge pull request #8935 from code-yeongyu/fix/8932-dag-host-session-fold",
+      "translated": "Merge pull request #8935 from code-yeongyu/fix/8932-dag-host-session-fold"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a91423e06 Merge dev into fix/8925-macos-focus-guard",
+      "translated": "Merge dev into fix/8925-macos-focus-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e08d8c9b7 Merge pull request #8933 from code-yeongyu/feat/process-crash-telemetry",
+      "translated": "Merge pull request #8933 from code-yeongyu/feat/process-crash-telemetry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d48af606a docs(desktop): teach accepted focus behavior in the computer prelude",
+      "translated": "Teach accepted focus behavior in the computer prelude"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7e1099478 docs(computer): clarify focus and window stacking in tool reference",
+      "translated": "Clarify focus and window stacking in tool reference"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2572c0c12 docs(computer): state the accepted macOS background-click invariant",
+      "translated": "State the accepted macOS background-click invariant"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f731c5653 test(desktop): distinguish focus identity from background z-order",
+      "translated": "Distinguish focus identity from background z-order"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3a75e7ec1 fix(desktop): restore the visible macOS window by WindowServer order",
+      "translated": "Restore the visible macOS window by WindowServer order"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "de3fac154 test(qa): expect process_crashed in the native allowlist event set (#8931)",
+      "translated": "Expect process_crashed in the native allowlist event set (#8931)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3383d577 Merge pull request #8929 from code-yeongyu/fix/6396-comment-checker-stdin-epipe",
+      "translated": "Merge pull request #8929 from code-yeongyu/fix/6396-comment-checker-stdin-epipe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3aa4c32ca fix(comment-checker): a checker that exits without reading stdin no longer crashes the host",
+      "translated": "A checker that exits without reading stdin no longer crashes the host"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a877f07f Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cf1694b6f Merge pull request #8928 from code-yeongyu/fix/web-skills-ticker-reduced-motion",
+      "translated": "Merge pull request #8928 from code-yeongyu/fix/web-skills-ticker-reduced-motion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ad3272e26 Merge pull request #8926 from code-yeongyu/feat/desktop-engine-acquire-wiring",
+      "translated": "Merge pull request #8926 from code-yeongyu/feat/desktop-engine-acquire-wiring"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a5642b35d fix(web): let the skills ticker grow to its full list under reduced motion",
+      "translated": "Let the skills ticker grow to its full list under reduced motion"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5859e3369 Merge pull request #8922 from code-yeongyu/feat/desktop-qa-harness",
+      "translated": "Merge pull request #8922 from code-yeongyu/feat/desktop-qa-harness"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "44e3ca1ba feat(computer-use): acquire the engine for the running omo release when none is installed",
+      "translated": "Acquire the engine for the running omo release when none is installed"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "acd35ad00 fix(desktop): keep Linux fake EIS socket under UNIX path limit",
+      "translated": "Keep Linux fake EIS socket under UNIX path limit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ff96b2362 ci(desktop): install the workspace before the Linux QA run",
+      "translated": "Install the workspace before the Linux QA run"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3827272dd test(desktop): exercise Linux computer QA in PR CI",
+      "translated": "Exercise Linux computer QA in PR CI"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e46d4df3 docs(desktop): explain OmO Native computer use and engine modes",
+      "translated": "Explain OmO Native computer use and engine modes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "40c29354f feat(desktop): locate the OmO engine for bunshin capabilities",
+      "translated": "Locate the OmO engine for bunshin capabilities"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0abdadad2 test(desktop): enforce exact Cargo pins in the desktop gate",
+      "translated": "Enforce exact Cargo pins in the desktop gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c80e2c0b test(desktop): drive macOS QA through the OmO component",
+      "translated": "Drive macOS QA through the OmO component"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aff4b7086 test(desktop): port isolated Linux X11 and Wayland QA",
+      "translated": "Port isolated Linux X11 and Wayland QA"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2bf933c15 test(desktop): port Windows live QA and sabotage workflow",
+      "translated": "Port Windows live QA and sabotage workflow"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "33e8703cc Merge pull request #8923 from code-yeongyu/feat/desktop-engine-delivery",
+      "translated": "Merge pull request #8923 from code-yeongyu/feat/desktop-engine-delivery"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cba6cd23b test(desktop): check executable modes only on POSIX",
+      "translated": "Check executable modes only on POSIX"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6794052a7 refactor(test): extract release workflow block reader",
+      "translated": "Extract release workflow block reader"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c9dd0934 test(release): run the engine asset checks on Windows runners",
+      "translated": "Run the engine asset checks on Windows runners"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "48e2f14ee test(release): guard desktop engine build and staging order",
+      "translated": "Guard desktop engine build and staging order"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "de6800930 fix(ci): retain staged desktop engine across native checks",
+      "translated": "Retain staged desktop engine across native checks"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4bb8ee527 fix(ci): install macOS desktop engine cross target",
+      "translated": "Install macOS desktop engine cross target"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37edc69f2 build(release): ship desktop engines with OmO assets and CI proof",
+      "translated": "Ship desktop engines with OmO assets and CI proof"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a619f422d feat(desktop): acquire checksum-verified engines from OmO releases",
+      "translated": "Acquire checksum-verified engines from OmO releases"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c4215c6d build(desktop): stage available Rust engines in compiled payloads",
+      "translated": "Stage available Rust engines in compiled payloads"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "93f671931 fix(desktop): locate the engine in the extracted OmO runtime first",
+      "translated": "Locate the engine in the extracted OmO runtime first"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4139d615e Merge pull request #8917 from code-yeongyu/feat/computer-use-component",
+      "translated": "Merge pull request #8917 from code-yeongyu/feat/computer-use-component"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "46e9426dc build(omo-codex): regenerate the installer bundle for the computer config schema",
+      "translated": "Regenerate the installer bundle for the computer config schema"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7f0efec34 Merge pull request #8915 from code-yeongyu/feat/computer-use-packages",
+      "translated": "Merge pull request #8915 from code-yeongyu/feat/computer-use-packages"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "137c09afb test(desktop-tool): build the expected audit path with path.join",
+      "translated": "Build the expected audit path with path.join"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2bb4b02c8 fix(desktop): register the desktop workspaces with the root suite and keep prelude.py LF",
+      "translated": "Register the desktop workspaces with the root suite and keep prelude.py LF"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d70771108 refactor(desktop): extensionless relative imports, like every omo package",
+      "translated": "Extensionless relative imports, like every omo package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0790681a0 feat(desktop): bring the computer-use TypeScript packages into omo",
+      "translated": "Bring the computer-use TypeScript packages into omo"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c622c77c Merge pull request #8920 from code-yeongyu/fix/8919-conflict-markers",
+      "translated": "Merge pull request #8920 from code-yeongyu/fix/8919-conflict-markers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1af54ce6f fix(ci): drop twelve orphaned diff3 markers and fail the root suite on any committed marker",
+      "translated": "Drop twelve orphaned diff3 markers and fail the root suite on any committed marker"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "571ee1775 Merge pull request #8918 from MoerAI/fix/8777-npm-package-dir",
+      "translated": "Merge pull request #8918 from MoerAI/fix/8777-npm-package-dir"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "863a84525 fix(omo-native): keep package dirs that name the launched engine",
+      "translated": "Keep package dirs that name the launched engine"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fa3077ba2 Merge pull request #8865 from MoerAI/fix/8864-memory-ledgers",
+      "translated": "Merge pull request #8865 from MoerAI/fix/8864-memory-ledgers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "569105a04 docs(changelog): record the memory usage ledger fix (#8864)",
+      "translated": "Record the memory usage ledger fix (#8864)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed9edc29b fix(omo-native): discard inherited package dirs (fixes #8777)",
+      "translated": "Discard inherited package dirs (fixes #8777)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bdbd9b141 Merge pull request #8912 from code-yeongyu/feat/computer-use-engine",
+      "translated": "Merge pull request #8912 from code-yeongyu/feat/computer-use-engine"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1f5a5af6c test(ci): cover desktop-engine.yml in the job summary contract",
+      "translated": "Cover desktop-engine.yml in the job summary contract"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "accf61315 feat(desktop): bring the computer-use engine into omo as a Rust workspace",
+      "translated": "Bring the computer-use engine into omo as a Rust workspace"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "987bb26f9 Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a83dba4e9 Merge remote-tracking branch 'fork/fix/rpc-host-idle-settle' into fix/rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'fork/fix/rpc-host-idle-settle' into fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f09d3d4ff Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dc18b3ed3 Merge remote-tracking branch 'effortprogrammer/fix/rpc-host-idle-settle' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'effortprogrammer/fix/rpc-host-idle-settle' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a8ba6aa5f Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "50ba3914b Merge remote-tracking branch 'upstream/dev' into fix/8850-comment-checker-versioned-cache",
+      "translated": "Merge remote-tracking branch 'upstream/dev' into fix/8850-comment-checker-versioned-cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "201275421 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9ef8ccbe8 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "30240f036 Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr8884-rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eae2b08aa Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7dcc8d914 docs: runtime fallback forgets the closed rung's daemon session",
+      "translated": "Runtime fallback forgets the closed rung's daemon session"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "876f8206f Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/rpc-host-idle-settle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5a380a978 docs: a live parent's daemon child is no longer reclaimed between fallback rungs",
+      "translated": "A live parent's daemon child is no longer reclaimed between fallback rungs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3990d4f1e fix(comment-checker): apply the pinned-release cache check to the OpenCode edition",
+      "translated": "Apply the pinned-release cache check to the OpenCode edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "807045de8 fix(comment-checker): stop reusing a stale checker from the shared cache",
+      "translated": "Stop reusing a stale checker from the shared cache"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "@nahwan-kim:",
+      "translated": "@nahwan-kim:"
+    }
+  ],
+  "translatedAt": "2026-09-28T23:21:35.458Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 48729
+}
