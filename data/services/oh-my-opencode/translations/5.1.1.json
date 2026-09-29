@@ -1,0 +1,92 @@
+{
+  "version": "5.1.1",
+  "date": "2026-09-29",
+  "parsedAt": "2026-09-29T12:58:37.400Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Claude Sonnet 5.5** is available on Anthropic, Claude subscriptions, Bedrock, OpenRouter, Vercel AI Gateway, Venice and OpenCode, with a tuned prompt preset picked automatically.",
+      "translated": "**Claude Sonnet 5.5** is available on Anthropic, Claude subscriptions, Bedrock, OpenRouter, Vercel AI Gateway, Venice and OpenCode, with a tuned prompt preset picked automatically."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "**New category defaults:** `unspecified-low` now opens on Claude Sonnet 5.5 (medium), and `deep-low` opens on GPT-5.6 Sol (medium) with the Fast tier as its fallback. Categories you pinned yourself are unchanged. ([#9144](https://github.com/code-yeongyu/oh-my-openagent/issues/9144))",
+      "translated": "**New category defaults:** `unspecified-low` now opens on Claude Sonnet 5.5 (medium), and `deep-low` opens on GPT-5.6 Sol (medium) with the Fast tier as its fallback. Categories you pinned yourself are unchanged. ([#9144](https://github.com/code-yeongyu/oh-my-openagent/issues/9144))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Together AI** now defaults to Kimi K3.",
+      "translated": "**Together AI** now defaults to Kimi K3."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Built-in categories and agents stay on their own providers.** When none of a chain's listed providers was connected, OmO fell through to any provider selling a model with the same name, so a gateway such as OpenRouter could be billed for built-in categories, agents or `model_profile` lanes you never configured. They now run only on the providers their chain lists, and a gateway is used only when you pin it yourself. ([#9146](https://github.com/code-yeongyu/oh-my-openagent/issues/9146))",
+      "translated": "**Built-in categories and agents stay on their own providers.** When none of a chain's listed providers was connected, OmO fell through to any provider selling a model with the same name, so a gateway such as OpenRouter could be billed for built-in categories, agents or `model_profile` lanes you never configured. They now run only on the providers their chain lists, and a gateway is used only when you pin it yourself. ([#9146](https://github.com/code-yeongyu/oh-my-openagent/issues/9146))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "When only a gateway serves a built-in category, the task notice and `omo doctor` show the exact opt-in line, for example `categories.writing.model = \"openrouter/anthropic/claude-opus-5.5\"`.",
+      "translated": "When only a gateway serves a built-in category, the task notice and `omo doctor` show the exact opt-in line, for example `categories.writing.model = \"openrouter/anthropic/claude-opus-5.5\"`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**One task host per session.** Background tasks used to share one machine-wide host, so a crash, out-of-memory kill or wedge in that host stopped every session's tasks at once. Each session's tasks now run on that session's own host, so a failure stays inside the session that caused it. ([#9003](https://github.com/code-yeongyu/oh-my-openagent/issues/9003))",
+      "translated": "**One task host per session.** Background tasks used to share one machine-wide host, so a crash, out-of-memory kill or wedge in that host stopped every session's tasks at once. Each session's tasks now run on that session's own host, so a failure stays inside the session that caused it. ([#9003](https://github.com/code-yeongyu/oh-my-openagent/issues/9003))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Long sessions no longer die when a restart has to resend a history that is too large: OmO compacts once and retries instead of failing every following turn with \"Prompt is too long\". ([#7975](https://github.com/code-yeongyu/oh-my-openagent/issues/7975))",
+      "translated": "Long sessions no longer die when a restart has to resend a history that is too large: OmO compacts once and retries instead of failing every following turn with \"Prompt is too long\". ([#7975](https://github.com/code-yeongyu/oh-my-openagent/issues/7975))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Changing the thinking level while a turn is running no longer ends that turn, and a failed request no longer forces a resend of the whole history. ([#8759](https://github.com/code-yeongyu/oh-my-openagent/issues/8759))",
+      "translated": "Changing the thinking level while a turn is running no longer ends that turn, and a failed request no longer forces a resend of the whole history. ([#8759](https://github.com/code-yeongyu/oh-my-openagent/issues/8759))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude subscription sessions stop resending their full history over and over, and recovering from a checkpoint is safe again. ([#8424](https://github.com/code-yeongyu/oh-my-openagent/issues/8424))",
+      "translated": "Claude subscription sessions stop resending their full history over and over, and recovering from a checkpoint is safe again. ([#8424](https://github.com/code-yeongyu/oh-my-openagent/issues/8424))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Claude subscription requests identify as the current Claude Code version.",
+      "translated": "Claude subscription requests identify as the current Claude Code version."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "AWS credentials in your environment no longer make Bedrock the default model when you have logged in to another provider. AWS-only setups still start on Bedrock, and a default you saved always wins.",
+      "translated": "AWS credentials in your environment no longer make Bedrock the default model when you have logged in to another provider. AWS-only setups still start on Bedrock, and a default you saved always wins."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "A model you set for a LazyCodex agent (for example `explorer` or `librarian`) now survives updates instead of being reset. ([#5245](https://github.com/code-yeongyu/oh-my-openagent/issues/5245))",
+      "translated": "A model you set for a LazyCodex agent (for example `explorer` or `librarian`) now survives updates instead of being reset. ([#5245](https://github.com/code-yeongyu/oh-my-openagent/issues/5245))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The macOS binaries now carry valid signatures; the Intel (x64) binary previously shipped with a broken one.",
+      "translated": "The macOS binaries now carry valid signatures; the Intel (x64) binary previously shipped with a broken one."
+    }
+  ],
+  "translatedAt": "2026-09-29T13:00:58.070Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 2779
+}
