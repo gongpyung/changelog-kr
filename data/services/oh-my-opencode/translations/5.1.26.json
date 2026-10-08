@@ -1,0 +1,518 @@
+{
+  "version": "5.1.26",
+  "date": "2026-10-08",
+  "parsedAt": "2026-10-08T23:24:19.992Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "An Anthropic subscription account blocked by an authentication error recovers on its own when its saved refresh token is still accepted, instead of every request failing with \"blocked until re-login\". ([senpi#2926](https://github.com/code-yeongyu/senpi/issues/2926))",
+      "translated": "An Anthropic subscription account blocked by an authentication error recovers on its own when its saved refresh token is still accepted, instead of every request failing with \"blocked until re-login\". ([senpi#2926](https://github.com/code-yeongyu/senpi/issues/2926))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A long, tool-heavy turn on a small context window, such as Claude Haiku 5.5's 100K, no longer ends with \"compaction did not complete\": the earlier steps of the turn are summarized and the latest one is kept. ([senpi#2925](https://github.com/code-yeongyu/senpi/issues/2925))",
+      "translated": "A long, tool-heavy turn on a small context window, such as Claude Haiku 5.5's 100K, no longer ends with \"compaction did not complete\": the earlier steps of the turn are summarized and the latest one is kept. ([senpi#2925](https://github.com/code-yeongyu/senpi/issues/2925))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The reasoning effort you pick for Claude Opus 5 / 5.5, Sonnet 5.5 and Fable 5.1 now reaches Anthropic; it was always sent as `high`. ([senpi#2912](https://github.com/code-yeongyu/senpi/issues/2912))",
+      "translated": "The reasoning effort you pick for Claude Opus 5 / 5.5, Sonnet 5.5 and Fable 5.1 now reaches Anthropic; it was always sent as `high`. ([senpi#2912](https://github.com/code-yeongyu/senpi/issues/2912))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A model picked in the terminal applies to that session only instead of silently changing the default; press Ctrl+S in the picker or type `/model <id> --default` to make it the default. ([senpi#2870](https://github.com/code-yeongyu/senpi/issues/2870))",
+      "translated": "A model picked in the terminal applies to that session only instead of silently changing the default; press Ctrl+S in the picker or type `/model <id> --default` to make it the default. ([senpi#2870](https://github.com/code-yeongyu/senpi/issues/2870))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A fallback model whose context window cannot hold the session no longer ends the fallback; the next model in the chain is tried. ([senpi#2894](https://github.com/code-yeongyu/senpi/issues/2894))",
+      "translated": "A fallback model whose context window cannot hold the session no longer ends the fallback; the next model in the chain is tried. ([senpi#2894](https://github.com/code-yeongyu/senpi/issues/2894))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`senpi --list-models`, `--version`, `--help` and `--export` no longer lose output when their stdout is a slowly read pipe. omo's own model probe was hit by this (fewer models listed than exist). ([senpi#2937](https://github.com/code-yeongyu/senpi/issues/2937), [senpi#2939](https://github.com/code-yeongyu/senpi/pull/2939))",
+      "translated": "`senpi --list-models`, `--version`, `--help` and `--export` no longer lose output when their stdout is a slowly read pipe. omo's own model probe was hit by this (fewer models listed than exist). ([senpi#2937](https://github.com/code-yeongyu/senpi/issues/2937), [senpi#2939](https://github.com/code-yeongyu/senpi/pull/2939))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "An `ask_user_question` answer is no longer put inside the tool result, where models that treat tool results as untrusted (Claude Haiku 5.5) may ignore it; the answer reaches the model as your own message. ([senpi#2920](https://github.com/code-yeongyu/senpi/issues/2920))",
+      "translated": "An `ask_user_question` answer is no longer put inside the tool result, where models that treat tool results as untrusted (Claude Haiku 5.5) may ignore it; the answer reaches the model as your own message. ([senpi#2920](https://github.com/code-yeongyu/senpi/issues/2920))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Children that senpi starts from a script no longer re-run a caller that embeds senpi from `node -e` or `bun -e`. Thanks to @MoerAI. ([senpi#2599](https://github.com/code-yeongyu/senpi/issues/2599), [senpi#2950](https://github.com/code-yeongyu/senpi/pull/2950))",
+      "translated": "Children that senpi starts from a script no longer re-run a caller that embeds senpi from `node -e` or `bun -e`. Thanks to @MoerAI. ([senpi#2599](https://github.com/code-yeongyu/senpi/issues/2599), [senpi#2950](https://github.com/code-yeongyu/senpi/pull/2950))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Kimi K3 cache writes on Moonshot's API and in the Kimi Coding estimate are priced at the official $3 per million tokens; they were counted as free. ([senpi#2954](https://github.com/code-yeongyu/senpi/pull/2954))",
+      "translated": "Kimi K3 cache writes on Moonshot's API and in the Kimi Coding estimate are priced at the official $3 per million tokens; they were counted as free. ([senpi#2954](https://github.com/code-yeongyu/senpi/pull/2954))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A config hot reload no longer loops on omo's `omo.jsonc`. ([senpi#2878](https://github.com/code-yeongyu/senpi/issues/2878))",
+      "translated": "A config hot reload no longer loops on omo's `omo.jsonc`. ([senpi#2878](https://github.com/code-yeongyu/senpi/issues/2878))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Paths the OmO desktop moved with its data home are refused with their new location instead of being written to. ([senpi#2898](https://github.com/code-yeongyu/senpi/issues/2898))",
+      "translated": "Paths the OmO desktop moved with its data home are refused with their new location instead of being written to. ([senpi#2898](https://github.com/code-yeongyu/senpi/issues/2898))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude Haiku 5.5 is available on Anthropic, Bedrock, OpenCode, OpenRouter, Vercel AI Gateway and Venice, with its own system prompt. ([senpi#2892](https://github.com/code-yeongyu/senpi/issues/2892), [senpi#2917](https://github.com/code-yeongyu/senpi/issues/2917))",
+      "translated": "Claude Haiku 5.5 is available on Anthropic, Bedrock, OpenCode, OpenRouter, Vercel AI Gateway and Venice, with its own system prompt. ([senpi#2892](https://github.com/code-yeongyu/senpi/issues/2892), [senpi#2917](https://github.com/code-yeongyu/senpi/issues/2917))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "15b4aa5df Merge pull request #9761 from code-yeongyu/ci/npm-deprecate-version",
+      "translated": "Merge pull request #9761 from code-yeongyu/ci/npm-deprecate-version"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "82da9f18e Merge pull request #9760 from code-yeongyu/fix/release-binary-budget-160mib",
+      "translated": "Merge pull request #9760 from code-yeongyu/fix/release-binary-budget-160mib"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ae19c68d3 fix(release): raise the release binary size budget to 160 MiB and report headroom per target",
+      "translated": "Raise the release binary size budget to 160 MiB and report headroom per target"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "20fbde626 Merge pull request #9758 from code-yeongyu/release/v5.1.25-source-state",
+      "translated": "Merge pull request #9758 from code-yeongyu/release/v5.1.25-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9815894eb Merge pull request #9751 from code-yeongyu/docs/5.1.25-notes",
+      "translated": "Merge pull request #9751 from code-yeongyu/docs/5.1.25-notes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd81cde0a docs(changelog): 5.1.25 notes for #9610",
+      "translated": "5.1.25 notes for #9610"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b4f84adb7 docs(changelog): 5.1.25 notes for #9736 and #9748",
+      "translated": "5.1.25 notes for #9736 and #9748"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ad0bc6aab docs(changelog): 5.1.25 release notes",
+      "translated": "5.1.25 release notes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "564160e7f Merge pull request #9610 from code-yeongyu/docs/9584-aur-community-package",
+      "translated": "Merge pull request #9610 from code-yeongyu/docs/9584-aur-community-package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "97c5c78a0 Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "855c89702 Merge pull request #9745 from code-yeongyu/fix/9068-admission-partial-catalog",
+      "translated": "Merge pull request #9745 from code-yeongyu/fix/9068-admission-partial-catalog"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7903ad39e docs(changes): drop the stray merge base section the dev merge left in changes.md",
+      "translated": "Drop the stray merge base section the dev merge left in changes.md"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e861e0344 docs(changes): date the AUR entry for the day it lands",
+      "translated": "Date the AUR entry for the day it lands"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "296a30bee Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "70dd6d68a Merge remote-tracking branch 'origin/dev' into fix/9068-admission-partial-catalog",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9068-admission-partial-catalog"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c52da6db6 Merge pull request #9736 from code-yeongyu/fix/9722-explicit-model-pin",
+      "translated": "Merge pull request #9736 from code-yeongyu/fix/9722-explicit-model-pin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "081487e36 Merge pull request #9748 from code-yeongyu/fix/9735-planner-asks-through-question-tool",
+      "translated": "Merge pull request #9748 from code-yeongyu/fix/9735-planner-asks-through-question-tool"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e91a118b5 test(task): pin the host-reported model through open and handle, and the task_output effective model (#9722 review r3)",
+      "translated": "Pin the host-reported model through open and handle, and the task_output effective model (#9722 review r3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f117b6db5 fix(task): round-2 review fixes for explicit model pins (#9722)",
+      "translated": "Round-2 review fixes for explicit model pins (#9722)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f36c5eb6a fix(task): typecheck remediation for the explicit-pin surfaces (#9722)",
+      "translated": "Typecheck remediation for the explicit-pin surfaces (#9722)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "087622a62 fix(task): review remediation for explicit model pins (#9722)",
+      "translated": "Review remediation for explicit model pins (#9722)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "214d6ddae fix(task): honour explicit model pins or fail the spawn typed (#9722)",
+      "translated": "Honour explicit model pins or fail the spawn typed (#9722)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "72e883414 test(task): RED regression for explicit model pins (#9722)",
+      "translated": "RED regression for explicit model pins (#9722)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d9a704bc4 Merge pull request #9744 from code-yeongyu/fix/9738-identifier-references-do-not-arm",
+      "translated": "Merge pull request #9744 from code-yeongyu/fix/9738-identifier-references-do-not-arm"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "58871422c Merge pull request #9602 from Dante-dan/fix/9600-child-ultrawork-guard",
+      "translated": "Merge pull request #9602 from Dante-dan/fix/9600-child-ultrawork-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2eb199acf Merge remote-tracking branch 'upstream/dev' into fix/9600-child-ultrawork-guard",
+      "translated": "Merge remote-tracking branch 'upstream/dev' into fix/9600-child-ultrawork-guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ab8116998 Merge pull request #9606 from code-yeongyu/fix/9600-relayed-text-does-not-arm",
+      "translated": "Merge pull request #9606 from code-yeongyu/fix/9600-relayed-text-does-not-arm"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dd8810d9b Merge remote-tracking branch 'origin/dev' into fix/9600-relayed-text-does-not-arm",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9600-relayed-text-does-not-arm"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c6625e6d8 Merge pull request #9650 from code-yeongyu/fix/9648-one-row-per-skill",
+      "translated": "Merge pull request #9650 from code-yeongyu/fix/9648-one-row-per-skill"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4a11bff07 Merge remote-tracking branch 'origin/dev' into fix/9600-relayed-text-does-not-arm",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9600-relayed-text-does-not-arm"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c942c1264 Merge remote-tracking branch 'origin/dev' into fix/9648-one-row-per-skill",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9648-one-row-per-skill"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "641a66e0d Merge pull request #9587 from code-yeongyu/fix/9582-process-runner-fallback-chain",
+      "translated": "Merge pull request #9587 from code-yeongyu/fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cbfc0cbe0 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7590038f4 Merge pull request #9731 from code-yeongyu/docs/9727-reserve-omo-desktop",
+      "translated": "Merge pull request #9731 from code-yeongyu/docs/9727-reserve-omo-desktop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fd23361ca fix(opencode): refuse every spelling of the home; narrow the ~/.omo rule to copy/migrate/sync/walk code",
+      "translated": "Refuse every spelling of the home; narrow the ~/.omo rule to copy/migrate/sync/walk code"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "297ee8f35 fix(opencode): never migrate .sisyphus into the home ~/.omo, never overwrite a target",
+      "translated": "Never migrate .sisyphus into the home ~/.omo, never overwrite a target"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aac58083c Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "abd2ceba4 Merge remote-tracking branch 'origin/dev' into docs/9727-reserve-omo-desktop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/9727-reserve-omo-desktop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c04544a95 Merge pull request #9702 from code-yeongyu/feat/visualize-skill",
+      "translated": "Merge pull request #9702 from code-yeongyu/feat/visualize-skill"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f4b83a06f Merge dev 8a30e835 into feat/visualize-skill (#9700)",
+      "translated": "Merge dev 8a30e835 into feat/visualize-skill (#9700)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cc8dd6797 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a30e8358 Merge pull request #9714 from code-yeongyu/fix/9498-suspended-child-terminal",
+      "translated": "Merge pull request #9714 from code-yeongyu/fix/9498-suspended-child-terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e1e0c995 Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b35f483d Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f3f04a7f0 Merge pull request #9730 from code-yeongyu/release/v5.1.24-source-state",
+      "translated": "Merge pull request #9730 from code-yeongyu/release/v5.1.24-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "88342e91f docs: reserve ~/.omo/desktop* for the OmO desktop app",
+      "translated": "Reserve ~/.omo/desktop* for the OmO desktop app"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c4b25c305 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a82c885bd Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8644b191d Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "785c1139b Merge branch dev into fix/9582-child-process-retry-fallback",
+      "translated": "Merge branch dev into fix/9582-child-process-retry-fallback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8b372a4cd Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "631069dde Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "959554108 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b03b64b6 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6b7ce3183 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ef479ba2 Merge origin/dev into feat/visualize-skill (#9700)",
+      "translated": "Merge origin/dev into feat/visualize-skill (#9700)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7ef6a9be8 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a750c99f9 Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9498-suspended-child-terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f50a96c3e Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f7b1e8baa Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3374f363e Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24c44f90a Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "57020c64f Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "47849ddc5 Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9582-process-runner-fallback-chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5ced193ba docs(changes): date the AUR entry for the day it lands",
+      "translated": "Date the AUR entry for the day it lands"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f7380f40a Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/9584-aur-community-package"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "063a0de22 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c0fcb6a9b Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3e6530a13 test(audit): count the AUR section's /usr/bin/omo mentions",
+      "translated": "Count the AUR section's /usr/bin/omo mentions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e41529f09 docs(install): list the community AUR package omo-bin",
+      "translated": "List the community AUR package omo-bin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a3cf81100 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "677f7cd5e chore(repo): stop tracking side-panel QA evidence and plans",
+      "translated": "Stop tracking side-panel QA evidence and plans"
+    }
+  ],
+  "translatedAt": "2026-10-08T23:33:24.366Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 8811
+}
