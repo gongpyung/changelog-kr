@@ -1,0 +1,488 @@
+{
+  "version": "2.1.296",
+  "date": "2026-10-09",
+  "parsedAt": "2026-10-09T22:41:53.824Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a `code` key to the Claude apps gateway's `managed.policies[]`: the same settings as `cli`, also applied in Claude Desktop's Code tab; beside `desktop`, it turns on Claude Desktop's gateway mode",
+      "translated": "Added a `code` key to the Claude apps gateway's `managed.policies[]`: the same settings as `cli`, also applied in Claude Desktop's Code tab; beside `desktop`, it turns on Claude Desktop's gateway mode"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `autoCompactWindow` to subagent frontmatter and `--agents` definitions, so a subagent can auto-compact earlier than the main conversation's window",
+      "translated": "Added `autoCompactWindow` to subagent frontmatter and `--agents` definitions, so a subagent can auto-compact earlier than the main conversation's window"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL` to run every workflow agent on one model while other subagents keep theirs",
+      "translated": "Added `CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL` to run every workflow agent on one model while other subagents keep theirs"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS` environment variable to set a longer maximum delay for the backoff when retrying an overloaded (529) request",
+      "translated": "Added `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS` environment variable to set a longer maximum delay for the backoff when retrying an overloaded (529) request"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a note in `/plugin` on a plugin whose hooks are left out because another enabled plugin has the same name",
+      "translated": "Added a note in `/plugin` on a plugin whose hooks are left out because another enabled plugin has the same name"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an `allow_large` option to the Read tool so Claude can read a text file past the usual size limits in one call when it needs the whole file and the context has room",
+      "translated": "Added an `allow_large` option to the Read tool so Claude can read a text file past the usual size limits in one call when it needs the whole file and the context has room"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed managed-settings `PreToolUse` hooks that deny a tool call with `\"continue\": false`, and managed `prompt` hooks that block one, refusing the call but not ending the turn",
+      "translated": "Fixed managed-settings `PreToolUse` hooks that deny a tool call with `\"continue\": false`, and managed `prompt` hooks that block one, refusing the call but not ending the turn"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PostToolUse hooks in managed settings not applying `updatedMCPToolOutput` in some sessions",
+      "translated": "Fixed PostToolUse hooks in managed settings not applying `updatedMCPToolOutput` in some sessions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed headless sessions starting a folder's `.mcp.json` or plugin MCP server that was switched off for that folder, after changing directory or reloading plugins",
+      "translated": "Fixed headless sessions starting a folder's `.mcp.json` or plugin MCP server that was switched off for that folder, after changing directory or reloading plugins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a Claude apps gateway that serves `allowedProviders` with `\"gateway\"` locking out laptops that name that gateway in user settings",
+      "translated": "Fixed a Claude apps gateway that serves `allowedProviders` with `\"gateway\"` locking out laptops that name that gateway in user settings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a saved Claude apps gateway sign-in being ignored on machines whose managed settings set `forceLoginMethod` to `gateway` with no `forceLoginGatewayUrl` (regression in 2.1.295)",
+      "translated": "Fixed a saved Claude apps gateway sign-in being ignored on machines whose managed settings set `forceLoginMethod` to `gateway` with no `forceLoginGatewayUrl` (regression in 2.1.295)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--teleport` opening an empty conversation when the session's history could not be read",
+      "translated": "Fixed `--teleport` opening an empty conversation when the session's history could not be read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed token counts for Haiku 5.5 and other models that take only adaptive thinking, which failed behind some gateways and were counted with budget thinking elsewhere",
+      "translated": "Fixed token counts for Haiku 5.5 and other models that take only adaptive thinking, which failed behind some gateways and were counted with budget thinking elsewhere"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed resumed subagents being told that the user rejected a tool call that a session shutdown had interrupted",
+      "translated": "Fixed resumed subagents being told that the user rejected a tool call that a session shutdown had interrupted"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed hook output being altered when it contained text resembling a plugin hint tag",
+      "translated": "Fixed hook output being altered when it contained text resembling a plugin hint tag"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed secret redaction in shared transcripts and debug logs missing some values that follow a key with no value, including in JSON written inside a shell string",
+      "translated": "Fixed secret redaction in shared transcripts and debug logs missing some values that follow a key with no value, including in JSON written inside a shell string"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a stray `52;c;…` escape sequence printed on screen after copying in older VTE-based terminals such as MATE Terminal",
+      "translated": "Fixed a stray `52;c;…` escape sequence printed on screen after copying in older VTE-based terminals such as MATE Terminal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed toasts and notifications waiting unseen for as long as the `/diff` panel or dialog was open",
+      "translated": "Fixed toasts and notifications waiting unseen for as long as the `/diff` panel or dialog was open"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Esc or an interrupt during a `UserPromptSubmit` hook or a mod's `prompt.submit` hook ending headless sessions, clearing the typed prompt, or letting the unchecked prompt through",
+      "translated": "Fixed Esc or an interrupt during a `UserPromptSubmit` hook or a mod's `prompt.submit` hook ending headless sessions, clearing the typed prompt, or letting the unchecked prompt through"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed SessionStart hooks of a plugin loaded after a headless session starts being skipped when a different plugin with the same name, or another spelling of it, had already run",
+      "translated": "Fixed SessionStart hooks of a plugin loaded after a headless session starts being skipped when a different plugin with the same name, or another spelling of it, had already run"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude self-hosted-runner` printing misleading errors when registration is refused: it now names the org admin setting, or says a restarted on-demand runner needs a fresh work order",
+      "translated": "Fixed `claude self-hosted-runner` printing misleading errors when registration is refused: it now names the org admin setting, or says a restarted on-demand runner needs a fresh work order"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a self-hosted runner session's git fetch, pull and push failing while another session of the same repository starts on a runner with `--capacity` above 1",
+      "translated": "Fixed a self-hosted runner session's git fetch, pull and push failing while another session of the same repository starts on a runner with `--capacity` above 1"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflow scripts silently truncating results, agent options and other values nested deeper than about 20,000 levels, and deeply nested results writing huge task output files",
+      "translated": "Fixed workflow scripts silently truncating results, agent options and other values nested deeper than about 20,000 levels, and deeply nested results writing huge task output files"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a plugin's served `$` methods running in the main session's working directory instead of the calling agent's, and ignoring the turn their calling hook holds",
+      "translated": "Fixed a plugin's served `$` methods running in the main session's working directory instead of the calling agent's, and ignoring the turn their calling hook holds"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `$.agent.register` succeeding from a mod's hook that was still running after the mod was reloaded or removed; the call is now refused",
+      "translated": "Fixed `$.agent.register` succeeding from a mod's hook that was still running after the mod was reloaded or removed; the call is now refused"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `$.http.fetch` in mods refusing a `HEAD` request when the response declares a `Content-Length` over the 4 MiB body limit",
+      "translated": "Fixed `$.http.fetch` in mods refusing a `HEAD` request when the response declares a `Content-Length` over the 4 MiB body limit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin marketplace add`, `marketplace update` and `plugin install` failing with an internal error for a marketplace named like `constructor`; `add` now refuses such names clearly",
+      "translated": "Fixed `claude plugin marketplace add`, `marketplace update` and `plugin install` failing with an internal error for a marketplace named like `constructor`; `add` now refuses such names clearly"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a plugin secret named `constructor` or `prototype` being deleted by the next save of that plugin's options",
+      "translated": "Fixed a plugin secret named `constructor` or `prototype` being deleted by the next save of that plugin's options"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions skipping auto mode's checks on Claude in Chrome actions that a saved permission allows when their feature flags had not loaded",
+      "translated": "Fixed cloud sessions skipping auto mode's checks on Claude in Chrome actions that a saved permission allows when their feature flags had not loaded"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a finished turn after a restart when an MCP tool result had ended that turn",
+      "translated": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a finished turn after a restart when an MCP tool result had ended that turn"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash permission checks auto-approving some commands that assign the `BASH_ARGV0` shell variable and then use it; these now prompt for approval",
+      "translated": "Fixed Bash permission checks auto-approving some commands that assign the `BASH_ARGV0` shell variable and then use it; these now prompt for approval"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Edit and NotebookEdit replacing every non-ASCII character in files that are not valid UTF-8 (Windows-1252, Shift-JIS, GBK); such edits are now refused",
+      "translated": "Fixed Edit and NotebookEdit replacing every non-ASCII character in files that are not valid UTF-8 (Windows-1252, Shift-JIS, GBK); such edits are now refused"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a prompt sent just after `←` being run twice, once unseen in the foreground, when the background service was slow to answer",
+      "translated": "Fixed a prompt sent just after `←` being run twice, once unseen in the foreground, when the background service was slow to answer"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a prompt sent while SessionStart hooks were still running vanishing when `←` moved the session to the background; it is still not sent, but `↑` now brings it back",
+      "translated": "Fixed a prompt sent while SessionStart hooks were still running vanishing when `←` moved the session to the background; it is still not sent, but `↑` now brings it back"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a late-loading plugin's SessionStart hook output reaching the new conversation after `/clear` in headless sessions",
+      "translated": "Fixed a late-loading plugin's SessionStart hook output reaching the new conversation after `/clear` in headless sessions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed PowerShell commands not seeing variables that hooks write to CLAUDE_ENV_FILE (when the file holds only plain assignments)",
+      "translated": "Fixed PowerShell commands not seeing variables that hooks write to CLAUDE_ENV_FILE (when the file holds only plain assignments)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude calling cloud sessions non-interactive and suggesting `/mcp` or `claude mcp` when an MCP server needs authentication",
+      "translated": "Fixed Claude calling cloud sessions non-interactive and suggesting `/mcp` or `claude mcp` when an MCP server needs authentication"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/code-review` ending on a raw JSON array in cloud sessions, the Agent SDK and IDE integrations; the findings now print as a numbered list",
+      "translated": "Fixed `/code-review` ending on a raw JSON array in cloud sessions, the Agent SDK and IDE integrations; the findings now print as a numbered list"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed auto mode occasionally refusing one update to your own artifact, saying its sharing had changed when it had not",
+      "translated": "Fixed auto mode occasionally refusing one update to your own artifact, saying its sharing had changed when it had not"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed skills synced from claude.ai never finishing their install, and being downloaded again at every sync, when several sessions share a config directory",
+      "translated": "Fixed skills synced from claude.ai never finishing their install, and being downloaded again at every sync, when several sessions share a config directory"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a plugin synced from claude.ai being disabled when the marketplace dependency it declares was also synced from claude.ai",
+      "translated": "Fixed a plugin synced from claude.ai being disabled when the marketplace dependency it declares was also synced from claude.ai"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a startup hang on macOS when plugin paths copied from a Linux machine pointed under /home",
+      "translated": "Fixed a startup hang on macOS when plugin paths copied from a Linux machine pointed under /home"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Workflow tool refusing script files with CRLF line endings, such as files checked out on Windows",
+      "translated": "Fixed the Workflow tool refusing script files with CRLF line endings, such as files checked out on Windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OpenTelemetry `tool_result` events missing `git_commit_id` after `git commit -q` or `git -C <dir> commit`",
+      "translated": "Fixed OpenTelemetry `tool_result` events missing `git_commit_id` after `git commit -q` or `git -C <dir> commit`"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` dropping a message from the saved transcript when its text held a Unicode line or paragraph separator (U+2028, U+2029)",
+      "translated": "Fixed `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` dropping a message from the saved transcript when its text held a Unicode line or paragraph separator (U+2028, U+2029)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude purge` leaving a prompt in the history file when its text held a Unicode line or paragraph separator (U+2028, U+2029)",
+      "translated": "Fixed `claude purge` leaving a prompt in the history file when its text held a Unicode line or paragraph separator (U+2028, U+2029)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed PowerShell commands longer than about 1 KB always asking for permission, so allow rules and read-only detection now apply up to 32 KB",
+      "translated": "Windows: Fixed PowerShell commands longer than about 1 KB always asking for permission, so allow rules and read-only detection now apply up to 32 KB"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed stdio MCP servers being force-killed at shutdown; stdin now closes first and the process tree is killed only if the server is still running after 300 ms",
+      "translated": "Windows: Fixed stdio MCP servers being force-killed at shutdown; stdin now closes first and the process tree is killed only if the server is still running after 300 ms"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed `claude plugin install` failing for GitHub `owner/repo` plugin sources on machines with no GitHub SSH key; the clone is now retried over HTTPS",
+      "translated": "Windows: Fixed `claude plugin install` failing for GitHub `owner/repo` plugin sources on machines with no GitHub SSH key; the clone is now retried over HTTPS"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed `rm -rf /c/Users/<name>` in Git Bash not asking in bypass permissions mode",
+      "translated": "Windows: Fixed `rm -rf /c/Users/<name>` in Git Bash not asking in bypass permissions mode"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved fullscreen mode: the link under the mouse pointer is now underlined to show it can be opened",
+      "translated": "Improved fullscreen mode: the link under the mouse pointer is now underlined to show it can be opened"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations by caching syntax-highlighted code blocks",
+      "translated": "Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations by caching syntax-highlighted code blocks"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved Claude Desktop's Code tab behind a Claude apps gateway: when a session can't start, including on a machine not set up for the gateway's `code` settings, the reason shows as a reply",
+      "translated": "Improved Claude Desktop's Code tab behind a Claude apps gateway: when a session can't start, including on a machine not set up for the gateway's `code` settings, the reason shows as a reply"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the errors for a refused cloud session: they now say why your organization's policy couldn't be loaded, and name an API key or auth token that overrides your claude.ai login",
+      "translated": "Improved the errors for a refused cloud session: they now say why your organization's policy couldn't be loaded, and name an API key or auth token that overrides your claude.ai login"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved `--debug` output to name unrecognized frontmatter fields in custom agent files, with a hint for likely typos",
+      "translated": "Improved `--debug` output to name unrecognized frontmatter fields in custom agent files, with a hint for likely typos"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode: a tool call that wasn't run because auto mode's check had no usable answer now shows as a dim \"Not run\" row instead of a red error",
+      "translated": "Improved auto mode: a tool call that wasn't run because auto mode's check had no usable answer now shows as a dim \"Not run\" row instead of a red error"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Improved `--debug` output for hooks: command hooks on tool calls, prompts, SessionStart and Stop now log their command, plugin, outcome and duration when they finish, so a slow hook is identifiable",
+      "translated": "Improved `--debug` output for hooks: command hooks on tool calls, prompts, SessionStart and Stop now log their command, plugin, outcome and duration when they finish, so a slow hook is identifiable"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`: a large transcript file is no longer rewritten when that would free under 10% of it",
+      "translated": "Improved `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`: a large transcript file is no longer rewritten when that would free under 10% of it"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures to price Sonnet 5.5 cache reads at $0.10 per million tokens (was $0.20)",
+      "translated": "Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures to price Sonnet 5.5 cache reads at $0.10 per million tokens (was $0.20)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the bundled dataviz skill: lighter violet for the seventh series in light mode, softer primary text in dark mode, and compact y-axis labels like 1K",
+      "translated": "Updated the bundled dataviz skill: lighter violet for the seventh series in light mode, softer primary text in dark mode, and compact y-axis labels like 1K"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the default limit on MCP tool descriptions sent up front and on MCP server instructions from 2,048 to 4,096 characters",
+      "translated": "Changed the default limit on MCP tool descriptions sent up front and on MCP server instructions from 2,048 to 4,096 characters"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `←`: a turn or `!` command started while the session moves to the background is now stopped instead of finishing out of sight",
+      "translated": "Changed `←`: a turn or `!` command started while the session moves to the background is now stopped instead of finishing out of sight"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed `claudeCode.spinnerVerbs` missing from the extension's settings, so settings.json now completes and validates it; a malformed value no longer breaks the chat panel",
+      "translated": "[VSCode] Fixed `claudeCode.spinnerVerbs` missing from the extension's settings, so settings.json now completes and validates it; a malformed value no longer breaks the chat panel"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Changed Claude in Chrome to ask before browser actions in every session, including one connected with `@browser`, as the terminal does; allowing a site for the session stops repeat asks",
+      "translated": "[VSCode] Changed Claude in Chrome to ask before browser actions in every session, including one connected with `@browser`, as the terminal does; allowing a site for the session stops repeat asks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.ts or file:///C:/repo/file.ts, not opening the file on Windows",
+      "translated": "[VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.ts or file:///C:/repo/file.ts, not opening the file on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the working indicator still animating when reduced motion is turned on in your OS, in VS Code, or with the `prefersReducedMotion` setting",
+      "translated": "[VSCode] Fixed the working indicator still animating when reduced motion is turned on in your OS, in VS Code, or with the `prefersReducedMotion` setting"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the prompt cache clock reading warm after the panel caught up on messages late, such as after the display was off or a remote window reconnected",
+      "translated": "[VSCode] Fixed the prompt cache clock reading warm after the panel caught up on messages late, such as after the display was off or a remote window reconnected"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added a status filter to the Sessions and Runners lists on a self-hosted environment's Activity tab in admin settings; you can pick several statuses at once",
+      "translated": "[Cloud sessions] Added a status filter to the Sessions and Runners lists on a self-hosted environment's Activity tab in admin settings; you can pick several statuses at once"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed every cloud session waiting for a self-hosted runner showing the same queue position; each now shows how many sessions are ahead of it",
+      "translated": "[Cloud sessions] Fixed every cloud session waiting for a self-hosted runner showing the same queue position; each now shows how many sessions are ahead of it"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed a message you send while Claude is still replying in a cloud session jumping above that reply when it finishes; it now stays below it, including after a reload",
+      "translated": "[Cloud sessions] Fixed a message you send while Claude is still replying in a cloud session jumping above that reply when it finishes; it now stays below it, including after a reload"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Changed Claude in Slack to show the footer with the session link, model and cost only on its newest reply in a thread; the reply before it drops the footer",
+      "translated": "[Claude Tag] Changed Claude in Slack to show the footer with the session link, model and cost only on its newest reply in a thread; the reply before it drops the footer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed links to URLs that contain parentheses breaking in some of Claude's Slack replies and task checklists, which showed stray bracket text and opened the wrong page",
+      "translated": "[Claude Tag] Fixed links to URLs that contain parentheses breaking in some of Claude's Slack replies and task checklists, which showed stray bracket text and opened the wrong page"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude's Slack replies drawing color swatches beside codes that only look like hex colors, such as six-digit pull request numbers",
+      "translated": "[Claude Tag] Fixed Claude's Slack replies drawing color swatches beside codes that only look like hex colors, such as six-digit pull request numbers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Added creating, editing and deleting workspace and channel memory files on the Activity page's Memory tab for members with the Claude Tag Admin permission",
+      "translated": "[Claude Tag] Added creating, editing and deleting workspace and channel memory files on the Activity page's Memory tab for members with the Claude Tag Admin permission"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed the plugin confirmation card Claude posts in a Slack channel showing a plugin's ID instead of its name",
+      "translated": "[Claude Tag] Fixed the plugin confirmation card Claude posts in a Slack channel showing a plugin's ID instead of its name"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude in Slack posting a card to remove a plugin the channel's own settings don't include; it now explains where the plugin comes from instead",
+      "translated": "[Claude Tag] Fixed Claude in Slack posting a card to remove a plugin the channel's own settings don't include; it now explains where the plugin comes from instead"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude in Slack sometimes losing its reply when a session in a self-hosted environment moved to a new runner partway through a task",
+      "translated": "[Claude Tag] Fixed Claude in Slack sometimes losing its reply when a session in a self-hosted environment moved to a new runner partway through a task"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Fixed the Code Review check sometimes staying \"in progress\" on a pull request after the review finished; it now shows the review's result",
+      "translated": "[Code Review] Fixed the Code Review check sometimes staying \"in progress\" on a pull request after the review finished; it now shows the review's result"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Improved Code Review admin settings to say why a setting couldn't be saved, such as a policy restriction, instead of a generic failure message",
+      "translated": "[Code Review] Improved Code Review admin settings to say why a setting couldn't be saved, such as a policy restriction, instead of a generic failure message"
+    }
+  ],
+  "translatedAt": "2026-10-09T22:44:09.996Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 11543
+}
