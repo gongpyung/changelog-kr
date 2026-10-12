@@ -1,0 +1,752 @@
+{
+  "version": "2026.10.2",
+  "date": "2026-10-12",
+  "parsedAt": "2026-10-12T06:04:17.757Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Updates from 2026.10.1:** the first upgrade from stable 2026.10.1 now completes cleanly, successful in-place updates no longer end in errors, and Windows, cloned-filesystem, and private-Node update paths finish instead of stalling or rolling back. (#168849, #169031, #165233, #166530, #168968, #164677, #165257) Thanks @RomneyDa, @jarvisnextgeneration20-lang, and @MrJanvar.",
+      "translated": "**Updates from 2026.10.1:** the first upgrade from stable 2026.10.1 now completes cleanly, successful in-place updates no longer end in errors, and Windows, cloned-filesystem, and private-Node update paths finish instead of stalling or rolling back. (#168849, #169031, #165233, #166530, #168968, #164677, #165257) Thanks @RomneyDa, @jarvisnextgeneration20-lang, and @MrJanvar."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Doctor and update recovery:** Doctor no longer stops on residual legacy imports, stale Gateway locks, slow state inspection, memory reindex locks, or allowlists for removed channel accounts, and stale-receipt sessions keep their current data. (#166397, #165355, #165417, #168161, #166517, #167651, #165775) Thanks @coolcoolwcr, @obviyus, @Tosko4, @noelff, @oshunter, @donquiche61, and @RomneyDa.",
+      "translated": "**Doctor and update recovery:** Doctor no longer stops on residual legacy imports, stale Gateway locks, slow state inspection, memory reindex locks, or allowlists for removed channel accounts, and stale-receipt sessions keep their current data. (#166397, #165355, #165417, #168161, #166517, #167651, #165775) Thanks @coolcoolwcr, @obviyus, @Tosko4, @noelff, @oshunter, @donquiche61, and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Provider-native compaction:** OpenAI and Anthropic API-key routes now default to provider-native compaction, and compaction recovers when the primary auth profile is cooling down. (#168164, #166459) Thanks @obviyus and @hawkit.",
+      "translated": "**Provider-native compaction:** OpenAI and Anthropic API-key routes now default to provider-native compaction, and compaction recovers when the primary auth profile is cooling down. (#168164, #166459) Thanks @obviyus and @hawkit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Secret redaction:** credentials that cross a chunk boundary in long tool output are now masked, and redaction of large text no longer stalls or overflows the stack while running several times faster. (#161480, #166701, #167943) Thanks @eleqtrizit.",
+      "translated": "**Secret redaction:** credentials that cross a chunk boundary in long tool output are now masked, and redaction of large text no longer stalls or overflows the stack while running several times faster. (#161480, #166701, #167943) Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Prompt-cache stability:** Anthropic conversation checkpoints, enriched user prompts, tool results, and inter-session provenance stay byte-identical across follow-ups, replays, Gateway restarts, and subagent completions, so cached prefixes keep hitting. (#168042, #167938, #168392, #167898, #169130, #169238) Thanks @RomneyDa.",
+      "translated": "**Prompt-cache stability:** Anthropic conversation checkpoints, enriched user prompts, tool results, and inter-session provenance stay byte-identical across follow-ups, replays, Gateway restarts, and subagent completions, so cached prefixes keep hitting. (#168042, #167938, #168392, #167898, #169130, #169238) Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Gateway responsiveness:** Control UI reconnects, model changes with large plugins, dashboard title work, and catalog loading no longer freeze the Gateway or hang new sessions. (#167374, #161267, #162689, #166089, #166376) Thanks @jalehman, @obviyus, @ericcaiwx-star, @cursoragent, @dimonnld, and @dprev.",
+      "translated": "**Gateway responsiveness:** Control UI reconnects, model changes with large plugins, dashboard title work, and catalog loading no longer freeze the Gateway or hang new sessions. (#167374, #161267, #162689, #166089, #166376) Thanks @jalehman, @obviyus, @ericcaiwx-star, @cursoragent, @dimonnld, and @dprev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Defaulted OpenAI and Anthropic API-key routes to provider-native compaction. (#168164) Thanks @obviyus.",
+      "translated": "Defaulted OpenAI and Anthropic API-key routes to provider-native compaction. (#168164) Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Reported finalized update successes and suppressed channels as warnings instead of failures. (#169037)",
+      "translated": "Reported finalized update successes and suppressed channels as warnings instead of failures. (#169037)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stopped live npm dist-tag drift from failing already-validated release candidates. (#168836) Thanks @RomneyDa.",
+      "translated": "Stopped live npm dist-tag drift from failing already-validated release candidates. (#168836) Thanks @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed credential leaks across redaction chunk boundaries and redaction stalls on large tool output. (#161480) Thanks @eleqtrizit.",
+      "translated": "Fixed credential leaks across redaction chunk boundaries and redaction stalls on large tool output. (#161480) Thanks @eleqtrizit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed replies lost while an agent finishes starting, streamed Telegram replies vanishing when the replacement message never lands, and Telegram treating local owner rejection as ambiguous delivery. (#168826, #164649, #167470) Thanks @xiaozishan, @jayzhou2309, @obviyus, @jmar5439, and @mgr-nick.",
+      "translated": "Fixed replies lost while an agent finishes starting, streamed Telegram replies vanishing when the replacement message never lands, and Telegram treating local owner rejection as ambiguous delivery. (#168826, #164649, #167470) Thanks @xiaozishan, @jayzhou2309, @obviyus, @jmar5439, and @mgr-nick."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude CLI sessions showing runtime prompts as user messages, routed CLI prompts appearing on the owner's side of history, lost replies after long streamed turns, and post-turn compaction failing without an Anthropic API key. (#166080, #163521, #153545, #162066) Thanks @Marvinthebored, @Peetiegonzalez, @RomneyDa, @rogeriochaves, @zhangguiping-xydt, @obviyus, @methylester, @llmsommelier, and @ajmtrz.",
+      "translated": "Fixed Claude CLI sessions showing runtime prompts as user messages, routed CLI prompts appearing on the owner's side of history, lost replies after long streamed turns, and post-turn compaction failing without an Anthropic API key. (#166080, #163521, #153545, #162066) Thanks @Marvinthebored, @Peetiegonzalez, @RomneyDa, @rogeriochaves, @zhangguiping-xydt, @obviyus, @methylester, @llmsommelier, and @ajmtrz."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed subagent and ACP answers being truncated, superseded child answers delivered by late receipts, and requester turns stopping when completion delivery expires. (#165800, #162843, #166139, #164282) Thanks @yetval, @holgergruenhagen, @zyz619963502zyz, @Yun-0000, @michaeljgood71, @Oldrich333, and @obviyus.",
+      "translated": "Fixed subagent and ACP answers being truncated, superseded child answers delivered by late receipts, and requester turns stopping when completion delivery expires. (#165800, #162843, #166139, #164282) Thanks @yetval, @holgergruenhagen, @zyz619963502zyz, @Yun-0000, @michaeljgood71, @Oldrich333, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed runs aborted as stalled after completed async tools or while waiting on plugin approval, context-engine advancement lost after steering, and the tool loop refilling from the wrong context window. (#166997, #161821, #168394, #166120) Thanks @SunnyShu0925, @hannesrudolph, @fransqaas, @obviyus, @robertoronderosjr, @ruel225, and @igs-rogenlo.",
+      "translated": "Fixed runs aborted as stalled after completed async tools or while waiting on plugin approval, context-engine advancement lost after steering, and the tool loop refilling from the wrong context window. (#166997, #161821, #168394, #166120) Thanks @SunnyShu0925, @hannesrudolph, @fransqaas, @obviyus, @robertoronderosjr, @ruel225, and @igs-rogenlo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed OpenAI turns failing on regex-lookaround tool schemas, ChatGPT websocket expiry and 16 MiB SSE limits, strict chat templates after runtime notices, and Code Mode calls with repeated tool-call IDs. (#166999, #167063, #166853, #167309, #165210) Thanks @scs0209, @cursoragent, @obviyus, @adamjgmiller, @Jackten, @jlapenna, and @RomneyDa.",
+      "translated": "Fixed OpenAI turns failing on regex-lookaround tool schemas, ChatGPT websocket expiry and 16 MiB SSE limits, strict chat templates after runtime notices, and Code Mode calls with repeated tool-call IDs. (#166999, #167063, #166853, #167309, #165210) Thanks @scs0209, @cursoragent, @obviyus, @adamjgmiller, @Jackten, @jlapenna, and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Codex sessions stopping after thread unloads, leaked app-server clients after model discovery timeouts, provider failures shown as a silent stop, and max thinking dropping on cron and hook turns. (#166693, #168365, #165488, #165444) Thanks @jalehman, @Oldrich333, and @obviyus.",
+      "translated": "Fixed Codex sessions stopping after thread unloads, leaked app-server clients after model discovery timeouts, provider failures shown as a silent stop, and max thinking dropping on cron and hook turns. (#166693, #168365, #165488, #165444) Thanks @jalehman, @Oldrich333, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sessions failing every turn after a truncated image, the agent disowning earlier image answers, and memory_search snake_case arguments being rejected through tool_call. (#166564, #166165, #158632) Thanks @jayzhou2309, @mirasrael, @nogikeyaksh, @masatohoshino, and @obviyus.",
+      "translated": "Fixed sessions failing every turn after a truncated image, the agent disowning earlier image answers, and memory_search snake_case arguments being rejected through tool_call. (#166564, #166165, #158632) Thanks @jayzhou2309, @mirasrael, @nogikeyaksh, @masatohoshino, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed scheduled cron runs losing the Gateway plugin registry, manual cron runs losing tool access, runs rejected after catalog publication, and preflight compaction skipped for completion turns. (#166991, #168037, #168410, #163117) Thanks @67-luck, @lucianosmori, @obviyus, @RomneyDa, @SunnyShu0925, and @AXEG0.",
+      "translated": "Fixed scheduled cron runs losing the Gateway plugin registry, manual cron runs losing tool access, runs rejected after catalog publication, and preflight compaction skipped for completion turns. (#166991, #168037, #168410, #163117) Thanks @67-luck, @lucianosmori, @obviyus, @RomneyDa, @SunnyShu0925, and @AXEG0."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the Control UI hold-to-dictate button stopping on release, typed /stop letting queued turns restart the agent, repeated browser replies after background work, and pending Home creation notices piling up. (#166843, #167860, #166362, #168239) Thanks @alfredjbclaw, @obviyus, @masatohoshino, and @shakkernerd.",
+      "translated": "Fixed the Control UI hold-to-dictate button stopping on release, typed /stop letting queued turns restart the agent, repeated browser replies after background work, and pending Home creation notices piling up. (#166843, #167860, #166362, #168239) Thanks @alfredjbclaw, @obviyus, @masatohoshino, and @shakkernerd."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed update failures from absolute avatar paths, refused finalize steps leaving the Gateway stopped, and the SQLite worker launch error hidden behind a TypeError. (#164638, #166548, #165373) Thanks @nitinjwadhawan and @Shirleyyyhk.",
+      "translated": "Fixed update failures from absolute avatar paths, refused finalize steps leaving the Gateway stopped, and the SQLite worker launch error hidden behind a TypeError. (#164638, #166548, #165373) Thanks @nitinjwadhawan and @Shirleyyyhk."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed worker capacity leaks after forced descendant cleanup and browser tab eviction at the managed tab cap. (#168746, #166666) Thanks @aniruddhaadak80, @ruel225, and @obviyus.",
+      "translated": "Fixed worker capacity leaks after forced descendant cleanup and browser tab eviction at the managed tab cap. (#168746, #166666) Thanks @aniruddhaadak80, @ruel225, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Feishu replaying obsolete streaming previews, Bedrock custom provider routes using the wrong region, the egress proxy CA rejected by strict TLS clients, and quoted Windows shell arguments in the node host. (#166610, #164406, #165818, #158160) Thanks @rudycelekli, @Takhoffman, @Ayushdevo, @obviyus, @kai-ocean-kurt, @vortexopenclaw, @RyanSandoval, @Dimitri-lcht, and @igs-rogenlo.",
+      "translated": "Fixed Feishu replaying obsolete streaming previews, Bedrock custom provider routes using the wrong region, the egress proxy CA rejected by strict TLS clients, and quoted Windows shell arguments in the node host. (#166610, #164406, #165818, #158160) Thanks @rudycelekli, @Takhoffman, @Ayushdevo, @obviyus, @kai-ocean-kurt, @vortexopenclaw, @RyanSandoval, @Dimitri-lcht, and @igs-rogenlo."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed macOS crashes: the Swift compiler crash in the sidebar picker, Rosetta segfaults, Intel worker startup, and managed llama.cpp setup on macOS below 13.3. (#165573, #165088, #161876, #163358) Thanks @shakkernerd, @NovaUnboundAi, @VACInc, and @xXG0DLessXx.",
+      "translated": "Fixed macOS crashes: the Swift compiler crash in the sidebar picker, Rosetta segfaults, Intel worker startup, and managed llama.cpp setup on macOS below 13.3. (#165573, #165088, #161876, #163358) Thanks @shakkernerd, @NovaUnboundAi, @VACInc, and @xXG0DLessXx."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Logged update config fallback diagnostics as warnings and unblocked production lint suppression checks. (#165539, #166841) Thanks @Patrick-Erichsen.",
+      "translated": "Logged update config fallback diagnostics as warnings and unblocked production lint suppression checks. (#165539, #166841) Thanks @Patrick-Erichsen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165573** Related #165560. Thanks @shakkernerd.",
+      "translated": "**PR #165573** Related #165560. Thanks @shakkernerd."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165233**",
+      "translated": "**PR #165233**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166397** Related #166204. Thanks @coolcoolwcr.",
+      "translated": "**PR #166397** Related #166204. Thanks @coolcoolwcr."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166459** Related #166436. Thanks @hawkit.",
+      "translated": "**PR #166459** Related #166436. Thanks @hawkit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166530**",
+      "translated": "**PR #166530**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166548** Related #166509. Thanks @Shirleyyyhk.",
+      "translated": "**PR #166548** Related #166509. Thanks @Shirleyyyhk."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166610** Thanks @rudycelekli and @Takhoffman.",
+      "translated": "**PR #166610** Thanks @rudycelekli and @Takhoffman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166693** Thanks @jalehman.",
+      "translated": "**PR #166693** Thanks @jalehman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166999** Related #166877. Thanks @scs0209 and @cursoragent and @obviyus and @adamjgmiller.",
+      "translated": "**PR #166999** Related #166877. Thanks @scs0209 and @cursoragent and @obviyus and @adamjgmiller."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166666** Thanks @ruel225 and @obviyus.",
+      "translated": "**PR #166666** Thanks @ruel225 and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166564** Related #166515. Thanks @jayzhou2309 and @mirasrael.",
+      "translated": "**PR #166564** Related #166515. Thanks @jayzhou2309 and @mirasrael."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167063** Related #166708. Thanks @Jackten.",
+      "translated": "**PR #167063** Related #166708. Thanks @Jackten."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166853** Thanks @Jackten.",
+      "translated": "**PR #166853** Thanks @Jackten."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166997** Related #166770. Thanks @SunnyShu0925 and @hannesrudolph.",
+      "translated": "**PR #166997** Related #166770. Thanks @SunnyShu0925 and @hannesrudolph."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167309** Related #167305. Thanks @jlapenna.",
+      "translated": "**PR #167309** Related #167305. Thanks @jlapenna."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166991** Related #166756. Thanks @67-luck and @lucianosmori.",
+      "translated": "**PR #166991** Related #166756. Thanks @67-luck and @lucianosmori."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166843** Related #166842. Thanks @alfredjbclaw and @obviyus.",
+      "translated": "**PR #166843** Related #166842. Thanks @alfredjbclaw and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167374** Thanks @jalehman.",
+      "translated": "**PR #167374** Thanks @jalehman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161267** Thanks @obviyus.",
+      "translated": "**PR #161267** Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167470** Related #167416. Thanks @obviyus and @mgr-nick.",
+      "translated": "**PR #167470** Related #167416. Thanks @obviyus and @mgr-nick."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168037** Thanks @obviyus.",
+      "translated": "**PR #168037** Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168239**",
+      "translated": "**PR #168239**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168365**",
+      "translated": "**PR #168365**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167860** Related #167859. Thanks @masatohoshino.",
+      "translated": "**PR #167860** Related #167859. Thanks @masatohoshino."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168410** Thanks @RomneyDa.",
+      "translated": "**PR #168410** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168746** Related #160643. Thanks @aniruddhaadak80.",
+      "translated": "**PR #168746** Related #160643. Thanks @aniruddhaadak80."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168394** Related #168014. Thanks @robertoronderosjr.",
+      "translated": "**PR #168394** Related #168014. Thanks @robertoronderosjr."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168826** Related #157814. Thanks @xiaozishan.",
+      "translated": "**PR #168826** Related #157814. Thanks @xiaozishan."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164649** Related #164610, #164611. Thanks @jayzhou2309 and @obviyus and @jmar5439.",
+      "translated": "**PR #164649** Related #164610, #164611. Thanks @jayzhou2309 and @obviyus and @jmar5439."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164282** Related #164141. Thanks @Oldrich333 and @obviyus.",
+      "translated": "**PR #164282** Related #164141. Thanks @Oldrich333 and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165088**",
+      "translated": "**PR #165088**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161876**",
+      "translated": "**PR #161876**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #153545** Related #150132. Thanks @zhangguiping-xydt and @obviyus and @methylester.",
+      "translated": "**PR #153545** Related #150132. Thanks @zhangguiping-xydt and @obviyus and @methylester."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #162689** Related #162420. Thanks @ericcaiwx-star and @cursoragent and @obviyus and @dimonnld.",
+      "translated": "**PR #162689** Related #162420. Thanks @ericcaiwx-star and @cursoragent and @obviyus and @dimonnld."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164638** Thanks @nitinjwadhawan.",
+      "translated": "**PR #164638** Thanks @nitinjwadhawan."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161821** Thanks @fransqaas and @obviyus.",
+      "translated": "**PR #161821** Thanks @fransqaas and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163117** Related #162853. Thanks @SunnyShu0925 and @AXEG0.",
+      "translated": "**PR #163117** Related #162853. Thanks @SunnyShu0925 and @AXEG0."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #158632** Related #158631. Thanks @masatohoshino and @obviyus.",
+      "translated": "**PR #158632** Related #158631. Thanks @masatohoshino and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #158160** Related #142847. Thanks @Dimitri-lcht and @igs-rogenlo.",
+      "translated": "**PR #158160** Related #142847. Thanks @Dimitri-lcht and @igs-rogenlo."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #162066** Related #153174. Thanks @rogeriochaves and @llmsommelier and @RomneyDa and @ajmtrz.",
+      "translated": "**PR #162066** Related #153174. Thanks @rogeriochaves and @llmsommelier and @RomneyDa and @ajmtrz."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164406** Related #164379. Thanks @Ayushdevo and @obviyus and @kai-ocean-kurt.",
+      "translated": "**PR #164406** Related #164379. Thanks @Ayushdevo and @obviyus and @kai-ocean-kurt."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164677** Related #164525. Thanks @jarvisnextgeneration20-lang.",
+      "translated": "**PR #164677** Related #164525. Thanks @jarvisnextgeneration20-lang."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165257** Related #164113. Thanks @MrJanvar.",
+      "translated": "**PR #165257** Related #164113. Thanks @MrJanvar."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165355** Related #165214.",
+      "translated": "**PR #165355** Related #165214."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165373**",
+      "translated": "**PR #165373**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166089** Related #166084. Thanks @ericcaiwx-star and @obviyus.",
+      "translated": "**PR #166089** Related #166084. Thanks @ericcaiwx-star and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163358** Related #128879. Thanks @NovaUnboundAi and @VACInc and @xXG0DLessXx.",
+      "translated": "**PR #163358** Related #128879. Thanks @NovaUnboundAi and @VACInc and @xXG0DLessXx."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166376** Related #161409. Thanks @dprev.",
+      "translated": "**PR #166376** Related #161409. Thanks @dprev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166517** Related #166450. Thanks @noelff.",
+      "translated": "**PR #166517** Related #166450. Thanks @noelff."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167651** Related #134570. Thanks @oshunter.",
+      "translated": "**PR #167651** Related #134570. Thanks @oshunter."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165210**",
+      "translated": "**PR #165210**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165444** Related #164812. Thanks @Oldrich333 and @obviyus.",
+      "translated": "**PR #165444** Related #164812. Thanks @Oldrich333 and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166362** Related #166344. Thanks @shakkernerd.",
+      "translated": "**PR #166362** Related #166344. Thanks @shakkernerd."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165818** Related #139151. Thanks @vortexopenclaw and @RyanSandoval.",
+      "translated": "**PR #165818** Related #139151. Thanks @vortexopenclaw and @RyanSandoval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166165** Related #166134. Thanks @jayzhou2309 and @nogikeyaksh.",
+      "translated": "**PR #166165** Related #166134. Thanks @jayzhou2309 and @nogikeyaksh."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165800** Related #162777. Thanks @yetval and @holgergruenhagen.",
+      "translated": "**PR #165800** Related #162777. Thanks @yetval and @holgergruenhagen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #162843** Related #162777. Thanks @zyz619963502zyz and @yetval and @holgergruenhagen.",
+      "translated": "**PR #162843** Related #162777. Thanks @zyz619963502zyz and @yetval and @holgergruenhagen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166139** Related #142850. Thanks @Yun-0000 and @michaeljgood71.",
+      "translated": "**PR #166139** Related #142850. Thanks @Yun-0000 and @michaeljgood71."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166120** Related #166076. Thanks @ruel225 and @igs-rogenlo.",
+      "translated": "**PR #166120** Related #166076. Thanks @ruel225 and @igs-rogenlo."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165488**",
+      "translated": "**PR #165488**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163521** Thanks @rogeriochaves.",
+      "translated": "**PR #163521** Thanks @rogeriochaves."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166080** Thanks @Marvinthebored and @Peetiegonzalez and @RomneyDa.",
+      "translated": "**PR #166080** Thanks @Marvinthebored and @Peetiegonzalez and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168851** Thanks @RomneyDa.",
+      "translated": "**PR #168851** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161480** Thanks @eleqtrizit.",
+      "translated": "**PR #161480** Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166701**",
+      "translated": "**PR #166701**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167943**",
+      "translated": "**PR #167943**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165775** Related #158239. Thanks @donquiche61.",
+      "translated": "**PR #165775** Related #158239. Thanks @donquiche61."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168161** Related #168031. Thanks @obviyus and @Tosko4.",
+      "translated": "**PR #168161** Related #168031. Thanks @obviyus and @Tosko4."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168164** Thanks @obviyus.",
+      "translated": "**PR #168164** Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168849** Thanks @RomneyDa.",
+      "translated": "**PR #168849** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168968** Thanks @RomneyDa.",
+      "translated": "**PR #168968** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166841**",
+      "translated": "**PR #166841**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168569** Related #168014. Thanks @robertoronderosjr.",
+      "translated": "**PR #168569** Related #168014. Thanks @robertoronderosjr."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165417**",
+      "translated": "**PR #165417**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168042**",
+      "translated": "**PR #168042**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168392**",
+      "translated": "**PR #168392**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167938**",
+      "translated": "**PR #167938**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167898**",
+      "translated": "**PR #167898**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169130** Thanks @RomneyDa.",
+      "translated": "**PR #169130** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165539** Thanks @Patrick-Erichsen.",
+      "translated": "**PR #165539** Thanks @Patrick-Erichsen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169238** Thanks @RomneyDa.",
+      "translated": "**PR #169238** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169225** Thanks @RomneyDa.",
+      "translated": "**PR #169225** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169031** Thanks @RomneyDa.",
+      "translated": "**PR #169031** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169037**",
+      "translated": "**PR #169037**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168836** Thanks @RomneyDa.",
+      "translated": "**PR #168836** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.2",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.2.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.2.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: `sha512-FuLLF+WI12ypwQ0r+pcKDcmB+kXus5N4QClaKEnaAn6GN4I1AitkOhwv0GFl2rVKpvuUBDQWIfglHNy6Trv/EQ==`",
+      "translated": "integrity: `sha512-FuLLF+WI12ypwQ0r+pcKDcmB+kXus5N4QClaKEnaAn6GN4I1AitkOhwv0GFl2rVKpvuUBDQWIfglHNy6Trv/EQ==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release SHA: `b8952d477f0c932d8ddc6da5c89cab5a169b6ff1`",
+      "translated": "release SHA: `b8952d477f0c932d8ddc6da5c89cab5a169b6ff1`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.2/release-evidence.md",
+      "translated": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.2/release-evidence.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release publish: https://github.com/openclaw/openclaw/actions/runs/38206442814",
+      "translated": "release publish: https://github.com/openclaw/openclaw/actions/runs/38206442814"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/38181105939",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/38181105939"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release validation: https://github.com/openclaw/openclaw/actions/runs/38180680775",
+      "translated": "full release validation: https://github.com/openclaw/openclaw/actions/runs/38180680775"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38206893097",
+      "translated": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38206893097"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/38206895444; public finalization and exact artifact verification follow terminal release-parent completion",
+      "translated": "plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/38206895444; public finalization and exact artifact verification follow terminal release-parent completion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub bootstrap: not needed",
+      "translated": "plugin ClawHub bootstrap: not needed"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38207115053",
+      "translated": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38207115053"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm Telegram beta E2E: not supplied",
+      "translated": "npm Telegram beta E2E: not supplied"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.2; run pnpm android:version:pin -- --from-gateway before the next tag.",
+      "translated": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.2; run pnpm android:version:pin -- --from-gateway before the next tag."
+    }
+  ],
+  "translatedAt": "2026-10-12T06:06:29.598Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 11559
+}
