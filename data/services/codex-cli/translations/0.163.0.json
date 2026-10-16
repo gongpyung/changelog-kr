@@ -1,0 +1,1472 @@
+{
+  "version": "0.163.0",
+  "date": "2026-10-15",
+  "parsedAt": "2026-10-16T11:30:19.753Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Open `/config` to search preferences across categories, change supported settings immediately, and see which changes require a restart. (#52990, #53429)",
+      "translated": "Open `/config` to search preferences across categories, change supported settings immediately, and see which changes require a restart. (#52990, #53429)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Send a follow-up while Codex is responding to steer it immediately. Interrupting a turn also stops active Code Mode cells and their nested tool calls. (#51812, #51835)",
+      "translated": "Send a follow-up while Codex is responding to steer it immediately. Interrupting a turn also stops active Code Mode cells and their nested tool calls. (#51812, #51835)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Configure a leader key in `/keymap`. The default is `Ctrl+X`, shortcut hints stay open until you choose or cancel, and voice mute moves to `F9`. (#52273)",
+      "translated": "Configure a leader key in `/keymap`. The default is `Ctrl+X`, shortcut hints stay open until you choose or cancel, and voice mute moves to `F9`. (#52273)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Restart a managed background server from `/daemon`. Codex warns about work the restart could interrupt, then reconnects automatically. (#53173)",
+      "translated": "Restart a managed background server from `/daemon`. Codex warns about work the restart could interrupt, then reconnects automatically. (#53173)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Codex can run independent read-only tools in parallel, including skill, memory, and conversation-history lookups. (#52245)",
+      "translated": "Codex can run independent read-only tools in parallel, including skill, memory, and conversation-history lookups. (#52245)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Daybreak is enabled by default for eligible accounts. `codex exec` can also select it with an OpenAI API key when the server offers access. (#53701, #53717)",
+      "translated": "Daybreak is enabled by default for eligible accounts. `codex exec` can also select it with an OpenAI API key when the server offers access. (#53701, #53717)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Resuming a saved thread restores its permissions and network approvals, while respecting explicit overrides and current managed policy. (#53150, #53419, #53424)",
+      "translated": "Resuming a saved thread restores its permissions and network approvals, while respecting explicit overrides and current managed policy. (#53150, #53419, #53424)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The network proxy now checks permission before a DNS lookup, rejects duplicate `Host` headers, and prevents credential aliases from bypassing inspection hooks. (#51650, #52661, #53506)",
+      "translated": "The network proxy now checks permission before a DNS lookup, rejects duplicate `Host` headers, and prevents credential aliases from bypassing inspection hooks. (#51650, #52661, #53506)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Return to an existing side conversation with `/side` after switching threads. Answers to pending prompts also go back to the thread that asked. (#52184, #53436)",
+      "translated": "Return to an existing side conversation with `/side` after switching threads. Answers to pending prompts also go back to the thread that asked. (#52184, #53436)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "On Windows, `Ctrl+V` and `Shift+Insert` paste text as well as images. On WSL, repeated pastes reuse the clipboard reader, and copy attempts time out instead of hanging. (#53224, #52967, #53453)",
+      "translated": "On Windows, `Ctrl+V` and `Shift+Insert` paste text as well as images. On WSL, repeated pastes reuse the clipboard reader, and copy attempts time out instead of hanging. (#53224, #52967, #53453)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Local commands finish promptly when a child keeps an output pipe open. Remote commands preserve late-arriving output so the final poll can still collect it. (#52652, #53331, #53622)",
+      "translated": "Local commands finish promptly when a child keeps an output pipe open. Remote commands preserve late-arriving output so the final poll can still collect it. (#52652, #53331, #53622)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`codex exec` no longer prints the same file diff again after an unrelated command. (#53444)",
+      "translated": "`codex exec` no longer prints the same file diff again after an unrelated command. (#53444)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Updated the bundled OpenAI Docs guidance for migrations to the GPT-6 family, including model-specific reasoning, tool use, and data residency considerations. (#51768)",
+      "translated": "Updated the bundled OpenAI Docs guidance for migrations to the GPT-6 family, including model-specific reasoning, tool use, and data residency considerations. (#51768)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Clarified how the Linux sandbox uses bubblewrap for filesystem isolation and seccomp for syscall filtering. (#52610)",
+      "translated": "Clarified how the Linux sandbox uses bubblewrap for filesystem isolation and seccomp for syscall filtering. (#52610)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Codex now uses its standard shell executor and no longer bundles a patched `zsh`. Configurations using the retired shell flags receive a migration notice. (#52160, #52213)",
+      "translated": "Codex now uses its standard shell executor and no longer bundles a patched `zsh`. Configurations using the retired shell flags receive a migration notice. (#52160, #52213)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Reduced Linux and macOS release package size by stripping symbols from packaged binaries while preserving them in the original build outputs. (#52178)",
+      "translated": "Reduced Linux and macOS release package size by stripping symbols from packaged binaries while preserving them in the original build outputs. (#52178)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51539 Add completion-aware realtime attachment and session-scoped detach",
+      "translated": "Add completion-aware realtime attachment and session-scoped detach"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51547 Add a Windows MXC sandbox opt-out",
+      "translated": "Add a Windows MXC sandbox opt-out"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51556 Complete dynamic tool lifecycles on cancellation",
+      "translated": "Complete dynamic tool lifecycles on cancellation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51575 Expose package assembly helpers and support gzip DotSlash artifacts",
+      "translated": "Expose package assembly helpers and support gzip DotSlash artifacts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51595 Add thread ID exclusions to `thread/list`",
+      "translated": "Add thread ID exclusions to `thread/list`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51602 Distinguish thread listing failures from exhausted history",
+      "translated": "Distinguish thread listing failures from exhausted history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51611 Signal abandonment of unanswered MCP elicitations",
+      "translated": "Signal abandonment of unanswered MCP elicitations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51627 Stabilize Guardian snapshot prefixes by separating assistant context",
+      "translated": "Stabilize Guardian snapshot prefixes by separating assistant context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51642 Fix retained context handling for typed section content",
+      "translated": "Fix retained context handling for typed section content"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51650 Require hostname authorization before proxy DNS lookups",
+      "translated": "Require hostname authorization before proxy DNS lookups"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51651 Persist Guardian review failures for reports across restarts",
+      "translated": "Persist Guardian review failures for reports across restarts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51652 Record telemetry for AGENTS.md changes made by apply_patch",
+      "translated": "Record telemetry for AGENTS.md changes made by apply_patch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51678 Move Windows sandbox tests into a dedicated integration binary",
+      "translated": "Move Windows sandbox tests into a dedicated integration binary"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51683 Roll back stale Guardian reviews before reusing reviewer history",
+      "translated": "Roll back stale Guardian reviews before reusing reviewer history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51689 Wait for helper completion in HTTP header cancellation tests",
+      "translated": "Wait for helper completion in HTTP header cancellation tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51690 Add a feature flag for Code Mode tool description ordering",
+      "translated": "Add a feature flag for Code Mode tool description ordering"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51704 Honor tool-description-first ordering in Code Mode",
+      "translated": "Honor tool-description-first ordering in Code Mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51710 Fix a discovery race in the external auth refresh test",
+      "translated": "Fix a discovery race in the external auth refresh test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51734 Load persisted sender context for Guardian reviews",
+      "translated": "Load persisted sender context for Guardian reviews"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51755 Reuse MCP handler metadata for cache comparisons",
+      "translated": "Reuse MCP handler metadata for cache comparisons"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51761 Reduce tool metadata cloning in the code-mode runtime",
+      "translated": "Reduce tool metadata cloning in the code-mode runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51768 Expand OpenAI Docs migration guidance to the GPT-6 model family",
+      "translated": "Expand OpenAI Docs migration guidance to the GPT-6 model family"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51775 Prevent recursive Tokio tracing in telemetry and SQLite logs",
+      "translated": "Prevent recursive Tokio tracing in telemetry and SQLite logs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51786 Preserve sandbox overrides across execution requests",
+      "translated": "Preserve sandbox overrides across execution requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51794 Advertise Ultrafast for GPT-6.1 Sol on Amazon Bedrock",
+      "translated": "Advertise Ultrafast for GPT-6.1 Sol on Amazon Bedrock"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51800 Remove duplicate field initializers in extension registry tests",
+      "translated": "Remove duplicate field initializers in extension registry tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51808 Preserve diagnostic reasons for MCP user verification failures",
+      "translated": "Preserve diagnostic reasons for MCP user verification failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51812 Enable instant interrupts by default",
+      "translated": "Enable instant interrupts by default"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51819 Migrate the MXC sandbox to the 1.0.0 SDK",
+      "translated": "Migrate the MXC sandbox to the 1.0.0 SDK"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51822 Avoid sharing violations when repairing Windows runtime ACLs",
+      "translated": "Avoid sharing violations when repairing Windows runtime ACLs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51823 Share MCP binding tool metadata with prepared calls",
+      "translated": "Share MCP binding tool metadata with prepared calls"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51828 Add policy-based file contents integrity checks",
+      "translated": "Add policy-based file contents integrity checks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51831 Add MXC sandbox integrity dependency and policy preparation",
+      "translated": "Add MXC sandbox integrity dependency and policy preparation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51835 Enable code mode interruption by default",
+      "translated": "Enable code mode interruption by default"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51840 Add a bubblewrap backend for sandbox integrity checks",
+      "translated": "Add a bubblewrap backend for sandbox integrity checks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51841 Add a macOS Seatbelt backend for sandbox integrity",
+      "translated": "Add a macOS Seatbelt backend for sandbox integrity"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51842 Add a sandbox integrity runner with outcome and timing metrics",
+      "translated": "Add a sandbox integrity runner with outcome and timing metrics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51843 Run sandbox integrity checks before commands and filesystem operations",
+      "translated": "Run sandbox integrity checks before commands and filesystem operations"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51847 Preserve Cargo package names in Bazel Rust builds",
+      "translated": "Preserve Cargo package names in Bazel Rust builds"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51848 Align Bazel release builds with Cargo and fix platform compatibility",
+      "translated": "Align Bazel release builds with Cargo and fix platform compatibility"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "#51849 Fix package smoke tests for Cargo and Bazel debug symbols",
+      "translated": "Fix package smoke tests for Cargo and Bazel debug symbols"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51850 Add Bazel release staging archives",
+      "translated": "Add Bazel release staging archives"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51855 Add Bazel support to the Codex package build action",
+      "translated": "Add Bazel support to the Codex package build action"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51856 Build Bazel release artifacts alongside Cargo artifacts",
+      "translated": "Build Bazel release artifacts alongside Cargo artifacts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51857 Add an app-server prompt prefix compatibility test",
+      "translated": "Add an app-server prompt prefix compatibility test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51865 Use readable plugin mentions without suppressing same-name skills",
+      "translated": "Use readable plugin mentions without suppressing same-name skills"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51866 Preserve line breaks and links in multiline async questions",
+      "translated": "Preserve line breaks and links in multiline async questions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51868 Record tool registration metrics for each sampling request",
+      "translated": "Record tool registration metrics for each sampling request"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51872 Keep global app-server config independent of the launch directory",
+      "translated": "Keep global app-server config independent of the launch directory"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51884 Add experimental prediction forks that inherit parent context",
+      "translated": "Add experimental prediction forks that inherit parent context"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51890 Add the missing `mxc-sdk` UTF-8 resource patch for Bazel",
+      "translated": "Add the missing `mxc-sdk` UTF-8 resource patch for Bazel"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51892 Preserve tool call completeness when recorded arguments are truncated",
+      "translated": "Preserve tool call completeness when recorded arguments are truncated"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51893 Record metrics for incremental tool updates",
+      "translated": "Record metrics for incremental tool updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51895 Report specific reasons for WebSocket continuation failures",
+      "translated": "Report specific reasons for WebSocket continuation failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51896 Preserve native errors in Windows sandbox ACL diagnostics",
+      "translated": "Preserve native errors in Windows sandbox ACL diagnostics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51897 Use a dedicated matcher for network domain policies",
+      "translated": "Use a dedicated matcher for network domain policies"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51908 Honor the user input setting for asynchronous questions",
+      "translated": "Honor the user input setting for asynchronous questions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51930 Support model-specific function description prefixes",
+      "translated": "Support model-specific function description prefixes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51963 Attribute compaction analytics to the correct voice session",
+      "translated": "Attribute compaction analytics to the correct voice session"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#51974 Log Windows sandbox availability and backend selection",
+      "translated": "Log Windows sandbox availability and backend selection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52034 Preserve agent state when unloading idle multi-agent v2 children",
+      "translated": "Preserve agent state when unloading idle multi-agent v2 children"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52040 Add regression coverage for cancelled agent reloads",
+      "translated": "Add regression coverage for cancelled agent reloads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52048 Cover instant interruption in steered-input persistence tests",
+      "translated": "Cover instant interruption in steered-input persistence tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52061 Run Guardian conversation classifiers concurrently and preserve action order",
+      "translated": "Run Guardian conversation classifiers concurrently and preserve action order"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52062 Add scenario coverage for worker context across idle eviction",
+      "translated": "Add scenario coverage for worker context across idle eviction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52065 Require assessment text in the Guardian parser",
+      "translated": "Require assessment text in the Guardian parser"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52081 Fix idle cleanup for disconnected multi-agent v2 children",
+      "translated": "Fix idle cleanup for disconnected multi-agent v2 children"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52119 Expose originating tool call metadata in command environments",
+      "translated": "Expose originating tool call metadata in command environments"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52160 Remove the patched zsh shell execution backend",
+      "translated": "Remove the patched zsh shell execution backend"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52164 Make environment context date and timezone configurable",
+      "translated": "Make environment context date and timezone configurable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52176 Show AWS GovCloud guidance at startup and remember acknowledgment",
+      "translated": "Show AWS GovCloud guidance at startup and remember acknowledgment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52177 Set a User-Agent for package archive downloads",
+      "translated": "Set a User-Agent for package archive downloads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52178 Strip symbols from source-built release package binaries",
+      "translated": "Strip symbols from source-built release package binaries"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52182 Expose a verified sandbox launcher to local MCP servers",
+      "translated": "Expose a verified sandbox launcher to local MCP servers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52183 Add optional descriptions to agent message board channels",
+      "translated": "Add optional descriptions to agent message board channels"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52184 Preserve side conversations across thread navigation",
+      "translated": "Preserve side conversations across thread navigation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52193 Enforce managed MXC requirements on Windows",
+      "translated": "Enforce managed MXC requirements on Windows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52195 Track source attribution for individual context parts",
+      "translated": "Track source attribution for individual context parts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52200 Allow plugin toggles while searching and preserve filters on refresh",
+      "translated": "Allow plugin toggles while searching and preserve filters on refresh"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52203 Expose Codex lifecycle status in iTerm2 sessions",
+      "translated": "Expose Codex lifecycle status in iTerm2 sessions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52213 Stop bundling patched zsh in Codex packages",
+      "translated": "Stop bundling patched zsh in Codex packages"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52215 Enforce application network policy in standalone MCP commands",
+      "translated": "Enforce application network policy in standalone MCP commands"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52220 Add configurable default plugin activation policy",
+      "translated": "Add configurable default plugin activation policy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52223 Enforce application network policy for daemon updates",
+      "translated": "Enforce application network policy for daemon updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52225 Fix config rebuild call in the Windows MXC preference test",
+      "translated": "Fix config rebuild call in the Windows MXC preference test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52226 Include foreground activity in iTerm2 session status",
+      "translated": "Include foreground activity in iTerm2 session status"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52228 Honor API-key feature gates in TUI Daybreak selection",
+      "translated": "Honor API-key feature gates in TUI Daybreak selection"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52234 Support request IDs in exec-server WebSocket handshakes",
+      "translated": "Support request IDs in exec-server WebSocket handshakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52235 Recover gRPC code-mode sessions after missing-session errors",
+      "translated": "Recover gRPC code-mode sessions after missing-session errors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52241 Preserve subagent capabilities independently of forked history",
+      "translated": "Preserve subagent capabilities independently of forked history"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52245 Enable parallel execution for read-only tools",
+      "translated": "Enable parallel execution for read-only tools"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52250 Add opt-in Guardian trust for orchestrator connector identities",
+      "translated": "Add opt-in Guardian trust for orchestrator connector identities"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52256 Normalize formatting in docs, web assets, and sample scripts",
+      "translated": "Normalize formatting in docs, web assets, and sample scripts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52268 Preserve large arguments in executed tool call metadata",
+      "translated": "Preserve large arguments in executed tool call metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52270 Enable text selection in the fullscreen TUI footer",
+      "translated": "Enable text selection in the fullscreen TUI footer"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52273 Add configurable persistent leader shortcuts to the TUI",
+      "translated": "Add configurable persistent leader shortcuts to the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52274 Add structured tracing for Guardian reviews and background scoring",
+      "translated": "Add structured tracing for Guardian reviews and background scoring"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52277 Preserve UTF-8 byte semantics in network domain matching",
+      "translated": "Preserve UTF-8 byte semantics in network domain matching"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52278 Honor custom OTLP metrics exporters when analytics is disabled",
+      "translated": "Honor custom OTLP metrics exporters when analytics is disabled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52288 Remove duplicate field initializers from extension registry tests",
+      "translated": "Remove duplicate field initializers from extension registry tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52295 Emit one developer notice per incremental namespace update batch",
+      "translated": "Emit one developer notice per incremental namespace update batch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52299 Make Bazel release jobs advisory",
+      "translated": "Make Bazel release jobs advisory"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52302 Add opt-in credential masking for proxied sandboxed sessions",
+      "translated": "Add opt-in credential masking for proxied sandboxed sessions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52304 Persist remote-control RPC preferences in managed daemon settings",
+      "translated": "Persist remote-control RPC preferences in managed daemon settings"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52325 Track history initialization in Responses turn metadata",
+      "translated": "Track history initialization in Responses turn metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52329 Remove per-content source attribution metadata",
+      "translated": "Remove per-content source attribution metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52330 Clamp wrapped source ranges before remapping terminal hyperlinks",
+      "translated": "Clamp wrapped source ranges before remapping terminal hyperlinks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52337 Add durable thread read state with revision-checked updates",
+      "translated": "Add durable thread read state with revision-checked updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52350 Expose experimental durable thread read state in the app server",
+      "translated": "Expose experimental durable thread read state in the app server"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52363 Expand realtime v3 voice support",
+      "translated": "Expand realtime v3 voice support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52381 Preserve per-session routing for gRPC code mode",
+      "translated": "Preserve per-session routing for gRPC code mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52384 Notify subscribers when thread read state changes",
+      "translated": "Notify subscribers when thread read state changes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52395 Add experimental app-server thread read-state updates",
+      "translated": "Add experimental app-server thread read-state updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52418 Avoid an extra blank quote line when pasting text with a trailing newline",
+      "translated": "Avoid an extra blank quote line when pasting text with a trailing newline"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52535 Add opt-in history prefix preservation for full agent forks",
+      "translated": "Add opt-in history prefix preservation for full agent forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52557 Forward clipboard copies to the terminal in Herdr sessions",
+      "translated": "Forward clipboard copies to the terminal in Herdr sessions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52568 Expose message board permissions and structured denials",
+      "translated": "Expose message board permissions and structured denials"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52591 Fix races in remote environment and session replacement tests",
+      "translated": "Fix races in remote environment and session replacement tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52608 Upgrade `hyper` to 1.11.1 and test connection closure",
+      "translated": "Upgrade `hyper` to 1.11.1 and test connection closure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52610 Align Linux sandbox names and docs with bubblewrap and seccomp",
+      "translated": "Align Linux sandbox names and docs with bubblewrap and seccomp"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52621 Add template setup for local agent message boards",
+      "translated": "Add template setup for local agent message boards"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52629 Consolidate local message board storage helpers",
+      "translated": "Consolidate local message board storage helpers"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52635 Skip background workspace routing reads without ChatGPT auth",
+      "translated": "Skip background workspace routing reads without ChatGPT auth"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52637 Add experimental thread item lookup by ID",
+      "translated": "Add experimental thread item lookup by ID"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52640 Count interrupted goal continuations toward the no-activity limit",
+      "translated": "Count interrupted goal continuations toward the no-activity limit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52648 Limit daemon feature compatibility checks to explicit CLI overrides",
+      "translated": "Limit daemon feature compatibility checks to explicit CLI overrides"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52652 Bound local exec-server output draining after process exit",
+      "translated": "Bound local exec-server output draining after process exit"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52659 Add an opt-in feature for subagent model context defaults",
+      "translated": "Add an opt-in feature for subagent model context defaults"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52660 Handle completion events in either order in shell snapshot tests",
+      "translated": "Handle completion events in either order in shell snapshot tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52661 Prevent brokered credential aliases from bypassing MITM hooks",
+      "translated": "Prevent brokered credential aliases from bypassing MITM hooks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52671 Add retention annotations to submitted tool outputs",
+      "translated": "Add retention annotations to submitted tool outputs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52674 Move the exec-server test fixture into shared test support",
+      "translated": "Move the exec-server test fixture into shared test support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52676 Refresh persisted capability roots from owner-provided configuration",
+      "translated": "Refresh persisted capability roots from owner-provided configuration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52679 Add timeout-aware exec-server configuration reads",
+      "translated": "Add timeout-aware exec-server configuration reads"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52681 Reject reserved Serde JSON keys in code mode",
+      "translated": "Reject reserved Serde JSON keys in code mode"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52682 Validate Windows sandbox accounts before password repair",
+      "translated": "Validate Windows sandbox accounts before password repair"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52685 Preserve code mode cancellation during output serialization",
+      "translated": "Preserve code mode cancellation during output serialization"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52686 Add opt-in retention for turn tool outputs",
+      "translated": "Add opt-in retention for turn tool outputs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52689 Forward per-turn Cyber access programs to Guardian",
+      "translated": "Forward per-turn Cyber access programs to Guardian"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52696 Fix marketplace path matching for Windows junctions",
+      "translated": "Fix marketplace path matching for Windows junctions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52700 Update the exec-server stable compatibility baseline to Codex 0.162.1",
+      "translated": "Update the exec-server stable compatibility baseline to Codex 0.162.1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52702 Retry bootstrap GETs through the system proxy after request failures",
+      "translated": "Retry bootstrap GETs through the system proxy after request failures"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52707 Migrate the Windows MXC sandbox to split MXC crates",
+      "translated": "Migrate the Windows MXC sandbox to split MXC crates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52721 Explain session creation failures during server shutdown",
+      "translated": "Explain session creation failures during server shutdown"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52723 Add opt-in gRPC over stdio for the code-mode host",
+      "translated": "Add opt-in gRPC over stdio for the code-mode host"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52724 Add observers for initial exec-server connection attempts",
+      "translated": "Add observers for initial exec-server connection attempts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52725 Report terminal program status with OSC 7501",
+      "translated": "Report terminal program status with OSC 7501"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52736 Allow model catalogs to override incremental tool notices",
+      "translated": "Allow model catalogs to override incremental tool notices"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52742 Add opt-in output token replay for OpenAI requests",
+      "translated": "Add opt-in output token replay for OpenAI requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52748 Make code-mode `exit()` stop the entire cell",
+      "translated": "Make code-mode `exit()` stop the entire cell"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52756 Classify voice session failures and record terminal outcomes",
+      "translated": "Classify voice session failures and record terminal outcomes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52778 Make pinned transcript prompts clickable",
+      "translated": "Make pinned transcript prompts clickable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52825 Report exec runtime resets before accepting further requests",
+      "translated": "Report exec runtime resets before accepting further requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52923 Stabilize the realtime steering timeline test",
+      "translated": "Stabilize the realtime steering timeline test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52937 Retain client-marked tool outputs across compaction",
+      "translated": "Retain client-marked tool outputs across compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52946 Keep agent command center rows stable across progress updates",
+      "translated": "Keep agent command center rows stable across progress updates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52952 Verify reset notification during code-mode host recovery",
+      "translated": "Verify reset notification during code-mode host recovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52959 Reduce stack usage in async TUI tests",
+      "translated": "Reduce stack usage in async TUI tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52964 Defer owned transcript redraws during raw paste bursts",
+      "translated": "Defer owned transcript redraws during raw paste bursts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52967 Reuse and prewarm the WSL clipboard text reader",
+      "translated": "Reuse and prewarm the WSL clipboard text reader"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52968 Keep startup modals protected when terminal input draining times out",
+      "translated": "Keep startup modals protected when terminal input draining times out"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52972 Upgrade `rmcp` to `3.5.1` and harden lifecycle tests",
+      "translated": "Upgrade `rmcp` to `3.5.1` and harden lifecycle tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#52990 Add a searchable `/config` preferences panel to the TUI",
+      "translated": "Add a searchable `/config` preferences panel to the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53049 Add connection-bound reply handles for app-server requests",
+      "translated": "Add connection-bound reply handles for app-server requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53109 Handle broken pipes gracefully in plugin list output",
+      "translated": "Handle broken pipes gracefully in plugin list output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53148 Fix startup draft recovery for pending Vim Replace keys",
+      "translated": "Fix startup draft recovery for pending Vim Replace keys"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53150 Restore thread-owned permissions on cold resume",
+      "translated": "Restore thread-owned permissions on cold resume"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53152 Allow selecting and copying TUI turn tips",
+      "translated": "Allow selecting and copying TUI turn tips"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53153 Show subagent navigation shortcuts in TUI help",
+      "translated": "Show subagent navigation shortcuts in TUI help"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53155 Keep remote app-server events deliverable during shutdown",
+      "translated": "Keep remote app-server events deliverable during shutdown"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53156 Simplify the custom terminal drawing API",
+      "translated": "Simplify the custom terminal drawing API"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53173 Allow restarting managed background servers from the TUI",
+      "translated": "Allow restarting managed background servers from the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53201 Keep agents navigation available after a thread is archived",
+      "translated": "Keep agents navigation available after a thread is archived"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53224 Support Windows clipboard text paste shortcuts in the TUI",
+      "translated": "Support Windows clipboard text paste shortcuts in the TUI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53331 Finish remote exec cleanup when output streams remain open",
+      "translated": "Finish remote exec cleanup when output streams remain open"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53339 Test final polling of remote processes with open output streams",
+      "translated": "Test final polling of remote processes with open output streams"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53358 Remove selected protocol, apply-patch, MCP, and TUI tests",
+      "translated": "Remove selected protocol, apply-patch, MCP, and TUI tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53369 Allow turns when the agent message board is unavailable",
+      "translated": "Allow turns when the agent message board is unavailable"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53382 Ignore the unsafe-libyaml advisory in dependency audits",
+      "translated": "Ignore the unsafe-libyaml advisory in dependency audits"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53389 Use cached login credentials for Guardian decisions",
+      "translated": "Use cached login credentials for Guardian decisions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53393 Distinguish Guardian parent-compaction failure reasons",
+      "translated": "Distinguish Guardian parent-compaction failure reasons"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53400 Add explicit local board connections with fixed runtime access",
+      "translated": "Add explicit local board connections with fixed runtime access"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53412 Isolate arg0 helper directories by operating system",
+      "translated": "Isolate arg0 helper directories by operating system"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53419 Restore saved thread permissions during configuration loading",
+      "translated": "Restore saved thread permissions during configuration loading"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53424 Add regression coverage for network grants on cold thread resume",
+      "translated": "Add regression coverage for network grants on cold thread resume"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53426 Preserve Windows runtime registration failure diagnostics",
+      "translated": "Preserve Windows runtime registration failure diagnostics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53429 Apply configuration toggles live and improve settings navigation",
+      "translated": "Apply configuration toggles live and improve settings navigation"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53436 Route TUI request replies to their originating connection and thread",
+      "translated": "Route TUI request replies to their originating connection and thread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53438 Stop identifying Apple Terminal from `TERM_SESSION_ID`",
+      "translated": "Stop identifying Apple Terminal from `TERM_SESSION_ID`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53440 Preserve status line accents on 16-color terminals",
+      "translated": "Preserve status line accents on 16-color terminals"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53443 Use local MSVC toolchains for native Windows Bazel tests",
+      "translated": "Use local MSVC toolchains for native Windows Bazel tests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53444 Suppress repeated turn diffs in `codex exec` human output",
+      "translated": "Suppress repeated turn diffs in `codex exec` human output"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53451 Treat incomplete responses as terminal errors",
+      "translated": "Treat incomplete responses as terminal errors"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53452 Close input admission while a turn finishes recording",
+      "translated": "Close input admission while a turn finishes recording"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53453 Prefer the Windows clipboard and bound copy attempts on WSL",
+      "translated": "Prefer the Windows clipboard and bound copy attempts on WSL"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53485 Update `quinn-proto` to 0.11.18",
+      "translated": "Update `quinn-proto` to 0.11.18"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53496 Preserve pending Effects toggles across save refreshes",
+      "translated": "Preserve pending Effects toggles across save refreshes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53506 Reject duplicate Host headers in the network proxy",
+      "translated": "Reject duplicate Host headers in the network proxy"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53556 Deduplicate TUI modifier handling and terminal color caching",
+      "translated": "Deduplicate TUI modifier handling and terminal color caching"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53595 Add async compaction feature configuration",
+      "translated": "Add async compaction feature configuration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53606 Prepare compaction helpers for background requests",
+      "translated": "Prepare compaction helpers for background requests"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53614 Add infrastructure for speculative remote V2 compaction",
+      "translated": "Add infrastructure for speculative remote V2 compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53617 Allow hiding native tools while retaining the multi-agent V2 runtime",
+      "translated": "Allow hiding native tools while retaining the multi-agent V2 runtime"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53620 Reuse background results for remote V2 compaction",
+      "translated": "Reuse background results for remote V2 compaction"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53622 Preserve remote exec output until it is collected",
+      "translated": "Preserve remote exec output until it is collected"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53628 Record truncation metrics for accepted Guardian review inputs",
+      "translated": "Record truncation metrics for accepted Guardian review inputs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53631 Materialize the thread before testing a discovered daemon restart",
+      "translated": "Materialize the thread before testing a discovered daemon restart"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53632 Stabilize write ordering in the shared message board scenario",
+      "translated": "Stabilize write ordering in the shared message board scenario"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53633 Add an environment API key fallback for Guardian Decisions",
+      "translated": "Add an environment API key fallback for Guardian Decisions"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53654 Keep spawned children provisional until the spawn result returns",
+      "translated": "Keep spawned children provisional until the spawn result returns"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53657 Share hook configuration across cloned hook views",
+      "translated": "Share hook configuration across cloned hook views"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53660 Extract shared multi-agent v2 thread spawning",
+      "translated": "Extract shared multi-agent v2 thread spawning"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53668 Improve remote exec-server test startup diagnostics",
+      "translated": "Improve remote exec-server test startup diagnostics"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53670 Account for token usage from incomplete responses",
+      "translated": "Account for token usage from incomplete responses"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53672 Keep discovered Apps tools available during startup recovery",
+      "translated": "Keep discovered Apps tools available during startup recovery"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53673 Publish Rust releases with the GitHub CLI",
+      "translated": "Publish Rust releases with the GitHub CLI"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53678 Preserve inherited context in prediction forks",
+      "translated": "Preserve inherited context in prediction forks"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53689 Constrain API-key model access programs to server support",
+      "translated": "Constrain API-key model access programs to server support"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53691 Account for replay caches in encrypted compaction budgets",
+      "translated": "Account for replay caches in encrypted compaction budgets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53693 Add keyboard selection support to the transcript view",
+      "translated": "Add keyboard selection support to the transcript view"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53698 Interrupt and drain canceled classifier responses before socket reuse",
+      "translated": "Interrupt and drain canceled classifier responses before socket reuse"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53699 Cancel Guardian V2 classifications that exceed the tool-call lag window",
+      "translated": "Cancel Guardian V2 classifications that exceed the tool-call lag window"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53701 Enable CLI Daybreak by default and enforce background-turn eligibility",
+      "translated": "Enable CLI Daybreak by default and enforce background-turn eligibility"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53706 Preserve URLs and email addresses during external agent migration",
+      "translated": "Preserve URLs and email addresses during external agent migration"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53709 Separate MCP sandbox policy from launcher metadata",
+      "translated": "Separate MCP sandbox policy from launcher metadata"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53717 Enable Cyber access programs for API-key sessions by default",
+      "translated": "Enable Cyber access programs for API-key sessions by default"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#53723 Wire V2 capability discovery through exec-server RPC",
+      "translated": "Wire V2 capability discovery through exec-server RPC"
+    }
+  ],
+  "translatedAt": "2026-10-16T11:30:36.778Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 16565
+}
