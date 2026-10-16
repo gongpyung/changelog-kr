@@ -1,0 +1,656 @@
+{
+  "version": "2026.10.4",
+  "date": "2026-10-16",
+  "parsedAt": "2026-10-16T04:37:11.571Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The Gateway keeps running after the computer sleeps or the system clock jumps, instead of restarting itself because its ownership heartbeat looked stale. (#170790) Thanks @AnvinaLI, @sgh6688, @waynegault, and @RomneyDa.",
+      "translated": "컴퓨터가 절전 모드로 전환되거나 시스템 시계가 급격히 변해도 Gateway가 소유권 하트비트 만료로 오인하여 재시작되지 않고 계속 실행됩니다. (#170790) Thanks @AnvinaLI, @sgh6688, @waynegault, and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway shutdown and restart no longer hang on a stalled transcript worker or in-flight session lifecycle events. (#170493, #170555) Thanks @Oldrich333.",
+      "translated": "Gateway 종료 및 재시작 시 중단된 transcript worker나 진행 중인 session lifecycle 이벤트로 인해 멈추는 현상이 더 이상 발생하지 않습니다. (#170493, #170555) Thanks @Oldrich333."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Tlon group DMs no longer treat other participants as the owner, closing an owner-impersonation path. (#165801) Thanks @eleqtrizit.",
+      "translated": "Tlon 그룹 DM에서 다른 참여자를 소유자로 처리하던 문제를 수정하여 소유자 사칭 경로를 차단했습니다. (#165801) Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Headless browser pages keep responding to clicks while a site waits for a passkey. (#170857) Thanks @trukhinyuri.",
+      "translated": "사이트에서 passkey를 기다리는 동안에도 headless 브라우저 페이지가 클릭에 계속 반응합니다. (#170857) Thanks @trukhinyuri."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Manual `/compact` settles the active run before compacting instead of aborting it and dropping the pending request. (#166163) Thanks @holny and @alexph-dev.",
+      "translated": "수동 `/compact` 실행 시 활성 실행을 중단하고 대기 중인 요청을 삭제하는 대신, 실행을 안정적으로 마무리한 후 압축을 진행합니다. (#166163) Thanks @holny and @alexph-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Stability patch for 2026.10.3 with no new features or configuration changes. Thanks @RomneyDa.",
+      "translated": "새로운 기능이나 설정 변경 사항이 없는 2026.10.3 버전용 안정성 패치입니다. Thanks @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: stays responsive during long reply-tagged streams, and long replies that quote tool-call XML no longer re-parse Markdown on every token. (#166782, #171573) Thanks @boeingchoco.",
+      "translated": "Gateway: 긴 답글 태그 스트림 중에도 응답성을 유지하며, tool-call XML을 인용하는 긴 답글이 모든 토큰마다 Markdown을 다시 파싱하지 않도록 개선되었습니다. (#166782, #171573) Thanks @boeingchoco."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: blocked durable context-engine turns are logged once instead of on every run. (#167595) Thanks @jalehman.",
+      "translated": "Gateway: 차단된 durable context-engine 턴이 매 실행 시가 아닌 한 번만 기록됩니다. (#167595) Thanks @jalehman."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI: delayed application heartbeats no longer force a reconnect. (#171253)",
+      "translated": "Control UI: 애플리케이션 하트비트가 지연되어도 더 이상 강제로 재연결하지 않습니다. (#171253)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: recover state ownership after sleep and wall-clock changes, and allow `openclaw gateway restart` from verified external macOS terminals. (#170790, #170354) Thanks @AnvinaLI, @sgh6688, @waynegault, and @RomneyDa.",
+      "translated": "Gateway: 절전 모드 해제 및 시스템 시계 변경 후 상태 소유권을 복구하며, 검증된 외부 macOS 터미널에서 `openclaw gateway restart` 명령어를 사용할 수 있도록 허용합니다. (#170790, #170354) Thanks @AnvinaLI, @sgh6688, @waynegault, and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: bound transcript-worker shutdown waits and wait for session lifecycle publication during shutdown. (#170493, #170555) Thanks @Oldrich333.",
+      "translated": "Gateway: 종료 시 transcript-worker 종료 대기 시간을 제한하고 session lifecycle 게시를 기다립니다. (#170493, #170555) Thanks @Oldrich333."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Gateway: start enabled standalone plugin files with the Gateway, and keep worker heap limits enforced when the managed service sets a process-wide heap flag. (#171330, #166581) Thanks @holgergruenhagen, @valkyriweb, @xydigitLybnnnn, @goslingmanagment, @waynegault, and @obviyus.",
+      "translated": "Gateway: 활성화된 독립형 플러그인 파일을 Gateway와 함께 시작하며"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: launched plugin turns no longer fail with writer-claim errors, and Claude CLI sessions no longer fork history across message routes. (#170077, #167241) Thanks @cmatrx0.",
+      "translated": "Agents: launched plugin turns no longer fail with writer-claim errors, and Claude CLI sessions no longer fork history across message routes. (#170077, #167241) Thanks @cmatrx0."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Agents: manual compaction settles the active run instead of aborting it. (#166163) Thanks @holny and @alexph-dev.",
+      "translated": "Agents: manual compaction settles the active run instead of aborting it. (#166163) Thanks @holny and @alexph-dev."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "OpenAI: tool turns for reasoning models on api.openai.com Completions routes no longer fail with a 400. (#166182) Thanks @obviyus and @AsTutoAI.",
+      "translated": "OpenAI: tool turns for reasoning models on api.openai.com Completions routes no longer fail with a 400. (#166182) Thanks @obviyus and @AsTutoAI."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Updates: agent databases are no longer flagged as changed during snapshot capture, the success summary stops repeating settled plugin data/settings upgrades as pending, and metadata inventory keeps running under progress-output backpressure. (#170351, #170413, #168493) Thanks @DonnieFi, @RomneyDa, and @vincentkoc.",
+      "translated": "Updates: agent databases are no longer flagged as changed during snapshot capture, the success summary stops repeating settled plugin data/settings upgrades as pending, and metadata inventory keeps running under progress-output backpressure. (#170351, #170413, #168493) Thanks @DonnieFi, @RomneyDa, and @vincentkoc."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Updates: slow host admission no longer holds the database writer and disrupts Gateway work, progress keeps reporting through temporary Doctor maintenance, snapshot failures get an accurate headline and recovery advice, and Linux updates can clean up abandoned runtime directories under protected systemd user managers. (#171493, #171454, #171457, #171488, #170783, #166335) Thanks @RomneyDa, @DonnieFi, and @vincentkoc.",
+      "translated": "Updates: slow host admission no longer holds the database writer and disrupts Gateway work, progress keeps reporting through temporary Doctor maintenance, snapshot failures get an accurate headline and recovery advice, and Linux updates can clean up abandoned runtime directories under protected systemd user managers. (#171493, #171454, #171457, #171488, #170783, #166335) Thanks @RomneyDa, @DonnieFi, and @vincentkoc."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Updates: candidate validation no longer amplifies private SQLite snapshots on live installs, older drivers stop reading candidate-migrated state and stale restart verdicts clear, and optional cron inspection or snapshot cleanup failures no longer stall updates. (#167451, #170130, #170754) Thanks @angeliti999 and @RomneyDa.",
+      "translated": "Updates: candidate validation no longer amplifies private SQLite snapshots on live installs, older drivers stop reading candidate-migrated state and stale restart verdicts clear, and optional cron inspection or snapshot cleanup failures no longer stall updates. (#167451, #170130, #170754) Thanks @angeliti999 and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Updates: `openclaw update repair` turns no longer time out before running tools on slower hosts; nested authority checks reuse the current state snapshot instead of copying the database again. (#166847)",
+      "translated": "Updates: `openclaw update repair` turns no longer time out before running tools on slower hosts; nested authority checks reuse the current state snapshot instead of copying the database again. (#166847)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Doctor: updates no longer refuse unreferenced retired OAuth sidecars, and offline state repair works for app-owned Gateways. (#165420, #170768) Thanks @obviyus and @RomneyDa.",
+      "translated": "Doctor: updates no longer refuse unreferenced retired OAuth sidecars, and offline state repair works for app-owned Gateways. (#165420, #170768) Thanks @obviyus and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tailscale: an interrupted start stops its serve process, local access stays available when the tailnet denies Serve, and Doctor checks configured Tailscale startup prerequisites. (#167514, #171509, #166947) Thanks @pandysp and @RomneyDa.",
+      "translated": "Tailscale: an interrupted start stops its serve process, local access stays available when the tailnet denies Serve, and Doctor checks configured Tailscale startup prerequisites. (#167514, #171509, #166947) Thanks @pandysp and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "macOS: app recovery keeps compatible newer Gateways instead of downgrading them, and repair accepts a verified LaunchAgent bootstrap that is already in progress. (#170766, #170740) Thanks @RomneyDa.",
+      "translated": "macOS: app recovery keeps compatible newer Gateways instead of downgrading them, and repair accepts a verified LaunchAgent bootstrap that is already in progress. (#170766, #170740) Thanks @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Sessions: equivalent POSIX path aliases such as `/tmp` and `/private/tmp` no longer restart channels. (#166462) Thanks @ericcaiwx-star.",
+      "translated": "Sessions: equivalent POSIX path aliases such as `/tmp` and `/private/tmp` no longer restart channels. (#166462) Thanks @ericcaiwx-star."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "MCP: OAuth login completes when the authorization server registers loopback redirect URIs without a port. (#170876) Thanks @9fw2pq8sgb-art.",
+      "translated": "MCP: OAuth login completes when the authorization server registers loopback redirect URIs without a port. (#170876) Thanks @9fw2pq8sgb-art."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Browser: headless pages accept clicks while a site waits for a passkey. (#170857) Thanks @trukhinyuri.",
+      "translated": "Browser: headless pages accept clicks while a site waits for a passkey. (#170857) Thanks @trukhinyuri."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Control UI: updated chats recover through the serving document. (#168941)",
+      "translated": "Control UI: updated chats recover through the serving document. (#168941)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Tlon: never treat group DM authors as the owner. (#165801) Thanks @eleqtrizit.",
+      "translated": "Tlon: never treat group DM authors as the owner. (#165801) Thanks @eleqtrizit."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Telegram: polling workers resolve in both source and package builds. (#154286) Thanks @xydt-juyaohui and @markfietje.",
+      "translated": "Telegram: polling workers resolve in both source and package builds. (#154286) Thanks @xydt-juyaohui and @markfietje."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Discord: agent consults keep working after voice changes. (#171029) Thanks @ericcaiwx-star and @brainmonger.",
+      "translated": "Discord: agent consults keep working after voice changes. (#171029) Thanks @ericcaiwx-star and @brainmonger."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Feishu: config hot-reload no longer orphans conversation bindings. (#169226) Thanks @ruel225, @junniar, and @obviyus.",
+      "translated": "Feishu: config hot-reload no longer orphans conversation bindings. (#169226) Thanks @ruel225, @junniar, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "IRC: long non-ASCII replies are no longer lost when the server relays them. (#159730) Thanks @rodricksz4h5.",
+      "translated": "IRC: long non-ASCII replies are no longer lost when the server relays them. (#159730) Thanks @rodricksz4h5."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Release: plugin npm publish tolerates repeated artifact pagination entries, Linux builds trigger after automatic requests with hosted-runner credentials, and ratchet checks read large Git baselines. (#171044, #167087, #167237, #164743) Thanks @RomneyDa and @shakkernerd.",
+      "translated": "Release: plugin npm publish tolerates repeated artifact pagination entries, Linux builds trigger after automatic requests with hosted-runner credentials, and ratchet checks read large Git baselines. (#171044, #167087, #167237, #164743) Thanks @RomneyDa and @shakkernerd."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166581** Related #157575, #157630. Thanks @valkyriweb and @xydigitLybnnnn and @goslingmanagment and @waynegault.",
+      "translated": "**PR #166581** Related #157575, #157630. Thanks @valkyriweb and @xydigitLybnnnn and @goslingmanagment and @waynegault."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164743** Related #164741. Thanks @shakkernerd.",
+      "translated": "**PR #164743** Related #164741. Thanks @shakkernerd."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166163** Related #166038. Thanks @holny and @alexph-dev.",
+      "translated": "**PR #166163** Related #166038. Thanks @holny and @alexph-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166182** Related #166125. Thanks @obviyus and @AsTutoAI.",
+      "translated": "**PR #166182** Related #166125. Thanks @obviyus and @AsTutoAI."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167087** Thanks @RomneyDa.",
+      "translated": "**PR #167087** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167241** Related #167077. Thanks @cmatrx0.",
+      "translated": "**PR #167241** Related #167077. Thanks @cmatrx0."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168493** Thanks @vincentkoc.",
+      "translated": "**PR #168493** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168941**",
+      "translated": "**PR #168941**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169226** Related #169190. Thanks @ruel225 and @obviyus and @junniar.",
+      "translated": "**PR #169226** Related #169190. Thanks @ruel225 and @obviyus and @junniar."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170351** Thanks @DonnieFi and @RomneyDa.",
+      "translated": "**PR #170351** Thanks @DonnieFi and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171029** Related #171013. Thanks @ericcaiwx-star and @brainmonger.",
+      "translated": "**PR #171029** Related #171013. Thanks @ericcaiwx-star and @brainmonger."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171044** Thanks @RomneyDa.",
+      "translated": "**PR #171044** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171330** Thanks @holgergruenhagen and @obviyus.",
+      "translated": "**PR #171330** Thanks @holgergruenhagen and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166462** Related #166456. Thanks @ericcaiwx-star.",
+      "translated": "**PR #166462** Related #166456. Thanks @ericcaiwx-star."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170857** Thanks @trukhinyuri.",
+      "translated": "**PR #170857** Thanks @trukhinyuri."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170413** Related #170334. Thanks @RomneyDa and @DonnieFi.",
+      "translated": "**PR #170413** Related #170334. Thanks @RomneyDa and @DonnieFi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170702** Thanks @RomneyDa.",
+      "translated": "**PR #170702** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170790** Related #169829, #170525, #170597. Thanks @AnvinaLI and @sgh6688 and @waynegault.",
+      "translated": "**PR #170790** Related #169829, #170525, #170597. Thanks @AnvinaLI and @sgh6688 and @waynegault."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170354** Thanks @RomneyDa.",
+      "translated": "**PR #170354** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165801** Thanks @eleqtrizit.",
+      "translated": "**PR #165801** Thanks @eleqtrizit."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170876** Related #170848. Thanks @9fw2pq8sgb-art.",
+      "translated": "**PR #170876** Related #170848. Thanks @9fw2pq8sgb-art."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #159730** Thanks @rodricksz4h5.",
+      "translated": "**PR #159730** Thanks @rodricksz4h5."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #154286** Related #154180. Thanks @xydt-juyaohui and @markfietje.",
+      "translated": "**PR #154286** Related #154180. Thanks @xydt-juyaohui and @markfietje."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170077**",
+      "translated": "**PR #170077**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170493** Related #169777. Thanks @Oldrich333.",
+      "translated": "**PR #170493** Related #169777. Thanks @Oldrich333."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170555**",
+      "translated": "**PR #170555**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167237**",
+      "translated": "**PR #167237**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171493** Related #169260. Thanks @RomneyDa and @DonnieFi.",
+      "translated": "**PR #171493** Related #169260. Thanks @RomneyDa and @DonnieFi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171457** Related #171408. Thanks @RomneyDa and @DonnieFi.",
+      "translated": "**PR #171457** Related #171408. Thanks @RomneyDa and @DonnieFi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170783**",
+      "translated": "**PR #170783**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171454** Related #171409. Thanks @RomneyDa and @DonnieFi.",
+      "translated": "**PR #171454** Related #171409. Thanks @RomneyDa and @DonnieFi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166335** Thanks @vincentkoc.",
+      "translated": "**PR #166335** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171488** Related #171410. Thanks @RomneyDa and @DonnieFi.",
+      "translated": "**PR #171488** Related #171410. Thanks @RomneyDa and @DonnieFi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170766** Thanks @RomneyDa.",
+      "translated": "**PR #170766** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170740** Thanks @RomneyDa.",
+      "translated": "**PR #170740** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167514** Related #167436. Thanks @pandysp.",
+      "translated": "**PR #167514** Related #167436. Thanks @pandysp."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171509** Thanks @RomneyDa.",
+      "translated": "**PR #171509** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166947** Thanks @RomneyDa.",
+      "translated": "**PR #166947** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167451**",
+      "translated": "**PR #167451**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170130** Related #169422. Thanks @angeliti999.",
+      "translated": "**PR #170130** Related #169422. Thanks @angeliti999."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170754** Thanks @RomneyDa.",
+      "translated": "**PR #170754** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165420** Thanks @obviyus.",
+      "translated": "**PR #165420** Thanks @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170768** Thanks @RomneyDa.",
+      "translated": "**PR #170768** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #160056** Related #159926, #159927. Thanks @oscarsixsecllc.",
+      "translated": "**PR #160056** Related #159926, #159927. Thanks @oscarsixsecllc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171715** Thanks @RomneyDa.",
+      "translated": "**PR #171715** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171747** Thanks @RomneyDa.",
+      "translated": "**PR #171747** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163177** Thanks @RomneyDa.",
+      "translated": "**PR #163177** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171928** Thanks @RomneyDa.",
+      "translated": "**PR #171928** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166847**",
+      "translated": "**PR #166847**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166782** Related #166781. Thanks @boeingchoco.",
+      "translated": "**PR #166782** Related #166781. Thanks @boeingchoco."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171573** Related #171363. Thanks @boeingchoco.",
+      "translated": "**PR #171573** Related #171363. Thanks @boeingchoco."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167595** Thanks @jalehman.",
+      "translated": "**PR #167595** Thanks @jalehman."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171253**",
+      "translated": "**PR #171253**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172666** Thanks @RomneyDa.",
+      "translated": "**PR #172666** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166218** Thanks @RomneyDa.",
+      "translated": "**PR #166218** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161543**",
+      "translated": "**PR #161543**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168922**",
+      "translated": "**PR #168922**"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172038** Thanks @vincentkoc.",
+      "translated": "**PR #172038** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172596** Thanks @RomneyDa.",
+      "translated": "**PR #172596** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171952** Thanks @RomneyDa.",
+      "translated": "**PR #171952** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172786** Thanks @RomneyDa.",
+      "translated": "**PR #172786** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.4",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.4"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.4.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.4.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: `sha512-+FH0StZF1tlTazM7JJGY6JePeJmhFNSRByi2Q3jXPRiLO7o4dJh2xa9Vy4Dk8Cd2ic8B7Zkf5NfEaCCWUkgqnQ==`",
+      "translated": "integrity: `sha512-+FH0StZF1tlTazM7JJGY6JePeJmhFNSRByi2Q3jXPRiLO7o4dJh2xa9Vy4Dk8Cd2ic8B7Zkf5NfEaCCWUkgqnQ==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release SHA: `383c124cc32ffee3f8e56f549b88da94d269a4af`",
+      "translated": "release SHA: `383c124cc32ffee3f8e56f549b88da94d269a4af`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.4/release-evidence.md",
+      "translated": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.4/release-evidence.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release publish: https://github.com/openclaw/openclaw/actions/runs/38827593754",
+      "translated": "release publish: https://github.com/openclaw/openclaw/actions/runs/38827593754"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/38775953219",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/38775953219"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release validation: https://github.com/openclaw/openclaw/actions/runs/38774938703",
+      "translated": "full release validation: https://github.com/openclaw/openclaw/actions/runs/38774938703"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38828956361",
+      "translated": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38828956361"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub publish: no normal OIDC candidates",
+      "translated": "plugin ClawHub publish: no normal OIDC candidates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub bootstrap: not needed",
+      "translated": "plugin ClawHub bootstrap: not needed"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38824408033/attempts/1",
+      "translated": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38824408033/attempts/1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm Telegram beta E2E: not supplied",
+      "translated": "npm Telegram beta E2E: not supplied"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.4; run pnpm android:version:pin -- --from-gateway before the next tag.",
+      "translated": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.4; run pnpm android:version:pin -- --from-gateway before the next tag."
+    }
+  ],
+  "translatedAt": "2026-10-16T04:37:42.801Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 7168
+}
