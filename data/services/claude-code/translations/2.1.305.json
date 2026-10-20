@@ -1,0 +1,242 @@
+{
+  "version": "2.1.305",
+  "date": "2026-10-20",
+  "parsedAt": "2026-10-20T21:40:26.034Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `sandbox.allowNestedUserNamespaces` so sandboxed commands on Linux can create user namespaces (Chromium, rootless podman); this lets them get around the sandbox's file protections",
+      "translated": "Linux의 샌드박스 명령어가 사용자 네임스페이스(Chromium, rootless podman)를 생성하여 샌드박스의 파일 보호 기능을 우회할 수 있도록 `sandbox.allowNestedUserNamespaces` 추가"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS` so unattended retry mode (`CLAUDE_CODE_RETRY_WATCHDOG`) notices a usage limit that was lifted before its reset",
+      "translated": "무인 재시도 모드(`CLAUDE_CODE_RETRY_WATCHDOG`)가 초기화 전 해제된 사용량 제한을 감지할 수 있도록 `CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS` 추가"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed every request failing on Vertex, Bedrock and other providers when the endpoint or a gateway rejects tool search, and behind gateways with ToolSearch disallowed or left out of `--tools` (a 2.1.304 regression): Claude Code now retries without it",
+      "translated": "엔드포인트나 게이트웨이가 도구 검색을 거부하거나 ToolSearch가 비활성화된 환경에서 Vertex, Bedrock 등의 요청이 실패하던 문제(2.1.304 회귀 버그) 수정 (이제 도구 검색 없이 재시도)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/effort` and `/autocompact` settings not applying when the model name differed from a `modelOverrides` value by letter case or a `[1m]` tag",
+      "translated": "모델 이름의 대소문자나 `[1m]` 태그 차이로 인해 `modelOverrides` 설정이 `/effort` 및 `/autocompact`에 적용되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed new worktrees in a bare repository sometimes starting from local HEAD instead of the default branch, and unchanged subagent worktrees sometimes not being cleaned up",
+      "translated": "bare 저장소의 새 worktree가 기본 브랜치 대신 로컬 HEAD에서 시작되거나, 변경 없는 하위 에이전트 worktree가 정리되지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Bash commands on a full disk failing with a raw `ENOSPC` file path: the error now says the disk is full and that nothing ran",
+      "translated": "디스크 용량 부족 시 Bash 명령어가 `ENOSPC` 오류로 실패하던 문제 수정 (이제 디스크가 가득 찼으며 실행된 것이 없음을 알림)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an MCP server passed by a cloud session or by the SDK's `setMcpServers` being replaced later in the session by a same-named server from your own settings",
+      "translated": "클라우드 세션이나 SDK의 `setMcpServers`를 통해 전달된 MCP 서버가 사용자 설정의 동일한 이름의 서버로 교체되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude naming the wrong model for a subagent's work after the subagent switched to a fallback model",
+      "translated": "하위 에이전트가 폴백 모델로 전환한 후 잘못된 모델 이름이 표시되던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions and teammates not telling Claude when a compaction had to leave the oldest messages out of its summary to fit",
+      "translated": "압축 시 오래된 메시지가 요약에서 제외될 때 클라우드 세션 및 팀원 기능이 Claude에게 이를 알리지 않던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed more cases of scheduled Cowork cloud sessions waiting five minutes for each subagent whose WebFetch needed a URL approval that nobody was there to give",
+      "translated": "예약된 Cowork 클라우드 세션에서 승인할 사람이 없는 WebFetch URL 승인 대기로 인해 하위 에이전트가 5분씩 대기하던 문제 추가 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Workflow resume re-running already-completed `pipeline()` and `parallel()` agents instead of serving them from the run's journal",
+      "translated": "워크플로 재개 시 이미 완료된 `pipeline()` 및 `parallel()` 에이전트를 저널에서 가져오지 않고 재실행하던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Remote Control leaving empty \"(session)\" entries in `/resume` after switching conversations with `/resume`",
+      "translated": "`/resume`으로 대화 전환 후 Remote Control이 빈 \"(session)\" 항목을 남기던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/usage` rows being cut off in narrow terminals",
+      "translated": "좁은 터미널에서 `/usage` 행이 잘리던 문제 수정"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed startup warnings printing as raw text above the logo: they now go to the debug log, and permission rules that restrict nothing show as warning rows under the banner",
+      "translated": "시작 경고가 로고 위에 텍스트로 출력되던 문제 수정 (이제 디버그 로그로 기록되며, 제한 사항이 없는 권한 규칙은 배너 아래 경고 행으로 표시)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed screen reader mode: search boxes now say \"Search:\" instead of a symbol VoiceOver read as \"telephone recorder\", and highlighted prompt text, such as Ctrl+R search matches and \"ultrathink\", no longer has spaces inside words",
+      "translated": "스크린 리더 모드 수정: 검색창에서 VoiceOver가 \"전화 녹음기\"로 읽던 기호 대신 \"Search:\"라고 안내하도록 변경하고, Ctrl+R 검색 결과나 \"ultrathink\" 등 강조된 텍스트의 단어 내 공백 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Fixed a start script that shares only its stdout with the runner or orchestrator failing with `Resource temporarily unavailable` when `TERM` is set (a 2.1.300 regression)",
+      "translated": "셀프 호스트 러너: `TERM` 설정 시 표준 출력만"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Fixed repository access failing since 2.1.296 when a git credential helper or askpass program reads its settings through `GIT_CONFIG`",
+      "translated": "Self-hosted runner: Fixed repository access failing since 2.1.296 when a git credential helper or askpass program reads its settings through `GIT_CONFIG`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Fixed the orchestrator reporting a spawn-runner hook as timed out when a runner it started in the background kept its output open",
+      "translated": "Self-hosted runner: Fixed the orchestrator reporting a spawn-runner hook as timed out when a runner it started in the background kept its output open"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved `/usage`: each warning is now a one-line fix that names its source, and `f` applies the fixes; the same fixes appear in VS Code and `/doctor`",
+      "translated": "Improved `/usage`: each warning is now a one-line fix that names its source, and `f` applies the fixes; the same fixes appear in VS Code and `/doctor`"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved MCP consent dialogs so an Enter meant for the prompt is less likely to be taken as Accept",
+      "translated": "Improved MCP consent dialogs so an Enter meant for the prompt is less likely to be taken as Accept"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved a mod's `Image` to draw its picture in iTerm2 3.5 and later with fullscreen rendering, where it showed only its `alt` text",
+      "translated": "Improved a mod's `Image` to draw its picture in iTerm2 3.5 and later with fullscreen rendering, where it showed only its `alt` text"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: Improved the spawn-mode messages: pressing `w` now says the new mode is saved for the folder, and a later `claude remote-control` start that uses the saved mode says where it came from",
+      "translated": "Remote Control: Improved the spawn-mode messages: pressing `w` now says the new mode is saved for the folder, and a later `claude remote-control` start that uses the saved mode says where it came from"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `allowedMcpServers` to stop filtering `managed-mcp.json` stdio servers that use `${VAR}` only in `env`: one your allowlist left out now loads on upgrade; use `deniedMcpServers` to keep it off",
+      "translated": "Changed `allowedMcpServers` to stop filtering `managed-mcp.json` stdio servers that use `${VAR}` only in `env`: one your allowlist left out now loads on upgrade; use `deniedMcpServers` to keep it off"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed plugins that Claude Desktop mounts by path to no longer keep their `allowed-tools` when your organization's managed settings set `allowManagedPermissionRulesOnly`",
+      "translated": "Changed plugins that Claude Desktop mounts by path to no longer keep their `allowed-tools` when your organization's managed settings set `allowManagedPermissionRulesOnly`"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the `/artifacts` delete confirmation to take 1 or Enter to keep, 2 to delete, and Esc to cancel; `y` and `n` no longer answer it",
+      "translated": "Changed the `/artifacts` delete confirmation to take 1 or Enter to keep, 2 to delete, and Esc to cancel; `y` and `n` no longer answer it"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed a mod's docked pane to stay within 45% of the terminal's width, including a width kept from a wider terminal",
+      "translated": "Changed a mod's docked pane to stay within 45% of the terminal's width, including a width kept from a wider terminal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Added a \"Running start-up hooks\" spinner status, with a screen reader announcement, while SessionStart or Setup hooks run",
+      "translated": "[VSCode] Added a \"Running start-up hooks\" spinner status, with a screen reader announcement, while SessionStart or Setup hooks run"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the spinner cutting off \"Compacting...\" when your `spinnerVerbs` setting replaces the built-in verbs with short ones",
+      "translated": "[VSCode] Fixed the spinner cutting off \"Compacting...\" when your `spinnerVerbs` setting replaces the built-in verbs with short ones"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Changed the message shown when a session does not start in time and no hook is running: it now leads with the output logs and lists causes instead of pointing to sign-in and network first",
+      "translated": "[VSCode] Changed the message shown when a session does not start in time and no hook is running: it now leads with the output logs and lists causes instead of pointing to sign-in and network first"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed the Cloud environments admin page wrongly refusing to save an existing environment with an \"installs packages\" error",
+      "translated": "[Cloud sessions] Fixed the Cloud environments admin page wrongly refusing to save an existing environment with an \"installs packages\" error"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Improved deleting a self-hosted environment so the dialog and error messages say what blocks the delete and what it will affect",
+      "translated": "[Cloud sessions] Improved deleting a self-hosted environment so the dialog and error messages say what blocks the delete and what it will affect"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Added public Slack channels Claude hasn't joined to the Claude Tag admin Add place search, so admins can set one up from there",
+      "translated": "[Claude Tag] Added public Slack channels Claude hasn't joined to the Claude Tag admin Add place search, so admins can set one up from there"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude Tag access bundles so a repository that moved to another GitHub account can be added again",
+      "translated": "[Claude Tag] Fixed Claude Tag access bundles so a repository that moved to another GitHub account can be added again"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed a routine set up in a Slack DM thread no longer posting after another routine in that thread restarted the conversation; both now keep posting there",
+      "translated": "[Claude Tag] Fixed a routine set up in a Slack DM thread no longer posting after another routine in that thread restarted the conversation; both now keep posting there"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed routines set up in a Slack thread reporting success without posting after the conversation ended; those runs are now skipped and the creator is told",
+      "translated": "[Claude Tag] Fixed routines set up in a Slack thread reporting success without posting after the conversation ended; those runs are now skipped and the creator is told"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Improved Claude Tag admin pages in large organizations so plugin, skill and bundle edits work while the channel list is still loading",
+      "translated": "[Claude Tag] Improved Claude Tag admin pages in large organizations so plugin, skill and bundle edits work while the channel list is still loading"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Fixed Code Review sometimes not reviewing the newest commit when several pushes landed on a pull request during a review",
+      "translated": "[Code Review] Fixed Code Review sometimes not reviewing the newest commit when several pushes landed on a pull request during a review"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Changed Code Review re-reviews so they no longer open with LGTM while earlier blocking findings are still open",
+      "translated": "[Code Review] Changed Code Review re-reviews so they no longer open with LGTM while earlier blocking findings are still open"
+    }
+  ],
+  "translatedAt": "2026-10-20T21:41:46.339Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 3235
+}
