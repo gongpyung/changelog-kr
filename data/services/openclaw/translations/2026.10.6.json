@@ -1,0 +1,1988 @@
+{
+  "version": "2026.10.6",
+  "date": "2026-10-22",
+  "parsedAt": "2026-10-22T17:14:48.178Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Patched Node runtime required:** OpenClaw now requires Node 24.22.1+ on the 24 line or 26.12.1+ on the 26 line, which reject TLS chains signed with the compromised certificate keys addressed in the October 2026 Node.js security releases. Docker images ship Node 24.22.1, installers select the patched runtimes, and `openclaw update` refuses with recovery guidance before installing on an older Node instead of breaking the running install. Source builds now pin pnpm 12.15.0. (#179992) Thanks @joshavant.",
+      "translated": "**Patched Node runtime required:** OpenClaw now requires Node 24.22.1+ on the 24 line or 26.12.1+ on the 26 line, which reject TLS chains signed with the compromised certificate keys addressed in the October 2026 Node.js security releases. Docker images ship Node 24.22.1, installers select the patched runtimes, and `openclaw update` refuses with recovery guidance before installing on an older Node instead of breaking the running install. Source builds now pin pnpm 12.15.0. (#179992) Thanks @joshavant."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer updates and recovery:** package swaps now refuse unsafe service states, Windows and macOS package-manager updates recover from platform-specific failures, and frozen Gateway startup owners can be retired cleanly. (#171101, #170940, #171936, #171678) Thanks @RomneyDa, @homeworld520, @Yolo521-bot, @stop-time, @AntaresGG, and @TommyLei666.",
+      "translated": "**Safer updates and recovery:** package swaps now refuse unsafe service states, Windows and macOS package-manager updates recover from platform-specific failures, and frozen Gateway startup owners can be retired cleanly. (#171101, #170940, #171936, #171678) Thanks @RomneyDa, @homeworld520, @Yolo521-bot, @stop-time, @AntaresGG, and @TommyLei666."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Data-preserving migrations and backups:** Doctor and migration paths now refuse malformed or lossy workspace imports, preserve malformed Notes bytes, reject unsafe non-UTF-8 wiki rewrites, keep deeply nested SQLite backups, and retain staging evidence when restore inspection fails. (#172293, #172953, #172742, #174573, #168583, #170867, #172028) Thanks @wangmiao0668000666, @RomneyDa, @Leon-SK668, @ericcurtin, @Yolo521-bot, @obviyus, and @altaywtf.",
+      "translated": "**Data-preserving migrations and backups:** Doctor and migration paths now refuse malformed or lossy workspace imports, preserve malformed Notes bytes, reject unsafe non-UTF-8 wiki rewrites, keep deeply nested SQLite backups, and retain staging evidence when restore inspection fails. (#172293, #172953, #172742, #174573, #168583, #170867, #172028) Thanks @wangmiao0668000666, @RomneyDa, @Leon-SK668, @ericcurtin, @Yolo521-bot, @obviyus, and @altaywtf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Reliable delivery across restarts:** queued turns, watched child results, dead-lettered deliveries, and streamed replies now survive recovery without disappearing, duplicating, or producing false missing-answer notices. (#170384, #169489, #169932, #173798) Thanks @RomneyDa, @huyengiang101086-spec, and @Yolo521-bot.",
+      "translated": "**Reliable delivery across restarts:** queued turns, watched child results, dead-lettered deliveries, and streamed replies now survive recovery without disappearing, duplicating, or producing false missing-answer notices. (#170384, #169489, #169932, #173798) Thanks @RomneyDa, @huyengiang101086-spec, and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Provider and model resilience:** GPT-5.6 tool turns, OpenRouter DeepSeek tool calls, LM Studio overflow recovery, parallel OpenAI reasoning settings, and model retry/fallback budgets now behave consistently. (#176709, #175058, #169189, #169322, #164808) Thanks @RomneyDa, @Linux2010, @ZhimingQ, @xpeng5278-web, and @anyech.",
+      "translated": "**Provider and model resilience:** GPT-5.6 tool turns, OpenRouter DeepSeek tool calls, LM Studio overflow recovery, parallel OpenAI reasoning settings, and model retry/fallback budgets now behave consistently. (#176709, #175058, #169189, #169322, #164808) Thanks @RomneyDa, @Linux2010, @ZhimingQ, @xpeng5278-web, and @anyech."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Windows and mobile stability:** fresh Windows state stores, Proxy-backed environments, and stored Anthropic credentials no longer block startup, while iOS Talk and chat connectivity recover from first-reply and timeout failures. (#176174, #176194, #174571, #168416, #169912) Thanks @RomneyDa, @tjarrau-dev, @skyzhao1223, @easyteacher, @scalesmart, @masatohoshino, @Takhoffman, and @Solvely-Colin.",
+      "translated": "**Windows and mobile stability:** fresh Windows state stores, Proxy-backed environments, and stored Anthropic credentials no longer block startup, while iOS Talk and chat connectivity recover from first-reply and timeout failures. (#176174, #176194, #174571, #168416, #169912) Thanks @RomneyDa, @tjarrau-dev, @skyzhao1223, @easyteacher, @scalesmart, @masatohoshino, @Takhoffman, and @Solvely-Colin."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Agent and tool-call recovery:** unfinished tools now time out visibly, context overflow compacts after steered tool results, malformed calls continue after earlier refusals, large patch hunks avoid argument-limit crashes, and stopped yielded tasks stay stopped. (#172983, #172019, #170615, #174477, #169453) Thanks @RomneyDa, @budzation, @mirasrael, @r3n3x, @freeqaz-openai, and @obviyus.",
+      "translated": "**Agent and tool-call recovery:** unfinished tools now time out visibly, context overflow compacts after steered tool results, malformed calls continue after earlier refusals, large patch hunks avoid argument-limit crashes, and stopped yielded tasks stay stopped. (#172983, #172019, #170615, #174477, #169453) Thanks @RomneyDa, @budzation, @mirasrael, @r3n3x, @freeqaz-openai, and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Channel delivery correctness:** WhatsApp retries and stickers, Telegram albums and dual-stack replies, Slack relay recovery, and Discord voice-call replies no longer lose or duplicate messages. (#142434, #164210, #163926, #171564, #173407, #172380) Thanks @ashawwal, @RomneyDa, @andrewwbuilds, @abacha, @Dat1GUI, @brainmonger, @obviyus, and @vincentkoc.",
+      "translated": "**Channel delivery correctness:** WhatsApp retries and stickers, Telegram albums and dual-stack replies, Slack relay recovery, and Discord voice-call replies no longer lose or duplicate messages. (#142434, #164210, #163926, #171564, #173407, #172380) Thanks @ashawwal, @RomneyDa, @andrewwbuilds, @abacha, @Dat1GUI, @brainmonger, @obviyus, and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Worker and worktree recovery:** hosts reclaim worker capacity after reboot, partial-clone worktrees repair missing objects, and child-result and exec-wake evidence survives Gateway restarts. (#168863, #168864, #169489, #169645) Thanks @RomneyDa.",
+      "translated": "**Worker and worktree recovery:** hosts reclaim worker capacity after reboot, partial-clone worktrees repair missing objects, and child-result and exec-wake evidence survives Gateway restarts. (#168863, #168864, #169489, #169645) Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "This patch release contains focused reliability fixes only; it does not introduce new user-facing features.",
+      "translated": "This patch release contains focused reliability fixes only; it does not introduce new user-facing features."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**State and system-agent recovery:** restore access to agents held by affected upgrades, recover held system-agent databases after schema changes, and preserve live configuration when forensic snapshots fail. (#175007, #176783, #171217) Thanks @RomneyDa, @PennyVibe, and @Yolo521-bot.",
+      "translated": "**State and system-agent recovery:** restore access to agents held by affected upgrades, recover held system-agent databases after schema changes, and preserve live configuration when forensic snapshots fail. (#175007, #176783, #171217) Thanks @RomneyDa, @PennyVibe, and @Yolo521-bot."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Windows state and updates:** canonicalize schema ownership across path aliases, serialize Proxy-backed environments before inspection IPC, hide SQLite helper windows during update work, and recognize native Scheduled Task permission failures in every locale. (#176174, #176194, #174969, #178624) Thanks @RomneyDa, @tjarrau-dev, @skyzhao1223, @easyteacher, and @throwingbones.",
+      "translated": "**Windows state and updates:** canonicalize schema ownership across path aliases, serialize Proxy-backed environments before inspection IPC, hide SQLite helper windows during update work, and recognize native Scheduled Task permission failures in every locale. (#176174, #176194, #174969, #178624) Thanks @RomneyDa, @tjarrau-dev, @skyzhao1223, @easyteacher, and @throwingbones."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**macOS companion execution:** honor long command and approval deadlines across the companion socket, classify late or lost replies without replaying submitted commands, and preserve native permission details. (#172117) Thanks @holgergruenhagen, @RomneyDa, @ylcn91, and @Colton-Harris.",
+      "translated": "**macOS companion execution:** honor long command and approval deadlines across the companion socket, classify late or lost replies without replaying submitted commands, and preserve native permission details. (#172117) Thanks @holgergruenhagen, @RomneyDa, @ylcn91, and @Colton-Harris."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Doctor and managed plugins:** repair empty retired-plugin metadata, clear resolved migration warnings, and converge app-managed plugins onto the installed core version. (#173851, #177096, #174257) Thanks @RomneyDa, @fengfan201314-eng, @ScientificProgrammer, @yinx65588-boop, @jj5638521, and @kazuyuki-eguchi.",
+      "translated": "**Doctor and managed plugins:** repair empty retired-plugin metadata, clear resolved migration warnings, and converge app-managed plugins onto the installed core version. (#173851, #177096, #174257) Thanks @RomneyDa, @fengfan201314-eng, @ScientificProgrammer, @yinx65588-boop, @jj5638521, and @kazuyuki-eguchi."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Update diagnostics:** preserve FRV blockers, explain package-journal identity and runtime-retention failures, and avoid cleanup stalls on shared recovery manifests. (#171186, #170385, #169280, #174249) Thanks @vincentkoc, @RomneyDa, @astapenkoav, @council10-kera, and @shoaibulhaque.",
+      "translated": "**Update diagnostics:** preserve FRV blockers, explain package-journal identity and runtime-retention failures, and avoid cleanup stalls on shared recovery manifests. (#171186, #170385, #169280, #174249) Thanks @vincentkoc, @RomneyDa, @astapenkoav, @council10-kera, and @shoaibulhaque."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**SQLite correctness:** preserve transaction outcomes when warning handlers throw, settle peer closes after shared-worker refusal, and prevent retired cache generations from taking worker ownership. (#157151, #173813, #172798) Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**SQLite correctness:** preserve transaction outcomes when warning handlers throw, settle peer closes after shared-worker refusal, and prevent retired cache generations from taking worker ownership. (#157151, #173813, #172798) Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Reply recovery:** preserve side-question and immediate fallback ordering, avoid repeated or missing answers after streamed delivery, and keep stopped yielded tasks from restarting. (#174869, #169305, #173798, #169453) Thanks @RomneyDa and @freeqaz-openai.",
+      "translated": "**Reply recovery:** preserve side-question and immediate fallback ordering, avoid repeated or missing answers after streamed delivery, and keep stopped yielded tasks from restarting. (#174869, #169305, #173798, #169453) Thanks @RomneyDa and @freeqaz-openai."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Codex and native sessions:** release stalled startup waits and completed subagents after cancellation or cleanup failures, preserve conversations across runtime restarts, keep workspace bindings across reply resets, and settle recovered child binding writes before session readiness. (#168347, #173547, #166368, #160549, #177564) Thanks @RomneyDa, @Kimiyu-186, @alkor2000, @jhgaylor, @vincentkoc, @jjjhenriksen, and @obviyus.",
+      "translated": "**Codex and native sessions:** release stalled startup waits and completed subagents after cancellation or cleanup failures, preserve conversations across runtime restarts, keep workspace bindings across reply resets, and settle recovered child binding writes before session readiness. (#168347, #173547, #166368, #160549, #177564) Thanks @RomneyDa, @Kimiyu-186, @alkor2000, @jhgaylor, @vincentkoc, @jjjhenriksen, and @obviyus."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Gateway lifecycle:** retain restart custody, avoid stop-time lease deadlocks, recover worker capacity after reboot, and preserve suppressed-channel configuration across reloads. (#172852, #171308, #168863) Thanks @RomneyDa.",
+      "translated": "**Gateway lifecycle:** retain restart custody, avoid stop-time lease deadlocks, recover worker capacity after reboot, and preserve suppressed-channel configuration across reloads. (#172852, #171308, #168863) Thanks @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**CLI and process diagnostics:** preserve JSON output on Gateway command exits, report resource-disposal and PTY EOF failures, and surface failed diagnostic writes without crashing. (#176795, #173566, #176362, #174622) Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**CLI and process diagnostics:** preserve JSON output on Gateway command exits, report resource-disposal and PTY EOF failures, and surface failed diagnostic writes without crashing. (#176795, #173566, #176362, #174622) Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Scheduled follow-ups:** same-conversation follow-ups scheduled from an authorized operator turn keep that operator's current authority when they run, and one-shot continuations can call `next_check` to check back later. (#176422)",
+      "translated": "**Scheduled follow-ups:** same-conversation follow-ups scheduled from an authorized operator turn keep that operator's current authority when they run, and one-shot continuations can call `next_check` to check back later. (#176422)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Media and TTS:** time out slow hosted speech synthesis and report playback cache, probe, and quota failures rather than silently dropping cleanup errors. (#175614, #175634, #174668) Thanks @RomneyDa.",
+      "translated": "**Media and TTS:** time out slow hosted speech synthesis and report playback cache, probe, and quota failures rather than silently dropping cleanup errors. (#175614, #175634, #174668) Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176194** Related #176111. Thanks @skyzhao1223 and @RomneyDa and @easyteacher.",
+      "translated": "**PR #176194** Related #176111. Thanks @skyzhao1223 and @RomneyDa and @easyteacher."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176174** Related #176163. Thanks @RomneyDa and @tjarrau-dev.",
+      "translated": "**PR #176174** Related #176163. Thanks @RomneyDa and @tjarrau-dev."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175007** Thanks @RomneyDa.",
+      "translated": "**PR #175007** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176783** Related #176669. Thanks @RomneyDa and @PennyVibe.",
+      "translated": "**PR #176783** Related #176669. Thanks @RomneyDa and @PennyVibe."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171101** Related #170774, #171036. Thanks @RomneyDa and @homeworld520 and @Yolo521-bot.",
+      "translated": "**PR #171101** Related #170774, #171036. Thanks @RomneyDa and @homeworld520 and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171217** Related #171187. Thanks @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #171217** Related #171187. Thanks @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171678** Related #171513. Thanks @RomneyDa and @TommyLei666.",
+      "translated": "**PR #171678** Related #171513. Thanks @RomneyDa and @TommyLei666."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173851** Related #173659. Thanks @RomneyDa and @fengfan201314-eng.",
+      "translated": "**PR #173851** Related #173659. Thanks @RomneyDa and @fengfan201314-eng."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174257** Related #174120. Thanks @RomneyDa and @kazuyuki-eguchi.",
+      "translated": "**PR #174257** Related #174120. Thanks @RomneyDa and @kazuyuki-eguchi."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174969** Related #174906. Thanks @RomneyDa and @throwingbones.",
+      "translated": "**PR #174969** Related #174906. Thanks @RomneyDa and @throwingbones."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176104** Related #176066. Thanks @yinx65588-boop and @RomneyDa and @BGreezy.",
+      "translated": "**PR #176104** Related #176066. Thanks @yinx65588-boop and @RomneyDa and @BGreezy."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176009** Thanks @Alix-007 and @RomneyDa.",
+      "translated": "**PR #176009** Thanks @Alix-007 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176219** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #176219** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167935** Related #167934. Thanks @PollyBot13 and @RomneyDa and @obviyus.",
+      "translated": "**PR #167935** Related #167934. Thanks @PollyBot13 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171977** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #171977** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173142** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #173142** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175624** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #175624** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176510** Thanks @RomneyDa.",
+      "translated": "**PR #176510** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175642** Related #175599. Thanks @sunlit-deng and @RomneyDa and @seriouslysean.",
+      "translated": "**PR #175642** Related #175599. Thanks @sunlit-deng and @RomneyDa and @seriouslysean."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176603** Related #169077. Thanks @RomneyDa and @hannnnn-l.",
+      "translated": "**PR #176603** Related #169077. Thanks @RomneyDa and @hannnnn-l."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176681** Thanks @RomneyDa.",
+      "translated": "**PR #176681** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176787** Thanks @RomneyDa.",
+      "translated": "**PR #176787** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176691** Thanks @RomneyDa.",
+      "translated": "**PR #176691** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176795** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #176795** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176742** Thanks @sunlit-deng and @RomneyDa.",
+      "translated": "**PR #176742** Thanks @sunlit-deng and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176879** Thanks @RomneyDa.",
+      "translated": "**PR #176879** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176876** Thanks @RomneyDa.",
+      "translated": "**PR #176876** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176873** Thanks @shakkernerd and @gideonpraise and @RomneyDa.",
+      "translated": "**PR #176873** Thanks @shakkernerd and @gideonpraise and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176997** Related #169256. Thanks @RomneyDa and @etzelm.",
+      "translated": "**PR #176997** Related #169256. Thanks @RomneyDa and @etzelm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175606** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #175606** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177042** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #177042** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176990** Thanks @shakkernerd and @gideonpraise and @RomneyDa.",
+      "translated": "**PR #176990** Thanks @shakkernerd and @gideonpraise and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177038** Thanks @RomneyDa.",
+      "translated": "**PR #177038** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177060** Thanks @RomneyDa.",
+      "translated": "**PR #177060** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177096** Related #160561, #176966. Thanks @ScientificProgrammer and @yinx65588-boop and @RomneyDa and @jj5638521.",
+      "translated": "**PR #177096** Related #160561, #176966. Thanks @ScientificProgrammer and @yinx65588-boop and @RomneyDa and @jj5638521."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177059** Related #170203. Thanks @RomneyDa and @BodegaClaw.",
+      "translated": "**PR #177059** Related #170203. Thanks @RomneyDa and @BodegaClaw."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177066** Thanks @RomneyDa.",
+      "translated": "**PR #177066** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177184** Thanks @RomneyDa.",
+      "translated": "**PR #177184** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177126** Thanks @shakkernerd and @gideonpraise and @RomneyDa.",
+      "translated": "**PR #177126** Thanks @shakkernerd and @gideonpraise and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177243** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #177243** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177252** Thanks @RomneyDa.",
+      "translated": "**PR #177252** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176656** Thanks @RomneyDa.",
+      "translated": "**PR #176656** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176182** Thanks @ericcurtin and @RomneyDa.",
+      "translated": "**PR #176182** Thanks @ericcurtin and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176206** Thanks @RomneyDa.",
+      "translated": "**PR #176206** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172469** Thanks @easonclaw-lgtm and @RomneyDa.",
+      "translated": "**PR #172469** Thanks @easonclaw-lgtm and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176039** Thanks @RomneyDa.",
+      "translated": "**PR #176039** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176362** Thanks @RomneyDa.",
+      "translated": "**PR #176362** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173310** Thanks @TurboTheTurtle and @RomneyDa.",
+      "translated": "**PR #173310** Thanks @TurboTheTurtle and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176458** Thanks @RomneyDa.",
+      "translated": "**PR #176458** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176293** Related #176250. Thanks @goutamadwant and @RomneyDa and @yetval.",
+      "translated": "**PR #176293** Related #176250. Thanks @goutamadwant and @RomneyDa and @yetval."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175952** Thanks @RomneyDa.",
+      "translated": "**PR #175952** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176023** Thanks @RomneyDa.",
+      "translated": "**PR #176023** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175229** Thanks @RomneyDa.",
+      "translated": "**PR #175229** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175058** Related #174909. Thanks @Linux2010 and @RomneyDa and @ZhimingQ.",
+      "translated": "**PR #175058** Related #174909. Thanks @Linux2010 and @RomneyDa and @ZhimingQ."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175289** Thanks @RomneyDa.",
+      "translated": "**PR #175289** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175343** Thanks @RomneyDa.",
+      "translated": "**PR #175343** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175416** Thanks @RomneyDa.",
+      "translated": "**PR #175416** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173048** Thanks @ericcurtin and @RomneyDa.",
+      "translated": "**PR #173048** Thanks @ericcurtin and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175381** Related #175303. Thanks @musatoktas and @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #175381** Related #175303. Thanks @musatoktas and @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175452** Thanks @RomneyDa.",
+      "translated": "**PR #175452** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175489** Thanks @RomneyDa.",
+      "translated": "**PR #175489** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175532** Thanks @RomneyDa.",
+      "translated": "**PR #175532** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172028** Related #171959. Thanks @ericcurtin and @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #172028** Related #171959. Thanks @ericcurtin and @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175634** Thanks @RomneyDa.",
+      "translated": "**PR #175634** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175625** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #175625** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174590** Related #174504. Thanks @shoaibulhaque and @RomneyDa and @altaywtf and @Yolo521-bot.",
+      "translated": "**PR #174590** Related #174504. Thanks @shoaibulhaque and @RomneyDa and @altaywtf and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175614** Thanks @RomneyDa.",
+      "translated": "**PR #175614** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175689** Thanks @RomneyDa.",
+      "translated": "**PR #175689** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175703** Thanks @RomneyDa.",
+      "translated": "**PR #175703** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175726** Thanks @RomneyDa.",
+      "translated": "**PR #175726** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174424** Thanks @RomneyDa.",
+      "translated": "**PR #174424** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174299** Thanks @RomneyDa.",
+      "translated": "**PR #174299** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174477** Thanks @RomneyDa.",
+      "translated": "**PR #174477** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174571** Related #174204. Thanks @RomneyDa and @scalesmart.",
+      "translated": "**PR #174571** Related #174204. Thanks @RomneyDa and @scalesmart."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174573** Thanks @RomneyDa.",
+      "translated": "**PR #174573** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174622** Thanks @RomneyDa.",
+      "translated": "**PR #174622** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174668** Thanks @RomneyDa.",
+      "translated": "**PR #174668** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172293** Thanks @wangmiao0668000666 and @RomneyDa and @obviyus.",
+      "translated": "**PR #172293** Thanks @wangmiao0668000666 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172953** Thanks @Leon-SK668 and @RomneyDa and @obviyus.",
+      "translated": "**PR #172953** Thanks @Leon-SK668 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172742** Thanks @Leon-SK668 and @RomneyDa and @obviyus.",
+      "translated": "**PR #172742** Thanks @Leon-SK668 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174750** Related #173351. Thanks @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #174750** Related #173351. Thanks @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174767** Related #173348. Thanks @skyzhao1223 and @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #174767** Related #173348. Thanks @skyzhao1223 and @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174807** Related #174563. Thanks @RomneyDa and @sunlit-deng and @prizmizm.",
+      "translated": "**PR #174807** Related #174563. Thanks @RomneyDa and @sunlit-deng and @prizmizm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174869** Thanks @RomneyDa.",
+      "translated": "**PR #174869** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174868** Thanks @RomneyDa.",
+      "translated": "**PR #174868** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174030** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #174030** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174195** Thanks @RomneyDa.",
+      "translated": "**PR #174195** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174249** Related #174072. Thanks @RomneyDa and @shoaibulhaque and @astapenkoav.",
+      "translated": "**PR #174249** Related #174072. Thanks @RomneyDa and @shoaibulhaque and @astapenkoav."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168735** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #168735** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #162828** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa.",
+      "translated": "**PR #162828** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165889** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa.",
+      "translated": "**PR #165889** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167619** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa.",
+      "translated": "**PR #167619** Thanks @SunnyShu0925 and @fuller-stack-dev and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #155323** Related #155322. Thanks @masatohoshino and @fuller-stack-dev and @RomneyDa.",
+      "translated": "**PR #155323** Related #155322. Thanks @masatohoshino and @fuller-stack-dev and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173753** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #173753** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173686** Thanks @RomneyDa.",
+      "translated": "**PR #173686** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173241** Thanks @wangmiao0668000666 and @RomneyDa and @obviyus.",
+      "translated": "**PR #173241** Thanks @wangmiao0668000666 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173798** Thanks @RomneyDa.",
+      "translated": "**PR #173798** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173813** Thanks @RomneyDa.",
+      "translated": "**PR #173813** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173835** Thanks @RomneyDa.",
+      "translated": "**PR #173835** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172903** Thanks @RomneyDa.",
+      "translated": "**PR #172903** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173921** Thanks @RomneyDa.",
+      "translated": "**PR #173921** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173231** Thanks @pgondhi987 and @RomneyDa.",
+      "translated": "**PR #173231** Thanks @pgondhi987 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #157151** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #157151** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163959** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #163959** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163665** Thanks @ly85206559 and @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163665** Thanks @ly85206559 and @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163818** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163818** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163825** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163825** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163920** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163920** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163931** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163931** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #150992** Related #150083. Thanks @wangmiao0668000666 and @RomneyDa and @vincentkoc and @dh-js.",
+      "translated": "**PR #150992** Related #150083. Thanks @wangmiao0668000666 and @RomneyDa and @vincentkoc and @dh-js."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163918** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163918** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163839** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163839** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163915** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163915** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163933** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163933** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163926** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163926** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163932** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163932** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163952** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163952** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163944** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163944** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163809** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163809** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #163951** Thanks @RomneyDa and @vincentkoc.",
+      "translated": "**PR #163951** Thanks @RomneyDa and @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173954** Thanks @RomneyDa.",
+      "translated": "**PR #173954** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176709** Thanks @RomneyDa.",
+      "translated": "**PR #176709** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173209** Thanks @RomneyDa.",
+      "translated": "**PR #173209** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173347** Related #173077. Thanks @RomneyDa and @Winoren and @Yolo521-bot.",
+      "translated": "**PR #173347** Related #173077. Thanks @RomneyDa and @Winoren and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #142434** Related #142398. Thanks @ashawwal and @RomneyDa and @obviyus.",
+      "translated": "**PR #142434** Related #142398. Thanks @ashawwal and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164210** Related #163559. Thanks @andrewwbuilds and @RomneyDa and @obviyus and @abacha.",
+      "translated": "**PR #164210** Related #163559. Thanks @andrewwbuilds and @RomneyDa and @obviyus and @abacha."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173407** Thanks @RomneyDa.",
+      "translated": "**PR #173407** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173225** Thanks @RomneyDa.",
+      "translated": "**PR #173225** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172639** Thanks @stevenlee-oai and @RomneyDa.",
+      "translated": "**PR #172639** Thanks @stevenlee-oai and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173547** Thanks @Kimiyu-186 and @RomneyDa.",
+      "translated": "**PR #173547** Thanks @Kimiyu-186 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173498** Thanks @obviyus and @RomneyDa.",
+      "translated": "**PR #173498** Thanks @obviyus and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173560** Related #173546. Thanks @shakkernerd and @RomneyDa.",
+      "translated": "**PR #173560** Related #173546. Thanks @shakkernerd and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172223** Related #172222. Thanks @serg0x and @RomneyDa.",
+      "translated": "**PR #172223** Related #172222. Thanks @serg0x and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173566** Thanks @RomneyDa.",
+      "translated": "**PR #173566** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172980** Related #172871. Thanks @RomneyDa and @Oldrich333.",
+      "translated": "**PR #172980** Related #172871. Thanks @RomneyDa and @Oldrich333."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173000** Thanks @RomneyDa.",
+      "translated": "**PR #173000** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172983** Related #172899. Thanks @RomneyDa and @budzation.",
+      "translated": "**PR #172983** Related #172899. Thanks @RomneyDa and @budzation."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172780** Thanks @SunnyShu0925 and @RomneyDa.",
+      "translated": "**PR #172780** Thanks @SunnyShu0925 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170608** Thanks @duyufansh2008 and @RomneyDa.",
+      "translated": "**PR #170608** Thanks @duyufansh2008 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170380** Related #170332. Thanks @DonnieFi and @RomneyDa.",
+      "translated": "**PR #170380** Related #170332. Thanks @DonnieFi and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172256** Thanks @SunnyShu0925 and @RomneyDa.",
+      "translated": "**PR #172256** Thanks @SunnyShu0925 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #157948** Thanks @PollyBot13 and @fuller-stack-dev and @RomneyDa.",
+      "translated": "**PR #157948** Thanks @PollyBot13 and @fuller-stack-dev and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172691** Thanks @joshavant and @RomneyDa.",
+      "translated": "**PR #172691** Thanks @joshavant and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172798** Thanks @RomneyDa.",
+      "translated": "**PR #172798** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172182** Related #172180. Thanks @fhgffy and @skyzhao1223 and @RomneyDa.",
+      "translated": "**PR #172182** Related #172180. Thanks @fhgffy and @skyzhao1223 and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172852** Thanks @RomneyDa.",
+      "translated": "**PR #172852** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #164808** Thanks @anyech and @RomneyDa.",
+      "translated": "**PR #164808** Thanks @anyech and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172023** Related #172000. Thanks @RomneyDa and @jeanmonet.",
+      "translated": "**PR #172023** Related #172000. Thanks @RomneyDa and @jeanmonet."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172133** Related #172109. Thanks @RomneyDa and @wangxiajun68.",
+      "translated": "**PR #172133** Related #172109. Thanks @RomneyDa and @wangxiajun68."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172270** Thanks @RomneyDa.",
+      "translated": "**PR #172270** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172331** Related #172258. Thanks @RomneyDa and @rclarke0.",
+      "translated": "**PR #172331** Related #172258. Thanks @RomneyDa and @rclarke0."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172380** Related #172233. Thanks @RomneyDa and @brainmonger.",
+      "translated": "**PR #172380** Related #172233. Thanks @RomneyDa and @brainmonger."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172019** Thanks @mirasrael and @RomneyDa and @obviyus.",
+      "translated": "**PR #172019** Thanks @mirasrael and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171414** Related #171380. Thanks @ericcurtin and @RomneyDa and @obviyus and @asikorskiy.",
+      "translated": "**PR #171414** Related #171380. Thanks @ericcurtin and @RomneyDa and @obviyus and @asikorskiy."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #160549** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #160549** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171208** Thanks @RomneyDa.",
+      "translated": "**PR #171208** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171482** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #171482** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171571** Thanks @zhangguiping-xydt and @RomneyDa and @obviyus.",
+      "translated": "**PR #171571** Thanks @zhangguiping-xydt and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171570** Related #171366. Thanks @RomneyDa and @davidcittadini.",
+      "translated": "**PR #171570** Related #171366. Thanks @RomneyDa and @davidcittadini."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171587** Related #171472. Thanks @RomneyDa.",
+      "translated": "**PR #171587** Related #171472. Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171564** Related #171438. Thanks @RomneyDa and @Dat1GUI.",
+      "translated": "**PR #171564** Related #171438. Thanks @RomneyDa and @Dat1GUI."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #154923** Related #149867. Thanks @sxh313 and @RomneyDa and @playhard94.",
+      "translated": "**PR #154923** Related #149867. Thanks @sxh313 and @RomneyDa and @playhard94."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #128886** Related #128859. Thanks @sashankh and @RomneyDa and @shad0wca7.",
+      "translated": "**PR #128886** Related #128859. Thanks @sashankh and @RomneyDa and @shad0wca7."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171936** Related #171797. Thanks @RomneyDa and @AntaresGG.",
+      "translated": "**PR #171936** Related #171797. Thanks @RomneyDa and @AntaresGG."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170967** Thanks @RomneyDa.",
+      "translated": "**PR #170967** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170940** Related #170700. Thanks @RomneyDa and @stop-time.",
+      "translated": "**PR #170940** Related #170700. Thanks @RomneyDa and @stop-time."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #161098** Related #160641. Thanks @xydigitLybnnnn and @RomneyDa and @obviyus and @aniruddhaadak80.",
+      "translated": "**PR #161098** Related #160641. Thanks @xydigitLybnnnn and @RomneyDa and @obviyus and @aniruddhaadak80."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166368** Related #124852. Thanks @alkor2000 and @RomneyDa and @obviyus and @jhgaylor.",
+      "translated": "**PR #166368** Related #124852. Thanks @alkor2000 and @RomneyDa and @obviyus and @jhgaylor."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169932** Related #169807. Thanks @huyengiang101086-spec and @RomneyDa and @Yolo521-bot.",
+      "translated": "**PR #169932** Related #169807. Thanks @huyengiang101086-spec and @RomneyDa and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170372** Related #169972. Thanks @xiajiahang and @RomneyDa and @letsc4.",
+      "translated": "**PR #170372** Related #169972. Thanks @xiajiahang and @RomneyDa and @letsc4."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169893** Related #169674. Thanks @xydigitLybnnnn and @RomneyDa and @farisoftfry.",
+      "translated": "**PR #169893** Related #169674. Thanks @xydigitLybnnnn and @RomneyDa and @farisoftfry."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #162771** Related #162525, #162622. Thanks @xydigitLybnnnn and @RomneyDa and @shadow-enthusiast and @islandpreneur007.",
+      "translated": "**PR #162771** Related #162525, #162622. Thanks @xydigitLybnnnn and @RomneyDa and @shadow-enthusiast and @islandpreneur007."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171029** Related #171013. Thanks @ericcaiwx-star and @RomneyDa and @brainmonger.",
+      "translated": "**PR #171029** Related #171013. Thanks @ericcaiwx-star and @RomneyDa and @brainmonger."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #141312** Thanks @hugenshen and @RomneyDa and @obviyus.",
+      "translated": "**PR #141312** Thanks @hugenshen and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171164** Thanks @RomneyDa.",
+      "translated": "**PR #171164** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171186** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #171186** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170500** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #170500** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170495** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #170495** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171094** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #171094** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171308** Thanks @RomneyDa.",
+      "translated": "**PR #171308** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171180** Related #171106. Thanks @ruel225 and @RomneyDa and @obviyus and @SanderHelgesen.",
+      "translated": "**PR #171180** Related #171106. Thanks @ruel225 and @RomneyDa and @obviyus and @SanderHelgesen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171365** Related #171034. Thanks @ynaamane and @RomneyDa and @obviyus and @Yolo521-bot.",
+      "translated": "**PR #171365** Related #171034. Thanks @ynaamane and @RomneyDa and @obviyus and @Yolo521-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #155019** Related #154834. Thanks @linhongyu510 and @RomneyDa and @obviyus and @jerryliang122.",
+      "translated": "**PR #155019** Related #154834. Thanks @linhongyu510 and @RomneyDa and @obviyus and @jerryliang122."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169280** Thanks @RomneyDa.",
+      "translated": "**PR #169280** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169392** Thanks @holgergruenhagen and @RomneyDa and @obviyus.",
+      "translated": "**PR #169392** Thanks @holgergruenhagen and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170867** Thanks @RomneyDa.",
+      "translated": "**PR #170867** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170615** Related #170522. Thanks @RomneyDa and @r3n3x.",
+      "translated": "**PR #170615** Related #170522. Thanks @RomneyDa and @r3n3x."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170063** Related #169950. Thanks @amittell and @RomneyDa.",
+      "translated": "**PR #170063** Related #169950. Thanks @amittell and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170913** Thanks @RomneyDa.",
+      "translated": "**PR #170913** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #166245** Thanks @holgergruenhagen and @RomneyDa.",
+      "translated": "**PR #166245** Thanks @holgergruenhagen and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170048** Thanks @RomneyDa.",
+      "translated": "**PR #170048** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170125** Thanks @ly85206559 and @RomneyDa and @obviyus.",
+      "translated": "**PR #170125** Thanks @ly85206559 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #165019** Thanks @eleqtrizit and @RomneyDa.",
+      "translated": "**PR #165019** Thanks @eleqtrizit and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168771** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #168771** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170123** Thanks @ly85206559 and @RomneyDa and @obviyus.",
+      "translated": "**PR #170123** Thanks @ly85206559 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168731** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #168731** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170385** Related #170031. Thanks @RomneyDa and @council10-kera.",
+      "translated": "**PR #170385** Related #170031. Thanks @RomneyDa and @council10-kera."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170384** Thanks @RomneyDa.",
+      "translated": "**PR #170384** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #155801** Thanks @SunnyShu0925 and @RomneyDa and @obviyus.",
+      "translated": "**PR #155801** Thanks @SunnyShu0925 and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170553** Related #170466. Thanks @obviyus and @RomneyDa and @migelizaga-rgb.",
+      "translated": "**PR #170553** Related #170466. Thanks @obviyus and @RomneyDa and @migelizaga-rgb."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168666** Thanks @holgergruenhagen and @RomneyDa and @obviyus.",
+      "translated": "**PR #168666** Thanks @holgergruenhagen and @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169489** Thanks @RomneyDa.",
+      "translated": "**PR #169489** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169645** Thanks @RomneyDa.",
+      "translated": "**PR #169645** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #156835** Thanks @vincentkoc and @RomneyDa.",
+      "translated": "**PR #156835** Thanks @vincentkoc and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169936** Thanks @RomneyDa.",
+      "translated": "**PR #169936** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169912** Related #169911. Thanks @Solvely-Colin and @RomneyDa.",
+      "translated": "**PR #169912** Related #169911. Thanks @Solvely-Colin and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168864** Thanks @RomneyDa.",
+      "translated": "**PR #168864** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168863** Thanks @RomneyDa.",
+      "translated": "**PR #168863** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168347** Thanks @RomneyDa.",
+      "translated": "**PR #168347** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168905** Thanks @RomneyDa.",
+      "translated": "**PR #168905** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168416** Related #168415. Thanks @masatohoshino and @Takhoffman and @RomneyDa.",
+      "translated": "**PR #168416** Related #168415. Thanks @masatohoshino and @Takhoffman and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169180** Related #169121. Thanks @xilopaint and @RomneyDa and @jipeng6036-del.",
+      "translated": "**PR #169180** Related #169121. Thanks @xilopaint and @RomneyDa and @jipeng6036-del."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169278** Related #168026. Thanks @RomneyDa and @obviyus.",
+      "translated": "**PR #169278** Related #168026. Thanks @RomneyDa and @obviyus."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169286** Thanks @RomneyDa.",
+      "translated": "**PR #169286** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169305** Thanks @RomneyDa.",
+      "translated": "**PR #169305** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169189** Related #169187. Thanks @xpeng5278-web and @RomneyDa.",
+      "translated": "**PR #169189** Related #169187. Thanks @xpeng5278-web and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169322** Thanks @RomneyDa.",
+      "translated": "**PR #169322** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169453** Thanks @freeqaz-openai and @RomneyDa.",
+      "translated": "**PR #169453** Thanks @freeqaz-openai and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172117** Related #139706. Thanks @holgergruenhagen and @RomneyDa and @ylcn91 and @Colton-Harris.",
+      "translated": "**PR #172117** Related #139706. Thanks @holgergruenhagen and @RomneyDa and @ylcn91 and @Colton-Harris."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177564** Thanks @jjjhenriksen and @RomneyDa.",
+      "translated": "**PR #177564** Thanks @jjjhenriksen and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168583** Related #168822. Thanks @wangmiao0668000666 and @RomneyDa and @altaywtf.",
+      "translated": "**PR #168583** Related #168822. Thanks @wangmiao0668000666 and @RomneyDa and @altaywtf."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175458** Thanks @RomneyDa.",
+      "translated": "**PR #175458** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #175622** Thanks @RomneyDa.",
+      "translated": "**PR #175622** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174297** Thanks @RomneyDa.",
+      "translated": "**PR #174297** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169945** Thanks @Stronggenetics and @RomneyDa.",
+      "translated": "**PR #169945** Thanks @Stronggenetics and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177451** Thanks @montrellcruse.",
+      "translated": "**PR #177451** Thanks @montrellcruse."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173711** Related #173564. Thanks @RomneyDa and @8bitsforge.",
+      "translated": "**PR #173711** Related #173564. Thanks @RomneyDa and @8bitsforge."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169529** Related #169054. Thanks @wangmiao0668000666 and @RomneyDa and @Oldrich333.",
+      "translated": "**PR #169529** Related #169054. Thanks @wangmiao0668000666 and @RomneyDa and @Oldrich333."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #137273** Thanks @LiuwqGit and @RomneyDa.",
+      "translated": "**PR #137273** Thanks @LiuwqGit and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177050** Thanks @obviyus and @RomneyDa.",
+      "translated": "**PR #177050** Thanks @obviyus and @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171439** Thanks @RomneyDa.",
+      "translated": "**PR #171439** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168022** Thanks @RomneyDa.",
+      "translated": "**PR #168022** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #167979** Thanks @RomneyDa.",
+      "translated": "**PR #167979** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168192** Thanks @RomneyDa.",
+      "translated": "**PR #168192** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168882** Thanks @RomneyDa.",
+      "translated": "**PR #168882** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168991** Thanks @RomneyDa.",
+      "translated": "**PR #168991** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #149517**.",
+      "translated": "**PR #149517**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #151211**.",
+      "translated": "**PR #151211**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168152** Thanks @RomneyDa.",
+      "translated": "**PR #168152** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168153** Thanks @RomneyDa.",
+      "translated": "**PR #168153** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168179** Thanks @RomneyDa.",
+      "translated": "**PR #168179** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168266** Thanks @RomneyDa.",
+      "translated": "**PR #168266** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168267** Thanks @RomneyDa.",
+      "translated": "**PR #168267** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168271** Thanks @RomneyDa.",
+      "translated": "**PR #168271** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168333**.",
+      "translated": "**PR #168333**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168587** Thanks @roboclaw-bot.",
+      "translated": "**PR #168587** Thanks @roboclaw-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168675** Thanks @RomneyDa.",
+      "translated": "**PR #168675** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #168722**.",
+      "translated": "**PR #168722**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169495** Thanks @RomneyDa.",
+      "translated": "**PR #169495** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169496** Thanks @RomneyDa.",
+      "translated": "**PR #169496** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169497** Thanks @RomneyDa.",
+      "translated": "**PR #169497** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169500** Thanks @RomneyDa.",
+      "translated": "**PR #169500** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169595** Thanks @RomneyDa.",
+      "translated": "**PR #169595** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169647**.",
+      "translated": "**PR #169647**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169672** Thanks @n572770.",
+      "translated": "**PR #169672** Thanks @n572770."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #169739**.",
+      "translated": "**PR #169739**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170274** Thanks @RomneyDa.",
+      "translated": "**PR #170274** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170297** Thanks @RomneyDa.",
+      "translated": "**PR #170297** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170490** Thanks @RomneyDa.",
+      "translated": "**PR #170490** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170704** Thanks @RomneyDa.",
+      "translated": "**PR #170704** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #170964** Thanks @vincentkoc.",
+      "translated": "**PR #170964** Thanks @vincentkoc."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171109**.",
+      "translated": "**PR #171109**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171507** Thanks @RomneyDa.",
+      "translated": "**PR #171507** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #171528** Thanks @jjjhenriksen.",
+      "translated": "**PR #171528** Thanks @jjjhenriksen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172069**.",
+      "translated": "**PR #172069**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172515** Thanks @RomneyDa.",
+      "translated": "**PR #172515** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172661** Thanks @RomneyDa.",
+      "translated": "**PR #172661** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172668** Thanks @RomneyDa.",
+      "translated": "**PR #172668** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172689** Thanks @RomneyDa.",
+      "translated": "**PR #172689** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172705** Thanks @RomneyDa.",
+      "translated": "**PR #172705** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172745** Thanks @RomneyDa.",
+      "translated": "**PR #172745** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172954** Thanks @RomneyDa.",
+      "translated": "**PR #172954** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #172974** Thanks @RomneyDa.",
+      "translated": "**PR #172974** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173068** Thanks @RomneyDa.",
+      "translated": "**PR #173068** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173105** Thanks @RomneyDa.",
+      "translated": "**PR #173105** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173205** Thanks @RomneyDa.",
+      "translated": "**PR #173205** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173465** Thanks @RomneyDa.",
+      "translated": "**PR #173465** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173615** Thanks @RomneyDa.",
+      "translated": "**PR #173615** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #173656** Thanks @RomneyDa.",
+      "translated": "**PR #173656** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174556** Thanks @RomneyDa.",
+      "translated": "**PR #174556** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174614** Thanks @RomneyDa.",
+      "translated": "**PR #174614** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #174924** Thanks @RomneyDa.",
+      "translated": "**PR #174924** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176779**.",
+      "translated": "**PR #176779**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #176836** Thanks @xutongxue233.",
+      "translated": "**PR #176836** Thanks @xutongxue233."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177716** Thanks @jjjhenriksen.",
+      "translated": "**PR #177716** Thanks @jjjhenriksen."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177844**.",
+      "translated": "**PR #177844**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #177888** Thanks @etzelm.",
+      "translated": "**PR #177888** Thanks @etzelm."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178009** Thanks @roboclaw-bot.",
+      "translated": "**PR #178009** Thanks @roboclaw-bot."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178054**.",
+      "translated": "**PR #178054**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178170** Thanks @RomneyDa.",
+      "translated": "**PR #178170** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178219** Thanks @RomneyDa.",
+      "translated": "**PR #178219** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178236**.",
+      "translated": "**PR #178236**."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**PR #178624** Thanks @RomneyDa.",
+      "translated": "**PR #178624** Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.6",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.10.6"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.6.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.6.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: `sha512-jSpQPa2Jw5rG0J2GC07j9+qHtVYIuoHjgccU88JeS+p7188sBCnvIJeuaiNPHj1zsWkuHcBv443QiEUh7qrxwA==`",
+      "translated": "integrity: `sha512-jSpQPa2Jw5rG0J2GC07j9+qHtVYIuoHjgccU88JeS+p7188sBCnvIJeuaiNPHj1zsWkuHcBv443QiEUh7qrxwA==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release SHA: `fe06181dc5ecc01cf8904abbfc26925925efefbc`",
+      "translated": "release SHA: `fe06181dc5ecc01cf8904abbfc26925925efefbc`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.6/release-evidence.md",
+      "translated": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.6/release-evidence.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release publish: https://github.com/openclaw/openclaw/actions/runs/39772464373",
+      "translated": "release publish: https://github.com/openclaw/openclaw/actions/runs/39772464373"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/39751088976",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/39751088976"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release validation: https://github.com/openclaw/openclaw/actions/runs/39750303030",
+      "translated": "full release validation: https://github.com/openclaw/openclaw/actions/runs/39750303030"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/39773458213",
+      "translated": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/39773458213"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/39773463051; public finalization and exact artifact verification follow terminal release-parent completion",
+      "translated": "plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/39773463051; public finalization and exact artifact verification follow terminal release-parent completion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub bootstrap: not needed",
+      "translated": "plugin ClawHub bootstrap: not needed"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/39776532882",
+      "translated": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/39776532882"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm Telegram beta E2E: not supplied",
+      "translated": "npm Telegram beta E2E: not supplied"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.6; run pnpm android:version:pin -- --from-gateway before the next tag.",
+      "translated": "Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.6; run pnpm android:version:pin -- --from-gateway before the next tag."
+    }
+  ],
+  "translatedAt": "2026-10-22T17:16:06.229Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 22317
+}
