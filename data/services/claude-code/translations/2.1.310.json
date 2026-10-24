@@ -1,0 +1,170 @@
+{
+  "version": "2.1.310",
+  "date": "2026-10-23",
+  "parsedAt": "2026-10-24T04:42:15.210Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
+      "translated": "Bedrock, Vertex, Foundry 및 텔레메트리나 비필수 트래픽이 비활성화된 환경에 Monitor 도구와 플러그인 모니터를 추가했습니다. 이제 해당 환경에서는 긴 포그라운드 대기(sleep)도 차단됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed requests failing behind some gateways and compatible servers that reject the `effort-2025-11-24` beta value or mid-conversation system messages; Claude Code now retries without them",
+      "translated": "`effort-2025-11-24` 베타 값이나 대화 중간의 시스템 메시지를 거부하는 일부 게이트웨이 및 호환 서버에서 요청이 실패하던 문제를 수정했습니다. 이제 Claude Code는 해당 항목들을 제외하고 재시도합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed background cleanup deleting some recent files, such as pasted images, when `cleanupPeriodDays` is set to a very large value",
+      "translated": "`cleanupPeriodDays`가 매우 큰 값으로 설정되었을 때 백그라운드 정리 작업이 붙여넣은 이미지와 같은 일부 최근 파일을 삭제하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed compaction after a \"Prompt is too long\" error keeping too much of a conversation with dense text, such as base64 or SVG, so the next request could fail again",
+      "translated": "\"Prompt is too long\" 오류 발생 후 압축(compaction) 과정에서 base64나 SVG와 같은 밀도 높은 텍스트가 포함된 대화 내용을 너무 많이 유지하여 다음 요청이 다시 실패할 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed file read permission prompts not showing where a symbolic link leads",
+      "translated": "파일 읽기 권한 요청 프롬프트에서 심볼릭 링크가 가리키는 대상이 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a question's auto-continue timeout firing the moment the external editor closed after a long edit",
+      "translated": "외부 편집기에서 장시간 편집 후 편집기를 닫는 즉시 질문의 자동 계속(auto-continue) 제한 시간이 만료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Windows: Fixed PreToolUse and PermissionRequest hooks letting a tool call through when Git Bash is missing and the hook's command is only quoted strings, such as a quoted path",
+      "translated": "Windows: Git Bash가 없고 훅 명령어가 따옴표로 묶인 경로와 같이 따옴표로 된 문자열로만 구성된 경우, PreToolUse 및 PermissionRequest 훅이 도구 호출을 허용하던 문제를 수정했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto mode's prompt before the first read outside the working directories: it now says when blocking those reads makes shell commands ask for permission",
+      "translated": "디렉토리 외부를 처음 읽기 전 자동 모드(auto mode)의 프롬프트를 개선했습니다. 이제 해당 읽기 작업을 차단할 경우 셸 명령어가 권한을 요청하게 된다는 안내가 표시됩니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved memory use of non-interactive sessions (`-p`, Agent SDK) during compaction when the transcript file is very large",
+      "translated": "트랜스크립트 파일이 매우 클 때 압축(compaction) 중 비대화형 세션(`-p`, Agent SDK)의 메모리 사용량을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved a mod's `Image` to draw inside tmux with `allow-passthrough` and `focus-events` on, in kitty, Ghostty, and iTerm2 3.5+ with fullscreen rendering, where it showed only its `alt` text",
+      "translated": "kitty, Ghostty 및 전체 화면 렌더링을 사용하는 iTerm2 3.5+ 환경에서 `allow-passthrough`와 `focus-events`가 활성화된 tmux 내부에 모드의 `Image`가 `alt` 텍스트만 표시되던 문제를 개선하여 정상적으로 그려지도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Linux: Improved `/sandbox` and the sandbox startup warning to name Ubuntu's AppArmor restriction on user namespaces, and how to lift it, when it keeps bubblewrap from starting the sandbox",
+      "translated": "Linux: bubblewrap이 샌드박스를 시작하지 못하게 방해하는 Ubuntu의 사용자 네임스페이스에 대한 AppArmor 제한 사항과 이를 해제하는 방법을 안내하도록 `/sandbox` 및 샌드박스 시작 경고를 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the error for an MCP tool call that times out in a non-interactive session while the server's elicitation is unanswered: it now tells Claude that no answer came and not to repeat the call",
+      "translated": "비대화형 세션에서 서버의 정보 요청(elicitation)에 응답하지 않아 MCP 도구 호출이 타임아웃될 때의 오류를 변경했습니다. 이제 Claude에게 응답이 없었음을 알리고 호출을 반복하지 않도록 지시합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed pressing Enter on the plan review card's \"Send feedback and keep planning\" button approving the plan instead of sending your comments back",
+      "translated": "[VSCode] 플랜 검토 카드의 \"Send feedback and keep planning\" 버튼에서 Enter 키를 누르면 의견을 보내는 대신 플랜이 승인되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed the panel showing \"Something went wrong\" after \"Switch branch & continue\" on a cloud session opened from Session history's Web tab",
+      "translated": "[VSCode] 세션 기록의 Web 탭에서 연 클라우드 세션에서 \"Switch branch & continue\"를 실행한 후 패널에 \"Something went wrong\"이 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added Claude Code cloud sessions and Remote Control permissions to Enterprise custom roles, so Owners can control access to each by role",
+      "translated": "[Cloud sessions] 엔터프라이즈 커스텀 역할에 Claude Code 클라우드 세션 및 Remote Control 권한을 추가하여, 소유자가 역할별로 각 기능에 대한 액세스를 제어할 수 있게 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added a Choose file button to load a cloud environment's setup script from a file",
+      "translated": "[Cloud sessions] 파일에서 클라우드 환경의 설정 스크립트를 불러올 수 있는 파일 선택(Choose file) 버튼을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed failed saves and archives in the cloud environment edit dialog showing no error inside the dialog",
+      "translated": "[Cloud sessions] 클라우드 환경 편집 대화 상자에서 저장 및 아카이브 실패 시 대화 상자 내에 오류가 표시되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed failed routine API token actions showing only a toast; the error now appears in the routine edit dialog",
+      "translated": "[Cloud sessions] 루틴 API 토큰 작업 실패 시 토스트 알림만 표시되던 문제를 수정했습니다. 이제 루틴 편집 대화 상자에 오류가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Improved the session start checklist to show a cloud environment's setup script output in a scrolling box",
+      "translated": "[Cloud sessions] 세션 시작 체크리스트에서 클라우드 환경의 설정 스크립트 출력을 스크롤 가능한 박스에 표시하도록 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Changed turning on Cloud sessions or Remote Control in admin settings to ask for confirmation and list the custom roles that have that permission",
+      "translated": "[Cloud sessions] 관리자 설정에서 클라우드 세션 또는 Remote Control을 활성화할 때 확인 절차를 거치고 해당 권한을 가진 커스텀 역할을 나열하도록 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Changed the cloud environment dialog to open network access, setup script and environment variables from rows instead of listing every editor at once",
+      "translated": "[Cloud sessions] 모든 에디터를 한꺼번에 나열하는 대신, 각 행에서 네트워크 액세스, 설정 스크립트 및 환경 변수를 열 수 있도록 클라우드 환경 대화 상자를 변경했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude Tag treating `!` commands such as `!restart` and `!help` as ordinary messages when sent in bold, italic or strikethrough",
+      "translated": "[Claude Tag] `!restart` 및 `!help`와 같은 `!` 명령어가 굵게, 기울임꼴 또는 취소선으로 전송될 때 일반 메시지로 처리되던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude Tag admin channel and workspace pages being replaced by a load error when a background refresh of the bundle list fails",
+      "translated": "[Claude Tag] 번들 목록의 백그라운드 새로고침이 실패할 때 Claude Tag 관리자 채널 및 워크스페이스 페이지가 로드 오류로 대체되는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed Claude Tag's spend limits page in admin settings reporting that no channels match a filter while channel names are still loading",
+      "translated": "[Claude Tag] 채널 이름을 불러오는 동안 관리자 설정의 지출 제한 페이지에서 필터와 일치하는 채널이 없다고 표시되는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Fixed the Code Review admin section hiding its repositories and switches after a failed refresh of the repository list",
+      "translated": "[Code Review] 저장소 목록 새로고침에 실패한 후 Code Review 관리 섹션에서 저장소와 스위치가 숨겨지는 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Improved the Code Review admin section to retry the first load and show one Try again banner when it still fails",
+      "translated": "[Code Review] Code Review 관리 섹션에서 첫 로드를 재시도하고, 계속 실패할 경우 '다시 시도' 배너를 표시하도록 개선했습니다."
+    }
+  ],
+  "translatedAt": "2026-10-24T04:42:50.162Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 3806
+}
