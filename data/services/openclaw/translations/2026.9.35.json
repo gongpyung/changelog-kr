@@ -1,0 +1,224 @@
+{
+  "version": "2026.9.35",
+  "date": "2026-10-27",
+  "parsedAt": "2026-10-27T05:11:37.039Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Steadier memory under service managers:** worker heap caps now apply even when the Gateway service passes a process-wide `--max-old-space-size`, idle Codex app-server clients retire after 30 seconds, and archive workers are reused between session deletes, so long-running Gateways stop accumulating memory. Fixes #179515, #169797, #165663. (#166581, #171490, #168387, #171156, #175091) Thanks @valkyriweb and @RomneyDa.",
+      "translated": "**서비스 관리자 환경에서 더욱 안정적인 메모리 관리:** Gateway 서비스가 프로세스 전반에 `--max-old-space-size`를 전달하더라도 worker heap caps가 적용됩니다. 유휴 상태의 Codex app-server 클라이언트는 30초 후 종료되며, 세션 삭제 시 archive worker를 재사용하여 장시간 실행되는 Gateway의 메모리 누적을 방지합니다. Fixes #179515, #169797, #165663. (#166581, #171490, #168387, #171156, #175091) @valkyriweb 및 @RomneyDa님께 감사드립니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**Updates finish more often:** update-time Doctor now removes leftover unknown config keys after migrations, accepts a missing legacy OAuth directory, keeps a valid config that lacks `meta`, settles a completed package publication that already serves the candidate, and no longer overflows on very large session histories. Fixes #174618, #183479. (#175404, #180174, #183703, #180414)",
+      "translated": "**업데이트 성공률 향상:** 업데이트 시 실행되는 Doctor가 마이그레이션 후 남은 알 수 없는 설정 키를 제거하고, 레거시 OAuth 디렉토리가 없어도 허용하며, `meta` 정보가 없는 유효한 설정도 유지합니다. 또한 이미 후보 버전을 제공 중인 완료된 패키지 배포를 확정하고, 매우 큰 세션 기록에서 더 이상 오버플로가 발생하지 않습니다. Fixes #174618, #183479. (#175404, #180174, #183703, #180414)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Gateway stays responsive:** crafted Microsoft Teams HTML, replies shaped like tool calls, and long streamed HTML or JSX answers no longer stall the Gateway event loop for seconds at a time. (#183438, #183252, #174833, #175472, #180765) Thanks @LeizhenZhang and @JasonBuildAI.",
+      "translated": "**Gateway 응답성 유지:** 특수하게 제작된 Microsoft Teams HTML, 도구 호출 형태의 응답, 긴 스트리밍 HTML 또는 JSX 답변으로 인해 Gateway 이벤트 루프가 몇 초간 중단되는 현상을 해결했습니다. (#183438, #183252, #174833, #175472, #180765) @LeizhenZhang 및 @JasonBuildAI님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Replies reach the user:** the message tool stays directly visible under Tool Search, model fallback works after an unexecuted tool call and for compaction, timed-out MCP sessions no longer break the next turn, and Claude CLI turns that hit the output limit fail fast instead of stalling for 15 minutes. Fixes #176045. (#179450, #183282, #182189, #159931) Thanks @hehuang139, @pstarkgit, @aniketkrs, and @Terwox.",
+      "translated": "**사용자에게 응답 전달 보장:** 메시지 도구가 Tool Search 하단에 계속 표시되며, 실행되지 않은 도구 호출 이후나 압축 시에도 모델 폴백(fallback)이 작동합니다. 타임아웃된 MCP 세션이 다음 턴에 영향을 주지 않으며, 출력 제한에 도달한 Claude CLI 턴은 15분간 멈추는 대신 즉시 실패 처리됩니다. Fixes #176045. (#179450, #183282, #182189, #159931) @hehuang139, @pstarkgit, @aniketkrs, @Terwox님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Codex native subagents settle correctly:** parents are no longer blocked after native children finish, are interrupted, or complete a follow-up; undeliverable completions are not resurrected; and completed grandchildren no longer replay after a Gateway restart. (#173018, #175246, #179050, #179099, #177577, #181839) Thanks @quqi1599, @wtfichigo, @linancn, and @sunlit-deng.",
+      "translated": "**Codex 네이티브 서브 에이전트의 정상적인 종료:** 네이티브 자식 프로세스가 종료, 중단 또는 후속 작업을 완료한 후 부모 프로세스가 차단되지 않습니다. 전달 불가능한 완료 상태가 다시 살아나지 않으며, 완료된 손자 프로세스가 Gateway 재시작 후 다시 실행되지 않습니다. (#173018, #175246, #179050, #179099, #177577, #181839) @quqi1599, @wtfichigo, @linancn, @sunlit-deng님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Safer by default:** `test -v` exec operands now require approval in allowlist mode, browser proxy commands are refused through generic node invoke, generated-video downloads use the SSRF guard, and `openclaw mcp list`/`show` plus logs redact credentials. (#180880, #179880, #182425, #180321, #183193) Thanks @eleqtrizit, @brandon-julio-t, and @LeizhenZhang.",
+      "translated": "**기본 보안 강화:** 허용 목록(allowlist) 모드에서 `test -v` 실행 피연산자에 대한 승인이 필요하며, 일반 노드 호출을 통한 브라우저 프록시 명령이 거부됩니다. 생성된 비디오 다운로드 시 SSRF 가드가 적용되며, `openclaw mcp list`/`show` 명령 및 로그에서 자격 증명이 마스킹됩니다. (#180880, #179880, #182425, #180321, #183193) @eleqtrizit, @brandon-julio-t, @LeizhenZhang님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**SQLite 3.54 data safety:** Doctor and update snapshots now repair stale full-text indexes left by the SQLite tokenizer change instead of quarantining agent databases. Fixes #176220. (#176234, #181206)",
+      "translated": "**SQLite 3.54 데이터 안전성:** Doctor 및 업데이트 스냅샷이 에이전트 데이터베이스를 격리하는 대신, SQLite 토크나이저 변경으로 인해 남겨진 오래된 전체 텍스트 인덱스를 복구합니다. Fixes #176220. (#176234, #181206)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Kimi K3.1 Pro:** `moonshot/kimi-k3.1-pro`, `kimi/k3.1-pro`, and their Highspeed variants get the K3 thinking, effort, and video controls; K3.1 rejects `off` locally instead of returning a provider 400. (#181923) Thanks @obviyus.",
+      "translated": "**Kimi K3.1 Pro:** `moonshot/kimi-k3.1-pro`, `kimi/k3.1-pro` 및 해당 Highspeed 변체 모델에 K3의 사고(thinking), 노력(effort), 비디오 제어 기능이 추가되었습니다. K3.1은 공급자로부터 400 오류를 받는 대신 로컬에서 `off` 설정을 거부합니다. (#181923) @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "**Known-issue documentation:** documented the `--preserve-symlinks` plugin capture workaround, the 2026.8.35 updater's schema warning, and recovery after a publication-journal device-number change. Related #175591, #170031. (#184143) Thanks @RomneyDa.",
+      "translated": "**알려진 문제 문서화:** `--preserve-symlinks` 플러그인 캡처 우회 방법, 2026.8.35 업데이트 도구의 스키마 경고, publication-journal 장치 번호 변경 후 복구 방법 등을 문서화했습니다. Related #175591, #170031. (#184143) @RomneyDa님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Credential and content boundaries:** require approval for `test`/`[` `-v` operands, refuse browser proxy commands on generic node invoke, guard generated-video downloads, redact MCP inspection output and Google OAuth client secrets, keep commentary out of turns whose replies are disabled, and keep private media out of silent turns. (#180880, #179880, #182425, #180321, #183193, #178518, #129244) Thanks @eleqtrizit, @brandon-julio-t, @LeizhenZhang, and @obviyus.",
+      "translated": "**자격 증명 및 콘텐츠 경계 설정:** `test`/`[`의 `-v` 피연산자에 대한 승인을 요구하고, 일반 노드 호출 시 브라우저 프록시 명령을 거부하며, 생성된 비디오 다운로드를 보호합니다. MCP 검사 출력 및 Google OAuth 클라이언트 보안 비밀번호를 마스킹하고, 응답이 비활성화된 턴에서 주석을 제외하며, 무음 턴에서 비공개 미디어를 제외합니다. (#180880, #179880, #182425, #180321, #183193, #178518, #129244) @eleqtrizit, @brandon-julio-t, @LeizhenZhang, @obviyus님께 감사드립니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Reply delivery and fallback:** keep the message tool visible under Tool Search, allow model fallback after unexecuted tool calls and for compaction, fall back immediately on exhausted Anthropic usage caps, recover unfinished tool work after empty `length` stops, and keep rejected Claude CLI drafts out of final replies. Fixes #176045, #176179. (#169091, #179450, #183282, #176186, #153728, #168764) Thanks @hehuang139, @pstarkgit, @sunlit-deng, @zhangguiping-xydt, and @ruel225.",
+      "translated": "**응답 전달 및 폴백:** 메시지 도구를 Tool Search 하단에 계속 표시하고, 실행되지 않은 도구 호출이나 압축 시 모델 폴백을 허용합니다. Anthropic 사용량 한도 초과 시 즉시 폴백하며, 빈 `length` 중단"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Gateway responsiveness:** bound regex and tag scans for Microsoft Teams HTML, tool-call-shaped replies, and long streamed markup. (#183438, #183252, #174833, #175472, #180765) Thanks @LeizhenZhang and @JasonBuildAI.",
+      "translated": "**Gateway responsiveness:** bound regex and tag scans for Microsoft Teams HTML, tool-call-shaped replies, and long streamed markup. (#183438, #183252, #174833, #175472, #180765) Thanks @LeizhenZhang and @JasonBuildAI."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Claude CLI sessions:** ignore request echoes when checking for orphaned tool calls, classify rejected resume checkpoints as an expired session, end output-limit stalls promptly, and stop announce wakes from resetting CLI chats. (#172026, #159931, #181308, #176218) Thanks @Terwox, @mushuiyu886, and @eliavb43.",
+      "translated": "**Claude CLI sessions:** ignore request echoes when checking for orphaned tool calls, classify rejected resume checkpoints as an expired session, end output-limit stalls promptly, and stop announce wakes from resetting CLI chats. (#172026, #159931, #181308, #176218) Thanks @Terwox, @mushuiyu886, and @eliavb43."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Agent runtime:** release completed attempt callbacks, finish parent handoff after cancelling child tasks, cap large subagent completion batches, preserve memory captures during concurrent session resets, load skills when macOS workspace casing differs, and stop thinking-only replies from utility models, including custom GLM title models. (#183884, #178893, #172068, #181081, #181236, #169920, #172580) Thanks @brianmcguire and @jason-allen-oneal.",
+      "translated": "**Agent runtime:** release completed attempt callbacks, finish parent handoff after cancelling child tasks, cap large subagent completion batches, preserve memory captures during concurrent session resets, load skills when macOS workspace casing differs, and stop thinking-only replies from utility models, including custom GLM title models. (#183884, #178893, #172068, #181081, #181236, #169920, #172580) Thanks @brianmcguire and @jason-allen-oneal."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Codex:** retire idle unowned app-server clients, keep native tool declarations stable on completion turns, keep native liveness during host work, and settle native subagent completions, interruptions, follow-ups, and restart replay. Fixes #165663. (#168387, #183286, #181839, #173018, #175246, #179050, #179099, #177577) Thanks @sunlit-deng, @quqi1599, @wtfichigo, and @linancn.",
+      "translated": "**Codex:** retire idle unowned app-server clients, keep native tool declarations stable on completion turns, keep native liveness during host work, and settle native subagent completions, interruptions, follow-ups, and restart replay. Fixes #165663. (#168387, #183286, #181839, #173018, #175246, #179050, #179099, #177577) Thanks @sunlit-deng, @quqi1599, @wtfichigo, and @linancn."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Channels:** recover Slack socket mode from an isolated `invalid_auth` and Slack relay connections from silent network drops, tag only Matrix control commands with a command source, keep Telegram offset checkpoints working on Bun, keep the realtime voice transport runtime for callbacks, and keep channel accounts restarting after an exited run is cancelled. Fixes #179398. (#181056, #182368, #179506, #178909, #179462, #182433) Thanks @mushuiyu886, @xiaopan-xydt, @brianmcguire, and @shoaibulhaque.",
+      "translated": "**Channels:** recover Slack socket mode from an isolated `invalid_auth` and Slack relay connections from silent network drops, tag only Matrix control commands with a command source, keep Telegram offset checkpoints working on Bun, keep the realtime voice transport runtime for callbacks, and keep channel accounts restarting after an exited run is cancelled. Fixes #179398. (#181056, #182368, #179506, #178909, #179462, #182433) Thanks @mushuiyu886, @xiaopan-xydt, @brianmcguire, and @shoaibulhaque."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**MCP and GitHub tools:** let concurrent agents read a fresh shared MCP OAuth credential without the exclusive lease, and accept GitHub PR publishing from operators whose profile attaches after connect. (#179997, #169400) Thanks @maliv2 and @Gigaxel.",
+      "translated": "**MCP and GitHub tools:** let concurrent agents read a fresh shared MCP OAuth credential without the exclusive lease, and accept GitHub PR publishing from operators whose profile attaches after connect. (#179997, #169400) Thanks @maliv2 and @Gigaxel."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Gateway, state, and readiness:** answer trusted-proxy readiness probes without forwarded headers, bound channel-identity admission waits so stalled admission cannot pin WAL checkpoints, keep queued startup work off temporary SQLite reader scopes, avoid writer stalls during initial host admission, preserve live state-lock owners while recovering stale Linux locks, and finish worker shutdown after inventory retirement. Related #143524. (#182823, #172244, #182615, #171549, #175118, #168862) Thanks @ericcaiwx-star, @xialonglee, and @xiaopan-xydt.",
+      "translated": "**Gateway, state, and readiness:** answer trusted-proxy readiness probes without forwarded headers, bound channel-identity admission waits so stalled admission cannot pin WAL checkpoints, keep queued startup work off temporary SQLite reader scopes, avoid writer stalls during initial host admission, preserve live state-lock owners while recovering stale Linux locks, and finish worker shutdown after inventory retirement. Related #143524. (#182823, #172244, #182615, #171549, #175118, #168862) Thanks @ericcaiwx-star, @xialonglee, and @xiaopan-xydt."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Update, install, and Doctor:** remove unowned config keys during updates, accept a missing legacy OAuth directory, keep a valid config that lacks `meta`, route debug logs off JSON stdout during admission, bound the post-activation Doctor step and update baseline checks, recover the Node runtime when started from `/`, accept unchanged dist files with extra execute bits, tolerate absent optional packages in Windows swaps, launch SQLite helpers hidden on Windows, create the state directory `0700` regardless of umask, admit group-writable plugin secret resolvers, allow SQLite readers during stopped backups, import transcripts whose filename differs from the header, read cron history identities before payloads, avoid stack overflow on very large session histories, settle a completed package publication that already serves the candidate, and refuse a registry update before staging when the Gateway's Node does not satisfy the target's `engines.node` instead of crash-looping after the switch. Fixes #174618, #183479, #183149. (#180769, #175404, #180174, #183703, #182850, #173862, #181906, #178112, #181141, #181596, #174969, #179538, #181127, #180827, #178146, #174530, #180414) Thanks @jalehman and @wangmiao0668000666.",
+      "translated": "**Update, install, and Doctor:** remove unowned config keys during updates, accept a missing legacy OAuth directory, keep a valid config that lacks `meta`, route debug logs off JSON stdout during admission, bound the post-activation Doctor step and update baseline checks, recover the Node runtime when started from `/`, accept unchanged dist files with extra execute bits, tolerate absent optional packages in Windows swaps, launch SQLite helpers hidden on Windows, create the state directory `0700` regardless of umask, admit group-writable plugin secret resolvers, allow SQLite readers during stopped backups, import transcripts whose filename differs from the header, read cron history identities before payloads, avoid stack overflow on very large session histories, settle a completed package publication that already serves the candidate, and refuse a registry update before staging when the Gateway's Node does not satisfy the target's `engines.node` instead of crash-looping after the switch. Fixes #174618, #183479, #183149. (#180769, #175404, #180174, #183703, #182850, #173862, #181906, #178112, #181141, #181596, #174969, #179538, #181127, #180827, #178146, #174530, #180414) Thanks @jalehman and @wangmiao0668000666."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Plugins:** replace dangling dependency junctions instead of refusing plugin migration, copy native captures across filesystems, and tolerate ctime-only stat drift in native companion admission. (#179549, #179445, #179949) Thanks @coaiMax.",
+      "translated": "**Plugins:** replace dangling dependency junctions instead of refusing plugin migration, copy native captures across filesystems, and tolerate ctime-only stat drift in native companion admission. (#179549, #179445, #179949) Thanks @coaiMax."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**SQLite full-text indexes:** repair stale FTS indexes after the SQLite 3.54 tokenizer change in Doctor and update snapshots instead of quarantining agent data. Fixes #176220. (#176234, #181206)",
+      "translated": "**SQLite full-text indexes:** repair stale FTS indexes after the SQLite 3.54 tokenizer change in Doctor and update snapshots instead of quarantining agent data. Fixes #176220. (#176234, #181206)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "**Release validation compatibility:** carry the release-retrospective batch 5 tooling (admission pins, compact reuse plans, Plugin SDK revision rendering) needed by current full-release validation. (#181920) Thanks @RomneyDa.",
+      "translated": "**Release validation compatibility:** carry the release-retrospective batch 5 tooling (admission pins, compact reuse plans, Plugin SDK revision rendering) needed by current full-release validation. (#181920) Thanks @RomneyDa."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm package: https://www.npmjs.com/package/openclaw/v/2026.9.35",
+      "translated": "npm package: https://www.npmjs.com/package/openclaw/v/2026.9.35"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.9.35.tgz",
+      "translated": "registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.9.35.tgz"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "integrity: `sha512-1wVhWrYXsEgy4iVHAg0CEd4J7Vp4blc8XvIKVg463UYNxYVgUitg3pWdCKPxDIRgetQ6t5ViEftSn5J0UI7x9A==`",
+      "translated": "integrity: `sha512-1wVhWrYXsEgy4iVHAg0CEd4J7Vp4blc8XvIKVg463UYNxYVgUitg3pWdCKPxDIRgetQ6t5ViEftSn5J0UI7x9A==`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release SHA: `2ff91b9c5ed26aff603c6d5466fc642ae9d50e72`",
+      "translated": "release SHA: `2ff91b9c5ed26aff603c6d5466fc642ae9d50e72`"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.9.35/release-evidence.md",
+      "translated": "full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.9.35/release-evidence.md"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "release publish: https://github.com/openclaw/openclaw/actions/runs/40430868801",
+      "translated": "release publish: https://github.com/openclaw/openclaw/actions/runs/40430868801"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/40416259133",
+      "translated": "npm preflight: https://github.com/openclaw/openclaw/actions/runs/40416259133"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "full release validation: https://github.com/openclaw/openclaw/actions/runs/40415713477",
+      "translated": "full release validation: https://github.com/openclaw/openclaw/actions/runs/40415713477"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/40431530924",
+      "translated": "plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/40431530924"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub publish: no normal OIDC candidates",
+      "translated": "plugin ClawHub publish: no normal OIDC candidates"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "plugin ClawHub bootstrap: not needed",
+      "translated": "plugin ClawHub bootstrap: not needed"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/40433786628",
+      "translated": "OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/40433786628"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "npm Telegram beta E2E: not supplied",
+      "translated": "npm Telegram beta E2E: not supplied"
+    }
+  ],
+  "translatedAt": "2026-10-27T05:12:10.581Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 5484
+}
