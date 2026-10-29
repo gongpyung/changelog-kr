@@ -1,0 +1,3584 @@
+{
+  "version": "5.1.51",
+  "date": "2026-10-28",
+  "parsedAt": "2026-10-29T05:53:35.880Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Release preparation no longer fails its own command-string audit when changelog fragments have been folded into the changelog. ([#11562](https://github.com/code-yeongyu/oh-my-openagent/pull/11562))",
+      "translated": "릴리스 준비 시 변경 로그 조각(fragments)이 변경 로그에 통합된 경우, 자체 커맨드 문자열 감사(command-string audit)를 통과하지 못하던 문제를 해결했습니다. ([#11562](https://github.com/code-yeongyu/oh-my-openagent/pull/11562))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Atlas schedules its delayed boulder-continuation retry through an injectable scheduler (default: the real timer), and its tests drive that scheduler instead of patching global timers, so a whole-suite run no longer fires other modules' timers in the retry tests ([#11619](https://github.com/code-yeongyu/oh-my-openagent/pull/11619), fixes [#11617](https://github.com/code-yeongyu/oh-my-openagent/issues/11617))",
+      "translated": "Atlas가 주입 가능한 스케줄러(기본값: 실제 타이머)를 통해 지연된 boulder-continuation 재시도를 예약하도록 변경되었습니다. 또한 테스트에서 전역 타이머를 패치하는 대신 이 스케줄러를 직접 제어하므로, 전체 테스트 실행 시 재시도 테스트가 다른 모듈의 타이머를 트리거하지 않습니다. ([#11619](https://github.com/code-yeongyu/oh-my-openagent/pull/11619), [#11617](https://github.com/code-yeongyu/oh-my-openagent/issues/11617) 수정)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cancelling a prompt now stops an in-flight skill MCP call: `skill_mcp` passes the session abort signal to the MCP request, which rejects at once with the abort reason, and an HTTP MCP server's request and SSE stream are closed instead of staying open until the connection is torn down ([#11592](https://github.com/code-yeongyu/oh-my-openagent/pull/11592))",
+      "translated": "프롬프트 취소 시 진행 중인 스킬 MCP 호출이 중단됩니다. `skill_mcp`가 세션 중단 신호를 MCP 요청에 전달하여 즉시 거부 처리하며, HTTP MCP 서버의 요청과 SSE 스트림도 연결 종료를 기다리지 않고 즉시 닫힙니다. ([#11592](https://github.com/code-yeongyu/oh-my-openagent/pull/11592))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The Prometheus planning-file guard resolves Windows paths the way the executor opens them: both `/` and `\\` split the physical walk, so a `link/..` spelling is followed through the link instead of being collapsed lexically (a symlink escape was allowed), a symlinked or junctioned planning directory such as `.omo -> docs\\plans` is recognised again, and 8.3 short names, drive-letter case and directory case all resolve to one canonical path. Inside-planning checks compare the canonical paths exactly, which keeps case-variant entries on case-sensitive directories distinct ([#11548](https://github.com/code-yeongyu/oh-my-openagent/pull/11548))",
+      "translated": "Prometheus planning-file guard가 executor와 동일한 방식으로 Windows 경로를 해석합니다. `/`와 `\\` 모두 물리적 경로 탐색을 분할하여 `link/..` 표기 시 어휘적 축소 대신 링크를 따라가도록 수정되었으며(심볼릭 링크 탈출 방지), `.omo -> docs\\plans`와 같은 심볼릭 링크나 정션 디렉토리를 다시 인식합니다. 또한 8.3 짧은 이름과 대소문자 차이를 하나의 정규 경로(canonical path)로 통합하고, 내부 검사 시 이 경로를 정확히 비교하여 대소문자 구분 디렉토리 내의 항목들을 올바르게 식별합니다. ([#11548](https://github.com/code-yeongyu/oh-my-openagent/pull/11548))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A ChatGPT subscription whose sign-in refresh fails only briefly at session start (connection refused, timeout, a 408/429/5xx from the token endpoint) now stays selected in the model profile. Before, the session moved to the next provider, for example a configured OpenAI API key, and stayed on that metered lane until it was restarted. A refused refresh still skips the provider with the re-authenticate notice, a credential failure seen while re-checking the model still skips the provider with the matching notice, a model whose own request headers fail to resolve is still skipped, and a candidate kept while its refresh is still unresolved logs one warning with the error class and transport code so a later first-turn failure can be traced ([#11442](https://github.com/code-yeongyu/oh-my-openagent/pull/11442), fixes [#11432](https://github.com/code-yeongyu/oh-my-openagent/issues/11432)) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))",
+      "translated": "세션 시작 시 로그인 갱신이 일시적으로 실패하더라도(연결 거부, 타임아웃, 408/429/5xx 에러 등) ChatGPT 구독 모델이 프로필에서 해제되지 않고 유지됩니다. 기존에는 세션이 다음 제공자(예: OpenAI API 키)로 전환되어 재시작 전까지 유료 API를 사용하던 문제가 있었습니다. 다만, 갱신 거부나 자격 증명 실패, 헤더 해석 오류 시에는 여전히 해당 제공자를 건너뛰며, 갱신 미해결 상태로 유지되는 경우 에러 로그를 남겨 추후 발생할 수 있는 실패의 추적을 돕습니다. ([#11442](https://github.com/code-yeongyu/oh-my-openagent/pull/11442), [#11432](https://github.com/code-yeongyu/oh-my-openagent/issues/11432) 수정) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo logout` now leaves a small sign-out note (no credentials, just the device and the time), so OmO Desktop can tell a deliberate sign-out from a credential store that hasn't answered yet. `omo account token` and `export` report it with exit code 10; exit 4 still means nothing could be read. Signing in again removes the note. The note is written before the credentials are removed, so a failed write leaves you signed in and `omo logout` reports the error; a damaged note is ignored (exit 4) and never breaks `omo account show`. ([#11441](https://github.com/code-yeongyu/oh-my-openagent/pull/11441), fixes [#11434](https://github.com/code-yeongyu/oh-my-openagent/issues/11434)) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))",
+      "translated": "`omo logout` 실행 시 장치와 시간 정보가 담긴 로그아웃 노트를 생성하여, OmO Desktop이 의도적인 로그아웃과 자격 증명 저장소의 응답 지연을 구분할 수 있도록 개선했습니다. `omo account token` 및 `export`는 이 상태를 종료 코드 10으로 반환하며, 다시 로그인하면 해당 노트는 삭제됩니다. 노트 작성은 자격 증명 제거 전에 수행되어 실패 시 로그인 상태를 유지하며, 손상된 노트는 무시되어 `omo account show` 등 다른 명령에 영향을 주지 않습니다. ([#11441](https://github.com/code-yeongyu/oh-my-openagent/pull/11441), [#11434](https://github.com/code-yeongyu/oh-my-openagent/issues/11434) 수정) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A workflow (DAG) category node whose whole model chain is spent or signed out now finishes on the parent session's model, the same last rung a `task` child gets. The model is captured when the workflow starts and kept on the run, so retried and recovered nodes keep it too. ([#11439](https://github.com/code-yeongyu/oh-my-openagent/pull/11439)) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))",
+      "translated": "모델 체인이 만료되거나 로그아웃된 워크플로(DAG) 카테고리 노드가 이제 `task` 자식 노드와 동일하게 부모 세션의 모델을 사용하여 완료됩니다. 모델 정보는 워크플로 시작 시점에 고정되어 실행 내내 유지되므로, 노드 재시도나 복구 시에도 동일한 모델이 적용됩니다. ([#11439](https://github.com/code-yeongyu/oh-my-openagent/pull/11439)) ([#11525](https://github.com/code-yeongyu/oh-my-openagent/pull/11525))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prometheus checks and executes the same authorized planning-file path, including relative symlink/`..` paths, aliased project roots, hashline renames, and patch moves. Patch headers must round-trip through the supported executor parser without changing authorized operations or targets. Rename/delete preserve named final links; content writes follow only allowed targets. The physical planning directory may have any name the user chose (for example `.omo -> docs/plans`) but must be strictly inside the real project root, never the root itself or an ancestor; a `.omo` path segment matches with filesystem-native casing. Every denial is logged with its specific reason. Nested plans and parent-folder Windows paths remain supported; required argument rewrites fail closed if the host's retained arguments cannot receive them ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))",
+      "translated": "Prometheus가 상대 심볼릭 링크, 프로젝트 루트 별칭, 패치 이동 등을 포함한 승인된 planning-file 경로를 일관되게 검증하고 실행합니다. 패치 헤더는 executor 파서를 거쳐도 작업 내용이나 대상이 변하지 않아야 하며, 이름 변경이나 삭제 시 최종 링크를"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bundled skills no longer ship a top-level `__tests__` or `*_test` folder. Only a skill's top-level `test/` and `tests/` folders are exempt from the test-folder filter; before, any top-level folder name escaped it. ([#11398](https://github.com/code-yeongyu/oh-my-openagent/pull/11398), fixes [#11393](https://github.com/code-yeongyu/oh-my-openagent/issues/11393))",
+      "translated": "Bundled skills no longer ship a top-level `__tests__` or `*_test` folder. Only a skill's top-level `test/` and `tests/` folders are exempt from the test-folder filter; before, any top-level folder name escaped it. ([#11398](https://github.com/code-yeongyu/oh-my-openagent/pull/11398), fixes [#11393](https://github.com/code-yeongyu/oh-my-openagent/issues/11393))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prometheus now checks every `apply_patch` Add, Update, Delete, and Move target using the executor's line-splitting and header-slicing rules, including carriage returns and Unicode line separators; empty or unclassifiable headers fail closed ([#11392](https://github.com/code-yeongyu/oh-my-openagent/pull/11392))",
+      "translated": "Prometheus now checks every `apply_patch` Add, Update, Delete, and Move target using the executor's line-splitting and header-slicing rules, including carriage returns and Unicode line separators; empty or unclassifiable headers fail closed ([#11392](https://github.com/code-yeongyu/oh-my-openagent/pull/11392))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prometheus allows plan updates beside Markdown horizontal rules and triple-emphasized text by treating Update context as content, while still checking subsequent mutation headers ([#11392](https://github.com/code-yeongyu/oh-my-openagent/pull/11392))",
+      "translated": "Prometheus allows plan updates beside Markdown horizontal rules and triple-emphasized text by treating Update context as content, while still checking subsequent mutation headers ([#11392](https://github.com/code-yeongyu/oh-my-openagent/pull/11392))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo run` starts its OpenCode server with a per-run password when `OPENCODE_SERVER_PASSWORD` is not set, so a web page on another localhost port can no longer drive it; attaching to that server from outside the run now needs the password ([#11370](https://github.com/code-yeongyu/oh-my-openagent/pull/11370))",
+      "translated": "`omo run` starts its OpenCode server with a per-run password when `OPENCODE_SERVER_PASSWORD` is not set, so a web page on another localhost port can no longer drive it; attaching to that server from outside the run now needs the password ([#11370](https://github.com/code-yeongyu/oh-my-openagent/pull/11370))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Authenticated tmux panes receive credentials through owner-only, one-use files instead of process arguments; run cleanup removes any unread files ([#11370](https://github.com/code-yeongyu/oh-my-openagent/pull/11370)).",
+      "translated": "Authenticated tmux panes receive credentials through owner-only, one-use files instead of process arguments; run cleanup removes any unread files ([#11370](https://github.com/code-yeongyu/oh-my-openagent/pull/11370))."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Research fidelity verification now blocks only the facts whose source snapshot is unreadable, names the cause, accepts grouped derived values such as \"3,234 KRW-e8\" exactly as fill writes them, and detects edits to the original value or unit shown beside a conversion, in any bracket style (ASCII, fullwidth, square, lenticular, corner or tortoise-shell), a missing or misplaced original, a non-numeric bracket, a dash in place of brackets, and a second original (a bare figure in the operand's dimension right after the conversion), in HTML and Markdown editions; another filled fact, a parenthetical figure in prose, a year, or a range after a conversion no longer blocks an untampered report. ([#11310](https://github.com/code-yeongyu/oh-my-openagent/pull/11310))",
+      "translated": "Research fidelity verification now blocks only the facts whose source snapshot is unreadable, names the cause, accepts grouped derived values such as \"3,234 KRW-e8\" exactly as fill writes them, and detects edits to the original value or unit shown beside a conversion, in any bracket style (ASCII, fullwidth, square, lenticular, corner or tortoise-shell), a missing or misplaced original, a non-numeric bracket, a dash in place of brackets, and a second original (a bare figure in the operand's dimension right after the conversion), in HTML and Markdown editions; another filled fact, a parenthetical figure in prose, a year, or a range after a conversion no longer blocks an untampered report. ([#11310](https://github.com/code-yeongyu/oh-my-openagent/pull/11310))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Verified and assumed claim placeholders now fill with their claim marks in HTML and Markdown verification; format guidance reflects Markdown support. ([#11310](https://github.com/code-yeongyu/oh-my-openagent/pull/11310))",
+      "translated": "Verified and assumed claim placeholders now fill with their claim marks in HTML and Markdown verification; format guidance reflects Markdown support. ([#11310](https://github.com/code-yeongyu/oh-my-openagent/pull/11310))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Research fidelity verification binds the unit written right after a value-only fact, with or without a space and with a Korean particle, a currency sign before it, its unit placeholder, or its table column header by visual column, so hand-edited units block and ordinary prose such as \"m in total length\" no longer raises a false unit mismatch. A scale word inside the value (\"3,234억\", \"12 million\") is part of the value, and a row header in a key/value table is never read as a column header. A qualifier after the value (\"초과\", \"이상\", \"or more\") or an ordinary word that is also a unit alias (\"won awards\", \"second place\") is never read as a unit; a unit wrapped in inline markup, in parentheses or after a line break is read; and fill records each value's bound unit, mode included, in the fill map, so an edit to an unknown unit, a deleted unit, or a deleted `data-fact-mode` attribute still blocks. The longest unit written after a value is the one checked, so a longer unit that starts with the row's unit (\"12% 포인트\", \"12 percent points\" for a row in %) blocks, and an ordinary unit word beside a currency sign of another currency (\"$320 pounds\") blocks. ([#11301](https://github.com/code-yeongyu/oh-my-openagent/pull/11301))",
+      "translated": "Research fidelity verification binds the unit written right after a value-only fact, with or without a space and with a Korean particle, a currency sign before it, its unit placeholder, or its table column header by visual column, so hand-edited units block and ordinary prose such as \"m in total length\" no longer raises a false unit mismatch. A scale word inside the value (\"3,234억\", \"12 million\") is part of the value, and a row header in a key/value table is never read as a column header. A qualifier after the value (\"초과\", \"이상\", \"or more\") or an ordinary word that is also a unit alias (\"won awards\", \"second place\") is never read as a unit; a unit wrapped in inline markup, in parentheses or after a line break is read; and fill records each value's bound unit, mode included, in the fill map, so an edit to an unknown unit, a deleted unit, or a deleted `data-fact-mode` attribute still blocks. The longest unit written after a value is the one checked, so a longer unit that starts with the row's unit (\"12% 포인트\", \"12 percent points\" for a row in %) blocks, and an ordinary unit word beside a currency sign of another currency (\"$320 pounds\") blocks. ([#11301](https://github.com/code-yeongyu/oh-my-openagent/pull/11301))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "First-person verification cues (\"we verified\", \"we double-checked\", and the Korean equivalents) warn only when the clause names a result and no document before the clause ends (\"We measured a latency of 40 ms, as this report shows.\" and \"We verified the value on page 3.\" warn); one cue list covers English and Korean. ([#11301](https://github.com/code-yeongyu/oh-my-openagent/pull/11301))",
+      "translated": "First-person verification cues (\"we verified\", \"we double-checked\", and the Korean equivalents) warn only when the clause names a result and no document before the clause ends (\"We measured a latency of 40 ms, as this report shows.\" and \"We verified the value on page 3.\" warn); one cue list covers English and Korean. ([#11301](https://github.com/code-yeongyu/oh-my-openagent/pull/11301))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Research fidelity verification now matches complete source revisions (a sentence-final period included), reports a missing operand timestamp and a missing operand row under their own codes instead of a window mismatch, and reads quoted CSV labels correctly. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))",
+      "translated": "Research fidelity verification now matches complete source revisions (a sentence-final period included), reports a missing operand timestamp and a missing operand row under their own codes instead of a window mismatch, and reads quoted CSV labels correctly. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Polished report editions retain their original brief binding in a separate `<out>.polished.fill-map.json`, the pre-polish fill map is never rewritten (so `fact pairs --changed-since` still re-checks every sentence that changed, including after polishing in place), a fill map that does not match the report is refused, and editions without a fill map cannot bypass a changed brief. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))",
+      "translated": "Polished report editions retain their original brief binding in a separate `<out>.polished.fill-map.json`, the pre-polish fill map is never rewritten (so `fact pairs --changed-since` still re-checks every sentence that changed, including after polishing in place), a fill map that does not match the report is refused, and editions without a fill map cannot bypass a changed brief. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fact derivation requires caller-supplied observation time (`fact derive --now`; without it the command refuses with `missing_now`) and preserves ledger validation errors. Quote exact rules, negative zero, source-value rendering, placeholder identifiers, and literal-brace guidance are corrected. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))",
+      "translated": "Fact derivation requires caller-supplied observation time (`fact derive --now`; without it the command refuses with `missing_now`) and preserves ledger validation errors. Quote exact rules, negative zero, source-value rendering, placeholder identifiers, and literal-brace guidance are corrected. ([#11290](https://github.com/code-yeongyu/oh-my-openagent/pull/11290))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "CI now fails a pull request that adds an unused file, an unused export, an unused dependency, or an unlisted or unresolved import (`bun run knip:check`, knip 6.43.0). Findings already on `dev` are scoped ignores in `knip.jsonc`, each with its reason. ([#11481](https://github.com/code-yeongyu/oh-my-openagent/pull/11481), fixes [#11433](https://github.com/code-yeongyu/oh-my-openagent/issues/11433))",
+      "translated": "CI now fails a pull request that adds an unused file, an unused export, an unused dependency, or an unlisted or unresolved import (`bun run knip:check`, knip 6.43.0). Findings already on `dev` are scoped ignores in `knip.jsonc`, each with its reason. ([#11481](https://github.com/code-yeongyu/oh-my-openagent/pull/11481), fixes [#11433](https://github.com/code-yeongyu/oh-my-openagent/issues/11433))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add the OpenSSL hash-directory selection for the planned engine CA importer: it reads only the hash files Bun's own lookup can reach, walking constructed `<hash>.N` names and stopping at the first failure, so an orphan, misnamed or post-gap file is never trusted. Nothing uses it yet. ([#11430](https://github.com/code-yeongyu/oh-my-openagent/pull/11430), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Add the OpenSSL hash-directory selection for the planned engine CA importer: it reads only the hash files Bun's own lookup can reach, walking constructed `<hash>.N` names and stopping at the first failure, so an orphan, misnamed or post-gap file is never trusted. Nothing uses it yet. ([#11430](https://github.com/code-yeongyu/oh-my-openagent/pull/11430), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add the OpenSSL default-file rule for the planned engine CA importer: a default file Bun would reject, or one holding a certificate it indexes but cannot parse, now contributes nothing as a whole, so the importer never trusts a root that Bun itself cannot reach. Nothing uses it yet. ([#11411](https://github.com/code-yeongyu/oh-my-openagent/pull/11411), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Add the OpenSSL default-file rule for the planned engine CA importer: a default file Bun would reject, or one holding a certificate it indexes but cannot parse, now contributes nothing as a whole, so the importer never trusts a root that Bun itself cannot reach. Nothing uses it yet. ([#11411](https://github.com/code-yeongyu/oh-my-openagent/pull/11411), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add the Linux trust-bundle selector for the planned engine CA importer: it picks the one distribution-generated TLS bundle from `os-release` (Debian, Fedora and SUSE families, with no cross-family fallback) and reads it with an 8 MiB cap and a replacement check. Nothing uses it yet. ([#11407](https://github.com/code-yeongyu/oh-my-openagent/pull/11407), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Add the Linux trust-bundle selector for the planned engine CA importer: it picks the one distribution-generated TLS bundle from `os-release` (Debian, Fedora and SUSE families, with no cross-family fallback) and reads it with an 8 MiB cap and a replacement check. Nothing uses it yet. ([#11407](https://github.com/code-yeongyu/oh-my-openagent/pull/11407), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add the v1 engine trust policy, the pure decision behind the planned engine CA importer: from per-OS certificate facts it selects the SSL-server roots and chain-building intermediates, and it applies every OS Deny or Disallowed entry. Nothing uses it yet; the engine still trusts the OS store through `NODE_USE_SYSTEM_CA`. ([#11405](https://github.com/code-yeongyu/oh-my-openagent/pull/11405), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Add the v1 engine trust policy, the pure decision behind the planned engine CA importer: from per-OS certificate facts it selects the SSL-server roots and chain-building intermediates, and it applies every OS Deny or Disallowed entry. Nothing uses it yet; the engine still trusts the OS store through `NODE_USE_SYSTEM_CA`. ([#11405](https://github.com/code-yeongyu/oh-my-openagent/pull/11405), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Capture the host execution arguments before the complete before-hook chain, rejecting detached or subsequently changed Prometheus approvals. Tests also cover aliased temporary roots rather than assuming temporary paths are canonical. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))",
+      "translated": "Capture the host execution arguments before the complete before-hook chain, rejecting detached or subsequently changed Prometheus approvals. Tests also cover aliased temporary roots rather than assuming temporary paths are canonical. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Known and not fixed here: a hard link already under `.omo` can share an inode with a file outside `.omo`; realpath does not provide inode isolation. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))",
+      "translated": "Known and not fixed here: a hard link already under `.omo` can share an inode with a file outside `.omo`; realpath does not provide inode isolation. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Known and not fixed here: TOCTOU between `tool.execute.before` and the tool's open. Closing this race requires tool-side `O_NOFOLLOW` and directory-handle confinement. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))",
+      "translated": "Known and not fixed here: TOCTOU between `tool.execute.before` and the tool's open. Closing this race requires tool-side `O_NOFOLLOW` and directory-handle confinement. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Known and not fixed here: the patch round-trip trusts the vendored parser pinned to OpenCode 32f278b4; if the host parser changes, checked and executed targets can diverge again. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))",
+      "translated": "Known and not fixed here: the patch round-trip trusts the vendored parser pinned to OpenCode 32f278b4; if the host parser changes, checked and executed targets can diverge again. ([#11424](https://github.com/code-yeongyu/oh-my-openagent/pull/11424))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Set `OMO_BUNDLED_SKILLS_DIR` to an absolute directory to share bundled skills",
+      "translated": "Set `OMO_BUNDLED_SKILLS_DIR` to an absolute directory to share bundled skills"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "An explicit `skillsDir` option now wins over a valid",
+      "translated": "An explicit `skillsDir` option now wins over a valid"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The override resolver lives in the bundled-skills component itself (no",
+      "translated": "The override resolver lives in the bundled-skills component itself (no"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add generation-fenced computer-use stop-authority admission: a newer stop",
+      "translated": "Add generation-fenced computer-use stop-authority admission: a newer stop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "After quitting and reopening the same stopped session, the person's next message releases the Stop and reopens task admission even if an acknowledged paused child cannot restore. That child's failure remains recorded, its acknowledged cutoff is kept, and a later Resume can retry it without a live hold observer. This does not recover a parked queued admission (`held_admission`) marked `lost`: after restart, `retryLost` has no resume credential to re-admit it, so it stays stranded (omo#10864, item 1). ([#11401](https://github.com/code-yeongyu/oh-my-openagent/pull/11401)) ([#11417](https://github.com/code-yeongyu/oh-my-openagent/pull/11417))",
+      "translated": "After quitting and reopening the same stopped session, the person's next message releases the Stop and reopens task admission even if an acknowledged paused child cannot restore. That child's failure remains recorded, its acknowledged cutoff is kept, and a later Resume can retry it without a live hold observer. This does not recover a parked queued admission (`held_admission`) marked `lost`: after restart, `retryLost` has no resume credential to re-admit it, so it stays stranded (omo#10864, item 1). ([#11401](https://github.com/code-yeongyu/oh-my-openagent/pull/11401)) ([#11417](https://github.com/code-yeongyu/oh-my-openagent/pull/11417))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Bundled skills no longer ship `test`, `tests`, `__tests__`, or `*_test` folders nested below a skill's top level (such as ultimate-browsing's `engine/tests`), so a test module can no longer run inside the installed app and write caches there. Top-level `test/` and `tests/` resources still ship. ([#11377](https://github.com/code-yeongyu/oh-my-openagent/pull/11377), part of [#11373](https://github.com/code-yeongyu/oh-my-openagent/issues/11373)) ([#11391](https://github.com/code-yeongyu/oh-my-openagent/pull/11391))",
+      "translated": "Bundled skills no longer ship `test`, `tests`, `__tests__`, or `*_test` folders nested below a skill's top level (such as ultimate-browsing's `engine/tests`), so a test module can no longer run inside the installed app and write caches there. Top-level `test/` and `tests/` resources still ship. ([#11377](https://github.com/code-yeongyu/oh-my-openagent/pull/11377), part of [#11373](https://github.com/code-yeongyu/oh-my-openagent/issues/11373)) ([#11391](https://github.com/code-yeongyu/oh-my-openagent/pull/11391))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Running a bundled skill no longer writes files inside the installed app, so OmO Desktop no longer reports its files as changed and stops its local server after the coding-agent-sessions, ultimate-browsing or frontend skills run their Python scripts. A manual ast-grep install now downloads into a user cache folder instead of the skill folder. Python the agent runs now keeps its compiled bytecode in an OmO cache folder instead of next to the script, so your projects still start fast without `__pycache__` folders appearing in them; if you set `PYTHONDONTWRITEBYTECODE` or `PYTHONPYCACHEPREFIX` yourself, OmO leaves both alone. Thanks to @minerva32 for the report. ([#11376](https://github.com/code-yeongyu/oh-my-openagent/pull/11376), fixes [#11373](https://github.com/code-yeongyu/oh-my-openagent/issues/11373)) ([#11391](https://github.com/code-yeongyu/oh-my-openagent/pull/11391))",
+      "translated": "Running a bundled skill no longer writes files inside the installed app, so OmO Desktop no longer reports its files as changed and stops its local server after the coding-agent-sessions, ultimate-browsing or frontend skills run their Python scripts. A manual ast-grep install now downloads into a user cache folder instead of the skill folder. Python the agent runs now keeps its compiled bytecode in an OmO cache folder instead of next to the script, so your projects still start fast without `__pycache__` folders appearing in them; if you set `PYTHONDONTWRITEBYTECODE` or `PYTHONPYCACHEPREFIX` yourself, OmO leaves both alone. Thanks to @minerva32 for the report. ([#11376](https://github.com/code-yeongyu/oh-my-openagent/pull/11376), fixes [#11373](https://github.com/code-yeongyu/oh-my-openagent/issues/11373)) ([#11391](https://github.com/code-yeongyu/oh-my-openagent/pull/11391))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Prometheus can no longer write outside `.omo/*.md` through `apply_patch`, `multiedit` or a hashline edit's `rename`; a write whose target it cannot read is blocked ([#11369](https://github.com/code-yeongyu/oh-my-openagent/pull/11369))",
+      "translated": "Prometheus can no longer write outside `.omo/*.md` through `apply_patch`, `multiedit` or a hashline edit's `rename`; a write whose target it cannot read is blocked ([#11369](https://github.com/code-yeongyu/oh-my-openagent/pull/11369))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Count a Windows stop-hotkey request once in authority mode instead of",
+      "translated": "Count a Windows stop-hotkey request once in authority mode instead of"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex installations now contain only regular files and directories, preventing dependency symlinks from disabling every OmO hook during plugin fingerprinting. Native comment-checker resolution remains available without npm executable links. ([#11328](https://github.com/code-yeongyu/oh-my-openagent/pull/11328)) ([#11363](https://github.com/code-yeongyu/oh-my-openagent/pull/11363))",
+      "translated": "Codex installations now contain only regular files and directories, preventing dependency symlinks from disabling every OmO hook during plugin fingerprinting. Native comment-checker resolution remains available without npm executable links. ([#11328](https://github.com/code-yeongyu/oh-my-openagent/pull/11328)) ([#11363](https://github.com/code-yeongyu/oh-my-openagent/pull/11363))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The direct Codex package now includes its local LSP dependency so installation can materialize it instead of leaving a dangling package link. ([#11328](https://github.com/code-yeongyu/oh-my-openagent/pull/11328)) ([#11363](https://github.com/code-yeongyu/oh-my-openagent/pull/11363))",
+      "translated": "The direct Codex package now includes its local LSP dependency so installation can materialize it instead of leaving a dangling package link. ([#11328](https://github.com/code-yeongyu/oh-my-openagent/pull/11328)) ([#11363](https://github.com/code-yeongyu/oh-my-openagent/pull/11363))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Hosted tasks retain their original session through missed state probes, report unresponsive and recovered status to the parent, and resume queued steering without creating another child. An overdue unresponsive session is reported ended only after the live host confirms its absence following close, never from an acknowledgement or closed frame alone. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))",
+      "translated": "Hosted tasks retain their original session through missed state probes, report unresponsive and recovered status to the parent, and resume queued steering without creating another child. An overdue unresponsive session is reported ended only after the live host confirms its absence following close, never from an acknowledgement or closed frame alone. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Child activity resets missed heartbeat probes, so a delayed state reply does not label a still-streaming child unresponsive. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))",
+      "translated": "Child activity resets missed heartbeat probes, so a delayed state reply does not label a still-streaming child unresponsive. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Finished resident children report retryable unresponsiveness, and transient liveness oscillations are coalesced instead of repeatedly waking the parent. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))",
+      "translated": "Finished resident children report retryable unresponsiveness, and transient liveness oscillations are coalesced instead of repeatedly waking the parent. ([#11317](https://github.com/code-yeongyu/oh-my-openagent/pull/11317)) ([#11350](https://github.com/code-yeongyu/oh-my-openagent/pull/11350))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Research outcome initialization records the run clock once, from `--started-at`, an earlier valid manifest, a supervisor's run-state file, or the timestamped session directory name, and refuses impossible, future, or copied start times. ([#11302](https://github.com/code-yeongyu/oh-my-openagent/pull/11302))",
+      "translated": "Research outcome initialization records the run clock once, from `--started-at`, an earlier valid manifest, a supervisor's run-state file, or the timestamped session directory name, and refuses impossible, future, or copied start times. ([#11302](https://github.com/code-yeongyu/oh-my-openagent/pull/11302))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claim prefixes (V, A, D) fill through the claim-kind registry, and Sources sections check every sentence holding a numeral that is not a citation field (a year or date, a page, volume, issue, or edition marker, a number inside a URL, DOI, arXiv id, ISBN, quoted or cited title, or a citation tag), so reference entries stay exempt and claim sentences are checked; a number in an unquoted title is checked. A year range and link text count as citation fields, and a digit run glued to letters that are not a unit, multiplier, or currency (a commit hash, an issue number, GPT-4, Q3) is a name rather than a numeral, while 50M, 10k, 3x, x3, 2.5GB, 12%, 5mn, 40pct, 5yrs and 1.234.567 stay numerals, also when a word is glued in front of the measure. ([#11302](https://github.com/code-yeongyu/oh-my-openagent/pull/11302))",
+      "translated": "Claim prefixes (V, A, D) fill through the claim-kind registry, and Sources sections check every sentence holding a numeral that is not a citation field (a year or date, a page, volume, issue, or edition marker, a number inside a URL, DOI, arXiv id, ISBN, quoted or cited title, or a citation tag), so reference entries stay exempt and claim sentences are checked; a number in an unquoted title is checked. A year range and link text count as citation fields, and a digit run glued to letters that are not a unit, multiplier, or currency (a commit hash, an issue number, GPT-4, Q3) is a name rather than a numeral, while 50M, 10k, 3x, x3, 2.5GB, 12%, 5mn, 40pct, 5yrs and 1.234.567 stay numerals, also when a word is glued in front of the measure. ([#11302](https://github.com/code-yeongyu/oh-my-openagent/pull/11302))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Keep quoted style end-tag attributes inside the polish markup boundary, report edits adjacent to unfinished character references precisely, and respect Markdown closing-fence indentation. ([#11291](https://github.com/code-yeongyu/oh-my-openagent/pull/11291))",
+      "translated": "Keep quoted style end-tag attributes inside the polish markup boundary, report edits adjacent to unfinished character references precisely, and respect Markdown closing-fence indentation. ([#11291](https://github.com/code-yeongyu/oh-my-openagent/pull/11291))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Expose whether every polish edit applied through a JSON boolean while preserving partial-output success and accepted-edit counts. ([#11291](https://github.com/code-yeongyu/oh-my-openagent/pull/11291))",
+      "translated": "Expose whether every polish edit applied through a JSON boolean while preserving partial-output success and accepted-edit counts. ([#11291](https://github.com/code-yeongyu/oh-my-openagent/pull/11291))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory supervisor integration tests report an exited supervisor's code, stderr and run artifacts when a child start or durable state never arrives, instead of stalling until a timeout. ([#11288](https://github.com/code-yeongyu/oh-my-openagent/pull/11288))",
+      "translated": "Memory supervisor integration tests report an exited supervisor's code, stderr and run artifacts when a child start or durable state never arrives, instead of stalling until a timeout. ([#11288](https://github.com/code-yeongyu/oh-my-openagent/pull/11288))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c8955517dd docs(release): 5.1.51 notes: drop the dev-only knip bullet and the stale next-release line",
+      "translated": "5.1.51 notes: drop the dev-only knip bullet and the stale next-release line"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "95c926c34c docs(release): 5.1.51 notes: ship the unpublished 5.1.49 and 5.1.50 entries, lead with the speed fixes",
+      "translated": "5.1.51 notes: ship the unpublished 5.1.49 and 5.1.50 entries, lead with the speed fixes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4c0afd4679 Merge pull request #11664 from code-yeongyu/fix/knip-telemetry-rename-rows",
+      "translated": "Merge pull request #11664 from code-yeongyu/fix/knip-telemetry-rename-rows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3cc1f5eefb Merge remote-tracking branch 'origin/dev' into fix/knip-telemetry-rename-rows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/knip-telemetry-rename-rows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e9ad0f09c9 Merge pull request #11548 from code-yeongyu/fix/11541-windows-path-identity",
+      "translated": "Merge pull request #11548 from code-yeongyu/fix/11541-windows-path-identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aa6e9d184d Merge pull request #11646 from code-yeongyu/fix/knip-dev-design-revalidate",
+      "translated": "Merge pull request #11646 from code-yeongyu/fix/knip-dev-design-revalidate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd1310b65d Merge pull request #11563 from code-yeongyu/fix/9766-script-scratch-temp-leak",
+      "translated": "Merge pull request #11563 from code-yeongyu/fix/9766-script-scratch-temp-leak"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a57d2da4fb Merge pull request #11502 from code-yeongyu/p0/p0-06i-control-confirm-char",
+      "translated": "Merge pull request #11502 from code-yeongyu/p0/p0-06i-control-confirm-char"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d0b1623163 Merge origin/dev into fix/11541-windows-path-identity",
+      "translated": "Merge origin/dev into fix/11541-windows-path-identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8159bfbbf4 docs(changes): changelog fragment for #11664",
+      "translated": "Changelog fragment for #11664"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5922108d69 fix(knip): follow #11572's telemetry rename in the preExistingExports rows",
+      "translated": "Follow #11572's telemetry rename in the preExistingExports rows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7a2a2a9a54 Merge remote-tracking branch 'origin/dev' into fix/9766-script-scratch-temp-leak",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9766-script-scratch-temp-leak"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4c87d16a73 Merge pull request #11572 from code-yeongyu/fix/telemetry-no-host-derived-ids",
+      "translated": "Merge pull request #11572 from code-yeongyu/fix/telemetry-no-host-derived-ids"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "17d0cacbef chore(knip): name the pre-existing revalidate export of web /design layout after the dev merge",
+      "translated": "Name the pre-existing revalidate export of web /design layout after the dev merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5c749f1445 chore(knip): name the pre-existing revalidate export of web /design layout after the dev merge",
+      "translated": "Name the pre-existing revalidate export of web /design layout after the dev merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f29883d236 Merge origin/dev into p0/p0-06i-control-confirm-char",
+      "translated": "Merge origin/dev into p0/p0-06i-control-confirm-char"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "88a2b06e3f Merge pull request #11481 from code-yeongyu/chore/knip-dead-code-gate",
+      "translated": "Merge pull request #11481 from code-yeongyu/chore/knip-dead-code-gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6d5e0d81c1 Merge pull request #11619 from code-yeongyu/fix/atlas-timer-seam",
+      "translated": "Merge pull request #11619 from code-yeongyu/fix/atlas-timer-seam"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6219e7a1fd test(prometheus-md-only): read the 8.3 spelling from FileSystemObject.ShortPath",
+      "translated": "Read the 8.3 spelling from FileSystemObject.ShortPath"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ae481df61a Merge pull request #11535 from code-yeongyu/feat/11466-cu-release-helper",
+      "translated": "Merge pull request #11535 from code-yeongyu/feat/11466-cu-release-helper"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "237dadf76b docs(changes): add fragment for #11619",
+      "translated": "Add fragment for #11619"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ee18cf2b39 fix(atlas): schedule the delayed retry through an injected scheduler so tests stop capturing global timers (#11617)",
+      "translated": "Schedule the delayed retry through an injected scheduler so tests stop capturing global timers (#11617)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9e4443c924 Merge pull request #11600 from code-yeongyu/ci/pr-concurrency-cancel",
+      "translated": "Merge pull request #11600 from code-yeongyu/ci/pr-concurrency-cancel"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d15551c329 test(prometheus-md-only): strip the escaped quote cmd echoes around the 8.3 spelling",
+      "translated": "Strip the escaped quote cmd echoes around the 8.3 spelling"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b76f02e6e1 Merge pull request #11592 from code-yeongyu/fix/3364-mcp-abort-signal",
+      "translated": "Merge pull request #11592 from code-yeongyu/fix/3364-mcp-abort-signal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b469db9cfe Merge pull request #11587 from code-yeongyu/fix/web-prerender-revalidate",
+      "translated": "Merge pull request #11587 from code-yeongyu/fix/web-prerender-revalidate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "86f892178c Merge pull request #11536 from code-yeongyu/feat/frontend-designer-habits",
+      "translated": "Merge pull request #11536 from code-yeongyu/feat/frontend-designer-habits"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8b4846e404 Merge remote-tracking branch 'origin/dev' into feat/11466-cu-release-helper",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11466-cu-release-helper"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "138ec3bfa5 test(knip): remove each repo-sized copy inside its test, under the test bound",
+      "translated": "Remove each repo-sized copy inside its test, under the test bound"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aec03798d7 Merge pull request #11574 from code-yeongyu/fix/changelog-gate-release-merge-base",
+      "translated": "Merge pull request #11574 from code-yeongyu/fix/changelog-gate-release-merge-base"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "90d19f1ff0 ci(memory-takeover-trace): cancel the superseded pull-request matrix (#11596)",
+      "translated": "Cancel the superseded pull-request matrix (#11596)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "44f9274a11 Merge remote-tracking branch 'origin/dev' into fix/9766-script-scratch-temp-leak",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/9766-script-scratch-temp-leak"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b1ea8c5df Merge pull request #11544 from code-yeongyu/fix/11543-dag-runtime-idle-reclaimer",
+      "translated": "Merge pull request #11544 from code-yeongyu/fix/11543-dag-runtime-idle-reclaimer"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d402e6caa6 fix(knip): export-check every Next.js special file and the otlp-opt-out entry after the dev merge",
+      "translated": "Export-check every Next.js special file and the otlp-opt-out entry after the dev merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "168328b22c Merge origin/dev into chore/knip-dead-code-gate",
+      "translated": "Merge origin/dev into chore/knip-dead-code-gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fb1392d662 docs(changes): add fragment for #11592 (#3364)",
+      "translated": "Add fragment for #11592 (#3364)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5414dd3ef7 fix(skill-mcp): propagate the session abort signal into MCP calls and close their HTTP stream (#3364)",
+      "translated": "Propagate the session abort signal into MCP calls and close their HTTP stream (#3364)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2b5831715e Merge pull request #11562 from code-yeongyu/fix/audit-skip-unreleased-fragments",
+      "translated": "Merge pull request #11562 from code-yeongyu/fix/audit-skip-unreleased-fragments"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8ad58f847f test(prometheus-md-only): build the 8.3 and drive-letter forms correctly",
+      "translated": "Build the 8.3 and drive-letter forms correctly"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ce8ec7e1cd docs(changes): add the #11587 fragment",
+      "translated": "Add the #11587 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e7f59d651c fix(web): keep /design prerenders inside the expiry budget",
+      "translated": "Keep /design prerenders inside the expiry budget"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fa866972d5 Merge pull request #11498 from code-yeongyu/fix/web-document-shell-11468",
+      "translated": "Merge pull request #11498 from code-yeongyu/fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b94e71ef7d chore(changelog): name the fragment for #11574",
+      "translated": "Name the fragment for #11574"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8f67f74dcc chore(changes): name fragment after PR #11572",
+      "translated": "Name fragment after PR #11572"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c9f52f625a fix(changelog-gate): release PRs only owe the fragments present at the merge base",
+      "translated": "Release PRs only owe the fragments present at the merge base"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "344fe53a98 chore(changes): add fragment for telemetry identifiers",
+      "translated": "Add fragment for telemetry identifiers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5a9aaa1668 docs(telemetry): describe telemetry ids as random local install ids",
+      "translated": "Describe telemetry ids as random local install ids"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "71adc25360 fix(telemetry): derive every telemetry id from a random local install id",
+      "translated": "Derive every telemetry id from a random local install id"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "088b7393a2 fix(knip): bound each entry section at the next section header",
+      "translated": "Bound each entry section at the next section header"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d25c04fe75 fix(knip): read only an entry section's own paths array",
+      "translated": "Read only an entry section's own paths array"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "13553df6cb fix(knip): read every knip entry and link every package dir on Windows",
+      "translated": "Read every knip entry and link every package dir on Windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ad3cb2e28d Merge pull request #11410 from LilMGenius/fix/lcx-route-source-pr",
+      "translated": "Merge pull request #11410 from LilMGenius/fix/lcx-route-source-pr"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "21b167fad4 Merge remote-tracking branch 'origin/dev' into fix/11543-dag-runtime-idle-reclaimer",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11543-dag-runtime-idle-reclaimer"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0e87541041 chore(changes): name the fragment after PR #11562",
+      "translated": "Name the fragment after PR #11562"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d77f025d01 fix(script): remove scratch repos on every path in the changelog CLI tests",
+      "translated": "Remove scratch repos on every path in the changelog CLI tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "25c13d9bd7 test(audit): skip changes/unreleased fragments in the agent-command-string scan",
+      "translated": "Skip changes/unreleased fragments in the agent-command-string scan"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c70c54e9f Merge dev into fix/web-document-shell-11468",
+      "translated": "Merge dev into fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0845b3f0a9 Merge remote-tracking branch 'origin/dev' into feat/frontend-designer-habits",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/frontend-designer-habits"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2cbdc31c3e Merge pull request #11290 from code-yeongyu/fix/11285-fill-verify-value-rules",
+      "translated": "Merge pull request #11290 from code-yeongyu/fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "286f9e2c01 Merge pull request #11492 from code-yeongyu/fix/web-search-input-11470",
+      "translated": "Merge pull request #11492 from code-yeongyu/fix/web-search-input-11470"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "976b2e4d30 Merge pull request #11490 from code-yeongyu/fix/web-tooltip-sheet-11475",
+      "translated": "Merge pull request #11490 from code-yeongyu/fix/web-tooltip-sheet-11475"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dc2df2cc4e test(prometheus-md-only): isolate the denial log on Windows and build canonical fixtures per platform",
+      "translated": "Isolate the denial log on Windows and build canonical fixtures per platform"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1b5b216712 Merge pull request #11488 from code-yeongyu/fix/web-text-faint-11469",
+      "translated": "Merge pull request #11488 from code-yeongyu/fix/web-text-faint-11469"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2147e2abf8 Merge remote-tracking branch 'origin/dev' into feat/11466-cu-release-helper",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11466-cu-release-helper"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3cc3c6566a Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4664e5ee40 Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9d0cfff4bd Merge dev into fix/web-text-faint-11469",
+      "translated": "Merge dev into fix/web-text-faint-11469"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ea87920b59 Merge dev into fix/web-search-input-11470",
+      "translated": "Merge dev into fix/web-search-input-11470"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1ce202956e Merge dev into fix/web-document-shell-11468",
+      "translated": "Merge dev into fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ebcb18d6c5 Merge dev into fix/web-tooltip-sheet-11475",
+      "translated": "Merge dev into fix/web-tooltip-sheet-11475"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "beca5f3418 Merge pull request #11525 from code-yeongyu/batch/memsync-coord-19",
+      "translated": "Merge pull request #11525 from code-yeongyu/batch/memsync-coord-19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a5061c6ee5 fix(prometheus-md-only): canonicalize Windows path identity the way the executor opens it",
+      "translated": "Canonicalize Windows path identity the way the executor opens it"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61b7fd10c2 chore(knip): record the unused exports dev added after the last merge",
+      "translated": "Record the unused exports dev added after the last merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b09c18ab86 fix(knip): resolve the probe copy with realpathSync.native so Windows 8.3 temp paths match knip output",
+      "translated": "Resolve the probe copy with realpathSync.native so Windows 8.3 temp paths match knip output"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6c8f359621 Merge remote-tracking branch 'origin/dev' into chore/knip-dead-code-gate",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/knip-dead-code-gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e26a99a0ba Merge dev into fix/web-tooltip-sheet-11475",
+      "translated": "Merge dev into fix/web-tooltip-sheet-11475"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5dd11007ec Merge dev into fix/web-text-faint-11469",
+      "translated": "Merge dev into fix/web-text-faint-11469"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "de739e7056 Merge dev into fix/web-document-shell-11468",
+      "translated": "Merge dev into fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0e97e51030 Merge dev into fix/web-search-input-11470",
+      "translated": "Merge dev into fix/web-search-input-11470"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e6328d8df Merge pull request #11487 from code-yeongyu/fix/web-focus-ring-11467",
+      "translated": "Merge pull request #11487 from code-yeongyu/fix/web-focus-ring-11467"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a81042caf6 test(ulw-research): snapshot the support text source as raw bytes (compose glue)",
+      "translated": "Snapshot the support text source as raw bytes (compose glue)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a899598eca Merge pull request #11456 from code-yeongyu/fix/8108-skill-description-dedupe-on-dev",
+      "translated": "Merge pull request #11456 from code-yeongyu/fix/8108-skill-description-dedupe-on-dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "030aee3ed1 fix(ulw-research): pass the ledger to the value-unit check",
+      "translated": "Pass the ledger to the value-unit check"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "688da47db0 fix(ulw-research): bind the currency sign outside and inside a value-mode element",
+      "translated": "Bind the currency sign outside and inside a value-mode element"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "560ce3fe9c fix(ulw-research): compose value-rules revision checks with fail-closed snapshots",
+      "translated": "Compose value-rules revision checks with fail-closed snapshots"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fa806d4fc8 Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cb4c6831d5 Merge pull request #11287 from code-yeongyu/feat/11285-raw-bytes-locator",
+      "translated": "Merge pull request #11287 from code-yeongyu/feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ee44838ee4 Merge pull request #11524 from code-yeongyu/fix/11520-sync-continuation-deleted-session",
+      "translated": "Merge pull request #11524 from code-yeongyu/fix/11520-sync-continuation-deleted-session"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24e7c2bea1 test(prometheus-md-only): table every Windows alias form and probe link/.. path identity",
+      "translated": "Table every Windows alias form and probe link/.. path identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8178532c7f Merge dev into fix/web-tooltip-sheet-11475",
+      "translated": "Merge dev into fix/web-tooltip-sheet-11475"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4ff82184c5 Merge dev into fix/web-text-faint-11469",
+      "translated": "Merge dev into fix/web-text-faint-11469"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a8e67d1960 Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "447b2e6c91 Merge dev into fix/web-document-shell-11468",
+      "translated": "Merge dev into fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6090e3858 Merge dev into fix/web-search-input-11470",
+      "translated": "Merge dev into fix/web-search-input-11470"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ae186f8d92 Merge dev into fix/web-focus-ring-11467",
+      "translated": "Merge dev into fix/web-focus-ring-11467"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43eec3ddaf Merge pull request #11398 from code-yeongyu/fix/11393-toplevel-test-dir-exemption",
+      "translated": "Merge pull request #11398 from code-yeongyu/fix/11393-toplevel-test-dir-exemption"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6152a65599 chore(knip): cover entries and declarations dev added after the last merge",
+      "translated": "Cover entries and declarations dev added after the last merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7e6bd860bd Merge remote-tracking branch 'origin/dev' into fix/8108-skill-description-dedupe-on-dev",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/8108-skill-description-dedupe-on-dev"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "62171340a7 Merge origin/dev into chore/knip-dead-code-gate",
+      "translated": "Merge origin/dev into chore/knip-dead-code-gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61af4dbf47 chore(bundle): regenerate generated outputs for batch #19 (after the dev merge and member fixes)",
+      "translated": "Regenerate generated outputs for batch #19 (after the dev merge and member fixes)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "27d8c35a8c test(desktop-engine): find the stand-in helper pid after libtest output",
+      "translated": "Find the stand-in helper pid after libtest output"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "34ce899b00 fix(memory): the missing-note walk checks its ancestor on the filesystem realpath used (#11339)",
+      "translated": "The missing-note walk checks its ancestor on the filesystem realpath used (#11339)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9acfa6c24a docs(changes): fold #11491 into the batch #19 fragment",
+      "translated": "Fold #11491 into the batch #19 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "da01ca85a0 Merge #11491 (release binary budget 200 MiB) into batch #19",
+      "translated": "Merge #11491 (release binary budget 200 MiB) into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a8db1d309 Merge pull request #11445 from code-yeongyu/fix/11444-brand-logo",
+      "translated": "Merge pull request #11445 from code-yeongyu/fix/11444-brand-logo"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dc7058a5b5 fix(frontend): AA exceptions for 2.5.8, 1.4.10 and 3.3.8, and what grounding captures on a new screen",
+      "translated": "AA exceptions for 2.5.8, 1.4.10 and 3.3.8, and what grounding captures on a new screen"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "449f7e4358 fix(frontend): exact 2.5.8 spacing and 2.4.11 wording, and a stated check for system order and surfaces",
+      "translated": "Exact 2.5.8 spacing and 2.4.11 wording, and a stated check for system order and surfaces"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "47018060a5 test(web): read focus variants structurally instead of by shape",
+      "translated": "Read focus variants structurally instead of by shape"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9061489aa1 fix(desktop-macos): read a helper that already exited as closed on macOS",
+      "translated": "Read a helper that already exited as closed on macOS"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "326fa016ce fix(frontend): drop the existing-surface inventory and brand-continuity rule from grounding",
+      "translated": "Drop the existing-surface inventory and brand-continuity rule from grounding"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bd46d3df7d docs(web): scope the Tooltip rule to the controls that carry one",
+      "translated": "Scope the Tooltip rule to the controls that carry one"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "822e99cba9 fix(frontend): grounding inventories only the target project's own surfaces",
+      "translated": "Grounding inventories only the target project's own surfaces"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b290ee0df8 feat(frontend): grounding covers every rule source, a planned proof per row, and parallel multi-PR execution",
+      "translated": "Grounding covers every rule source, a planned proof per row, and parallel multi-PR execution"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e0f12da0e9 docs(changes): add the frontend designer-habits fragment",
+      "translated": "Add the frontend designer-habits fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5acce705d1 docs(changes): add release-helper fragment for #11535",
+      "translated": "Add release-helper fragment for #11535"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "04b4661885 feat(frontend): ground, state-stable controls, colour-first systems, and a stated WCAG 2.2 AA result",
+      "translated": "Ground, state-stable controls, colour-first systems, and a stated WCAG 2.2 AA result"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cc9408d4db feat(desktop-macos): release held input even if the engine dies",
+      "translated": "Release held input even if the engine dies"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8cf7b4f3d3 test(model-profile): read #11442's lane outcome from the session entry #11365 records",
+      "translated": "Read #11442's lane outcome from the session entry #11365 records"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cdf982617c Merge dev into batch #19",
+      "translated": "Merge dev into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "64cc19db75 docs(web): say which 404 actually renders for unknown URLs",
+      "translated": "Say which 404 actually renders for unknown URLs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b3bb0861f4 test(web): restore paren-aware variant splitting and cover data-[focus]",
+      "translated": "Restore paren-aware variant splitting and cover data-[focus]"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "59c7d07d01 test(web): cover compound focus variants and arbitrary outline forms",
+      "translated": "Cover compound focus variants and arbitrary outline forms"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e7fcf59028 fix(delegate-task): count only a definite 404 as a deleted sync session",
+      "translated": "Count only a definite 404 as a deleted sync session"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0ba0026e5f fix(web): keep locale routes open so a Worker cache miss renders",
+      "translated": "Keep locale routes open so a Worker cache miss renders"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "63f9344003 docs(changes): credit @surlymochan for #11237",
+      "translated": "Credit @surlymochan for #11237"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8e94f5e24 docs(changes): fold batch #19 fragments into 11525",
+      "translated": "Fold batch #19 fragments into 11525"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bf5306420b chore(bundle): regenerate generated outputs for batch #19",
+      "translated": "Regenerate generated outputs for batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1f914a297b test(web): classify focus outlines by variant chain, not one regex",
+      "translated": "Classify focus outlines by variant chain, not one regex"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "60bfeed180 docs(changes): add fragment for #11524",
+      "translated": "Add fragment for #11524"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed06a4caf7 fix(delegate-task): fail fast when a sync continuation targets a deleted session",
+      "translated": "Fail fast when a sync continuation targets a deleted session"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "29e45dfa78 fix(delegate-task): honor taskCleanupDelayMs for sync subagent sessions",
+      "translated": "Honor taskCleanupDelayMs for sync subagent sessions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b81db78764 fix(web): keep the graph hero's focus ring visible and widen the outline guard",
+      "translated": "Keep the graph hero's focus ring visible and widen the outline guard"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c46cdcda92 docs(web): describe the docs search as the labelled --input control",
+      "translated": "Describe the docs search as the labelled --input control"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dae7512208 Merge pull request #11424 from code-yeongyu/fix/11367-prometheus-symlink",
+      "translated": "Merge pull request #11424 from code-yeongyu/fix/11367-prometheus-symlink"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3a832509e6 docs(ulw-research): drop the unlinked reference files left by the dev merge",
+      "translated": "Drop the unlinked reference files left by the dev merge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "05e5b9f04b chore(knip): name the unused exports dev added after this check (4d3161eabd); drop the row dev now uses",
+      "translated": "Name the unused exports dev added after this check (4d3161eabd); drop the row dev now uses"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "658f79b47a docs(web): move the sheet Escape rule to DESIGN.md §8",
+      "translated": "Move the sheet Escape rule to DESIGN.md §8"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7fabb3f583 Merge remote-tracking branch 'origin/dev' into chore/knip-dead-code-gate",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/knip-dead-code-gate"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1a2d6aab03 fix(web): pin view-timeline insets so scroll padding does not move reveals",
+      "translated": "Pin view-timeline insets so scroll padding does not move reveals"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5693348eda fix(ulw-research): dedupe snapshot blockers across source checks (compose glue)",
+      "translated": "Dedupe snapshot blockers across source checks (compose glue)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "662f9498b4 fix(ulw-research): compose raw-snapshot verify with the required fill map",
+      "translated": "Compose raw-snapshot verify with the required fill map"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aed6c128c5 fix(ulw-research): compose conversion-originals derive calls with the required now",
+      "translated": "Compose conversion-originals derive calls with the required now"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "16b351e2f6 fix(ulw-research): compose --text --replace as declared measurable text",
+      "translated": "Compose --text --replace as declared measurable text"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8c04396da Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4d3161eabd Merge pull request #11286 from code-yeongyu/feat/11285-conversion-probe",
+      "translated": "Merge pull request #11286 from code-yeongyu/feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c9e63761bb Merge remote-tracking branch 'origin/dev' into fix/11393-toplevel-test-dir-exemption",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11393-toplevel-test-dir-exemption"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "19c54bd92e fix(web): make the tooltip hoverable and keep Escape from stealing focus",
+      "translated": "Make the tooltip hoverable and keep Escape from stealing focus"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5b8be05932 test(web): make the --text-faint guard parse JSX and scan .ts files",
+      "translated": "Make the --text-faint guard parse JSX and scan .ts files"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f75add612c Merge #11431 (with collector-cutover resolution 162042f62) into batch #19",
+      "translated": "Merge #11431 (with collector-cutover resolution 162042f62) into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a692aa8ed9 Merge #11428 into batch #19",
+      "translated": "Merge #11428 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "162042f62d Merge #11431 into the 5.1.50 car",
+      "translated": "Merge #11431 into the 5.1.50 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "92676073fc Merge #11428 into the 5.1.50 car",
+      "translated": "Merge #11428 into the 5.1.50 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3d69b805c9 Merge commit 'd3a6295b23d8852c9b8a6256f4c392be6dce9984' into fix/web-document-shell-11468",
+      "translated": "Merge commit 'd3a6295b23d8852c9b8a6256f4c392be6dce9984' into fix/web-document-shell-11468"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eccca44898 Merge commit 'd3a6295b23d8852c9b8a6256f4c392be6dce9984' into fix/web-search-input-11470",
+      "translated": "Merge commit 'd3a6295b23d8852c9b8a6256f4c392be6dce9984' into fix/web-search-input-11470"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d3a6295b23 docs(changes): drop the optional #11487 fragment",
+      "translated": "Drop the optional #11487 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "47836d5a37 docs(changes): add the #11498 fragment",
+      "translated": "Add the #11498 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f2a7ec093a Merge pull request #11239 from code-yeongyu/fix/11205-rust-modern-mcp",
+      "translated": "Merge pull request #11239 from code-yeongyu/fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7e973a1c84 Merge pull request #11243 from code-yeongyu/fix/11205-skill-modern-mcp",
+      "translated": "Merge pull request #11243 from code-yeongyu/fix/11205-skill-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "01032d2d80 fix(omo-opencode): dedupe skill descriptions against core's real skill list (#8108)",
+      "translated": "Dedupe skill descriptions against core's real skill list (#8108)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8080dc5c0 Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14e3638d48 Merge pull request #11301 from code-yeongyu/fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge pull request #11301 from code-yeongyu/fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "55f7356dae Merge pull request #11370 from code-yeongyu/fix/11367-run-server-password",
+      "translated": "Merge pull request #11370 from code-yeongyu/fix/11367-run-server-password"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b412e6fca5 fix(web): one document shell per locale: html lang, colour-scheme, tokens, skip link",
+      "translated": "One document shell per locale: html lang, colour-scheme, tokens, skip link"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "04d09943fc chore(knip): share the preprocessor byte for byte with omo-relay-daemon",
+      "translated": "Share the preprocessor byte for byte with omo-relay-daemon"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e973ae1db3 Merge origin/dev into fix/11367-prometheus-symlink",
+      "translated": "Merge origin/dev into fix/11367-prometheus-symlink"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b15e882f8a docs(release): complete the 5.1.49 size breakdown and name the measured Linux targets",
+      "translated": "Complete the 5.1.49 size breakdown and name the measured Linux targets"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ddb6629049 Merge pull request #11392 from code-yeongyu/fix/11367-prometheus-patch-lines",
+      "translated": "Merge pull request #11392 from code-yeongyu/fix/11367-prometheus-patch-lines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0319edc746 docs(changes): add the #11492 fragment",
+      "translated": "Add the #11492 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0cce4857ae docs(changes): add the #11490 fragment",
+      "translated": "Add the #11490 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "982888082e chore(knip): coverage never shrinks; name pre-existing unused exports per symbol",
+      "translated": "Coverage never shrinks; name pre-existing unused exports per symbol"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "09a9700124 docs(changelog): fragment for #11491",
+      "translated": "Fragment for #11491"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8afc24776a build(release): raise the release binary size budget to 200 MiB for the Bun 1.4.4 runtime",
+      "translated": "Raise the release binary size budget to 200 MiB for the Bun 1.4.4 runtime"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "120faed7af fix(web): give the docs search a 3:1 boundary and its own label",
+      "translated": "Give the docs search a 3:1 boundary and its own label"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f6ed5c847 fix(web): accessible tooltip for icon controls and Escape for the mobile sheet",
+      "translated": "Accessible tooltip for icon controls and Escape for the mobile sheet"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "72422b427b docs(changes): add the #11488 fragment",
+      "translated": "Add the #11488 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cf7d4550c2 fix(web): keep meaningful text off --text-faint and dimmed DAG nodes legible",
+      "translated": "Keep meaningful text off --text-faint and dimmed DAG nodes legible"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c199351c88 docs(changes): add the #11487 fragment",
+      "translated": "Add the #11487 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1ae1ff2253 fix(web): draw every focus ring at 3:1 or better from one recipe",
+      "translated": "Draw every focus ring at 3:1 or better from one recipe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6803303cfc Merge pull request #11430 from code-yeongyu/feat/10762-hash-dir",
+      "translated": "Merge pull request #11430 from code-yeongyu/feat/10762-hash-dir"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6325e0150 chore(changelog): name the knip fragment for #11481",
+      "translated": "Name the knip fragment for #11481"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c97e87447 Merge #11439 into batch #19",
+      "translated": "Merge #11439 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bf516588aa Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6412854b98 Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a0e94eed4f Merge pull request #11310 from code-yeongyu/fix/11285-gate-findings",
+      "translated": "Merge pull request #11310 from code-yeongyu/fix/11285-gate-findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9fee5d6266 Merge pull request #11411 from code-yeongyu/feat/10762-default-file-rule",
+      "translated": "Merge pull request #11411 from code-yeongyu/feat/10762-default-file-rule"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "338571986c Merge pull request #11407 from code-yeongyu/feat/10762-linux-bundle",
+      "translated": "Merge pull request #11407 from code-yeongyu/feat/10762-linux-bundle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "93f909ebdf docs(changelog): fragment for #11456",
+      "translated": "Fragment for #11456"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03f460e3d8 test(omo-opencode): keep the ordering test on skills core does not list (#8108)",
+      "translated": "Keep the ordering test on skills core does not list (#8108)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7a31c5cc1 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e66b7eeb6f Merge origin/dev into fix/11367-run-server-password",
+      "translated": "Merge origin/dev into fix/11367-run-server-password"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f5d4ce36d8 Merge origin/dev into fix/11367-prometheus-patch-lines",
+      "translated": "Merge origin/dev into fix/11367-prometheus-patch-lines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8abceecf01 Merge pull request #11405 from code-yeongyu/feat/10762-trust-policy",
+      "translated": "Merge pull request #11405 from code-yeongyu/feat/10762-trust-policy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4b480ad3c8 Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "09904f61b7 Merge #11442 into batch #19",
+      "translated": "Merge #11442 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a02a546f74 Merge #11440 into batch #19",
+      "translated": "Merge #11440 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5cff78ffcd Merge #11237 into batch #19",
+      "translated": "Merge #11237 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c63394ac7 Merge #11427 into batch #19",
+      "translated": "Merge #11427 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6eee529ab6 Merge #11339 into batch #19",
+      "translated": "Merge #11339 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "56dd6fa6fd Merge #11335 into batch #19",
+      "translated": "Merge #11335 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "849c42fc8c Merge #11365 into batch #19",
+      "translated": "Merge #11365 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3101d20ba7 Merge #11441 into batch #19",
+      "translated": "Merge #11441 into batch #19"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "058086c9ef Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "522fb05f7d Merge pull request #11443 from code-yeongyu/fix/stamp-agreement-release-tree",
+      "translated": "Merge pull request #11443 from code-yeongyu/fix/stamp-agreement-release-tree"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7e5a5941f test(telemetry): the ingest-key gate also scans .github/scripts and pins the build define to an empty env default",
+      "translated": "The ingest-key gate also scans .github/scripts and pins the build define to an empty env default"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b015e348f0 Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "09e062cdcf Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8b014966f9 Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b2325a67c2 Merge remote-tracking branch 'origin/dev' into feat/10762-hash-dir",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-hash-dir"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "753a07949c Merge remote-tracking branch 'origin/dev' into feat/10762-default-file-rule",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-default-file-rule"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed4f0e9eee Merge remote-tracking branch 'origin/dev' into feat/10762-linux-bundle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-linux-bundle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "797378836f test(telemetry): block any build from baking the OTLP ingest key until the projection fixes ship",
+      "translated": "Block any build from baking the OTLP ingest key until the projection fixes ship"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d622b5230f Merge remote-tracking branch 'origin/dev' into feat/10762-trust-policy",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-trust-policy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4686e425b5 Merge pull request #11435 from code-yeongyu/release/v5.1.49-source-state",
+      "translated": "Merge pull request #11435 from code-yeongyu/release/v5.1.49-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d653234381 fix(brand): keep the brand logo stable on CRLF checkouts and check it in CI",
+      "translated": "Keep the brand logo stable on CRLF checkouts and check it in CI"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61f0672a6e docs(changes): fragment for #11445",
+      "translated": "Fragment for #11445"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "873637a94e fix(brand): send the OmO icon as the SENPI_BRAND logo on every launch path",
+      "translated": "Send the OmO icon as the SENPI_BRAND logo on every launch path"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "13c327012d fix(account): write the logout marker before clearing; ignore an unusable marker (#11434)",
+      "translated": "Write the logout marker before clearing; ignore an unusable marker (#11434)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2751648ee5 docs(changelog): fragment for #11443",
+      "translated": "Fragment for #11443"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9da101d45b test(changelog): read real fragments only when changes/unreleased exists",
+      "translated": "Read real fragments only when changes/unreleased exists"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed715eefd3 changes: fragment for #11442",
+      "translated": "Changes: fragment for #11442"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "73ab82f075 test(changelog): read real fragments only when changes/unreleased exists",
+      "translated": "Read real fragments only when changes/unreleased exists"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2653de7ccb docs(changes): fragment for the logout sign-out marker (#11441)",
+      "translated": "Fragment for the logout sign-out marker (#11441)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af3de6bed7 fix(account): omo logout leaves a sign-out marker; token/export answer exit 10 (#11434)",
+      "translated": "Omo logout leaves a sign-out marker; token/export answer exit 10 (#11434)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fc0fc17c65 docs(changes): add fragment for #11440",
+      "translated": "Add fragment for #11440"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8c8f5cf46a docs(changes): add fragment for #11439",
+      "translated": "Add fragment for #11439"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8498a1b6e chore(changes): state that the opt-out spool purge is machine-wide",
+      "translated": "State that the opt-out spool purge is machine-wide"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aed2cfc61b fix(telemetry): keep a running writer's sealed OTLP batches on opted-out starts",
+      "translated": "Keep a running writer's sealed OTLP batches on opted-out starts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f5745e3b50 chore(changes): describe the persisted-opt-out spool purge",
+      "translated": "Describe the persisted-opt-out spool purge"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8bc56300b3 fix(telemetry): keep live consented OTLP spools on opted-out starts",
+      "translated": "Keep live consented OTLP spools on opted-out starts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "77fcfce646 docs(release): 5.1.49 notes: drop the dark telemetry entry and internal wording",
+      "translated": "5.1.49 notes: drop the dark telemetry entry and internal wording"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a9c0b8cea fix(prometheus): require the execution carrier and compare approved targets by value",
+      "translated": "Require the execution carrier and compare approved targets by value"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43ad105573 Merge remote-tracking branch 'origin/fix/11367-prometheus-patch-lines' into fix/11367-prometheus-symlink",
+      "translated": "Merge remote-tracking branch 'origin/fix/11367-prometheus-patch-lines' into fix/11367-prometheus-symlink"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "462de3f690 Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4773f7cbb9 Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cbf5ed38d9 Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28e542b5e7 Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3b530a89b3 Merge remote-tracking branch 'origin/dev' into fix/11367-run-server-password",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11367-run-server-password"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "142992c9ee Merge remote-tracking branch 'origin/dev' into fix/11367-prometheus-patch-lines",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11367-prometheus-patch-lines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1bd7d277dc fix(prometheus): recheck every target field and isolate denial-log tests",
+      "translated": "Recheck every target field and isolate denial-log tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7152f8a60a test(audit): list the pinned model-id copy as a model-identity file",
+      "translated": "List the pinned model-id copy as a model-identity file"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "015c2ad24c fix(prometheus): allow user-chosen planning layouts and log every denial",
+      "translated": "Allow user-chosen planning layouts and log every denial"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c9fce9ae86 fix(prometheus): retain execution args across hook chain",
+      "translated": "Retain execution args across hook chain"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b28d38a48a fix(momus-review-persistence): persist only the verdict block and check containment before reading the plan",
+      "translated": "Persist only the verdict block and check containment before reading the plan"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f9b87f3a2c fix(boulder-state): contain the plans root in the project, dedupe sessions by exact line, ignore review dirs",
+      "translated": "Contain the plans root in the project, dedupe sessions by exact line, ignore review dirs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b551794f0 chore(changes): name the fragment after PR #11431",
+      "translated": "Name the fragment after PR #11431"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "510866c0ce Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4f9c031149 fix(omo-native): exclude certificates whose block carries an AUX trailer under any label; gate hash-dir tests off win32 (#10762)",
+      "translated": "Exclude certificates whose block carries an AUX trailer under any label; gate hash-dir tests off win32 (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2f47c232e5 Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4dc02a85f7 fix(telemetry): address OTLP projection and startup review findings",
+      "translated": "Address OTLP projection and startup review findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "210e2a38fe fix(prometheus): close patch and host handoff gaps",
+      "translated": "Close patch and host handoff gaps"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "24566a785d fix(telemetry): pin model ids on the turn span and session_summary ranks too",
+      "translated": "Pin model ids on the turn span and session_summary ranks too"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "90ebae0a72 changes: fragment for #11430",
+      "translated": "Changes: fragment for #11430"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "950c2dd65f feat(omo-native): OpenSSL hash-directory selection by Bun's by_dir walk (#10762)",
+      "translated": "OpenSSL hash-directory selection by Bun's by_dir walk (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b00495c259 chore(changes): name the fragment after PR #11428",
+      "translated": "Name the fragment after PR #11428"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "70b79a6b1a fix(telemetry): map model ids outside the collector pin to custom",
+      "translated": "Map model ids outside the collector pin to custom"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "92c86c3fb7 docs(changes): fragment for #11427",
+      "translated": "Fragment for #11427"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "79d7978383 Merge pull request #11417 from code-yeongyu/batch/memsync-coord-18",
+      "translated": "Merge pull request #11417 from code-yeongyu/batch/memsync-coord-18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9859e21dec Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "621a05ac63 Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3ecbd4fd2 Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8ff08c7ed9 Merge remote-tracking branch 'origin/dev' into feat/10762-default-file-rule",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-default-file-rule"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8dc00e73b Merge remote-tracking branch 'origin/dev' into feat/10762-linux-bundle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-linux-bundle"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "64c5337c86 Merge remote-tracking branch 'origin/dev' into feat/10762-trust-policy",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-trust-policy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f3bc0797ee Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "32b90f4c1c fix(prometheus): fold parser and physical path confinement",
+      "translated": "Fold parser and physical path confinement"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "35345b7dad Merge remote-tracking branch 'origin/dev' into fix/11393-toplevel-test-dir-exemption",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11393-toplevel-test-dir-exemption"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "acd4f73d74 docs(changes): record Prometheus symlink containment fix",
+      "translated": "Record Prometheus symlink containment fix"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bb8ed0bb3b fix(prometheus): check verbatim absolute write targets",
+      "translated": "Check verbatim absolute write targets"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a850ebec0d fix(prometheus): confine writes to real planning paths",
+      "translated": "Confine writes to real planning paths"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d67ea00b8b Merge #11322 (37c38c6fa7: per-platform QA temp root) into batch #18",
+      "translated": "Merge #11322 (37c38c6fa7: per-platform QA temp root) into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37c38c6fa7 fix(qa): resolve thread-tool QA temp paths per platform",
+      "translated": "Resolve thread-tool QA temp paths per platform"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5a6f360833 docs(changes): fold batch #18 fragments into 11417",
+      "translated": "Fold batch #18 fragments into 11417"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b7289aaa00 Merge #11322 into batch #18",
+      "translated": "Merge #11322 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8fe88292eb Merge #11349 into batch #18",
+      "translated": "Merge #11349 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cda2b61e54 chore(bundle): regenerate generated outputs for batch #18",
+      "translated": "Regenerate generated outputs for batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9b9e9713de Merge #11413 into batch #18",
+      "translated": "Merge #11413 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cbe487daca Merge #11332 into batch #18",
+      "translated": "Merge #11332 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "41a1b4bbfb Merge #11390 into batch #18",
+      "translated": "Merge #11390 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b2bc9ca83c Merge #11401 into batch #18",
+      "translated": "Merge #11401 into batch #18"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e31528c08b Merge pull request #11391 from code-yeongyu/batch/memsync-coord-cut7",
+      "translated": "Merge pull request #11391 from code-yeongyu/batch/memsync-coord-cut7"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "81fce2e821 Merge pull request #11311 from code-yeongyu/chore/bun-types-1.4.4",
+      "translated": "Merge pull request #11311 from code-yeongyu/chore/bun-types-1.4.4"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2fee18ca30 Merge pull request #11289 from code-yeongyu/fix/11241-meaning-record-edition",
+      "translated": "Merge pull request #11289 from code-yeongyu/fix/11241-meaning-record-edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b8a941c419 Merge pull request #11302 from code-yeongyu/fix/11285-outcome-dir-dplaceholder-sources",
+      "translated": "Merge pull request #11302 from code-yeongyu/fix/11285-outcome-dir-dplaceholder-sources"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1c5c22b675 fix(telemetry): lazy-load OTLP exporter sidecar (#11413)",
+      "translated": "Lazy-load OTLP exporter sidecar (#11413)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aafb73ef4f chore(changes): name the fragment after PR #11413",
+      "translated": "Name the fragment after PR #11413"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ba0965a236 fix(telemetry): dual-send product events to OTLP (#11412)",
+      "translated": "Dual-send product events to OTLP (#11412)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "08bac597be fix(omo-native): read the default file as bytes, reject space-only block lines, test the Bun-only guard (#10762)",
+      "translated": "Read the default file as bytes, reject space-only block lines, test the Bun-only guard (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d30236e536 fix(omo-native): canonical-PEM gate, BoringSSL noncharacters, Bun-only guard for the default-file rule (#10762)",
+      "translated": "Canonical-PEM gate, BoringSSL noncharacters, Bun-only guard for the default-file rule (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3699f4406 Merge remote-tracking branch 'origin/dev' into fix/11241-meaning-record-edition",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11241-meaning-record-edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4efa6ab3ba Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f5233e1148 Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0ce54d2941 Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c630716b7e Merge remote-tracking branch 'origin/dev' into fix/11285-outcome-dir-dplaceholder-sources",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-outcome-dir-dplaceholder-sources"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "53a6a5ed94 Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "61512435b6 Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b8d2706323 test(prometheus-md-only): type patch fixtures",
+      "translated": "Type patch fixtures"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4ce97481ce changes: fragment for #11411",
+      "translated": "Changes: fragment for #11411"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4746837737 fix(omo-native): mark an unverifiable auxiliary block as a narrowing, not a Bun-equal drop (#10762)",
+      "translated": "Mark an unverifiable auxiliary block as a narrowing, not a Bun-equal drop (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6f93a3475d docs(changes): note the LazyCodex fix routing fragment for #11410",
+      "translated": "Note the LazyCodex fix routing fragment for #11410"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c1de1c9b7 feat(omo-native): OpenSSL default-file whole-file rule (#10762)",
+      "translated": "OpenSSL default-file whole-file rule (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "466745b61a fix(lcx): route LazyCodex fixes to oh-my-openagent PRs",
+      "translated": "Route LazyCodex fixes to oh-my-openagent PRs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0941526b8e fix(ulw-research): the newest meaning record for an edition's bytes wins",
+      "translated": "The newest meaning record for an edition's bytes wins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "415e9ccf1b docs(hooks): list momus-review-persistence in available hooks and fix style nits",
+      "translated": "List momus-review-persistence in available hooks and fix style nits"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aa6207a9ce fix(hooks): persist only synchronous Momus verdicts in momus-review-persistence",
+      "translated": "Persist only synchronous Momus verdicts in momus-review-persistence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a6a3485d54 fix(boulder-state): contain Momus review artifacts inside the project plans dir",
+      "translated": "Contain Momus review artifacts inside the project plans dir"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cf2566953e test(omo-native): pin TrustAsRoot non-CA, default-input non-CA intermediate and anchor CTL fixtures (#10762)",
+      "translated": "Pin TrustAsRoot non-CA, default-input non-CA intermediate and anchor CTL fixtures (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8990e0e098 chore(codex): regenerate install-local.mjs on the merge result (canonical linux/amd64 container, Bun 1.4.4)",
+      "translated": "Regenerate install-local.mjs on the merge result (canonical linux/amd64 container, Bun 1.4.4)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fcb878451f fix(omo-native): portable temp dir, systemd-style continuation, handle-identity check in the Linux bundle read (#10762)",
+      "translated": "Portable temp dir, systemd-style continuation, handle-identity check in the Linux bundle read (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "291cca2619 fix(ulw-research): bind an edition's meaning record by bytes, not source path",
+      "translated": "Bind an edition's meaning record by bytes, not source path"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc67bad023 fix(ulw-research): entities decode on both sides, raw inline HTML in the converted Markdown is read as tags, next-line reference titles are link syntax; the probe's scope is declared (review round 6 #11286)",
+      "translated": "Entities decode on both sides, raw inline HTML in the converted Markdown is read as tags, next-line reference titles are link syntax; the probe's scope is declared (review round 6 #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5045ddabd3 Merge pull request #11291 from code-yeongyu/fix/11232-polish-markup-backstop",
+      "translated": "Merge pull request #11291 from code-yeongyu/fix/11232-polish-markup-backstop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "25e33926a2 changes: fragment for #11407",
+      "translated": "Changes: fragment for #11407"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "239e7da398 feat(omo-native): select and read the Linux trust bundle (#10762)",
+      "translated": "Select and read the Linux trust bundle (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0fbc2519fd fix(omo-native): apply CTL and Disallowed denies to non-candidate chain members; keep self-signed non-CA macOS TrustRoot (#10762)",
+      "translated": "Apply CTL and Disallowed denies to non-candidate chain members; keep self-signed non-CA macOS TrustRoot (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f12c2636fd fix(ulw-research): keep the pre-polish fill map authoritative and take derive time from --now",
+      "translated": "Keep the pre-polish fill map authoritative and take derive time from --now"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f188f940e2 Merge #11376 (e3dc9bfe20: Windows path separators in its test) into the cut-7 car",
+      "translated": "Merge #11376 (e3dc9bfe20: Windows path separators in its test) into the cut-7 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "58d45cfbcb Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e3dc9bfe20 fix(shared-skills): normalize recorded script paths on Windows (#11373)",
+      "translated": "Normalize recorded script paths on Windows (#11373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e6394162fa changes: fragment for #11405",
+      "translated": "Changes: fragment for #11405"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7708eaac1d Merge remote-tracking branch 'origin/dev' into chore/bun-types-1.4.4",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/bun-types-1.4.4"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b8e29c2d9d feat(omo-native): pure v1 engine trust policy (#10762)",
+      "translated": "Pure v1 engine trust policy (#10762)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "45311963df fix(ulw-research): one meaning record per delivered edition",
+      "translated": "One meaning record per delivered edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "70fd003fec fix(ulw-research): link and image closers are read with the CommonMark inline grammar; raw named references decode as a converter decodes them (review round 5 #11286)",
+      "translated": "Link and image closers are read with the CommonMark inline grammar; raw named references decode as a converter decodes them (review round 5 #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bef58edaa0 fix(deps): bun-types 1.4.4 in the LSP package-locks (#11311 review)",
+      "translated": "Bun-types 1.4.4 in the LSP package-locks (#11311 review)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d4f5066208 fix(prometheus-md-only): preserve patch context",
+      "translated": "Preserve patch context"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "da96cb4bac docs(changelog): clarify paused-child retry scope",
+      "translated": "Clarify paused-child retry scope"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "74860ebdbb test(ulw-research): the what-can-follow table cites the fixture's pinned S4 rows, so it also holds under #11287's pin check (review delta #11310 r5)",
+      "translated": "The what-can-follow table cites the fixture's pinned S4 rows, so it also holds under #11287's pin check (review delta #11310 r5)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43132d7c6d Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-skill-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "03b9e43c41 fix(skill-mcp): remember legacy servers so discovery costs one connect",
+      "translated": "Remember legacy servers so discovery costs one connect"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7bed03a2dc fix(ulw-research): read the longest unit after a value, and ordinary unit words beside a sign (review round 5 #11301)",
+      "translated": "Read the longest unit after a value, and ordinary unit words beside a sign (review round 5 #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7f8366a5e4 fix(ulw-research): text after a conversion is another original only when it is a bare figure in the operand's dimension; one snapshot_hash_mismatch wording (review delta #11310 r5)",
+      "translated": "Text after a conversion is another original only when it is a bare figure in the operand's dimension; one snapshot_hash_mismatch wording (review delta #11310 r5)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d21dddea90 fix(ulw-research): Markdown markup never decides a sign; footnote definitions are prose, lazy list numbering passes (review round 4 #11286)",
+      "translated": "Markdown markup never decides a sign; footnote definitions are prose, lazy list numbering passes (review round 4 #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0638db2b14 test(tmux): fix private auth channel checks (#11370)",
+      "translated": "Fix private auth channel checks (#11370)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af04e58eaf fix(ulw-research): hide text only under unconditional CSS; evaluate the cascade; case-sensitive class and id (review round 4 #11287)",
+      "translated": "Hide text only under unconditional CSS; evaluate the cascade; case-sensitive class and id (review round 4 #11287)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "504f03da67 fix(ulw-research): one bracket grammar for conversion originals, a missing or extra original is a mismatch, in HTML and Markdown (review delta #11310 r4)",
+      "translated": "One bracket grammar for conversion originals, a missing or extra original is a mismatch, in HTML and Markdown (review delta #11310 r4)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8b4fc1a16 fix(ulw-research): converter list markers, reference labels and wrapped groups are not numbers; a minus after one letter or an exponent is a sign (review round 3 #11286)",
+      "translated": "Converter list markers, reference labels and wrapped groups are not numbers; a minus after one letter or an exponent is a sign (review round 3 #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a76f96a8c6 fix(ulw-research): read qualifiers and ordinary words as words, units through markup, and the fill map's bound unit (review round 4 #11301)",
+      "translated": "Read qualifiers and ordinary words as words, units through markup, and the fill map's bound unit (review round 4 #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "315df77ec1 test(ulw-research): sweep the Sources numeral classes into one table-driven test each; read Korean ordinals, quarters and symbol units consistently (review round 5 #11302)",
+      "translated": "Sweep the Sources numeral classes into one table-driven test each; read Korean ordinals, quarters and symbol units consistently (review round 5 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "707f7a120f fix(installer-mirror): summarize channel maintenance, fit version to channel, share channel concurrency",
+      "translated": "Summarize channel maintenance, fit version to channel, share channel concurrency"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c0c4bc1a4 docs(changes): add fragment for #11398",
+      "translated": "Add fragment for #11398"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d8d580b6c5 fix(shared-skills): exempt only top-level test/ and tests/ from the test-dir filter (#11393)",
+      "translated": "Exempt only top-level test/ and tests/ from the test-dir filter (#11393)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1534ec0da9 fix(ulw-research): read a unit on the right before letters on the left; add mn, pct, yr, mo; read 1.234.567 as a numeral (review round 5 #11302)",
+      "translated": "Read a unit on the right before letters on the left; add mn, pct, yr, mo; read 1.234.567 as a numeral (review round 5 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8767ca54df Merge origin/dev into fix/11000-native-path-containment (bundles left to the car: PR carries source only)",
+      "translated": "Merge origin/dev into fix/11000-native-path-containment (bundles left to the car: PR carries source only)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "234ee9c4ce docs(changes): note the cross-platform missing-remainder refusal and the telemetry home verdict (#11339)",
+      "translated": "Note the cross-platform missing-remainder refusal and the telemetry home verdict (#11339)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4c0a37e0a6 chore(cut-7 car): sync the checked-in frontend builtin skill copy with its shared source after #11376",
+      "translated": "Sync the checked-in frontend builtin skill copy with its shared source after #11376"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2730aed6dd fix(service-auth): preserve refusal guidance in sync",
+      "translated": "Preserve refusal guidance in sync"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "546616a28b chore(cut-7 car): canonical regen on the merge result (pair 9323617c4f98b675)",
+      "translated": "Canonical regen on the merge result (pair 9323617c4f98b675)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f495911fbc docs(changes): fragment for #11392",
+      "translated": "Fragment for #11392"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6e34affad fix(prometheus-md-only): mirror executor patch header parsing",
+      "translated": "Mirror executor patch header parsing"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c8bd435bbb test(tmux): scope shell credential checks to Unix (#11370)",
+      "translated": "Scope shell credential checks to Unix (#11370)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2da9bc749d fix(run): keep pane passwords out of tmux argv (#11370)",
+      "translated": "Keep pane passwords out of tmux argv (#11370)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ff8a4d617c docs(changes): fold car fragments #11213 #11376 #11371 #11377 into the batch fragment (fold-batch)",
+      "translated": "Fold car fragments #11213 #11376 #11371 #11377 into the batch fragment (fold-batch)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d5ae0e4e49 Merge #11377 (c9082c8f8a) into the cut-7 car",
+      "translated": "Merge #11377 (c9082c8f8a) into the cut-7 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bba9406f6d Merge #11213 (8f76e97fa0) into the cut-7 car",
+      "translated": "Merge #11213 (8f76e97fa0) into the cut-7 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c9082c8f8a fix(shared-skills): cover nested test dir aliases",
+      "translated": "Cover nested test dir aliases"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1792f2a86a Merge #11371 (192c113853) into the cut-7 car",
+      "translated": "Merge #11371 (192c113853) into the cut-7 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "73f634e40f Merge #11376 (b3ae80b8da) into the cut-7 car",
+      "translated": "Merge #11376 (b3ae80b8da) into the cut-7 car"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d0e350c3f5 Merge pull request #11253 from code-yeongyu/fix/10477-changelog-review-lows",
+      "translated": "Merge pull request #11253 from code-yeongyu/fix/10477-changelog-review-lows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6823e1bf42 docs(changes): add fragment for #11390",
+      "translated": "Add fragment for #11390"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1461b16b1f Merge pull request #11369 from code-yeongyu/fix/11367-prometheus-apply-patch",
+      "translated": "Merge pull request #11369 from code-yeongyu/fix/11367-prometheus-apply-patch"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f5e69e1ca0 fix(ulw-research): read a month/day under Sources as a date (lead date ruling, review round 4 #11302)",
+      "translated": "Read a month/day under Sources as a date (lead date ruling, review round 4 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4566ba58f4 fix(ulw-research): read a digit run glued to letters as a name, link text and year ranges as citation fields (lead ruling, review round 4 #11302)",
+      "translated": "Read a digit run glued to letters as a name, link text and year ranges as citation fields (lead ruling, review round 4 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d762c7e58e fix(run): run every cleanup step even when closing the server throws (#11370)",
+      "translated": "Run every cleanup step even when closing the server throws (#11370)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "36fd04e468 chore(ulw-research): sync number-grammar with #11286 (byte-identical shared module)",
+      "translated": "Sync number-grammar with #11286 (byte-identical shared module)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a5b284bba7 chore(ulw-research): sync number-grammar with #11286 (byte-identical shared module)",
+      "translated": "Sync number-grammar with #11286 (byte-identical shared module)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5cd80e5a35 fix(ulw-research): attribute digits cover only link syntax, breaks never group digits, and a working --replace recovery (review round 2 #11286)",
+      "translated": "Attribute digits cover only link syntax, breaks never group digits, and a working --replace recovery (review round 2 #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9ded9437f9 test(ulw-research): use footer, not aside, in the hidden-element fixture (de-personalization gate)",
+      "translated": "Use footer, not aside, in the hidden-element fixture (de-personalization gate)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "50f7c4b6ca fix(shared-skills): never ship nested test dirs in bundled skills (#11373)",
+      "translated": "Never ship nested test dirs in bundled skills (#11373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cc4a56d4ed fix(shared-skills): bundled skill scripts never write inside the shipped tree (#11373)",
+      "translated": "Bundled skill scripts never write inside the shipped tree (#11373)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c0fed935c Merge pull request #11363 from code-yeongyu/batch/memsync-coord-16",
+      "translated": "Merge pull request #11363 from code-yeongyu/batch/memsync-coord-16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "13f8b936d6 test(prometheus-md-only): pin CRLF and indented patch headers (#11369)",
+      "translated": "Pin CRLF and indented patch headers (#11369)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "192c113853 fix: carry the refusal-is-final rule on every agent prompt route and ultrawork variant, enumerated by tests",
+      "translated": "Carry the refusal-is-final rule on every agent prompt route and ultrawork variant, enumerated by tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e3ba690730 Merge origin/dev into fix/bug-report-intake-11194",
+      "translated": "Merge origin/dev into fix/bug-report-intake-11194"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "520e5c6cf9 fix(run): close the server and restore the password when client auth injection throws (#11370)",
+      "translated": "Close the server and restore the password when client auth injection throws (#11370)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9406e2977c fix(ulw-research): read a conversion original the way verify reads a quantity; the snapshot preflight is the only gate for row-backed sources (review delta #11310)",
+      "translated": "Read a conversion original the way verify reads a quantity; the snapshot preflight is the only gate for row-backed sources (review delta #11310)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5144116e00 fix(ulw-research): end the verification cue's document guard at the clause (shared cue list, identical with #11301)",
+      "translated": "End the verification cue's document guard at the clause (shared cue list, identical with #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9b11685e6f fix(ulw-research): end the verification cue's document guard at the clause (shared cue list, identical with #11301)",
+      "translated": "End the verification cue's document guard at the clause (shared cue list, identical with #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0dbf6457ee fix(ulw-research): trace a checked Sources sentence without its URL, title, and tag fields; headings stay exempt",
+      "translated": "Trace a checked Sources sentence without its URL, title, and tag fields; headings stay exempt"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f0fa041cf6 fix(ulw-research): under Sources check every sentence whose numerals are not all citation fields (decision 25, review round 3 #11302)",
+      "translated": "Under Sources check every sentence whose numerals are not all citation fields (decision 25, review round 3 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f6130daa14 fix(changelog): indented code right after a closing fence is code too (#11253 review round 5 LOW 1)",
+      "translated": "Indented code right after a closing fence is code too (#11253 review round 5 LOW 1)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f20124a96c fix(ulw-research): fail closed on legacy rows of a refreshed source, emulate an unreadable raw.bin on win32, honor simple <style> hiding rules (review round 3 #11287)",
+      "translated": "Fail closed on legacy rows of a refreshed source, emulate an unreadable raw.bin on win32, honor simple <style> hiding rules (review round 3 #11287)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3ecdf60b8d fix(ulw-research): keep scale words in the value, read row headers as row headers, end the cue's document guard at the clause (review round 3 #11301)",
+      "translated": "Keep scale words in the value, read row headers as row headers, end the cue's document guard at the clause (review round 3 #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e9d19b1567 docs(changes): fragment for #11370",
+      "translated": "Fragment for #11370"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "800b71c45b docs(changes): fragment for #11369",
+      "translated": "Fragment for #11369"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f2a5127e6b fix(run): give the server omo run starts a per-run password (#11367)",
+      "translated": "Give the server omo run starts a per-run password (#11367)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "39c7d3f793 fix(prometheus-md-only): guard apply_patch and multiedit writes (#11367)",
+      "translated": "Guard apply_patch and multiedit writes (#11367)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "abad4c3a5a fix(changelog): never put the PR link inside an indented code block (#11253 review round 4 LOW 1)",
+      "translated": "Never put the PR link inside an indented code block (#11253 review round 4 LOW 1)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "89982f08a3 fix(ulw-research): decide Sources claims by number type and line shape (review round 2 #11302)",
+      "translated": "Decide Sources claims by number type and line shape (review round 2 #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "600aa4300f refactor(ulw-research): read conversion.json beside the probe, not in snapshotOf",
+      "translated": "Read conversion.json beside the probe, not in snapshotOf"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "efe58e0a38 test(run): RED - omo run's own server gets a password when none is set (#11367)",
+      "translated": "RED - omo run's own server gets a password when none is set (#11367)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1e270eedfc fix(ulw-research): one grouped-number grammar and a consumed conversion probe (review fold #11286)",
+      "translated": "One grouped-number grammar and a consumed conversion probe (review fold #11286)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8aa1567e29 refactor(ulw-research): read numbers with the shared grouped-number grammar",
+      "translated": "Read numbers with the shared grouped-number grammar"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "034a20a02b refactor(ulw-research): read numbers with the shared grouped-number grammar",
+      "translated": "Read numbers with the shared grouped-number grammar"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6824a1e666 fix(ulw-research): flag unreadable or drifted snapshots per cited row with fact_id and the cause",
+      "translated": "Flag unreadable or drifted snapshots per cited row with fact_id and the cause"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "79fc806e0e fix(ulw-research): locate page facts on visible text and fail closed on unreadable snapshots",
+      "translated": "Locate page facts on visible text and fail closed on unreadable snapshots"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ac1419b7b1 docs(changes): fragment for #11365",
+      "translated": "Fragment for #11365"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e72b355c0 fix(ulw-research): bind value-mode units without false mismatches (review fold #11301)",
+      "translated": "Bind value-mode units without false mismatches (review fold #11301)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0b99154150 fix(ulw-research): accept grouped derived renders and scope snapshot failures per row (review fold #11310)",
+      "translated": "Accept grouped derived renders and scope snapshot failures per row (review fold #11310)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c90c34e468 fix(ulw-research): one Sources predicate and a validated run clock (review fold #11302)",
+      "translated": "One Sources predicate and a validated run clock (review fold #11302)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f74f7afb2d chore(batch-16): canonical regen on the merge result (pair b040864e143a7284)",
+      "translated": "Canonical regen on the merge result (pair b040864e143a7284)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e889823056 docs(changes): fold car fragments #11307 #11272 #11328 #11333 #11284 into the batch fragment (fold-batch)",
+      "translated": "Fold car fragments #11307 #11272 #11328 #11333 #11284 into the batch fragment (fold-batch)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b74b8df7bf Merge #11284 (7ed73ee674) into batch #16",
+      "translated": "Merge #11284 (7ed73ee674) into batch #16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "acf8282837 Merge #11333 (c5c5d79508) into batch #16",
+      "translated": "Merge #11333 (c5c5d79508) into batch #16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "587628767f Merge #11328 (b0b867bf8d) into batch #16",
+      "translated": "Merge #11328 (b0b867bf8d) into batch #16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3f836a1918 Merge #11272 (36bd899ca2) into batch #16",
+      "translated": "Merge #11272 (36bd899ca2) into batch #16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1b79dd858c Merge #11307 (f8faf19561) into batch #16",
+      "translated": "Merge #11307 (f8faf19561) into batch #16"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d19a755149 Merge pull request #11350 from code-yeongyu/batch/memsync-coord-15",
+      "translated": "Merge pull request #11350 from code-yeongyu/batch/memsync-coord-15"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "36bd899ca2 docs(changes): note that browsers keep a cached 301 until it expires (#11272 review LOW)",
+      "translated": "Note that browsers keep a cached 301 until it expires (#11272 review LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b34523e3d8 fix(memory): refuse dot segments in missing grant remainders",
+      "translated": "Refuse dot segments in missing grant remainders"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7ed73ee674 docs(changelog): describe #11284 warnings as moved off console.warn, not dropped",
+      "translated": "Describe #11284 warnings as moved off console.warn, not dropped"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f9ee02ca65 docs(changes): name the batch fragment after the batch PR (#11350)",
+      "translated": "Name the batch fragment after the batch PR (#11350)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "113a22ba7b chore(batch-15): canonical regen on the merge result (pair f8b9a92f56abf507)",
+      "translated": "Canonical regen on the merge result (pair f8b9a92f56abf507)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4c253a0627 docs(changes): add fragment for #11349",
+      "translated": "Add fragment for #11349"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "139c7a36de feat(installer-mirror): add channel head/recreate maintenance mode",
+      "translated": "Add channel head/recreate maintenance mode"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14625de2d2 docs(changes): one changes.md block holding #11317's and #10800's root log entries",
+      "translated": "One changes.md block holding #11317's and #10800's root log entries"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9e2f3aeeff docs(changes): carry #10800's engineering-log entries as changes-log blocks in the batch fragment",
+      "translated": "Carry #10800's engineering-log entries as changes-log blocks in the batch fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bbf332d069 docs: keep root changes.md at dev; #10800's engineering-log entries move to the batch PR body (the fragment gate allows no changelog edits outside a release PR)",
+      "translated": "Keep root changes.md at dev; #10800's engineering-log entries move to the batch PR body (the fragment gate allows no changelog edits outside a release PR)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "58c3a2a9ec docs(changes): fold car fragments #11317 #10800 into the batch fragment (fold-batch)",
+      "translated": "Fold car fragments #11317 #10800 into the batch fragment (fold-batch)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8b300e85d docs(changes): move #10800's CHANGELOG paragraphs into a fragment (option A)",
+      "translated": "Move #10800's CHANGELOG paragraphs into a fragment (option A)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "89bc3dbf19 Merge #10800 (e17dfbadad) into batch #15",
+      "translated": "Merge #10800 (e17dfbadad) into batch #15"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fd3d875132 Merge #11317 (673ba93f33) into batch #15",
+      "translated": "Merge #11317 (673ba93f33) into batch #15"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06983df1c0 Merge pull request #11316 from code-yeongyu/fix/11313-r2-pointer-write",
+      "translated": "Merge pull request #11316 from code-yeongyu/fix/11313-r2-pointer-write"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a9df9984fb Merge remote-tracking branch 'origin/dev' into fix/11313-r2-pointer-write",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11313-r2-pointer-write"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0680383b7b Merge pull request #11297 from code-yeongyu/batch/memsync-coord-14",
+      "translated": "Merge pull request #11297 from code-yeongyu/batch/memsync-coord-14"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4796624491 test(changelog): pin that the PR check accepts exactly what the release stamp can place (#11253 review round 3)",
+      "translated": "Pin that the PR check accepts exactly what the release stamp can place (#11253 review round 3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6f06202b95 fix(changelog): the PR check runs the release's own assembly, and paragraph linking keeps the whole-text scan (#11253 review round 3)",
+      "translated": "The PR check runs the release's own assembly, and paragraph linking keeps the whole-text scan (#11253 review round 3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5a7623942d Merge pull request #11338 from code-yeongyu/fix/frontend-llms-same-origin",
+      "translated": "Merge pull request #11338 from code-yeongyu/fix/frontend-llms-same-origin"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c5c5d79508 docs(changelog): place marker deferral in release preamble",
+      "translated": "Place marker deferral in release preamble"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c29334b45 docs(changelog): clarify deferred stop-marker protection",
+      "translated": "Clarify deferred stop-marker protection"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7775014e2d fix(desktop-win32): count callback stop generations once",
+      "translated": "Count callback stop generations once"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1bf085196b Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-gate-findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "68fee52858 Merge remote-tracking branch 'origin/dev' into fix/11285-outcome-dir-dplaceholder-sources",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-outcome-dir-dplaceholder-sources"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "77f5178585 Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-value-mode-unit-and-confirmed-cue"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a9a2bffb04 Merge remote-tracking branch 'origin/dev' into fix/11232-polish-markup-backstop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11232-polish-markup-backstop"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "86261d36a7 Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11285-fill-verify-value-rules"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3016f1387f Merge remote-tracking branch 'origin/dev' into fix/11241-meaning-record-edition",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11241-meaning-record-edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eeb01d6a74 Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-raw-bytes-locator"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a9f3439921 Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11285-conversion-probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1261373051 docs(changes): fragment for #11339",
+      "translated": "Fragment for #11339"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "16042cd9e8 fix(codex): preserve regular third-party npm shims",
+      "translated": "Preserve regular third-party npm shims"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d2b38aba02 fix(memory): preserve native path traversal",
+      "translated": "Preserve native path traversal"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1c6fccd9de Merge pull request #11331 from code-yeongyu/fix/web-hero-beta-copy",
+      "translated": "Merge pull request #11331 from code-yeongyu/fix/web-hero-beta-copy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8a980872b9 test(task): drop non-null assertions from startup reconcile tests",
+      "translated": "Drop non-null assertions from startup reconcile tests"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "793cf8d848 fix(changelog): track every CommonMark list item when measuring fence indentation (#11253 review round 2)",
+      "translated": "Track every CommonMark list item when measuring fence indentation (#11253 review round 2)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d3ee705af9 docs(changes): fragment for #11338",
+      "translated": "Fragment for #11338"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ebd8facaf1 fix(frontend): limit the llms.txt allowance to same-origin pages; robots.txt still wins",
+      "translated": "Limit the llms.txt allowance to same-origin pages; robots.txt still wins"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a94f8f8528 Merge pull request #11323 from code-yeongyu/fix/frontend-footer-llms-surface",
+      "translated": "Merge pull request #11323 from code-yeongyu/fix/frontend-footer-llms-surface"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bef75fa0fd docs(changes): record session admission fix for #11335",
+      "translated": "Record session admission fix for #11335"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e333545821 test(task): separate probe assertions from fixture watchdog",
+      "translated": "Separate probe assertions from fixture watchdog"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7c9616a8e4 fix(task): detach host reconciliation from session admission",
+      "translated": "Detach host reconciliation from session admission"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bc2434f64b fix(installer-mirror): harden pointer overwrite probe",
+      "translated": "Harden pointer overwrite probe"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "887c531a0d docs(changelog): record stop-authority admission prerequisite (#11333)",
+      "translated": "Record stop-authority admission prerequisite (#11333)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0f11be8ce5 feat(desktop-safety): fence authority activation against newer stops",
+      "translated": "Fence authority activation against newer stops"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3b4f1425e8 fix(codex): keep installed plugins fingerprintable",
+      "translated": "Keep installed plugins fingerprintable"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "215a7bb605 docs(changes): fragment for #11332",
+      "translated": "Fragment for #11332"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "acedec85c2 docs(changes): fragment for #11331",
+      "translated": "Fragment for #11331"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d255795408 fix(web): match the hero beta button to each locale's wording (#11315 follow-up)",
+      "translated": "Match the hero beta button to each locale's wording (#11315 follow-up)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5defd365c7 Merge pull request #11315 from code-yeongyu/feat/web-hero-desktop-beta",
+      "translated": "Merge pull request #11315 from code-yeongyu/feat/web-hero-desktop-beta"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7233d078a5 Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "974777be3b chore(batch-14): canonical regen after the dev merge with Bun 1.4.4 (pair 61b4ee418f9e0232)",
+      "translated": "Canonical regen after the dev merge with Bun 1.4.4 (pair 61b4ee418f9e0232)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c1ffebf3e1 docs(changes): fragment for #11323",
+      "translated": "Fragment for #11323"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dbbb5e7b8d fix(frontend): allow pages a site's own llms.txt links in the fetch-only rule",
+      "translated": "Allow pages a site's own llms.txt links in the fetch-only rule"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2e62297821 Merge remote-tracking branch 'origin/dev' into b14",
+      "translated": "Merge remote-tracking branch 'origin/dev' into b14"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4d26f841bc fix(qa): require THREAD_QA_SENPI_VERSION for the thread-tool gateway suite",
+      "translated": "Require THREAD_QA_SENPI_VERSION for the thread-tool gateway suite"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "421ef7bcff Merge pull request #11314 from code-yeongyu/feat/frontend-reference-research",
+      "translated": "Merge pull request #11314 from code-yeongyu/feat/frontend-reference-research"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1a83cec1d9 Merge pull request #11288 from code-yeongyu/fix/supervisor-slot-event-waits",
+      "translated": "Merge pull request #11288 from code-yeongyu/fix/supervisor-slot-event-waits"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "efa4f43208 fix(frontend): reconcile gallery access with the fetch-only rule; review LOWs",
+      "translated": "Reconcile gallery access with the fetch-only rule; review LOWs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eb7761501c merge: sync dev into skill MCP protocol branch",
+      "translated": "Merge: sync dev into skill MCP protocol branch"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "352edf5f83 fix(installer-mirror): exercise scratch pointers and retain R2 diagnostics",
+      "translated": "Exercise scratch pointers and retain R2 diagnostics"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "afa697c2e4 docs(changes): fragment for #11315",
+      "translated": "Fragment for #11315"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eb7c6fb783 feat(web): link the public desktop beta from the omo.dev hero",
+      "translated": "Link the public desktop beta from the omo.dev hero"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "034a0f3c7d docs(changes): fragment for #11314",
+      "translated": "Fragment for #11314"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ff66d32311 feat(frontend): route missing design sources, research-first redesign, AI-premium tells",
+      "translated": "Route missing design sources, research-first redesign, AI-premium tells"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0f5770bdc0 fix(ulw-research): close fidelity gate findings",
+      "translated": "Close fidelity gate findings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6d4aae0e68 Merge pull request #11294 from code-yeongyu/fix/compiled-ca-trust-exit",
+      "translated": "Merge pull request #11294 from code-yeongyu/fix/compiled-ca-trust-exit"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "14a257bdd2 Merge dev into fix/11205-rust-modern-mcp",
+      "translated": "Merge dev into fix/11205-rust-modern-mcp"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8767cb49e7 Merge pull request #10895 from code-yeongyu/chore/bun-1.4.4",
+      "translated": "Merge pull request #10895 from code-yeongyu/chore/bun-1.4.4"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f8faf19561 docs(changes): name the car fragment after the car PR (#11307)",
+      "translated": "Name the car fragment after the car PR (#11307)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9f54c19120 docs(changes): fragment for omo#11305 (credit @MoerAI)",
+      "translated": "Fragment for omo#11305 (credit @MoerAI)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cb2adc176e fix(memory): prune nonexistent chained-move paths (refs #10858)",
+      "translated": "Prune nonexistent chained-move paths (refs #10858)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "859c850984 Merge pull request #11295 from code-yeongyu/release/v5.1.48-source-state",
+      "translated": "Merge pull request #11295 from code-yeongyu/release/v5.1.48-source-state"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6541442fa6 chore(changelog): name task 18 fragment for PR 11302",
+      "translated": "Name task 18 fragment for PR 11302"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d01f8ea522 fix(ulw-research): honor outcome and Sources contracts",
+      "translated": "Honor outcome and Sources contracts"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "57b28e0ee6 chore(changelog): name fidelity fragment for PR 11301",
+      "translated": "Name fidelity fragment for PR 11301"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "575726a35a fix(ulw-research): bind value-mode units and verification cues",
+      "translated": "Bind value-mode units and verification cues"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7e0a94996 docs(changes): name the batch fragment after the batch PR (#11297)",
+      "translated": "Name the batch fragment after the batch PR (#11297)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7b700cd7b5 chore(batch-14): canonical regen on the merge result (pair d2bd23e8f1942246)",
+      "translated": "Canonical regen on the merge result (pair d2bd23e8f1942246)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e6516f7885 test(omo-native): isolate the reused-PID regression",
+      "translated": "Isolate the reused-PID regression"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "475f34918c docs(changes): fold car fragments #11264 #11275 #11278 into the batch fragment (fold-batch)",
+      "translated": "Fold car fragments #11264 #11275 #11278 into the batch fragment (fold-batch)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "33d5620110 Merge #11278 (5e92a0e9fa) into batch #14",
+      "translated": "Merge #11278 (5e92a0e9fa) into batch #14"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6f93644c8b Merge #11275 (ed9c587d57) into batch #14",
+      "translated": "Merge #11275 (ed9c587d57) into batch #14"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "37410280c7 Merge #11264 (b74cef51b6) into batch #14",
+      "translated": "Merge #11264 (b74cef51b6) into batch #14"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b94e1dc55f test(memory): surface supervisor exits in slot waits",
+      "translated": "Surface supervisor exits in slot waits"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "eed1207950 test(omo-native): bind CA probe cleanup to exit identity",
+      "translated": "Bind CA probe cleanup to exit identity"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9b3e135f52 docs(changelog): name the fragment for PR 11291",
+      "translated": "Name the fragment for PR 11291"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7a09fab4de docs(changelog): record polish markup and Markdown boundary fixes",
+      "translated": "Record polish markup and Markdown boundary fixes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2f971933df fix(ulw-research): expose partial polish application explicitly",
+      "translated": "Expose partial polish application explicitly"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "284fa90cb7 test(ulw-research): cover exact HTML closing headings",
+      "translated": "Cover exact HTML closing headings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bbbf03cf19 fix(ulw-research): respect closing fence indentation",
+      "translated": "Respect closing fence indentation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "06b54bf378 fix(ulw-research): preserve quoted end tags and reference boundaries",
+      "translated": "Preserve quoted end tags and reference boundaries"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "af2a5263aa docs(changes): name the value-rule fragment after PR 11290",
+      "translated": "Name the value-rule fragment after PR 11290"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "75b82725cb docs(changes): name the fragment for PR #11289",
+      "translated": "Name the fragment for PR #11289"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "08b48e0656 test(ulw-research): pin fill and verify value rule regressions",
+      "translated": "Pin fill and verify value rule regressions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f1213fc223 fix(ulw-research): retain source values and clarify placeholder refusals",
+      "translated": "Retain source values and clarify placeholder refusals"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "82a2731239 fix(ulw-research): enforce exact row rules and explicit derive time",
+      "translated": "Enforce exact row rules and explicit derive time"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "56f81c05be fix(ulw-research): verify revision tokens timestamps and CSV values",
+      "translated": "Verify revision tokens timestamps and CSV values"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0223cab9bb fix(ulw-research): preserve brief binding through polished editions",
+      "translated": "Preserve brief binding through polished editions"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cffa7492b6 fix(ulw-research): bind meaning checks to each edition",
+      "translated": "Bind meaning checks to each edition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "099016e39e test(memory): use budgeted event waits for supervisor slots",
+      "translated": "Use budgeted event waits for supervisor slots"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "22579d07ed docs(changelog): name the raw-byte locator fragment for #11287",
+      "translated": "Name the raw-byte locator fragment for #11287"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0508de72f2 feat(ulw-research): bind fact locators to raw snapshot bytes",
+      "translated": "Bind fact locators to raw snapshot bytes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9c94c68be3 chore(changelog): number conversion probe fragment",
+      "translated": "Number conversion probe fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "aa6a6d5ccf feat(ulw-research): probe conversion number changes",
+      "translated": "Probe conversion number changes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d9cc1a7ce0 docs(changelog): add #11284 fragment",
+      "translated": "Add #11284 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4e1b32893d fix(memory-core): route watermark warnings to onWarn and keep rename errors unmasked",
+      "translated": "Route watermark warnings to onWarn and keep rename errors unmasked"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b74cef51b6 merge: preserve namespaced keychain read deadlines",
+      "translated": "Merge: preserve namespaced keychain read deadlines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e92a0e9fa docs(changes): add the #11278 fragment",
+      "translated": "Add the #11278 fragment"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5e2ddb8fac fix(thread): fence every session command except the host's read allowlist",
+      "translated": "Fence every session command except the host's read allowlist"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ff3ab2a4e4 test(thread): fence every session command except the host's read allowlist",
+      "translated": "Fence every session command except the host's read allowlist"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ed9c587d57 docs(changelog): fragment for #11275",
+      "translated": "Fragment for #11275"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d35b958458 fix(telemetry): a summary whose writer named only a profile is judged with the account home",
+      "translated": "A summary whose writer named only a profile is judged with the account home"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3ba288a781 docs(changes): fragment for #11272",
+      "translated": "Fragment for #11272"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c13793b000 fix(web): make the flag-off /download redirect temporary and pin the flag in its test",
+      "translated": "Make the flag-off /download redirect temporary and pin the flag in its test"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d114e0d24b fix(memory-sync): clamp deferred retry delay and throttle the still-waiting log",
+      "translated": "Clamp deferred retry delay and throttle the still-waiting log"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "08a813dbf4 fix(service-auth): discard late keychain answers",
+      "translated": "Discard late keychain answers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "319a8dbd33 Merge remote-tracking branch 'origin/dev' into chore/bun-1.4.4",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/bun-1.4.4"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b3efeaa52a fix(boulder-state): build getPlanReviewsDir expectations with resolve() for Windows",
+      "translated": "Build getPlanReviewsDir expectations with resolve() for Windows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8d075c89b1 fix(service-auth): bound session keychain reads and share one in-flight read",
+      "translated": "Bound session keychain reads and share one in-flight read"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "52895f47a4 chore(changelog): move the entry into changes/unreleased",
+      "translated": "Move the entry into changes/unreleased"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "191422e593 fix(changelog): close the four #10477 review LOWs",
+      "translated": "Close the four #10477 review LOWs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "71b09b5b59 fix(skill-mcp): bound discovery and legacy fallback",
+      "translated": "Bound discovery and legacy fallback"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "baa13de709 test(skill-mcp): route legacy pagination fixture methods",
+      "translated": "Route legacy pagination fixture methods"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "807992d5f1 fix(skill-mcp): narrow HTTP protocol error responses",
+      "translated": "Narrow HTTP protocol error responses"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5ddecc6df2 fix(skill-mcp): support MCP 2026-07-28 servers",
+      "translated": "Support MCP 2026-07-28 servers"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "99a25f4661 docs: add Unreleased changelog entry for Momus review persistence",
+      "translated": "Add Unreleased changelog entry for Momus review persistence"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "42629752db docs(changelog): note modern desktop MCP support (#11239)",
+      "translated": "Note modern desktop MCP support (#11239)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a7ddbd3fd0 fix(desktop-engine): serve modern MCP clients over stdio",
+      "translated": "Serve modern MCP clients over stdio"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b96528bcb6 fix(boulder-state): include nested tests in test script",
+      "translated": "Include nested tests in test script"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "66390e5c69 feat(hooks): persist Momus review verdicts next to the plan (#3002)",
+      "translated": "Persist Momus review verdicts next to the plan (#3002)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d61f1eab14 docs: note feedback intake repair (#11213)",
+      "translated": "Note feedback intake repair (#11213)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e17dfbadad chore(telemetry): regenerate the schema artifacts for the claude-fable-5-5 model id (#10800)",
+      "translated": "Regenerate the schema artifacts for the claude-fable-5-5 model id (#10800)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8e91d0df0f test(model-core): the latest-model table may name Fable 5.5 only after the release flip (#10800 review)",
+      "translated": "The latest-model table may name Fable 5.5 only after the release flip (#10800 review)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e80d5d913b fix(model-core): the Fable 5.5 predecessor reads LATEST_MODEL_BY_FAMILY; no audit exemption (#10800 review)",
+      "translated": "The Fable 5.5 predecessor reads LATEST_MODEL_BY_FAMILY; no audit exemption (#10800 review)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9805c5bff7 feat(routing): stage Fable 5.5 before every 5.1 rung",
+      "translated": "Stage Fable 5.5 before every 5.1 rung"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5fb0b2d8c1 docs(changelog): Claude Fable 5.5 recognition and Fable chain entry",
+      "translated": "Claude Fable 5.5 recognition and Fable chain entry"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3220ec9ea4 feat(model-core): stage launch-gated Fable 5.5 recognition",
+      "translated": "Stage launch-gated Fable 5.5 recognition"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e8a30befab fix(omo-opencode): drop core-listed skills from skill tool descriptions",
+      "translated": "Drop core-listed skills from skill tool descriptions"
+    }
+  ],
+  "translatedAt": "2026-10-29T05:54:08.854Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 58946
+}
