@@ -1,0 +1,1154 @@
+{
+  "version": "5.1.55",
+  "date": "2026-11-01",
+  "parsedAt": "2026-11-01T13:33:14.097Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "senpi-task: a message sent to a daemon task while its launch is being recorded keeps its input identity; the task record no longer rolls its `effect_seq` back, and a record rewritten to the same size is no longer read stale (#10708). ([#11946](https://github.com/code-yeongyu/oh-my-openagent/pull/11946))",
+      "translated": "senpi-task: a message sent to a daemon task while its launch is being recorded keeps its input identity; the task record no longer rolls its `effect_seq` back, and a record rewritten to the same size is no longer read stale (#10708). ([#11946](https://github.com/code-yeongyu/oh-my-openagent/pull/11946))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Internal telemetry maintenance. ([#11882](https://github.com/code-yeongyu/oh-my-openagent/pull/11882))",
+      "translated": "Internal telemetry maintenance. ([#11882](https://github.com/code-yeongyu/oh-my-openagent/pull/11882))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote attach` on Windows now reports a stopped OmO device service as not running instead of a raw connection error (#12042). ([#12043](https://github.com/code-yeongyu/oh-my-openagent/pull/12043))",
+      "translated": "`omo remote attach` on Windows now reports a stopped OmO device service as not running instead of a raw connection error (#12042). ([#12043](https://github.com/code-yeongyu/oh-my-openagent/pull/12043))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync on a CLI sign-in recovers after the OS credential store briefly reads empty (a locked keychain, a racing writer). The operations that saw the empty read are still refused, but the next sync pass gets a live account instead of staying off until restart. A real sign-out or credential change still stops sync (#11812). ([#12001](https://github.com/code-yeongyu/oh-my-openagent/pull/12001))",
+      "translated": "Memory sync on a CLI sign-in recovers after the OS credential store briefly reads empty (a locked keychain, a racing writer). The operations that saw the empty read are still refused, but the next sync pass gets a live account instead of staying off until restart. A real sign-out or credential change still stops sync (#11812). ([#12001](https://github.com/code-yeongyu/oh-my-openagent/pull/12001))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "On Windows, `omo host ensure` forwards a private pipe pair through the npm launcher, Bun re-exec, and provisioned-runtime handoff. Both pipe handles travel together on their original stdio slots, and the waiting launcher closes its owned copies after spawning. Invalid or aliased pairs remain null declarations; POSIX socket forwarding is unchanged. ([#11958](https://github.com/code-yeongyu/oh-my-openagent/pull/11958))",
+      "translated": "On Windows, `omo host ensure` forwards a private pipe pair through the npm launcher, Bun re-exec, and provisioned-runtime handoff. Both pipe handles travel together on their original stdio slots, and the waiting launcher closes its owned copies after spawning. Invalid or aliased pairs remain null declarations; POSIX socket forwarding is unchanged. ([#11958](https://github.com/code-yeongyu/oh-my-openagent/pull/11958))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory git failures that end without any output now say how the git process ended (exit code, signal and elapsed time) instead of a bare exit code. On macOS and Linux the signal tells an externally killed git apart from a silent git error; on Windows a killed child reports no signal, so there the elapsed time is the only clue. ([#11945](https://github.com/code-yeongyu/oh-my-openagent/pull/11945))",
+      "translated": "Memory git failures that end without any output now say how the git process ended (exit code, signal and elapsed time) instead of a bare exit code. On macOS and Linux the signal tells an externally killed git apart from a silent git error; on Windows a killed child reports no signal, so there the elapsed time is the only clue. ([#11945](https://github.com/code-yeongyu/oh-my-openagent/pull/11945))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The compiled-worker relocation test no longer hangs now and then. Its fixture waited on `terminate()` from inside the worker's message handler, which races the worker's own exit and never settles on Bun 1.4.4. It now waits for the worker's clean exit after the ready message, and a timeout failure reports its signal. ([#11941](https://github.com/code-yeongyu/oh-my-openagent/pull/11941), fixes [#11940](https://github.com/code-yeongyu/oh-my-openagent/issues/11940))",
+      "translated": "The compiled-worker relocation test no longer hangs now and then. Its fixture waited on `terminate()` from inside the worker's message handler, which races the worker's own exit and never settles on Bun 1.4.4. It now waits for the worker's clean exit after the ready message, and a timeout failure reports its signal. ([#11941](https://github.com/code-yeongyu/oh-my-openagent/pull/11941), fixes [#11940](https://github.com/code-yeongyu/oh-my-openagent/issues/11940))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The maintainer `omob` build now compiles the engine trust helper in its own cargo call, as the release workflows do, so a locally built desktop engine matches the released one. ([#11939](https://github.com/code-yeongyu/oh-my-openagent/pull/11939), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "The maintainer `omob` build now compiles the engine trust helper in its own cargo call, as the release workflows do, so a locally built desktop engine matches the released one. ([#11939](https://github.com/code-yeongyu/oh-my-openagent/pull/11939), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Validate retained research source bytes before replacing an extraction and preserve the original capture time when reusing those bytes. ([#11936](https://github.com/code-yeongyu/oh-my-openagent/pull/11936))",
+      "translated": "Validate retained research source bytes before replacing an extraction and preserve the original capture time when reusing those bytes. ([#11936](https://github.com/code-yeongyu/oh-my-openagent/pull/11936))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory `/doctor` no longer tells the user to \"fix the cause\" of parked facts batches without naming it: the facts check now reads as a plain-words to-do (run `/facts retry` for a transient cause such as a timeout, or the named fix such as setting `memory.facts.model`), followed by the cause counts per parked batch and the newest parked batch's run log path, and `/facts retry` reports how many batches it unparked and whether any parked again, with the cause. ([#11909](https://github.com/code-yeongyu/oh-my-openagent/pull/11909), part of [#10897](https://github.com/code-yeongyu/oh-my-openagent/issues/10897))",
+      "translated": "Memory `/doctor` no longer tells the user to \"fix the cause\" of parked facts batches without naming it: the facts check now reads as a plain-words to-do (run `/facts retry` for a transient cause such as a timeout, or the named fix such as setting `memory.facts.model`), followed by the cause counts per parked batch and the newest parked batch's run log path, and `/facts retry` reports how many batches it unparked and whether any parked again, with the cause. ([#11909](https://github.com/code-yeongyu/oh-my-openagent/pull/11909), part of [#10897](https://github.com/code-yeongyu/oh-my-openagent/issues/10897))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A skill MCP server's `timeout` (milliseconds, set on the server entry in the skill's `mcp` frontmatter or `mcp.json`) now bounds every direct MCP request: list tools/resources/prompts, call tool, read resource and get prompt. Values outside 1 to 2147483647 ms fall back to the SDK default ([#11869](https://github.com/code-yeongyu/oh-my-openagent/pull/11869), carried forward from #7224 by @AceRothstein71)",
+      "translated": "A skill MCP server's `timeout` (milliseconds, set on the server entry in the skill's `mcp` frontmatter or `mcp.json`) now bounds every direct MCP request: list tools/resources/prompts, call tool, read resource and get prompt. Values outside 1 to 2147483647 ms fall back to the SDK default ([#11869](https://github.com/code-yeongyu/oh-my-openagent/pull/11869), carried forward from #7224 by @AceRothstein71)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The `omo-ai` installer and launcher no longer rewrite the Claude Code version the engine advertised on Anthropic OAuth requests: senpi removed that request path together with the declaration the rewrite looked for (senpi#5131), so engine preparation keeps only the compile-safe css-tree data and the RPC stream guard, and an engine without the declaration no longer fails preparation with \"unsupported Senpi\". ([#11964](https://github.com/code-yeongyu/oh-my-openagent/pull/11964))",
+      "translated": "The `omo-ai` installer and launcher no longer rewrite the Claude Code version the engine advertised on Anthropic OAuth requests: senpi removed that request path together with the declaration the rewrite looked for (senpi#5131), so engine preparation keeps only the compile-safe css-tree data and the RPC stream guard, and an engine without the declaration no longer fails preparation with \"unsupported Senpi\". ([#11964](https://github.com/code-yeongyu/oh-my-openagent/pull/11964))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Simplified OpenCode agent assembly by removing redundant type assertions and an unused builtin-skill name inventory. Agent mode, override precedence, and skill selection remain unchanged. ([#11870](https://github.com/code-yeongyu/oh-my-openagent/pull/11870)) ([#11899](https://github.com/code-yeongyu/oh-my-openagent/pull/11899))",
+      "translated": "Simplified OpenCode agent assembly by removing redundant type assertions and an unused builtin-skill name inventory. Agent mode, override precedence, and skill selection remain unchanged. ([#11870](https://github.com/code-yeongyu/oh-my-openagent/pull/11870)) ([#11899](https://github.com/code-yeongyu/oh-my-openagent/pull/11899))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Categories and agents can set `models_distribution: \"round_robin\"` alongside `models` to spread new task children across their configured model chains. The default `sequential` policy keeps the existing order. Each child's fallback chain wraps from its selected starting model without repeating models, and continuations keep their current model. ([#11905](https://github.com/code-yeongyu/oh-my-openagent/pull/11905))",
+      "translated": "Categories and agents can set `models_distribution: \"round_robin\"` alongside `models` to spread new task children across their configured model chains. The default `sequential` policy keeps the existing order. Each child's fallback chain wraps from its selected starting model without repeating models, and continuations keep their current model. ([#11905](https://github.com/code-yeongyu/oh-my-openagent/pull/11905))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`omo remote` checks your OmO sign-in first and stops with one plain line when you are signed out, the keychain is locked or the credential store is unavailable (#11853). ([#11864](https://github.com/code-yeongyu/oh-my-openagent/pull/11864))",
+      "translated": "`omo remote` checks your OmO sign-in first and stops with one plain line when you are signed out, the keychain is locked or the credential store is unavailable (#11853). ([#11864](https://github.com/code-yeongyu/oh-my-openagent/pull/11864))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`omo remote attach <device>/<session>` shows a session from another device of this account in the attach TUI, observe-only for now: input is refused with \"remote input not enabled yet\" (#11853). ([#11858](https://github.com/code-yeongyu/oh-my-openagent/pull/11858))",
+      "translated": "`omo remote attach <device>/<session>` shows a session from another device of this account in the attach TUI, observe-only for now: input is refused with \"remote input not enabled yet\" (#11853). ([#11858](https://github.com/code-yeongyu/oh-my-openagent/pull/11858))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`omo remote status | devices | sessions | enable | disable` shows this account's devices and the sessions on them through the OmO device service, as tables or `--json`, with a typed SDK (`@oh-my-opencode/device-service-core`) over the service's local API v1 underneath (#11853). ([#11857](https://github.com/code-yeongyu/oh-my-openagent/pull/11857))",
+      "translated": "`omo remote status | devices | sessions | enable | disable` shows this account's devices and the sessions on them through the OmO device service, as tables or `--json`, with a typed SDK (`@oh-my-opencode/device-service-core`) over the service's local API v1 underneath (#11853). ([#11857](https://github.com/code-yeongyu/oh-my-openagent/pull/11857))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use (macOS): `type()` into a window that shows another computer or device (Screen Sharing, iPhone Mirroring) sends the keys of the current keyboard layout, since such a window receives key codes rather than typed text; every character is mapped before anything is sent, and a character no key types fails `InvalidKey` with nothing typed. In the background, text into a Screen Sharing window that needs Shift or Option fails `BackgroundUnavailable` before the first key (it takes modifiers from the physical keyboard; use foreground delivery), and `el.type()` never inserts into a remote window. ([#11749](https://github.com/code-yeongyu/oh-my-openagent/pull/11749), part of [#11466](https://github.com/code-yeongyu/oh-my-openagent/issues/11466))",
+      "translated": "Computer use (macOS): `type()` into a window that shows another computer or device (Screen Sharing, iPhone Mirroring) sends the keys of the current keyboard layout, since such a window receives key codes rather than typed text; every character is mapped before anything is sent, and a character no key types fails `InvalidKey` with nothing typed. In the background, text into a Screen Sharing window that needs Shift or Option fails `BackgroundUnavailable` before the first key (it takes modifiers from the physical keyboard; use foreground delivery), and `el.type()` never inserts into a remote window. ([#11749](https://github.com/code-yeongyu/oh-my-openagent/pull/11749), part of [#11466](https://github.com/code-yeongyu/oh-my-openagent/issues/11466))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Command Code is now offered during setup as a custom provider: when `CMD_API_KEY` (or `COMMANDCODE_API_KEY`) is present in the environment, setup writes a keyless models.json provider entry covering both Command Code wires (Anthropic messages and OpenAI-compatible chat completions) and stores the key reference in auth.json, so agents can use Command Code models without manual provider configuration (#11326). ([#11326](https://github.com/code-yeongyu/oh-my-openagent/pull/11326))",
+      "translated": "Command Code is now offered during setup as a custom provider: when `CMD_API_KEY` (or `COMMANDCODE_API_KEY`) is present in the environment, setup writes a keyless models.json provider entry covering both Command Code wires (Anthropic messages and OpenAI-compatible chat completions) and stores the key reference in auth.json, so agents can use Command Code models without manual provider configuration (#11326). ([#11326](https://github.com/code-yeongyu/oh-my-openagent/pull/11326))"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Simplify agent-usage reminder state reuse without changing reminder caps, delegation suppression or session cleanup. ([#11890](https://github.com/code-yeongyu/oh-my-openagent/pull/11890)) ([#11899](https://github.com/code-yeongyu/oh-my-openagent/pull/11899))",
+      "translated": "Simplify agent-usage reminder state reuse without changing reminder caps, delegation suppression or session cleanup. ([#11890](https://github.com/code-yeongyu/oh-my-openagent/pull/11890)) ([#11899](https://github.com/code-yeongyu/oh-my-openagent/pull/11899))"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e650809dc4 chore(release): regenerate service-auth bundle for 5.1.55 (#12046)",
+      "translated": "Regenerate service-auth bundle for 5.1.55 (#12046)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "1c5187e363 docs(changelog): keep 5.1.55 notes neutral on telemetry",
+      "translated": "Keep 5.1.55 notes neutral on telemetry"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "13a25928c5 Merge pull request #12001 from code-yeongyu/fix/11812-transient-null-read",
+      "translated": "Merge pull request #12001 from code-yeongyu/fix/11812-transient-null-read"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f6c39e53f4 Merge pull request #12043 from code-yeongyu/fix/remote-attach-stopped-service",
+      "translated": "Merge pull request #12043 from code-yeongyu/fix/remote-attach-stopped-service"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a7b37c74e3 changes: 12043",
+      "translated": "Changes: 12043"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d1cd2d7805 fix(omo-native): omo remote attach names a stopped service on a refused connection",
+      "translated": "Omo remote attach names a stopped service on a refused connection"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8bda141bcd Merge pull request #11858 from code-yeongyu/feat/omo-remote-attach",
+      "translated": "Merge pull request #11858 from code-yeongyu/feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f57238ceac Merge pull request #11864 from code-yeongyu/feat/omo-remote-bootstrap",
+      "translated": "Merge pull request #11864 from code-yeongyu/feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f929317baf Merge pull request #11946 from code-yeongyu/fix/10708-input-identity",
+      "translated": "Merge pull request #11946 from code-yeongyu/fix/10708-input-identity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "24290412f5 build(memory-sync): regenerate bundles after merging dev 8b8b5a7eab",
+      "translated": "Regenerate bundles after merging dev 8b8b5a7eab"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "cbef4822b6 Merge remote-tracking branch 'origin/dev' into fix/11812-transient-null-read",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11812-transient-null-read"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "61f3a7edb0 Merge remote-tracking branch 'origin/feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge remote-tracking branch 'origin/feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fc2f8a7384 Merge remote-tracking branch 'origin/dev' into feat/omo-remote-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8b8b5a7eab Merge pull request #11857 from code-yeongyu/feat/omo-remote-device-client",
+      "translated": "Merge pull request #11857 from code-yeongyu/feat/omo-remote-device-client"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "91b437964d Merge remote-tracking branch 'origin/dev' into fix/10708-input-identity",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10708-input-identity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5dd32cb9a0 Merge commit 'cafe154cbd' into feat/omo-remote-attach",
+      "translated": "Merge commit 'cafe154cbd' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "61e2248609 Merge pull request #11945 from code-yeongyu/fix/11943-git-exec-signal",
+      "translated": "Merge pull request #11945 from code-yeongyu/fix/11943-git-exec-signal"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "cafe154cbd Merge remote-tracking branch 'origin/feat/omo-remote-device-client' into feat/omo-remote-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/feat/omo-remote-device-client' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "78a1540a1f chore(omo-native): regenerate service-auth bundle after merging dev",
+      "translated": "Regenerate service-auth bundle after merging dev"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d0350c82b5 Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "224ce9f710 docs(changes): scope the git termination note per platform (#11945)",
+      "translated": "Scope the git termination note per platform (#11945)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "03d6211906 Merge pull request #12019 from code-yeongyu/fix/12018-verify-assets-files-only",
+      "translated": "Merge pull request #12019 from code-yeongyu/fix/12018-verify-assets-files-only"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5b210a02ad Merge remote-tracking branch 'origin/dev' into fix/11943-git-exec-signal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11943-git-exec-signal"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "bf472e81d9 Merge pull request #11936 from MoerAI/fix/11551-kept-raw-snapshot-integrity",
+      "translated": "Merge pull request #11936 from MoerAI/fix/11551-kept-raw-snapshot-integrity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "adf3cc765d Merge pull request #11326 from Bearmancer/feat/commandcode-custom-provider",
+      "translated": "Merge pull request #11326 from Bearmancer/feat/commandcode-custom-provider"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8b93cb08e2 Merge pull request #11964 from code-yeongyu/fix/5131-drop-claude-code-floor",
+      "translated": "Merge pull request #11964 from code-yeongyu/fix/5131-drop-claude-code-floor"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2e6885751c Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity",
+      "translated": "Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "79e65ae6b3 Merge remote-tracking branch 'origin/dev' into fix/12018-verify-assets-files-only",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12018-verify-assets-files-only"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5aaf501560 test(device-service-core): LA17 expects the user SDDL token in the ACE list (Windows prints LA)",
+      "translated": "LA17 expects the user SDDL token in the ACE list (Windows prints LA)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "de3f64e697 Merge pull request #11905 from code-yeongyu/feat/10146-models-distribution",
+      "translated": "Merge pull request #11905 from code-yeongyu/feat/10146-models-distribution"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e0c128ed36 Merge pull request #11749 from code-yeongyu/feat/11466-cu-remote-typing",
+      "translated": "Merge pull request #11749 from code-yeongyu/feat/11466-cu-remote-typing"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f468e6e6f2 fix(device-service-core): keep SID_TOKEN_SCRIPT module-private (knip)",
+      "translated": "Keep SID_TOKEN_SCRIPT module-private (knip)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f1b932d273 Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity",
+      "translated": "Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "27bdf80e2d Merge pull request #11909 from surlymochan/fix/10897-doctor-parked-facts-cause",
+      "translated": "Merge pull request #11909 from surlymochan/fix/10897-doctor-parked-facts-cause"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a67e3dc21e Merge pull request #12017 from code-yeongyu/test-rules/ras-wire-scripts",
+      "translated": "Merge pull request #12017 from code-yeongyu/test-rules/ras-wire-scripts"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e12952dd6c fix(device-service-core): accept the SDDL alias Windows prints for the user in the exact DACL verdict",
+      "translated": "Accept the SDDL alias Windows prints for the user in the exact DACL verdict"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "1f3786190a Merge pull request #11882 from code-yeongyu/fix/install-key-review-lows",
+      "translated": "Merge pull request #11882 from code-yeongyu/fix/install-key-review-lows"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f75703398b Merge branch 'dev' into feat/commandcode-custom-provider",
+      "translated": "Merge branch 'dev' into feat/commandcode-custom-provider"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "215b147199 Merge pull request #11939 from code-yeongyu/feat/10762-omob-two-cargo-calls",
+      "translated": "Merge pull request #11939 from code-yeongyu/feat/10762-omob-two-cargo-calls"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "32e6bfba02 Merge remote-tracking branch 'origin/dev' into lane/11964",
+      "translated": "Merge remote-tracking branch 'origin/dev' into lane/11964"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e357654f99 test(eq): re-record linux-x64 E21-E24 goldens for the remote-screens computer doc",
+      "translated": "Re-record linux-x64 E21-E24 goldens for the remote-screens computer doc"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2a28bd13e9 Merge pull request #11958 from code-yeongyu/feat/omo-win32-private-fd-pair",
+      "translated": "Merge pull request #11958 from code-yeongyu/feat/omo-win32-private-fd-pair"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "170220ecff fix(publish): verify only top-level release files, not payload dirs (#12018)",
+      "translated": "Verify only top-level release files, not payload dirs (#12018)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fa1397fad2 Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b0991a66b5 remove-ai-slops: fold the two review LOWs (mark set, --test splitting caveat)",
+      "translated": "Remove-ai-slops: fold the two review LOWs (mark set, --test splitting caveat)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "aeea2a4957 changes: fragment for #12017",
+      "translated": "Changes: fragment for #12017"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d0d8c744be remove-ai-slops: name the programming skill's detector and mutation-proof scripts",
+      "translated": "Remove-ai-slops: name the programming skill's detector and mutation-proof scripts"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "07bc15bbd5 Merge pull request #11968 from code-yeongyu/test-rules/remove-ai-slops-junk-tests",
+      "translated": "Merge pull request #11968 from code-yeongyu/test-rules/remove-ai-slops-junk-tests"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "eeb81f98c4 Merge pull request #11869 from code-yeongyu/fix/6631-mcp-request-timeout",
+      "translated": "Merge pull request #11869 from code-yeongyu/fix/6631-mcp-request-timeout"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "07acf3d3f4 fix(device-service-core): report the DACL apply error as plain text and show the written SDDL in LA17",
+      "translated": "Report the DACL apply error as plain text and show the written SDDL in LA17"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "7e6e7b7574 fix(memory): drop unused classifyFactsFailure export flagged by knip",
+      "translated": "Drop unused classifyFactsFailure export flagged by knip"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2bbfa366d4 fix(memory): resolve parked facts run path via ledger batchId; report /facts retry as started",
+      "translated": "Resolve parked facts run path via ledger batchId; report /facts retry as started"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "536dcde2aa Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b29ed90dc8 docs(changelog): add fragment for #11909",
+      "translated": "Add fragment for #11909"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b642e5f78f feat(memory): name the parked-facts cause and run log in /doctor; report retry outcomes",
+      "translated": "Name the parked-facts cause and run log in /doctor; report retry outcomes"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "485d179ba7 Merge remote-tracking branch 'origin/dev' into feat/10762-omob-two-cargo-calls",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-omob-two-cargo-calls"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "302a8a474f Merge remote-tracking branch 'origin/dev' into fix/install-key-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/install-key-review-lows"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5a4c299071 Merge origin/dev (5.1.54 release point) into test-rules/remove-ai-slops-junk-tests",
+      "translated": "Merge origin/dev (5.1.54 release point) into test-rules/remove-ai-slops-junk-tests"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b90e17ceb4 Merge pull request #11998 from code-yeongyu/release/v5.1.54-source-state",
+      "translated": "Merge pull request #11998 from code-yeongyu/release/v5.1.54-source-state"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ac579e5688 fix(device-service-core): apply the exact Windows DACL through SetAccessControl and name the error",
+      "translated": "Apply the exact Windows DACL through SetAccessControl and name the error"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "98f5549af2 chore(knip): drop SESSION_READ_WAIT from preExistingExports now that omo remote uses it",
+      "translated": "Drop SESSION_READ_WAIT from preExistingExports now that omo remote uses it"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6ca1b8b1f6 Merge remote-tracking branch 'origin/dev' into feat/omo-win32-private-fd-pair",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-win32-private-fd-pair"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6a44924bd1 Merge pull request #11941 from code-yeongyu/fix/11940-worker-compile-load-timeout",
+      "translated": "Merge pull request #11941 from code-yeongyu/fix/11940-worker-compile-load-timeout"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f49050d25a docs(remove-ai-slops): fold the #11968 review at c7b8b08143",
+      "translated": "Fold the #11968 review at c7b8b08143"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "33ca5c06e5 Merge remote-tracking branch 'origin/dev' into fix/11940-worker-compile-load-timeout",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11940-worker-compile-load-timeout"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "1b1f17cea7 fix(device-service-core): write the per-boot token with the platform secure-file helper in the proof test",
+      "translated": "Write the per-boot token with the platform secure-file helper in the proof test"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "eaf0f0495e Merge pull request #11972 from code-yeongyu/test-rules/test-junk-detector",
+      "translated": "Merge pull request #11972 from code-yeongyu/test-rules/test-junk-detector"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "1b239a3105 docs(changes): add #12001 fragment",
+      "translated": "Add #12001 fragment"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5ee2bc5d0b Merge origin/dev (c4312cd8bd, #11967 + #11991 merged) into test-rules/test-junk-detector",
+      "translated": "Merge origin/dev (c4312cd8bd, #11967 + #11991 merged) into test-rules/test-junk-detector"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "81c94ee6ea fix(memory-sync): renew the CLI account controller after a transient null read (#11812)",
+      "translated": "Renew the CLI account controller after a transient null read (#11812)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "61b3344842 Merge pull request #11899 from code-yeongyu/cleanup-r3/omo-train-2",
+      "translated": "Merge pull request #11899 from code-yeongyu/cleanup-r3/omo-train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "0cfa935a80 fix(omo-native): exit omo remote attach when the TUI cannot start",
+      "translated": "Exit omo remote attach when the TUI cannot start"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "3d55d8f04a test(eq): re-record linux-x64 E21-E24 goldens for the remote-screens computer doc",
+      "translated": "Re-record linux-x64 E21-E24 goldens for the remote-screens computer doc"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c7b8b08143 test(qa): refresh Linux E21-E24 after the remove-ai-slops description fold (#11968)",
+      "translated": "Refresh Linux E21-E24 after the remove-ai-slops description fold (#11968)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "91d7782772 docs(remove-ai-slops): fold the #11968 review at 51ab1bb271",
+      "translated": "Fold the #11968 review at 51ab1bb271"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "b23d570708 Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d21830f7f3 test(telemetry): replace a non-null assertion with an explicit guard",
+      "translated": "Replace a non-null assertion with an explicit guard"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "56d080c575 Merge test-rules/programming-testing-refs (dev 5.1.53 + E21-E24 goldens) into test-rules/test-junk-detector",
+      "translated": "Merge test-rules/programming-testing-refs (dev 5.1.53 + E21-E24 goldens) into test-rules/test-junk-detector"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "51ab1bb271 test(qa): refresh Linux E21-E24 for the remove-ai-slops description (#11968)",
+      "translated": "Refresh Linux E21-E24 for the remove-ai-slops description (#11968)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d226b5a9d0 Merge branch 'dev' into feat/commandcode-custom-provider",
+      "translated": "Merge branch 'dev' into feat/commandcode-custom-provider"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ed862a5242 Merge test-rules/programming-testing-refs (dev 5.1.53 + E21-E24 goldens) into test-rules/remove-ai-slops-junk-tests",
+      "translated": "Merge test-rules/programming-testing-refs (dev 5.1.53 + E21-E24 goldens) into test-rules/remove-ai-slops-junk-tests"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "34adee1e45 Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity",
+      "translated": "Merge branch 'dev' into fix/11551-kept-raw-snapshot-integrity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "61936b2b68 Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d6afe4a977 Merge remote-tracking branch 'origin/dev' into fix/10708-input-identity",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10708-input-identity"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "126a20b7e7 Merge remote-tracking branch 'origin/dev' into fix/install-key-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/install-key-review-lows"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f0ce60ae67 Merge remote-tracking branch 'origin/dev' into fix/6631-mcp-request-timeout",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6631-mcp-request-timeout"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c4134fb3e3 Merge remote-tracking branch 'origin/dev' into feat/10762-omob-two-cargo-calls",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-omob-two-cargo-calls"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8f47f58459 Merge remote-tracking branch 'origin/dev' into cleanup-r3/omo-train-2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cleanup-r3/omo-train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "7b6449f30f docs(remove-ai-slops): fold the #11968 review: proofs per class, run serially by the orchestrator",
+      "translated": "Fold the #11968 review: proofs per class, run serially by the orchestrator"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "47412b785d fix(omo-native): close a refused Windows pair's pipes in the hop (#11955)",
+      "translated": "Close a refused Windows pair's pipes in the hop (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "9749fcf848 fix(programming): fold the #11972 review notes into the detector and the proof helper",
+      "translated": "Fold the #11972 review notes into the detector and the proof helper"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "daa3add342 Merge remote-tracking branch 'origin/feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge remote-tracking branch 'origin/feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c4dc5f77c2 Merge remote-tracking branch 'origin/feat/omo-remote-device-client' into feat/omo-remote-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/feat/omo-remote-device-client' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a0bd5d2559 Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ed3e37ec64 docs(changelog): fragment for #11972",
+      "translated": "Fragment for #11972"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f3bbab3665 feat(programming): check-test-junk detector and mutation-proof helper on Bun",
+      "translated": "Check-test-junk detector and mutation-proof helper on Bun"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d32e37ffc1 docs(changelog): fragment for #11968",
+      "translated": "Fragment for #11968"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a088e65819 docs(remove-ai-slops): treat tests as a cleanup surface with the junk-class table and proof rule",
+      "translated": "Treat tests as a cleanup surface with the junk-class table and proof rule"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d05c7e8c6b fix(omo-native): drop the Claude Code UA floor rewrite of the installed engine",
+      "translated": "Drop the Claude Code UA floor rewrite of the installed engine"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "421271eb08 fix(omo-native): recognise Windows pipes by their S_IFIFO mode bits (#11955)",
+      "translated": "Recognise Windows pipes by their S_IFIFO mode bits (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "58bc4c6d6c fix(omo-native): classify Windows private pipes by mode (#11955)",
+      "translated": "Classify Windows private pipes by mode (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8cfafdd5d0 test(omo-native): isolate Windows pipe bootstrap failures (#11955)",
+      "translated": "Isolate Windows pipe bootstrap failures (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f525701f1c test(delegate-task): create the distribution fixture home under the OS temp dir",
+      "translated": "Create the distribution fixture home under the OS temp dir"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2c5628c19d docs(omo-native): record Windows pipe pair forwarding (#11955)",
+      "translated": "Record Windows pipe pair forwarding (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e1bd7922e2 feat(omo-native): forward Windows private pipe pairs (#11955)",
+      "translated": "Forward Windows private pipe pairs (#11955)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "df39c78a68 fix(setup): finish Command Code adoption review",
+      "translated": "Finish Command Code adoption review"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "7482d7d1ee Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10146-models-distribution"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "af21ce15bc Merge remote-tracking branch 'origin/dev' into fix/6631-mcp-request-timeout",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6631-mcp-request-timeout"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6cb85fd9c6 docs(changes): note the git termination diagnostic (#11945)",
+      "translated": "Note the git termination diagnostic (#11945)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "4a705cce2a docs(changes): fragment for #11946",
+      "translated": "Fragment for #11946"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8d9154773b fix(memory-core): name how a git child ended when it fails without output (#11943)",
+      "translated": "Name how a git child ended when it fails without output (#11943)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fb6316fbca test(build): wait for the self-exiting worker instead of terminating it",
+      "translated": "Wait for the self-exiting worker instead of terminating it"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c7c50851eb docs(changes): add the #11941 fragment",
+      "translated": "Add the #11941 fragment"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c1d1921f82 test(build): give the relocated compiled-worker run a load-safe budget",
+      "translated": "Give the relocated compiled-worker run a load-safe budget"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "066fdfd1b6 docs(changes): add the #11939 fragment (#10762)",
+      "translated": "Add the #11939 fragment (#10762)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "08acef317f fix(omob): build the engine trust helper in its own cargo call (#10762)",
+      "translated": "Build the engine trust helper in its own cargo call (#10762)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "cdb8d70d41 docs(changelog): record retained raw snapshot integrity fix",
+      "translated": "Record retained raw snapshot integrity fix"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "38e0c49e8e fix(ulw-research): validate kept raw bytes before replacement",
+      "translated": "Validate kept raw bytes before replacement"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "7d91ee0847 Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-remote-typing and regenerate bundles"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a4a37fd1c5 Merge origin/dev into omo train-2",
+      "translated": "Merge origin/dev into omo train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ad34934b8b Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d35336b37e Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap",
+      "translated": "Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "db97ee5071 fix(remote): spawn PowerShell through node:child_process and preload the PostHog test guard in device-service-core (part of #11853)",
+      "translated": "Spawn PowerShell through node:child_process and preload the PostHog test guard in device-service-core (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "805dec643e fix(models): preserve narrow reasoning effort through fallback snapshots",
+      "translated": "Preserve narrow reasoning effort through fallback snapshots"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "3d33bed179 fix(config): retain round-robin chains through agent materialization",
+      "translated": "Retain round-robin chains through agent materialization"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2e096c052d docs(changelog): record model distribution in PR 11905",
+      "translated": "Record model distribution in PR 11905"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6c7cdfbd8d feat(task): distribute category and agent model starts per spawn",
+      "translated": "Distribute category and agent model starts per spawn"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c9b79dfb2e Merge #11879 (cleanup-r3/o-memory-codex-slop) into omo train-2",
+      "translated": "Merge #11879 (cleanup-r3/o-memory-codex-slop) into omo train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d22dbc04fe Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "113aeae030 Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap",
+      "translated": "Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "db848a92b4 Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/omo-remote-device-client"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "79c65e6355 docs(changes): fold train fragments into 11899.md",
+      "translated": "Fold train fragments into 11899.md"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "47aff9e3f6 Merge #11890 (cleanup-r3/o-oc-hooks-slop-ready) into omo train-2",
+      "translated": "Merge #11890 (cleanup-r3/o-oc-hooks-slop-ready) into omo train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fd45e5014b Merge #11884 (cleanup-r3/o-small-cores-slop) into omo train-2",
+      "translated": "Merge #11884 (cleanup-r3/o-small-cores-slop) into omo train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "2aa93f78ef Merge #11870 (cleanup-r3/o-oc-features-slop) into omo train-2",
+      "translated": "Merge #11870 (cleanup-r3/o-oc-features-slop) into omo train-2"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "fc78e16f47 fix(mcp-client-core): cap the request timeout at the timer limit, drop the unused override, document timeout (review #11869)",
+      "translated": "Cap the request timeout at the timer limit, drop the unused override, document timeout (review #11869)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a638463472 docs(changelog): note reminder state cleanup",
+      "translated": "Note reminder state cleanup"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d0bba01f18 refactor(opencode): simplify reminder state lookup",
+      "translated": "Simplify reminder state lookup"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "51e43f5af3 fix(remote): bound attach replay, isolate listeners, bound the keychain read (fixes #11885)",
+      "translated": "Bound attach replay, isolate listeners, bound the keychain read (fixes #11885)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c54f98e840 Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "cc6cdc3ce0 fix(remote): omo account show exits 0 when signed out; the docstring and tests say so (part of #11853)",
+      "translated": "Omo account show exits 0 when signed out; the docstring and tests say so (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6d70a430a3 fix(telemetry): stop OTLP after install-key rejection",
+      "translated": "Stop OTLP after install-key rejection"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "f7bdded8a9 test(model-core): infer provider lookup fixture metadata",
+      "translated": "Infer provider lookup fixture metadata"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "394daaffe5 test(memory): remove redundant queue fixture array assertions",
+      "translated": "Remove redundant queue fixture array assertions"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "4e9ddbb46d Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "92aa6631ad refactor(memory): narrow reminder condition keys after clean handling",
+      "translated": "Narrow reminder condition keys after clean handling"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ccdd5785cb Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap",
+      "translated": "Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-bootstrap"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "a80ab44fa7 docs(changelog): record agent assembly cleanup",
+      "translated": "Record agent assembly cleanup"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "30d6a1e7ba fix(remote): detach releases the attach's subscription and settles detached (part of #11853)",
+      "translated": "Detach releases the attach's subscription and settles detached (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "8eaabd1cef docs(changes): record the MCP request timeout fix (#11869)",
+      "translated": "Record the MCP request timeout fix (#11869)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "3528c964ed refactor(opencode): remove redundant agent assembly casts",
+      "translated": "Remove redundant agent assembly casts"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "08ca6ebb2b fix(mcp-client-core): propagate the configured request timeout to skill MCP calls (#6631)",
+      "translated": "Propagate the configured request timeout to skill MCP calls (#6631)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "cbf85f6788 Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-bootstrap' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "1f08b7ab1c docs(changes): fragment for #11864",
+      "translated": "Fragment for #11864"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "aa5d5e2db5 feat(remote): omo account show is the first step of every omo remote command (part of #11853)",
+      "translated": "Omo account show is the first step of every omo remote command (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "52bbfaf91c Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "bf1af03e46 refactor(remote): the local API is omo's own implementation of docs/local-api.md (part of #11853)",
+      "translated": "The local API is omo's own implementation of docs/local-api.md (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "5203d2c10b Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-attach",
+      "translated": "Merge branch 'feat/omo-remote-device-client' into feat/omo-remote-attach"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "6717350fcc fix(remote): lint-ratchet and command-string audit findings before CI (part of #11853)",
+      "translated": "Lint-ratchet and command-string audit findings before CI (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "c4adca6fea docs(changes): fragment for #11858",
+      "translated": "Fragment for #11858"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "15ca2c8873 feat(remote): omo remote attach <device>/<session>, observe-only (part of #11853)",
+      "translated": "Omo remote attach <device>/<session>, observe-only (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "14d940810e docs(changes): fragment for #11857",
+      "translated": "Fragment for #11857"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "0e8922d7ad feat(remote): device-service SDK over local API v1 and the omo remote command group (part of #11853)",
+      "translated": "Device-service SDK over local API v1 and the omo remote command group (part of #11853)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "bb36b568c2 fix(desktop-macos): a bare key counts as pressed only once its press went out",
+      "translated": "A bare key counts as pressed only once its press went out"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "4f05a2b307 fix(desktop-macos): bare remote keys release what they pressed and use a null source",
+      "translated": "Bare remote keys release what they pressed and use a null source"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "59ae702b0e docs(changes): fragment for #11749",
+      "translated": "Fragment for #11749"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "e221e80caa chore(knip): list the engine test helper input-calls.ts as an entry",
+      "translated": "List the engine test helper input-calls.ts as an entry"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "d1b5caaa04 feat(desktop-macos): type into Screen Sharing and iPhone Mirroring windows",
+      "translated": "Type into Screen Sharing and iPhone Mirroring windows"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "73fe17449c fix(setup): restore OpenCode source naming and scope Command Code guidance to planned runs",
+      "translated": "Restore OpenCode source naming and scope Command Code guidance to planned runs"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "af90b90910 feat(setup): configure Command Code as a models.json custom provider",
+      "translated": "Configure Command Code as a models.json custom provider"
+    }
+  ],
+  "translatedAt": "2026-11-01T13:36:33.781Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 21433
+}
