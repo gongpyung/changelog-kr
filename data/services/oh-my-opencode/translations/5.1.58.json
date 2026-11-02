@@ -1,0 +1,266 @@
+{
+  "version": "5.1.58",
+  "date": "2026-11-02",
+  "parsedAt": "2026-11-02T16:11:03.611Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The builtin `dev-browser` skill's macOS/Linux standalone command now runs a release step before `server.sh`. When nothing answers on 9222, it sends SIGTERM to whatever holds 9223, waits up to 5 s, and sends SIGKILL only to survivors. dev-browser's `start-server.ts` then finds the port free and never reaches its `kill -9`, so a browser gets its clean exit and does not leak per-launch state such as the macOS Chrome code-sign clone. A running server on 9222 is left alone, and the step does nothing when `curl` or `lsof` is missing. It works the same under bash and zsh. The upstream fix is SawyerHood/dev-browser#146. ([#12071](https://github.com/code-yeongyu/oh-my-openagent/pull/12071), part of [#12067](https://github.com/code-yeongyu/oh-my-openagent/issues/12067))",
+      "translated": "내장 `dev-browser` 스킬의 macOS/Linux 독립 실행형 명령어가 이제 `server.sh` 실행 전에 릴리스 단계를 수행합니다. 9222 포트에서 응답이 없을 경우 9223 포트를 점유 중인 프로세스에 SIGTERM을 보내고, 최대 5초간 대기한 뒤 종료되지 않은 프로세스에만 SIGKILL을 보냅니다. 이를 통해 `dev-browser`의 `start-server.ts`가 포트가 비어 있음을 확인하여 `kill -9`를 실행하지 않게 되며, 브라우저가 정상적으로 종료되어 macOS Chrome 코드 서명 클론과 같은 실행별 상태가 유출되지 않습니다. 9222 포트에서 실행 중인 서버는 그대로 유지되며, `curl`이나 `lsof`가 없는 경우 해당 단계는 아무 작업도 수행하지 않습니다. bash와 zsh에서 동일하게 작동합니다. 업스트림 수정 사항은 SawyerHood/dev-browser#146입니다. ([#12071](https://github.com/code-yeongyu/oh-my-openagent/pull/12071), [#12067](https://github.com/code-yeongyu/oh-my-openagent/issues/12067)의 일부)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A delegated task now runs only on the models designated for it (its category's or agent's model chain). It never falls back to the parent session's model, whatever the failure: a usage limit, a missing or rejected sign-in, a content-policy refusal or an overload on every designated model ends the task with `failure_kind: \"model_chain_exhausted\"` and an error listing each model it tried and why, including any reset time the provider reported. This applies to every category and to workflow nodes. A `categories.<name>.provider_lock` key left in `omo.json` is ignored. ([#12006](https://github.com/code-yeongyu/oh-my-openagent/issues/12006), [#11781](https://github.com/code-yeongyu/oh-my-openagent/issues/11781)) ([#12010](https://github.com/code-yeongyu/oh-my-openagent/pull/12010))",
+      "translated": "위임된 작업이 이제 지정된 모델(해당 카테고리 또는 에이전트의 모델 체인)에서만 실행됩니다. 사용량 제한, 로그인 누락 또는 거부, 콘텐츠 정책 위반, 모든 지정된 모델의 과부하 등 어떤 실패 상황에서도 상위 세션의 모델로 폴백하지 않습니다. 작업은 `failure_kind: \"model_chain_exhausted\"`와 함께 종료되며, 시도한 각 모델과 실패 이유(제공자가 보고한 초기화 시간 포함)가 오류 목록에 표시됩니다. 이는 모든 카테고리와 워크플로 노드에 적용됩니다. `omo.json`에 남은 `categories.<name>.provider_lock` 키는 무시됩니다. ([#12006](https://github.com/code-yeongyu/oh-my-openagent/issues/12006), [#11781](https://github.com/code-yeongyu/oh-my-openagent/issues/11781)) ([#12010](https://github.com/code-yeongyu/oh-my-openagent/pull/12010))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Keep an unacknowledged task-host session close reachable by teardown so detaching",
+      "translated": "분리 시 정리를 통해 승인되지 않은 태스크 호스트 세션 종료에 접근할 수 있도록 유지합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The macOS (darwin-arm64) EQ.omo goldens for E21-E24 are re-recorded against senpi 2026.10.31-2, and recording now refuses a golden that carries a host-only notice or terminal event, so a machine-specific row can no longer be committed as the expected output. ([#12056](https://github.com/code-yeongyu/oh-my-openagent/pull/12056), fixes [#12054](https://github.com/code-yeongyu/oh-my-openagent/issues/12054))",
+      "translated": "E21-E24용 macOS (darwin-arm64) EQ.omo 골든 파일이 senpi 2026.10.31-2 기준으로 다시 기록되었습니다. 이제 기록 시 호스트 전용 알림이나 터미널 이벤트가 포함된 골든 파일은 거부되므로, 머신 전용"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The device service SDK (`@oh-my-opencode/device-service-core`) can download, verify and install the OmO device service and run its start-up bootstrap: the release signature is checked with the repository's strict Ed25519 helper against a compiled-in release key, every file against the signed checksums, and the release lands in the service's state dir only after every check passed. Nothing calls it yet, and the release key is a placeholder until it is published. ([#12052](https://github.com/code-yeongyu/oh-my-openagent/pull/12052))",
+      "translated": "The device service SDK (`@oh-my-opencode/device-service-core`) can download, verify and install the OmO device service and run its start-up bootstrap: the release signature is checked with the repository's strict Ed25519 helper against a compiled-in release key, every file against the signed checksums, and the release lands in the service's state dir only after every check passed. Nothing calls it yet, and the release key is a placeholder until it is published. ([#12052](https://github.com/code-yeongyu/oh-my-openagent/pull/12052))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c69c3eab6f Merge pull request #12130 from code-yeongyu/fix/eq-omo-plugin-mcps",
+      "translated": "Merge pull request #12130 from code-yeongyu/fix/eq-omo-plugin-mcps"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8c67b06a8 Merge pull request #12010 from code-yeongyu/fix/category-provider-lock",
+      "translated": "Merge pull request #12010 from code-yeongyu/fix/category-provider-lock"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b4393e2122 test(eq): re-record linux-x64 EQ.omo E21-E24 goldens for the real plugin MCP surface (#12127)",
+      "translated": "Re-record linux-x64 EQ.omo E21-E24 goldens for the real plugin MCP surface (#12127)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ed841ae151 Merge pull request #12052 from code-yeongyu/feat/device-service-client",
+      "translated": "Merge pull request #12052 from code-yeongyu/feat/device-service-client"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e88fcd028a Merge remote-tracking branch 'origin/dev' into feat/device-service-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/device-service-client"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7c37db199c Merge pull request #12056 from code-yeongyu/test/12054-darwin-eq-omo-goldens",
+      "translated": "Merge pull request #12056 from code-yeongyu/test/12054-darwin-eq-omo-goldens"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6240740841 Merge remote-tracking branch 'origin/dev' into fix/category-provider-lock",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/category-provider-lock"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "694f0bde64 Merge pull request #12068 from code-yeongyu/fix/12067-chrome-term-grace",
+      "translated": "Merge pull request #12068 from code-yeongyu/fix/12067-chrome-term-grace"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2b86d0b888 Merge pull request #11931 from code-yeongyu/fix/11930-rejected-close-hook-windows",
+      "translated": "Merge pull request #11931 from code-yeongyu/fix/11930-rejected-close-hook-windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "df3ff7e0dc Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0becdaaf69 Merge remote-tracking branch 'origin/dev' into bw-12010-p0",
+      "translated": "Merge remote-tracking branch 'origin/dev' into bw-12010-p0"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9d35580941 Merge pull request #12091 from code-yeongyu/release/v5.1.57-source-state",
+      "translated": "Merge pull request #12091 from code-yeongyu/release/v5.1.57-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6138598975 changes: fragment for #12056",
+      "translated": "Changes: fragment for #12056"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5504a17bd2 Merge remote-tracking branch 'origin/dev' into feat/device-service-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/device-service-client"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0db17a46d1 Merge pull request #12071 from code-yeongyu/fix/12067-dev-browser-term-first",
+      "translated": "Merge pull request #12071 from code-yeongyu/fix/12067-dev-browser-term-first"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fe76094609 Merge remote-tracking branch 'origin/dev' into bw-12010-p0",
+      "translated": "Merge remote-tracking branch 'origin/dev' into bw-12010-p0"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f7dc405782 Merge commit '6392671db73f057273111f5d8dfde7b7f5ef3d9d' into fix/12067-chrome-term-grace",
+      "translated": "Merge commit '6392671db73f057273111f5d8dfde7b7f5ef3d9d' into fix/12067-chrome-term-grace"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4fd2017d27 Merge remote-tracking branch 'origin/dev' into fix/12067-dev-browser-term-first",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12067-dev-browser-term-first"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "117464301c fix(browser): pin omowright at the graceful-quit release (#12067)",
+      "translated": "Pin omowright at the graceful-quit release (#12067)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "39c4c9946b fix(dev-browser): require curl, split pids under zsh, move the changelog entry to a fragment",
+      "translated": "Require curl, split pids under zsh, move the changelog entry to a fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1cfb5a37de fix(ultimate-browsing): tear the template group down on cancellation too (#12068 review)",
+      "translated": "Tear the template group down on cancellation too (#12068 review)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c993392fc3 Merge remote-tracking branch 'origin/dev' into feat/device-service-client",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/device-service-client"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7e4131dc44 Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c298c9a9be fix(dev-browser): release the CDP port with SIGTERM before server.sh can kill -9 it",
+      "translated": "Release the CDP port with SIGTERM before server.sh can kill -9 it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "702bcb6780 fix(ultimate-browsing): give a timed-out template's Chrome a graceful quit",
+      "translated": "Give a timed-out template's Chrome a graceful quit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f8c130e5da Merge #11983's head 200e2ca834 into #12056 (stack rebase)",
+      "translated": "Merge #11983's head 200e2ca834 into #12056 (stack rebase)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d92ad0b8f test(eq): re-stamp darwin-arm64 EQ.omo baseline from a recording at the committed head (#12054 review)",
+      "translated": "Re-stamp darwin-arm64 EQ.omo baseline from a recording at the committed head (#12054 review)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cd11b25482 docs(changes): fragment for the device service client (#12052)",
+      "translated": "Fragment for the device service client (#12052)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cd982ccba1 fix(device-service-core): regenerate the native auth bundle, list the new test support files as knip entries, keep test paths out of the command audit",
+      "translated": "Regenerate the native auth bundle, list the new test support files as knip entries, keep test paths out of the command audit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "59c2036c4d Merge remote-tracking branch 'origin/dev' into bw-12010-p0",
+      "translated": "Merge remote-tracking branch 'origin/dev' into bw-12010-p0"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "25bbe24c17 test(device-service-core): a re-served latest.json and an unknown checksums entry are refused; drop the redundant signature length branch",
+      "translated": "A re-served latest.json and an unknown checksums entry are refused; drop the redundant signature length branch"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2720d488f2 feat(device-service-core): verified acquisition, install and start-up bootstrap of the device service",
+      "translated": "Verified acquisition, install and start-up bootstrap of the device service"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1804e758cb test(device-service-core): RED - verified acquisition, install-service and bootstrap of the device service",
+      "translated": "RED - verified acquisition, install-service and bootstrap of the device service"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "050e020d3e Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11930-rejected-close-hook-windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d9153c3a1a Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7e259652fb docs(changes): fragment for #12010",
+      "translated": "Fragment for #12010"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e541c51e63 chore(omo-codex): regenerate install bundle for categories.provider_lock",
+      "translated": "Regenerate install bundle for categories.provider_lock"
+    }
+  ],
+  "translatedAt": "2026-11-02T16:11:36.505Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 3805
+}
