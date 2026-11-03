@@ -1,0 +1,536 @@
+{
+  "version": "5.1.59",
+  "date": "2026-11-03",
+  "parsedAt": "2026-11-03T14:22:36.482Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync refuses a received item on Windows whose working path git cannot stage (at or past MAX_PATH, which git for Windows opens without `core.longpaths`), dropping it with a receipt before anything is rendered instead of failing the sync commit and wedging the device on every resume (#12199). POSIX behaviour is unchanged. ([#12201](https://github.com/code-yeongyu/oh-my-openagent/pull/12201))",
+      "translated": "Memory sync가 Windows에서 git이 스테이징할 수 없는 작업 경로(`MAX_PATH`에 도달하거나 초과하며, Windows용 git이 `core.longpaths` 없이 여는 경우)를 가진 수신 항목을 거부합니다. 동기화 커밋을 실패하게 하여 재개할 때마다 장치를 멈추게 하는 대신, 렌더링 전에 영수증과 함께 해당 항목을 삭제합니다. POSIX 동작은 변경되지 않았습니다. ([#12201](https://github.com/code-yeongyu/oh-my-openagent/pull/12201))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The task widget no longer keeps finished team members as `process completed` rows. A member that completes its turn leaves the widget even while its handle stays resident; `/tasks` still lists it and `task_send` still revives it. ([#12160](https://github.com/code-yeongyu/oh-my-openagent/pull/12160))",
+      "translated": "위젯에서 완료된 팀원을 더 이상 `process completed` 행으로 유지하지 않습니다. 자신의 차례를 마친 멤버는 핸들이 상주하더라도 위젯에서 제거됩니다. `/tasks`에서는 여전히 목록에 표시되며 `task_send`를 통해 다시 활성화할 수 있습니다. ([#12160](https://github.com/code-yeongyu/oh-my-openagent/pull/12160))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync validates an item key before it reaches the working tree, the item store or git, so a peer can no longer land a path outside the memory root or inside the repository's own metadata. A key must be a normalized relative path: `..` and `.` segments, absolute paths, drive and UNC prefixes, backslashes, control and format code points, non-NFC text, over-long keys and segments, Windows device names, trailing dots or spaces, and any component git or a file system would fold to `.git` are refused. A refused item is dropped on its own with a receipt, a log line that carries the key's byte length and the rule rather than the key, and a `rejectedItems` count, while the rest of its batch applies and the cursor advances, so one bad item never pauses a device. Local capture uses the same grammar, never follows a symlink out of the memory root, and a file whose name the grammar refuses is reported instead of sent. A path that is valid but spelled with a different Unicode normalization no longer forks one item into two. ([#12152](https://github.com/code-yeongyu/oh-my-openagent/pull/12152), fixes [#12147](https://github.com/code-yeongyu/oh-my-openagent/issues/12147))",
+      "translated": "Memory sync는 항목 키가 작업 트리, 항목 저장소 또는 git에 도달하기 전에 유효성을 검사하여, 피어가 memory root 외부나 저장소 자체 메타데이터 내부에 경로를 생성할 수 없도록 합니다. 키는 정규화된 상대 경로여야 합니다. `..` 및 `.` 세그먼트, 절대 경로, 드라이브 및 UNC 접두사, 백슬래시, 제어 및 형식 코드 포인트, 비 NFC 텍스트, 너무 긴 키 및 세그먼트, Windows 장치 이름, 끝에 붙는 점이나 공백, 그리고 git이나 파일 시스템이 `.git`으로 간주하는 모든 구성 요소는 거부됩니다. 거부된 항목은 영수증, 키 대신 키의 바이트 길이와 규칙이 포함된 로그 라인, `rejectedItems` 카운트와 함께 개별적으로 삭제되며, 배치의 나머지 항목은 적용되고 커서가 진행되므로 잘못된 항목 하나로 인해 장치가 중단되지 않습니다. Local capture도 동일한 문법을 사용하며, memory root 외부의 심볼릭 링크를 따르지 않고, 문법에서 거부하는 이름의 파일은 전송되는 대신 보고됩니다. 유효하지만 다른 유니코드 정규화 방식으로 작성된 경로는 더 이상 하나의 항목을 두 개로 분리하지 않습니다. ([#12152](https://github.com/code-yeongyu/oh-my-openagent/pull/12152), [#12147](https://github.com/code-yeongyu/oh-my-openagent/issues/12147) 수정)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "After a session starts or resumes, workflow (DAG) views now always receive the current run list before the first turn begins, and a client that reconnects to a running session gets it again, so the desktop workflow view no longer stays empty or stale until something changes. A workflow that was still running when the session closed resumes in the background: its state is shown as soon as it is recovered, and the session's first turn no longer waits for the whole workflow to finish. ([#12122](https://github.com/code-yeongyu/oh-my-openagent/pull/12122), fixes [#12113](https://github.com/code-yeongyu/oh-my-openagent/issues/12113))",
+      "translated": "세션이 시작되거나 재개된 후, workflow (DAG) 뷰는 이제 첫 번째 턴이 시작되기 전에 항상 현재 실행 목록을 수신하며, 실행 중인 세션에 다시 연결된 클라이언트도 이를 다시 받게 되어 데스크톱 워크플로 뷰가 변경 사항이 생길 때까지 비어 있거나 오래된 상태로 유지되지 않습니다. 세션이 닫힐 때 여전히 실행 중이던 워크플로는 백그라운드에서 재개됩니다. 복구되는 즉시 상태가 표시되며, 세션의 첫 번째 턴은 더 이상 전체 워크플로가 완료될 때까지 기다리지 않습니다. ([#12122](https://github.com/code-yeongyu/oh-my-openagent/pull/12122), [#12113](https://github.com/code-yeongyu/oh-my-openagent/issues/12113) 수정)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory git commands no longer start git's builtin fsmonitor daemon when your git config turns `core.fsmonitor` on. Every git command memory runs now carries `-c core.fsmonitor=false`, the clean-tree `status`, `add` and `diff` included, so no background daemon outlives git and keeps the memory repository busy. ([#12097](https://github.com/code-yeongyu/oh-my-openagent/pull/12097), part of [#10391](https://github.com/code-yeongyu/oh-my-openagent/issues/10391))",
+      "translated": "git 설정에서 `core.fsmonitor`가 켜져 있더라도 Memory git 명령이 더 이상 git의 내장 fsmonitor 데몬을 시작하지 않습니다. 이제 memory가 실행하는 모든 git 명령(clean-tree `status`, `add`, `diff` 포함)에는 `-c core.fsmonitor=false`가 포함되어, 백그라운드 데몬이 git보다 오래 실행되어 memory 저장소를 점유하는 일이 발생하지 않습니다. ([#12097](https://github.com/code-yeongyu/oh-my-openagent/pull/12097), [#10391](https://github.com/code-yeongyu/oh-my-openagent/issues/10391)의 일부)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`fact verify` no longer skips text inside SVG `<foreignObject>`: the ulw-research tokenizer now parses foreignObject subtrees as HTML (the rest of the SVG stays raw), so fact unit/value mutations there are caught and bare numerals must trace to a chart CSV plot value. ([#12040](https://github.com/code-yeongyu/oh-my-openagent/pull/12040), fixes [#11570](https://github.com/code-yeongyu/oh-my-openagent/issues/11570))",
+      "translated": "`fact verify`가 더 이상 SVG `<foreignObject>` 내부의 텍스트를 건너뛰지 않습니다. ulw-research 토크나이저가 이제 foreignObject 하위 트리를 HTML로 파싱하며(SVG의 나머지 부분은 그대로 유지), 이에 따라 해당 위치의 fact unit/value 변형이 감지되고 단순 숫자는 차트 CSV 플롯 값으로 추적되어야 합니다. ([#12040](https://github.com/code-yeongyu/oh-my-openagent/pull/12040), [#11570](https://github.com/code-yeongyu/oh-my-openagent/issues/11570) 수정)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`task_output` no longer replays an unchanged status snapshot to the same caller: a repeated peek at a task whose status has not moved returns `no_progress` instead of the full record again, which keeps polling loops from refilling the context with identical output. Thanks to @codeg-dev. ([#7662](https://github.com/code-yeongyu/oh-my-openagent/pull/7662))",
+      "translated": "`task_output`이 동일한 호출자에게 변경되지 않은 상태 스냅샷을 다시 재생하지 않습니다. 상태가 변경되지 않은 작업에 대해 반복적으로 peek을 수행하면 전체 레코드 대신 `no_progress`를 반환하여, 폴링 루프가 동일한 출력으로 컨텍스트를 다시 채우는 것을 방지합니다. @codeg-dev님께 감사드립니다. ([#7662](https://github.com/code-yeongyu/oh-my-openagent/pull/7662))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Every built-in reasoning default that sat at `medium` or `xhigh` now sits at `high`: the default lane `daily-normal` runs `claude-opus-5-5` at `high` (was `medium`), `daily-heavy` and the Fable 5.5 launch rungs drop `xhigh` for `high`, and `geeky-normal`, the deep-low/unspecified/quick category chains, the OpenCode category catalogs, the builtin agent fallback chains and the model-fallback default move with them. Model ids, provider orders and the `low`/`max`/`off` levels are untouched. ([#12094](https://github.com/code-yeongyu/oh-my-openagent/pull/12094), fixes [#12085](https://github.com/code-yeongyu/oh-my-openagent/issues/12085))",
+      "translated": "기존에 `medium` 또는 `xhigh`였던 모든 내장 추론 기본값이 이제 `high`로 설정됩니다. 기본 레인인 `daily-normal`은 `claude-opus-5-5`를 `high`(`medium`에서 변경)로 실행하며, `daily-heavy` 및 Fable 5.5 출시 단계에서는 `xhigh` 대신 `high`를 사용합니다. `geeky-normal`, deep-low/unspecified/quick 카테고리 체인, OpenCode 카테고리 카탈로그, 내장 에이전트 폴백 체인 및 모델 폴"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add `omo trust ensure --json [--wait] [--lease-pid <pid>]`, answered by the launcher trust stage: it imports within the launch budget, writes the private generation and leases it, so the retention sweep never removes a generation a running process still uses. ([#11969](https://github.com/code-yeongyu/oh-my-openagent/pull/11969), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Add `omo trust ensure --json [--wait] [--lease-pid <pid>]`, answered by the launcher trust stage: it imports within the launch budget, writes the private generation and leases it, so the retention sweep never removes a generation a running process still uses. ([#11969](https://github.com/code-yeongyu/oh-my-openagent/pull/11969), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Add the `eval-integrity` shared skill: a read-only audit of whether an eval, benchmark, metric, A/B test, holdout, LLM judge, or user study can support its stated claim, reported under one PASS / FAIL / INCONCLUSIVE verdict line. Thanks to @realsigridjin. ([#7593](https://github.com/code-yeongyu/oh-my-openagent/pull/7593))",
+      "translated": "Add the `eval-integrity` shared skill: a read-only audit of whether an eval, benchmark, metric, A/B test, holdout, LLM judge, or user study can support its stated claim, reported under one PASS / FAIL / INCONCLUSIVE verdict line. Thanks to @realsigridjin. ([#7593](https://github.com/code-yeongyu/oh-my-openagent/pull/7593))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6428c2a25b Merge pull request #12122 from code-yeongyu/fix/12113-dag-snapshot-on-attach",
+      "translated": "Merge pull request #12122 from code-yeongyu/fix/12113-dag-snapshot-on-attach"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b38dfeabbe Merge origin/dev into fix/12113-dag-snapshot-on-attach",
+      "translated": "Merge origin/dev into fix/12113-dag-snapshot-on-attach"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "37c0448f4d Merge pull request #12201 from code-yeongyu/fix/12199-sync-tests-windows",
+      "translated": "Merge pull request #12201 from code-yeongyu/fix/12199-sync-tests-windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0ef1af9d23 Merge pull request #7593 from realsigridjin/feat/eval-integrity-skill",
+      "translated": "Merge pull request #7593 from realsigridjin/feat/eval-integrity-skill"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0af30e0323 Merge pull request #12040 from surlymochan/fix/11570-foreignobject-fact-verify",
+      "translated": "Merge pull request #12040 from surlymochan/fix/11570-foreignobject-fact-verify"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8499b2e58e Merge origin/dev into feat/eval-integrity-skill",
+      "translated": "Merge origin/dev into feat/eval-integrity-skill"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6af40212b1 Merge origin/dev into fix/11570-foreignobject-fact-verify",
+      "translated": "Merge origin/dev into fix/11570-foreignobject-fact-verify"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "053ce97861 Merge pull request #7662 from codeg-dev/codeg/task-output-polling-guard-minimal",
+      "translated": "Merge pull request #7662 from codeg-dev/codeg/task-output-polling-guard-minimal"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0e046bcea4 test(memory-sync): assert each platform's landing verdict for a key past MAX_PATH",
+      "translated": "Assert each platform's landing verdict for a key past MAX_PATH"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c706b13ae0 chore(changes): fragment for 12201",
+      "translated": "Fragment for 12201"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0b985ee78f fix(memory-sync): refuse a key whose working path git cannot stage on Windows",
+      "translated": "Refuse a key whose working path git cannot stage on Windows"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e3ca0a34bd Merge origin/dev into feat/eval-integrity-skill",
+      "translated": "Merge origin/dev into feat/eval-integrity-skill"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ab501609ac Merge origin/dev into codeg/task-output-polling-guard-minimal",
+      "translated": "Merge origin/dev into codeg/task-output-polling-guard-minimal"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0d80470e42 Merge pull request #12097 from code-yeongyu/fix/10391-windows-job-helper",
+      "translated": "Merge pull request #12097 from code-yeongyu/fix/10391-windows-job-helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "351dcd12fa docs(changelog): add the 7662 changelog fragment",
+      "translated": "Add the 7662 changelog fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a3013e19d0 Merge pull request #12160 from code-yeongyu/fix/widget-drop-completed-team-members",
+      "translated": "Merge pull request #12160 from code-yeongyu/fix/widget-drop-completed-team-members"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4cb2a12551 Merge origin/dev into feat/eval-integrity-skill (#7593)",
+      "translated": "Merge origin/dev into feat/eval-integrity-skill (#7593)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3ce66122c6 Merge origin/dev into fix/10391-windows-job-helper",
+      "translated": "Merge origin/dev into fix/10391-windows-job-helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "04cf166763 Merge pull request #12152 from code-yeongyu/fix/12147-sync-key-validation",
+      "translated": "Merge pull request #12152 from code-yeongyu/fix/12147-sync-key-validation"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "33e008724c Merge remote-tracking branch 'origin/dev' into fix/widget-drop-completed-team-members",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/widget-drop-completed-team-members"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "66d884d09b test(eq): re-record E21-E24 goldens for the task_output description",
+      "translated": "Re-record E21-E24 goldens for the task_output description"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d971726868 test(eq): re-record E21-E24 goldens for eval-integrity",
+      "translated": "Re-record E21-E24 goldens for eval-integrity"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8bcfcc378d Merge origin/dev into fix/10391-windows-job-helper",
+      "translated": "Merge origin/dev into fix/10391-windows-job-helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ab43b74e9a Merge origin/dev into codeg/task-output-polling-guard-minimal (#7662)",
+      "translated": "Merge origin/dev into codeg/task-output-polling-guard-minimal (#7662)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "19190d78d4 Merge origin/dev into fix/12147-sync-key-validation",
+      "translated": "Merge origin/dev into fix/12147-sync-key-validation"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "09b6e5a6da Merge pull request #12094 from code-yeongyu/fix/12085-builtin-reasoning-high",
+      "translated": "Merge pull request #12094 from code-yeongyu/fix/12085-builtin-reasoning-high"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2619d46c3d Merge origin/dev into fix/10391-windows-job-helper",
+      "translated": "Merge origin/dev into fix/10391-windows-job-helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4aecbc2ce5 Merge pull request #12101 from code-yeongyu/fix/12098-loro-scan-source-set",
+      "translated": "Merge pull request #12101 from code-yeongyu/fix/12098-loro-scan-source-set"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "408f57f04e docs(changelog): add the eval-integrity fragment for #7593",
+      "translated": "Add the eval-integrity fragment for #7593"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c2d79822fa Merge origin/dev into feat/eval-integrity-skill (#7593)",
+      "translated": "Merge origin/dev into feat/eval-integrity-skill (#7593)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4da4c42fed Merge remote-tracking branch 'origin/dev' into fix/12098-loro-scan-source-set",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12098-loro-scan-source-set"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "35421ad5d7 Merge remote-tracking branch 'origin/dev' into fix/widget-drop-completed-team-members",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/widget-drop-completed-team-members"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8df6c3983c Merge pull request #11979 from code-yeongyu/fix/11963-global-fs-spies",
+      "translated": "Merge pull request #11979 from code-yeongyu/fix/11963-global-fs-spies"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "55ea53753e Merge pull request #11969 from code-yeongyu/feat/10762-trust-ensure",
+      "translated": "Merge pull request #11969 from code-yeongyu/feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ed57d368d2 docs(changes): fragment for received-key validation (#12152)",
+      "translated": "Fragment for received-key validation (#12152)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f685cee269 chore(knip): drop the sha256Hex row the received-key tests now use",
+      "translated": "Drop the sha256Hex row the received-key tests now use"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5653399026 docs: move the #12160 change note into a changelog fragment",
+      "translated": "Move the #12160 change note into a changelog fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cd4c181986 Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5ed3bf5039 Merge remote-tracking branch 'origin/dev' into fix/12085-builtin-reasoning-high",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12085-builtin-reasoning-high"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "990780f4ec Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f83208fdad Merge pull request #12135 from code-yeongyu/release/v5.1.58-source-state",
+      "translated": "Merge pull request #12135 from code-yeongyu/release/v5.1.58-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b66fe5dabf fix(memory-sync): symlinked paths and non-NFC on-disk names never wedge or fork sync",
+      "translated": "Symlinked paths and non-NFC on-disk names never wedge or fork sync"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0de79793a1 test(memory-sync): symlinked paths, non-NFC on-disk names and Windows device names never wedge or fork sync",
+      "translated": "Symlinked paths, non-NFC on-disk names and Windows device names never wedge or fork sync"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f08fbb8e0e fix(memory-sync): validate received item keys before they reach the filesystem or git",
+      "translated": "Validate received item keys before they reach the filesystem or git"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d08f7be5e2 test(memory-sync): received item keys must never reach repository metadata or leave the memory root",
+      "translated": "Received item keys must never reach repository metadata or leave the memory root"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7f61df8f59 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d7d8f86e3 Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "38dcf3a538 changes: fragment for #12122",
+      "translated": "Changes: fragment for #12122"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "39ee0703d7 Update the remaining reasoning pins, the no-sisyphus-gpt gpt-5.5 fallback and the plugin bundles (#12085)",
+      "translated": "Update the remaining reasoning pins, the no-sisyphus-gpt gpt-5.5 fallback and the plugin bundles (#12085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d5dd644ff9 Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "564c07e2fd test(memory-core): use a neutral git user in the fsmonitor prefix-order case",
+      "translated": "Use a neutral git user in the fsmonitor prefix-order case"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "192d78941f Merge remote-tracking branch 'origin/dev' into fix/10391-windows-job-helper",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10391-windows-job-helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b268e1256d Merge remote-tracking branch 'origin/dev' into fix/12098-loro-scan-source-set",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12098-loro-scan-source-set"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "18ed304ee5 test(memory-core): scan only git-listed package source in the loro import guard",
+      "translated": "Scan only git-listed package source in the loro import guard"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5c77a832b4 docs(changes): add #12097 fragment",
+      "translated": "Add #12097 fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "47131a8e3a fix(memory-core): disable fsmonitor for every memory git command",
+      "translated": "Disable fsmonitor for every memory git command"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cdd1ebfc24 Raise the builtin-agents hephaestus variant fallback to high (#12085)",
+      "translated": "Raise the builtin-agents hephaestus variant fallback to high (#12085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c9baa6c88c Update agent factory test pins and the sisyphus-junior fallback to high (#12085)",
+      "translated": "Update agent factory test pins and the sisyphus-junior fallback to high (#12085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bbc34741c4 Raise the OpenCode agent factory reasoningEffort defaults to high (#12085)",
+      "translated": "Raise the OpenCode agent factory reasoningEffort defaults to high (#12085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d5a798fa76 test(omo-native): trust-ensure tests hold on macOS and Windows (#10762)",
+      "translated": "Trust-ensure tests hold on macOS and Windows (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4de6743ef1 Add changes fragment for #12094",
+      "translated": "Add changes fragment for #12094"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d5575ccb8a Raise every built-in medium/xhigh reasoning default to high (#12085)",
+      "translated": "Raise every built-in medium/xhigh reasoning default to high (#12085)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5a6ddaf6b3 Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "753631e9b9 Add changes fragment for #12040",
+      "translated": "Add changes fragment for #12040"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e20966e839 Fix #11570: tokenize SVG foreignObject in fact verify",
+      "translated": "Fix #11570: tokenize SVG foreignObject in fact verify"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5576c4ecc0 Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "12aabe8ad9 Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "495ba866d0 test(omo-native): replace non-null assertions in trust ensure tests with explicit guards (#10762)",
+      "translated": "Replace non-null assertions in trust ensure tests with explicit guards (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5c63e00fea Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure",
+      "translated": "Merge remote-tracking branch 'origin/feat/10762-trust-stage' into feat/10762-trust-ensure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5cbd6ce939 Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11963-global-fs-spies"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d718af1150 test(knip): register the trust-ensure probe fixture as an entry (#10762)",
+      "translated": "Register the trust-ensure probe fixture as an entry (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8985165773 docs(changes): record omo trust ensure (#11969)",
+      "translated": "Record omo trust ensure (#11969)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bb6ffa3ab6 feat(omo-native): omo trust ensure with generation leases (#10762)",
+      "translated": "Omo trust ensure with generation leases (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "11be051062 test(memory-core): scope global fs rename spies to the fixture's own paths (#11963)",
+      "translated": "Scope global fs rename spies to the fixture's own paths (#11963)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1dc502a6d1 fix(skill-sync): scope ignored directories to sources",
+      "translated": "Scope ignored directories to sources"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "87fadbf321 fix(eval-integrity): enforce a single verdict line",
+      "translated": "Enforce a single verdict line"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d2e921010a feat(skills): add evaluation integrity audit",
+      "translated": "Add evaluation integrity audit"
+    }
+  ],
+  "translatedAt": "2026-11-03T14:25:14.066Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 6762
+}
