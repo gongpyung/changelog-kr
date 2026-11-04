@@ -1,0 +1,518 @@
+{
+  "version": "2.1.318",
+  "date": "2026-11-04",
+  "parsedAt": "2026-11-04T06:31:43.453Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a record of your answer when Claude Code asks to turn on the mods it writes in a session",
+      "translated": "세션 중에 Claude Code가 작성한 모드(mod) 활성화 여부를 물을 때, 사용자의 답변 내용을 기록하도록 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added `assume_role` on `mantle` upstreams of the Claude apps gateway, for a role in another AWS account and for per-developer AWS cost attribution",
+      "translated": "다른 AWS 계정의 역할 및 개발자별 AWS 비용 할당을 위해 Claude 앱 게이트웨이의 `mantle` 업스트림에 `assume_role` 기능을 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added an `effort` option to a mod's `$.model.fork`, so a quick side job can run at `low` whatever effort the session uses; the result reports the effort sent",
+      "translated": "모드의 `$.model.fork`에 `effort` 옵션을 추가하여, 세션에서 설정된 작업 강도와 관계없이 간단한 부가 작업을 `low` 강도로 실행할 수 있게 했으며, 결과에 사용된 작업 강도가 표시되도록 했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added the date a stored claude.ai sign-in ends to `claude auth status` (`loginExpiresAt`) and to `claude -p` JSON results (`credential_expires_at`)",
+      "translated": "`claude auth status`(`loginExpiresAt`) 및 `claude -p` JSON 결과(`credential_expires_at`)에 저장된 claude.ai 로그인 만료 날짜를 추가했습니다."
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Added a one-line stderr warning to `claude -p` text output, starting 10 days before a stored claude.ai sign-in ends",
+      "translated": "저장된 claude.ai 로그인 만료 10일 전부터 `claude -p` 텍스트 출력의 stderr에 한 줄 경고 메시지를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `--continue` sometimes losing the earlier conversation after a malformed tool call's retries ran out (regression in 2.1.314)",
+      "translated": "잘못된 형식의 도구 호출 재시도 횟수가 초과되었을 때 `--continue` 사용 시 이전 대화 내용이 유실되던 문제를 수정했습니다 (2.1.314 버전의 회귀 오류)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed macOS sessions with many running Bash commands stalling while memory grew",
+      "translated": "다수의 Bash 명령어가 실행 중인 macOS 세션에서 메모리 사용량이 증가하며 멈추는 현상을 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed permission prompts being answered by keys typed just after sending a message, or before a slow prompt appeared",
+      "translated": "메시지 전송 직후 또는 느리게 나타나는 권한 요청 프롬프트가 표시되기 전에 입력한 키에 의해 프롬프트가 자동으로 응답 처리되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/logout`, `claude auth logout` and `claude mcp remove` reporting success, and changes to trust, consent or MCP settings being dropped with no word, when the config file could not be updated on a shared network home directory",
+      "translated": "공유 네트워크 홈 디렉토리에서 설정 파일을 업데이트할 수 없을 때, `/logout`, `claude auth logout`, `claude mcp remove`가 성공으로 표시되거나 신뢰, 동의, MCP 설정 변경 사항이 아무런 알림 없이 누락되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed jobs exiting with `Not logged in` when another terminal or host signs in again to the same account and organization on the same home",
+      "translated": "동일한 홈 디렉토리 내의 다른 터미널이나 호스트에서 같은 계정 및 조직으로 다시 로그인할 때, 실행 중인 작업이 `Not logged in` 오류와 함께 종료되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude mcp add` and `remove` writing the config without its lock: they now wait for it or exit 1, though another job's save can still replace a saved server",
+      "translated": "`claude mcp add` 및 `remove` 명령어가 잠금(lock) 없이 설정 파일을 작성하던 문제를 수정했습니다. 이제 잠금을 기다리거나 실패 시 exit 1로 종료되지만, 다른 작업의 저장이 여전히 기존 서버 설정을 대체할 수 있습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin` commands exiting before a slow token refresh was saved, which could sign you out on the next run",
+      "translated": "느린 토큰 갱신 작업이 저장되기 전에 `claude plugin` 명령어가 종료되어 다음 실행 시 로그아웃될 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude plugin validate` passing a custom-named marketplace file that `claude plugin marketplace add` rejects",
+      "translated": "`claude plugin marketplace add`에서 거부되는 사용자 지정 이름의 마켓플레이스 파일을 `claude plugin validate`가 통과시키던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed stdio MCP servers that exit on the version probe being re-probed on every start; a server that dies in under 3s for its own reason is also pinned to the legacy handshake for 7 days",
+      "translated": "버전 확인(probe) 시 종료되는 stdio MCP 서버가 시작할 때마다 다시 확인되던 문제를 수정했습니다. 또한 3초 이내에 자체적인 이유로 종료되는 서버는 7일 동안 레거시 핸드셰이크 방식으로 고정됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed sessions being refused at startup by an `allowedProviders` list that another login on the same machine had stored",
+      "translated": "동일한 기기에서 다른 로그인이 저장한 `allowedProviders` 목록으로 인해 시작 시 세션이 거부되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed idle compaction replacing a conversation with a reply that was not a summary",
+      "translated": "유휴 상태의 압축(compaction) 작업 중 대화 내용이 요약본이 아닌 일반 답변으로 대체되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the \"Now using usage credits\" notice reappearing about every 30 seconds while a background subagent is running",
+      "translated": "백그라운드 서브 에이전트가 실행되는 동안 \"Now using usage credits\" 알림이 약 30초마다 반복해서 나타나는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed custom slash commands that fail, or that only Claude can invoke, printing nothing in `claude -p` and SDK sessions",
+      "translated": "실패하거나 Claude만 호출할 수 있는 사용자 지정 슬래시 명령어가 `claude -p` 및 SDK 세션에서 아무것도 출력하지 않는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude -p` and Agent SDK sessions reporting success when an API error cut off a reply while a mod hooked `turn.step`",
+      "translated": "모드가 `turn.step`을 후킹하는 동안 API 오류로 인해 답변이 중단되었음에도 `claude -p` 및 Agent SDK 세션이 성공으로 보고되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a message sent right after a model change still running after Stop in headless sessions: Stop now cancels or stops it as it would a queued message",
+      "translated": "헤드리스 세션에서 모델 변경 직후 전송된 메시지가 중지(Stop) 후에도 계속 실행되는 문제를 수정했습니다. 이제 중지 시 대기 중인 메시지와 마찬가지로 해당 메시지를 취소하거나 중단합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a deleted session transcript being re-created with its last prompt when an idle non-interactive session exited",
+      "translated": "유휴 상태의 비대화형 세션이 종료될 때, 삭제된 세션 기록이 마지막 프롬프트와 함께 다시 생성되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `claude remote-control` hosts, the background daemon and self-hosted runners failing to start new sessions (`spawn ENOENT`) after an update or version cleanup removed the binary of a still-running process",
+      "translated": "업데이트나 버전 정리로 인해 실행 중인 프로세스의 바이너리가 삭제된 후, `claude remote-control` 호스트, 백그라운드 데몬 및 셀프 호스트 러너가 새 세션을 시작하지 못하던 문제(`spawn ENOENT`)를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a running Claude Code process owned by another user (for example one left by `sudo claude`) being treated as dead by version cleanup, which could delete its binary",
+      "translated": "다른 사용자가 소유한 실행 중인 Claude Code 프로세스(예: `sudo claude`로 실행된 프로세스)를 버전 정리 시 종료된 것으로 간주하여 바이너리를 삭제할 수 있던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/remote-control` showing a session as available after a failed connection",
+      "translated": "연결 실패 후에도 `/remote-control`에서 세션이 사용 가능한 것으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/design revoke` reporting success when the request failed with a 404",
+      "translated": "요청이 404 오류로 실패했을 때 `/design revoke`가 성공으로 보고되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a shell command approved after a self-hosted runner or cloud session restart running in the session's start folder, not the folder it was asked in; if that folder can't be entered, it is not run",
+      "translated": "셀프 호스트 러너나 클라우드 세션 재시작 후 승인된 셸 명령어가 요청된 폴더가 아닌 세션 시작 폴더에서 실행되던 문제를 수정했습니다. 해당 폴더에 진입할 수 없는 경우 명령어가 실행되지 않습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed Claude not being told when an approved connector tool was unavailable after a cloud session restart",
+      "translated": "클라우드 세션 재시작 후 승인된 커넥터 도구를 사용할 수 없게 되었을 때 Claude에게 알림이 가지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed cloud sessions being stopped in the middle of a turn when the service refuses uploads for several minutes",
+      "translated": "서비스에서 몇 분 동안 업로드를 거부할 때 클라우드 세션이 턴 중간에 중단되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed variables a `Setup` hook writes to `CLAUDE_ENV_FILE` not reaching the Bash tool in some cloud sessions",
+      "translated": "일부 클라우드 세션에서 `Setup` 훅이 `CLAUDE_ENV_FILE`에 작성한 변수가 Bash 도구에 전달되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the iPhone app showing a cloud session's turn as finished while it kept running, after a response was cut off at a tool call or a refused image or document was removed",
+      "translated": "도구 호출 시 응답이 끊기거나 거부된 이미지 또는 문서가 제거된 후, 클라우드 세션이 계속 실행 중임에도 iPhone 앱에서 턴이 종료된 것으로 표시되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a restarted session re-sending a message that failed with an API error, ahead of the newer message waiting behind it",
+      "translated": "재시작된 세션에서 API 오류로 실패했던 메시지가 대기 중인 최신 메시지보다 먼저 재전송되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a restarted session dropping its interrupted turn when the restart came right after Claude read a large image or retried a tool call",
+      "translated": "Claude가 대용량 이미지를 읽거나 도구 호출을 재시도한 직후 세션이 재시작될 때, 중단된 턴이 누락되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed every connection failing when the `NODE_EXTRA_CA_CERTS` file is empty, not PEM, or starts with a damaged certificate: readable certificates are now used, with a warning on stderr",
+      "translated": "`NODE_EXTRA_CA_CERTS` 파일이 비어 있거나 PEM 형식이 아니거나 손상된 인증서로 시작할 때 모든 연결이 실패하던 문제를 수정했습니다. 이제 읽기 가능한 인증서가 사용되며 stderr에 경고가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed workflows re-running finished agents when resumed after a usage limit",
+      "translated": "사용량 제한 이후 워크플로를 재개할 때 이미 종료된 에이전트가 다시 실행되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed `/mcp` in cloud sessions counting tools the model can't use; a server's row now shows how many of its tools are available",
+      "translated": "클라우드 세션의 `/mcp`에서 모델이 사용할 수 없는 도구까지 집계하던 문제를 수정했습니다. 이제 서버 행에 사용 가능한 도구 수가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a duplicate notification when Claude left the status field out of a PushNotification call",
+      "translated": "Claude가 PushNotification 호출에서 status 필드를 누락했을 때 알림이 중복으로 발생하던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the error for a too-large image in a request with more than 20 images always saying the limit was 2000px; it now shows the API's limit",
+      "translated": "20개 이상의 이미지가 포함된 요청에서 너무 큰 이미지에 대한 오류 메시지가 항상 제한을 2000px로 표시하던 문제를 수정했습니다. 이제 API의 실제 제한 수치가 표시됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the runtime in background shell details not updating while the dialog is open",
+      "translated": "대화 상자가 열려 있는 동안 백그라운드 셸 상세 정보의 실행 시간이 업데이트되지 않던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed a mod's `turn.step` hook making a stopped reply finish as a success in headless runs",
+      "translated": "헤드리스 실행 시 모드의 `turn.step` 훅으로 인해 중단된 응답이 성공으로 완료되던 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed retention cleanup leaving a home that only runs `claude -p` with no `~/.claude.json` backup: it now takes a fresh backup before deleting the last good one",
+      "translated": "보관 기한 정리 시 `claude -p`만 실행하는 홈 디렉토리에 `~/.claude.json` 백업이 남지 않던 문제를 수정했습니다. 이제 마지막 정상 백업을 삭제하기 전에 새로운 백업을 생성합니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the stored login being replaced by an empty file when a network home directory has no room left for data but still takes new files",
+      "translated": "네트워크 홈 디렉토리에 공간이 부족하지만 새 파일 생성은 가능한 경우, 저장된 로그인 정보가 빈 파일로 대체되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed tokens from `setup-token` being refused at start on machines with `forceLoginOrgUUID`, when the token belongs to a permitted organization",
+      "translated": "`forceLoginOrgUUID`가 설정된 기기에서 토큰이 허용된 조직에 속해 있음에도 불구하고, 시작 시 `setup-token`으로 생성된 토큰이 거부되는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed non-interactive launches replacing a `~/.claude.json` that isn't valid JSON with defaults; the start now fails, says how to restore the file, and leaves it as is (anthropics/claude-code#87551)",
+      "translated": "비대화형 실행 시 유효하지 않은 JSON 형식의 `~/.claude.json` 파일을 기본값으로 대체하던 문제를 수정했습니다. 이제 실행이 중단되며 파일 복구 방법을 안내하고 기존 파일은 그대로 유지합니다 (anthropics/claude-code#87551)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed an empty `~/.claude.json` with no backup being reported as corrupted; Claude Code now starts as it does when the file is missing",
+      "translated": "백업이 없는 빈 `~/.claude.json` 파일이 손상된 것으로 보고되는 문제를 수정했습니다. 이제 Claude Code는 파일이 없을 때와 동일하게 시작됩니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the restore command printed for a damaged or missing `~/.claude.json` naming an empty or cut-off backup, or failing on a read-only file",
+      "translated": "손상되거나 누락된 `~/.claude.json`에 대해 출력되는 복구 명령어가 비어 있거나 잘린 백업 파일을 지칭하거나, 읽기 전용 파일에서 실패하는 문제를 수정했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Fixed the sign-in failure when a stored claude.ai login reaches its time limit: it now says so, and in `claude -p` names `claude auth login` and `claude setup-token`",
+      "translated": "저장된 claude.ai 로그인 세션이 만료되었을 때 로그인이 실패하는 문제를 수정했습니다. 이제 만료 사실을 알리며, `claude -p` 실행 시 `claude auth login` 및 `claude setup-token` 사용을 안내합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved how `~/.claude.json`, settings files and the stored login survive saves on shared network home directories: they are less often deleted, briefly emptied or replaced by a near-empty or older copy",
+      "translated": "공유 네트워크 홈 디렉토리에서 `~/.claude.json`, 설정 파일 및 저장된 로그인 정보의 저장 안정성을 개선했습니다. 파일이 삭제되거나 일시적으로 비워지거나, 거의 비어 있는 파일 또는 이전 복사본으로 대체되는 현상이 줄어듭니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved sessions on network file systems to look again when the configuration file is wrongly reported as missing, so fewer start without your MCP servers and trusted folders",
+      "translated": "네트워크 파일 시스템에서 설정 파일이 누락된 것으로 잘못 보고될 경우 다시 확인하도록 세션 처리를 개선하여, MCP 서버나 신뢰할 수 있는 폴더 없이 시작되는 경우를 줄였습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved MCP tool errors: a call made before the tool is loaded now returns its input schema",
+      "translated": "MCP 도구 오류를 개선했습니다. 도구가 로드되기 전에 호출이 발생하면 이제 해당 도구의 입력 스키마를 반환합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved the reliability of git commits and pull request creation when the Bash tool runs macOS's built-in `/bin/bash`",
+      "translated": "Bash 도구가 macOS의 내장 `/bin/bash`를 실행할 때 git 커밋 및 풀 리퀘스트 생성의 안정성을 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved \"Ask your admin for more usage\" in the usage limit menu to send the request in one step",
+      "translated": "사용량 제한 메뉴의 \"관리자에게 사용량 추가 요청\" 기능을 개선하여 한 번에 요청을 보낼 수 있도록 했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved how fast remote sessions reconnect after a pause or sleep",
+      "translated": "일시 중단 또는 절전 모드 이후 원격 세션의 재연결 속도를 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved You should know toasts to say \"try again\" instead of \"press 2\", which only works in the terminal",
+      "translated": "\"알아두어야 할 사항\" 토스트 메시지에서 터미널에서만 작동하는 \"2를 누르세요\" 대신 \"다시 시도\"라고 표시되도록 개선했습니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved auto-update reliability: a brief network failure while verifying a release is now retried right away instead of waiting for the next check",
+      "translated": "자동 업데이트 안정성을 개선했습니다. 릴리스 확인 중 일시적인 네트워크 오류가 발생하면 다음 확인 시점까지 기다리지 않고 즉시 재시도합니다."
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "Improved unattended runs (`claude -p`, SDK apps) to stop rewriting `~/.claude.json` on every run when nothing in it changed",
+      "translated": "무인 실행(`claude -p`, SDK 앱) 시 변경 사항이 없는데도 매번 `~/.claude.json` 파일을 다시 작성하던 동작을 개선했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed Claude Code to no longer install or update the IDE extension when started in an IDE terminal; use `/ide` from an outside terminal or your editor's extensions view",
+      "translated": "IDE 터미널에서 실행될 때 Claude Code가 더 이상 IDE 확장을 설치하거나 업데이트하지 않도록 변경했습니다. 외부 터미널에서 `/ide`를 사용하거나 에디터의 확장 뷰를 이용하세요."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed subagents to stop instead of switching models when \"Switch models when a message is flagged\" is set to \"Ask each time\"",
+      "translated": "\"메시지 플래그 지정 시 모델 전환\"이 \"매번 확인\"으로 설정된 경우, 서브에이전트가 모델을 전환하는 대신 중단되도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed background subagents to move a shell command to the background after 3 minutes on all providers, so the prompt cache doesn't expire while it runs",
+      "translated": "모든 프로바이더에서 백그라운드 서브에이전트가 3분 후 쉘 명령어를 백그라운드로 이동시키도록 변경하여, 실행 중에 프롬프트 캐시가 만료되지 않도록 했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed subagent progress summaries on Bedrock, Vertex, Foundry, or with telemetry off: on a cold prompt cache, one can now wait up to 5 minutes for the subagent's pending response",
+      "translated": "Bedrock, Vertex, Foundry를 사용하거나 텔레메트리가 꺼진 경우의 서브에이전트 진행 요약 방식을 변경했습니다. 콜드 프롬프트 캐시 상태에서 서브에이전트의 대기 중인 응답을 최대 5분까지 기다릴 수 있습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed what a mod attaches at `prompt.submit` to stay in the user's turn rather than go out as a system message",
+      "translated": "`prompt.submit` 시 모드가 첨부하는 내용이 시스템 메시지로 나가는 대신 사용자 턴에 유지되도록 변경했습니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `deniedMcpServers` URL entries to also block Anthropic-provided servers whose upstream URL matches, and connectors in cloud sessions and on self-hosted runners, where the session is given the connector's own URL; otherwise deny a connector by name",
+      "translated": "`deniedMcpServers` URL 항목이 업스트림 URL이 일치하는 Anthropic 제공 서버, 그리고 세션에 커넥터 자체의 URL이 부여된 클라우드 세션 및 셀프 호스팅 러너의 커넥터를 차단하도록 변경되었습니다. 그 외의 경우에는 이름을 기준으로 커넥터를 거부합니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed the `/permissions` rule details, built-in rules and delete confirmation views to use the standard dialog; pressing Ctrl+C twice there now goes back or cancels instead of quitting",
+      "translated": "`/permissions` 규칙 상세 정보, 내장 규칙 및 삭제 확인 뷰가 표준 대화 상자를 사용하도록 변경되었습니다. 이제 해당 위치에서 Ctrl+C를 두 번 누르면 종료되는 대신 이전으로 돌아가거나 취소됩니다."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Changed `/claude-api managed-agents-onboard` to give a new agent's built-in tools, and a quickstart template's MCP tools, the `auto` permission policy (\"Judge risky actions\") by default, matching the Claude Console; say \"run without asking\" to opt out",
+      "translated": "`/claude-api managed-agents-onboard`가 새 에이전트의 내장 도구와 퀵스타트 템플릿의 MCP 도구에 대해 Claude Console과 동일하게 `auto` 권한 정책(\"위험한 작업 판단\")을 기본으로 부여하도록 변경되었습니다. 이를 원치 않으면 \"run without asking\"이라고 입력하세요."
+    },
+    {
+      "category": "removed",
+      "scope": null,
+      "original": "Removed the 2.1.288 fix that kept the model's earlier thinking when resuming a conversation started on 2.1.286 or earlier; that thinking can now be dropped",
+      "translated": "2.1.286 이전 버전에서 시작된 대화를 재개할 때 이전 사고(thinking) 과정을 유지하던 2.1.288의 수정을 제거했습니다. 이제 해당 사고 과정은 삭제될 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: Added a log warning when the Google access token from a federation (`external_account`) credentials file is about to expire",
+      "translated": "Gateway: 페더레이션(`external_account`) 자격 증명 파일의 Google 액세스 토큰이 곧 만료될 때 로그 경고를 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: Improved the log hints about `listen.trusted_proxies`: they now say to list only a proxy that adds the connecting address to `X-Forwarded-For` itself",
+      "translated": "Gateway: `listen.trusted_proxies`에 대한 로그 힌트를 개선했습니다. 이제 접속 주소를 `X-Forwarded-For`에 직접 추가하는 프록시만 목록에 포함하라는 안내가 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Gateway: Improved the warning when AWS CountTokens fails on Amazon Bedrock: it says Claude Code, not the gateway, counts after the 501, and points at IAM only when AWS denies access",
+      "translated": "Gateway: Amazon Bedrock에서 AWS CountTokens 실패 시의 경고를 개선했습니다. 501 오류 이후에는 Gateway가 아닌 Claude Code가 토큰을 계산함을 명시하며, AWS가 액세스를 거부한 경우에만 IAM을 가리키도록 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Added `CLAUDE_RUNNER_SPAWN_REASON` to the orchestrator's spawn-runner hook environment: why Anthropic sent the request (e.g. `runner_lost`, `resumed`); unset when none was sent",
+      "translated": "Self-hosted runner: 오케스트레이터의 spawn-runner 훅 환경에 `CLAUDE_RUNNER_SPAWN_REASON`을 추가했습니다. 이는 Anthropic이 요청을 보낸 이유(예: `runner_lost`, `resumed`)를 나타내며, 요청이 없는 경우 설정되지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Self-hosted runner: Added a startup warning when `--release-idle-session-min` is the last argument with no value (still ignored) or has a value of only spaces (still read as `0`)",
+      "translated": "Self-hosted runner: `--release-idle-session-min`이 값이 없는 마지막 인수로 전달되어 무시되거나, 공백만 포함되어 `0`으로 읽히는 경우에 대한 시작 시 경고를 추가했습니다."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Self-hosted runner: Changed the orchestrator's log lines: `ok session=…` now prints at every log level on stdout (was debug only, stderr) with `reason=…` after `jti=…`, and `nack session=…` ends its fields with `reason=…` after `retryable=…`; update scripts that match `retryable=true:` or `retryable=false:`",
+      "translated": "Self-hosted runner: 오케스트레이터의 로그 라인을 변경했습니다. `ok session=…`은 이제 모든 로그 레벨에서 stdout에 출력되며(기존에는 debug 레벨, stderr), `jti=…` 뒤에 `reason=…`이 추가됩니다. `nack session=…`은 `retryable=…` 뒤에 `reason=…`이 붙으며 종료됩니다. `retryable=true:` 또는 `retryable=false:`를 매칭하는 스크립트를 업데이트하세요."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: Fixed a misleading \"spawn error: ENOENT\" when a session's working folder is missing; the error now names the folder",
+      "translated": "Remote Control: 세션의 작업 폴더가 없을 때 발생하던 오해의 소지가 있는 \"spawn error: ENOENT\" 오류를 수정했습니다. 이제 오류 메시지에 해당 폴더 이름이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Remote Control: Improved the title a fork of a terminal fork is created with when the app doesn't set one: \"Name (fork 2)\"",
+      "translated": "Remote Control: 앱에서 제목을 설정하지 않은 경우, 터미널 포크의 포크가 생성될 때의 제목을 \"Name (fork 2)\"로 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a window whose sign-in the organization's settings refuse starting a new Claude Code process in the background every minute",
+      "translated": "[VSCode] 조직 설정으로 인해 로그인이 거부된 창이 백그라운드에서 매분 새로운 Claude Code 프로세스를 시작하던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Fixed a long word in the chat panel's error banner pushing its close button out of view",
+      "translated": "[VSCode] 채팅 패널의 오류 배너에 있는 긴 단어로 인해 닫기 버튼이 화면 밖으로 밀려나던 문제를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[VSCode] Improved the sign-in screen to show what Claude Code printed when its sign-in status check fails",
+      "translated": "[VSCode] 로그인 상태 확인 실패 시 Claude Code가 출력한 내용을 표시하도록 로그인 화면을 개선했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added a No repository option: a cloud session on an Anthropic-hosted environment can now start without picking a repository",
+      "translated": "[Cloud sessions] '저장소 없음(No repository)' 옵션을 추가했습니다. 이제 Anthropic 호스팅 환경의 클라우드 세션을 저장소 선택 없이 시작할 수 있습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added the usual Chrome names to cloud sessions, so tools other than Playwright can find the built-in Chromium through google-chrome and CHROME_PATH",
+      "translated": "[Cloud sessions] 클라우드 세션에 일반적인 Chrome 이름을 추가하여, Playwright 이외의 도구에서도 google-chrome 및 CHROME_PATH를 통해 내장된 Chromium을 찾을 수 있도록 했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Added a New session button to the card shown when a cloud session's environment was deleted, where the message box is hidden",
+      "translated": "[Cloud sessions] 클라우드 세션 환경이 삭제되어 메시지 상자가 숨겨진 경우 표시되는 카드에 '새 세션(New session)' 버튼을 추가했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Fixed reading GitHub Actions logs in cloud sessions: `gh run view --log` and `gh api` log requests now get the log in most environments, not an unreachable redirect",
+      "translated": "[Cloud sessions] 클라우드 세션에서 GitHub Actions 로그 읽기 기능을 수정했습니다. 이제 대부분의 환경에서 `gh run view --log` 및 `gh api` 로그 요청 시 접근 불가능한 리다이렉트 대신 실제 로그를 가져옵니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Improved most Create PR failure messages in cloud and Remote Control sessions: they now give the reason or a link to GitHub instead of saying Try again",
+      "translated": "[Cloud sessions] 클라우드 및 Remote Control 세션에서 발생하는 대부분의 PR 생성 실패 메시지를 개선했습니다. 이제 \"다시 시도하세요\" 대신 실패 이유나 GitHub 링크를 제공합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Cloud sessions] Changed connector search results to tell Claude that the search covers only part of the connector directory",
+      "translated": "[클라우드 세션] 검색 결과가 커넥터 디렉터리의 일부만 포함한다는 사실을 Claude에게 전달하도록 커넥터 검색 결과를 수정했습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Remote Control] Fixed side-by-side checkouts of one repository looking identical in the environment menu's Remote Control rows; each now shows its own folder name",
+      "translated": "[원격 제어] 환경 메뉴의 원격 제어 행에서 동일한 저장소를 병렬로 체크아웃했을 때 모두 동일하게 보이던 문제를 수정했습니다. 이제 각 항목에 개별 폴더 이름이 표시됩니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Claude Tag] Fixed keyboard focus and screen reader announcements in Claude Tag admin setup; pressing Escape in the connect form no longer also closes the Add dialog",
+      "translated": "[Claude Tag] Claude Tag 관리자 설정의 키보드 포커스 및 스크린 리더 안내를 수정했습니다. 이제 연결 양식에서 Escape 키를 눌러도 '추가' 대화 상자가 함께 닫히지 않습니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "[Code Review] Improved the Code Review analytics page to retry once after a server or network failure, then show a Try again banner instead of empty cards",
+      "translated": "[코드 리뷰] 코드 리뷰 분석 페이지에서 서버 또는 네트워크 오류 발생 시 한 번 재시도하고, 빈 카드 대신 '다시 시도' 배너를 표시하도록 개선했습니다."
+    }
+  ],
+  "translatedAt": "2026-11-04T06:33:33.142Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 11982
+}
