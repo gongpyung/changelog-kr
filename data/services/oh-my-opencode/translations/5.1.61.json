@@ -1,0 +1,1334 @@
+{
+  "version": "5.1.61",
+  "date": "2026-11-05",
+  "parsedAt": "2026-11-05T20:00:23.709Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "In the desktop's first-run setup, \"Understanding you\" no longer stops with \"No retained scan with this id\" after About you brings anything in. Applying an onboarding scan now keeps it available to understanding until the scan expires; a scan is still applied only once. ([#12509](https://github.com/code-yeongyu/oh-my-openagent/pull/12509), fixes [#12508](https://github.com/code-yeongyu/oh-my-openagent/issues/12508))",
+      "translated": "code-yeongyu/feat/12320-thread-task-runs-brain 브랜치로부터의 #12324 풀 리퀘스트 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The engine now registers its agent dir with the device service even when the service's state directory appears right after the engine started (for example, when the device service is installed or started at the same moment). A freshly armed directory watch can miss an entry created in its first milliseconds, so the registrant never noticed the service and other devices listed no sessions. Each watch arm now re-checks the path once after it settles. ([#12482](https://github.com/code-yeongyu/oh-my-openagent/pull/12482))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 prep/11687-dev-merge 브랜치로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Your other signed-in devices now see this device's sessions after the OmO device service starts or restarts. Every `omo` engine, in the terminal and the ones the desktop app starts, keeps its own agent directory registered with the device service and registers it again when the service comes back or the device is signed in again; it never holds an engine open and stays off with `\"device_service\": { \"enabled\": false }`. ([#12380](https://github.com/code-yeongyu/oh-my-openagent/pull/12380), fixes [#12379](https://github.com/code-yeongyu/oh-my-openagent/issues/12379))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 prep/11671-dev-merge 브랜치로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A reflection sandbox probe that timed out once (for example on a busy machine) no longer turns the sandbox off until restart. Reflection checks again on its next run, so it runs sandboxed again once bwrap responds. A machine where bwrap definitively cannot create a sandbox is still checked only once (#12376). A reflection run that falls back to running unsandboxed because bwrap is unusable at that moment is now logged once as a degraded sandbox, and once more when the sandbox comes back, instead of passing silently. ([#12378](https://github.com/code-yeongyu/oh-my-openagent/pull/12378))",
+      "translated": "오래된 claim-lock 피스처에 존재할 수 없는 pid 사용"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A session whose Stop was released but whose background children stayed paused, refusing every new task with \"Task admission is held by your Stop\", is released by the next message you send. `/resume` and new prompts used to do nothing because the session no longer held a Stop, so only `/reload` or a restart cleared it (#12342). ([#12343](https://github.com/code-yeongyu/oh-my-openagent/pull/12343))",
+      "translated": "직렬화된 텍스트가 아닌 issuePaths를 통해 ignored-section 진단 확인"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Revoking a memory-sync device, `omo logout`, or signing out on the desktop no longer freezes every other device's pushes. A remaining device now rotates the account memory key so the removed device is excluded, and it can no longer read notes written after it was removed. While a key change is pending, the status shows sync as blocked instead of claiming it is synced. ([#12280](https://github.com/code-yeongyu/oh-my-openagent/issues/12280)) ([#12302](https://github.com/code-yeongyu/oh-my-openagent/pull/12302))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 fix/memsync-revoke-rotates-key 브랜치로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The dev-browser CDP-port test \"with no grace window it still runs cleanly under set -u\" now waits for the port holder to exit before it checks that the holder received SIGTERM. Under host load it could fail even though the release worked (#12287). ([#12293](https://github.com/code-yeongyu/oh-my-openagent/pull/12293))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 feat/4272-o01-adopt-compact-engine 브랜치로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync replicates between devices again. The client refused every batch row from `GET /v1/sync/entries` that carried the `batch_id` the service contract declares, so two devices paired but no edit reached the other. Account recovery, and pairing a device after the first batch, failed the same way. A well-formed `batch_id` on a batch row is now accepted. A null or malformed one, one on a keyring row, and any other extra field are still refused (#12277). ([#12292](https://github.com/code-yeongyu/oh-my-openagent/pull/12292))",
+      "translated": "oneshot 재생 대기 시간을 제한하고 건너뛴 daemon 사례 보고"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Background task children that a Stop paused are resumed again when you type after the Stop. The run's Resume used to miss them because the Stop's own run fences raised the session's pause sequence, so they stayed `paused` for hours while the task widget showed them as `running` or `starting` (#12249). ([#12268](https://github.com/code-yeongyu/oh-my-openagent/pull/12268))",
+      "translated": "code-yeongyu/feat/11466-cu-display-awake 브랜치로부터의 #11530 풀 리퀘스트 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A paused child that its run's Resume cannot restore is retried a few times and then ends as an error the parent is told about, instead of staying paused forever. Its transcript is kept for `task_output`. ([#12268](https://github.com/code-yeongyu/oh-my-openagent/pull/12268))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 fix/run-pause-stale-ledger-heal 브랜치로 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The task widget shows a paused child as `paused`, with no running clock, and `/task-kill` offers paused children. ([#12268](https://github.com/code-yeongyu/oh-my-openagent/pull/12268))",
+      "translated": "'origin/dev' 원격 추적 브랜치를 feat/4272-o01"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory reflection children started inside the Linux bubblewrap sandbox no longer exit at startup with `unsafe trust ancestor`. Inside the sandbox's user namespace, root-owned directories show the overflow uid. The engine trust stage now accepts one only when the launcher verified, from outside the sandbox, that this exact inode is root-owned. A directory owned by another user is still refused. The sandbox child also gets its own private `TMPDIR`, and a read-only trust directory falls back to a private temporary one. A hand-made user namespace that omo cannot verify now gets the named refusal `trust-userns-unattested` with a next step, instead of a stack trace. ([#12079](https://github.com/code-yeongyu/oh-my-openagent/pull/12079), code-yeongyu/senpi#5334)",
+      "translated": "Memory reflection children started inside the Linux bubblewrap sandbox no longer exit at startup with `unsafe trust ancestor`. Inside the sandbox's user namespace, root-owned directories show the overflow uid. The engine trust stage now accepts one only when the launcher verified, from outside the sandbox, that this exact inode is root-owned. A directory owned by another user is still refused. The sandbox child also gets its own private `TMPDIR`, and a read-only trust directory falls back to a private temporary one. A hand-made user namespace that omo cannot verify now gets the named refusal `trust-userns-unattested` with a next step, instead of a stack trace. ([#12079](https://github.com/code-yeongyu/oh-my-openagent/pull/12079), code-yeongyu/senpi#5334)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "RPC liveness tests keep pre-existing async work on the real clock, so unrelated timers cannot be mistaken for leaked session timers during confirmed close. The regression injects a foreign timer while the session is terminal-pending and retains every close and cleanup assertion. ([#11937](https://github.com/code-yeongyu/oh-my-openagent/pull/11937), fixes [#11934](https://github.com/code-yeongyu/oh-my-openagent/issues/11934))",
+      "translated": "RPC liveness tests keep pre-existing async work on the real clock, so unrelated timers cannot be mistaken for leaked session timers during confirmed close. The regression injects a foreign timer while the session is terminal-pending and retains every close and cleanup assertion. ([#11937](https://github.com/code-yeongyu/oh-my-openagent/pull/11937), fixes [#11934](https://github.com/code-yeongyu/oh-my-openagent/issues/11934))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Keep buffered logging on its own scheduler and cancellation pair so virtual clocks used by RPC callers cannot capture log flushes ([#11687](https://github.com/code-yeongyu/oh-my-openagent/pull/11687), landing the work from #11641)",
+      "translated": "Keep buffered logging on its own scheduler and cancellation pair so virtual clocks used by RPC callers cannot capture log flushes ([#11687](https://github.com/code-yeongyu/oh-my-openagent/pull/11687), landing the work from #11641)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A disposed process child no longer sends anything or arms a timer after its teardown: a late abort, steer, finished-turn check or state probe is refused at once instead of waiting out a 10-30 s request deadline, an extension UI request it sends after teardown gets no automatic answer written back, a closed-pipe error reported after teardown no longer arms the exit grace timer, and a heartbeat probe whose launch lands after its heartbeat stopped is skipped ([#11687](https://github.com/code-yeongyu/oh-my-openagent/pull/11687), part of [#11673](https://github.com/code-yeongyu/oh-my-openagent/issues/11673))",
+      "translated": "A disposed process child no longer sends anything or arms a timer after its teardown: a late abort, steer, finished-turn check or state probe is refused at once instead of waiting out a 10-30 s request deadline, an extension UI request it sends after teardown gets no automatic answer written back, a closed-pipe error reported after teardown no longer arms the exit grace timer, and a heartbeat probe whose launch lands after its heartbeat stopped is skipped ([#11687](https://github.com/code-yeongyu/oh-my-openagent/pull/11687), part of [#11673](https://github.com/code-yeongyu/oh-my-openagent/issues/11673))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A memory session's shutdown now waits for every memory read still running in its identity directory: the compiled-block and recall-corpus caches, every memory hook and memory tool call in flight (a prompt turn, a settle, a `memory` tool write), the bind-time reconcile, and detached dream requests are all tracked, so no `git` child outlives `session_shutdown` and Windows no longer fails the next removal of that directory with EBUSY ([#11671](https://github.com/code-yeongyu/oh-my-openagent/pull/11671), part of [#11135](https://github.com/code-yeongyu/oh-my-openagent/issues/11135); the probe case is [#11136](https://github.com/code-yeongyu/oh-my-openagent/issues/11136))",
+      "translated": "A memory session's shutdown now waits for every memory read still running in its identity directory: the compiled-block and recall-corpus caches, every memory hook and memory tool call in flight (a prompt turn, a settle, a `memory` tool write), the bind-time reconcile, and detached dream requests are all tracked, so no `git` child outlives `session_shutdown` and Windows no longer fails the next removal of that directory with EBUSY ([#11671](https://github.com/code-yeongyu/oh-my-openagent/pull/11671), part of [#11135](https://github.com/code-yeongyu/oh-my-openagent/issues/11135); the probe case is [#11136](https://github.com/code-yeongyu/oh-my-openagent/issues/11136))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Thread tools no longer refuse a chain of messages at its fifth hop, at 64 messages, or when it comes back to a session it passed (A to B to A): a chain has no hidden count limit. A chain continued after its 7-day root lifetime is delivered under a fresh root instead of being refused. A session still cannot message itself. ([#12331](https://github.com/code-yeongyu/oh-my-openagent/pull/12331), part of [#12320](https://github.com/code-yeongyu/oh-my-openagent/issues/12320))",
+      "translated": "Thread tools no longer refuse a chain of messages at its fifth hop, at 64 messages, or when it comes back to a session it passed (A to B to A): a chain has no hidden count limit. A chain continued after its 7-day root lifetime is delivered under a fresh root instead of being refused. A session still cannot message itself. ([#12331](https://github.com/code-yeongyu/oh-my-openagent/pull/12331), part of [#12320](https://github.com/code-yeongyu/oh-my-openagent/issues/12320))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Thread tools and subagent, workflow, workpool and team tools declare that they run on the loop side of a split session (`runs: \"brain\"`); sessions that are not split behave exactly as before. ([#12324](https://github.com/code-yeongyu/oh-my-openagent/pull/12324), part of [#12320](https://github.com/code-yeongyu/oh-my-openagent/issues/12320))",
+      "translated": "Thread tools and subagent, workflow, workpool and team tools declare that they run on the loop side of a split session (`runs: \"brain\"`); sessions that are not split behave exactly as before. ([#12324](https://github.com/code-yeongyu/oh-my-openagent/pull/12324), part of [#12320](https://github.com/code-yeongyu/oh-my-openagent/issues/12320))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The OmO Native extension's main bundle is about 27.9 KB smaller: the two ultrawork directive variants store their shared text once instead of twice. Both directives are unchanged. ([#12291](https://github.com/code-yeongyu/oh-my-openagent/pull/12291))",
+      "translated": "The OmO Native extension's main bundle is about 27.9 KB smaller: the two ultrawork directive variants store their shared text once instead of twice. Both directives are unchanged. ([#12291](https://github.com/code-yeongyu/oh-my-openagent/pull/12291))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Every interactive `omo` start now sets up this device's OmO device service in the background once you are signed in, so your other signed-in devices can see and command its sessions. It never delays the start and speaks up only when it stops on something you can fix. Turn it off with `\"device_service\": { \"enabled\": false }` in omo.json, or keep it and stop other devices from controlling this one with `omo remote control off` (`omo remote control` shows the setting). ([#12257](https://github.com/code-yeongyu/oh-my-openagent/pull/12257), part of [#12051](https://github.com/code-yeongyu/oh-my-openagent/issues/12051))",
+      "translated": "Every interactive `omo` start now sets up this device's OmO device service in the background once you are signed in, so your other signed-in devices can see and command its sessions. It never delays the start and speaks up only when it stops on something you can fix. Turn it off with `\"device_service\": { \"enabled\": false }` in omo.json, or keep it and stop other devices from controlling this one with `omo remote control off` (`omo remote control` shows the setting). ([#12257](https://github.com/code-yeongyu/oh-my-openagent/pull/12257), part of [#12051](https://github.com/code-yeongyu/oh-my-openagent/issues/12051))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a222147c64 docs(changelog): #11671 is part of #11135, not its fix (5.1.61 notes correction)",
+      "translated": "Is part of #11135, not its fix (5.1.61 notes correction)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8a8a934ec7 Merge pull request #12482 from code-yeongyu/fix/12481-registrant-watch-rearm",
+      "translated": "Merge pull request #12482 from code-yeongyu/fix/12481-registrant-watch-rearm"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "544b18d5e4 Merge pull request #12509 from code-yeongyu/fix/12508-understand-after-apply",
+      "translated": "Merge pull request #12509 from code-yeongyu/fix/12508-understand-after-apply"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2b83c378c5 Merge pull request #12441 from ShryukGrandhi/fix/issue-12264-team-mode-status-test-ts-aggregatestatus",
+      "translated": "Merge pull request #12441 from ShryukGrandhi/fix/issue-12264-team-mode-status-test-ts-aggregatestatus"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b0afad05c7 Merge pull request #12401 from ShryukGrandhi/fix/issue-12255-omo-config-core-ignored-sections-test-fa",
+      "translated": "Merge pull request #12401 from ShryukGrandhi/fix/issue-12255-omo-config-core-ignored-sections-test-fa"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cba7998938 Merge remote-tracking branch 'origin/dev' into fix/12481-registrant-watch-rearm",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12481-registrant-watch-rearm"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d0da15d40e Merge pull request #12480 from code-yeongyu/fix/10814-registrant-within-test-budget",
+      "translated": "Merge pull request #12480 from code-yeongyu/fix/10814-registrant-within-test-budget"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "48ed2357dd Merge pull request #12269 from code-yeongyu/cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an",
+      "translated": "Merge pull request #12269 from code-yeongyu/cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2710b7ccf1 docs(changes): fragment for #12509",
+      "translated": "Fragment for #12509"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3af3d32f02 test(device-service-core): the dead-endpoint case writes the platform's endpoint; registrant waits reset per test",
+      "translated": "The dead-endpoint case writes the platform's endpoint; registrant waits reset per test"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "86a002386f fix(device-service-core): a freshly armed endpoint watch re-checks once, so a dropped creation event no longer loses the service",
+      "translated": "A freshly armed endpoint watch re-checks once, so a dropped creation event no longer loses the service"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3ec557716f test(device-service-core): registrant within() waits take the remaining test budget",
+      "translated": "Registrant within() waits take the remaining test budget"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "08d95e4c87 Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8c9e1a991b Merge pull request #12215 from code-yeongyu/feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge pull request #12215 from code-yeongyu/feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5aa0138bdb Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "47cad651b8 Merge remote-tracking branch 'origin/dev' into gf-dm-12441",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf-dm-12441"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cd3dd0b27f Merge remote-tracking branch 'origin/dev' into gf-dm-12401",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf-dm-12401"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4ee1b0078d Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9e7a0287f1 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "192f8d920c Merge pull request #12443 from code-yeongyu/docs/12440-remote-sessions-nits",
+      "translated": "Merge pull request #12443 from code-yeongyu/docs/12440-remote-sessions-nits"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "eaf80c63cb Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "62e97f2ea8 Merge pull request #12431 from code-yeongyu/docs/12419-remote-sessions-reference",
+      "translated": "Merge pull request #12431 from code-yeongyu/docs/12419-remote-sessions-reference"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0df4662ce5 docs(remote): accuracy fixes in the omo remote reference (#12440)",
+      "translated": "Accuracy fixes in the omo remote reference (#12440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "23557a9bab Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cacedd9863 Merge pull request #12380 from code-yeongyu/feat/499-engine-agent-dir-register",
+      "translated": "Merge pull request #12380 from code-yeongyu/feat/499-engine-agent-dir-register"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7ee37edd7b docs(remote): public reference for omo remote (#12419)",
+      "translated": "Public reference for omo remote (#12419)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "03b0c0066d Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6aa899982e Merge pull request #12257 from code-yeongyu/feat/12051-startup-bootstrap",
+      "translated": "Merge pull request #12257 from code-yeongyu/feat/12051-startup-bootstrap"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2beeff20c8 chore(omo-native): regenerate service-auth bundle for the registrant (#12379)",
+      "translated": "Regenerate service-auth bundle for the registrant (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ea7a948a60 Merge remote-tracking branch 'origin/feat/12051-startup-bootstrap' into feat/499-engine-agent-dir-register",
+      "translated": "Merge remote-tracking branch 'origin/feat/12051-startup-bootstrap' into feat/499-engine-agent-dir-register"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a19f29e0bd test(device-service): no dangling retry waiter; registrant-support is a knip entry (#12379)",
+      "translated": "No dangling retry waiter; registrant-support is a knip entry (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f64db551bd test(device-service): a missing omo binary rejects with the spawn error on Windows too (#12257)",
+      "translated": "A missing omo binary rejects with the spawn error on Windows too (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b06b9322dc Merge remote-tracking branch 'origin/feat/12051-startup-bootstrap' into feat/499-engine-agent-dir-register",
+      "translated": "Merge remote-tracking branch 'origin/feat/12051-startup-bootstrap' into feat/499-engine-agent-dir-register"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fcf7facc07 Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "add3f01a29 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cb7f76ecf6 Merge pull request #12378 from code-yeongyu/fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge pull request #12378 from code-yeongyu/fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "04341dc1cc Merge commit '10fe65afdf5261f4741985ca6244fb97571f2d5f' into fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge commit '10fe65afdf5261f4741985ca6244fb97571f2d5f' into fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9710d01f6d Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "10fe65afdf Merge pull request #12079 from code-yeongyu/fix/5334-bwrap-trust-userns",
+      "translated": "Merge pull request #12079 from code-yeongyu/fix/5334-bwrap-trust-userns"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5ef2ca41e3 Merge origin/dev daa1ab2b8e into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev daa1ab2b8e into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3670797bbf test(desktop-engine): mask the heartbeat fields of the mcp desktop_stop reply",
+      "translated": "Mask the heartbeat fields of the mcp desktop_stop reply"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ca98dc307b test(desktop-engine): re-pin the v1 corpus capabilities after displayAsleep landed on dev",
+      "translated": "Re-pin the v1 corpus capabilities after displayAsleep landed on dev"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "89be5010be Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4fb0da6b8a Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "aced663555 docs(changelog): engine agent dir registrant (#12379)",
+      "translated": "Engine agent dir registrant (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5bff9b203b Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6aff286237 feat(device-service): every tui and rpc engine keeps its own agent dir registered with the device service (#12379)",
+      "translated": "Every tui and rpc engine keeps its own agent dir registered with the device service (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2b1209442c test(device-service): real device keys and two registers per new connection (#12379)",
+      "translated": "Real device keys and two registers per new connection (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "daa1ab2b8e Merge pull request #12331 from code-yeongyu/feat/12320-thread-chain-unlimited",
+      "translated": "Merge pull request #12331 from code-yeongyu/feat/12320-thread-chain-unlimited"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9618a95f0b Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a1b0650b03 test(device-service): RED for the engine agent dir registrant (#12379)",
+      "translated": "RED for the engine agent dir registrant (#12379)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1b8e954dea Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9da72bb1d1 Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c397b91e2f Merge remote-tracking branch 'origin/dev' into train/bh-11671-11687",
+      "translated": "Merge remote-tracking branch 'origin/dev' into train/bh-11671-11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cb6847f69e Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1c9ef5fe8b Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c4d8d9b1bb Merge pull request #12375 from code-yeongyu/fix/reflection-sandbox-test-deterministic-probe",
+      "translated": "Merge pull request #12375 from code-yeongyu/fix/reflection-sandbox-test-deterministic-probe"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "464183b91a Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/bwrap-probe-no-timeout-memo"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9f45e9d6f7 Merge remote-tracking branch 'origin/dev' into fix/reflection-sandbox-test-deterministic-probe",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/reflection-sandbox-test-deterministic-probe"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1d36fa0d80 docs(changes): add #12378 fragment",
+      "translated": "Add #12378 fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7ce3ce7d79 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4c78223429 Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7d511d1b7d Merge pull request #11671 from code-yeongyu/fix/compaction-survival-teardown-holder",
+      "translated": "Merge pull request #11671 from code-yeongyu/fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b5460ea824 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "072b2b487a Merge remote-tracking branch 'origin/dev' into train/bh-11671-11687",
+      "translated": "Merge remote-tracking branch 'origin/dev' into train/bh-11671-11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f2303dae7e Merge pull request #12343 from code-yeongyu/fix/run-pause-stale-ledger-heal",
+      "translated": "Merge pull request #12343 from code-yeongyu/fix/run-pause-stale-ledger-heal"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7f9514d6ef Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "05e8d6a58b Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0934957047 Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5487861bd8 Merge pull request #12302 from code-yeongyu/fix/memsync-revoke-rotates-key",
+      "translated": "Merge pull request #12302 from code-yeongyu/fix/memsync-revoke-rotates-key"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "add237de93 Merge origin/dev dd30ce62ee into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev dd30ce62ee into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "80267ff5f3 Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c435604170 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "dd30ce62ee Merge pull request #12340 from code-yeongyu/fix/12338-lock-sweep-handoff-proof",
+      "translated": "Merge pull request #12340 from code-yeongyu/fix/12338-lock-sweep-handoff-proof"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "68ee80a91a Merge remote-tracking branch 'origin/dev' into prep/11687-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into prep/11687-dev-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4dbfc87dd6 Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d6042f0782 Merge remote-tracking branch 'origin/dev' into fix/run-pause-stale-ledger-heal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/run-pause-stale-ledger-heal"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3bea91dc78 Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "91502f046b Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8a3743d663 Merge remote-tracking branch 'origin/dev' into fix/12338-lock-sweep-handoff-proof",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12338-lock-sweep-handoff-proof"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "303a52556a Merge pull request #12324 from code-yeongyu/feat/12320-thread-task-runs-brain",
+      "translated": "Merge pull request #12324 from code-yeongyu/feat/12320-thread-task-runs-brain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "279dfa2b71 Merge remote-tracking branch 'origin/dev' into prep/11687-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into prep/11687-dev-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "44e4ce59f9 Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into prep/11671-dev-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "982daf2c34 test(team-mode): use an impossible pid for stale claim-lock fixtures",
+      "translated": "Use an impossible pid for stale claim-lock fixtures"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7d348e4582 test(omo-config-core): check ignored-section diagnostics by issuePaths, not serialized text",
+      "translated": "Check ignored-section diagnostics by issuePaths, not serialized text"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5c1b8002f2 Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-revoke-rotates-key"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "51462e2a72 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3a432afaff test(desktop-engine): bound the oneshot replay wait and report skipped daemon cases",
+      "translated": "Bound the oneshot replay wait and report skipped daemon cases"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7adadfb805 Merge pull request #11530 from code-yeongyu/feat/11466-cu-display-awake",
+      "translated": "Merge pull request #11530 from code-yeongyu/feat/11466-cu-display-awake"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "168e1823cc Merge remote-tracking branch 'origin/dev' into fix/run-pause-stale-ledger-heal",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/run-pause-stale-ledger-heal"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "107669a286 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bc38c5539c Merge pull request #12341 from code-yeongyu/fix/11692-store-index-deterministic",
+      "translated": "Merge pull request #12341 from code-yeongyu/fix/11692-store-index-deterministic"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "78f6bda60b Merge remote-tracking branch 'origin/dev' into feat/12320-thread-task-runs-brain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-task-runs-brain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7696e8ed26 Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-chain-unlimited"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5aa5064d47 Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cu-v2/task-4-v1-consumer-regression-corpus-oneshot-an"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4e81f7594b Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "70c9253631 Merge origin/dev e281809156 into fix/5334-bwrap-trust-userns: generated bundles regenerated; drop this branch's budget raise (fits dev's budget after the trim)",
+      "translated": "Merge origin/dev e281809156 into fix/5334-bwrap-trust-userns: generated bundles regenerated; drop this branch's budget raise (fits dev's budget after the trim)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3dad6fe1b2 Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12051-startup-bootstrap"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e281809156 Merge pull request #12291 from code-yeongyu/chore/omojs-trim",
+      "translated": "Merge pull request #12291 from code-yeongyu/chore/omojs-trim"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a130369159 docs(changes): fragment for #12343",
+      "translated": "Fragment for #12343"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e4e01b427c Merge remote-tracking branch 'origin/dev' into feat/12320-thread-task-runs-brain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12320-thread-task-runs-brain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d69976a3f0 test(eq): re-record darwin-arm64 EQ.omo E21-E24 goldens at the merged head",
+      "translated": "Re-record darwin-arm64 EQ.omo E21-E24 goldens at the merged head"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9a00423f72 test(eq): re-record linux-x64 EQ.omo E21-E24 goldens for the merged computer skill digest",
+      "translated": "Re-record linux-x64 EQ.omo E21-E24 goldens for the merged computer skill digest"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "21e44d4a54 fix(knip): drop the pre-existing export rows of the removed causal.ts (#12320)",
+      "translated": "Drop the pre-existing export rows of the removed causal.ts (#12320)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c838c8a309 test(memory-core): release writer B only after this acquisition's link has met it (#12338)",
+      "translated": "Release writer B only after this acquisition's link has met it (#12338)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2ecabe64d7 Merge origin/dev f9c7e7ad59 into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured",
+      "translated": "Merge origin/dev f9c7e7ad59 into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6308cb4b57 Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cc62aef18b Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "01e077a4de docs(omo-thread): the chain limits are gone from the reference (#12320)",
+      "translated": "The chain limits are gone from the reference (#12320)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "62afbdca47 Merge commit 'f9c7e7ad59' into chore/omojs-trim",
+      "translated": "Merge commit 'f9c7e7ad59' into chore/omojs-trim"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f9c7e7ad59 Merge pull request #12268 from code-yeongyu/fix/task-child-stuck-deadline",
+      "translated": "Merge pull request #12268 from code-yeongyu/fix/task-child-stuck-deadline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "654896f0b9 Merge commit '46d0ceb8d2' into chore/omojs-trim",
+      "translated": "Merge commit '46d0ceb8d2' into chore/omojs-trim"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "58b5298942 docs(changes): fragment for #12331",
+      "translated": "Fragment for #12331"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9dbe443aa4 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2a02eba861 docs(changes): fragment for #12324",
+      "translated": "Fragment for #12324"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "933594a03e Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "46d0ceb8d2 Merge pull request #12293 from code-yeongyu/fix/12287-dev-browser-term-await",
+      "translated": "Merge pull request #12293 from code-yeongyu/fix/12287-dev-browser-term-await"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4e4fcf7251 Merge remote-tracking branch 'origin/dev' into fix/12287-dev-browser-term-await",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12287-dev-browser-term-await"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8858c8377 Merge pull request #12233 from code-yeongyu/fix/10770-ulw-execute-fake-timer-snapshot",
+      "translated": "Merge pull request #12233 from code-yeongyu/fix/10770-ulw-execute-fake-timer-snapshot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "be3cde825f Merge pull request #11937 from code-yeongyu/fix/11934-liveness-order",
+      "translated": "Merge pull request #11937 from code-yeongyu/fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "808dde7e05 Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "374e7a804f Merge pull request #12292 from code-yeongyu/fix/sync-entries-batch-id-envelope",
+      "translated": "Merge pull request #12292 from code-yeongyu/fix/sync-entries-batch-id-envelope"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e3a7983401 Merge remote-tracking branch 'origin/dev' into fix/10770-ulw-execute-fake-timer-snapshot",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10770-ulw-execute-fake-timer-snapshot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9ecc28b5c2 chore(bundle): regenerate omo-native service-auth bundle for #12292",
+      "translated": "Regenerate omo-native service-auth bundle for #12292"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "497ef90592 chore(knip): drop the outputPathsIn pre-existing export row",
+      "translated": "Drop the outputPathsIn pre-existing export row"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "433188c3d7 Merge origin/dev 46177aef5d into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured",
+      "translated": "Merge origin/dev 46177aef5d into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "57e1c91e61 docs(changes): rotation on revoke (#12302)",
+      "translated": "Rotation on revoke (#12302)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3aedeeeed2 Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a53243aa41 build(bundles): regenerate the device-service sidecar on Linux (#12257)",
+      "translated": "Regenerate the device-service sidecar on Linux (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c6465b4ced fix(device-service): keep the bootstrap latch on globalThis; list the sidecar runtime as a knip entry (#12257)",
+      "translated": "Keep the bootstrap latch on globalThis; list the sidecar runtime as a knip entry (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9cdc0abd60 test(device-service): RED - a second instance of the sidecar in the same process does not bootstrap again (#12257)",
+      "translated": "RED - a second instance of the sidecar in the same process does not bootstrap again (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bcf187097c fix(memory-core): rotate the account key when a member is revoked (#12280)",
+      "translated": "Rotate the account key when a member is revoked (#12280)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c8bf222944 test(memory-core): RED for rotation on revoke (#12280)",
+      "translated": "RED for rotation on revoke (#12280)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "54009a127b Merge remote-tracking branch 'origin/dev' into fix/sync-entries-batch-id-envelope",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/sync-entries-batch-id-envelope"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "46177aef5d Merge pull request #12289 from code-yeongyu/release/v5.1.60-source-state",
+      "translated": "Merge pull request #12289 from code-yeongyu/release/v5.1.60-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1dc5121f4f docs(changes): fragment for #12293",
+      "translated": "Fragment for #12293"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "de856958b9 docs(changes): fragment for #12292",
+      "translated": "Fragment for #12292"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "493cfb320c test(device-service): prove the worker deadline by the close-settled rejection, not a watched pid file (#12257)",
+      "translated": "Prove the worker deadline by the close-settled rejection, not a watched pid file (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c19bfa3af0 fix(memory-core): accept the contract batch_id on /entries batch rows (#12277)",
+      "translated": "Accept the contract batch_id on /entries batch rows (#12277)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "668e787188 test(memory-core): serve the contract /entries batch_id in sync fixtures (RED, #12277)",
+      "translated": "Serve the contract /entries batch_id in sync fixtures (RED, #12277)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8148bf1ec2 test(dev-browser): await the holder's exit before asserting its TERM (#12287)",
+      "translated": "Await the holder's exit before asserting its TERM (#12287)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "068e94b6f5 fix(device-service): move the start-up bootstrap runtime to a lazy sidecar; categorize the fake omo binary paths (#12257)",
+      "translated": "Move the start-up bootstrap runtime to a lazy sidecar; categorize the fake omo binary paths (#12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d114bee58e fix(task): fold #12268 review - honest end text, serialized end, atomic owner check",
+      "translated": "Fold #12268 review - honest end text, serialized end, atomic owner check"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a04b5e92a6 Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8ce3b0aeb9 Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "84faa5b27c docs(changes): fragment for #12268",
+      "translated": "Fragment for #12268"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bb5938aafd Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "222c0ccbfd build: regenerate the native service-auth bundle (review #12257)",
+      "translated": "Regenerate the native service-auth bundle (review #12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "81544283df fix(device-service): bootstrap only in the top-level TUI, stay quiet without a credential store, bound the worker (review #12257)",
+      "translated": "Bootstrap only in the top-level TUI, stay quiet without a credential store, bound the worker (review #12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8866f2adff test(device-service): RED - TUI-only start-up bootstrap, quiet without a credential store, worker deadline (review #12257)",
+      "translated": "RED - TUI-only start-up bootstrap, quiet without a credential store, worker deadline (review #12257)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6fdaecae47 Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/task-child-stuck-deadline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8cb567594a Merge origin/dev into feat/4272-o01-adopt-compact-engine (take dev pins 2026.11.2-3)",
+      "translated": "Merge origin/dev into feat/4272-o01-adopt-compact-engine (take dev pins 2026.11.2-3)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8c6e9504da docs(changes): changelog fragment for #12257 (part of #12051)",
+      "translated": "Changelog fragment for #12257 (part of #12051)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "119641ea64 build: regenerate the omo schema and the native service-auth bundle (part of #12051)",
+      "translated": "Regenerate the omo schema and the native service-auth bundle (part of #12051)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "84c2508d5b feat(device-service): run the device service bootstrap at every interactive omo start (part of #12051)",
+      "translated": "Run the device service bootstrap at every interactive omo start (part of #12051)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "167699657e test(device-service): RED - start-up bootstrap, omo remote control and the host attach control (part of #12051)",
+      "translated": "RED - start-up bootstrap, omo remote control and the host attach control (part of #12051)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4b247614f5 Merge remote-tracking branch 'origin/dev' into fix/10770-ulw-execute-fake-timer-snapshot",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10770-ulw-execute-fake-timer-snapshot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ec6e599b1f test(desktop-engine): freeze a v1 consumer replay corpus for --oneshot and --mcp",
+      "translated": "Freeze a v1 consumer replay corpus for --oneshot and --mcp"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "72df9de93b Merge origin/dev 0ef1af9d23 into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured",
+      "translated": "Merge origin/dev 0ef1af9d23 into fix/5334-bwrap-trust-userns: generated bundles regenerated, budget re-measured"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9d916e4314 docs(changes): fold the #11641 fragment into #11687 (one fragment per PR after the retarget)",
+      "translated": "Fold the #11641 fragment into #11687 (one fragment per PR after the retarget)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b9777c2ab4 Merge remote-tracking branch 'origin/dev' into adopt-11687",
+      "translated": "Merge remote-tracking branch 'origin/dev' into adopt-11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "58db084117 Merge remote-tracking branch 'origin/dev' into pr-11671-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr-11671-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "efe0a6f451 Merge origin/dev 0af30e0323 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev 0af30e0323 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2040e66563 Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "223b8069ab Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6edb1b6560 Merge remote-tracking branch 'origin/dev' into pr-11671-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr-11671-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e41c5152b9 Merge branch 'fix/11446-rpc-deadline-test-determinism' of https://github.com/code-yeongyu/oh-my-openagent into adopt-11687",
+      "translated": "Merge branch 'fix/11446-rpc-deadline-test-determinism' of https://github.com/code-yeongyu/oh-my-openagent into adopt-11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bdafcc8db8 Merge remote-tracking branch 'origin/dev' into adopt-11687",
+      "translated": "Merge remote-tracking branch 'origin/dev' into adopt-11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2fe20c41c4 Merge remote-tracking branch 'origin/dev' into fix/rpc-heartbeat-clock-isolation-11641-adopt",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/rpc-heartbeat-clock-isolation-11641-adopt"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "658eb66aa9 Merge remote-tracking branch 'origin/dev' into pr-11671-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into pr-11671-merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0d335d92cf Merge origin/dev 7d4a61e0d8 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev 7d4a61e0d8 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "58b7ec8a64 Merge origin/dev d8c67b06a8 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev d8c67b06a8 into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b3eb9e27f5 Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/4272-o01-adopt-compact-engine"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7665fea11d Merge origin/dev 7c37db199c into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks",
+      "translated": "Merge origin/dev 7c37db199c into fix/5334-bwrap-trust-userns: generated bundles regenerated, no hand-edited hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0117d34d5d Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0e8e8ef454 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "95cdacd69f Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "df25bbef56 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8cb7d2aef9 Merge origin/dev into fix/5334-bwrap-trust-userns: regenerate omo.js; budget = committed 1,460,496 B + 4,096 B (linux/amd64, bun 1.4.4, node 24.22.0)",
+      "translated": "Merge origin/dev into fix/5334-bwrap-trust-userns: regenerate omo.js; budget = committed 1,460,496 B + 4,096 B (linux/amd64, bun 1.4.4, node 24.22.0)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0ba4285ed7 chore(bundle): omo.js budget = measured 1,460,395 B + 4,096 B for the bwrap trust attestation (node 24, bun 1.4.4, linux/amd64)",
+      "translated": "Omo.js budget = measured 1,460,395 B + 4,096 B for the bwrap trust attestation (node 24, bun 1.4.4, linux/amd64)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "36d1d15c64 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6486b46551 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e9a6d06001 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7df67b8edd Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11934-liveness-order"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5d98ef7a4e Merge feat/11466-cu-display-awake into the computer-use train",
+      "translated": "Merge feat/11466-cu-display-awake into the computer-use train"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ee4948fdc9 Categorize the computer-use guide's omo doctor mention in the command-string audit",
+      "translated": "Categorize the computer-use guide's omo doctor mention in the command-string audit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "45167815b9 docs(changes): key liveness clock fragment to PR 11937",
+      "translated": "Key liveness clock fragment to PR 11937"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "80411853ed Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f678d017f7 Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/compaction-survival-teardown-holder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "389a5ee5eb Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles",
+      "translated": "Merge origin/dev into feat/11466-cu-display-awake and regenerate bundles"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "623ae0a72a Merge origin/dev into feat/11466-cu-display-awake",
+      "translated": "Merge origin/dev into feat/11466-cu-display-awake"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "50d873935f fix(rpc): keep logger timers outside virtual clocks",
+      "translated": "Keep logger timers outside virtual clocks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1a7e397e09 Merge remote-tracking branch 'origin/dev' into fix/11446-rpc-deadline-test-determinism",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11446-rpc-deadline-test-determinism"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "916393b34c fix(memory): track memory tool calls at shutdown; settle tracked work after the drain's own steps (#11135)",
+      "translated": "Track memory tool calls at shutdown; settle tracked work after the drain's own steps (#11135)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9f6ef18066 docs(changes): add fragment for #11687",
+      "translated": "Add fragment for #11687"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4f6c39c7ae fix(memory): shutdown waits for every in-flight memory hook and detached read, not only the caches (#11135)",
+      "translated": "Shutdown waits for every in-flight memory hook and detached read, not only the caches (#11135)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9682233eef docs(changes): add fragment for #11671",
+      "translated": "Add fragment for #11671"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1d00eea579 fix(memory): settled() waits for every in-flight cache read, so shutdown leaves no git child in the identity dir (#11135)",
+      "translated": "Settled() waits for every in-flight cache read, so shutdown leaves no git child in the identity dir (#11135)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a9b32cd640 docs(changes): add the fragment for #11530",
+      "translated": "Add the fragment for #11530"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b374737ca9 feat(desktop-macos): keep the display awake while operating and say when it sleeps",
+      "translated": "Keep the display awake while operating and say when it sleeps"
+    }
+  ],
+  "translatedAt": "2026-11-05T20:03:49.836Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 22656
+}
