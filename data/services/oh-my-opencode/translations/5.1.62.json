@@ -1,0 +1,62 @@
+{
+  "version": "5.1.62",
+  "date": "2026-11-06",
+  "parsedAt": "2026-11-06T19:28:08.030Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "A Linux container matrix (Debian, Fedora, Alpine, openSUSE Leap and Tumbleweed) now checks the compiled engine's CA import on each distribution: the bundle chosen from `os-release` is the one the engine reads, a root installed with `update-ca-certificates` or `update-ca-trust` is trusted, and a root placed only in openSUSE's `/var/lib/ca-certificates/openssl` is not. ([#12223](https://github.com/code-yeongyu/oh-my-openagent/pull/12223), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Linux 컨테이너 매트릭스(Debian, Fedora, Alpine, openSUSE Leap 및 Tumbleweed)가 이제 각 배포판에서 컴파일된 엔진의 CA 임포트 상태를 확인합니다. `os-release`에서 선택된 번들을 엔진이 읽으며, `update-ca-certificates` 또는 `update-ca-trust`로 설치된 루트는 신뢰되지만, openSUSE의 `/var/lib/ca-certificates/openssl`에만 배치된 루트는 신뢰되지 않습니다. ([#12223](https://github.com/code-yeongyu/oh-my-openagent/pull/12223), [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762)의 일부)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The engine CA importer's design 9.7 mutation checks now run in CI for the trust code in `packages/omo-native`: `script/omo-native-trust-mutations.ts` applies each mutation as a source patch to a disposable copy of the package, requires its named test to turn red, and requires the same test to pass on the unpatched copy. It covers 31 source mutations (trust policy, launcher trust stage, user extras, generation retention, the OpenSSL hash-directory and default-file selectors) and 2 oracle self-checks, fails when a mutation's patch no longer matches exactly once, and runs in the new `Engine trust mutations` workflow on every change under `packages/omo-native`. Rows owned by senpi, the desktop or the macOS and Windows adapters run in their own pipelines. ([#12495](https://github.com/code-yeongyu/oh-my-openagent/pull/12495), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "엔진 CA 임포터의 디자인 9.7 뮤테이션 체크가 이제 `packages/omo-native` 내 신뢰 코드에 대해 CI에서 실행됩니다. `script/omo-native-trust-mutations.ts`가 각 뮤테이션을 패키지의 임시 복사본에 소스 패치로 적용하여, 지정된 테스트가 실패하는지 확인하고 패치되지 않은 복사본에서는 동일한 테스트가 통과하는지 확인합니다. 이는 31개의 소스 뮤테이션(신뢰 정책, 런처 신뢰 단계, 사용자 추가 항목, 생성 유지, OpenSSL 해시 디렉터리 및 기본 파일 선택기)과 2개의 오라클 자체 점검을 포함하며, 뮤테이션 패치가 더 이상 정확히 일치하지 않으면 실패합니다. 또한 `packages/omo-native` 하위의 모든 변경 사항에 대해 새로운 `Engine trust mutations` 워크플로에서 실행됩니다. senpi, 데스크톱 또는 macOS 및 Windows 어댑터가 소유한 행은 자체 파이프라인에서 실행됩니다. ([#12495](https://github.com/code-yeongyu/oh-my-openagent/pull/12495), [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762)의 일부)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Senpi task and LSP tool descriptions now say what the tools do: `task_cancel` releases a finished child's resident session or queued messages, `task_send`'s 32 KB cap covers team messages only and a message can queue, `task_output`'s tail mode shares the character cap, `task_id` wins over `name`, and `lsp_find_references`, `lsp_symbols` and `lsp_diagnostics` state their 200-result cap and defaults. Text only; no behavior change. ([#12500](https://github.com/code-yeongyu/oh-my-openagent/pull/12500), fixes [#12496](https://github.com/code-yeongyu/oh-my-openagent/issues/12496))",
+      "translated": "Senpi 태스크 및 LSP 도구 설명에 도구의 기능이 명시됩니다. `task_cancel`은 완료된 자식의 상주 세션 또는 대기 중인 메시지를 해제하고, `task_send`의 32 KB 제한은 팀 메시지에만 적용되며 메시지 대기열 설정이 가능함을 설명합니다. `task_output`의 tail 모드는 문자 제한을 공유하며, `task_id`가 `name`보다 우선순위가 높음을 명시하고, `lsp_find_references`, `lsp_symbols`, `lsp_diagnostics`는 200개 결과 제한 및 기본값을 명시합니다. 텍스트만 수정되었으며 동작 변경은 없습니다. ([#12500](https://github.com/code-yeongyu/oh-my-openagent/pull/12500), [#12496](https://github.com/code-yeongyu/oh-my-openagent/issues/12496) 수정)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo trust ensure` now reports `trust-lease-failed` when it cannot refresh the recency of a generation it reuses, instead of silently handing out a generation the retention sweep may remove next. ([#12163](https://github.com/code-yeongyu/oh-my-openagent/pull/12163), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "`omo trust ensure`가 재사용 중인 생성(generation)의 최신성을 갱신할 수 없을 때, 다음 유지 관리 스윕(retention sweep)에서 삭제될 수 있는 생성을 자동으로 제공하는 대신 `trust-lease-failed`를 보고합니다. ([#12163](https://github.com/code-yeongyu/oh-my-openagent/pull/12163), [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762)의 일부)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "On Fedora, RHEL and other systems whose CA bundle carries non-ASCII comment lines between certificates (such as `# NetLock Arany (Class Gold) Főtanúsítvány`), the compiled engine now imports the system roots instead of discarding the whole bundle as malformed and falling back. Non-ASCII text inside a certificate block still discards the file. ([#12220](https://github.com/code-yeongyu/oh-my-openagent/pull/12220), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "Fedora, RHEL 및 인증서 사이에 비 ASCII 주석 줄(예: `# NetLock Arany (Class Gold) Főtanúsítvány`)이 포함된 CA 번들을 사용하는 시스템에서, 컴파일된 엔진이 이제 번들 전체를 손상된 것으로 간주하여 무시하는 대신 시스템 루트를 정상적으로 임포트합니다. 단, 인증서 블록 내부의 비 ASCII 텍스트는 여전히 파일을 무시 처리합니다. ([#12220](https://github.com/code-yeongyu/oh-my-openagent/pull/12220), [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762)의 일부)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A device whose memory-sync sign-in ends (revoked, signed out, `omo logout`, `omo account forget --device`, or replaced by a new sign-in) no longer keeps its sync trust pin, so `omo account show --account` stops reporting it as joined and re-pairing after a reset is no longer blocked. Joining again always goes through the pairing or recovery ceremony. The new `omo account retire-sync --account <id>` does the same for a desktop-owned session. ([#12280](https://github.com/code-yeongyu/oh-my-openagent/issues/12280))",
+      "translated": "메모리 동기화 로그인이 종료된 장치(취소, 로그아웃, `omo logout`, `omo account forget --device` 또는 새 로그인으로 교체됨)가 더 이상 동기화 신뢰 핀을 유지하지 않습니다. 이에 따라 `omo account show --account`에서 해당 장치가 참여 중인 것으로 표시되지 않으며, 재설정 후 재페어링이 차단되지 않습니다. 다시 참여하려면 항상 페어링 또는 복구 절차를 거쳐야 합니다. 새로운 `omo account retire-sync --account <id>` 명령은 데스크톱 소유 세션에 대해 동일한 작업을 수행합니다. ([#12280](https://github.com/code-yeongyu/oh-my-openagent/issues/12280))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo doctor` now reports a generated `omo` wrapper whose cached runtime is gone instead of passing over it in silence: `WARN broken omo on PATH: <file> launches <missing path>; remove it`, with no repair installer offered for the broken wrapper. It also warns when two different omo-ai installs (for example bun and npm) are both on PATH, where previously only installs of different kinds were flagged. Broken detection does not run for Windows `.cmd` wrappers: they write `rem OMO_GENERATED_RUNTIME_WRAPPER` while the check looks for the `#` marker. ([#12534](https://github.com/code-yeongyu/oh-my-openagent/pull/12534), fixes [#12110](https://github.com/code-yeongyu/oh-my-openagent/issues/12110))",
+      "translated": "`omo doctor`가 캐시된 런타임이 사라진 생성된 `omo` 래퍼를 무시하지 않고 보고합니다. `WARN broken omo on PATH: <file> launches <missing path>; remove it` 메시지가 표시되며, 손상된 래퍼에 대한 복구 설치 프로그램은 제공되지 않습니다. 또한 이전에는 서로 다른 종류의 설치만 감지했던 것과 달리, 이제 PATH에 두 개의 서로 다른 omo-ai 설치(예: bun 및 npm)가 있는 경우에도 경고를 표시합니다. Windows `.cmd` 래퍼의 경우 체크 시 `#` 마커를 찾지만 해당 래퍼는 `rem OMO_GENERATED_RUNTIME_WRAPPER`를 작성하므로 손상 감지가 실행되지 않습니다. ([#12534](https://github.com/code-yeongyu/oh-my-openagent/pull/12534), [#12110](https://github.com/code-yeongyu/oh-my-openagent/issues/12110) 수정)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Engine TLS trust v1: distrusted intermediate certificates under an allowed root are not yet blocked; tracked upstream. The compiled engine now has tests for every TLS path (global `fetch`, `Bun.fetch`, a saved `fetch`, a Worker `fetch`, `node:https` and `WebSocket`): a root outside the selected set or denied by the OS fails on all of them, a store intermediate is used only when its usage allows server authentication and it is not denied, and a test named `limitation-pin:` records that a denied intermediate the server itself presents under an allowed root is still accepted. ([#12219](https://github.com/code-yeongyu/oh-my-openagent/pull/12219), part of [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762))",
+      "translated": "엔진 TLS 신뢰 v1: 허용된 루트 아래의 신뢰할 수 없는 중간 인증서는 아직 차단되지 않으며, 이는 업스트림에서 추적 중입니다. 컴파일된 엔진은 이제 모든 TLS 경로(전역 `fetch`, `Bun.fetch`, 저장된 `fetch`, Worker `fetch`, `node:https` 및 `WebSocket`)에 대한 테스트를 포함합니다. 선택된 세트 외부에 있거나 OS에서 거부된 루트는 모든 경로에서 실패하며, 저장소의 중간 인증서는 서버 인증을 허용하고 거부되지 않은 경우에만 사용됩니다. `limitation-pin:`이라는 이름의 테스트는 허용된 루트 아래에서 서버가 직접 제시하는 거부된 중간 인증서가 여전히 수락됨을 기록합니다. ([#12219](https://github.com/code-yeongyu/oh-my-openagent/pull/12219), [#10762](https://github.com/code-yeongyu/oh-my-openagent/issues/10762)의 일부)"
+    }
+  ],
+  "translatedAt": "2026-11-06T19:31:37.603Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 4799
+}
