@@ -1,0 +1,1004 @@
+{
+  "version": "5.1.64",
+  "date": "2026-11-07",
+  "parsedAt": "2026-11-07T21:55:17.062Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync no longer loses an edit when two devices change the same line of a memory file at the same time. Devices on this version keep both edits as whole lines, and every device converges. Before, the edits were merged character by character into text that matched neither (#12279).",
+      "translated": "메모리 동기화 시 두 기기가 메모리 파일의 동일한 줄을 동시에 변경해도 수정 사항이 유실되지 않습니다. 이 버전의 기기들은 두 수정 사항을 모두 전체 줄로 유지하며 모든 기기에서 데이터가 일치하게 됩니다. 이전에는 수정 사항이 문자 단위로 병합되어 어느 쪽과도 일치하지 않는 텍스트가 생성되었습니다 (#12279)."
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync: the push phase of a large memory set no longer needs memory in proportion to the whole set. Every push step used to re-read and re-write one journal file holding every pending item's data, several times per batch. A device pushing a few thousand memory files therefore peaked at 2 GiB or more (#12286). The journal now keeps a small index of pending items with their data in separate files, and a push reads only the batch it is sending. Capturing the set before the push still holds each captured file's text until the capture ends. A journal written by an older build is converted the first time it is read, including one where an older build added items next to the new index. ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "메모리 동기화: 대규모 메모리 세트의 push 단계에서 전체 세트 크기에 비례하는 메모리가 더 이상 필요하지 않습니다. 기존에는 모든 push 단계에서 대기 중인 모든 항목의 데이터를 담은 저널 파일을 배치당 여러 번 다시 읽고 써야 했습니다. 이로 인해 수천 개의 메모리 파일을 push하는 기기의 메모리 사용량이 2 GiB 이상으로 치솟기도 했습니다 (#12286). 이제 저널은 대기 항목의 작은 인덱스만 유지하고 데이터는 별도 파일에 저장하며, push 시에는 전송 중인 배치만 읽습니다. push 전 세트를 캡처하는 동안에는 캡처가 끝날 때까지 각 파일의 텍스트를 유지합니다. 이전 빌드에서 작성된 저널은 처음 읽을 때 변환되며, 이전 빌드에서 새 인덱스 옆에 항목을 추가한 경우도 포함됩니다. ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync: a device receiving a large memory set no longer slows down with every file it lands. The render step used to re-read every render record of the cycle for each file, so the first pull of a few thousand memory files took tens of minutes (#12285). Each file now costs the same, and the crash-resume behavior is unchanged. ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "메모리 동기화: 대규모 메모리 세트를 수신하는 기기에서 파일이 추가될 때마다 속도가 느려지는 현상이 해결되었습니다. 기존에는 렌더링 단계에서 각 파일마다 해당 사이클의 모든 렌더링 기록을 다시 읽었기 때문에, 수천 개의 메모리 파일을 처음 pull할 때 수십 분이 소요되었습니다 (#12285). 이제 각 파일 처리 비용이 동일해졌으며, 충돌 후 재개 동작은 그대로 유지됩니다. ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory git no longer takes `core.hooksPath`, `core.fsmonitor`, `include.path` or `includeIf.*.path` from an inherited `GIT_CONFIG_COUNT` pair or `GIT_CONFIG_PARAMETERS` entry, so an exported pair such as `core.hooksPath=/dev/null` can no longer silently skip the memory repository's hooks and mirror push. Every other injected pair (`url.*.insteadOf`, `http.extraHeader`, credentials, `safe.directory`, ...) still applies, renumbered; an injected list git itself cannot parse is dropped whole. Memory git also no longer inherits repository redirection (`GIT_DIR`, `GIT_WORK_TREE`, `GIT_COMMON_DIR`, `GIT_OBJECT_DIRECTORY`, `GIT_NAMESPACE`, `GIT_CONFIG`, ...), so it can no longer be pointed at another repository; `GIT_INDEX_FILE`, `GIT_CONFIG_GLOBAL` and `GIT_CONFIG_NOSYSTEM` are kept. ([#12360](https://github.com/code-yeongyu/oh-my-openagent/pull/12360), fixes [#12354](https://github.com/code-yeongyu/oh-my-openagent/issues/12354)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "Memory git이 상속된 `GIT_CONFIG_COUNT` 쌍이나 `GIT_CONFIG_PARAMETERS` 항목에서 `core.hooksPath`, `core.fsmonitor`, `include.path`, `includeIf.*.path`를 가져오지 않습니다. 따라서 `core.hooksPath=/dev/null`과 같이 내보낸 설정이 메모리 저장소의 훅과 미러 push를 자동으로 건너뛰는 일이 발생하지 않습니다. 그 외 주입된 쌍(`url.*.insteadOf`, `http.extraHeader`, 자격 증명, `safe.directory` 등)은 번호가 재지정되어 계속 적용되며, git 자체가 파싱할 수 없는 주입된 목록은 통째로 삭제됩니다. 또한 Memory git은 더 이상 저장소 리디렉션(`GIT_DIR`, `GIT_WORK_TREE`, `GIT_COMMON_DIR`, `GIT_OBJECT_DIRECTORY`, `GIT_NAMESPACE`, `GIT_CONFIG` 등)을 상속하지 않으므로 다른 저장소를 가리킬 수 없게 되었습니다. 단, `GIT_INDEX_FILE`, `GIT_CONFIG_GLOBAL`, `GIT_CONFIG_NOSYSTEM`은 유지됩니다. ([#12360](https://github.com/code-yeongyu/oh-my-openagent/pull/12360), fixes [#12354](https://github.com/code-yeongyu/oh-my-openagent/issues/12354)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync no longer stops every push from a device when one memory file's change is larger than the 8 MiB batch limit: that file is held back and named in the sync status with what to do, every other memory keeps syncing, and the file syncs on its own once it fits. A change another device makes to a held file is kept and lands in this device's copy once the file fits, and a change an older build had already queued for such a file is recovered the same way instead of staying stuck. The TUI footer shows ` sync held` and the notice says the file is being held back, and a refused entry that pauses sync is never hidden behind a held file. ([#12284](https://github.com/code-yeongyu/oh-my-openagent/issues/12284)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "메모리 동기화 시 특정 메모리 파일의 변경 사항이 8 MiB 배치 제한보다 크더라도 기기의 모든 push가 중단되지 않습니다. 해당 파일은 보류되고 동기화 상태에 조치 방법과 함께 표시되며, 다른 모든 메모리는 동기화를 계속합니다. 보류된 파일은 크기 제한에 맞게 되면 자동으로 동기화됩니다. 다른 기기에서 보류된 파일에 가한 변경 사항은 유지되었다가 파일이 준비되면 이 기기의 복사본에 반영되며, 이전 빌드에서 이미 대기열에 추가된 변경 사항도 중단되지 않고 동일한 방식으로 복구됩니다. TUI 하단에는 ` sync held`가 표시되고 알림을 통해 파일이 보류 중임을 알립니다. 동기화를 일시 중지시키는 거부된 항목이 보류된 파일에 가려지는 일은 없습니다. ([#12284](https://github.com/code-yeongyu/oh-my-openagent/issues/12284)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Opening a memory repository starts up to six fewer git processes: the local config defaults are read with one `git config --list` instead of one `git config --get` per key, and the line-ending repair is skipped while the repository tracks nothing. Every session that opens memory pays this, and on a loaded machine each git process costs hundreds of milliseconds. memory-core's own tests now run under the canonical 20 s test budget instead of per-file 5-15 s limits, which made them fail only on busy hosts. ([#12104](https://github.com/code-yeongyu/oh-my-openagent/pull/12104), fixes [#12103](https://github.com/code-yeongyu/oh-my-openagent/issues/12103)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "메모리 저장소를 열 때 시작되는 git 프로세스가 최대 6개 줄어듭니다. 로컬 설정 기본값을 키마다 `git config --get`으로 읽는 대신 `git config --list` 한 번으로 읽으며, 저장소가 추적하는 항목이 없을 때는 줄바꿈 복구 과정을 건너뜁니다. 메모리를 여는 모든 세션에서 이 비용이 발생하며, 부하가 걸린 장치에서는 각 git 프로세스 실행에 수백 밀리초가 소요됩니다. memory-core 자체 테스트는 이제 파일당 5~15초 제한 대신 표준 20초 테스트 예산 내에서 실행되므로, 바쁜 호스트에서만 테스트가 실패하던 문제가 해결되었습니다. ([#12104](https://github.com/code-yeongyu/oh-my-openagent/pull/12104), fixes [#12103](https://github.com/code-yeongyu/oh-my-openagent/issues/12103)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_send` no longer reports a message as `queued` when nothing will ever pick it up. When the target thread's session has no running drain, the send now answers `queued_offline`: the message is kept and the session takes it the next time it runs, so a caller knows no turn started and can act instead of waiting. The drain also reports a message it is holding behind the user's unsent draft, so a live drain is never mistaken for a missing one. ([#12488](https://github.com/code-yeongyu/oh-my-openagent/pull/12488), fixes [#12486](https://github.com/code-yeongyu/oh-my-openagent/issues/12486))",
+      "translated": "`thread_send`가 메시지를 처리할 대상이 없는데도 `queued`로 보고하지 않습니다. 대상 스레드의 세션에 실행 중인 drain이 없는 경우, 이제 `queued_offline`으로 응답합니다. 메시지는 보관되었다가 세션이 다음에 실행될 때 처리되므로, 호출자는 작업이 시작되지 않았음을 인지하고 대기 대신 다른 조치를 취할 수 있습니다. 또한 drain은 사용자의 미전송"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Verify recursive removal (sync and async) actually removed its path, retry bounded silent leftovers, and join sweep-test removers before deleting their fixture parents. ([#11834](https://github.com/code-yeongyu/oh-my-openagent/pull/11834))",
+      "translated": "Verify recursive removal (sync and async) actually removed its path, retry bounded silent leftovers, and join sweep-test removers before deleting their fixture parents. ([#11834](https://github.com/code-yeongyu/oh-my-openagent/pull/11834))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Windows releases now carry `omo-git-job-helper.exe`, a small native helper that runs each memory git command inside its own kill-on-close job object, so a later writer can prove that a killed writer's git is gone before it reclaims a stranded lock. Nothing uses the helper yet: memory-core keeps today's Windows behavior until a follow-up wires it in, and no release claims the new protocol until its in-flight-creation stress row has passed on Windows CI. ([#12105](https://github.com/code-yeongyu/oh-my-openagent/pull/12105), part of [#10391](https://github.com/code-yeongyu/oh-my-openagent/issues/10391)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))",
+      "translated": "Windows releases now carry `omo-git-job-helper.exe`, a small native helper that runs each memory git command inside its own kill-on-close job object, so a later writer can prove that a killed writer's git is gone before it reclaims a stranded lock. Nothing uses the helper yet: memory-core keeps today's Windows behavior until a follow-up wires it in, and no release claims the new protocol until its in-flight-creation stress row has passed on Windows CI. ([#12105](https://github.com/code-yeongyu/oh-my-openagent/pull/12105), part of [#10391](https://github.com/code-yeongyu/oh-my-openagent/issues/10391)) ([#12597](https://github.com/code-yeongyu/oh-my-openagent/pull/12597))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f2f2264ab1 Merge pull request #12597 from code-yeongyu/memsync/train-memsync-5",
+      "translated": "Merge pull request #12597 from code-yeongyu/memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "44fa71da6d Merge pull request #11834 from code-yeongyu/fix/11806-root-sweep-cleanup",
+      "translated": "Merge pull request #11834 from code-yeongyu/fix/11806-root-sweep-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "32ae1261db Merge remote-tracking branch 'origin/dev' into fix/11806-root-sweep-cleanup",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11806-root-sweep-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "454d7abee9 Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "22ef0148e9 Merge pull request #12488 from code-yeongyu/fix/12486-thread-send-no-drain",
+      "translated": "Merge pull request #12488 from code-yeongyu/fix/12486-thread-send-no-drain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "55ca0d7d7f Merge pull request #12704 from code-yeongyu/fix/memsync-claim-at-host-boot",
+      "translated": "Merge pull request #12704 from code-yeongyu/fix/memsync-claim-at-host-boot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cab3d22b99 Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3a6a7bba34 Merge pull request #12632 from code-yeongyu/test/10762-begin-highbyte-nonbom",
+      "translated": "Merge pull request #12632 from code-yeongyu/test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f218dfca2b Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "69bdd38afd Merge pull request #12633 from code-yeongyu/test/10762-native-default-file-drop",
+      "translated": "Merge pull request #12633 from code-yeongyu/test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0a55872fdb Merge pull request #12631 from code-yeongyu/fix/10762-mutation-kill-assertion",
+      "translated": "Merge pull request #12631 from code-yeongyu/fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "db007091f8 Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e481d62384 Merge pull request #12738 from code-yeongyu/release/v5.1.63-source-state",
+      "translated": "Merge pull request #12738 from code-yeongyu/release/v5.1.63-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "02efb0caa2 Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "219e68ab6b Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e1463cfb32 Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "065a093a66 Merge pull request #12739 from cynkai/fix/12733-registrant-event-timestamps",
+      "translated": "Merge pull request #12739 from cynkai/fix/12733-registrant-event-timestamps"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "53f2db0137 Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "edc8fb36eb test(device-service-core): time each registrant event relative to the wait in a run-out message (#12733)",
+      "translated": "Time each registrant event relative to the wait in a run-out message (#12733)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3c716cd557 Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1feb67976b Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "66d08a9ca8 Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "de85336b8e Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f2fe61eb00 Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12486-thread-send-no-drain"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4be486c27b test(memory-sync): run the POSIX fd-5 boot-claim test on POSIX only",
+      "translated": "Run the POSIX fd-5 boot-claim test on POSIX only"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bc0e1b23f6 test(memory-sync): guard the boot-claim test client and pid instead of non-null assertions (lint ratchet)",
+      "translated": "Guard the boot-claim test client and pid instead of non-null assertions (lint ratchet)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ce2a8019c8 Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-claim-at-host-boot"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "aee4a8dc10 fix(memory-sync): export the boot gate beside the claim so every entry calls one implementation",
+      "translated": "Export the boot gate beside the claim so every entry calls one implementation"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5349543cd8 fix(memory-sync): claim the desktop channel when an RPC engine boots (#12702)",
+      "translated": "Claim the desktop channel when an RPC engine boots (#12702)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c14cf3503b test(memory-core): compare the git dir path platform-normalized (Windows prints forward slashes)",
+      "translated": "Compare the git dir path platform-normalized (Windows prints forward slashes)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4df1181429 Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "10891b7783 Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0b7213fb70 Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4a7db858e4 Merge dev into fix/11806-root-sweep-cleanup",
+      "translated": "Merge dev into fix/11806-root-sweep-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9fdc139d06 Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "586e045abe Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9aa827200c Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f95427e2ff Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e27d955780 Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8fc3acfab7 Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c44f0296b9 Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a710500c45 Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "857c29480b Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2af8c14d6a Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e74241b23c Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d97155767c Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c483b792d5 Merge commit '81ed5934013aeb173fa87b190e357e0ad8bdc4c7' into fix/10762-mutation-kill-assertion",
+      "translated": "Merge commit '81ed5934013aeb173fa87b190e357e0ad8bdc4c7' into fix/10762-mutation-kill-assertion"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1af9029176 Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-native-default-file-drop"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "81999dc9fb Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/10762-begin-highbyte-nonbom"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a06747e92e fix(script): count a failed expect.assertions/hasAssertions as an assertion kill (#10762)",
+      "translated": "Count a failed expect.assertions/hasAssertions as an assertion kill (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ca32c61411 test(omo-native): make the foreign-marker test fail by assertion when the stage refuses or skips its record (#10762)",
+      "translated": "Make the foreign-marker test fail by assertion when the stage refuses or skips its record (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "56a8d6aa23 chore(changes): add fragment for #12633",
+      "translated": "Add fragment for #12633"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f05beced99 chore(changes): add fragment for #12632",
+      "translated": "Add fragment for #12632"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "827c6f8551 chore(changes): add fragment for #12631",
+      "translated": "Add fragment for #12631"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c4d5985c9a test(omo-native): read the macOS default file through the injected bundle reader and test its drop (#10762)",
+      "translated": "Read the macOS default file through the injected bundle reader and test its drop (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e71c392f22 test(omo-native): pin a non-BOM high byte on a BEGIN line dropping the default file (#10762)",
+      "translated": "Pin a non-BOM high byte on a BEGIN line dropping the default file (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6dbd294779 fix(script): count a mutant killed only by an assertion; a runtime error or crash is crashed (#10762)",
+      "translated": "Count a mutant killed only by an assertion; a runtime error or crash is crashed (#10762)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d225166974 Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ceed2fd8b2 memory-core: persist the doc before marking a recovered entry imported, so a capture whose persist failed is never skipped after a restart",
+      "translated": "Memory-core: persist the doc before marking a recovered entry imported, so a capture whose persist failed is never skipped after a restart"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4647e55a6e Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9236c42403 Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d4d507d89 changes: fold #12297, #12104 and #12105 fragments into the train fragment (#12597)",
+      "translated": "Changes: fold #12297, #12104 and #12105 fragments into the train fragment (#12597)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "17fd628f52 Merge #12132 into the memsync train",
+      "translated": "Merge #12132 into the memsync train"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "786e4fa64e Merge #12105 into the memsync train",
+      "translated": "Merge #12105 into the memsync train"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fe3fdc5192 Merge #12104 into the memsync train",
+      "translated": "Merge #12104 into the memsync train"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1e823c093a memory-core: lock capture recovery's imported skip and the lost-mark re-check (design-gate M1, M2)",
+      "translated": "Memory-core: lock capture recovery's imported skip and the lost-mark re-check (design-gate M1, M2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "938bfbe4f6 Merge the memsync train (#12597) into #12297: port capture to the outbox, mark imported entries",
+      "translated": "Merge the memsync train (#12597) into #12297: port capture to the outbox, mark imported entries"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4cc9e301c3 changes: name the train fragment after its PR (#12597)",
+      "translated": "Changes: name the train fragment after its PR (#12597)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9e26f72b6e Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5",
+      "translated": "Merge remote-tracking branch 'origin/dev' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6c3c59218b changes: fold the train members' changelog fragments into one",
+      "translated": "Changes: fold the train members' changelog fragments into one"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f1f21d62ce Merge commit 'a0af0bae4fa9fe26b7d1168be560a6ba0d14223b' into memsync/train-memsync-5",
+      "translated": "Merge commit 'a0af0bae4fa9fe26b7d1168be560a6ba0d14223b' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bd83f2d03b Merge commit 'd4a832897aef76e1bbf91ab010439407bdf6345d' into memsync/train-memsync-5",
+      "translated": "Merge commit 'd4a832897aef76e1bbf91ab010439407bdf6345d' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "51193c701c Merge commit '017902297fae112cca777f76992fe8b4bca3f1e1' into memsync/train-memsync-5",
+      "translated": "Merge commit '017902297fae112cca777f76992fe8b4bca3f1e1' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "25f9b88fda Merge commit '1afd37288d8525c7d30c5784d9e310fdf59bc24a' into memsync/train-memsync-5",
+      "translated": "Merge commit '1afd37288d8525c7d30c5784d9e310fdf59bc24a' into memsync/train-memsync-5"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7ac2b08228 Merge remote-tracking branch 'origin/dev' into fix/11806-root-sweep-cleanup",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/11806-root-sweep-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "adc4da06ff docs(changes): add the #12488 fragment for thread_send queued_offline",
+      "translated": "Add the #12488 fragment for thread_send queued_offline"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1afd37288d Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "abf1fd29b7 fix(memory-sync): spread-out line edits on a long note stay separate hunks",
+      "translated": "Spread-out line edits on a long note stay separate hunks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "744b369a16 test(thread): a fake wake with no drain behind it now reads queued_offline (#12486)",
+      "translated": "A fake wake with no drain behind it now reads queued_offline (#12486)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6703e513b8 fix(thread): a send whose wake reached no drain answers queued_offline, not queued",
+      "translated": "A send whose wake reached no drain answers queued_offline, not queued"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "75a943f4fc Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4ec838d872 Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d4a832897a Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "017902297f Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a0af0bae4f Merge remote-tracking branch 'origin/dev' into fix/memcore-git-env-hermetic-12354",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memcore-git-env-hermetic-12354"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2063adf7e8 Merge remote-tracking branch 'origin/dev' into fix/12103-soul-edit-persona-load",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12103-soul-edit-persona-load"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a1b7918e05 test(memory-core): the live-lock journal case keeps its own 15 s budget",
+      "translated": "The live-lock journal case keeps its own 15 s budget"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "796e3ff5a9 fix(memory-core): run the sync space's git through the memory git environment filter (#12354)",
+      "translated": "Run the sync space's git through the memory git environment filter (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "318d5a1493 test(memory-core): RED: an inherited GIT_DIR must not point the sync space config or remote list at another repository (#12354)",
+      "translated": "RED: an inherited GIT_DIR must not point the sync space config or remote list at another repository (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "69d35232e3 fix(memory-core): match GIT_CONFIG_* and the other git names exactly off Windows (#12354)",
+      "translated": "Match GIT_CONFIG_* and the other git names exactly off Windows (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2410a12f0f test(memory-core): RED: a mixed-case Git_Config_* pair must not become config git never reads off Windows (#12354)",
+      "translated": "RED: a mixed-case Git_Config_* pair must not become config git never reads off Windows (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "35cc69a9f4 fix(memory-core): keep inherited git config pairs that leave memory's hooks alone (#12354)",
+      "translated": "Keep inherited git config pairs that leave memory's hooks alone (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9f898e0a64 test(memory-sync): render-reads bound also requires record reads to be observed",
+      "translated": "Render-reads bound also requires record reads to be observed"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8ba47015bf fix(memory-sync): remove a refused batch's sealed file so a frozen account's journal stays bounded",
+      "translated": "Remove a refused batch's sealed file so a frozen account's journal stays bounded"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b1184730ca docs(changes): note the no-trailing-newline exception in #12295 fragment",
+      "translated": "Note the no-trailing-newline exception in #12295 fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "61618bc772 Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4686e337ee Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e26942ba5b Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "545366cfc6 Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c982ca8554 docs(changes): add the #12360 changelog fragment for the memory git environment fix (#12354)",
+      "translated": "Add the #12360 changelog fragment for the memory git environment fix (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "25f6bf9f9b Merge remote-tracking branch 'origin/dev' into fix/memcore-git-env-hermetic-12354",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memcore-git-env-hermetic-12354"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6703e79141 fix(memory-core): run memory git without inherited GIT_CONFIG_* or repository redirection (#12354)",
+      "translated": "Run memory git without inherited GIT_CONFIG_* or repository redirection (#12354)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7a5cd03d66 docs(changes): state the mixed-version adjacent-line fuse and the size-cap duplicate in the #12295 fragment",
+      "translated": "State the mixed-version adjacent-line fuse and the size-cap duplicate in the #12295 fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "510c93cb92 fix(memory-core): drop the sameFrontier re-export the span lookup no longer uses (knip: unused export)",
+      "translated": "Drop the sameFrontier re-export the span lookup no longer uses (knip: unused export)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "252579e989 fix(memory-sync): restore a recovered capture's baseline from its own receipt; split the item store's recovery operations (#12284)",
+      "translated": "Restore a recovered capture's baseline from its own receipt; split the item store's recovery operations (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2de1b501d3 test(memory-core): RED for gate round 4 H-1: a crashed revive of a held file must not duplicate the next edit (#12284)",
+      "translated": "RED for gate round 4 H-1: a crashed revive of a held file must not duplicate the next edit (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "35dd460c36 fix(memory-sync): finish a journaled capture's import after a crash instead of journaling a second op (#12284)",
+      "translated": "Finish a journaled capture's import after a crash instead of journaling a second op (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "27177bc864 test(memory-core): RED for gate round 3: a device-peer op missing its deps, and the revive-then-delete case (#12284)",
+      "translated": "RED for gate round 3: a device-peer op missing its deps, and the revive-then-delete case (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3c0718f225 test(memory-core): RED for gate round 2: journaled-op recovery keeps reverts, deletes and foreign ops right (#12284)",
+      "translated": "RED for gate round 2: journaled-op recovery keeps reverts, deletes and foreign ops right (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5729707148 fix(memory-core): body line ops insert after the replaced hunk, so no concurrent insert lands on an unedited line (#12279)",
+      "translated": "Body line ops insert after the replaced hunk, so no concurrent insert lands on an unedited line (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b801db98fd test(memory-core): RED for line ops that strand a concurrent insert onto an unedited line (#12279)",
+      "translated": "RED for line ops that strand a concurrent insert onto an unedited line (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "200c50b68a test(memory-core): RED: a crash between journaling and importing the healing edit must not journal a second op (#12284)",
+      "translated": "RED: a crash between journaling and importing the healing edit must not journal a second op (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f6179d882f chore(bundle): raise omo.js budget for the #12297 held-status adapter surface (+508 B)",
+      "translated": "Raise omo.js budget for the #12297 held-status adapter surface (+508 B)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "df5876d102 fix(memory-sync): convert a mixed pending journal per entry and check batch bytes locally",
+      "translated": "Convert a mixed pending journal per entry and check batch bytes locally"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4caeae07f6 fix(memory-core): keep the rewind fault point module-local (knip: unused export)",
+      "translated": "Keep the rewind fault point module-local (knip: unused export)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ff188ad7ac fix(memory-sync): never lose a peer's edit to a held file, recover an old build's queued item, truthful held status (#12284)",
+      "translated": "Never lose a peer's edit to a held file, recover an old build's queued item, truthful held status (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8d20c6340e test(memory-sync): RED for the design-gate conditions and the review LOWs (#12284)",
+      "translated": "RED for the design-gate conditions and the review LOWs (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fdca6cc296 Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-same-line-concurrent-edit"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "85ceda2dc7 test(memory-core): RED for the #12297 review: owed peer edit, old-build queued item, re-capture churn (#12284)",
+      "translated": "RED for the #12297 review: owed peer edit, old-build queued item, re-capture churn (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1f57dc8dcc chore(knip): drop the preExistingExports row for the removed OversizedItemError (#12284)",
+      "translated": "Drop the preExistingExports row for the removed OversizedItemError (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "74a2510a09 docs(changes): describe the gated line merge in the #12295 fragment",
+      "translated": "Describe the gated line merge in the #12295 fragment"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6f25e6470b fix(memory-core): run the body line diff only when every account member advertises it (#12279)",
+      "translated": "Run the body line diff only when every account member advertises it (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1d450e02af Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-push-memory-bounded"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "23f35a7801 docs(changes): rename the changelog fragment to #12299 for the bounded push-memory fix (#12286)",
+      "translated": "Rename the changelog fragment to #12299 for the bounded push-memory fix (#12286)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3b9aec85c0 test(memory-core): RED for mixed-version accounts corrupting an unedited line (#12279)",
+      "translated": "RED for mixed-version accounts corrupting an unedited line (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "56711e660d Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-large-pull-linear"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "833d3eae26 docs(changes): rename the changelog fragment to #12298 for the linear large-pull fix (#12285)",
+      "translated": "Rename the changelog fragment to #12298 for the linear large-pull fix (#12285)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "aefdefa215 Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/memsync-oversized-item-no-block"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d9088dde6 docs(changes): add the #12297 changelog fragment for the oversized memory item fix (#12284)",
+      "translated": "Add the #12297 changelog fragment for the oversized memory item fix (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ee28a29a94 docs(changes): fragment for #12295",
+      "translated": "Fragment for #12295"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0239253695 fix(memory-sync): keep pending ops out of the journal index so a push holds one batch",
+      "translated": "Keep pending ops out of the journal index so a push holds one batch"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5dbec2e0cd fix(memory-core): merge concurrent edits of one body line as whole lines, never a character splice (#12279)",
+      "translated": "Merge concurrent edits of one body line as whole lines, never a character splice (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "afb04cf4e7 fix(memory-core): hold an oversized memory item back instead of failing every push (#12284)",
+      "translated": "Hold an oversized memory item back instead of failing every push (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2e4053dc7f test(memory-core): RED for concurrent same-line body edits merging into a character splice (#12279)",
+      "translated": "RED for concurrent same-line body edits merging into a character splice (#12279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "42f421ec10 fix(memory-sync): count render seqs in memory so landing a large set is linear",
+      "translated": "Count render seqs in memory so landing a large set is linear"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f143fcd65e test(memory-core): one oversized memory file must not block the other 500 from syncing (#12284)",
+      "translated": "One oversized memory file must not block the other 500 from syncing (#12284)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2fe42b9eb1 Merge fix/10391-windows-job-helper-native (#12105) into fix/10391-helper-done-latency",
+      "translated": "Merge fix/10391-windows-job-helper-native (#12105) into fix/10391-helper-done-latency"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "94e94a14fc Merge origin/dev into fix/12103-soul-edit-persona-load",
+      "translated": "Merge origin/dev into fix/12103-soul-edit-persona-load"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0f5f754d1b Merge fix/10391-windows-job-helper (#12097) into fix/10391-windows-job-helper-native",
+      "translated": "Merge fix/10391-windows-job-helper (#12097) into fix/10391-windows-job-helper-native"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "437e912b46 fix(git-job-helper): re-read F's count after the last watched member exits (#10391)",
+      "translated": "Re-read F's count after the last watched member exits (#10391)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "64614c3857 test(git-job-helper): RED rows for a member handle that signals before the count drops (#10391)",
+      "translated": "RED rows for a member handle that signals before the count drops (#10391)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "73f2531da1 fix(git-job-helper): wake on member handle signals so done follows the last exit (#10391)",
+      "translated": "Wake on member handle signals so done follows the last exit (#10391)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "45751ff076 test(git-job-helper): RED row for done latency after the last member exits (#10391)",
+      "translated": "RED row for done latency after the last member exits (#10391)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b0638ee4a9 fix(git-job-helper): fix the six review findings on #12105 (GREEN)",
+      "translated": "Fix the six review findings on #12105 (GREEN)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4de38f40ba test(git-job-helper): RED rows for the six review findings on #12105",
+      "translated": "RED rows for the six review findings on #12105"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "54e1190b19 fix(git-job-helper): exit while holding F; read TokenElevation with its exact size",
+      "translated": "Exit while holding F; read TokenElevation with its exact size"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e656439a58 fix(git-job-helper): keep one pending control read in AWAIT_GO",
+      "translated": "Keep one pending control read in AWAIT_GO"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "093b740804 docs(changes): fragment for the Windows git job helper",
+      "translated": "Fragment for the Windows git job helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9803ffb4a7 build(git-job-helper): ship the helper in the Windows compiled payloads",
+      "translated": "Ship the helper in the Windows compiled payloads"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7d759a8e5f feat(git-job-helper): implement run, probe and selftest (GREEN)",
+      "translated": "Implement run, probe and selftest (GREEN)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "552267e177 test(git-job-helper): add native contract rows N1-N10 for the Windows git job helper (RED)",
+      "translated": "Add native contract rows N1-N10 for the Windows git job helper (RED)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "38837f0285 changes: fragment for #12104",
+      "translated": "Changes: fragment for #12104"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d5a758c7d7 test(memory-core): give every memory-core test the canonical 20 s budget, spawn fewer git processes per open",
+      "translated": "Give every memory-core test the canonical 20 s budget, spawn fewer git processes per open"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9819f3799f chore(changes): name the cleanup fragment for #11834",
+      "translated": "Name the cleanup fragment for #11834"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "69faa7b735 fix(test): verify synchronous cleanup and join sweep removers",
+      "translated": "Verify synchronous cleanup and join sweep removers"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "@ahmet-cetinkaya:",
+      "translated": "@ahmet-cetinkaya:"
+    }
+  ],
+  "translatedAt": "2026-11-07T21:55:45.766Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 15362
+}
