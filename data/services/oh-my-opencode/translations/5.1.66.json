@@ -1,0 +1,764 @@
+{
+  "version": "5.1.66",
+  "date": "2026-11-10",
+  "parsedAt": "2026-11-10T07:24:39.416Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo thread send` to a thread alias held on this device now reaches that thread when run from another workspace, the same way `omo thread read` does, instead of answering that no visible thread matches. ([#12860](https://github.com/code-yeongyu/oh-my-openagent/pull/12860))",
+      "translated": "다른 워크스페이스에서 실행할 때도 `omo thread send`를 이 장치에 저장된 스레드 에일리어스로 실행하면, `omo thread read`와 마찬가지로 일치하는 스레드가 없다는 응답 대신 해당 스레드에 정상적으로 도달합니다. ([#12860](https://github.com/code-yeongyu/oh-my-openagent/pull/12860))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory shutdown drain: the session-shutdown wiring no longer claims senpi puts no bound on its handler. senpi bounds one `session_shutdown` handler with its own warn threshold, per-handler timeout and total quit budget (shipped defaults 2 s / 10 s / 2 s, each user-tunable and 0-disableable), and the 1500 ms drain budget is sized under those defaults and pinned by a test that reads them from the installed senpi, so a host release that lowers a default below the drain fails there. No host cap was added from OmO and nothing bypasses the host abort; a journal flush skipped by the budget still raises its error-level alarm. ([#12795](https://github.com/code-yeongyu/oh-my-openagent/pull/12795), refs [#10336](https://github.com/code-yeongyu/oh-my-openagent/issues/10336))",
+      "translated": "메모리 종료 드레인(drain): 세션 종료 연결 시 senpi가 핸들러에 제한을 두지 않는다고 간주하지 않습니다. senpi는 자체 경고 임계값, 핸들러별 타임아웃 및 전체 종료 예산(기본값 2초 / 10초 / 2초, 사용자 조정 및 0으로 비활성화 가능)을 사용하여 하나의 `session_shutdown` 핸들러를 제한합니다. 1500ms의 드레인 예산은 이러한 기본값에 따라 산정되었으며, 설치된 senpi에서 값을 읽어오는 테스트로 고정됩니다. 따라서 기본값을 드레인 예산보다 낮게 설정한 호스트 릴리스는 해당 테스트에서 실패합니다. OmO 측에서 추가된 호스트 제한은 없으며 호스트 중단을 우회하지도 않습니다. 예산 부족으로 건너뛴 저널 플러시는 여전히 에러 레벨 알람을 발생시킵니다. ([#12795](https://github.com/code-yeongyu/oh-my-openagent/pull/12795), refs [#10336](https://github.com/code-yeongyu/oh-my-openagent/issues/10336))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The browser skill's docs and examples teach BrowserSkill 0.4 shared control for the omowright it now ships (`^0.3.0`): every gated page action carries the context of a fresh `session.cooperate(\"sync\")`, and a `cooperation_sync_required` refusal waits for the person with `session.cooperate(\"wait\")`, then re-syncs and replans. They also note which calls are gated, that a gated action throws a `TypeError` on an unknown option key (with the two calls that pass stray keys through instead), and that `page.on(\"dialog\")` listeners receive a `Dialog` they can answer. The omowright this release ships includes running-browser discovery through `DevToolsActivePort`, `goto` on sparse and frameset pages, UTF-8 decoding across BrowserSkill IPC chunks and unique-only stale-ref recovery (thanks @ashmoonori-afk, code-yeongyu/omowright#115 to #118), and agent tabs in their own window (thanks @devxoul, code-yeongyu/omowright#120). ([#12494](https://github.com/code-yeongyu/oh-my-openagent/pull/12494))",
+      "translated": "브라우저 스킬 문서와 예제에 현재 포함된 omowright(`^0.3.0`)를 위한 BrowserSkill 0.4 공유 제어 방식이 추가되었습니다. 모든 제한된(gated) 페이지 액션은 새로운 `session.cooperate(\"sync\")` 컨텍스트를 포함하며, `cooperation_sync_required` 거부 시 `session.cooperate(\"wait\")`로 사용자를 대기시킨 후 다시 동기화 및 계획을 수행합니다. 또한 제한되는 호출 목록, 제한된 액션이 알 수 없는 옵션 키에 대해 `TypeError`를 발생시키는 점(두 가지 호출은 제외), `page.on(\"dialog\")` 리스너가 응답 가능한 `Dialog` 객체를 수신하는 점 등을 명시합니다. 이번 릴리스의 omowright에는 `DevToolsActivePort`를 통한 실행 중인 브라우저 감지, sparse 및 frameset 페이지에서의 `goto` 지원, BrowserSkill IPC 청크 간 UTF-8 디코딩 및 고유한 stale-ref 복구 기능(감사합니다 @ashmoonori-afk, code-yeongyu/omowright#115 ~ #118), 그리고 에이전트 탭을 별도 창으로 분리하는 기능(감사합니다 @devxoul, code-yeongyu/omowright#120)이 포함되었습니다. ([#12494](https://github.com/code-yeongyu/oh-my-openagent/pull/12494))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The senpi-task cold-revive residency test is now bounded by the product's own liveness rules instead of a flat 20 s total (Part of #10993). A Windows child that blocks for a while during startup no longer fails it unless the product would also give up, and a real stall fails with the last stage it reached and the stall length. The test's child also reports senpi's startup phase timings, so the next block names its phase. ([#11706](https://github.com/code-yeongyu/oh-my-openagent/pull/11706))",
+      "translated": "senpi-task cold-revive 상주 테스트가 고정된 20초 총합 대신 제품 자체의 liveness 규칙에 따라 제한됩니다 (#10993의 일부). 시작 시 일시적으로 차단되는 Windows 자식 프로세스는 제품이 중단되지 않는 한 테스트 실패로 처리되지 않으며, 실제 중단 시에는 마지막으로 도달한 단계와 중단 시간이 보고됩니다. 또한 테스트의 자식 프로세스가 senpi의 시작 단계별 타이밍을 보고하여, 차단 발생 시 해당 단계의 이름을 확인할 수 있습니다. ([#11706](https://github.com/code-yeongyu/oh-my-openagent/pull/11706))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Skills: `ulw-research` and mass research in `mass-ulw` now require every conclusion to rest on something a tool actually observed. Workers tag claims `OBSERVED:` and dead ends `PROBED:`, anything known only from memory is sent back as a lead, and mass-research verify nodes re-open each observed source. Both research editions state the rule in their opening contract, and every mass-ulw node prompt carries it in its VERIFY item. ([#12832](https://github.com/code-yeongyu/oh-my-openagent/pull/12832), fixes [#12830](https://github.com/code-yeongyu/oh-my-openagent/issues/12830))",
+      "translated": "스킬: `ulw-research` 및 `mass-ulw`의 대량 리서치 시, 모든 결론은 도구가 실제로 관찰한 근거를 바탕으로 도출되어야 합니다. 작업자는 관찰된 주장에 `OBSERVED:`, 막다른 경로에 `PROBED:` 태그를 지정하며, 메모리에만 있는 정보는 단서(lead)로 반환됩니다. 대량 리서치 검증 노드는 관찰된 각 소스를 다시 확인합니다. 두 리서치 유형 모두 시작 계약(contract)에 이 규칙을 명시하며, 모든 mass-ulw 노드 프롬프트의 VERIFY 항목에도 포함됩니다. ([#12832](https://github.com/code-yeongyu/oh-my-openagent/pull/12832), [#12830](https://github.com/code-yeongyu/oh-my-openagent/issues/12830) 수정)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d5ff246ffe Merge pull request #12921 from code-yeongyu/feat/12879-steer-default",
+      "translated": "Code-yeongyu/feat/12879-steer-default로부터의 풀 리퀘스트 #12921 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "21f8f3fe17 Merge pull request #12911 from code-yeongyu/feat/12879-same-ports-cli",
+      "translated": "Code-yeongyu/feat/12879-same-ports-cli로부터의 풀 리퀘스트 #12911 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d14722a1c0 Merge feat/12879-same-ports-cli (#12911 train head ee1f3b59e3) into feat/12879-steer-default",
+      "translated": "Feat/12879-same-ports-cli (#12911 train head ee1f3b59e3)를 feat/12879-steer-default로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e2c6724383 Merge feat/12879-same-ports-cli (#12911 on dev a05f240727) into feat/12879-steer-default",
+      "translated": "Feat/12879-same-ports-cli (#12911 on dev a05f240727)를 feat/12879-steer-default로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0fe5b50a5f Merge remote-tracking branch 'origin/dev' (#12936) into feat/12879-same-ports-cli",
+      "translated": "원격 추적 브랜치 'origin/dev' (#12936)를 feat/12879-same-ports-cli로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a05f240727 Merge pull request #12936 from code-yeongyu/fix/12848-cli-sidecar-warnings",
+      "translated": "Code-yeongyu/fix/12848-cli-sidecar-warnings로부터의 풀 리퀘스트 #12936 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f3579e6dd8 Merge feat/12879-same-ports-cli (#12911, train base on dev 9d08e26ed0) into feat/12879-steer-default",
+      "translated": "Feat/12879-same-ports-cli (#12911, train base on dev 9d08e26ed0)를 feat/12879-steer-default로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0ad891c052 Merge remote-tracking branch 'origin/dev' (#12890 session-control port) into feat/12879-same-ports-cli",
+      "translated": "원격 추적 브랜치 'origin/dev' (#12890 session-control port)를 feat/12879-same-ports-cli로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9d08e26ed0 Merge pull request #12890 from code-yeongyu/feat/12879-session-control-port",
+      "translated": "Code-yeongyu/feat/12879-session-control-port로부터의 풀 리퀘스트 #12890 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "60cdebbaba Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default",
+      "translated": "원격 추적 브랜치 'origin/dev'를 feat/12879-steer-default로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "95d1076203 Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli",
+      "translated": "원격 추적 브랜치 'origin/dev'를 feat/12879-same-ports-cli로 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a1e771d08f Merge origin/dev (d0a6ad0c66, #12860) into feat/12879-session-control-port; regenerate bundles",
+      "translated": "Origin/dev (d0a6ad0c66, #12860)를 feat/12879-session-control-port로 병합; 번들 재생성"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d0a6ad0c66 Merge pull request #12860 from code-yeongyu/fix/cli-thread-send-own-alias",
+      "translated": "Code-yeongyu/fix/cli-thread-send-own-alias로부터의 풀 리퀘스트 #12860 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "885207e7dd Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default",
+      "translated": "원격 추적 브랜치 'origin/dev'를 feat/"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9d99a2b2bb fix(thread): the gateway store takes its extension resolver from its creator instead of importing it (#12911 full RED)",
+      "translated": "The gateway store takes its extension resolver from its creator instead of importing it (#12911 full RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f349dff9ca chore(omo-native): regenerate service-auth.generated.js after the comment rewording (#12911)",
+      "translated": "Regenerate service-auth.generated.js after the comment rewording (#12911)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b2adedc999 Merge remote-tracking branch 'origin/dev' into fix/12848-cli-sidecar-warnings",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12848-cli-sidecar-warnings"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5a490f2ca7 fix(thread): drop the stale knip row for GATEWAY_STORE_WORKER_BUNDLE_NAME and name the engine generically in two comments (#12911 full RED)",
+      "translated": "Drop the stale knip row for GATEWAY_STORE_WORKER_BUNDLE_NAME and name the engine generically in two comments (#12911 full RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f71b3fe8c5 Merge pull request #12494 from code-yeongyu/chore/12451-omowright-pin",
+      "translated": "Merge pull request #12494 from code-yeongyu/chore/12451-omowright-pin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "69fe735ee4 Merge origin/dev (a09b243933, #12920) into feat/12879-session-control-port; regenerate bundles",
+      "translated": "Merge origin/dev (a09b243933, #12920) into feat/12879-session-control-port; regenerate bundles"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "271d1dbc4f Merge remote-tracking branch 'origin/dev' into chore/12451-omowright-pin",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/12451-omowright-pin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "30be881dac test(omo-native): every loadThreadSdk test call passes stderr and reinstall (#12848)",
+      "translated": "Every loadThreadSdk test call passes stderr and reinstall (#12848)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eab37a6b03 Merge origin/dev (2faeda01ea) into fix/cli-thread-send-own-alias",
+      "translated": "Merge origin/dev (2faeda01ea) into fix/cli-thread-send-own-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ab157c061d Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "295806c693 docs(changes): fragment for #12936",
+      "translated": "Fragment for #12936"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "21c87bab2e fix(omo-native): omo thread says when a broken sidecar leaves it on this device only, and passes the sign-in its log (#12848)",
+      "translated": "Omo thread says when a broken sidecar leaves it on this device only, and passes the sign-in its log (#12848)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f1973f6862 test(omo-native): omo thread reports a broken thread client sidecar and the sign-in's warnings (#12848)",
+      "translated": "Omo thread reports a broken thread client sidecar and the sign-in's warnings (#12848)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a97783d7dc Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "97d52c3dfd docs(thread): describe the SessionControl port; changelog fragment for #12890",
+      "translated": "Describe the SessionControl port; changelog fragment for #12890"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "da00328ddb refactor(thread): one body per control tool over the SessionControl port; the remote-only implementations are gone (#12883, part of #12879)",
+      "translated": "One body per control tool over the SessionControl port; the remote-only implementations are gone (#12883, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7799d1d2e3 refactor(thread): a SessionControl port with local and relay implementations, and one close ladder on both legs (#12883, part of #12879)",
+      "translated": "A SessionControl port with local and relay implementations, and one close ladder on both legs (#12883, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2faeda01ea Merge pull request #12891 from code-yeongyu/feat/12879-session-host-port",
+      "translated": "Merge pull request #12891 from code-yeongyu/feat/12879-session-host-port"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0fb2665873 Merge remote-tracking branch 'origin/dev' into feat/12879-session-host-port",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-session-host-port"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c16a4ff600 Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6e95977976 Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-steer-default"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c8f9ff29b6 Merge origin/dev (5a1db393c8) into fix/cli-thread-send-own-alias",
+      "translated": "Merge origin/dev (5a1db393c8) into fix/cli-thread-send-own-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d68f8bb521 test(remote): a broken staged sidecar under the named package root fails the send, proving the root is used (#12911 review LOW)",
+      "translated": "A broken staged sidecar under the named package root fails the send, proving the root is used (#12911 review LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d4dac699f4 Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-same-ports-cli"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "276d89156e chore(omo-native): regenerate service-auth.generated.js after the compiled runtime root (#12911)",
+      "translated": "Regenerate service-auth.generated.js after the compiled runtime root (#12911)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2aad14190b fix(remote): the compiled omo names its runtime directory so remote send finds the gateway store worker (#12911 delta review)",
+      "translated": "The compiled omo names its runtime directory so remote send finds the gateway store worker (#12911 delta review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "421e9d28cf fix(thread): a held default-mode steer is re-sent as a follow-up, never lost to a turn_conflict (#12921 review)",
+      "translated": "A held default-mode steer is re-sent as a follow-up, never lost to a turn_conflict (#12921 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "11da2a9df9 chore(omo-native): regenerate service-auth.generated.js after the remote send worker anchor (#12911)",
+      "translated": "Regenerate service-auth.generated.js after the remote send worker anchor (#12911)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b49cc0dbdf docs(changes): fragment for #12921",
+      "translated": "Fragment for #12921"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fb797fe0b1 feat(thread): the default delivery mode steers the running turn (part of #12879)",
+      "translated": "The default delivery mode steers the running turn (part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "db38bd0231 fix(remote): omo remote send finds the gateway store worker in the shipped layout, disposes on every exit (#12911 review)",
+      "translated": "Omo remote send finds the gateway store worker in the shipped layout, disposes on every exit (#12911 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5a1db393c8 Merge pull request #11706 from code-yeongyu/fix/10993-residency-progress-watchdog",
+      "translated": "Merge pull request #11706 from code-yeongyu/fix/10993-residency-progress-watchdog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ac3366f6b5 docs(changes): name the fragment for #12920",
+      "translated": "Name the fragment for #12920"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b4f73e6852 docs(changes): fragment for #12891",
+      "translated": "Fragment for #12891"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "492cd2c1be refactor(thread): one create body over the SessionHost port; a new session starts in its creator's approval mode on both devices (#12884, part of #12879)",
+      "translated": "One create body over the SessionHost port; a new session starts in its creator's approval mode on both devices (#12884, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "716d84b141 refactor(thread): a SessionHost port with local and relay implementations (#12884, part of #12879)",
+      "translated": "A SessionHost port with local and relay implementations (#12884, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a471e596f5 Merge pull request #12889 from code-yeongyu/feat/12879-relay-transport",
+      "translated": "Merge pull request #12889 from code-yeongyu/feat/12879-relay-transport"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "76a1ed3f62 docs(changes): fragment for #12911",
+      "translated": "Fragment for #12911"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2c17e6d2dd feat(thread): omo remote send over the transport port, one outcome mapping for every relay reply (part of #12879)",
+      "translated": "Omo remote send over the transport port, one outcome mapping for every relay reply (part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "88522865e2 Merge remote-tracking branch 'origin/dev' into feat/12879-relay-transport",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-relay-transport"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "779cfc0537 Merge pull request #12832 from code-yeongyu/docs/ulw-research-observed-conclusions",
+      "translated": "Merge pull request #12832 from code-yeongyu/docs/ulw-research-observed-conclusions"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "084d73ad40 Merge remote-tracking branch 'origin/dev' into fix/10993-residency-progress-watchdog",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/10993-residency-progress-watchdog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e237699470 Merge remote-tracking branch 'origin/dev' into chore/12451-omowright-pin",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/12451-omowright-pin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2ee7232587 Merge pull request #11893 from code-yeongyu/fix/11887-first-prompt-watchdog-bound",
+      "translated": "Merge pull request #11893 from code-yeongyu/fix/11887-first-prompt-watchdog-bound"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c61b0288eb docs(changes): name the fragment for #12904",
+      "translated": "Name the fragment for #12904"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ad02852fd0 Merge pull request #12471 from code-yeongyu/fix/10814-test-budget-wait-primitive",
+      "translated": "Merge pull request #12471 from code-yeongyu/fix/10814-test-budget-wait-primitive"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41308e3f68 docs(skills): fold #12834's data-first wording into the opening contracts and the mass-ulw VERIFY item (#12830)",
+      "translated": "Fold #12834's data-first wording into the opening contracts and the mass-ulw VERIFY item (#12830)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2fc29c1854 Merge remote-tracking branch 'origin/dev' into feat/12879-relay-transport",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/12879-relay-transport"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "27ff5dec97 Merge pull request #12887 from code-yeongyu/feat/12879-delivery-transport-port",
+      "translated": "Merge pull request #12887 from code-yeongyu/feat/12879-delivery-transport-port"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c281a160b0 Merge pull request #12893 from code-yeongyu/fix/web-nav-pill-inset-12892",
+      "translated": "Merge pull request #12893 from code-yeongyu/fix/web-nav-pill-inset-12892"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d66aaa25f2 refactor(thread): drop the lazy promptRemote wrapper nothing imports (#12882, part of #12879)",
+      "translated": "Drop the lazy promptRemote wrapper nothing imports (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9873dc4b56 docs(changes): note the 1000px section-link breakpoint (#12893)",
+      "translated": "Note the 1000px section-link breakpoint (#12893)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1a8f847523 fix(web): show the section links only from 1000px so the nav pill never clips (#12892)",
+      "translated": "Show the section links only from 1000px so the nav pill never clips (#12892)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "832dc1fe09 fix(thread): a held or already-taken delivery on an idle receiver is queued at position 1, and the dispose test can fail (#12882, part of #12879)",
+      "translated": "A held or already-taken delivery on an idle receiver is queued at position 1, and the dispose test can fail (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "13c4c96685 test(thread): chainCount on the serialized admit_external_message record and a turn_conflict race through the device service (#12882, part of #12879)",
+      "translated": "ChainCount on the serialized admit_external_message record and a turn_conflict race through the device service (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ccab3457ea test(web): narrow the nav inset result without a non-null assertion (#12892)",
+      "translated": "Narrow the nav inset result without a non-null assertion (#12892)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0959f044f6 fix(thread): a delivery held behind the receiver's open draft is queued at once and re-sent in the background (#12882, part of #12879)",
+      "translated": "A delivery held behind the receiver's open draft is queued at once and re-sent in the background (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "930e94d3b3 docs(changes): name the fragment for its PR (#12893)",
+      "translated": "Name the fragment for its PR (#12893)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3e6f9f132c fix(web): give the nav pill the same inset at both ends (#12892)",
+      "translated": "Give the nav pill the same inset at both ends (#12892)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b510acab02 Merge feat/12879-delivery-transport-port (dd1a1367f1) into feat/12879-relay-transport",
+      "translated": "Merge feat/12879-delivery-transport-port (dd1a1367f1) into feat/12879-relay-transport"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d28b384e17 docs(changes): reword #12494's fragment for the omowright ^0.3.0 dev now ships",
+      "translated": "Reword #12494's fragment for the omowright ^0.3.0 dev now ships"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8760fb709a Merge commit '4dd256592324269831b888f9998a48bc7a83f18d' into chore/12451-omowright-pin",
+      "translated": "Merge commit '4dd256592324269831b888f9998a48bc7a83f18d' into chore/12451-omowright-pin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c9c104496a docs(thread): describe the delivery transport port and the relay transport (#12882, part of #12879)",
+      "translated": "Describe the delivery transport port and the relay transport (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e8fb7daac7 Merge origin/dev (511dc35e22) into feat/12879-relay-transport",
+      "translated": "Merge origin/dev (511dc35e22) into feat/12879-relay-transport"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "631654ad6b Merge origin/dev (511dc35e22) into feat/12879-delivery-transport-port",
+      "translated": "Merge origin/dev (511dc35e22) into feat/12879-delivery-transport-port"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7e06efe684 docs(changes): fragment for #12889",
+      "translated": "Fragment for #12889"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "511dc35e22 Merge pull request #12795 from Bearmancer/fix/10336-shutdown-drain-host-cap",
+      "translated": "Merge pull request #12795 from Bearmancer/fix/10336-shutdown-drain-host-cap"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6a852f9b1b fix(thread): the SDK send resolves other devices through the one pipeline and refuses a command-line sender there, typed (#12882, part of #12879, fixes #12857)",
+      "translated": "The SDK send resolves other devices through the one pipeline and refuses a command-line sender there, typed (#12882, part of #12879, fixes #12857)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "568515c2a8 fix(thread): a run woken from another device continues that chain's hop on its next send, on both legs (#12882, part of #12879, fixes #12865)",
+      "translated": "A run woken from another device continues that chain's hop on its next send, on both legs (#12882, part of #12879, fixes #12865)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4f51907f09 feat(thread): a send to another device is admitted there as a delivery, rendered by the same function as a same-device one (#12882, part of #12879)",
+      "translated": "A send to another device is admitted there as a delivery, rendered by the same function as a same-device one (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8df11a719d test(thread): a send to another device is one admit_external_message with the same text as a same-device delivery (#12882, part of #12879)",
+      "translated": "A send to another device is one admit_external_message with the same text as a same-device delivery (#12882, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9eaa447dcc refactor(thread): load the relay transport from the thread client sidecar (#12881, part of #12879)",
+      "translated": "Load the relay transport from the thread client sidecar (#12881, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8afc45ef63 Merge remote-tracking branch 'origin/dev' into afl-rh6-11893",
+      "translated": "Merge remote-tracking branch 'origin/dev' into afl-rh6-11893"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4dd2565923 Merge pull request #12878 from code-yeongyu/fix/peer-text-no-device",
+      "translated": "Merge pull request #12878 from code-yeongyu/fix/peer-text-no-device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "71de498aba docs(changes): fragment for #12887",
+      "translated": "Fragment for #12887"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3a51c20759 refactor(thread): thread_send and thread_handoff deliver through the one pipeline (#12881, part of #12879)",
+      "translated": "Thread_send and thread_handoff deliver through the one pipeline (#12881, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "aa8cadefbb refactor(thread): local and relay delivery transports behind one pipeline (#12881, part of #12879)",
+      "translated": "Local and relay delivery transports behind one pipeline (#12881, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8a1345bc65 refactor(thread): define the delivery transport port (#12881, part of #12879)",
+      "translated": "Define the delivery transport port (#12881, part of #12879)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a9eba04408 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6b4bdca489 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0e21d1cb3c docs(changes): fragment for #12878",
+      "translated": "Fragment for #12878"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4af8da1239 fix(thread): a cross-device thread_send names no device in the receiver's text (#12877)",
+      "translated": "A cross-device thread_send names no device in the receiver's text (#12877)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "865fa90c3d Merge pull request #12874 from code-yeongyu/release/v5.1.65-source-state",
+      "translated": "Merge pull request #12874 from code-yeongyu/release/v5.1.65-source-state"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f8454e42d9 Merge remote-tracking branch 'origin/dev' into afl-rh6-11893",
+      "translated": "Merge remote-tracking branch 'origin/dev' into afl-rh6-11893"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8781a7b093 Merge dev (ca74736644) into fix/cli-thread-send-own-alias",
+      "translated": "Merge dev (ca74736644) into fix/cli-thread-send-own-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "403a8a9700 Merge fix/12833-cross-device-name-addressing (697d3c4e45) into fix/cli-thread-send-own-alias",
+      "translated": "Merge fix/12833-cross-device-name-addressing (697d3c4e45) into fix/cli-thread-send-own-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5f08eac879 Merge remote-tracking branch 'origin/dev' into afl-rh6-11893",
+      "translated": "Merge remote-tracking branch 'origin/dev' into afl-rh6-11893"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b9e520d2a3 Merge fix/12833-cross-device-name-addressing (17b5e4c8c3) into fix/cli-thread-send-own-alias",
+      "translated": "Merge fix/12833-cross-device-name-addressing (17b5e4c8c3) into fix/cli-thread-send-own-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6d01dca994 docs(changes): changelog fragment for #12860",
+      "translated": "Changelog fragment for #12860"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c5c436205b Merge origin/dev into the #11893 branch",
+      "translated": "Merge origin/dev into the #11893 branch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6a195c3f89 docs(changes): add fragment for #12832",
+      "translated": "Add fragment for #12832"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "14265efca5 docs(skills): ground every ulw-research and mass-research conclusion in a tool observation",
+      "translated": "Ground every ulw-research and mass-research conclusion in a tool observation"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dd4c7c6bb7 Merge branch 'dev' into fix/10814-test-budget-wait-primitive",
+      "translated": "Merge branch 'dev' into fix/10814-test-budget-wait-primitive"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9c5387500f Merge branch 'dev' into fix/10814-test-budget-wait-primitive",
+      "translated": "Merge branch 'dev' into fix/10814-test-budget-wait-primitive"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fe8a2087d0 Merge branch 'dev' into fix/10814-test-budget-wait-primitive",
+      "translated": "Merge branch 'dev' into fix/10814-test-budget-wait-primitive"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e03cde04f5 Merge remote-tracking branch 'origin/dev' into afl-rh6-11893",
+      "translated": "Merge remote-tracking branch 'origin/dev' into afl-rh6-11893"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2d6e29c907 docs(browser): note that bskSnapshot and full-page screenshot drop unknown keys",
+      "translated": "Note that bskSnapshot and full-page screenshot drop unknown keys"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d8eb247130 docs(browser): keep the dialog example free of an email address",
+      "translated": "Keep the dialog example free of an email address"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "afb6dad491 docs(changes): fragment for #12494",
+      "translated": "Fragment for #12494"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "05f6dd3c1e fix(browser): pin omowright at 305c823 and teach BrowserSkill 0.4 shared control",
+      "translated": "Pin omowright at 305c823 and teach BrowserSkill 0.4 shared control"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1bbe34e277 Merge remote-tracking branch 'origin/dev' into afl-11893-dev-merge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into afl-11893-dev-merge"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "016c9f3a81 style(runtime-fallback): drop the trailing blank line in constants.ts",
+      "translated": "Drop the trailing blank line in constants.ts"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4ac27f67d5 Merge remote-tracking branch 'origin/dev' into HEAD",
+      "translated": "Merge remote-tracking branch 'origin/dev' into HEAD"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "532153a941 docs(changes): fragment for #11893",
+      "translated": "Fragment for #11893"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "13f2a6b649 fix(runtime-fallback): first-prompt watchdog waits 300 s by default and is configurable (part of #11887)",
+      "translated": "First-prompt watchdog waits 300 s by default and is configurable (part of #11887)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f3f3bf082d changes: fragment for #10993 residency watchdog",
+      "translated": "Changes: fragment for #10993 residency watchdog"
+    }
+  ],
+  "translatedAt": "2026-11-10T07:25:23.802Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 9735
+}
