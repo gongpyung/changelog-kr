@@ -1,0 +1,2186 @@
+{
+  "version": "5.1.70",
+  "date": "2026-11-14",
+  "parsedAt": "2026-11-14T18:10:05.830Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "other",
+      "scope": null,
+      "original": "Computer use: the omo `computer` tool now runs through the desktop SDK; omo sessions open with an explicit report mode (sandbox default unchanged). ([#12840](https://github.com/code-yeongyu/oh-my-openagent/pull/12840))",
+      "translated": "Computer use: the omo `computer` tool now runs through the desktop SDK; omo sessions open with an explicit report mode (sandbox default unchanged). ([#12840](https://github.com/code-yeongyu/oh-my-openagent/pull/12840))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The hashline test project's lockfile now resolves zod 4.6.7, matching the `^4.6.6` its manifest asks for since #13151, so that project no longer installs the zod 4.6.5 affected by GHSA-mrhx-c7xc-m3w5. ([#13282](https://github.com/code-yeongyu/oh-my-openagent/pull/13282), follows [#13151](https://github.com/code-yeongyu/oh-my-openagent/pull/13151)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "The hashline test project's lockfile now resolves zod 4.6.7, matching the `^4.6.6` its manifest asks for since #13151, so that project no longer installs the zod 4.6.5 affected by GHSA-mrhx-c7xc-m3w5. ([#13282](https://github.com/code-yeongyu/oh-my-openagent/pull/13282), follows [#13151](https://github.com/code-yeongyu/oh-my-openagent/pull/13151)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote bootstrap` can install the device service on macOS again. The release check required a macOS signing identity that was still an empty placeholder, so every download was refused as \"failed verification\"; it now requires the published identity of the notarized release binaries. ([#13237](https://github.com/code-yeongyu/oh-my-openagent/pull/13237), fixes [#13229](https://github.com/code-yeongyu/oh-my-openagent/issues/13229)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "`omo remote bootstrap` can install the device service on macOS again. The release check required a macOS signing identity that was still an empty placeholder, so every download was refused as \"failed verification\"; it now requires the published identity of the notarized release binaries. ([#13237](https://github.com/code-yeongyu/oh-my-openagent/pull/13237), fixes [#13229](https://github.com/code-yeongyu/oh-my-openagent/issues/13229)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The browser skill now uses omowright 0.3.1, which brings the fixes merged since 0.3.0: page navigation owns its readiness and keeps committed state, live regions survive snapshots, cleanup failures are reported instead of swallowed, `aria-hidden` is matched case-insensitively, and BrowserSkill's \"more than one browser is online\" error lists every browser and the `browser` option to pass. ([#13113](https://github.com/code-yeongyu/oh-my-openagent/pull/13113)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "The browser skill now uses omowright 0.3.1, which brings the fixes merged since 0.3.0: page navigation owns its readiness and keeps committed state, live regions survive snapshots, cleanup failures are reported instead of swallowed, `aria-hidden` is matched case-insensitively, and BrowserSkill's \"more than one browser is online\" error lists every browser and the `browser` option to pass. ([#13113](https://github.com/code-yeongyu/oh-my-openagent/pull/13113)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote send` in wait mode stayed silent for as long as its message waited behind a running turn. A queued send now reports its fate at once on stderr (`Queued on <device>/<session> at position N.`) while stdout keeps only the streamed answer. ([#13273](https://github.com/code-yeongyu/oh-my-openagent/pull/13273))",
+      "translated": "`omo remote send` in wait mode stayed silent for as long as its message waited behind a running turn. A queued send now reports its fate at once on stderr (`Queued on <device>/<session> at position N.`) while stdout keeps only the streamed answer. ([#13273](https://github.com/code-yeongyu/oh-my-openagent/pull/13273))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Computer use v3: the write-scope guard now counts `packages/omo-computer-protocol/src/engine-schema.generated.ts`, the file the protocol generator actually writes, as a generated output. A row that changes the engine schema and regenerates the protocol module is no longer reported as writing outside its scope. Repository tooling only; nothing user-visible changes. ([#13249](https://github.com/code-yeongyu/oh-my-openagent/pull/13249))",
+      "translated": "Computer use v3: the write-scope guard now counts `packages/omo-computer-protocol/src/engine-schema.generated.ts`, the file the protocol generator actually writes, as a generated output. A row that changes the engine schema and regenerates the protocol module is no longer reported as writing outside its scope. Repository tooling only; nothing user-visible changes. ([#13249](https://github.com/code-yeongyu/oh-my-openagent/pull/13249))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create` with no `cwd` now opens the new thread in the calling session's folder instead of the folder the engine process runs in. A thread created from a desktop thread with no project used to land in the home folder, where its link could not be opened and a follow-up `thread_send` needed `all_scope`. An explicit `cwd` still wins, and a thread created on another device keeps that device's own default. ([#13125](https://github.com/code-yeongyu/oh-my-openagent/pull/13125)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "`thread_create` with no `cwd` now opens the new thread in the calling session's folder instead of the folder the engine process runs in. A thread created from a desktop thread with no project used to land in the home folder, where its link could not be opened and a follow-up `thread_send` needed `all_scope`. An explicit `cwd` still wins, and a thread created on another device keeps that device's own default. ([#13125](https://github.com/code-yeongyu/oh-my-openagent/pull/13125)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "From senpi 2026.11.10-3: the footer names the account actually serving the session when the pinned account is blocked, pinned Ultrafast variants no longer warn that Ultrafast is undocumented, provider error text is value-redacted in the model configuration error event, the assistant message and the transcript, every fallback-log field goes through redaction, and after a mid-session model switch the context usage no longer shows the previous model's token count against the new model's window. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "From senpi 2026.11.10-3: the footer names the account actually serving the session when the pinned account is blocked, pinned Ultrafast variants no longer warn that Ultrafast is undocumented, provider error text is value-redacted in the model configuration error event, the assistant message and the transcript, every fallback-log field goes through redaction, and after a mid-session model switch the context usage no longer shows the previous model's token count against the new model's window. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "From senpi 2026.11.11 and 2026.11.12: startup no longer fails when the agent's extensions directory is read-only (a sandboxed review child), Claude connection tests keep the redacted provider error and HTTP status and bind each result to the credential they tested, `show_html_page` called from an eval cell is refused instead of silently reaching no reader, and task hosts started from the compiled binary no longer exit with `EBADF` seconds after spawn. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "From senpi 2026.11.11 and 2026.11.12: startup no longer fails when the agent's extensions directory is read-only (a sandboxed review child), Claude connection tests keep the redacted provider error and HTTP status and bind each result to the credential they tested, `show_html_page` called from an eval cell is refused instead of silently reaching no reader, and task hosts started from the compiled binary no longer exit with `EBADF` seconds after spawn. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`computer-v3-guards --residue` now reports a dangling symlink left at a class A or class B removal path. It used to count the broken link as absent and exit 0. ([#13099](https://github.com/code-yeongyu/oh-my-openagent/pull/13099), fixes #13065)",
+      "translated": "`computer-v3-guards --residue` now reports a dangling symlink left at a class A or class B removal path. It used to count the broken link as absent and exit 0. ([#13099](https://github.com/code-yeongyu/oh-my-openagent/pull/13099), fixes #13065)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Standalone `omo update` now installs the release instead of printing a curl command (#13084). It downloads the matching platform asset from get.omo.dev with GitHub fallback, verifies published SHA256SUMS and the existing macOS signature, stages beside the installed executable, and keeps a rollback copy until the installed `--version` succeeds. Failures report a typed error; an unwritable directory is refused without partial files. Windows rollback files still held by a running process are cleaned on a later launch. `--dry-run` and `--print` remain print-only. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))",
+      "translated": "Standalone `omo update` now installs the release instead of printing a curl command (#13084). It downloads the matching platform asset from get.omo.dev with GitHub fallback, verifies published SHA256SUMS and the existing macOS signature, stages beside the installed executable, and keeps a rollback copy until the installed `--version` succeeds. Failures report a typed error; an unwritable directory is refused without partial files. Windows rollback files still held by a running process are cleaned on a later launch. `--dry-run` and `--print` remain print-only. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Interrupted standalone updates recover dead or expired install locks without removing a successor's lock. Cleanup failures still release the lease, and symlink launchers update their targets while preserving the links. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))",
+      "translated": "Interrupted standalone updates recover dead or expired install locks without removing a successor's lock. Cleanup failures still release the lease, and symlink launchers update their targets while preserving the links. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Count prompt-cache writes when deciding whether to compact and when reporting used and remaining context, so cold-cache turns do not leave tool-output truncation with an inflated context budget. Context-used reporting continues to include generated output tokens. ([#13083](https://github.com/code-yeongyu/oh-my-openagent/pull/13083))",
+      "translated": "Count prompt-cache writes when deciding whether to compact and when reporting used and remaining context, so cold-cache turns do not leave tool-output truncation with an inflated context budget. Context-used reporting continues to include generated output tokens. ([#13083](https://github.com/code-yeongyu/oh-my-openagent/pull/13083))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread names on other devices now resolve when their sessions are resumable, and fuzzy handoff searches the account's remote candidates as well as local candidates. ([#13066](https://github.com/code-yeongyu/oh-my-openagent/pull/13066))",
+      "translated": "Thread names on other devices now resolve when their sessions are resumable, and fuzzy handoff searches the account's remote candidates as well as local candidates. ([#13066](https://github.com/code-yeongyu/oh-my-openagent/pull/13066))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Failed lookups through a configured relay return their typed error (`host_unavailable` with the device-service state: offline, connecting, keychain locked, authorization stale, degraded or update required); a relay that is not set up (not configured, disabled, signed out, sign-in required) preserves local address resolution. Renaming a remote thread checks names on its own device before changing its name or alias. ([#13066](https://github.com/code-yeongyu/oh-my-openagent/pull/13066))",
+      "translated": "Failed lookups through a configured relay return their typed error (`host_unavailable` with the device-service state: offline, connecting, keychain locked, authorization stale, degraded or update required); a relay that is not set up (not configured, disabled, signed out, sign-in required) preserves local address resolution. Renaming a remote thread checks names on its own device before changing its name or alias. ([#13066](https://github.com/code-yeongyu/oh-my-openagent/pull/13066))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ast-grep skill: the smoke tests (`tests/smoke.sh`, `tests/smoke.ps1`) pass the search path before `--lang`, the order the skill's own recipes require, and the recipes now say which Python versions reject the other order (3.9 and 3.12 reject it; 3.13+ accept both) instead of naming only 3.9. ([#12714](https://github.com/code-yeongyu/oh-my-openagent/pull/12714), thanks @cynkai)",
+      "translated": "ast-grep skill: the smoke tests (`tests/smoke.sh`, `tests/smoke.ps1`) pass the search path before `--lang`, the order the skill's own recipes require, and the recipes now say which Python versions reject the other order (3.9 and 3.12 reject it; 3.13+ accept both) instead of naming only 3.9. ([#12714](https://github.com/code-yeongyu/oh-my-openagent/pull/12714), thanks @cynkai)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`omo login --new-device` is gone. The OmO service keeps one device per computer, so registering another device over an unreadable stored sign-in either failed after approval or left two live devices. When the stored sign-in cannot be read, `omo login` gives one recovery: remove this computer's device on the Devices page if it is still listed, then run `omo account forget` (which also has the device service forget the device), then sign in again. When the device service holds the device, it also names that device and says these steps sign out the device service, and the OmO desktop app if it is installed, on this computer. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "`omo login --new-device` is gone. The OmO service keeps one device per computer, so registering another device over an unreadable stored sign-in either failed after approval or left two live devices. When the stored sign-in cannot be read, `omo login` gives one recovery: remove this computer's device on the Devices page if it is still listed, then run `omo account forget` (which also has the device service forget the device), then sign in again. When the device service holds the device, it also names that device and says these steps sign out the device service, and the OmO desktop app if it is installed, on this computer. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "When the credential store is locked, `omo login` says to unlock it and try again. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "When the credential store is locked, `omo login` says to unlock it and try again. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "When the device service is installed but does not answer, `omo login` names the service's leftover endpoint file and says that opening the OmO desktop app starts the service. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "When the device service is installed but does not answer, `omo login` names the service's leftover endpoint file and says that opening the OmO desktop app starts the service. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`omo login`'s refusals no longer suggest `omo logout`, which does not work while OmO accounts are closed. A sign-in with an unknown refresh outcome first points to sharing the sign-in from the OmO desktop app when a device service holds this computer's device, and gives the start-over steps only as the fallback, with what they also end. When no device service holds the device, it gives the start-over steps directly. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "`omo login`'s refusals no longer suggest `omo logout`, which does not work while OmO accounts are closed. A sign-in with an unknown refresh outcome first points to sharing the sign-in from the OmO desktop app when a device service holds this computer's device, and gives the start-over steps only as the fallback, with what they also end. When no device service holds the device, it gives the start-over steps directly. ([#13276](https://github.com/code-yeongyu/oh-my-openagent/pull/13276)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The standalone omo binary stages every package its eval extension needs that the engine does not provide, so the eval tool loads in the binary on senpi 2026.11.13 and later (#13358). ([#13358](https://github.com/code-yeongyu/oh-my-openagent/pull/13358)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "The standalone omo binary stages every package its eval extension needs that the engine does not provide, so the eval tool loads in the binary on senpi 2026.11.13 and later (#13358). ([#13358](https://github.com/code-yeongyu/oh-my-openagent/pull/13358)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The EQ.omo linux-x64 goldens are re-recorded at senpi 2026.11.13 (follow-up to #13328) (#13341). ([#13341](https://github.com/code-yeongyu/oh-my-openagent/pull/13341)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))",
+      "translated": "The EQ.omo linux-x64 goldens are re-recorded at senpi 2026.11.13 (follow-up to #13328) (#13341). ([#13341](https://github.com/code-yeongyu/oh-my-openagent/pull/13341)) ([#13328](https://github.com/code-yeongyu/oh-my-openagent/pull/13328))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "One protocol doc and one web test fixture describe the private desktop app instead of naming its repository. No behaviour changes. ([#13326](https://github.com/code-yeongyu/oh-my-openagent/pull/13326))",
+      "translated": "One protocol doc and one web test fixture describe the private desktop app instead of naming its repository. No behaviour changes. ([#13326](https://github.com/code-yeongyu/oh-my-openagent/pull/13326))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Contributors: knip's configuration now lives with the code it describes. The root `knip.ts` composes `knip.base.jsonc` (global settings) with one `knip.workspace.jsonc` per directory (a workspace's config, the root entries under that directory and its pre-existing export rows), so two PRs for two packages no longer conflict on one shared `knip.jsonc`. The composed configuration is identical to the old file, and knip reports the same results. Add or change knip config in your own directory's `knip.workspace.jsonc`. ([#13204](https://github.com/code-yeongyu/oh-my-openagent/pull/13204), fixes #13200)",
+      "translated": "Contributors: knip's configuration now lives with the code it describes. The root `knip.ts` composes `knip.base.jsonc` (global settings) with one `knip.workspace.jsonc` per directory (a workspace's config, the root entries under that directory and its pre-existing export rows), so two PRs for two packages no longer conflict on one shared `knip.jsonc`. The composed configuration is identical to the old file, and knip reports the same results. Add or change knip config in your own directory's `knip.workspace.jsonc`. ([#13204](https://github.com/code-yeongyu/oh-my-openagent/pull/13204), fixes #13200)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "OmO now runs on senpi 2026.11.13 (from 2026.11.10-2). Senpi's own zod pin moves to 4.6.7, which fixes GHSA-mrhx-c7xc-m3w5 for that copy. The Security entry of this release names the one zod copy below 4.6.6 that still ships. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "OmO now runs on senpi 2026.11.13 (from 2026.11.10-2). Senpi's own zod pin moves to 4.6.7, which fixes GHSA-mrhx-c7xc-m3w5 for that copy. The Security entry of this release names the one zod copy below 4.6.6 that still ships. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "From senpi 2026.11.10-3 (#6342, with a follow-up in 2026.11.11): a session follows the permission setting of the machine it runs on whatever the origin of the work. Work sent from another device of the same account, which the relay states as such, no longer asks for approval, and one remote command no longer makes every later automatic turn on that session ask. Devices of another account still ask. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "From senpi 2026.11.10-3 (#6342, with a follow-up in 2026.11.11): a session follows the permission setting of the machine it runs on whatever the origin of the work. Work sent from another device of the same account, which the relay states as such, no longer asks for approval, and one remote command no longer makes every later automatic turn on that session ask. Devices of another account still ask. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "From senpi 2026.11.11 and 2026.11.12: a goal that is waiting out a usage limit no longer spends its continuation budget, a status-only 429 counts as a limit wait, and a goal whose subscription accounts are all limited keeps waiting for the reset, re-checks a limit that named no reset, and resumes on its own after its session restarts or a config reload. An account blocked for a usage limit serves again once its named reset has passed, without a re-login. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "From senpi 2026.11.11 and 2026.11.12: a goal that is waiting out a usage limit no longer spends its continuation budget, a status-only 429 counts as a limit wait, and a goal whose subscription accounts are all limited keeps waiting for the reset, re-checks a limit that named no reset, and resumes on its own after its session restarts or a config reload. An account blocked for a usage limit serves again once its named reset has passed, without a re-login. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "From senpi 2026.11.11: a rate-limited Opus 5.5 turn falls back to Fable 5.2 first, then Opus 5. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "From senpi 2026.11.11: a rate-limited Opus 5.5 turn falls back to Fable 5.2 first, then Opus 5. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "JS/TS source is formatted with `bun fmt` (print width 120, no semicolons), and `bun run lint` fails on unformatted code. The reformat commit and the dev merges that reformat incoming files are listed in `.git-blame-ignore-revs`. ([#12227](https://github.com/code-yeongyu/oh-my-openagent/pull/12227), fixes [#12225](https://github.com/code-yeongyu/oh-my-openagent/issues/12225))",
+      "translated": "JS/TS source is formatted with `bun fmt` (print width 120, no semicolons), and `bun run lint` fails on unformatted code. The reformat commit and the dev merges that reformat incoming files are listed in `.git-blame-ignore-revs`. ([#12227](https://github.com/code-yeongyu/oh-my-openagent/pull/12227), fixes [#12225](https://github.com/code-yeongyu/oh-my-openagent/issues/12225))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "A Windows live tier for computer use measures, on the hosted Windows runner, whether it can carry five live legs (an elevated target, a locked and a disconnected session, a mixed-DPI second monitor, the elevation prompt's secure desktop) and records the answers in `crates/omo-computer-backend-win32/probes/hosted-windows-live.tsv`. The elevated and mixed-DPI legs run there; the other three are recorded for an owned Windows guest. ([#13233](https://github.com/code-yeongyu/oh-my-openagent/pull/13233), part of [#13221](https://github.com/code-yeongyu/oh-my-openagent/issues/13221))",
+      "translated": "A Windows live tier for computer use measures, on the hosted Windows runner, whether it can carry five live legs (an elevated target, a locked and a disconnected session, a mixed-DPI second monitor, the elevation prompt's secure desktop) and records the answers in `crates/omo-computer-backend-win32/probes/hosted-windows-live.tsv`. The elevated and mixed-DPI legs run there; the other three are recorded for an owned Windows guest. ([#13233](https://github.com/code-yeongyu/oh-my-openagent/pull/13233), part of [#13221](https://github.com/code-yeongyu/oh-my-openagent/issues/13221))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The senpi `contextFiles.globalPath` setting loads the global context file from an explicit file or directory (for example `~/.agents/AGENTS.md`). It is read from global settings only, and an unset value keeps the current behavior. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "The senpi `contextFiles.globalPath` setting loads the global context file from an explicit file or directory (for example `~/.agents/AGENTS.md`). It is read from global settings only, and an unset value keeps the current behavior. ([#13109](https://github.com/code-yeongyu/oh-my-openagent/pull/13109)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the engine's result and error contract lands in `omo-computer-core`: `Disposition` with exactly the seven valid `(delivery, retry)` pairs, `ActionReport` with receipts decided by verb (a value verb is `confirmed` only on a read-back equal to what it requested, a pointer or key verb only on an OS-level consumption receipt), wire validation that refuses an overclaiming report, and the one `COMPUTER_*` table keyed by `(engineCode, data.reason)`, total over the closed engine codes and every reason the design emits, checked against a cited inventory of the design. Backend refusals and exec replies now resolve through it. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13117](https://github.com/code-yeongyu/oh-my-openagent/pull/13117))",
+      "translated": "Computer use v3: the engine's result and error contract lands in `omo-computer-core`: `Disposition` with exactly the seven valid `(delivery, retry)` pairs, `ActionReport` with receipts decided by verb (a value verb is `confirmed` only on a read-back equal to what it requested, a pointer or key verb only on an OS-level consumption receipt), wire validation that refuses an overclaiming report, and the one `COMPUTER_*` table keyed by `(engineCode, data.reason)`, total over the closed engine codes and every reason the design emits, checked against a cited inventory of the design. Backend refusals and exec replies now resolve through it. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13117](https://github.com/code-yeongyu/oh-my-openagent/pull/13117))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the engine's contract root lands in `omo-computer-core` (the method table with host-only methods split by peer kind, `engine.hello` with `generation`, `limits` and `machineId`, the `computer.*` settings table, the enumerated environment seams, the untrusted-text listing records and the refusing `Backend` / `AxBackend` traits), with the generated engine schema and protocol doc and the generated `@oh-my-opencode/omo-computer-protocol` types and call-chain classifier. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13107](https://github.com/code-yeongyu/oh-my-openagent/pull/13107))",
+      "translated": "Computer use v3: the engine's contract root lands in `omo-computer-core` (the method table with host-only methods split by peer kind, `engine.hello` with `generation`, `limits` and `machineId`, the `computer.*` settings table, the enumerated environment seams, the untrusted-text listing records and the refusing `Backend` / `AxBackend` traits), with the generated engine schema and protocol doc and the generated `@oh-my-opencode/omo-computer-protocol` types and call-chain classifier. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13107](https://github.com/code-yeongyu/oh-my-openagent/pull/13107))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Interactive standalone release launches now check and install updates asynchronously through the same verified updater, at most once per UTC day. Background diagnostics go to the canonical agent directory's `auto-update.log` without disturbing the terminal. Offline mode and `OMO_SKIP_VERSION_CHECK` (including legacy Senpi/Pi equivalents) disable this startup check. Maintainer builds, headless commands and directly invoked provisioned runtime copies never auto-update. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))",
+      "translated": "Interactive standalone release launches now check and install updates asynchronously through the same verified updater, at most once per UTC day. Background diagnostics go to the canonical agent directory's `auto-update.log` without disturbing the terminal. Offline mode and `OMO_SKIP_VERSION_CHECK` (including legacy Senpi/Pi equivalents) disable this startup check. Maintainer builds, headless commands and directly invoked provisioned runtime copies never auto-update. ([#13087](https://github.com/code-yeongyu/oh-my-openagent/pull/13087))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the new engine workspace is registered as empty building units (10 `omo-computer-*` crates, 7 `@oh-my-opencode/omo-computer-*` packages), with a `bun run test:computer` script and the `computer native contract` CI matrix on macOS, Linux and Windows. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13028](https://github.com/code-yeongyu/oh-my-openagent/pull/13028))",
+      "translated": "Computer use v3: the new engine workspace is registered as empty building units (10 `omo-computer-*` crates, 7 `@oh-my-opencode/omo-computer-*` packages), with a `bun run test:computer` script and the `computer native contract` CI matrix on macOS, Linux and Windows. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13028](https://github.com/code-yeongyu/oh-my-openagent/pull/13028))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Desktop memory sync no longer risks running out of memory on an oversized reply from the sync service. zod moves to 4.6.7 (GHSA-mrhx-c7xc-m3w5: validating a huge array collected one issue per bad element), and every array the sync channel reads is now capped at 100,000 items, so an oversized reply is rejected up front. This release pins senpi 2026.11.13. The only zod below 4.6.6 that still ships is the copy the Claude agent SDK embeds in its prebuilt code, which is used only to parse the local Claude Code subprocess output. ([#13151](https://github.com/code-yeongyu/oh-my-openagent/pull/13151)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))",
+      "translated": "Desktop memory sync no longer risks running out of memory on an oversized reply from the sync service. zod moves to 4.6.7 (GHSA-mrhx-c7xc-m3w5: validating a huge array collected one issue per bad element), and every array the sync channel reads is now capped at 100,000 items, so an oversized reply is rejected up front. This release pins senpi 2026.11.13. The only zod below 4.6.6 that still ships is the copy the Claude agent SDK embeds in its prebuilt code, which is used only to parse the local Claude Code subprocess output. ([#13151](https://github.com/code-yeongyu/oh-my-openagent/pull/13151)) ([#13141](https://github.com/code-yeongyu/oh-my-openagent/pull/13141))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7965c481f5 Merge pull request #13328 from code-yeongyu/train/omo-5c",
+      "translated": "Merge pull request #13328 from code-yeongyu/train/omo-5c"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "000fe207c4 release train omo-5c: fold #13358 and #13341",
+      "translated": "Release train omo-5c: fold #13358 and #13341"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b6083bde76 train(omo-5c): merge #13341",
+      "translated": "Train(omo-5c): merge #13341"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7300b4322d train(omo-5c): merge #13358",
+      "translated": "Train(omo-5c): merge #13358"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "efeb9a6a8a fix(omo-native): read the served set from the table the loader passes to its importer (#13356)",
+      "translated": "Read the served set from the table the loader passes to its importer (#13356)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e847cb62bf docs(changes): fragment for the binary codemode sidecar fix (#13358)",
+      "translated": "Fragment for the binary codemode sidecar fix (#13358)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "835acaaabb fix(omo-native): stage codemode dependencies the engine does not serve (#13356)",
+      "translated": "Stage codemode dependencies the engine does not serve (#13356)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bf956c4830 docs(changes): fragment for the EQ.omo goldens re-record (#13341)",
+      "translated": "Fragment for the EQ.omo goldens re-record (#13341)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "933ef72a90 train(omo-5c): merge dev 4a26ea1181",
+      "translated": "Train(omo-5c): merge dev 4a26ea1181"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4a26ea1181 Merge pull request #13204 from code-yeongyu/fix/13200-knip-per-package-config",
+      "translated": "Merge pull request #13204 from code-yeongyu/fix/13200-knip-per-package-config"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eafa1c812f Merge pull request #13273 from code-yeongyu/fix/13268-queued-send-fate",
+      "translated": "Merge pull request #13273 from code-yeongyu/fix/13268-queued-send-fate"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2353fa52bd Merge pull request #13326 from code-yeongyu/chore/scrub-private-names-followup",
+      "translated": "Merge pull request #13326 from code-yeongyu/chore/scrub-private-names-followup"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "117c3c713f fix(knip): keep the skill templates' knip fragment out of payloads and the omowright guard (#13200)",
+      "translated": "Keep the skill templates' knip fragment out of payloads and the omowright guard (#13200)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c33126573d docs(changes): name the fragment for its PR (#13326)",
+      "translated": "Name the fragment for its PR (#13326)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "10f73c06a9 fix(remote): format the wait-notice test, name approval waits, and test the stderr wiring (review of #13273)",
+      "translated": "Format the wait-notice test, name approval waits, and test the stderr wiring (review of #13273)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6ad2ec69fe Merge remote-tracking branch 'origin/dev' into fix/13268-queued-send-fate",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13268-queued-send-fate"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "55ce9ed4b1 train(omo-5c): merge #13282",
+      "translated": "Train(omo-5c): merge #13282"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5158483b50 train(omo-5c): merge #13281",
+      "translated": "Train(omo-5c): merge #13281"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2db6786143 train(omo-5c): merge #13276",
+      "translated": "Train(omo-5c): merge #13276"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3df6c8c2f4 train(omo-5c): merge #13237",
+      "translated": "Train(omo-5c): merge #13237"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6c1c0b18f0 train(omo-5c): merge #13113",
+      "translated": "Train(omo-5c): merge #13113"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6b1359528c Merge dev into fix/13200-knip-per-package-config (knip.jsonc rows dev gained re-split into fragments)",
+      "translated": "Merge dev into fix/13200-knip-per-package-config (knip.jsonc rows dev gained re-split into fragments)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dbe4960070 Merge pull request #13233 from code-yeongyu/ci/cu-is-row6-windows-full",
+      "translated": "Merge pull request #13233 from code-yeongyu/ci/cu-is-row6-windows-full"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3a2c05cacb Merge commit '21541999d72a77ca45fa7075552b4ff030ae3df7' into ci/cu-is-row6-windows-full",
+      "translated": "Merge commit '21541999d72a77ca45fa7075552b4ff030ae3df7' into ci/cu-is-row6-windows-full"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "21541999d7 Merge pull request #13295 from code-yeongyu/test/cu-is-row4d-preflight-windows",
+      "translated": "Merge pull request #13295 from code-yeongyu/test/cu-is-row4d-preflight-windows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8d15bff5b0 style(conformance): format preflight.test.ts",
+      "translated": "Format preflight.test.ts"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d7edb8f419 docs(changes): fragment for #13295",
+      "translated": "Fragment for #13295"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "44b6513d9d fix(conformance): print the missing-driver path repo-relative with forward slashes on every OS",
+      "translated": "Print the missing-driver path repo-relative with forward slashes on every OS"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a9a1fc189d test(conformance): preflight paths print with forward slashes; stdio probe uses a compiled engine every OS runs (RED)",
+      "translated": "Preflight paths print with forward slashes; stdio probe uses a compiled engine every OS runs (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d017eaddec Merge commit '793cb219586ff517762221aba0671bcf2d63ab86' into ci/cu-is-row6-windows-full",
+      "translated": "Merge commit '793cb219586ff517762221aba0671bcf2d63ab86' into ci/cu-is-row6-windows-full"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "793cb21958 Merge pull request #13241 from code-yeongyu/test/cu-is-row4-conformance-catalog",
+      "translated": "Merge pull request #13241 from code-yeongyu/test/cu-is-row4-conformance-catalog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b87b15bd3b Merge pull request #13247 from code-yeongyu/ci/cu-is-row07b-teardown-followup",
+      "translated": "Merge pull request #13247 from code-yeongyu/ci/cu-is-row07b-teardown-followup"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7b0684a85a Merge pull request #13250 from code-yeongyu/ci/cu-is-row07c-engine-paths",
+      "translated": "Merge pull request #13250 from code-yeongyu/ci/cu-is-row07c-engine-paths"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "768ff8ce1c changes: add the #13282 fragment",
+      "translated": "Changes: add the #13282 fragment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cd474dab63 Merge commit '5685f30c23f08f2c37716d2415ff8b057ec10165' into local/r04-takedev",
+      "translated": "Merge commit '5685f30c23f08f2c37716d2415ff8b057ec10165' into local/r04-takedev"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8227ae3b27 Merge dev into 7b for the press queue",
+      "translated": "Merge dev into 7b for the press queue"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2cc7c03d00 Merge dev into 7c for the press queue",
+      "translated": "Merge dev into 7c for the press queue"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d5156eb8ba fix(desktop-sync): state the sync reply cap honestly; regenerate tests/hashline lock for zod 4.6.7 (#13150 review nits)",
+      "translated": "State the sync reply cap honestly; regenerate tests/hashline lock for zod 4.6.7 (#13150 review nits)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "75524eb965 Merge remote-tracking branch 'origin/dev' into fix/6503-cli-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6503-cli-review-lows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5685f30c23 Merge pull request #13141 from code-yeongyu/fix/13066-fuzzy-cap-remote-rows",
+      "translated": "Merge pull request #13141 from code-yeongyu/fix/13066-fuzzy-cap-remote-rows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "beecc5407f test(service-auth): the unknown-refresh test title and comment describe the current recovery (#13265 design gate leftover)",
+      "translated": "The unknown-refresh test title and comment describe the current recovery (#13265 design gate leftover)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "42587331a4 fix(service-auth): an unknown-refresh sign-in with a held device leads with the desktop share and falls back to the start-over steps; drop two unsupported claims (#13265 design gate)",
+      "translated": "An unknown-refresh sign-in with a held device leads with the desktop share and falls back to the start-over steps; drop two unsupported claims (#13265 design gate)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "aa1c2b5a6d fix(service-auth): plain omo login signs in from the terminal while accounts are closed (#13265)",
+      "translated": "Plain omo login signs in from the terminal while accounts are closed (#13265)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6fe1eae340 fix(service-auth): refusals say sign in again instead of naming omo login while accounts are closed; the unknown-refresh recovery is asserted whole (#13276 review LOWs)",
+      "translated": "Refusals say sign in again instead of naming omo login while accounts are closed; the unknown-refresh recovery is asserted whole (#13276 review LOWs)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "49d4c5d7e4 fix(service-auth): an unknown-refresh sign-in reads the device service first; a held device never gets forget (#13265 design gate LOW)",
+      "translated": "An unknown-refresh sign-in reads the device service first; a held device never gets forget (#13265 design gate LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5d3e7e0de9 fix(service-auth): login refusals stop naming omo logout while accounts are closed",
+      "translated": "Login refusals stop naming omo logout while accounts are closed"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6550283f58 fix(service-auth): the held-device cost names the device service, and the desktop app only if installed (#13265 design gate LOW)",
+      "translated": "The held-device cost names the device service, and the desktop app only if installed (#13265 design gate LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2b5d31731c fix(service-auth): the unreadable-sign-in refusal states its own reason and one recovery; held names the device and the cost (#13265 design gate A2 corrected, D1)",
+      "translated": "The unreadable-sign-in refusal states its own reason and one recovery; held names the device and the cost (#13265 design gate A2 corrected, D1)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "04eaeff5fe fix(service-auth): the unreadable-sign-in refusal follows the device service state and says what forget ends (#13265 design gate A1, A2)",
+      "translated": "The unreadable-sign-in refusal follows the device service state and says what forget ends (#13265 design gate A1, A2)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2e1941af95 docs(changes): fragment for #13276",
+      "translated": "Fragment for #13276"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3fbeb51d1d test(knip): a nested fragment's entry is composed there, not claimed by script/ (#13204 review LOW)",
+      "translated": "A nested fragment's entry is composed there, not claimed by script/ (#13204 review LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a1499f0c75 fix(service-auth): remove omo login --new-device; the unreadable-sign-in refusal names the path the service accepts (#13265 design gate)",
+      "translated": "Remove omo login --new-device; the unreadable-sign-in refusal names the path the service accepts (#13265 design gate)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d8c3da79e5 docs(changes): name the fragment for its PR",
+      "translated": "Name the fragment for its PR"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "89ff52ccc8 fix(remote): report a queued send's position while it waits (#13268)",
+      "translated": "Report a queued send's position while it waits (#13268)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4db512fcc9 build(knip): compose the config from per-directory fragments (#13200)",
+      "translated": "Compose the config from per-directory fragments (#13200)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3862967d72 changes: fold the train members' fragments into the top's fragment (one fragment per PR)",
+      "translated": "Changes: fold the train members' fragments into the top's fragment (one fragment per PR)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d86c3270de chore(changes): note the Windows live tier part 1",
+      "translated": "Note the Windows live tier part 1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "37f33e05d0 ci(computer): shape the Windows live tier part 1 for review, with its measured ledger",
+      "translated": "Shape the Windows live tier part 1 for review, with its measured ledger"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "027225e04c Merge branch 'dev' into ci/cu-is-row6-windows-full",
+      "translated": "Merge branch 'dev' into ci/cu-is-row6-windows-full"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f073af4ba4 ci(computer): let the runas stand-in label the output directories its child must write",
+      "translated": "Let the runas stand-in label the output directories its child must write"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "46c2dfb6e0 Merge remote-tracking branch 'origin/dev' into test/cu-is-row4-conformance-catalog",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-is-row4-conformance-catalog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "10d8b1bc91 Merge pull request #13230 from code-yeongyu/ci/cu-is-row07-linux-live",
+      "translated": "Merge pull request #13230 from code-yeongyu/ci/cu-is-row07-linux-live"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "468178c408 test(computer): run.ts judges each replayed task through a tested taskFailure",
+      "translated": "Run.ts judges each replayed task through a tested taskFailure"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a1e16f4434 Merge pull request #13249 from code-yeongyu/fix/cu-v3-name-map-generated-path",
+      "translated": "Merge pull request #13249 from code-yeongyu/fix/cu-v3-name-map-generated-path"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "40d99ce65e ci(computer): run the Windows spike's probe once with a Medium helper and a second monitor",
+      "translated": "Run the Windows spike's probe once with a Medium helper and a second monitor"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f01803baf0 fix(computer): stop the elevated leg's report path from shadowing the facts file",
+      "translated": "Stop the elevated leg's report path from shadowing the facts file"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "116335ac1a docs(changes): unreleased note for #13249",
+      "translated": "Unreleased note for #13249"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e7c37de8b6 ci(computer): stop the native-contract matrix from running for QA-harness-only changes",
+      "translated": "Stop the native-contract matrix from running for QA-harness-only changes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d68f8b1045 fix(computer): count the protocol generator's engine-schema.generated.ts as a generated file in the v3 name map",
+      "translated": "Count the protocol generator's engine-schema.generated.ts as a generated file in the v3 name map"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "40512ed1e5 test(computer): RED - the protocol generator's output path must count as a generated file for --scope",
+      "translated": "RED - the protocol generator's output path must count as a generated file for --scope"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "10ee7c7497 fix(computer): load the probe's native library from bytes",
+      "translated": "Load the probe's native library from bytes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5803493a20 ci(computer): exact teardown receipts and the ADP-5 proof tag for the xorg-uinput probe",
+      "translated": "Exact teardown receipts and the ADP-5 proof tag for the xorg-uinput probe"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "097a085094 fix(computer): give the probe's Medium children a precompiled native library",
+      "translated": "Give the probe's Medium children a precompiled native library"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d513ecd3a3 test(computer): tag the catalog and preflight tests with their adoption entries",
+      "translated": "Tag the catalog and preflight tests with their adoption entries"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "31f35dfb12 Merge remote-tracking branch 'origin/dev' into test/cu-is-row4-conformance-catalog",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-is-row4-conformance-catalog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e99e2c1f96 Merge branch 'dev' into ci/cu-is-row6-windows-full",
+      "translated": "Merge branch 'dev' into ci/cu-is-row6-windows-full"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e01de5de98 Merge pull request #13226 from code-yeongyu/chore/cu-is-row1-gate-checker",
+      "translated": "Merge pull request #13226 from code-yeongyu/chore/cu-is-row1-gate-checker"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "590184fa9f fix(computer): satisfy the workflow guards and let Medium children and the second monitor report",
+      "translated": "Satisfy the workflow guards and let Medium children and the second monitor report"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "208d6c0018 test(computer): run.ts loads its driver from drivers/<name>.ts",
+      "translated": "Run.ts loads its driver from drivers/<name>.ts"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8bb1cdc4e3 fix(computer): the conformance report judges the fixture value itself",
+      "translated": "The conformance report judges the fixture value itself"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d979bfe130 ci(computer): job summary, knip entry and full teardown for the xorg-uinput probe",
+      "translated": "Job summary, knip entry and full teardown for the xorg-uinput probe"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f92fd89435 fix(computer): run the probe's children from the entry script and keep facts through native exit codes",
+      "translated": "Run the probe's children from the entry script and keep facts through native exit codes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7ceddf0eb8 test(computer): q5 reads ConsentPromptBehaviorAdmin=0 as no elevation prompt (RED)",
+      "translated": "Q5 reads ConsentPromptBehaviorAdmin=0 as no elevation prompt (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "05d0e45489 test(computer): a delivered refusal cell and an errored cell fail the conformance report",
+      "translated": "A delivered refusal cell and an errored cell fail the conformance report"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "85011f93c5 chore(bundles): drop the regenerated bundles under the bundle hold; the release train regenerates them (#13229)",
+      "translated": "Drop the regenerated bundles under the bundle hold; the release train regenerates them (#13229)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a5d44e6285 docs(changelog): name the fragment after its pull request",
+      "translated": "Name the fragment after its pull request"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8bdbadba84 docs(changelog): fragment for the conformance catalog",
+      "translated": "Fragment for the conformance catalog"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5b45a1b158 docs(changes): fragment for #13237",
+      "translated": "Fragment for #13237"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0fe3c340d2 test(computer): declared-outcome conformance catalog and model-free task set (part 1)",
+      "translated": "Declared-outcome conformance catalog and model-free task set (part 1)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bc0a091591 ci(computer): keep only the hosted measurement jobs in part 1 of the Windows live tier",
+      "translated": "Keep only the hosted measurement jobs in part 1 of the Windows live tier"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "da0a3ad25b chore(bundles): restamp under the pinned Node 24 toolchain (#13229)",
+      "translated": "Restamp under the pinned Node 24 toolchain (#13229)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a9a9b84a5b ci(computer): keep only the hosted-runner xorg-uinput probe in part 1",
+      "translated": "Keep only the hosted-runner xorg-uinput probe in part 1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8207176188 test(computer): conformance report must reject missing, duplicate, skipped, mis-coded and disturbing cells",
+      "translated": "Conformance report must reject missing, duplicate, skipped, mis-coded and disturbing cells"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fa48edb037 style(computer): format the windows-full pool scripts",
+      "translated": "Format the windows-full pool scripts"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "72954bcdfa ci(computer): full Windows live tier on the hosted runner, its probe ledger and the guest rung",
+      "translated": "Full Windows live tier on the hosted runner, its probe ledger and the guest rung"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cbfbccb3b7 chore(bundles): regenerate the bundles that carry device-service-core (#13229)",
+      "translated": "Regenerate the bundles that carry device-service-core (#13229)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e4025b55e8 Merge pull request #13201 from code-yeongyu/fix/g3-wire-claims-dispose-windows",
+      "translated": "Merge pull request #13201 from code-yeongyu/fix/g3-wire-claims-dispose-windows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6f816463dc fix(device-service): require the published macOS signing identity, so bootstrap can install on macOS (#13229)",
+      "translated": "Require the published macOS signing identity, so bootstrap can install on macOS (#13229)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "436fb5bb77 fix(computer): empty ledgers, rows and gates fail; ledger rows must be program rows 1-51",
+      "translated": "Empty ledgers, rows and gates fail; ledger rows must be program rows 1-51"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4201500c09 test(computer): cover ledger and gate config rules the review found untested (RED)",
+      "translated": "Cover ledger and gate config rules the review found untested (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2d594a6bcc test(computer): windows-full verdict, ledger and tier-plan cases (RED)",
+      "translated": "Windows-full verdict, ledger and tier-plan cases (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4ee9c68248 ci(computer): per-PR Linux live tier on Xorg, GNOME, KDE and sway",
+      "translated": "Per-PR Linux live tier on Xorg, GNOME, KDE and sway"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "86d855e648 chore(computer): gate checker and adoption ledger for the ideal-state program",
+      "translated": "Gate checker and adoption ledger for the ideal-state program"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "01b2d8427b test(computer): gate checker and adoption ledger cases (RED)",
+      "translated": "Gate checker and adoption ledger cases (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8835529ca8 train/omo-5: regenerate bundles at the top after #13109",
+      "translated": "Train/omo-5: regenerate bundles at the top after #13109"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41e30070fd train/omo-5: merge #13109 (4e23985e49)",
+      "translated": "Train/omo-5: merge #13109 (4e23985e49)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4e23985e49 test(eq): re-record E21 with the in-repo desktop engine path",
+      "translated": "Re-record E21 with the in-repo desktop engine path"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6322dae2b1 test(memory): assert the win32 claim was acquired before proving its root is removable",
+      "translated": "Assert the win32 claim was acquired before proving its root is removable"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "105d7a49ca chore(bundles): keep dev's service-auth.generated.js (regenerated at the train top)",
+      "translated": "Keep dev's service-auth.generated.js (regenerated at the train top)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3af8d2ff8e test(memory-sync): verify the sync RPC claims roots are removed (Fixes #13199)",
+      "translated": "Verify the sync RPC claims roots are removed (Fixes #13199)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "aaf1af31b1 train/omo-5: regenerate bundles once at the top",
+      "translated": "Train/omo-5: regenerate bundles once at the top"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0a1216602b train/omo-5: merge #13141 (bf5b38a96e)",
+      "translated": "Train/omo-5: merge #13141 (bf5b38a96e)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a15a44cdb2 train/omo-5: merge #13096 (98dbb68195)",
+      "translated": "Train/omo-5: merge #13096 (98dbb68195)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6b13379bbe train/omo-5: merge #13151 (4c7a4b7505)",
+      "translated": "Train/omo-5: merge #13151 (4c7a4b7505)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "77afb52cac train/omo-5: merge #13179 (3aedaef05f)",
+      "translated": "Train/omo-5: merge #13179 (3aedaef05f)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1f2d1b1d6c train/omo-5: merge #13125 (42345b6d75)",
+      "translated": "Train/omo-5: merge #13125 (42345b6d75)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "98dbb68195 Merge origin/dev into fix/6503-cli-uses-relayd-device (generated bundles from dev; regenerated once at the train top)",
+      "translated": "Merge origin/dev into fix/6503-cli-uses-relayd-device (generated bundles from dev; regenerated once at the train top)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e3b6b5e69a fix(thread): a fuzzy handoff resolves exact first and ranks ended remote rows with every candidate (#13141 review)",
+      "translated": "A fuzzy handoff resolves exact first and ranks ended remote rows with every candidate (#13141 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6f59de4654 test(thread): pin fuzzy handoff to the exact path's session across live and ended remote rows (#13141 review)",
+      "translated": "Pin fuzzy handoff to the exact path's session across live and ended remote rows (#13141 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "99958eeb2f style: bun run fmt",
+      "translated": "Bun run fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bb2383b59f docs(changes): name the fragment after PR #13180",
+      "translated": "Name the fragment after PR #13180"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3aedaef05f docs(changes): changelog fragment for #13179",
+      "translated": "Changelog fragment for #13179"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3d74c9196b docs(changes): add fragment for the actionability fake-clock test fix",
+      "translated": "Add fragment for the actionability fake-clock test fix"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ced8375fb8 style(thread): bun fmt",
+      "translated": "Bun fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1ee4048d99 docs(changes): name the fragment for #13141 and describe the final contract",
+      "translated": "Name the fragment for #13141 and describe the final contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "94787c1de1 fix(thread): ended remote sessions rank below local and live candidates in a fuzzy handoff (#13141 review)",
+      "translated": "Ended remote sessions rank below local and live candidates in a fuzzy handoff (#13141 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bc1096e1cf Merge origin/dev (87ab029c12) into fix/13066-fuzzy-cap-remote-rows",
+      "translated": "Merge origin/dev (87ab029c12) into fix/13066-fuzzy-cap-remote-rows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "745f28ffe7 test(thread): cover an alias-only rename of a thread on another device with no alias registry",
+      "translated": "Cover an alias-only rename of a thread on another device with no alias registry"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d33d97861c fix(thread): trim an alias used as a thread's local name, as thread_rename does",
+      "translated": "Trim an alias used as a thread's local name, as thread_rename does"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "aa62ea3f71 fix(thread): name a created thread by its alias when the claim asks for a sign-in",
+      "translated": "Name a created thread by its alias when the claim asks for a sign-in"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f63f25c628 Merge remote-tracking branch 'origin/dev' into ttu-13125-rehead",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ttu-13125-rehead"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "87ab029c12 Merge pull request #13112 from code-yeongyu/fix/13104-thread-create-local-alias",
+      "translated": "Merge pull request #13112 from code-yeongyu/fix/13104-thread-create-local-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d03af105fd Merge pull request #12990 from code-yeongyu/fix/12987-beta-follows-latest",
+      "translated": "Merge pull request #12990 from code-yeongyu/fix/12987-beta-follows-latest"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "21a96996a5 Merge remote-tracking branch 'origin/dev' into ttu-13112-rehead",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ttu-13112-rehead"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a7d4f5516f Merge pull request #13066 from code-yeongyu/fix/13012-route-parity",
+      "translated": "Merge pull request #13066 from code-yeongyu/fix/13012-route-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4c7a4b7505 changes: add 13151 security fragment",
+      "translated": "Changes: add 13151 security fragment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "868043bb19 chore(13066): regenerate bundles on dev after dev 6dca74badd (generated-only)",
+      "translated": "Regenerate bundles on dev after dev 6dca74badd (generated-only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2fb07e7968 docs(publish): fix the newestFloor doc comment",
+      "translated": "Fix the newestFloor doc comment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a5b32af50b style: bun run fmt after merging dev cabdb895e6 (#12227 repo-wide fmt)",
+      "translated": "Bun run fmt after merging dev cabdb895e6 (#12227 repo-wide fmt)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dfa2fc305c Merge origin/dev (cabdb895e6) into fix/13012-route-parity - generated files regenerated next",
+      "translated": "Merge origin/dev (cabdb895e6) into fix/13012-route-parity - generated files regenerated next"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a19ddf90fa fix(publish): hold beta at the newest prerelease floor even when it is ahead of our write",
+      "translated": "Hold beta at the newest prerelease floor even when it is ahead of our write"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4a72c9a36a build: regenerate bundles for the sync reply caps",
+      "translated": "Regenerate bundles for the sync reply caps"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9df7eb2d0d fix(desktop-sync): cap the remaining sync reply arrays (devices, pending, pull entries, snapshot chunks)",
+      "translated": "Cap the remaining sync reply arrays (devices, pending, pull entries, snapshot chunks)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e5b6740ef4 fix(publish): type the beta-follows-latest verify tests",
+      "translated": "Type the beta-follows-latest verify tests"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fbc59655ec fix(publish): verify beta after the dist-tag move and keep the beta repair running on re-runs (#13148, #13149)",
+      "translated": "Verify beta after the dist-tag move and keep the beta repair running on re-runs (#13148, #13149)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "831f907a1b fix(publish): move omo-ai beta and guard it even when the release was already published (#13148)",
+      "translated": "Move omo-ai beta and guard it even when the release was already published (#13148)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "44ce3f5f88 build: regenerate bundles for zod 4.6.7",
+      "translated": "Regenerate bundles for zod 4.6.7"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5a28bf8b43 fix(desktop-sync): cap sync reply arrays at SYNC_REPLY_MAX_ITEMS",
+      "translated": "Cap sync reply arrays at SYNC_REPLY_MAX_ITEMS"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4b00195fbb deps: bump zod to 4.6.7 (GHSA-mrhx-c7xc-m3w5)",
+      "translated": "Deps: bump zod to 4.6.7 (GHSA-mrhx-c7xc-m3w5)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2a8743f1c9 chore(service-auth): regenerate service-auth.generated.js for --new-device",
+      "translated": "Regenerate service-auth.generated.js for --new-device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bf6b7d4784 fix(service-auth): an unreadable credential store blocks a new device; --new-device is the explicit path (#6503)",
+      "translated": "An unreadable credential store blocks a new device; --new-device is the explicit path (#6503)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cabdb895e6 Merge pull request #12695 from code-yeongyu/ci/pin-setup-bun-sha",
+      "translated": "Merge pull request #12695 from code-yeongyu/ci/pin-setup-bun-sha"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fb34a19e40 Merge pull request #13089 from Nowaker/fix/monitor-batch-during-dispatch",
+      "translated": "Merge pull request #13089 from Nowaker/fix/monitor-batch-during-dispatch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f4267e893a fix(thread): ended remote sessions leave the fuzzy candidate set; local and live remote candidates are still compared together (#13141 review)",
+      "translated": "Ended remote sessions leave the fuzzy candidate set; local and live remote candidates are still compared together (#13141 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ff15108394 fix(thread): a unique local fuzzy match resolves before the account listing (#13066 review LOW)",
+      "translated": "A unique local fuzzy match resolves before the account listing (#13066 review LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f702e2bcdd Merge origin/dev into fix/thread-create-inherit-caller-cwd",
+      "translated": "Merge origin/dev into fix/thread-create-inherit-caller-cwd"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "30a1a10052 Merge origin/dev into chore/omowright-0.3.1",
+      "translated": "Merge origin/dev into chore/omowright-0.3.1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "29847d45c6 Merge pull request #13132 from code-yeongyu/test/13041-rebuild-wait-device",
+      "translated": "Merge pull request #13132 from code-yeongyu/test/13041-rebuild-wait-device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "89f6ea222d Merge remote-tracking branch 'origin/dev' into ci/pin-setup-bun-sha",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ci/pin-setup-bun-sha"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f740fd3e08 test(thread): a lost-ACK retry rebuilds waiting_on and its device from the row (#13041)",
+      "translated": "A lost-ACK retry rebuilds waiting_on and its device from the row (#13041)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9fa6213c73 fix(service-auth): refuse a silent second device when the service is down",
+      "translated": "Refuse a silent second device when the service is down"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ddee508cc9 Merge remote-tracking branch 'origin/dev' into fix/13104-thread-create-local-alias",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13104-thread-create-local-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dc23a335e5 Merge remote-tracking branch 'origin/dev' into gf13089-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13089-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "369753182a Merge origin/dev into fix/6503-cli-uses-relayd-device",
+      "translated": "Merge origin/dev into fix/6503-cli-uses-relayd-device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "04e22c0b6b Merge pull request #12227 from code-yeongyu/chore/omo-bun-fmt",
+      "translated": "Merge pull request #12227 from code-yeongyu/chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "446f36800c docs(thread): record the local alias fallback on thread_rename",
+      "translated": "Record the local alias fallback on thread_rename"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2619084c00 Merge remote-tracking branch 'origin/dev' into fix/13104-thread-create-local-alias",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13104-thread-create-local-alias"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dfe0ac297c Merge remote-tracking branch 'origin/dev' into fix/6503-cli-uses-relayd-device Co-authored-by: YeonGyu-Kim <public.kim.yeon.gyu@gmail.com>",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/6503-cli-uses-relayd-device Co-authored-by: YeonGyu-Kim <public.kim.yeon.gyu@gmail.com>"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0349c13bf9 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "55a3dbb53d Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1fd20f33f5 Merge pull request #13108 from code-yeongyu/chore/13078-revendor-bunshin-ts-relay",
+      "translated": "Merge pull request #13108 from code-yeongyu/chore/13078-revendor-bunshin-ts-relay"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b3d4d2f655 chore(changes): changelog fragment for #13125",
+      "translated": "Changelog fragment for #13125"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a8def4c39d fix(thread): a created thread with no cwd starts in its creator's folder",
+      "translated": "A created thread with no cwd starts in its creator's folder"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9872229f02 Merge pull request #13117 from code-yeongyu/feat/cu-v3-row13-core-contract",
+      "translated": "Merge pull request #13117 from code-yeongyu/feat/cu-v3-row13-core-contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5fc72a218c Merge remote-tracking branch 'origin/dev' into chore/13078-revendor-bunshin-ts-relay",
+      "translated": "Merge remote-tracking branch 'origin/dev' into chore/13078-revendor-bunshin-ts-relay"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8b2916e152 Merge pull request #13099 from cynkai/fix/13065-residue-dangling-symlink",
+      "translated": "Merge pull request #13099 from cynkai/fix/13065-residue-dangling-symlink"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b271c48265 Merge remote-tracking branch 'origin/dev' into gf13089-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13089-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "860cd18197 fix(computer): the COMPUTER_* table's next-call slot is mandatory",
+      "translated": "The COMPUTER_* table's next-call slot is mandatory"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b3654f890b fix(computer): every COMPUTER_* row names its next call",
+      "translated": "Every COMPUTER_* row names its next call"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0eab1e0bc0 chore(changes): changelog fragment for #13117",
+      "translated": "Changelog fragment for #13117"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ef89cbec4f Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row13-core-contract",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row13-core-contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d54324bd18 Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract",
+      "translated": "Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ade9aa69f3 Merge pull request #13107 from code-yeongyu/feat/cu-v3-row12-core-protocol",
+      "translated": "Merge pull request #13107 from code-yeongyu/feat/cu-v3-row12-core-protocol"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ed7e621459 Merge remote-tracking branch 'origin/dev' into gf13099-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13099-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "484dc83f4f chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f562a3fcf6 Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5f89439b11 Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row12-core-protocol",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row12-core-protocol"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c170fb0b71 chore(deps): use omowright 0.3.1",
+      "translated": "Use omowright 0.3.1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c70f66f84a Merge pull request #13111 from code-yeongyu/ci/cu-v3-row5-macos26",
+      "translated": "Merge pull request #13111 from code-yeongyu/ci/cu-v3-row5-macos26"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f1cc5dada0 fix(computer): a bare backend refusal resolves to its code's bare row",
+      "translated": "A bare backend refusal resolves to its code's bare row"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a05d4cafb5 Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract",
+      "translated": "Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ace5b33356 docs(changes): add changelog fragment for #13112",
+      "translated": "Add changelog fragment for #13112"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fe0e3e7952 ci(computer): write a job summary from the native contract job",
+      "translated": "Write a job summary from the native contract job"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d1886c116c ci(computer): run the native contract on macos-26 (macos-14 image retired) and widen its path filters",
+      "translated": "Run the native contract on macos-26 (macos-14 image retired) and widen its path filters"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3e8caa5ccb Merge remote-tracking branch 'origin/dev' into gf13099-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13099-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "47556073ac Merge remote-tracking branch 'origin/dev' into gf13089-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13089-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a1ebd80f8e fix(computer): fold the row 12 review nits",
+      "translated": "Fold the row 12 review nits"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c5f6e039ae docs(changes): name the fragment for its PR",
+      "translated": "Name the fragment for its PR"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "307d11c013 fix(thread): keep an alias local when no account can hold it (#13104)",
+      "translated": "Keep an alias local when no account can hold it (#13104)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0a1a9cff3b docs(changes): unreleased note for #13108",
+      "translated": "Unreleased note for #13108"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8b5bbce116 docs(changes): add the row 12 fragment",
+      "translated": "Add the row 12 fragment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6e7a5d7ee2 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "81dd63e5ab Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row12-core-protocol",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row12-core-protocol"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "33447d34df Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "93c40771a5 feat(computer): backend refusals and exec replies through the row-13 contract",
+      "translated": "Backend refusals and exec replies through the row-13 contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cc4edf951f fix(computer): knip entry for the protocol generator, no unused protocol exports",
+      "translated": "Knip entry for the protocol generator, no unused protocol exports"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e98a85703d chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f596d9a050 Merge pull request #13028 from code-yeongyu/build/cu-v3-row5-workspace",
+      "translated": "Merge pull request #13028 from code-yeongyu/build/cu-v3-row5-workspace"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eec802d91e Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract",
+      "translated": "Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row13-core-contract"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "04d8435002 test(computer): owe the C2 stale-reply leg to row 17",
+      "translated": "Owe the C2 stale-reply leg to row 17"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "477d7639d7 Merge branch 'build/cu-v3-row5-workspace' into feat/cu-v3-row12-core-protocol",
+      "translated": "Merge branch 'build/cu-v3-row5-workspace' into feat/cu-v3-row12-core-protocol"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "309507c42f Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "65501fe254 Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace",
+      "translated": "Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "89deb5358e Merge pull request #13027 from code-yeongyu/test/cu-v3-row4-parity",
+      "translated": "Merge pull request #13027 from code-yeongyu/test/cu-v3-row4-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7d3ac1f5f7 Merge pull request #13106 from code-yeongyu/chore/regen-bundles-dev-ff3097f",
+      "translated": "Merge pull request #13106 from code-yeongyu/chore/regen-bundles-dev-ff3097f"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a7e2b1969f build(computer): export-check the v3 package entries in knip",
+      "translated": "Export-check the v3 package entries in knip"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4b5c3433bb Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace",
+      "translated": "Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a6dd57a1d5 test(computer): tighten the row-13 proof checks",
+      "translated": "Tighten the row-13 proof checks"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "78f9f05cb9 fix(computer): clipboard refusal rows and checked design citations for the COMPUTER_* table",
+      "translated": "Clipboard refusal rows and checked design citations for the COMPUTER_* table"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "66466e1356 test(computer): check inline nested destructures at their call site",
+      "translated": "Check inline nested destructures at their call site"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7c1917db0c Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3182c853e1 fix(computer): COMPUTER_* table total over the design's reason inventory",
+      "translated": "COMPUTER_* table total over the design's reason inventory"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5ed9854f11 chore(13066): regenerate bundles on dev after dev 6dca74badd (generated-only)",
+      "translated": "Regenerate bundles on dev after dev 6dca74badd (generated-only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "501284d478 fix(computer): read every params member at a reader call site",
+      "translated": "Read every params member at a reader call site"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a405a2c18c test(computer): RED - derive the reader test from reader call sites",
+      "translated": "RED - derive the reader test from reader call sites"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f23d226d7d Merge origin/dev (#13097) into fix/6503-cli-uses-relayd-device; keep machine-binding.ts removed",
+      "translated": "Merge origin/dev (#13097) into fix/6503-cli-uses-relayd-device; keep machine-binding.ts removed"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ff3097f21d Merge pull request #13097 from code-yeongyu/fix/13095-knip-deviceprofileof",
+      "translated": "Merge pull request #13097 from code-yeongyu/fix/13095-knip-deviceprofileof"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e57a06315c Merge origin/dev (6dca74badd) into fix/13012-route-parity - generated files regenerated next",
+      "translated": "Merge origin/dev (6dca74badd) into fix/13012-route-parity - generated files regenerated next"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e368b2533a chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "04a89c4e79 feat(computer): v3 result contract - dispositions, action reports, receipts, error table",
+      "translated": "V3 result contract - dispositions, action reports, receipts, error table"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2553d03417 test(computer): RED - v3 result contract tests (signature stubs only)",
+      "translated": "RED - v3 result contract tests (signature stubs only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6f2497ccda Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "330e635c24 test(computer): owe the C1 trace leg to row 20",
+      "translated": "Owe the C1 trace leg to row 20"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "405b6ef424 docs(changes): fragment for #13099",
+      "translated": "Fragment for #13099"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4bf9bc74b9 fix(computer-v3-guards): --residue counts a dangling symlink at a removal path as present",
+      "translated": "--residue counts a dangling symlink at a removal path as present"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6bc3e20111 Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1204f8ac1c feat(computer): v3 contract root - method table, schema, settings table, protocol package",
+      "translated": "V3 contract root - method table, schema, settings table, protocol package"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e6029cc2ce test(computer): RED - v3 contract root tests (signature stubs only)",
+      "translated": "RED - v3 contract root tests (signature stubs only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "46ed8ac0c7 fix(service-auth): keep the capability constant module-private (knip)",
+      "translated": "Keep the capability constant module-private (knip)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6dca74badd Merge pull request #13087 from code-yeongyu/fix/standalone-self-update-13084",
+      "translated": "Merge pull request #13087 from code-yeongyu/fix/standalone-self-update-13084"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6a83768384 docs(changes): fragment for #13096",
+      "translated": "Fragment for #13096"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d80ee085f9 fix(service-auth): an uncertain refresh refuses a new device with a recovery message (#6503)",
+      "translated": "An uncertain refresh refuses a new device with a recovery message (#6503)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b40b95a3c9 feat(service-auth): attach before mint, hardware digest in both sign-in flows, typed machine_exists (#6503 final contract)",
+      "translated": "Attach before mint, hardware digest in both sign-in flows, typed machine_exists (#6503 final contract)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "79a6335b08 fix(service-auth): omo login reuses the machine's device instead of registering another (#6503)",
+      "translated": "Omo login reuses the machine's device instead of registering another (#6503)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "edf0be560d revert(service-auth): drop #13095's salt/device.machine_binding binding path, superseded by the #6503 FINAL contract (LEAD ruling)",
+      "translated": "Drop #13095's salt/device.machine_binding binding path, superseded by the #6503 FINAL contract (LEAD ruling)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ebae3dfd67 fix(service-auth): drop the unused deviceProfileOf export (knip, #13095)",
+      "translated": "Drop the unused deviceProfileOf export (knip, #13095)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c1b6943bd0 test(omo-native): fix CI guards for standalone self-update",
+      "translated": "Fix CI guards for standalone self-update"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3334951849 Merge remote-tracking branch 'origin/dev' into gf13089-ny2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13089-ny2"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c40c98690d Merge pull request #13095 from code-yeongyu/feat/1016-cli-machine-device",
+      "translated": "Merge pull request #13095 from code-yeongyu/feat/1016-cli-machine-device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "039a8af30b feat(service-auth): bind omo login to the machine's one device (omo-service#1016)",
+      "translated": "Bind omo login to the machine's one device (omo-service#1016)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "17f633cb43 Merge pull request #12840 from code-yeongyu/cu-v2/task-36-on-e",
+      "translated": "Merge pull request #12840 from code-yeongyu/cu-v2/task-36-on-e"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0b9f1c656d Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace",
+      "translated": "Merge remote-tracking branch 'origin/dev' into build/cu-v3-row5-workspace"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "80a9eefea2 test(computer): key parity manifest rust ids by the compiler's module path",
+      "translated": "Key parity manifest rust ids by the compiler's module path"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6a0673fa19 row 36: merge dev a68fc1b0dd",
+      "translated": "Row 36: merge dev a68fc1b0dd"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4e1ef4832f test(omo-native): assert rollback fixture before cleanup failure probe",
+      "translated": "Assert rollback fixture before cleanup failure probe"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a68fc1b0dd Merge pull request #13083 from mradwankhalil/fix/compaction-cache-write-20261111",
+      "translated": "Merge pull request #13083 from mradwankhalil/fix/compaction-cache-write-20261111"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b66b8d79a4 Merge pull request #13091 from code-yeongyu/feat/programming-skill-ownership",
+      "translated": "Merge pull request #13091 from code-yeongyu/feat/programming-skill-ownership"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cf5d1132c0 fix(omo-native): finish crashed reclaim guard recovery in one invocation",
+      "translated": "Finish crashed reclaim guard recovery in one invocation"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "47bb15ccbc Merge pull request #12714 from cynkai/fix/12621-ast-grep-smoke-path-order",
+      "translated": "Merge pull request #12714 from cynkai/fix/12621-ast-grep-smoke-path-order"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "10a0684b2c Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-v3-row4-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f4cc078ea2 Merge pull request #13025 from code-yeongyu/test/cu-v3-row3-oracle",
+      "translated": "Merge pull request #13025 from code-yeongyu/test/cu-v3-row3-oracle"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "148b8405d8 docs(changes): add fragment for #13091",
+      "translated": "Add fragment for #13091"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8980afccf6 feat(shared-skills): open the programming skill with code ownership",
+      "translated": "Open the programming skill with code ownership"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2b32e0ba5a fix(omo-native): recover interrupted binary updates safely",
+      "translated": "Recover interrupted binary updates safely"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "85b87aed02 Merge remote-tracking branch 'origin/dev' into gf13089-wt",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13089-wt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5c2965222e changes: fragment for #13089",
+      "translated": "Changes: fragment for #13089"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3e7446bd14 docs(changes): add the changelog fragment for #12714",
+      "translated": "Add the changelog fragment for #12714"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "057ee542b6 fix(omo-native): normalize prerelease versions during binary verification",
+      "translated": "Normalize prerelease versions during binary verification"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ece560753d docs(changelog): record verified standalone updates (#13087)",
+      "translated": "Record verified standalone updates (#13087)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "84426305a1 chore(13066): regenerate bundles on dev after the 5.1.69 release state (generated-only)",
+      "translated": "Regenerate bundles on dev after the 5.1.69 release state (generated-only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ce105e1890 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b87a66aa48 fix(omo-native): retire released Windows rollback executables on launch",
+      "translated": "Retire released Windows rollback executables on launch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5876bc3c82 row 36: merge dev f177a773b1",
+      "translated": "Row 36: merge dev f177a773b1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "768b8ae435 Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6abac00e04 fix(monitor): keep a batch that arrives while the previous one is being sent",
+      "translated": "Keep a batch that arrives while the previous one is being sent"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6fb725df66 Merge remote-tracking branch 'origin/dev' into test/cu-v3-row3-oracle",
+      "translated": "Merge remote-tracking branch 'origin/dev' into test/cu-v3-row3-oracle"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6e997697fa docs(omo-native): explain verified binary updates and startup opt-outs",
+      "translated": "Explain verified binary updates and startup opt-outs"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a6745977af Merge origin/dev (f177a773b1, 5.1.69 release state) into fix/13012-route-parity - generated files regenerated next",
+      "translated": "Merge origin/dev (f177a773b1, 5.1.69 release state) into fix/13012-route-parity - generated files regenerated next"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f177a773b1 Merge pull request #13080 from code-yeongyu/release/v5.1.69-source-state",
+      "translated": "Merge pull request #13080 from code-yeongyu/release/v5.1.69-source-state"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d9ce457667 feat(omo-native): enable automatic updates for interactive release launches",
+      "translated": "Enable automatic updates for interactive release launches"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "16992c6635 feat(omo-native): run standalone startup updates in a detached worker",
+      "translated": "Run standalone startup updates in a detached worker"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d89791747a fix(omo-native): install verified standalone releases with rollback (#13084)",
+      "translated": "Install verified standalone releases with rollback (#13084)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e79c7cb3d8 Merge remote-tracking branch 'origin/dev' into gf12714-wt",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf12714-wt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ddff5842df fix(context-usage): include cache writes in truncation budgets",
+      "translated": "Include cache writes in truncation budgets"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e0fc0ff4f3 Merge pull request #13076 from Nowaker/fix/sync-poll-null-error",
+      "translated": "Merge pull request #13076 from Nowaker/fix/sync-poll-null-error"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "58e4244b0d fix(preemptive-compaction): count cache writes toward context usage",
+      "translated": "Count cache writes toward context usage"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cd3257cdb4 row 36: merge dev def0749b63",
+      "translated": "Row 36: merge dev def0749b63"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "98ffa0c736 chore(13066): regenerate bundles on dev after the one-route train (generated-only)",
+      "translated": "Regenerate bundles on dev after the one-route train (generated-only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ad1a97e293 Merge remote-tracking branch 'origin/dev' into gf13076-wt",
+      "translated": "Merge remote-tracking branch 'origin/dev' into gf13076-wt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "47b39d2532 Merge origin/dev (def0749b63, one-route train) into fix/13012-route-parity - generated files regenerated next",
+      "translated": "Merge origin/dev (def0749b63, one-route train) into fix/13012-route-parity - generated files regenerated next"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e9fff7249d changes: fragment for #13076",
+      "translated": "Changes: fragment for #13076"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f65703b0b8 fix(thread): a configured relay in any failing device-service state answers typed host_unavailable (review MEDIUM at fc4980dadc)",
+      "translated": "A configured relay in any failing device-service state answers typed host_unavailable (review MEDIUM at fc4980dadc)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fc4980dadc fix(thread): preserve local misses without remote setup",
+      "translated": "Preserve local misses without remote setup"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "33edcb7618 chore(changelog): name route parity fragment for #13066",
+      "translated": "Name route parity fragment for #13066"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e689c4acc3 fix(thread): share remote name and fuzzy resolution rules",
+      "translated": "Share remote name and fuzzy resolution rules"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "34e4dd7543 docs(changes): add the row 5 fragment",
+      "translated": "Add the row 5 fragment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1467dff7fd build(computer): register the empty v3 crates, packages and CI legs",
+      "translated": "Register the empty v3 crates, packages and CI legs"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4520c85d5e test(computer): freeze the old test inventory as a parity manifest",
+      "translated": "Freeze the old test inventory as a parity manifest"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41b5083e91 test(computer): import the frozen v1 oracle fixtures with provenance",
+      "translated": "Import the frozen v1 oracle fixtures with provenance"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4f711eb5c1 row 36: merge dev a96a51d8fc",
+      "translated": "Row 36: merge dev a96a51d8fc"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5a0a16a71d chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1a38011e71 Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "18e2d66072 fix(delegate-task): stop treating error: null as a failed foreground child",
+      "translated": "Stop treating error: null as a failed foreground child"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9bfc1f4386 fix(publish): fold #12990 round-2 review - wait for the beta read-back and retry the guard's beta check",
+      "translated": "Fold #12990 round-2 review - wait for the beta read-back and retry the guard's beta check"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2e14d207bc fix(publish): fold #12990 review - beta move tells a lookup failure from a missing tag, runs in post-publish-verify",
+      "translated": "Fold #12990 review - beta move tells a lookup failure from a missing tag, runs in post-publish-verify"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d99887a5d7 docs(changes): add the #12990 changelog fragment",
+      "translated": "Add the #12990 changelog fragment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "acec7e92d3 fix(publish): beta channel follows latest on every stable release",
+      "translated": "Beta channel follows latest on every stable release"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c84c4f03b5 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bdbb29d87b Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "43534969f7 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6b02f4dc2b Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b1b7477d1c chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2c40dd83ad Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9a0e48fe79 chore(fmt): blame-ignore the latest dev merge (#12225)",
+      "translated": "Blame-ignore the latest dev merge (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4d6140b38b Merge origin/dev into chore/omo-bun-fmt",
+      "translated": "Merge origin/dev into chore/omo-bun-fmt"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "13f89955dc chore(fmt): blame-ignore the bun fmt reformat (#12225)",
+      "translated": "Blame-ignore the bun fmt reformat (#12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d3b07955bf chore(fmt): adopt bun fmt for JS/TS (Fixes #12225)",
+      "translated": "Adopt bun fmt for JS/TS (Fixes #12225)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fd733b0d16 row 36: merge train E 7461ea5f23 (GNOME extension move, placement fix, fixture placeholders)",
+      "translated": "Row 36: merge train E 7461ea5f23 (GNOME extension move, placement fix, fixture placeholders)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "20aa5c8378 docs(desktop-tool): describe the reply-recording order under the run facade (row 36)",
+      "translated": "Describe the reply-recording order under the run facade (row 36)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1b96027257 test(eq): re-record the linux-x64 E21-E24 goldens for the SDK-backed computer tool (row 36)",
+      "translated": "Re-record the linux-x64 E21-E24 goldens for the SDK-backed computer tool (row 36)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "dd54e15aa9 docs(changes): name the fragment for #12840",
+      "translated": "Name the fragment for #12840"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "31520b20fc docs(changes): add the row 36 fragment (new-PR placeholder)",
+      "translated": "Add the row 36 fragment (new-PR placeholder)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a5b2e91e9d row 36: take train E rename cbd44b9736",
+      "translated": "Row 36: take train E rename cbd44b9736"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fa706ddba7 feat(desktop-tool): execute through the sdk; reportMode object for omo sessions; sandbox default per eval result",
+      "translated": "Execute through the sdk; reportMode object for omo sessions; sandbox default per eval result"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "561ae363cd Merge remote-tracking branch 'origin/dev' into ci/pin-setup-bun-sha",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ci/pin-setup-bun-sha"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "083b63eef7 fix(ast-grep skill): pass the smoke path before --lang, and drop the 3.9-only wording (#12621)",
+      "translated": "Pass the smoke path before --lang, and drop the 3.9-only wording (#12621)"
+    }
+  ],
+  "translatedAt": "2026-11-14T18:10:13.455Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "mock",
+  "translationEndpointType": "mock",
+  "translationCharCount": 42594
+}
