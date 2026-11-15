@@ -1,0 +1,2006 @@
+{
+  "version": "5.1.71",
+  "date": "2026-11-15",
+  "parsedAt": "2026-11-15T18:54:43.184Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "OmO now pins `@code-yeongyu/senpi` and its packages at 2026.11.15. That senpi release brings the permission-prompt abort fix, the tool-result slash-command injection fix, sign-in-with-ChatGPT scope and input fixes, and the binary update that reads the GitHub release. ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create`의 `cwd`: 상대 경로는 현재 기기에서 호출자의 폴더를 기준으로 해석되며 다른 기기에서는 거부됩니다. 또한 존재하지 않는 폴더의 경우 양쪽 기기 모두에서 `internal_error`나 \"update omo\" 대신 해당 폴더명을 포함한 `invalid_arguments`를 반환합니다 (#13400). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Daily · Normal now walks Claude Opus 5.5 (medium), then Claude Fable 5.2 (medium), then Kimi K3.1 Pro (max), matching senpi's shipped Opus 5.5 fallback chain; GLM 5.3 is no longer a Daily · Normal rung, so a GLM-only setup gets no automatic Daily · Normal model (#13562). ([#13562](https://github.com/code-yeongyu/oh-my-openagent/pull/13562)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "세션을 열었으나 릴레이 키를 지정하거나 이름을 적용할 수 없는 다른 기기에서의 `thread_create`는 에러 대신 `thread.warnings`와 함께 생성된 스레드를 반환합니다. 이를 통해 재시도 시 작업이 재현되며, 새 키가 두 번째 세션을 생성하는 것을 방지합니다. ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Daily · Heavy runs Claude Fable 5.2 at high (was xhigh); its Fable 5.1 rung stays at xhigh (#13562). ([#13562](https://github.com/code-yeongyu/oh-my-openagent/pull/13562)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "엔진의 `open_session`이 아직 포크를 지원하지 않으므로, `thread_create { fork_from }` 호출 시 빈 스레드를 생성하는 대신 양쪽 기기 모두에서 `unsupported` (`details.reason: fork_unsupported`) 에러를 반환합니다 (#13031). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`@oh-my-opencode/utils` no longer exports `migrateConfigFile` from its package root or from its migration entry point (`@oh-my-opencode/utils/migration`): the re-export in `packages/utils/src/migration.ts` is removed, and the root entry re-exports that module. Nothing imported it through either entry. The function itself is unchanged. ([#13544](https://github.com/code-yeongyu/oh-my-openagent/pull/13544)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "스레드 게이트웨이: 30일의 수신 기한이 만료된 후 동일한 기기에서 중복된 delivery id를 보냈을 때, 해당 데이터가 저장소에 남아있다면 고유 제약 조건 에러 대신 기존 데이터를 통해 중복 제거된 응답을 반환합니다 (#13208 관련 리뷰). ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Internal: `omo remote` status and session commands now read the account without loading the code that signs in or refreshes, and reach the device service through the local API client directly. Nothing changes for users; this prepares a faster start for these commands (#13440). ([#13477](https://github.com/code-yeongyu/oh-my-openagent/pull/13477)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "스레드 게이트웨이: 파일 헤더를 읽을 수 없거나 현재 빌드에서 알 수 없는 세션 종류를 지정한 세션은 자동으로 시작되거나 다시 열리지 않습니다. 이러한 세션은 일반적인 대화형 세션으로 처리되지 않고 하위 또는 워커 세션처럼 거부됩니다 (#13037). ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The gateway store's schema moves to version 12: three nullable columns on deliveries and a unique index on the new ledger id. The first process on this release migrates the store; any process still on the previous build then reports the store's \"schema too new\" error on its thread tools and inbox drain until it restarts. ([#13208](https://github.com/code-yeongyu/oh-my-openagent/pull/13208)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "대기 모드의 `omo remote send`가 자신의 턴이 완료"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Thread gateway: once a build carrying this store ships, every gateway store open runs the schema step to version 13 (one new table, `woken_sessions`) and raises the store's `user_version` for good. An older build, or a rolled-back one, that shares the same agent directory then refuses to open that store with its \"schema too new\" error until it is upgraded again. ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: once a build carrying this store ships, every gateway store open runs the schema step to version 13 (one new table, `woken_sessions`) and raises the store's `user_version` for good. An older build, or a rolled-back one, that shares the same agent directory then refuses to open that store with its \"schema too new\" error until it is upgraded again. ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The standalone `omo` binary starts about 4x faster on Linux and 6x faster on macOS: release binaries now carry Bun's bytecode cache, so a launch no longer parses the whole bundled program first (`omo --version` 880 ms -> 202 ms on Linux x64, 214 ms -> 33 ms on Apple silicon). Each binary is about 43 MB larger, and the per-binary size budget rises from 210 MiB to 260 MiB. ([#13464](https://github.com/code-yeongyu/oh-my-openagent/pull/13464))",
+      "translated": "The standalone `omo` binary starts about 4x faster on Linux and 6x faster on macOS: release binaries now carry Bun's bytecode cache, so a launch no longer parses the whole bundled program first (`omo --version` 880 ms -> 202 ms on Linux x64, 214 ms -> 33 ms on Apple silicon). Each binary is about 43 MB larger, and the per-binary size budget rises from 210 MiB to 260 MiB. ([#13464](https://github.com/code-yeongyu/oh-my-openagent/pull/13464))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The remote worktree remove guard's comment no longer claims a failed open's worktree always has exactly one reflog entry: a repo with `core.logAllRefUpdates` off reports none even for a branch just made, so there the worktree is refused `worktree_left_behind` and stays for its local owner; a test pins that refusal (#13450 follow-up). ([#13542](https://github.com/code-yeongyu/oh-my-openagent/pull/13542)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "The remote worktree remove guard's comment no longer claims a failed open's worktree always has exactly one reflog entry: a repo with `core.logAllRefUpdates` off reports none even for a branch just made, so there the worktree is refused `worktree_left_behind` and stays for its local owner; a test pins that refusal (#13450 follow-up). ([#13542](https://github.com/code-yeongyu/oh-my-openagent/pull/13542)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The bundle marker digest no longer folds the running node's `builtinModules` into the digested build settings: the builtin family is recorded as one stable token and only source-derived externals are digested, so a byte-identical bundle built under node 26 (which adds `node:ffi`) no longer reads as stale. A RED test pins the stability and that a source-derived external still changes the digest (#13155). ([#13541](https://github.com/code-yeongyu/oh-my-openagent/pull/13541)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "The bundle marker digest no longer folds the running node's `builtinModules` into the digested build settings: the builtin family is recorded as one stable token and only source-derived externals are digested, so a byte-identical bundle built under node 26 (which adds `node:ffi`) no longer reads as stale. A RED test pins the stability and that a source-derived external still changes the digest (#13155). ([#13541](https://github.com/code-yeongyu/oh-my-openagent/pull/13541)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A memory reflection or dream launcher now hears its supervisor's exit even when the supervisor dies while the \"launched\" receipt is still being written. The launcher used to subscribe to the exit only after that write, so an early supervisor death was never reported and the launcher waited for an outcome that could not arrive: until the run deadline (15 minutes by default), or without a deadline while the run was still queued. The run now fails at once with the supervisor's exit status. ([#13532](https://github.com/code-yeongyu/oh-my-openagent/pull/13532)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "A memory reflection or dream launcher now hears its supervisor's exit even when the supervisor dies while the \"launched\" receipt is still being written. The launcher used to subscribe to the exit only after that write, so an early supervisor death was never reported and the launcher waited for an outcome that could not arrive: until the run deadline (15 minutes by default), or without a deadline while the run was still queued. The run now fails at once with the supervisor's exit status. ([#13532](https://github.com/code-yeongyu/oh-my-openagent/pull/13532)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "An engine registers its agent dir with the device service again when the service stops and comes right back, whether or not the operating system reports the new socket in time. Once its connection had closed, the registrant used to wait for that file notification alone, and on a macOS machine with heavy file activity the notification arrived seconds to tens of seconds late, so the restarted service did not list that engine's sessions until then. The registrant now arms its endpoint watch again once the endpoint it knew is gone, so a service that is listening again within about a second of that is found by the watch's one-second re-check. A service that returns later than that still waits for the notification ([#13531](https://github.com/code-yeongyu/oh-my-openagent/issues/13531)) ([#13530](https://github.com/code-yeongyu/oh-my-openagent/pull/13530), fixes #12733). ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "An engine registers its agent dir with the device service again when the service stops and comes right back, whether or not the operating system reports the new socket in time. Once its connection had closed, the registrant used to wait for that file notification alone, and on a macOS machine with heavy file activity the notification arrived seconds to tens of seconds late, so the restarted service did not list that engine's sessions until then. The registrant now arms its endpoint watch again once the endpoint it knew is gone, so a service that is listening again within about a second of that is found by the watch's one-second re-check. A service that returns later than that still waits for the notification ([#13531](https://github.com/code-yeongyu/oh-my-openagent/issues/13531)) ([#13530](https://github.com/code-yeongyu/oh-my-openagent/pull/13530), fixes #12733). ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "An in-process child session's shutdown now waits for the session's own `whenToolChildClosed()` barrier after `dispose()` before its caller removes the directory that child's agent dir lives in, so a still-pending engine writer can no longer recreate that directory after the removal. The split-local, gated-child and permission-event test fixtures gained the same join, plus a held-writer regression case that proves the teardown does not settle while the writer is held (#13522). ([#13522](https://github.com/code-yeongyu/oh-my-openagent/pull/13522)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "An in-process child session's shutdown now waits for the session's own `whenToolChildClosed()` barrier after `dispose()` before its caller removes the directory that child's agent dir lives in, so a still-pending engine writer can no longer recreate that directory after the removal. The split-local, gated-child and permission-event test fixtures gained the same join, plus a held-writer regression case that proves the teardown does not settle while the writer is held (#13522). ([#13522](https://github.com/code-yeongyu/oh-my-openagent/pull/13522)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create` on another device with a file as `cwd` now answers `invalid_arguments` (`not_a_directory`, naming the device and the path) once that device's engine refuses it (`session_cwd_not_directory`, code-yeongyu/senpi#6686), instead of an \"update omo\" refusal. ([#13488](https://github.com/code-yeongyu/oh-my-openagent/pull/13488), refs [#13400](https://github.com/code-yeongyu/oh-my-openagent/issues/13400)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create` on another device with a file as `cwd` now answers `invalid_arguments` (`not_a_directory`, naming the device and the path) once that device's engine refuses it (`session_cwd_not_directory`, code-yeongyu/senpi#6686), instead of an \"update omo\" refusal. ([#13488](https://github.com/code-yeongyu/oh-my-openagent/pull/13488), refs [#13400](https://github.com/code-yeongyu/oh-my-openagent/issues/13400)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread tools: `thread_create` no longer notes that a new thread is outside the caller's workspace when the caller has no workspace at all (scoped addressing then answers `caller_context_missing`, not a workspace refusal). ([#13462](https://github.com/code-yeongyu/oh-my-openagent/pull/13462)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread tools: `thread_create` no longer notes that a new thread is outside the caller's workspace when the caller has no workspace at all (scoped addressing then answers `caller_context_missing`, not a workspace refusal). ([#13462](https://github.com/code-yeongyu/oh-my-openagent/pull/13462)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A thread no engine runs on this device (closed, or its terminal exited) answers every thread tool the way a send to it does: `thread_read` reads its session file (`source: \"session_jsonl\"`), and `thread_interrupt`, `thread_rename`, `thread_set_model` and `thread_set_reasoning` answer `not_resumable`, the same refusal a thread that ended on another device gets, instead of `not_found` while `thread_send` queued to it. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "A thread no engine runs on this device (closed, or its terminal exited) answers every thread tool the way a send to it does: `thread_read` reads its session file (`source: \"session_jsonl\"`), and `thread_interrupt`, `thread_rename`, `thread_set_model` and `thread_set_reasoning` answer `not_resumable`, the same refusal a thread that ended on another device gets, instead of `not_found` while `thread_send` queued to it. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create` on this device answers the same thread summary as on another device (id, name, folder, state, times and link) instead of the engine's whole session state. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create` on this device answers the same thread summary as on another device (id, name, folder, state, times and link) instead of the engine's whole session state. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create` on this device in a folder outside the caller's workspace says so: the result adds `workspace_scope: \"outside\"` and `scope_next_action`, because every thread tool answers that thread `scope_denied` unless `all_scope` is set. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create` on this device in a folder outside the caller's workspace says so: the result adds `workspace_scope: \"outside\"` and `scope_next_action`, because every thread tool answers that thread `scope_denied` unless `all_scope` is set. ([#13459](https://github.com/code-yeongyu/oh-my-openagent/pull/13459)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A thread tool call that fails (`thread_list`, `thread_send` and the rest, plus extension store tools) now returns `isError: true`, so the engine and the eval bridge report it as failed instead of as a success. The typed failure, with its code and next action, is unchanged. ([#13451](https://github.com/code-yeongyu/oh-my-openagent/pull/13451), fixes [#13398](https://github.com/code-yeongyu/oh-my-openagent/issues/13398)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "A thread tool call that fails (`thread_list`, `thread_send` and the rest, plus extension store tools) now returns `isError: true`, so the engine and the eval bridge report it as failed instead of as a success. The typed failure, with its code and next action, is unchanged. ([#13451](https://github.com/code-yeongyu/oh-my-openagent/pull/13451), fixes [#13398](https://github.com/code-yeongyu/oh-my-openagent/issues/13398)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A thread `thread_create` makes on another device is named by its durable id; the relay listing key it returned before answered `not_found` in every later thread tool (#13393). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "A thread `thread_create` makes on another device is named by its durable id; the relay listing key it returned before answered `not_found` in every later thread tool (#13393). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create`'s `cwd`: a relative folder resolves against the caller's folder on this device and is refused on another device, and a folder that does not exist answers `invalid_arguments` naming it, on both devices, instead of `internal_error` or \"update omo\" (#13400). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create`'s `cwd`: a relative folder resolves against the caller's folder on this device and is refused on another device, and a folder that does not exist answers `invalid_arguments` naming it, on both devices, instead of `internal_error` or \"update omo\" (#13400). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create` on another device that opened the session but could not name its relay key or apply its name answers the created thread with `thread.warnings` instead of an error, so a retry replays it and a new key cannot create a second session. ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create` on another device that opened the session but could not name its relay key or apply its name answers the created thread with `thread.warnings` instead of an error, so a retry replays it and a new key cannot create a second session. ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_create { fork_from }` is refused `unsupported` (`details.reason: fork_unsupported`) on both devices instead of opening a blank thread reported as a fork: the engine's `open_session` does not fork yet (#13031). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create { fork_from }` is refused `unsupported` (`details.reason: fork_unsupported`) on both devices instead of opening a blank thread reported as a fork: the engine's `open_session` does not fork yet (#13031). ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread gateway: a delivery id that the same device repeats after its 30-day receipt expired, while its row is still in the store, is answered from that row as deduplicated instead of failing with a raw unique-constraint error (the review of #13208). ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: a delivery id that the same device repeats after its 30-day receipt expired, while its row is still in the store, is answered from that row as deduplicated instead of failing with a raw unique-constraint error (the review of #13208). ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread gateway: a session whose file header cannot be read, or names a session kind this build does not know, is never started or reopened unattended. It is refused like a child or worker session instead of being treated as an ordinary interactive one (#13037). ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: a session whose file header cannot be read, or names a session kind this build does not know, is never started or reopened unattended. It is refused like a child or worker session instead of being treated as an ordinary interactive one (#13037). ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote send` in wait mode printed the previous turn's answer and returned before its own turn settled: the follow printed every `text_delta` it received and settled on the first `agent_settled`, including the attach's replayed history, which over the relay arrives only after `onEvent` returns. A send that started or steered a turn now streams its deltas from the aim on (whatever the attach replayed before the aim is dropped) and settles only at its run's `agent_settled`, so retries and queued follow-ups stream through; a queued send's answer is read from the session's transcript, anchored on the send's own user entry, final when a later message's turn supersedes it or a run settled with it as the tail. A waiting send carries its own `clientMessageId`, which senpi stamps on the user entry it stores, so the anchor holds when a prompt template or skill expansion rewrote that entry's text and never lands on an older send of the same text; an engine that stores no id falls back to the text match. Carried by the next release train top. ([#13272](https://github.com/code-yeongyu/oh-my-openagent/pull/13272)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`omo remote send` in wait mode printed the previous turn's answer and returned before its own turn settled: the follow printed every `text_delta` it received and settled on the first `agent_settled`, including the attach's replayed history, which over the relay arrives only after `onEvent` returns. A send that started or steered a turn now streams its deltas from the aim on (whatever the attach replayed before the aim is dropped) and settles only at its run's `agent_settled`, so retries and queued follow-ups stream through; a queued send's answer is read from the session's transcript, anchored on the send's own user entry, final when a later message's turn supersedes it or a run settled with it as the tail. A waiting send carries its own `clientMessageId`, which senpi stamps on the user entry it stores, so the anchor holds when a prompt template or skill expansion rewrote that entry's text and never lands on an older send of the same text; an engine that stores no id falls back to the text match. Carried by the next release train top. ([#13272](https://github.com/code-yeongyu/oh-my-openagent/pull/13272)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote send` in wait mode exited 0 with no output when another device interrupted its turn. It now prints `omo remote: the turn on <device>/<session> was interrupted before it finished.` and exits with the failure code. ([#13272](https://github.com/code-yeongyu/oh-my-openagent/pull/13272)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`omo remote send` in wait mode exited 0 with no output when another device interrupted its turn. It now prints `omo remote: the turn on <device>/<session> was interrupted before it finished.` and exits with the failure code. ([#13272](https://github.com/code-yeongyu/oh-my-openagent/pull/13272)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync settings: when sync cannot read its status, OmO now records WHY. The engine's status path kept one sentence, \"Memory sync authority is unavailable.\", for every cause, with nothing in the log, so a report of that screen could not be acted on. Each cause now carries a code (`no_account`, `account_aborted`, `account_not_current`, `status_read_failed`, plus `legacy_source` where a source answers with no operation-capable account), together with the step that failed, and it is logged once when it starts rather than on every status poll. The device and pending-request reads and the enable and approve operations, which ended in the same sentence, now carry a code too (`operation_failed` for an unexpected error) and log it with the error; the reads, which the desktop also polls, log once per cause. The message a person sees is unchanged. ([#13157](https://github.com/code-yeongyu/oh-my-openagent/pull/13157)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Memory sync settings: when sync cannot read its status, OmO now records WHY. The engine's status path kept one sentence, \"Memory sync authority is unavailable.\", for every cause, with nothing in the log, so a report of that screen could not be acted on. Each cause now carries a code (`no_account`, `account_aborted`, `account_not_current`, `status_read_failed`, plus `legacy_source` where a source answers with no operation-capable account), together with the step that failed, and it is logged once when it starts rather than on every status poll. The device and pending-request reads and the enable and approve operations, which ended in the same sentence, now carry a code too (`operation_failed` for an unexpected error) and log it with the error; the reads, which the desktop also polls, log once per cause. The message a person sees is unchanged. ([#13157](https://github.com/code-yeongyu/oh-my-openagent/pull/13157)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Resolved task planner category config live per plan, caching within the plan window to eliminate redundant disk reads and schema validations during child task spawns, and retaining the last known good configuration only when a reload introduces an error (a file that fails to read, parse or validate) the adopted configuration did not already have; warning-level notices such as ignored unknown keys still apply, and revived tasks no longer report a spurious config generation mismatch after a mid-session edit. ([#9741](https://github.com/code-yeongyu/oh-my-openagent/pull/9741), fixes [#9725](https://github.com/code-yeongyu/oh-my-openagent/issues/9725)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Resolved task planner category config live per plan, caching within the plan window to eliminate redundant disk reads and schema validations during child task spawns, and retaining the last known good configuration only when a reload introduces an error (a file that fails to read, parse or validate) the adopted configuration did not already have; warning-level notices such as ignored unknown keys still apply, and revived tasks no longer report a spurious config generation mismatch after a mid-session edit. ([#9741](https://github.com/code-yeongyu/oh-my-openagent/pull/9741), fixes [#9725](https://github.com/code-yeongyu/oh-my-openagent/issues/9725)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Claude Fable sessions (`claude-fable-5`, `claude-fable-5-1`, `claude-fable-5-2`, on Anthropic, Bedrock and Anthropic-namespaced gateway routes) now get the same assistant-tail repair as Claude Mythos: when the history ends on an assistant turn, the OpenCode messages transform appends the synthetic user turn instead of sending an assistant prefill the model rejects (#13537). ([#13537](https://github.com/code-yeongyu/oh-my-openagent/pull/13537))",
+      "translated": "Claude Fable sessions (`claude-fable-5`, `claude-fable-5-1`, `claude-fable-5-2`, on Anthropic, Bedrock and Anthropic-namespaced gateway routes) now get the same assistant-tail repair as Claude Mythos: when the history ends on an assistant turn, the OpenCode messages transform appends the synthetic user turn instead of sending an assistant prefill the model rejects (#13537). ([#13537](https://github.com/code-yeongyu/oh-my-openagent/pull/13537))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`migrateConfigFile` in `@oh-my-opencode/utils` no longer replaces a config file whose content already equals the migrated output. It used to skip only the backup and still ran the atomic write: a byte-identical replacement that swapped the file's inode and waited on two fsyncs. No current code path calls this function, so the visible effect is in the test suite: the `skips backup when file content is identical after migration` case no longer waits on disk flushes, which is what let it pass the 20 s limit on a host with stalled storage (#11839). ([#13528](https://github.com/code-yeongyu/oh-my-openagent/pull/13528))",
+      "translated": "`migrateConfigFile` in `@oh-my-opencode/utils` no longer replaces a config file whose content already equals the migrated output. It used to skip only the backup and still ran the atomic write: a byte-identical replacement that swapped the file's inode and waited on two fsyncs. No current code path calls this function, so the visible effect is in the test suite: the `skips backup when file content is identical after migration` case no longer waits on disk flushes, which is what let it pass the 20 s limit on a host with stalled storage (#11839). ([#13528](https://github.com/code-yeongyu/oh-my-openagent/pull/13528))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`bun run test:fast` releases the serial quarantine's process group only when that phase finished normally. While a shutdown is in progress the PGID is retained, so the SIGKILL escalation still reaches a descendant that ignored the signal: the orphan case the registry exists to prevent. The child registry gained an explicit `release` for a finished group and the serial spawner uses it; a test also pins that no `ROOT_TEST_SERIAL_QUARANTINE` path falls inside the `opencode-memory` or `senpi` group scopes, so the split's disjointness is checked rather than assumed. ([#13518](https://github.com/code-yeongyu/oh-my-openagent/pull/13518))",
+      "translated": "`bun run test:fast` releases the serial quarantine's process group only when that phase finished normally. While a shutdown is in progress the PGID is retained, so the SIGKILL escalation still reaches a descendant that ignored the signal: the orphan case the registry exists to prevent. The child registry gained an explicit `release` for a finished group and the serial spawner uses it; a test also pins that no `ROOT_TEST_SERIAL_QUARANTINE` path falls inside the `opencode-memory` or `senpi` group scopes, so the split's disjointness is checked rather than assumed. ([#13518](https://github.com/code-yeongyu/oh-my-openagent/pull/13518))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "All three `test:fast` groups now pass the canonical per-file budget, read from `POSIX_TEST_TIMEOUT_MS` in `script/root-test-serial-quarantine.ts`: the same definition the serial phase and the full command use, with no second copy of the value. Without it only the first file of each group got the preload default and every later file fell back to Bun's built-in budget, so a slow file could fail on the budget rather than on its own behaviour. A test asserts the argv actually spawned for each group name, including Bun's flag order for the `--config` invocation. (#12031) ([#13518](https://github.com/code-yeongyu/oh-my-openagent/pull/13518))",
+      "translated": "All three `test:fast` groups now pass the canonical per-file budget, read from `POSIX_TEST_TIMEOUT_MS` in `script/root-test-serial-quarantine.ts`: the same definition the serial phase and the full command use, with no second copy of the value. Without it only the first file of each group got the preload default and every later file fell back to Bun's built-in budget, so a slow file could fail on the budget rather than on its own behaviour. A test asserts the argv actually spawned for each group name, including Bun's flag order for the `--config` invocation. (#12031) ([#13518](https://github.com/code-yeongyu/oh-my-openagent/pull/13518))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "When the temporary directory has a group- or world-writable (or foreign-owned) ancestor, omo now stops with one readable line, `omo: trust-tmpdir-unsafe: <dir> is group-writable; run chmod go-w <dir>, or set TMPDIR to a private directory, and start omo again` (exit 78), instead of crashing with `unsafe trust ancestor` and a stack trace (#13503). ([#13510](https://github.com/code-yeongyu/oh-my-openagent/pull/13510))",
+      "translated": "When the temporary directory has a group- or world-writable (or foreign-owned) ancestor, omo now stops with one readable line, `omo: trust-tmpdir-unsafe: <dir> is group-writable; run chmod go-w <dir>, or set TMPDIR to a private directory, and start omo again` (exit 78), instead of crashing with `unsafe trust ancestor` and a stack trace (#13503). ([#13510](https://github.com/code-yeongyu/oh-my-openagent/pull/13510))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Contributors: the session-manager storage test removes its temporary storage directory after every test block, so the temp-leak guard no longer reports an `omo-test-session-manager-*` entry. (#13508, fixes #13502) ([#13508](https://github.com/code-yeongyu/oh-my-openagent/pull/13508))",
+      "translated": "Contributors: the session-manager storage test removes its temporary storage directory after every test block, so the temp-leak guard no longer reports an `omo-test-session-manager-*` entry. (#13508, fixes #13502) ([#13508](https://github.com/code-yeongyu/oh-my-openagent/pull/13508))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`bun run test:fast` now runs the shared serial quarantine before its three parallel groups, and its `root-rest` group uses `bunfig.win2.parallel.toml`, so the local full-suite path no longer runs the 15 quarantined files concurrently, the condition every CI root-test leg forbids. A failing serial phase returns its own exit code and starts no group. Coverage under the new split is pinned at the config-pattern level by a test: the parallel config adds exactly the quarantine paths over its sibling (file counts measured at this head: 4149 = 15 serial + 1435/965/1734 across the three groups, 0 missing, 0 overlap) (#12031). ([#12031](https://github.com/code-yeongyu/oh-my-openagent/pull/12031))",
+      "translated": "`bun run test:fast` now runs the shared serial quarantine before its three parallel groups, and its `root-rest` group uses `bunfig.win2.parallel.toml`, so the local full-suite path no longer runs the 15 quarantined files concurrently, the condition every CI root-test leg forbids. A failing serial phase returns its own exit code and starts no group. Coverage under the new split is pinned at the config-pattern level by a test: the parallel config adds exactly the quarantine paths over its sibling (file counts measured at this head: 4149 = 15 serial + 1435/965/1734 across the three groups, 0 missing, 0 overlap) (#12031). ([#12031](https://github.com/code-yeongyu/oh-my-openagent/pull/12031))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "`thread_create { worktree: { branch?, base? } }` creates a git worktree for the new thread, on this device or another one, in OmO's worktrees folder there, and starts the thread in it; every failure (not a repository, branch or folder exists, unknown base, no disk space, no permission, git missing, an older omo on the other device) is a typed code with `details.reason` and a next action (#13408). A worktree whose thread then fails to open, or whose `git worktree add` fails part way (including git's timeout), is removed with its branch; what cannot be removed is named in a `partial_commit` failure (`worktree_left_behind`). The worktree request another device answers takes only absolute folders and removes only a worktree inside its own worktrees folder on the branch named. ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "`thread_create { worktree: { branch?, base? } }` creates a git worktree for the new thread, on this device or another one, in OmO's worktrees folder there, and starts the thread in it; every failure (not a repository, branch or folder exists, unknown base, no disk space, no permission, git missing, an older omo on the other device) is a typed code with `details.reason` and a next action (#13408). A worktree whose thread then fails to open, or whose `git worktree add` fails part way (including git's timeout), is removed with its branch; what cannot be removed is named in a `partial_commit` failure (`worktree_left_behind`). The worktree request another device answers takes only absolute folders and removes only a worktree inside its own worktrees folder on the branch named. ([#13450](https://github.com/code-yeongyu/oh-my-openagent/pull/13450)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Thread gateway: the store can take in a delivery that another device's service attested for a session on this device that is not running (the intake row of #13037). The row is committed in the same transaction as a same-device delivery, keeps the sender's delivery id, text and display text, is rate-limited per sending device, and is admitted later under the engine's own ledger key, so the engine counts it once even if the same delivery also arrives live. A repeat of a delivery id from the same device is answered with the first answer. A reply to such a delivery continues its chain. Nothing in this release calls the intake yet, so no delivery takes this path. ([#13208](https://github.com/code-yeongyu/oh-my-openagent/pull/13208)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: the store can take in a delivery that another device's service attested for a session on this device that is not running (the intake row of #13037). The row is committed in the same transaction as a same-device delivery, keeps the sender's delivery id, text and display text, is rate-limited per sending device, and is admitted later under the engine's own ledger key, so the engine counts it once even if the same delivery also arrives live. A repeat of a delivery id from the same device is answered with the first answer. A reply to such a delivery continues its chain. Nothing in this release calls the intake yet, so no delivery takes this path. ([#13208](https://github.com/code-yeongyu/oh-my-openagent/pull/13208)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Thread gateway: the store keeps a record of each session a wake asked for or opened (#13037): one row with its state, a lease and a generation that fences every write, at most 4 such sessions past `requested` per agent directory, and a transient open failure that returns the row to `requested` with its attempts and the time of the next one (the third deletes it). A wake primitive resolves a durable id to its one session file, refuses child and worker sessions, ensures the host and sends one plain `open_session` frame (no `attended`, no permission preset). Nothing calls the wake yet. ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: the store keeps a record of each session a wake asked for or opened (#13037): one row with its state, a lease and a generation that fences every write, at most 4 such sessions past `requested` per agent directory, and a transient open failure that returns the row to `requested` with its attempts and the time of the next one (the third deletes it). A wake primitive resolves a durable id to its one session file, refuses child and worker sessions, ensures the host and sends one plain `open_session` frame (no `attended`, no permission preset). Nothing calls the wake yet. ([#13212](https://github.com/code-yeongyu/oh-my-openagent/pull/13212)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Thread gateway: the pieces that will let a message from another of your signed-in devices reach a session that is not running on this device are in place but not yet active: the delivery consumer, the carrier that opens such a session in its own working directory and hands it back when its turn is done, and the pending sweep (#13037). Nothing in this release starts them, so a message to a session that is not running is handled as before. ([#13220](https://github.com/code-yeongyu/oh-my-openagent/pull/13220)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))",
+      "translated": "Thread gateway: the pieces that will let a message from another of your signed-in devices reach a session that is not running on this device are in place but not yet active: the delivery consumer, the carrier that opens such a session in its own working directory and hands it back when its turn is done, and the pending sweep (#13037). Nothing in this release starts them, so a message to a session that is not running is handled as before. ([#13220](https://github.com/code-yeongyu/oh-my-openagent/pull/13220)) ([#13279](https://github.com/code-yeongyu/oh-my-openagent/pull/13279)) ([#13563](https://github.com/code-yeongyu/oh-my-openagent/pull/13563))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a8ec80a7ad release train omo-5171: regenerate after the discard-worktree registered() fix",
+      "translated": "Release train omo-5171: regenerate after the discard-worktree registered() fix"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b59631cd9a fix(thread): count a worktree registered by canonical path on every platform; Windows-safe worktree test kit (#13450 Windows red)",
+      "translated": "Count a worktree registered by canonical path on every platform; Windows-safe worktree test kit (#13450 Windows red)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "98c9ed3b41 Merge pull request #13592 from code-yeongyu/fix/13576-offline-test-nits",
+      "translated": "Merge pull request #13592 from code-yeongyu/fix/13576-offline-test-nits"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8ae4b76fa test(thread): canonical temp folders in the worktree test kit (macOS /var -> /private/var; #13450's macOS red)",
+      "translated": "Canonical temp folders in the worktree test kit (macOS /var -> /private/var; #13450's macOS red)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ddbcaf8e7b Merge pull request #13316 from code-yeongyu/ci/13315-windows-macos-shards",
+      "translated": "Merge pull request #13316 from code-yeongyu/ci/13315-windows-macos-shards"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e299b0d964 Merge pull request #13464 from code-yeongyu/perf/omo-binary-bytecode",
+      "translated": "Merge pull request #13464 from code-yeongyu/perf/omo-binary-bytecode"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "21365e9a6a Merge pull request #13508 from code-yeongyu/fix/13502-session-manager-temp-cleanup",
+      "translated": "Merge pull request #13508 from code-yeongyu/fix/13502-session-manager-temp-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "48e6b854d7 Merge pull request #13528 from code-yeongyu/fix/11839-migration-backup-skip-timeout",
+      "translated": "Merge pull request #13528 from code-yeongyu/fix/11839-migration-backup-skip-timeout"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fb6df4a02e test(memory-core): guard the offline case's fixture arithmetic and drop the pinned cost from its comment (#13576)",
+      "translated": "Guard the offline case's fixture arithmetic and drop the pinned cost from its comment (#13576)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e721867fd6 Merge remote-tracking branch 'origin/dev' into ci/13316-devmerge",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ci/13316-devmerge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4be48f4cf8 release train omo-5171: regenerate service-auth.generated.js after the dev merge",
+      "translated": "Release train omo-5171: regenerate service-auth.generated.js after the dev merge"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8a3d24039d Merge pull request #13333 from code-yeongyu/tests/order-dependent-mock-leaks",
+      "translated": "Merge pull request #13333 from code-yeongyu/tests/order-dependent-mock-leaks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e387b60fc3 fix(omo-5171): drop the unused NODE_BUILTIN_SET_MARKER export (knip red at b9606f8677; its .d.mts declaration left with #13541's LOW fix)",
+      "translated": "Drop the unused NODE_BUILTIN_SET_MARKER export (knip red at b9606f8677; its .d.mts declaration left with #13541's LOW fix)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2368310809 Merge origin/dev into fix/13502-session-manager-temp-cleanup",
+      "translated": "Merge origin/dev into fix/13502-session-manager-temp-cleanup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b9606f8677 release train omo-5171: regenerate once after the review-H1 fix",
+      "translated": "Release train omo-5171: regenerate once after the review-H1 fix"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f214d04929 Merge origin/dev into release train omo-5171 (#13489/#13492/#13496: remote help moves into remote-usage.ts on top of #13477's remote-local split)",
+      "translated": "Merge origin/dev into release train omo-5171 (#13489/#13492/#13496: remote help moves into remote-usage.ts on top of #13477's remote-local split)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a37aa9faed fix(omo-5171): keep thread-worktree.ts out of the local-only remote graph; pin the #13279 store-worker call sites (review H1 of #13563)",
+      "translated": "Keep thread-worktree.ts out of the local-only remote graph; pin the #13279 store-worker call sites (review H1 of #13563)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "45e69a7e38 Merge pull request #13496 from code-yeongyu/fix/omo-remote-dashdash-13431",
+      "translated": "Merge pull request #13496 from code-yeongyu/fix/omo-remote-dashdash-13431"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1cc0ec375b Merge pull request #13492 from code-yeongyu/docs/omo-remote-reference-13433",
+      "translated": "Merge pull request #13492 from code-yeongyu/docs/omo-remote-reference-13433"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "23052171dd Merge pull request #13489 from code-yeongyu/docs/omo-remote-help-13405",
+      "translated": "Merge pull request #13489 from code-yeongyu/docs/omo-remote-help-13405"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3921701e8b release train omo-5171: regenerate once after the dev merge and #13562",
+      "translated": "Release train omo-5171: regenerate once after the dev merge and #13562"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8d97f1811 Merge remote-tracking branch 'origin/dev' into perf/omo-binary-bytecode",
+      "translated": "Merge remote-tracking branch 'origin/dev' into perf/omo-binary-bytecode"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "48dde0c4c2 Merge branch 'dev' into fix/11839-migration-backup-skip-timeout",
+      "translated": "Merge branch 'dev' into fix/11839-migration-backup-skip-timeout"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3a5891d18c Merge pull request #13560 from code-yeongyu/fix/13557-13558-changelog-wording",
+      "translated": "Merge pull request #13560 from code-yeongyu/fix/13557-13558-changelog-wording"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "60668bc876 Merge pull request #13534 from code-yeongyu/staging/12241-portable-test-fixtures",
+      "translated": "Merge pull request #13534 from code-yeongyu/staging/12241-portable-test-fixtures"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "39c1bd4a80 Merge pull request #13533 from code-yeongyu/fix/12273-engine-offline-cadence",
+      "translated": "Merge pull request #13533 from code-yeongyu/fix/12273-engine-offline-cadence"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "789a86c76e style(omo-5171): bun fmt the #13562 model-profile test",
+      "translated": "Bun fmt the #13562 model-profile test"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "521dc54c32 Merge remote-tracking branch 'origin/dev' into tests/order-dependent-mock-leaks",
+      "translated": "Merge remote-tracking branch 'origin/dev' into tests/order-dependent-mock-leaks"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "78ee716085 train(omo-5171): merge #13562 at df873f0643",
+      "translated": "Train(omo-5171): merge #13562 at df873f0643"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f300a028b3 Merge origin/dev into release train omo-5171 (#13510: keep both new trust refusal codes)",
+      "translated": "Merge origin/dev into release train omo-5171 (#13510: keep both new trust refusal codes)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "df873f0643 docs(changes): fragment for #13562",
+      "translated": "Fragment for #13562"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c0e740d0cb fix(model-profile): Daily · Normal steps Opus 5.5 -> Fable 5.2 medium -> Kimi K3.1 Pro max; Daily · Heavy runs Fable 5.2 at high",
+      "translated": "Daily · Normal steps Opus 5.5 -> Fable 5.2 medium -> Kimi K3.1 Pro max; Daily · Heavy runs Fable 5.2 at high"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "55a4bb93b5 docs(changelog): drop an empty qualifier and label measured counts in two fragments (#13557, #13558)",
+      "translated": "Drop an empty qualifier and label measured counts in two fragments (#13557, #13558)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4a31db788e Merge pull request #13510 from code-yeongyu/fix/trust-ancestor-typed-error",
+      "translated": "Merge pull request #13510 from code-yeongyu/fix/trust-ancestor-typed-error"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f621d06b06 train(omo-5171): merge #13545 at 021cb6eb07",
+      "translated": "Train(omo-5171): merge #13545 at 021cb6eb07"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6d02204af8 train(omo-5171): merge #13462 at a0c5b89688",
+      "translated": "Train(omo-5171): merge #13462 at a0c5b89688"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "44f9685feb train(omo-5171): merge #13459 at 6ed3a9a72f",
+      "translated": "Train(omo-5171): merge #13459 at 6ed3a9a72f"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a4d3608a3d train(omo-5171): merge #13477 at 16a0d19157",
+      "translated": "Train(omo-5171): merge #13477 at 16a0d19157"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a7d3cb6d4f train(omo-5171): merge #13542 at 1f6d7c6a3d",
+      "translated": "Train(omo-5171): merge #13542 at 1f6d7c6a3d"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9613fc95fe train(omo-5171): merge #13488 at 41fbcff048",
+      "translated": "Train(omo-5171): merge #13488 at 41fbcff048"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fdccbfed69 train(omo-5171): merge #13532 at e0ecd4b9f1",
+      "translated": "Train(omo-5171): merge #13532 at e0ecd4b9f1"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2d52694fd3 train(omo-5171): merge #13522 at 0c44d99891",
+      "translated": "Train(omo-5171): merge #13522 at 0c44d99891"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d7af3a1604 test(omo-native): prove the closure fallback keeps trust-tmpdir-unsafe, and drop the two re-wraps (#13510 review L1, L2)",
+      "translated": "Prove the closure fallback keeps trust-tmpdir-unsafe, and drop the two re-wraps (#13510 review L1, L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "dcad07ed30 train(omo-5171): merge #13541 at c100aeeb25",
+      "translated": "Train(omo-5171): merge #13541 at c100aeeb25"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "021cb6eb07 changelog: fragment for #13545",
+      "translated": "Changelog: fragment for #13545"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c100aeeb25 fix(types): drop the two build-extension-core exports from build-extension.d.mts (review LOW of #13541)",
+      "translated": "Drop the two build-extension-core exports from build-extension.d.mts (review LOW of #13541)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1e2904f2ee docs(changes): name the package root in the #13544 fragment (review LOW of #13544)",
+      "translated": "Name the package root in the #13544 fragment (review LOW of #13544)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2dff188e5e train(omo-5171): merge #13544 at 114ac05ee0",
+      "translated": "Train(omo-5171): merge #13544 at 114ac05ee0"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "726fd6b594 train(omo-5171): merge #13541 at 9ae56de45e",
+      "translated": "Train(omo-5171): merge #13541 at 9ae56de45e"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1f6d7c6a3d fix(thread): a remote worktree remove names the reflog case it refused, not commits a branch never had (#13542 review L1)",
+      "translated": "A remote worktree remove names the reflog case it refused, not commits a branch never had (#13542 review L1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "114ac05ee0 docs(changelog): fragment for #13544",
+      "translated": "Fragment for #13544"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "81711214c7 train(omo-5171): merge #13542 at 5664f4d079",
+      "translated": "Train(omo-5171): merge #13542 at 5664f4d079"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "83b598509e train(omo-5171): merge #13450 at 8c03453238",
+      "translated": "Train(omo-5171): merge #13450 at 8c03453238"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cd298e38ab train(omo-5171): merge #13527 at 40942662ca",
+      "translated": "Train(omo-5171): merge #13527 at 40942662ca"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "98be45c1f6 fix(omo-native): name the problem the ancestor verdict refused on, and keep the typed refusal in the closure fallback (#13510 review M1, L1, L2)",
+      "translated": "Name the problem the ancestor verdict refused on, and keep the typed refusal in the closure fallback (#13510 review M1, L1, L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5664f4d079 docs(changelog): fragment for the #13450 follow-up (#13542)",
+      "translated": "Fragment for the #13450 follow-up (#13542)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c3dd510ec7 docs(remote): state the -- terminator dependency and the -h help-flag behaviour change (review LOWs)",
+      "translated": "State the -- terminator dependency and the -h help-flag behaviour change (review LOWs)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3fd98e9dc6 docs(thread): the remote worktree remove comment states the reflog-disabled outcome (#13450 follow-up)",
+      "translated": "The remote worktree remove comment states the reflog-disabled outcome (#13450 follow-up)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9ae56de45e chore(changes): fragment for #13541",
+      "translated": "Fragment for #13541"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a0c5b89688 Merge commit '6ed3a9a72f' into fix/13459-review-low",
+      "translated": "Merge commit '6ed3a9a72f' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "41fbcff048 Merge commit '8c03453238' into fix/thread-create-cwd-not-directory",
+      "translated": "Merge commit '8c03453238' into fix/thread-create-cwd-not-directory"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d4c2237906 Merge commit '8c03453238' into fix/13459-review-low",
+      "translated": "Merge commit '8c03453238' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6ed3a9a72f Merge commit '8c03453238' into fix/thread-local-remote-parity",
+      "translated": "Merge commit '8c03453238' into fix/thread-local-remote-parity"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b35d6712b9 fix(build): bundle marker digest ignores the running node's builtin list (#13155)",
+      "translated": "Bundle marker digest ignores the running node's builtin list (#13155)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "815485021a fix(thread): a remote worktree remove also refuses a branch whose reflog shows no creation entry (#13450 re-review L1)",
+      "translated": "A remote worktree remove also refuses a branch whose reflog shows no creation entry (#13450 re-review L1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8c7426d04 style(omo-5171): bun fmt the #9741 task files (omo-6a fmt:check red)",
+      "translated": "Bun fmt the #9741 task files (omo-6a fmt:check red)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5b674a0f18 train(omo-5171): merge #13272 at 1dce1f00aa",
+      "translated": "Train(omo-5171): merge #13272 at 1dce1f00aa"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4bf129577e train(omo-5171): merge #13332 at b8a20f403f",
+      "translated": "Train(omo-5171): merge #13332 at b8a20f403f"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f688230590 train(omo-5171): merge #13157 at 09d23da50f",
+      "translated": "Train(omo-5171): merge #13157 at 09d23da50f"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d167d7fc80 train(omo-5171): merge #13329 at 7aa3941cac",
+      "translated": "Train(omo-5171): merge #13329 at 7aa3941cac"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e4680b8c71 train(omo-5171): merge #13327 at 6f9bb63a02",
+      "translated": "Train(omo-5171): merge #13327 at 6f9bb63a02"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4cd4d1ded1 train(omo-5171): merge #13451 at a00babf34e",
+      "translated": "Train(omo-5171): merge #13451 at a00babf34e"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1263c1384e train(omo-5171): merge #13279 at f2c1f833a7",
+      "translated": "Train(omo-5171): merge #13279 at f2c1f833a7"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "618bf8bb7d train(omo-5171): merge #13472 at 536cea78cb",
+      "translated": "Train(omo-5171): merge #13472 at 536cea78cb"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "836a1f8a56 Merge pull request #13538 from code-yeongyu/fix/fable-prefill-guard",
+      "translated": "Merge pull request #13538 from code-yeongyu/fix/fable-prefill-guard"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b503f36ab9 train(omo-5171): merge #13530",
+      "translated": "Train(omo-5171): merge #13530"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9eaab73948 refactor(utils): drop the unused migrateConfigFile re-export",
+      "translated": "Drop the unused migrateConfigFile re-export"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "40942662ca Merge origin/dev into staging/13343-lock-clock-roles",
+      "translated": "Merge origin/dev into staging/13343-lock-clock-roles"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f1b33a3e69 revert: keep the migrateConfigFile re-export removal out of this PR",
+      "translated": "Keep the migrateConfigFile re-export removal out of this PR"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9f56af1bd7 revert: take the omo-task.js regeneration out of this PR",
+      "translated": "Take the omo-task.js regeneration out of this PR"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "51e285c861 Merge pull request #13343 from code-yeongyu/fix/test-fixed-waits-theme1",
+      "translated": "Merge pull request #13343 from code-yeongyu/fix/test-fixed-waits-theme1"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "662044434b docs(changes): state when the one-second bound holds (#13530)",
+      "translated": "State when the one-second bound holds (#13530)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b9b00111de fix(device-service-core): the failed-connect path checks for the endpoint after it re-arms (#12733)",
+      "translated": "The failed-connect path checks for the endpoint after it re-arms (#12733)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "01605478a8 fix(omo-opencode): give Claude Fable the Mythos assistant-prefill repair (Fixes #13537)",
+      "translated": "Give Claude Fable the Mythos assistant-prefill repair (Fixes #13537)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f8e59f2317 test(memory-core): state the offline case's per-cycle journal cost exactly",
+      "translated": "State the offline case's per-cycle journal cost exactly"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f944c95a93 Merge commit '3222d6b66f' into fix/13459-review-low",
+      "translated": "Merge commit '3222d6b66f' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a1f1e80655 Merge commit 'f4e63c3880' into fix/thread-create-cwd-not-directory",
+      "translated": "Merge commit 'f4e63c3880' into fix/thread-create-cwd-not-directory"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "63d8bd8d59 Merge commit 'f4e63c3880' into fix/13459-review-low",
+      "translated": "Merge commit 'f4e63c3880' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3222d6b66f Merge commit 'f4e63c3880' into fix/thread-local-remote-parity",
+      "translated": "Merge commit 'f4e63c3880' into fix/thread-local-remote-parity"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "76290a4565 docs(changelog): fragment for #13532",
+      "translated": "Fragment for #13532"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9099daebb5 fix(memory): hear a supervisor's exit that lands during the launch receipt write (#12031)",
+      "translated": "Hear a supervisor's exit that lands during the launch receipt write (#12031)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f69b97397c test(memory): RED for a supervisor that exits during the launch receipt write (#12031)",
+      "translated": "RED for a supervisor that exits during the launch receipt write (#12031)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cdc6db9153 docs(changes): fragment for the registrant re-arm (#13530)",
+      "translated": "Fragment for the registrant re-arm (#13530)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "83bb737c58 test(memory): keep one real reftable repository where git can migrate one (#12241)",
+      "translated": "Keep one real reftable repository where git can migrate one (#12241)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3cbf4620ed test(memory-core): sync every fifth fixture day in the offline catch-up case (#12273)",
+      "translated": "Sync every fifth fixture day in the offline catch-up case (#12273)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "874545cee6 fix(device-service-core): the registrant re-arms its endpoint watch once the endpoint it knew is gone (#12733)",
+      "translated": "The registrant re-arms its endpoint watch once the endpoint it knew is gone (#12733)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "285920132b fix(thread): a remote worktree remove also refuses work status hides and the branch's own commits (#13450 re-review L2)",
+      "translated": "A remote worktree remove also refuses work status hides and the branch's own commits (#13450 re-review L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a9747c9dce Merge remote-tracking branch 'origin/dev' into fix/trust-ancestor-typed-error",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/trust-ancestor-typed-error"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6aefbe1796 style(omo-native): wrap the UnsafeTrustAncestor problem union (fmt:check)",
+      "translated": "Wrap the UnsafeTrustAncestor problem union (fmt:check)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5b558740e0 Merge origin/dev into staging/12241-portable-test-fixtures",
+      "translated": "Merge origin/dev into staging/12241-portable-test-fixtures"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f8bed3936e Merge branch 'dev' into fix/11839-migration-backup-skip-timeout",
+      "translated": "Merge branch 'dev' into fix/11839-migration-backup-skip-timeout"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1cb42b647e chore(changelog): add the #13522 fragment for the child teardown join",
+      "translated": "Add the #13522 fragment for the child teardown join"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "50d5217f58 refactor(utils): drop the unused migrateConfigFile re-export",
+      "translated": "Drop the unused migrateConfigFile re-export"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b915fd9d2e Merge pull request #13525 from code-yeongyu/fix/13524-child-shutdown-budget-settings",
+      "translated": "Merge pull request #13525 from code-yeongyu/fix/13524-child-shutdown-budget-settings"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "79e8f8797f Merge pull request #13523 from code-yeongyu/staging/13521-dead-session-constants",
+      "translated": "Merge pull request #13523 from code-yeongyu/staging/13521-dead-session-constants"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "33d0db80f9 Merge origin/dev into fix/test-fixed-waits-theme1",
+      "translated": "Merge origin/dev into fix/test-fixed-waits-theme1"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "afcf1023ba docs(changelog): fragment for #13528",
+      "translated": "Fragment for #13528"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "760dc57b2e fix(utils): leave a config that already holds the migrated content in place",
+      "translated": "Leave a config that already holds the migrated content in place"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "88cbb46389 test(opencode): say what passing the restore-set export check costs knip (#13523 review LOW)",
+      "translated": "Say what passing the restore-set export check costs knip (#13523 review LOW)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "44665e3a52 Merge pull request #13521 from code-yeongyu/staging/13502-session-manager-storage-leak",
+      "translated": "Merge pull request #13521 from code-yeongyu/staging/13502-session-manager-storage-leak"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a774ee7e0d test(memory-core): pin the journal lock clock by role and read the wait from lock.ts (#13343 review LOWs)",
+      "translated": "Pin the journal lock clock by role and read the wait from lock.ts (#13343 review LOWs)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9f4e0fc0d7 Merge pull request #13518 from code-yeongyu/t1-test-fast-followups",
+      "translated": "Merge pull request #13518 from code-yeongyu/t1-test-fast-followups"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fb6c965bc9 chore(knip): drop the now-used POSIX_TEST_TIMEOUT_MS exemption",
+      "translated": "Drop the now-used POSIX_TEST_TIMEOUT_MS exemption"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4368ebbc7e test(opencode): fail when the ./constants restore set drifts from the module's exports (#13523 review LOW)",
+      "translated": "Fail when the ./constants restore set drifts from the module's exports (#13523 review LOW)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3b159c9c90 style(test-fast): apply bun fmt",
+      "translated": "Apply bun fmt"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "89d33bd550 docs(changelog): use colons instead of em dashes",
+      "translated": "Use colons instead of em dashes"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4398d6de8b fix(test-fast): keep the serial group's PGID through a shutdown",
+      "translated": "Keep the serial group's PGID through a shutdown"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0f40bc8159 fix(test-fast): pass the canonical per-file timeout to every group",
+      "translated": "Pass the canonical per-file timeout to every group"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f0b1fabb43 test(opencode): drop the dead session-manager constants the storage test kept alive (#13521 review LOW)",
+      "translated": "Drop the dead session-manager constants the storage test kept alive (#13521 review LOW)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "135e356d08 Merge origin/dev into fix/13520-split-fixture-lifecycle",
+      "translated": "Merge origin/dev into fix/13520-split-fixture-lifecycle"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e78b583184 test(opencode): stop mocking the storage-paths leaf and assert the file leaves no module behind (#13502)",
+      "translated": "Stop mocking the storage-paths leaf and assert the file leaves no module behind (#13502)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1747f64528 Merge pull request #13517 from code-yeongyu/t1-test-structure",
+      "translated": "Merge pull request #13517 from code-yeongyu/t1-test-structure"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "186265caec Merge origin/dev into codex/followup-20261113-opencode-storage-paths",
+      "translated": "Merge origin/dev into codex/followup-20261113-opencode-storage-paths"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ceb5c69c53 docs(changelog): fragment for #13518",
+      "translated": "Fragment for #13518"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e981393ed5 fix(test-fast): release the serial phase's process group when it exits",
+      "translated": "Release the serial phase's process group when it exits"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "999c42e7f9 docs(changelog): pin the coverage claim at the config-pattern level",
+      "translated": "Pin the coverage claim at the config-pattern level"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7b9c9fd5a7 test(local): run the serial quarantine before test:fast's parallel groups",
+      "translated": "Run the serial quarantine before test:fast's parallel groups"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "eedadab6b2 fix(omo-native): format the remote boundary files and export-check the call-site helper",
+      "translated": "Format the remote boundary files and export-check the call-site helper"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "27d29ff0c5 docs(changes): fragment for #13510",
+      "translated": "Fragment for #13510"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4e1f044c8a fix(omo-native): a typed trust-tmpdir-unsafe refusal naming the unsafe TMPDIR ancestor instead of a raw stack (#13503)",
+      "translated": "A typed trust-tmpdir-unsafe refusal naming the unsafe TMPDIR ancestor instead of a raw stack (#13503)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "473c09fba8 docs(changes): name the #13502 fragment after its PR (#13508)",
+      "translated": "Name the #13502 fragment after its PR (#13508)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f02cd40719 fix(device-service-core): explicit field instead of a parameter property in LocalOnlyNetworkRefused (erasableSyntaxOnly in omo-opencode) (#13440)",
+      "translated": "Explicit field instead of a parameter property in LocalOnlyNetworkRefused (erasableSyntaxOnly in omo-opencode) (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "17f138d1ad test(session-manager): remove the storage test's temp root after every block (#13502)",
+      "translated": "Remove the storage test's temp root after every block (#13502)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1e3359770e Merge pull request #13396 from code-yeongyu/fix/qa-report-origin-follow-up",
+      "translated": "Merge pull request #13396 from code-yeongyu/fix/qa-report-origin-follow-up"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "39498f0c20 Merge commit '517c393113cc7a5e6ab6b99f0f2e4405687ba23c' into fix/13459-review-low",
+      "translated": "Merge commit '517c393113cc7a5e6ab6b99f0f2e4405687ba23c' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "517c393113 Merge commit 'b21be86489046f9429e58270b44f5d32e35cde9c' into fix/thread-local-remote-parity",
+      "translated": "Merge commit 'b21be86489046f9429e58270b44f5d32e35cde9c' into fix/thread-local-remote-parity"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6b4ca1150e Merge commit 'b21be86489046f9429e58270b44f5d32e35cde9c' into fix/thread-create-cwd-not-directory",
+      "translated": "Merge commit 'b21be86489046f9429e58270b44f5d32e35cde9c' into fix/thread-create-cwd-not-directory"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b21be86489 fix(thread): a remote worktree remove refuses a worktree with uncommitted work (#13450 re-review L2)",
+      "translated": "A remote worktree remove refuses a worktree with uncommitted work (#13450 re-review L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7473b49f50 test(omo-native): pass the launch kind to the trust stage instead of mocking the classifier module, which leaked into trust-stage.test.ts (#13440)",
+      "translated": "Pass the launch kind to the trust stage instead of mocking the classifier module, which leaked into trust-stage.test.ts (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7f1feaaa4c test(omo-native): POSIX-normalize repo paths in the section 7 reachability test so it runs on Windows (#13440)",
+      "translated": "POSIX-normalize repo paths in the section 7 reachability test so it runs on Windows (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f555b2e31c feat(remote): inert local-only refusals at the four owned network call sites and the trust stage (#13440)",
+      "translated": "Inert local-only refusals at the four owned network call sites and the trust stage (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "edb4696fe4 test(omo-native): section 7 reachability in full - three roots, positive controls, connect pin, parsed spawn call-site set (#13440)",
+      "translated": "Section 7 reachability in full - three roots, positive controls, connect pin, parsed spawn call-site set (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "522a92644c perf(thread): thread_create folder and worktree code loads from the thread client sidecar, not omo.js (#13450 main-entry budget)",
+      "translated": "Thread_create folder and worktree code loads from the thread client sidecar, not omo.js (#13450 main-entry budget)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "729ac9965f fix(remote): accept -- as the end of options for omo remote session verbs",
+      "translated": "Accept -- as the end of options for omo remote session verbs"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e2b546b689 test(omo-binary): isolate the timing run from the real home, musl binary name, worker fixture under the shipped bytecode flags (review M1, L1, L2)",
+      "translated": "Isolate the timing run from the real home, musl binary name, worker fixture under the shipped bytecode flags (review M1, L1, L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ecc9de1d44 docs(changes): fragment for the omo remote reference (#13433)",
+      "translated": "Fragment for the omo remote reference (#13433)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bdefd44de2 docs(remote): bring the omo remote reference to the real verbs and the plugin README to its 27 skills",
+      "translated": "Bring the omo remote reference to the real verbs and the plugin README to its 27 skills"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "06b85927af docs(changes): fragment for omo remote --help (#13405)",
+      "translated": "Fragment for omo remote --help (#13405)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e141463bcd changes: fragment for #13488",
+      "translated": "Changes: fragment for #13488"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a48c6cd174 fix(thread): a cwd that is a file on another device answers invalid_arguments not_a_directory naming it (refs #13400)",
+      "translated": "A cwd that is a file on another device answers invalid_arguments not_a_directory naming it (refs #13400)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "86ee80a239 style(remote): format with the repository formatter and keep compile-entry.ts to its one help line",
+      "translated": "Format with the repository formatter and keep compile-entry.ts to its one help line"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "de93bd073b test(remote): use a quantifier for the two-space usage indent",
+      "translated": "Use a quantifier for the two-space usage indent"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8b7b012b97 fix(remote): answer --help for omo remote and each verb, list remote in omo --help",
+      "translated": "Answer --help for omo remote and each verb, list remote in omo --help"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1b3a3acaa4 refactor(omo-native): leaf modules for listProcesses and RELEASE_VERSION so runtime pruning reaches no network module",
+      "translated": "Leaf modules for listProcesses and RELEASE_VERSION so runtime pruning reaches no network module"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "58391e8909 refactor(remote): local verbs in remote-local.ts, runRemoteVerb delegates (no new launch kind)",
+      "translated": "Local verbs in remote-local.ts, runRemoteVerb delegates (no new launch kind)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "07bde7f4f8 Merge commit '7506d26fca46e5a6505dc16a364eec215753c179' into fix/13459-review-low",
+      "translated": "Merge commit '7506d26fca46e5a6505dc16a364eec215753c179' into fix/13459-review-low"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7506d26fca Merge commit 'af365ce140bcdf9519483994b6276aadd1df73ff' into fix/thread-local-remote-parity",
+      "translated": "Merge commit 'af365ce140bcdf9519483994b6276aadd1df73ff' into fix/thread-local-remote-parity"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "632f912235 test(remote): pin the utils runtime spawn importers; changes fragment for #13477",
+      "translated": "Pin the utils runtime spawn importers; changes fragment for #13477"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "af365ce140 style(thread): bun fmt the #13450 thread files so fmt:check and lint pass (#13450 review M2)",
+      "translated": "Bun fmt the #13450 thread files so fmt:check and lint pass (#13450 review M2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e7fd98392d qa(thread): list report-origin-auto-steer.mjs as a knip entry like its sibling scenarios (#13396 knip red)",
+      "translated": "Qa(thread): list report-origin-auto-steer.mjs as a knip entry like its sibling scenarios (#13396 knip red)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0e195c685f docs(thread): drop literal backslash-escaped backticks from the worktree doc comments (#13450 review L1)",
+      "translated": "Drop literal backslash-escaped backticks from the worktree doc comments (#13450 review L1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0703f37832 fix(thread): the remote worktree remove refuses any folder that is not the top of a linked worktree (#13450 review M1)",
+      "translated": "The remote worktree remove refuses any folder that is not the top of a linked worktree (#13450 review M1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "61e2a4a218 refactor(remote): keep the local remote path off network modules (omo#13440 groundwork)",
+      "translated": "Keep the local remote path off network modules (omo#13440 groundwork)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b8a20f403f fix(memory): log only an identifier-shaped error code (#13332 review LOW)",
+      "translated": "Log only an identifier-shaped error code (#13332 review LOW)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1dce1f00aa fix(remote): a turn aborted before the aim and settled after it ends interrupted (#13272 review L2)",
+      "translated": "A turn aborted before the aim and settled after it ends interrupted (#13272 review L2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8480b08c89 changes: fragment for #13464",
+      "translated": "Changes: fragment for #13464"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d5441db782 changes: fragment for #13462",
+      "translated": "Changes: fragment for #13462"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7b2e7a9ec6 fix(thread): no workspace note when the caller has no workspace root (review LOW of #13459)",
+      "translated": "No workspace note when the caller has no workspace root (review LOW of #13459)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5d04350d9f perf(omo-binary): build release binaries with bytecode, raise the size budget to 260 MiB (#13440)",
+      "translated": "Build release binaries with bytecode, raise the size budget to 260 MiB (#13440)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "99332f60c6 fix(thread): a worktree thread_create made is removed when the thread's open or the add fails (#13450 review)",
+      "translated": "A worktree thread_create made is removed when the thread's open or the add fails (#13450 review)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8e8cfecc92 test(remote): cover an interrupted turn that finished before the send caught up (probe path, #13272 review)",
+      "translated": "Cover an interrupted turn that finished before the send caught up (probe path, #13272 review)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "661925b74c changes: fragment for #13459",
+      "translated": "Changes: fragment for #13459"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4aa40e56ca fix(thread): one answer on this device and on another one for a not-running thread, a created thread and an out-of-workspace create",
+      "translated": "One answer on this device and on another one for a not-running thread, a created thread and an out-of-workspace create"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a7cfe2b60a fix(remote): an interrupted turn read from the transcript also fails the waiting send (#13272 review)",
+      "translated": "An interrupted turn read from the transcript also fails the waiting send (#13272 review)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a00babf34e changes: fragment for #13451",
+      "translated": "Changes: fragment for #13451"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cef430843b changes: fragment for #13450",
+      "translated": "Changes: fragment for #13450"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f2c1f833a7 chore(knip): drop GatewayMigrationError, parseSessionLines, summarizeSessionEntries from the pre-existing unused list (the wake train uses them)",
+      "translated": "Drop GatewayMigrationError, parseSessionLines, summarizeSessionEntries from the pre-existing unused list (the wake train uses them)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1be89ad1fd fix(remote): a waiting send whose turn is interrupted fails with a typed line (#13272)",
+      "translated": "A waiting send whose turn is interrupted fails with a typed line (#13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cb35acf79f feat(thread): thread_create places a thread on any device, in any folder or a new git worktree, and fails typed",
+      "translated": "Thread_create places a thread on any device, in any folder or a new git worktree, and fails typed"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "270fc8cdfe changes: one fragment for #13279, which lands #13208 #13212 #13220 with it",
+      "translated": "Changes: one fragment for #13279, which lands #13208 #13212 #13220 with it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d9d3900eba Merge feat/13037-carrier (review LOW fixes) into fix/13037-session-kind-closed",
+      "translated": "Merge feat/13037-carrier (review LOW fixes) into fix/13037-session-kind-closed"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "060c9d1567 fix(thread): consumer reports a failed tracked step instead of leaving an unhandled rejection; 13220 notes say the wake is not active yet (review LOWs of #13220)",
+      "translated": "Consumer reports a failed tracked step instead of leaving an unhandled rejection; 13220 notes say the wake is not active yet (review LOWs of #13220)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6cfe840a81 qa(thread): cover the default steer into a two-binding session (report-origin-auto-steer); drop the fragment (QA-only, no-changelog) - review LOWs of #13396",
+      "translated": "Qa(thread): cover the default steer into a two-binding session (report-origin-auto-steer); drop the fragment (QA-only, no-changelog) - review LOWs of #13396"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f53e7000fb fix(thread): flag failed thread tool results isError",
+      "translated": "Flag failed thread tool results isError"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a609d84aa7 changes: fragment for #13396",
+      "translated": "Changes: fragment for #13396"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2cf6e8e64a qa(thread): bind report-origin threads with follow_up so B queues behind A (Fixes #13395)",
+      "translated": "Qa(thread): bind report-origin threads with follow_up so B queues behind A (Fixes #13395)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1ebd8b9504 fix(thread): a thread created on another device is named by its durable id (#13393)",
+      "translated": "A thread created on another device is named by its durable id (#13393)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "050a11e8ae Merge branch 'feat/13037-carrier' into fix/13037-session-kind-closed",
+      "translated": "Merge branch 'feat/13037-carrier' into fix/13037-session-kind-closed"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "64b1ca5b94 changes: fragment for #13220",
+      "translated": "Changes: fragment for #13220"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "311126273c Merge feat/13037-carrier into fix/13037-session-kind-closed (adopted train, rebase on dev)",
+      "translated": "Merge feat/13037-carrier into fix/13037-session-kind-closed (adopted train, rebase on dev)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "12a41f0f53 Merge feat/13037-woken-record into feat/13037-carrier (adopted train, rebase on dev)",
+      "translated": "Merge feat/13037-woken-record into feat/13037-carrier (adopted train, rebase on dev)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b7bc4774af Merge feat/13037-intake-row into feat/13037-woken-record (adopted train, rebase on dev)",
+      "translated": "Merge feat/13037-intake-row into feat/13037-woken-record (adopted train, rebase on dev)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "081d97430f Merge origin/dev into feat/13037-intake-row (adopted train, rebase on dev)",
+      "translated": "Merge origin/dev into feat/13037-intake-row (adopted train, rebase on dev)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "606e6b49e8 test(remote): the #13268 wait-notice test stores the queued send's entry, as the engine does (#13272 with #13273)",
+      "translated": "The #13268 wait-notice test stores the queued send's entry, as the engine does (#13272 with #13273)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b08169b637 Merge commit '83373dcbb545ae2336e58abb46af028e9ad29a9e' into fix/13267-stale-turn-answer",
+      "translated": "Merge commit '83373dcbb545ae2336e58abb46af028e9ad29a9e' into fix/13267-stale-turn-answer"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "83373dcbb5 Merge pull request #13375 from code-yeongyu/release/v5.1.70-source-state",
+      "translated": "Merge pull request #13375 from code-yeongyu/release/v5.1.70-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4a4f159692 changes: name the two forwarding-only source changes in the #13333 fragment (#13331)",
+      "translated": "Changes: name the two forwarding-only source changes in the #13333 fragment (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7328a0bca5 test(memory-core): drive the journal lock clock instead of waiting out 10 s",
+      "translated": "Drive the journal lock clock instead of waiting out 10 s"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "92117b0145 changes: describe the final order-dependent test mock fix (#13331)",
+      "translated": "Changes: describe the final order-dependent test mock fix (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1aa4e3659f tests: keep the hook-command shim and dispatch-hook as on dev (#13331)",
+      "translated": "Tests: keep the hook-command shim and dispatch-hook as on dev (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0f8e4065a6 tests: spy on dispatch-hook's dependencies instead of module-mocking them (#13331)",
+      "translated": "Tests: spy on dispatch-hook's dependencies instead of module-mocking them (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "be84cedb2d tests: spy on the shared logger instead of module-mocking the shared barrel (#13331)",
+      "translated": "Tests: spy on the shared logger instead of module-mocking the shared barrel (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4b982bbcef tests: stop dispatch-hook.test.ts leaking its hook-command mock (#13331)",
+      "translated": "Tests: stop dispatch-hook.test.ts leaking its hook-command mock (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "36b8549e51 tests: complete the remaining tmux-utils mocks and the legacy toast barrel (#13331)",
+      "translated": "Tests: complete the remaining tmux-utils mocks and the legacy toast barrel (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d33d2f5f9c changes: fragment for the order-dependent test mock fix (#13331)",
+      "translated": "Changes: fragment for the order-dependent test mock fix (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6528b2df34 docs(changes): fragment for #13332",
+      "translated": "Fragment for #13332"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8bbd7b22c1 fix(memory): name and log the close, release and handler sync failures; log error names, not messages (#13157 review LOWs)",
+      "translated": "Name and log the close, release and handler sync failures; log error names, not messages (#13157 review LOWs)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3c4532fa6d test(memory): RED - close/release/handler failures name a code, logs carry no message text, a refused read re-arms the read log (#13157 review LOWs)",
+      "translated": "RED - close/release/handler failures name a code, logs carry no message text, a refused read re-arms the read log (#13157 review LOWs)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "890ba9b5c4 tests: stop the resolve-member barrel mock leaking into delegate-task (#13331)",
+      "translated": "Tests: stop the resolve-member barrel mock leaking into delegate-task (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "dd7f09c2fd tests: make the tmux-utils module mocks complete (#13331)",
+      "translated": "Tests: make the tmux-utils module mocks complete (#13331)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "862123750c fix(remote): a not-yet-stamped send prefers its own exact entry over a message that wraps its text (review of #13272)",
+      "translated": "A not-yet-stamped send prefers its own exact entry over a message that wraps its text (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1db22e4237 docs(changes): fragment for #13329",
+      "translated": "Fragment for #13329"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7f91e65527 fix(memory-sync): a desktop refusal on the main-thread channel is DesktopSyncRefused, read as signed out (#13325 follow-up)",
+      "translated": "A desktop refusal on the main-thread channel is DesktopSyncRefused, read as signed out (#13325 follow-up)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a7128f8827 test(memory-sync): a desktop refusal on the main-thread channel reads as signed out (RED, #13325 follow-up)",
+      "translated": "A desktop refusal on the main-thread channel reads as signed out (RED, #13325 follow-up)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2650040663 test(remote): the engine e2e stops at the stored user entry with egress blocked; anchor a not-yet-stamped send by entry identity (review of #13272)",
+      "translated": "The engine e2e stops at the stored user entry with egress blocked; anchor a not-yet-stamped send by entry identity (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0b5b25f089 docs(changes): fragment for #13327",
+      "translated": "Fragment for #13327"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fa9628a565 fix(memory-sync): a retired desktop account ends the account, not the private channel (#13325)",
+      "translated": "A retired desktop account ends the account, not the private channel (#13325)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "95db846a2a test(memory-sync): an account rollover on a live desktop channel reaches the new account (RED, #13325)",
+      "translated": "An account rollover on a live desktop channel reaches the new account (RED, #13325)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "b156cf31aa fix(remote): a waiting queued send never takes an older same-text answer; prove the stored id on the pinned engine (review of #13272)",
+      "translated": "A waiting queued send never takes an older same-text answer; prove the stored id on the pinned engine (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "09d23da50f fix(memory): name and log the read/enable sync unavailable causes too (#13153)",
+      "translated": "Name and log the read/enable sync unavailable causes too (#13153)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "63e8da53b7 test(opencode): restore session storage module exports",
+      "translated": "Restore session storage module exports"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ef7ddd5078 fix(remote): anchor a waiting send on its own client message id; fix the e2e's await (review of #13272)",
+      "translated": "Anchor a waiting send on its own client message id; fix the e2e's await (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6dc4a36b28 Merge remote-tracking branch 'origin/dev' into fix/13267-stale-turn-answer",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13267-stale-turn-answer"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a2b0cc7fe3 fix(remote): prove the transcript anchor against the shipped engine's persisted prompt entry (review of #13272)",
+      "translated": "Prove the transcript anchor against the shipped engine's persisted prompt entry (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "11053ab0c6 test(thread): pin the unknown session kind in the waker, the same-device wake and the consumer gates (review of #13279) (#13037)",
+      "translated": "Pin the unknown session kind in the waker, the same-device wake and the consumer gates (review of #13279) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "456db6cd03 style(thread): wrap the classifier test table as the formatter does (#13037)",
+      "translated": "Wrap the classifier test table as the formatter does (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "54f299c776 docs(changes): fragment for the closed session-kind classifier (#13279)",
+      "translated": "Fragment for the closed session-kind classifier (#13279)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a02a2b8188 fix(thread): the session-kind classifier is closed: an unreadable header or an unrecognised kind is unknown, which no wake or takeover opens (review of #13220) (#13037)",
+      "translated": "The session-kind classifier is closed: an unreadable header or an unrecognised kind is unknown, which no wake or takeover opens (review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0f387b9286 test(thread): a header the classifier cannot read and an unrecognised session kind are refused on the wake and the takeover (review of #13220) (#13037)",
+      "translated": "A header the classifier cannot read and an unrecognised session kind are refused on the wake and the takeover (review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f1306f02ea chore(thread): open the follow-up that closes the session-kind classifier (#13037)",
+      "translated": "Open the follow-up that closes the session-kind classifier (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9351a872b6 style(thread): wrap the undecodable-acknowledgement row as the formatter does (#13037)",
+      "translated": "Wrap the undecodable-acknowledgement row as the formatter does (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "194ea1002e fix(remote): follow a queued send through agent_end turns, not run settles (review of #13272)",
+      "translated": "Follow a queued send through agent_end turns, not run settles (review of #13272)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2168e4865d docs(changes): name the fragment for its PR",
+      "translated": "Name the fragment for its PR"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "796a6f54c2 fix(remote): print only the turn a remote send starts (fixes #13267)",
+      "translated": "Print only the turn a remote send starts (fixes #13267)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "16b975b221 fix(thread): a restart reads the wake off until its own acknowledgement, a wake with nothing queued ends only a requested record, and a takeover refuses a child or worker session (delta review of #13220) (#13037)",
+      "translated": "A restart reads the wake off until its own acknowledgement, a wake with nothing queued ends only a requested record, and a takeover refuses a child or worker session (delta review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0b0674abab test(thread): a restart without an acknowledgement reads the wake off, a wake with nothing queued leaves another carrier's live record alone, and a takeover refuses a child or worker session (delta review of #13220) (#13037)",
+      "translated": "A restart without an acknowledgement reads the wake off, a wake with nothing queued leaves another carrier's live record alone, and a takeover refuses a child or worker session (delta review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "da331c654d style(thread): wrap the serve-acknowledgement table title as the formatter does (#13037)",
+      "translated": "Wrap the serve-acknowledgement table title as the formatter does (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e925c22696 feat(thread): the consumer holds the receiving device's wake switch from its serve acknowledgement and event, and a carrier opens only for a queued row its own switch allows (A7.2.3) (#13037)",
+      "translated": "The consumer holds the receiving device's wake switch from its serve acknowledgement and event, and a carrier opens only for a queued row its own switch allows (A7.2.3) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e6f4950cd4 test(thread): the consumer reads the receiving device's wake switch from its own serve acknowledgement and event, and a carrier opens only for a queued row its own switch allows (A7.2.3) (#13037)",
+      "translated": "The consumer reads the receiving device's wake switch from its own serve acknowledgement and event, and a carrier opens only for a queued row its own switch allows (A7.2.3) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d447e01630 fix(thread): a takeover reopens the session in its own directory and ends a gone or ambiguous row; the sweep opens only for a queued row its switch allows (review of #13220) (#13037)",
+      "translated": "A takeover reopens the session in its own directory and ends a gone or ambiguous row; the sweep opens only for a queued row its switch allows (review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9c3a231b0e test(thread): a takeover reopens in the session's own directory and ends a gone or ambiguous row; the sweep opens a same-device wake only while its switch is on (review of #13220) (#13037)",
+      "translated": "A takeover reopens in the session's own directory and ends a gone or ambiguous row; the sweep opens a same-device wake only while its switch is on (review of #13220) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3ede65eece test(thread): the carrier's open frame carries no field from the record (section 9 mutant: a preset taken from the record) (#13037)",
+      "translated": "The carrier's open frame carries no field from the record (section 9 mutant: a preset taken from the record) (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "77fadabe9f test(thread): name each repeat case's expected answer in its title; bun fmt (#13037)",
+      "translated": "Name each repeat case's expected answer in its title; bun fmt (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2393c23720 fix(thread): answer a repeat from its ledger row before the capacity checks, and compare it with the row (review LOWs of #13212)",
+      "translated": "Answer a repeat from its ledger row before the capacity checks, and compare it with the row (review LOWs of #13212)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a0f77ede10 test(thread): a repeat answered from its ledger row is compared with the row and answered before the backlog check (RED, review LOWs of #13212)",
+      "translated": "A repeat answered from its ledger row is compared with the row and answered before the backlog check (RED, review LOWs of #13212)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "24e57da4dc chore(config): regenerate the config schema",
+      "translated": "Regenerate the config schema"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ab47705981 style(thread): bun fmt the carrier, consumer and drain files (#13037)",
+      "translated": "Bun fmt the carrier, consumer and drain files (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "325f032b4f fix(thread): the sweep's session list orders by a listed column; a takeover evaluates inside its own chain (#13037)",
+      "translated": "The sweep's session list orders by a listed column; a takeover evaluates inside its own chain (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d4072ff523 test(thread): the harness's device service admits; apply the queued second delivery; type the fake answer envelope (#13037)",
+      "translated": "The harness's device service admits; apply the queued second delivery; type the fake answer envelope (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4f49621fa3 Merge remote-tracking branch 'origin/feat/13037-woken-record' into feat/13037-carrier",
+      "translated": "Merge remote-tracking branch 'origin/feat/13037-woken-record' into feat/13037-carrier"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "95d8dff7b2 fix(thread): answer a repeated delivery id from its row once the receipt expired (base review LOW, #13037)",
+      "translated": "Answer a repeated delivery id from its row once the receipt expired (base review LOW, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1a345d7031 test(thread): a repeated delivery id after its receipt expired is answered from its row (RED, base review LOW, #13037)",
+      "translated": "A repeated delivery id after its receipt expired is answered from its row (RED, base review LOW, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8bb99fd641 feat(thread): the same-device switch (default off) and the row answers (#13037 5.3, A3.1.6, A2.6, A2.11)",
+      "translated": "The same-device switch (default off) and the row answers (#13037 5.3, A3.1.6, A2.6, A2.11)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a5e2b03de5 feat(thread): admission at wake and run, the opening gate and the pending sweep (#13037 5.6, A2.2, A3.1.5, 5.4)",
+      "translated": "Admission at wake and run, the opening gate and the pending sweep (#13037 5.6, A2.2, A3.1.5, 5.4)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "593c5449bf feat(thread): the consumer behind a port (#13037 5.4, 5.12, A2.4, A2.14, A5)",
+      "translated": "The consumer behind a port (#13037 5.4, 5.12, A2.4, A2.14, A5)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1b46226f9e feat(thread): the carrier and the close (#13037 A3.1.3-A3.1.8, A3.2)",
+      "translated": "The carrier and the close (#13037 A3.1.3-A3.1.8, A3.2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "28b123fbed test(thread): a queued answer names the session's stored wait by kind (RED, #13037 5.1)",
+      "translated": "A queued answer names the session's stored wait by kind (RED, #13037 5.1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "82f8f02879 style(thread): bun fmt store-worker.ts (#13037)",
+      "translated": "Bun fmt store-worker.ts (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a9fc58512d test(thread): delivery.answer's reply is the engine's RPC response envelope (RED, #13037 A5 addendum 2)",
+      "translated": "Delivery.answer's reply is the engine's RPC response envelope (RED, #13037 A5 addendum 2)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "86c5de1607 test(thread): the consumer side of the local delivery messages (RED, #13037 A5)",
+      "translated": "The consumer side of the local delivery messages (RED, #13037 A5)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "30377142aa test(thread): two sender devices with one command id each get their own answer (RED, #13037 A5.1)",
+      "translated": "Two sender devices with one command id each get their own answer (RED, #13037 A5.1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d8d2e11ed4 fix(thread): keep the woken-session ops in the store worker (knip), one doc block per marker path, say what the v13 step changes (review of #13212)",
+      "translated": "Keep the woken-session ops in the store worker (knip), one doc block per marker path, say what the v13 step changes (review of #13212)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "adf647128a Merge remote-tracking branch 'origin/feat/13037-intake-row' into feat/13037-woken-record",
+      "translated": "Merge remote-tracking branch 'origin/feat/13037-intake-row' into feat/13037-woken-record"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "da41a7f841 test(thread): the wake count restarts when a person's input moved the revision between wakes (RED, #13037)",
+      "translated": "The wake count restarts when a person's input moved the revision between wakes (RED, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2f63fb8ad5 test(thread): the carrier, the consumer, admission at wake and run, and the close (RED, #13037)",
+      "translated": "The carrier, the consumer, admission at wake and run, and the close (RED, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "861d8fa69a fix(thread): key the intake receipt on the attested device alone; ledger id unique (review LOWs)",
+      "translated": "Key the intake receipt on the attested device alone; ledger id unique (review LOWs)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "09e135cd46 test(thread): a repeated delivery id from one device under another claimed sender is one delivery (RED)",
+      "translated": "A repeated delivery id from one device under another claimed sender is one delivery (RED)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "65b0aeb61c fix(thread): keep the intake op in the store worker so store-ops gains no worker-only export (knip)",
+      "translated": "Keep the intake op in the store worker so store-ops gains no worker-only export (knip)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c7f1c7e619 style(thread): bun fmt the woken-session files (#13037)",
+      "translated": "Bun fmt the woken-session files (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "66ca236f1c test(thread): type the woken-session expectations for tsgo (#13037)",
+      "translated": "Type the woken-session expectations for tsgo (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "10598d31ce feat(thread): the woken-session record and the wake primitive, steps 1 to 5 (#13037)",
+      "translated": "The woken-session record and the wake primitive, steps 1 to 5 (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6b6f01eb57 test(thread): the opening gate's exits and its gate read (RED, #13037 A3.1.1/A3.1.5)",
+      "translated": "The opening gate's exits and its gate read (RED, #13037 A3.1.1/A3.1.5)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "098265afdd test(thread): woken-session record and wake primitive contract (RED, #13037)",
+      "translated": "Woken-session record and wake primitive contract (RED, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ec329189a4 test(thread): rewind fixtures past schema v12; reserve the deliveries_ledger index",
+      "translated": "Rewind fixtures past schema v12; reserve the deliveries_ledger index"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7c3fbb46b6 fix(thread): type the legacy mailbox read in store-ops (oxlint no-implicit-any-let)",
+      "translated": "Type the legacy mailbox read in store-ops (oxlint no-implicit-any-let)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0024d87d57 docs(changes): intake row fragment (#13208)",
+      "translated": "Intake row fragment (#13208)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "89e61ec1ac feat(thread): gateway intake row for sessions that are not running (#13037)",
+      "translated": "Gateway intake row for sessions that are not running (#13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d4035502fa test(thread): intake row contract for sessions that are not running (RED, #13037)",
+      "translated": "Intake row contract for sessions that are not running (RED, #13037)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5fa21444eb style(memory): bun fmt the sync status diagnostic files (#13157)",
+      "translated": "Bun fmt the sync status diagnostic files (#13157)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "82b20ca187 Merge remote-tracking branch 'origin/dev' into fix/13153-sync-status-diagnostic",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13153-sync-status-diagnostic"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fe67612aa9 chore(plugin): regenerate omo.js for the sync status diagnostic (#13157, node 24.22.0)",
+      "translated": "Regenerate omo.js for the sync status diagnostic (#13157, node 24.22.0)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c09bc752ff docs(changes): fragment for #13157",
+      "translated": "Fragment for #13157"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c0d6103e8a fix(memory): sync status names why authority is unavailable and logs it once (#13153)",
+      "translated": "Sync status names why authority is unavailable and logs it once (#13153)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "57711deaa3 test(memory): RED - sync status names why authority is unavailable and warns once (#13153)",
+      "translated": "RED - sync status names why authority is unavailable and warns once (#13153)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ec0f1a38f2 test(memory): cover reftable directory head delegation",
+      "translated": "Cover reftable directory head delegation"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3ffc93c23a Merge origin/dev into fix/12241-portable-test-fixtures",
+      "translated": "Merge origin/dev into fix/12241-portable-test-fixtures"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fed195f9dc Merge commit '5a1db393c84c61c47a80a4814cfaafae270a49eb' into HEAD",
+      "translated": "Merge commit '5a1db393c84c61c47a80a4814cfaafae270a49eb' into HEAD"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3eb5004605 fix(tests): integrate current dev seam contract (fixes #12241)",
+      "translated": "Integrate current dev seam contract (fixes #12241)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8fa56d52e6 fix(tests): integrate runner permission changes from dev (fixes #12241)",
+      "translated": "Integrate runner permission changes from dev (fixes #12241)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "cdf43fc2c8 fix(tests): refresh portable fixtures against current dev (fixes #12241)",
+      "translated": "Refresh portable fixtures against current dev (fixes #12241)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "48144cf7c9 fix(tests): pin launch-spec home display fixture (fixes #12241)",
+      "translated": "Pin launch-spec home display fixture (fixes #12241)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0f730d8e36 fix(tests): isolate host-dependent regression fixtures (fixes #12241)",
+      "translated": "Isolate host-dependent regression fixtures (fixes #12241)"
+    }
+  ],
+  "translatedAt": "2026-11-15T18:55:48.565Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 46687
+}
