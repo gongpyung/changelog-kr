@@ -1,0 +1,3146 @@
+{
+  "version": "5.1.74",
+  "date": "2026-11-16",
+  "parsedAt": "2026-11-16T22:10:31.256Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The EQ.omo driver resolves a symlinked temp dir before it makes its sandboxes, so a recording on macOS no longer carries `/private<sandbox>` paths or an untrusted project. A new test fails when a platform's EQ.omo goldens were recorded with a senpi version more than a week away from the pinned one. ([#13865](https://github.com/code-yeongyu/oh-my-openagent/pull/13865))",
+      "translated": "The EQ.omo driver resolves a symlinked temp dir before it makes its sandboxes, so a recording on macOS no longer carries `/private<sandbox>` paths or an untrusted project. A new test fails when a platform's EQ.omo goldens were recorded with a senpi version more than a week away from the pinned one. ([#13865](https://github.com/code-yeongyu/oh-my-openagent/pull/13865))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "CI: the desktop-bench comparison summary prints its regression thresholds (x1.3 and +0.5 ms) instead of `undefined`. It now reads them from `compareBench`'s result rather than destructuring names `eval-core.mjs` does not export. ([#13838](https://github.com/code-yeongyu/oh-my-openagent/pull/13838), follow-up to #12876 review L1, [#12567](https://github.com/code-yeongyu/oh-my-openagent/issues/12567))",
+      "translated": "The desktop-bench comparison summary prints its regression thresholds (x1.3 and +0.5 ms) instead of `undefined`. It now reads them from `compareBench`'s result rather than destructuring names `eval-core.mjs` does not export. ([#13838](https://github.com/code-yeongyu/oh-my-openagent/pull/13838), follow-up to #12876 review L1, [#12567](https://github.com/code-yeongyu/oh-my-openagent/issues/12567))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote bootstrap` installs device service 0.1.39 instead of 0.1.27, which was older than the wake and delivery minimum and answered open/create to the device with `unsupported`. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))",
+      "translated": "`omo remote bootstrap` installs device service 0.1.39 instead of 0.1.27, which was older than the wake and delivery minimum and answered open/create to the device with `unsupported`. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A wake toward a device service older than the wake minimum now names the service's version, the minimum and the fix, instead of a bare `unsupported`. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))",
+      "translated": "A wake toward a device service older than the wake minimum now names the service's version, the minimum and the fix, instead of a bare `unsupported`. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote devices` lists the device it runs on first (the account roster held only the other devices), and `--json` marks each row `this_device`. `omo remote sessions --device` with a device that is not on the account now fails with exit 2 naming it, instead of printing an empty list. ([#13458](https://github.com/code-yeongyu/oh-my-openagent/pull/13458), part of [#13402](https://github.com/code-yeongyu/oh-my-openagent/issues/13402))",
+      "translated": "`omo remote devices` lists the device it runs on first (the account roster held only the other devices), and `--json` marks each row `this_device`. `omo remote sessions --device` with a device that is not on the account now fails with exit 2 naming it, instead of printing an empty list. ([#13458](https://github.com/code-yeongyu/oh-my-openagent/pull/13458), part of [#13402](https://github.com/code-yeongyu/oh-my-openagent/issues/13402))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`thread_interrupt` also stops the background jobs the interrupted turn started (a bash command it ran in the background or that auto-detached), so the thread no longer wakes a minute later when that job ends and replies as if it had never been interrupted. The result names what was stopped as `background: { status: \"stopped\", stopped, failed }`; an engine that predates the stop answers `background: { status: \"not_supported\" }`. A thread on this device and a thread on another device run the same interrupt code and answer the same shape. ([#13444](https://github.com/code-yeongyu/oh-my-openagent/pull/13444))",
+      "translated": "`thread_interrupt` also stops the background jobs the interrupted turn started (a bash command it ran in the background or that auto-detached), so the thread no longer wakes a minute later when that job ends and replies as if it had never been interrupted. The result names what was stopped as `background: { status: \"stopped\", stopped, failed }`; an engine that predates the stop answers `background: { status: \"not_supported\" }`. A thread on this device and a thread on another device run the same interrupt code and answer the same shape. ([#13444](https://github.com/code-yeongyu/oh-my-openagent/pull/13444))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Computer use v3 (fake backend): the source guard that bans environment reads now also reports a grouped `use std::{...}` import of the environment module when a `//` or `/* */` comment comes before the item inside the group. A comment can no longer hide an item, or split one at a comma or brace inside it. ([#13363](https://github.com/code-yeongyu/oh-my-openagent/pull/13363))",
+      "translated": "Computer use v3 (fake backend): the source guard that bans environment reads now also reports a grouped `use std::{...}` import of the environment module when a `//` or `/* */` comment comes before the item inside the group. A comment can no longer hide an item, or split one at a comma or brace inside it. ([#13363](https://github.com/code-yeongyu/oh-my-openagent/pull/13363))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Desktop engine: the client retries a connection reset before the first reply byte only on Unix sockets, never on a Windows named pipe, where the daemon may already have run the request. ([#12744](https://github.com/code-yeongyu/oh-my-openagent/pull/12744))",
+      "translated": "Desktop engine: the client retries a connection reset before the first reply byte only on Unix sockets, never on a Windows named pipe, where the daemon may already have run the request. ([#12744](https://github.com/code-yeongyu/oh-my-openagent/pull/12744))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The `thread_read` wait limit (600,000 ms) is now internal to the thread schema instead of an unused export; the limit itself is unchanged. No behavior change. ([#13864](https://github.com/code-yeongyu/oh-my-openagent/pull/13864))",
+      "translated": "The `thread_read` wait limit (600,000 ms) is now internal to the thread schema instead of an unused export; the limit itself is unchanged. No behavior change. ([#13864](https://github.com/code-yeongyu/oh-my-openagent/pull/13864))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Internal: the Windows backend documents when its posted key route still sends a key under a held Alt: for modifier-only chords, when releasing held keys, and while a failed Alt release is still recorded as held. A Windows test is also renamed to match the order of its checks. Nothing changes for users. ([#13824](https://github.com/code-yeongyu/oh-my-openagent/pull/13824), fixes [#13821](https://github.com/code-yeongyu/oh-my-openagent/issues/13821))",
+      "translated": "Internal: the Windows backend documents when its posted key route still sends a key under a held Alt: for modifier-only chords, when releasing held keys, and while a failed Alt release is still recorded as held. A Windows test is also renamed to match the order of its checks. Nothing changes for users. ([#13824](https://github.com/code-yeongyu/oh-my-openagent/pull/13824), fixes [#13821](https://github.com/code-yeongyu/oh-my-openagent/issues/13821))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Internal: the module doc of the X11 input's client-process reader now names the `/proc/<pid>/exe` read added for the background-input check. Nothing changes for users. ([#13820](https://github.com/code-yeongyu/oh-my-openagent/pull/13820), fixes [#13818](https://github.com/code-yeongyu/oh-my-openagent/issues/13818))",
+      "translated": "Internal: the module doc of the X11 input's client-process reader now names the `/proc/<pid>/exe` read added for the background-input check. Nothing changes for users. ([#13820](https://github.com/code-yeongyu/oh-my-openagent/pull/13820), fixes [#13818](https://github.com/code-yeongyu/oh-my-openagent/issues/13818))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "`/remote enable`, `/remote disable` and `/remote control` in the TUI now answer in a sentence (\"Remote sessions are on for this device.\", \"Remote control is off: ...\") instead of the CLI's raw JSON. When `/remote enable` cannot finish, it shows the CLI's reason (for example \"Could not download the OmO device service.\") instead of an exit code, and a warning the CLI prints while succeeding (for example that the device is not linked) now shows after the result. ([#13796](https://github.com/code-yeongyu/oh-my-openagent/pull/13796))",
+      "translated": "`/remote enable`, `/remote disable` and `/remote control` in the TUI now answer in a sentence (\"Remote sessions are on for this device.\", \"Remote control is off: ...\") instead of the CLI's raw JSON. When `/remote enable` cannot finish, it shows the CLI's reason (for example \"Could not download the OmO device service.\") instead of an exit code, and a warning the CLI prints while succeeding (for example that the device is not linked) now shows after the result. ([#13796](https://github.com/code-yeongyu/oh-my-openagent/pull/13796))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The remote module's public types no longer depend on internal modules, so the importable remote SDK ships clean type declarations. No command or tool behaves differently. ([#13782](https://github.com/code-yeongyu/oh-my-openagent/pull/13782))",
+      "translated": "The remote module's public types no longer depend on internal modules, so the importable remote SDK ships clean type declarations. No command or tool behaves differently. ([#13782](https://github.com/code-yeongyu/oh-my-openagent/pull/13782))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The remote module gains its client factories, one per kind of caller (a person, including `omo remote`; a session; a connector; the thread SDK's own principal; the device service's bootstrap entry), and its public entry. Its alias operations work when the caller hands in the account's alias registry, naming each session by the same durable id the thread tools use, and a device that does not answer is reported as offline rather than as having no such session. Nothing calls them yet, so no command or tool behaves differently. ([#13750](https://github.com/code-yeongyu/oh-my-openagent/pull/13750))",
+      "translated": "The remote module gains its client factories, one per kind of caller (a person, including `omo remote`; a session; a connector; the thread SDK's own principal; the device service's bootstrap entry), and its public entry. Its alias operations work when the caller hands in the account's alias registry, naming each session by the same durable id the thread tools use, and a device that does not answer is reported as offline rather than as having no such session. Nothing calls them yet, so no command or tool behaves differently. ([#13750](https://github.com/code-yeongyu/oh-my-openagent/pull/13750))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The remote module now declares every operation a surface needs (part 4a-2): opening, messaging, reading, following, waiting on, interrupting and closing a session on any device, its model and thinking level, attaching with pending approvals, aliases and the wake switch. The operations that have not landed yet answer \"unsupported\" as data, and nothing calls them yet, so no command or tool behaves differently. ([#13747](https://github.com/code-yeongyu/oh-my-openagent/pull/13747))",
+      "translated": "The remote module now declares every operation a surface needs (part 4a-2): opening, messaging, reading, following, waiting on, interrupting and closing a session on any device, its model and thinking level, attaching with pending approvals, aliases and the wake switch. The operations that have not landed yet answer \"unsupported\" as data, and nothing calls them yet, so no command or tool behaves differently. ([#13747](https://github.com/code-yeongyu/oh-my-openagent/pull/13747))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Remote access now has its own module (part 4a-1 of the one remote module design): typed results, one code list, a deadline table and a clock seam, with the service, devices and session list members. Nothing uses it yet, so no command or tool behaves differently. ([#13498](https://github.com/code-yeongyu/oh-my-openagent/pull/13498))",
+      "translated": "Remote access now has its own module (part 4a-1 of the one remote module design): typed results, one code list, a deadline table and a clock seam, with the service, devices and session list members. Nothing uses it yet, so no command or tool behaves differently. ([#13498](https://github.com/code-yeongyu/oh-my-openagent/pull/13498))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The device service client takes one injectable clock for its handshake, request, endpoint-command and attach waits, so each of those deadlines can be tested on fake time. Real timers stay the default and no wait changed. ([#13473](https://github.com/code-yeongyu/oh-my-openagent/pull/13473))",
+      "translated": "The device service client takes one injectable clock for its handshake, request, endpoint-command and attach waits, so each of those deadlines can be tested on fake time. Real timers stay the default and no wait changed. ([#13473](https://github.com/code-yeongyu/oh-my-openagent/pull/13473))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Computer use v3: on Windows, one user's two logon sessions take turns at the computer instead of acting at once: the interaction lock is now the operating system's file lock on `%LOCALAPPDATA%\\OmO\\ComputerControl\\run\\interaction.lock`, in a directory only that user and SYSTEM can open, on a local NTFS or ReFS volume. A session without a runtime directory cannot act on a real machine; it can still read. ([#13367](https://github.com/code-yeongyu/oh-my-openagent/pull/13367))",
+      "translated": "Computer use v3: on Windows, one user's two logon sessions take turns at the computer instead of acting at once: the interaction lock is now the operating system's file lock on `%LOCALAPPDATA%\\OmO\\ComputerControl\\run\\interaction.lock`, in a directory only that user and SYSTEM can open, on a local NTFS or ReFS volume. A session without a runtime directory cannot act on a real machine; it can still read. ([#13367](https://github.com/code-yeongyu/oh-my-openagent/pull/13367))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "The Windows live tier's ledger job now fails when a fresh measurement's verdict differs from the committed `crates/omo-computer-backend-win32/probes/hosted-windows-live.tsv`, naming each leg that moved, so the committed ledger only changes on purpose. ([#13274](https://github.com/code-yeongyu/oh-my-openagent/pull/13274), part of [#13221](https://github.com/code-yeongyu/oh-my-openagent/issues/13221))",
+      "translated": "The Windows live tier's ledger job now fails when a fresh measurement's verdict differs from the committed `crates/omo-computer-backend-win32/probes/hosted-windows-live.tsv`, naming each leg that moved, so the committed ledger only changes on purpose. ([#13274](https://github.com/code-yeongyu/oh-my-openagent/pull/13274), part of [#13221](https://github.com/code-yeongyu/oh-my-openagent/issues/13221))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the session crate's side-effect funnel lands. Every mutating call runs the gate, writes a pre-input marker before the first OS call on every transport, performs the call, reads back and writes one audit event per side effect; a crashed call is never resent and reads `delivery_uncertain`. Audit, lock, permits, batches and artifact retention come with it, and a typed secret is audited by length only. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13367](https://github.com/code-yeongyu/oh-my-openagent/pull/13367))",
+      "translated": "Computer use v3: the session crate's side-effect funnel lands. Every mutating call runs the gate, writes a pre-input marker before the first OS call on every transport, performs the call, reads back and writes one audit event per side effect; a crashed call is never resent and reads `delivery_uncertain`. Audit, lock, permits, batches and artifact retention come with it, and a typed secret is audited by length only. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13367](https://github.com/code-yeongyu/oh-my-openagent/pull/13367))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the safety crate `omo-computer-safety` lands. It holds the fixed gate order (each gate refuses before any OS call with nothing sent), the supervisor whose stop commit releases every hold within 1 s or exits, the stop latch and persisted stop marker under the per-uid state root, the `live`/`deaf`/`none` stop paths with the host-relay-only policy, the per-OS protected tables and dangerous chords, and the self set. The walking skeleton's `click` and `typeText` now pass through the gate. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13353](https://github.com/code-yeongyu/oh-my-openagent/pull/13353))",
+      "translated": "Computer use v3: the safety crate `omo-computer-safety` lands. It holds the fixed gate order (each gate refuses before any OS call with nothing sent), the supervisor whose stop commit releases every hold within 1 s or exits, the stop latch and persisted stop marker under the per-uid state root, the `live`/`deaf`/`none` stop paths with the host-relay-only policy, the per-OS protected tables and dangerous chords, and the self set. The walking skeleton's `click` and `typeText` now pass through the gate. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13353](https://github.com/code-yeongyu/oh-my-openagent/pull/13353))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: the walking skeleton lands. `omo-computer-engine` runs on the fake backend with `--stdio` (NDJSON JSON-RPC), `--schema`, `--selftest` and `--version`; the session answers `session.open`, `capabilities` and close plus the thin `click` and `typeText` verbs; refusals go through the closed `COMPUTER_*` table. `script/qa/computer/replay.ts` replays conformance cases against the engine binary and prints the JSON pointer of the first mismatch. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13352](https://github.com/code-yeongyu/oh-my-openagent/pull/13352))",
+      "translated": "Computer use v3: the walking skeleton lands. `omo-computer-engine` runs on the fake backend with `--stdio` (NDJSON JSON-RPC), `--schema`, `--selftest` and `--version`; the session answers `session.open`, `capabilities` and close plus the thin `click` and `typeText` verbs; refusals go through the closed `COMPUTER_*` table. `script/qa/computer/replay.ts` replays conformance cases against the engine binary and prints the JSON pointer of the first mismatch. Nothing user-visible changes yet; the existing desktop engine is untouched. ([#13352](https://github.com/code-yeongyu/oh-my-openagent/pull/13352))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Spike SP-R probe and ledger for the computer-use relay pipe: auth lifetime, hub hibernation, message-size and liveness limits measured against a local relay, plus read-only checks on a same-network pair and the hosted relay. Probe-only, no engine change. ([#13166](https://github.com/code-yeongyu/oh-my-openagent/pull/13166), part of [#13051](https://github.com/code-yeongyu/oh-my-openagent/issues/13051))",
+      "translated": "Spike SP-R probe and ledger for the computer-use relay pipe: auth lifetime, hub hibernation, message-size and liveness limits measured against a local relay, plus read-only checks on a same-network pair and the hosted relay. Probe-only, no engine change. ([#13166](https://github.com/code-yeongyu/oh-my-openagent/pull/13166), part of [#13051](https://github.com/code-yeongyu/oh-my-openagent/issues/13051))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Computer use v3: spike SP-W adds a Wayland probe and its ledger under `crates/omo-computer-backend-wayland/probes/`. The probe measures, in one container per compositor (GNOME 46, KDE Plasma 6, sway), whether portal restore tokens survive restarts, which portals exist, libei regions, a second `ConnectToEIS`, the clipboard grant, key release when an input owner dies, the GNOME extension and accessibility behaviour, and KWin window-management access. Each fact is one cited ledger row. Nothing user-visible changes. ([#13163](https://github.com/code-yeongyu/oh-my-openagent/pull/13163))",
+      "translated": "Computer use v3: spike SP-W adds a Wayland probe and its ledger under `crates/omo-computer-backend-wayland/probes/`. The probe measures, in one container per compositor (GNOME 46, KDE Plasma 6, sway), whether portal restore tokens survive restarts, which portals exist, libei regions, a second `ConnectToEIS`, the clipboard grant, key release when an input owner dies, the GNOME extension and accessibility behaviour, and KWin window-management access. Each fact is one cited ledger row. Nothing user-visible changes. ([#13163](https://github.com/code-yeongyu/oh-my-openagent/pull/13163))"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Desktop engine: several clients run by the same user can attach to one shared `--serve` daemon session (SDK `attach` over the Unix socket), each with its own replies; the daemon checks every client's peer credentials and closes a connection from another user before any byte. ([#12744](https://github.com/code-yeongyu/oh-my-openagent/pull/12744))",
+      "translated": "Desktop engine: several clients run by the same user can attach to one shared `--serve` daemon session (SDK `attach` over the Unix socket), each with its own replies; the daemon checks every client's peer credentials and closes a connection from another user before any byte. ([#12744](https://github.com/code-yeongyu/oh-my-openagent/pull/12744))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "`bun fmt` over the whole tree still flags the generated desktop prelude (`packages/senpi-desktop-prelude/src/prelude.js`): its generator does not yet emit formatter-clean output. Formatting only; the shipped prelude behaves the same. The fix is tracked in [#13855](https://github.com/code-yeongyu/oh-my-openagent/pull/13855).",
+      "translated": "`bun fmt` over the whole tree still flags the generated desktop prelude (`packages/senpi-desktop-prelude/src/prelude.js`): its generator does not yet emit formatter-clean output. Formatting only; the shipped prelude behaves the same. The fix is tracked in [#13855](https://github.com/code-yeongyu/oh-my-openagent/pull/13855)."
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "abf50be3e7 ci(publish): operator-built darwin artifacts for the v5.1.74 release (workflows from #13928, merge 8f8f4d1076)",
+      "translated": "Operator-built darwin artifacts for the v5.1.74 release (workflows from #13928, merge 8f8f4d1076)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c1e657cf0d Merge pull request #13444 from code-yeongyu/fix/thread-interrupt-background",
+      "translated": "Merge pull request #13444 from code-yeongyu/fix/thread-interrupt-background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c84deb9a4d Merge origin/dev into fix/thread-interrupt-background",
+      "translated": "Merge origin/dev into fix/thread-interrupt-background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "19b1d484f6 Merge pull request #13864 from code-yeongyu/follow-up/low-13743",
+      "translated": "Merge pull request #13864 from code-yeongyu/follow-up/low-13743"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2c32fecf4f Merge origin/dev into fix/thread-interrupt-background",
+      "translated": "Merge origin/dev into fix/thread-interrupt-background"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "64049c5138 chore(bundles): regenerate this PR's bundle delta after the dev merge (#13864)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13864)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6daca61614 Merge remote-tracking branch 'origin/dev' into follow-up/low-13743",
+      "translated": "Merge remote-tracking branch 'origin/dev' into follow-up/low-13743"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bbab1bd727 Merge pull request #13782 from code-yeongyu/rt/13414-types-closure",
+      "translated": "Merge pull request #13782 from code-yeongyu/rt/13414-types-closure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a36d311c34 Merge pull request #13908 from code-yeongyu/ci/publish-child-path-tag-and-release-target",
+      "translated": "Merge pull request #13908 from code-yeongyu/ci/publish-child-path-tag-and-release-target"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3e8f0a6fa1 chore(bundles): regenerate this PR's bundle delta after the dev merge (#13864)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13864)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f3c6590279 Merge origin/dev into fix/thread-interrupt-background",
+      "translated": "Merge origin/dev into fix/thread-interrupt-background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1d4b4c7ec0 Merge remote-tracking branch 'origin/dev' into follow-up/low-13743",
+      "translated": "Merge remote-tracking branch 'origin/dev' into follow-up/low-13743"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8234828df9 Merge pull request #13854 from code-yeongyu/test/cu-is-row04b-fixtures-push",
+      "translated": "Merge pull request #13854 from code-yeongyu/test/cu-is-row04b-fixtures-push"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7e74bb8c87 Merge pull request #13300 from code-yeongyu/test/cu-is-row04b-rects",
+      "translated": "Merge pull request #13300 from code-yeongyu/test/cu-is-row04b-rects"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "137d902d46 Merge pull request #13903 from code-yeongyu/ci/platform-decision-warning-cap",
+      "translated": "Merge pull request #13903 from code-yeongyu/ci/platform-decision-warning-cap"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cc4c41eeaa Merge pull request #13298 from code-yeongyu/test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge pull request #13298 from code-yeongyu/test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7ba14fc96d Merge pull request #13367 from code-yeongyu/feat/cu-v3-row17-mutate-funnel",
+      "translated": "Merge pull request #13367 from code-yeongyu/feat/cu-v3-row17-mutate-funnel"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7d727617f2 Merge pull request #13773 from code-yeongyu/fix/remote-attach-raiser-only-settled",
+      "translated": "Merge pull request #13773 from code-yeongyu/fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a3ca2fbedf Merge pull request #13750 from code-yeongyu/rt/13414-u3-factories",
+      "translated": "Merge pull request #13750 from code-yeongyu/rt/13414-u3-factories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fb83e53701 Merge pull request #13747 from code-yeongyu/rt/13414-4a2-types",
+      "translated": "Merge pull request #13747 from code-yeongyu/rt/13414-4a2-types"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dd6a305fb0 Merge remote-tracking branch 'origin/dev' into ci/publish-child-path-tag-and-release-target",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ci/publish-child-path-tag-and-release-target"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4859721666 Merge pull request #13353 from code-yeongyu/feat/cu-v3-row16-safety",
+      "translated": "Merge pull request #13353 from code-yeongyu/feat/cu-v3-row16-safety"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "60d3e14a55 ci(publish): tag the prepared source on the child path and target it in the release",
+      "translated": "Tag the prepared source on the child path and target it in the release"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f642f314db Merge pull request #13869 from code-yeongyu/ci/pr-bots-tracker-lows",
+      "translated": "Merge pull request #13869 from code-yeongyu/ci/pr-bots-tracker-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cfed9ec7bc Merge pull request #12744 from code-yeongyu/cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on",
+      "translated": "Merge pull request #12744 from code-yeongyu/cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "abb746d14f chore(bundles): regenerate this PR's bundle delta after the dev merge (#13864)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13864)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "244ed8daf2 Merge remote-tracking branch 'origin/dev' into follow-up/low-13743",
+      "translated": "Merge remote-tracking branch 'origin/dev' into follow-up/low-13743"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b5cba9393d chore(bundles): regenerate this PR's generated files on #13747 8d1a33a2b1",
+      "translated": "Regenerate this PR's generated files on #13747 8d1a33a2b1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "83329c101d Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ee55110824 ci(pr-platform-decision): the truncation warning only above the API cap (#13859)",
+      "translated": "The truncation warning only above the API cap (#13859)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f3a61ff946 Merge origin/dev into fix/thread-interrupt-background",
+      "translated": "Merge origin/dev into fix/thread-interrupt-background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "734a4d1e5a Merge pull request #13876 from code-yeongyu/ci/platform-decision-truncated-files",
+      "translated": "Merge pull request #13876 from code-yeongyu/ci/platform-decision-truncated-files"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ba7c85a2a2 test(platform-red-tracker): portable fake gh queue (#13840)",
+      "translated": "Portable fake gh queue (#13840)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "15e27412e2 Merge pull request #13498 from code-yeongyu/feat/remote-l2-client-4a1",
+      "translated": "Merge pull request #13498 from code-yeongyu/feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f65f8ef4fa Merge pull request #13352 from code-yeongyu/feat/cu-v3-row15-engine",
+      "translated": "Merge pull request #13352 from code-yeongyu/feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c4e0542110 Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8d1a33a2b1 chore(bundles): regenerate this PR's generated files on #13498 a777370 (dev 4b07590230)",
+      "translated": "Regenerate this PR's generated files on #13498 a777370 (dev 4b07590230)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dba00eb69c Merge pull request #13738 from code-yeongyu/fix/computer-macos-pool-review-lows",
+      "translated": "Merge pull request #13738 from code-yeongyu/fix/computer-macos-pool-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "06b680f9da Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8a0399d7f0 Merge pull request #13271 from code-yeongyu/ci/computer-live-macos-pool-fixes",
+      "translated": "Merge pull request #13271 from code-yeongyu/ci/computer-live-macos-pool-fixes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b29d4a3251 Merge pull request #13166 from code-yeongyu/spike/cu-v3-row10-relay",
+      "translated": "Merge pull request #13166 from code-yeongyu/spike/cu-v3-row10-relay"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d280f431a7 Merge pull request #13274 from code-yeongyu/ci/cu-is-row6b-ledger-drift",
+      "translated": "Merge pull request #13274 from code-yeongyu/ci/cu-is-row6b-ledger-drift"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1ab9e5a406 Merge pull request #13299 from code-yeongyu/test/cu-is-row4e-preflight-cleanup",
+      "translated": "Merge pull request #13299 from code-yeongyu/test/cu-is-row4e-preflight-cleanup"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "669e798731 refactor(remote): the public types reach the local API's wire vocabulary through device-service-core/src/wire.ts",
+      "translated": "The public types reach the local API's wire vocabulary through device-service-core/src/wire.ts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "996164b890 docs(changes): add the changelog fragment for #13864",
+      "translated": "Add the changelog fragment for #13864"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3c7e2544e6 chore(bundles): regenerate this PR's bundle delta after the dev merge (#13864)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13864)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9e3b13c055 Merge remote-tracking branch 'origin/dev' into follow-up/low-13743",
+      "translated": "Merge remote-tracking branch 'origin/dev' into follow-up/low-13743"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a777370822 chore(bundles): regenerate this PR's generated files on dev 4b07590230",
+      "translated": "Regenerate this PR's generated files on dev 4b07590230"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8a2e39a363 Merge branch 'dev' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'dev' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4b07590230 Merge pull request #13163 from code-yeongyu/spike/cu-v3-row8-wayland",
+      "translated": "Merge pull request #13163 from code-yeongyu/spike/cu-v3-row8-wayland"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fdc2986b4f chore(bundle): regenerate the computer-use extension bundle for this PR's sources on the dev merge",
+      "translated": "Regenerate the computer-use extension bundle for this PR's sources on the dev merge"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d1b5200265 test(remote): the types closure may reach thread/remote/alias-port.ts, the import-free alias port",
+      "translated": "The types closure may reach thread/remote/alias-port.ts, the import-free alias port"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "766fac7099 Merge pull request #13886 from code-yeongyu/ci/publish-gate-reuse-receipt-waiver",
+      "translated": "Merge pull request #13886 from code-yeongyu/ci/publish-gate-reuse-receipt-waiver"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9074b57b6d Merge pull request #13260 from code-yeongyu/ci/cu-is-row07d-teardown-unread",
+      "translated": "Merge pull request #13260 from code-yeongyu/ci/cu-is-row07d-teardown-unread"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "be096f6dcf Merge pull request #13803 from code-yeongyu/fix/13763-device-service-pin-0139",
+      "translated": "Merge pull request #13803 from code-yeongyu/fix/13763-device-service-pin-0139"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "877f728ef6 chore(bundles): regenerate service-auth.generated.js for this PR's remote-attach changes (Linux, current dev b597f10e26)",
+      "translated": "Regenerate service-auth.generated.js for this PR's remote-attach changes (Linux, current dev b597f10e26)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f1a1d5ed75 Merge pull request #13824 from code-yeongyu/fix/13821-review-lows",
+      "translated": "Merge pull request #13824 from code-yeongyu/fix/13821-review-lows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "df6a038f45 test(platform-red-tracker): skip the fake-gh writer cases on Windows (#13840)",
+      "translated": "Skip the fake-gh writer cases on Windows (#13840)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8e8f334e56 Merge pull request #13820 from code-yeongyu/docs/13818-client-process-exe-doc",
+      "translated": "Merge pull request #13820 from code-yeongyu/docs/13818-client-process-exe-doc"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4b2887ca10 Merge the row 4b fixtures head (525d214077: dev b597f10e26 + shared platform decision) into this branch",
+      "translated": "Merge the row 4b fixtures head (525d214077: dev b597f10e26 + shared platform decision) into this branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ab9d362d1d Merge the row 4b fixtures head (525d214077: dev b597f10e26 + shared platform decision) into this branch",
+      "translated": "Merge the row 4b fixtures head (525d214077: dev b597f10e26 + shared platform decision) into this branch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "525d214077 ci(conformance fixtures): the macOS and Windows fixture jobs follow the shared PR platform decision",
+      "translated": "The macOS and Windows fixture jobs follow the shared PR platform decision"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8a0452dd4a ci(pr-platform-decision): review fixes for #13876 (#13859)",
+      "translated": "Review fixes for #13876 (#13859)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "62731d4952 refactor(remote): the alias port's types move to an import-free leaf, thread/remote/alias-port.ts",
+      "translated": "The alias port's types move to an import-free leaf, thread/remote/alias-port.ts"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3785fee1c7 Merge dev b597f10e26 into test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge dev b597f10e26 into test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "623315830a Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c90b128662 test(remote): the types closure may reach thread/contracts/permission-presets.ts, the leaf list of approval modes",
+      "translated": "The types closure may reach thread/contracts/permission-presets.ts, the leaf list of approval modes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f144b4a2c5 ci(publish): add a logged maintainer waiver of the gate-reuse hosted CI wait",
+      "translated": "Add a logged maintainer waiver of the gate-reuse hosted CI wait"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b597f10e26 Merge pull request #13836 from code-yeongyu/fix/13819-packed-install-own-cache",
+      "translated": "Merge pull request #13836 from code-yeongyu/fix/13819-packed-install-own-cache"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "940c0f90d1 Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ddcbb2cf4b Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "fa05c41edd fix(remote): the remote module re-exports the approval-mode type only; the one list is the thread contracts'",
+      "translated": "The remote module re-exports the approval-mode type only; the one list is the thread contracts'"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "699b6c3d4e Merge pull request #13363 from code-yeongyu/fix/cu-v3-row14-guard-comment-items",
+      "translated": "Merge pull request #13363 from code-yeongyu/fix/cu-v3-row14-guard-comment-items"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9d43de8fad chore(bundles): regenerate this PR's bundle delta after the dev merge (#13803)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13803)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5f55878501 chore(bundles): regenerate this PR's generated files on #13498 b42ef2583c (dev f007ca9b44)",
+      "translated": "Regenerate this PR's generated files on #13498 b42ef2583c (dev f007ca9b44)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d5193b630b Merge origin/dev into fix/thread-interrupt-background",
+      "translated": "Merge origin/dev into fix/thread-interrupt-background"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6cff722739 Merge remote-tracking branch 'origin/dev' into cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on",
+      "translated": "Merge remote-tracking branch 'origin/dev' into cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d90a00d60a Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9eb1c36cd8 Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b42ef2583c docs(remote): point BOUNDS at the local API's moved timeout constants",
+      "translated": "Point BOUNDS at the local API's moved timeout constants"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "258c171782 ci(pr-platform-decision): a truncated file list fails toward the full matrix for a labelled PR (#13859)",
+      "translated": "A truncated file list fails toward the full matrix for a labelled PR (#13859)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bf432a5ca1 Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "40841a563d ci(pr-platform-decision): say when the PR file list is truncated (#13859)",
+      "translated": "Say when the PR file list is truncated (#13859)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f0f60b9701 chore(bundles): regenerate this PR's generated files on dev f007ca9b44",
+      "translated": "Regenerate this PR's generated files on dev f007ca9b44"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "edbc8ebec1 Merge pull request #13860 from code-yeongyu/ci/full-matrix-label-needs-reason",
+      "translated": "Merge pull request #13860 from code-yeongyu/ci/full-matrix-label-needs-reason"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c433a725b9 Merge branch 'dev' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'dev' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fd905cac38 Merge pull request #13796 from code-yeongyu/fix/13412-remote-tui-review-lows",
+      "translated": "Merge pull request #13796 from code-yeongyu/fix/13412-remote-tui-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f007ca9b44 Merge pull request #13458 from code-yeongyu/fix/remote-devices-this-device",
+      "translated": "Merge pull request #13458 from code-yeongyu/fix/remote-devices-this-device"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dccccf849e Merge pull request #13838 from code-yeongyu/fix/12876-bench-message-constants",
+      "translated": "Merge pull request #13838 from code-yeongyu/fix/12876-bench-message-constants"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9c6106f036 Merge pull request #13865 from code-yeongyu/test/eq-golden-pin-freshness",
+      "translated": "Merge pull request #13865 from code-yeongyu/test/eq-golden-pin-freshness"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dfe02bb180 Merge pull request #13473 from code-yeongyu/feat/remote-clock-seam-fakes",
+      "translated": "Merge pull request #13473 from code-yeongyu/feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4dde428984 ci(pr-platform-decision): always check out the classifier sparsely; PR files from the API (#13859)",
+      "translated": "Always check out the classifier sparsely; PR files from the API (#13859)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b1cf8eb379 ci(pr-bots): review LOWs from #13833 and #13852 (#13840)",
+      "translated": "Review LOWs from #13833 and #13852 (#13840)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a9fb7270c9 docs(changes): add the changelog fragment for #13865",
+      "translated": "Add the changelog fragment for #13865"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "83ed56aa0d fix(eq): resolve a symlinked temp dir before the EQ.omo driver makes its sandboxes",
+      "translated": "Resolve a symlinked temp dir before the EQ.omo driver makes its sandboxes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "163065c837 Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cdbb93cbac chore(bundle): regenerate omo.js for #13796's /remote renderer delta on dev 7b81414589 (+491 B)",
+      "translated": "Regenerate omo.js for #13796's /remote renderer delta on dev 7b81414589 (+491 B)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d0aa85a5e8 chore(bundles): regenerate this PR's generated files on the current dev",
+      "translated": "Regenerate this PR's generated files on the current dev"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ca37642564 test(ci): the fixture workflow's concurrency is checked by the existing path-filtered workflow table",
+      "translated": "The fixture workflow's concurrency is checked by the existing path-filtered workflow table"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "52e0db289c Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "20c8b53d5c test(cu-eval): pin the ratio and floorMs fields of compareBench's result that desktop-bench prints (#13838 review L1)",
+      "translated": "Pin the ratio and floorMs fields of compareBench's result that desktop-bench prints (#13838 review L1)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2ba9dfa308 chore(bundles): regenerate this PR's bundle delta after the dev merge (#13803)",
+      "translated": "Regenerate this PR's bundle delta after the dev merge (#13803)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d2c4bf633e Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "13e57bbf75 Keep thread read wait limit internal",
+      "translated": "Keep thread read wait limit internal"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "98e2ffb7be test(ci): the tracked-workflow cancel guard renders the concurrency group template part by part",
+      "translated": "The tracked-workflow cancel guard renders the concurrency group template part by part"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9fae4b80c3 Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "779a1dec32 Merge remote-tracking branch 'origin/dev' into fix/12876-bench-message-constants",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12876-bench-message-constants"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5f772aeec3 Merge remote-tracking branch 'origin/dev' into fix/13819-packed-install-own-cache",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13819-packed-install-own-cache"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6ac3cd1b46 ci(conformance fixtures): a dev push run of the fixture workflow is never cancelled by another run",
+      "translated": "A dev push run of the fixture workflow is never cancelled by another run"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "acf09bd156 Merge dev 871a80863d (#13120 row 14 merged) into row 15 (merge only)",
+      "translated": "Merge dev 871a80863d (#13120 row 14 merged) into row 15 (merge only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fed3171092 build(remote): regenerate service-auth.generated.js for #13458's this-device row and --device check",
+      "translated": "Regenerate service-auth.generated.js for #13458's this-device row and --device check"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fdb426dda4 Merge origin/dev into fix/remote-devices-this-device",
+      "translated": "Merge origin/dev into fix/remote-devices-this-device"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bf29b842a3 docs(computer): name the failed-Alt-release case where the posted route still sends WM_SYS* (#13824 review)",
+      "translated": "Name the failed-Alt-release case where the posted route still sends WM_SYS* (#13824 review)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0c928f522f ci(conformance fixtures): the fixture workflow also runs on a push to dev, and the platform-red tracker watches it",
+      "translated": "The fixture workflow also runs on a push to dev, and the platform-red tracker watches it"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3f6d3a87d0 chore(bundles): regenerate service-auth.generated.js for this PR's remote-attach changes (Linux, current dev b9be6e581e)",
+      "translated": "Regenerate service-auth.generated.js for this PR's remote-attach changes (Linux, current dev b9be6e581e)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "949afdaf64 Merge the row 4b fixtures head (85b628c82a: macOS/Windows fixture jobs gated on ci:full-matrix) into this branch",
+      "translated": "Merge the row 4b fixtures head (85b628c82a: macOS/Windows fixture jobs gated on ci:full-matrix) into this branch"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "85b628c82a ci(conformance fixtures): the macOS and Windows fixture jobs run on a pull request only with ci:full-matrix",
+      "translated": "The macOS and Windows fixture jobs run on a pull request only with ci:full-matrix"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "26682da593 chore(bundles): regenerate this PR's generated files on dev after 5.1.73 (#13627)",
+      "translated": "Regenerate this PR's generated files on dev after 5.1.73 (#13627)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2ddb5b7fa8 Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4d681c04f9 chore(bundles): regenerate this PR's bundle delta (#13803)",
+      "translated": "Regenerate this PR's bundle delta (#13803)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a513d87230 chore(bundle): regenerate omo.js for #13796's /remote renderer delta (+491 B)",
+      "translated": "Regenerate omo.js for #13796's /remote renderer delta (+491 B)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2397c848f1 chore(bundles): regenerate this PR's generated files on dev after the regen wave (#13810)",
+      "translated": "Regenerate this PR's generated files on dev after the regen wave (#13810)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e1e40d969c Merge row 16 (819b4ed0be) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 16 (819b4ed0be) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "819b4ed0be Merge row 15 (d54f4cc14a) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 15 (d54f4cc14a) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2b47a7f1f4 Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13763-device-service-pin-0139"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d54f4cc14a Merge row 14 (bf84999324) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 14 (bf84999324) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c97113246a Merge row 14 (bf84999324) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 14 (bf84999324) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c453761139 Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "af283ea2e2 Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5bb74303c0 Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "74e550c213 test(omo-native): limit the isolated-cache comment to the measured rpc-mode.js rewrite; drop the fragment, test paths do not ship (#13836 review L1, L3)",
+      "translated": "Limit the isolated-cache comment to the measured rpc-mode.js rewrite; drop the fragment, test paths do not ship (#13836 review L1, L3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "41bbd4392b Merge remote-tracking branch 'origin/dev' into docs/13818-client-process-exe-doc",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/13818-client-process-exe-doc"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1befdc6558 Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13299",
+      "translated": "Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13299"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a0becc8de4 Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13274",
+      "translated": "Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13274"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "afc0f53cb6 Merge #13271 head 18c6b11b69 (carries dev 0543add10f) into fix/computer-macos-pool-review-lows",
+      "translated": "Merge #13271 head 18c6b11b69 (carries dev 0543add10f) into fix/computer-macos-pool-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a004ab8553 Merge the row 4b fixtures head (1f05c467b2, dev 0543add10f taken in) into this branch",
+      "translated": "Merge the row 4b fixtures head (1f05c467b2, dev 0543add10f taken in) into this branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "18c6b11b69 Merge dev 0543add10f into ci/computer-live-macos-pool-fixes",
+      "translated": "Merge dev 0543add10f into ci/computer-live-macos-pool-fixes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b515e6c5e3 Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13260",
+      "translated": "Merge commit '0543add10fd4984883d58a687e84bdc1120b47b4' into inst-13260"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a483c3ee4f Merge remote-tracking branch 'origin/dev' into fix/13821-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13821-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1f05c467b2 Merge dev 0543add10f into test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge dev 0543add10f into test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "99e4a07821 fix(ci): desktop-bench names eval-core.mjs as the source of its thresholds instead of restating them (#13838 review L1)",
+      "translated": "Desktop-bench names eval-core.mjs as the source of its thresholds instead of restating them (#13838 review L1)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "99fbf85c67 Merge row 16 (b064887805) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 16 (b064887805) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b064887805 Merge row 15 (e829758f16) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 15 (e829758f16) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e829758f16 Merge row 14 (fd4b11be6a) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 14 (fd4b11be6a) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "652ae28286 Merge row 14 (fd4b11be6a) into this branch (row 17 Windows poison-record fix, merge only)",
+      "translated": "Merge row 14 (fd4b11be6a) into this branch (row 17 Windows poison-record fix, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0e1b31654f docs(changes): name the fragment after the PR's real number (#13838)",
+      "translated": "Name the fragment after the PR's real number (#13838)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9505a4fd14 docs(changes): name the fragment after the PR's real number (#13836)",
+      "translated": "Name the fragment after the PR's real number (#13836)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "47897dd1cc chore(bundles): regenerate this PR's generated files on dev after the regen wave (#13810)",
+      "translated": "Regenerate this PR's generated files on dev after the regen wave (#13810)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "601626218c Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0d37441fe2 Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13299",
+      "translated": "Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13299"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fdf64e940a Merge #13271 head 5efe416af5 (carries dev d9ccd6420d) into fix/computer-macos-pool-review-lows",
+      "translated": "Merge #13271 head 5efe416af5 (carries dev d9ccd6420d) into fix/computer-macos-pool-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5efe416af5 Merge dev d9ccd6420d into ci/computer-live-macos-pool-fixes",
+      "translated": "Merge dev d9ccd6420d into ci/computer-live-macos-pool-fixes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8f0f323ded Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13274",
+      "translated": "Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13274"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "563ba4170c Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13260",
+      "translated": "Merge commit 'd9ccd6420db467310830403e5e45225feffde4d7' into inst-13260"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "79f6f82fe0 Merge the row 4b fixtures head (b2022d2c49, dev d9ccd6420d taken in) into this branch",
+      "translated": "Merge the row 4b fixtures head (b2022d2c49, dev d9ccd6420d taken in) into this branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b2022d2c49 Merge dev d9ccd6420d into test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge dev d9ccd6420d into test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "126c287ac7 Merge remote-tracking branch 'origin/dev' into docs/13818-client-process-exe-doc",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/13818-client-process-exe-doc"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e7ccc1afb9 Merge remote-tracking branch 'origin/dev' into fix/13821-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13821-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7fb2763f35 Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "591c029586 docs(changes): fragment for the push; renamed to the real PR number after gh pr create",
+      "translated": "Fragment for the push; renamed to the real PR number after gh pr create"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0b5db5f03e test(omo-native): packed-install installs into its own Bun cache, so the engine prepare cannot rewrite the host's shared cache entry (#13819)",
+      "translated": "Packed-install installs into its own Bun cache, so the engine prepare cannot rewrite the host's shared cache entry (#13819)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "40f3ec3099 docs(changes): fragment for the push; renamed to the real PR number after gh pr create",
+      "translated": "Fragment for the push; renamed to the real PR number after gh pr create"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2745f155b3 Merge remote-tracking branch 'origin/dev' into fix/12876-bench-message-constants",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/12876-bench-message-constants"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6a3e1f3ac fix(remote): drop the G1 S2 rows this PR's port move retired",
+      "translated": "Drop the G1 S2 rows this PR's port move retired"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "69b37c3b19 Merge the row 4b fixtures head (e68cc1f2ee, dev 70e4e490c1 taken in) into this branch",
+      "translated": "Merge the row 4b fixtures head (e68cc1f2ee, dev 70e4e490c1 taken in) into this branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e68cc1f2ee Merge dev 70e4e490c1 into test/cu-is-row04b-fixtures-p2 (knip.base.jsonc: dev's local-api ignore entry kept beside this PR's Electron ignoreIssues block)",
+      "translated": "Merge dev 70e4e490c1 into test/cu-is-row04b-fixtures-p2 (knip.base.jsonc: dev's local-api ignore entry kept beside this PR's Electron ignoreIssues block)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "31a2375d86 Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "69e2ad5832 docs(changes): fragment for #13824",
+      "translated": "Fragment for #13824"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ec5aaa64ec docs(computer): say where the posted route's alt_down still applies, and name the mouse-hold test after its real ordering (#13821)",
+      "translated": "Say where the posted route's alt_down still applies, and name the mouse-hold test after its real ordering (#13821)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "69df026fba Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/remote-attach-raiser-only-settled"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5c0b26155b Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8b2649a365 Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/13412-remote-tui-review-lows"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "18500a348e Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "67ba933b25 docs(computer): rewrap the client_process module doc; changelog fragment for #13820",
+      "translated": "Rewrap the client_process module doc; changelog fragment for #13820"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4692f9d297 docs(computer): client_process module doc names the /proc/<pid>/exe read (#13818)",
+      "translated": "Client_process module doc names the /proc/<pid>/exe read (#13818)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bc41155f47 Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7ef996e143 test(computer): the marker-unavailable standalone case takes the plain-file plant on Windows too: a 0500 mode is a no-op there, so the marker write went through and the click answered null (hosted windows-11-arm job 133186717397 at a685bd5768: v3-r17-marker-unavailable.json step 3 left: Some(Null) right: None); test-only",
+      "translated": "The marker-unavailable standalone case takes the plain-file plant on Windows too: a 0500 mode is a no-op there, so the marker write went through and the click answered null (hosted windows-11-arm job 133186717397 at a685bd5768: v3-r17-marker-unavailable.json step 3 left: Some(Null) right: None); test-only"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6d73ca327b Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "02233f5eaa Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-types-closure"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c716053e0e Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0a51de250c docs(changes): add unreleased entry for #13803",
+      "translated": "Add unreleased entry for #13803"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "620ce03c26 Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e5d1187e2b fix(device-service): pin device service 0.1.39 and name an outdated service on wake",
+      "translated": "Pin device service 0.1.39 and name an outdated service on wake"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2427c4b86f chore(changelog): undo the fold of row 14 fragment into this PR: a stacked spine PR keeps its own fragment only over its stack parent (lead ruling; ancestor fragments waived)",
+      "translated": "Undo the fold of row 14 fragment into this PR: a stacked spine PR keeps its own fragment only over its stack parent (lead ruling; ancestor fragments waived)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "92f61f8d62 fix(remote): engine code table is a Map, so no non-null assertion",
+      "translated": "Engine code table is a Map, so no non-null assertion"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "edfcde34e6 docs(changes): /remote renders enable, disable and control (#13796)",
+      "translated": "/remote renders enable, disable and control (#13796)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a685bd5768 fix(computer): the poison record flushes its directory through the durable helper per OS: a directory cannot be opened as a file on Windows (os error 5), so on windows-11-arm every crashed callId stayed unrecorded with its marker kept and the scope wedged (hosted job 133173784375 at 21050ac09c: \"crashed callId c-crash not poison-recorded, marker kept: Access is denied. (os error 5)\"; A-IS-65 Windows marker)",
+      "translated": "The poison record flushes its directory through the durable helper per OS: a directory cannot be opened as a file on Windows (os error 5), so on windows-11-arm every crashed callId stayed unrecorded with its marker kept and the scope wedged (hosted job 133173784375 at 21050ac09c: \"crashed callId c-crash not poison-recorded, marker kept: Access is denied. (os error 5)\"; A-IS-65 Windows marker)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "74cce3365a test(remote): a raiser-only dialog learned from the mirror record is dismissed after a relay gap (#13773 review LOW)",
+      "translated": "A raiser-only dialog learned from the mirror record is dismissed after a relay gap (#13773 review LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d5f071c83e style(computer): format the macOS pool up-hold files (bun fmt)",
+      "translated": "Format the macOS pool up-hold files (bun fmt)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "05dd814356 chore(changelog): fold row 14 fragment (#13120) into this PR one fragment (bun script/changelog-fragments-cli.ts fold-batch --base origin/dev --pr 13363): a stacked PR adds exactly one fragment (changelog-gate)",
+      "translated": "Fold row 14 fragment (#13120) into this PR one fragment (bun script/changelog-fragments-cli.ts fold-batch --base origin/dev --pr 13363): a stacked PR adds exactly one fragment (changelog-gate)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c6b27eb6c fix(ci): print the bench regression thresholds from compareBench's result, not unexported names (#12876 review L1)",
+      "translated": "Print the bench regression thresholds from compareBench's result, not unexported names (#12876 review L1)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "21050ac09c fix(computer): refusals built from the typed Reason dev #13137 introduced (the audit record's reason is reason.wire()); and the one-file-per-hand test expects AUDIT_LOCK_FILE under the writer's own cfg(not(unix)) instead of a hard-coded 'audit.lock' under cfg!(windows) (review LOWs on #13368 and #13390)",
+      "translated": "Refusals built from the typed Reason dev #13137 introduced (the audit record's reason is reason.wire()); and the one-file-per-hand test expects AUDIT_LOCK_FILE under the writer's own cfg(not(unix)) instead of a hard-coded 'audit.lock' under cfg!(windows) (review LOWs on #13368 and #13390)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "69e8d1d422 Merge row 16 (835fde32a2) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)",
+      "translated": "Merge row 16 (835fde32a2) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "835fde32a2 fix(computer): refusals built from the typed Reason dev #13137 introduced (Refusal::new takes a Reason; the wire token is reason.wire(); tests compare Some(Reason::...)); no behaviour change",
+      "translated": "Refusals built from the typed Reason dev #13137 introduced (Refusal::new takes a Reason; the wire token is reason.wire(); tests compare Some(Reason::...)); no behaviour change"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "533e2769c4 docs(changes): fragment for the remote public type closure (#13782)",
+      "translated": "Fragment for the remote public type closure (#13782)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "ea7ec39dca refactor(remote): keep the public types' import closure leaf-only",
+      "translated": "Keep the public types' import closure leaf-only"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a59c6a88bb Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13299",
+      "translated": "Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13299"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "94047d3eb3 Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13274",
+      "translated": "Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13274"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0607f5ebcf Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13260",
+      "translated": "Merge commit '3dc66046e78b0da9416abf44e7b0acb75ce12ca6' into inst-13260"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "65f52ad3ef Merge row 15 (9901de92ee) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)",
+      "translated": "Merge row 15 (9901de92ee) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9901de92ee fix(computer): refusals built from the typed Reason dev #13137 introduced (Refusal::new takes a Reason; the wire token is reason.wire(); tests compare Some(Reason::...)); no behaviour change",
+      "translated": "Refusals built from the typed Reason dev #13137 introduced (Refusal::new takes a Reason; the wire token is reason.wire(); tests compare Some(Reason::...)); no behaviour change"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "79a9d9b549 Merge row 14 (2c4c023090) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)",
+      "translated": "Merge row 14 (2c4c023090) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "878589d9cf Merge row 14 (2c4c023090) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)",
+      "translated": "Merge row 14 (2c4c023090) into this branch (W2 D1 dev take: dev a6901c2ebc with #13137's typed Reason, merge only)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1b49ae9918 docs: change fragment for #13773",
+      "translated": "Change fragment for #13773"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "718939a8d0 fix(remote): a raiser-only dialog settled during a relay gap is dismissed after the re-attach",
+      "translated": "A raiser-only dialog settled during a relay gap is dismissed after the re-attach"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2466e60a78 fix(remote): every connect-phase failure says phase connect",
+      "translated": "Every connect-phase failure says phase connect"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ff95f30623 Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "90de328466 fix(remote): prototype-named engine codes fall back to unsupported; a type assertion replaces ts-expect-error",
+      "translated": "Prototype-named engine codes fall back to unsupported; a type assertion replaces ts-expect-error"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9396f0aef3 fix(computer): the Windows lock directory check compares SIDs in the form the read-back SDDL writes them (an alias such as LA for the local Administrator), and the one-file-per-hand test expects audit.lock beside the data file on Windows (hosted windows-11-arm at b594441080: \"the lock directory is not protected as A-IS-65 L3 requires: its owner is LA\")",
+      "translated": "The Windows lock directory check compares SIDs in the form the read-back SDDL writes them (an alias such as LA for the local Administrator), and the one-file-per-hand test expects audit.lock beside the data file on Windows (hosted windows-11-arm at b594441080: \"the lock directory is not protected as A-IS-65 L3 requires: its owner is LA\")"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "d33134f288 feat(remote): RemoteClientDeps.serveAttach: the caller injects the attach endpoint server",
+      "translated": "RemoteClientDeps.serveAttach: the caller injects the attach endpoint server"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "28635830a5 fix(remote): an alias holder's device that misses the listing is offline, not missing; listings run outside the aliases window",
+      "translated": "An alias holder's device that misses the listing is offline, not missing; listings run outside the aliases window"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b6e0eacdf0 Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge branch 'rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fab9fc292d docs(remote): name the client version field, not a command, in the factory docs",
+      "translated": "Name the client version field, not a command, in the factory docs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "abbd43d990 fix(remote): tests for the client's 4a-2 behaviour; one permission-preset list; stub and doc agree",
+      "translated": "Tests for the client's 4a-2 behaviour; one permission-preset list; stub and doc agree"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9b986e21b2 build(remote): regenerate service-auth.generated.js for the this-device row and the --device check (#13402)",
+      "translated": "Regenerate service-auth.generated.js for the this-device row and the --device check (#13402)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "15dcf94e78 fix(remote): factories take the caller's version; the module reads no product config",
+      "translated": "Factories take the caller's version; the module reads no product config"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a3380062da feat(remote): the barrel exports the thread seams (canonicalizeThreadHandle, handleOf, describeThread)",
+      "translated": "The barrel exports the thread seams (canonicalizeThreadHandle, handleOf, describeThread)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2c188bbb7b feat(remote): RemoteClientDeps.permissionPreset and OpenResult.warnings",
+      "translated": "RemoteClientDeps.permissionPreset and OpenResult.warnings"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "66aaa958ce fix(remote): remoteClientForService for the bootstrap entry; createRemoteClient leaves the barrel; cli is the thread SDK's principal",
+      "translated": "RemoteClientForService for the bootstrap entry; createRemoteClient leaves the barrel; cli is the thread SDK's principal"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "419783fba7 docs(changes): fragment for the remote client factories and aliases (#13750)",
+      "translated": "Fragment for the remote client factories and aliases (#13750)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "968b346cde fix(remote): aliases hold a session by its durable id, like the thread tools (#13414 U3)",
+      "translated": "Aliases hold a session by its durable id, like the thread tools (#13414 U3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aedd66906e Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "190be39e0a feat(remote): RemoteClientDeps.connect and gatewayWorkerUrl seams",
+      "translated": "RemoteClientDeps.connect and gatewayWorkerUrl seams"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "6740299980 feat(remote): aliases.resolve/set/clear over the injected account alias registry (#13414 U3)",
+      "translated": "Aliases.resolve/set/clear over the injected account alias registry (#13414 U3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "20db46e17e Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3a7c77dc98 feat(remote): RemoteClientDeps.aliasRegistry, injected by the caller",
+      "translated": "RemoteClientDeps.aliasRegistry, injected by the caller"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41267c6fd8 test(remote): format the factories test",
+      "translated": "Format the factories test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "dc1edbe941 docs(changes): fragment for the remote module contract (#13747)",
+      "translated": "Fragment for the remote module contract (#13747)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "54f422a584 Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories",
+      "translated": "Merge remote-tracking branch 'origin/rt/13414-4a2-types' into rt/13414-u3-factories"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e9935a5cf9 feat(remote): client factories, the module barrel, and aliases answering unsupported without account access (#13414 U3)",
+      "translated": "Client factories, the module barrel, and aliases answering unsupported without account access (#13414 U3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a957ac4c3f Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types",
+      "translated": "Merge branch 'feat/remote-l2-client-4a1' into rt/13414-4a2-types"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a8f5dc69c2 fix(remote): engine codes that are already remote codes keep their names; ThreadHandle is branded",
+      "translated": "Engine codes that are already remote codes keep their names; ThreadHandle is branded"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "582167ed44 fix(remote): take device-service values from the local-only subpath, not the barrel",
+      "translated": "Take device-service values from the local-only subpath, not the barrel"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5c70987c0c feat(remote): the whole RemoteClient contract for #13414 (4a-2 types and wiring)",
+      "translated": "The whole RemoteClient contract for #13414 (4a-2 types and wiring)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b7b2d35ae2 Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'feat/remote-clock-seam-fakes' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2c68ed6172 fix(remote): map dev's unknown_delivery and point dev's two new port tests at the moved port",
+      "translated": "Map dev's unknown_delivery and point dev's two new port tests at the moved port"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1ec74a0014 fix(remote): this device's row is online only while the service is connected and carries no invented kind; --device accepts a device the listing has (review L1, L2, L3)",
+      "translated": "This device's row is online only while the service is connected and carries no invented kind; --device accepts a device the listing has (review L1, L2, L3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b594441080 Merge row 16 (14a1590094) into row 17 (cascade: dev taken once at row 14)",
+      "translated": "Merge row 16 (14a1590094) into row 17 (cascade: dev taken once at row 14)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ef2c8ea7d7 style(computer): --selftest keeps its check table layout; only the interaction-lock lines are added (no behaviour change)",
+      "translated": "--selftest keeps its check table layout; only the interaction-lock lines are added (no behaviour change)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9f81c5d1a8 test(remote): this device's row follows the service state and invents no kind; --device accepts a device the listing has (review L1, L2)",
+      "translated": "This device's row follows the service state and invents no kind; --device accepts a device the listing has (review L1, L2)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "5f7e02bfc9 Merge origin/dev into fix/remote-devices-this-device",
+      "translated": "Merge origin/dev into fix/remote-devices-this-device"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "87190d9078 fix(device-service-core): run the shared delegated-command bound on the connection's timers after the dev merge",
+      "translated": "Run the shared delegated-command bound on the connection's timers after the dev merge"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8a069fe60d Merge branch 'dev' into feat/remote-l2-client-4a1",
+      "translated": "Merge branch 'dev' into feat/remote-l2-client-4a1"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "ee7c478628 fix(computer): macOS pool up holds its guest across the clone-to-run gap; sweep reports a list failure",
+      "translated": "MacOS pool up holds its guest across the clone-to-run gap; sweep reports a list failure"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "688e915c52 test(computer): macOS pool up must hold its guest across the clone-to-run gap; sweep must survive a list failure (red)",
+      "translated": "MacOS pool up must hold its guest across the clone-to-run gap; sweep must survive a list failure (red)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fbe7fdc300 Merge branch 'dev' into feat/remote-clock-seam-fakes",
+      "translated": "Merge branch 'dev' into feat/remote-clock-seam-fakes"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4420da8e6a fix(remote): omo remote interrupt names the background jobs it stopped, failed to stop or left running (#13444 review L1)",
+      "translated": "Omo remote interrupt names the background jobs it stopped, failed to stop or left running (#13444 review L1)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c559bbaf0d Merge remote-tracking branch 'origin/dev' into rt-interrupt-13444",
+      "translated": "Merge remote-tracking branch 'origin/dev' into rt-interrupt-13444"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "14a1590094 Merge row 15 (eea07bf960) into row 16 (cascade: dev taken once at row 14)",
+      "translated": "Merge row 15 (eea07bf960) into row 16 (cascade: dev taken once at row 14)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c780e0e2c9 docs(computer): the lock module states the funnel's restore contract; DEFERRED-LEGS owes the hold-through-restore proof to rows 44, 57, 49 and 67; the changelog says in plain words that on Windows a user's two logon sessions take turns and a session without a runtime directory cannot act on a real machine (A-IS-65 L1, R70cn(3), R70cn(4), R70cp)",
+      "translated": "The lock module states the funnel's restore contract; DEFERRED-LEGS owes the hold-through-restore proof to rows 44, 57, 49 and 67; the changelog says in plain words that on Windows a user's two logon sessions take turns and a session without a runtime directory cannot act on a real machine (A-IS-65 L1, R70cn(3), R70cn(4), R70cp)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7dfb9a2569 fix(computer): the Windows lock directory is created with the protected DACL of the user and SYSTEM and read back; an existing directory this user owns is tightened to it, one another principal owns, a reparse point, or a DACL that cannot be set or read back refuses (A-IS-65 L3, L2)",
+      "translated": "The Windows lock directory is created with the protected DACL of the user and SYSTEM and read back; an existing directory this user owns is tightened to it, one another principal owns, a reparse point, or a DACL that cannot be set or read back refuses (A-IS-65 L3, L2)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fa4a4a4d86 test(computer): RED - the Windows lock directory is admitted only with the protected DACL of the user and SYSTEM, read back; another owner, an unprotected DACL, a missing, extra or weaker entry refuses (A-IS-65 L3, T11 pure leg)",
+      "translated": "RED - the Windows lock directory is admitted only with the protected DACL of the user and SYSTEM, read back; another owner, an unprotected DACL, a missing, extra or weaker entry refuses (A-IS-65 L3, T11 pure leg)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c1bdcdf70d conformance fixtures: the GTK list lays out its new rows before the report is written, and the geometry leg cannot pass on stale rects",
+      "translated": "Conformance fixtures: the GTK list lays out its new rows before the report is written, and the geometry leg cannot pass on stale rects"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "38378b8235 fix(computer): the Windows RUNTIME root is %LOCALAPPDATA%\\OmO\\ComputerControl\\run, where interaction.lock lives, and --selftest prints the interaction lock's path from the one resolver, or why none resolves (A-IS-65 L3)",
+      "translated": "The Windows RUNTIME root is %LOCALAPPDATA%\\OmO\\ComputerControl\\run, where interaction.lock lives, and --selftest prints the interaction lock's path from the one resolver, or why none resolves (A-IS-65 L3)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2c0f58ad16 test(computer): RED - --selftest prints where the interaction lock is taken, from the one RUNTIME-root resolver; the Windows lock directory is %LOCALAPPDATA%\\OmO\\ComputerControl\\run (A-IS-65 L3)",
+      "translated": "RED - --selftest prints where the interaction lock is taken, from the one RUNTIME-root resolver; the Windows lock directory is %LOCALAPPDATA%\\OmO\\ComputerControl\\run (A-IS-65 L3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "925a854b77 fix(computer): the audit writer's per-append lock goes through the one lock helper - flock on the data file on unix (unchanged), the hand's audit.lock on Windows, never the data file; a lock that cannot be created, opened or taken fails the append (A-IS-65 L7, L8)",
+      "translated": "The audit writer's per-append lock goes through the one lock helper - flock on the data file on unix (unchanged), the hand's audit.lock on Windows, never the data file; a lock that cannot be created, opened or taken fails the append (A-IS-65 L7, L8)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "24e2cdbd9c test(computer): RED - two processes appending to one hand's audit at once leave lines that all parse and gapless segments; on Windows an append in one process never fails a read of the audit file in another (A-IS-65 L7, T6, T12)",
+      "translated": "RED - two processes appending to one hand's audit at once leave lines that all parse and gapless segments; on Windows an append in one process never fails a read of the audit file in another (A-IS-65 L7, T6, T12)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "eea07bf960 Merge row 14 (32fe58b8c1) into row 15 (cascade: dev taken once at row 14)",
+      "translated": "Merge row 14 (32fe58b8c1) into row 15 (cascade: dev taken once at row 14)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "97cfc97a6a Merge row 14 (32fe58b8c1) into the row 14 LOW follow-up (dev taken once at row 14)",
+      "translated": "Merge row 14 (32fe58b8c1) into the row 14 LOW follow-up (dev taken once at row 14)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8eec362d49 fix(computer): macOS pool sweep keeps a guest an up is cloning or starting; up survives a list failure",
+      "translated": "MacOS pool sweep keeps a guest an up is cloning or starting; up survives a list failure"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f115745c95 fix(computer): the volume admission reads whether the volume is remote as well as its filesystem; a Windows lock file is relied on only on a local NTFS or ReFS volume, through the same helper the markers use (A-IS-65 L9)",
+      "translated": "The volume admission reads whether the volume is remote as well as its filesystem; a Windows lock file is relied on only on a local NTFS or ReFS volume, through the same helper the markers use (A-IS-65 L9)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e3ad0b97de test(computer): macOS pool sweep must keep a guest an up is starting, and the up wait must survive a list failure (red)",
+      "translated": "MacOS pool sweep must keep a guest an up is starting, and the up wait must survive a list failure (red)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "918ecae01c test(computer): RED - a remote volume refuses even when it reports NTFS or ReFS; the admission reads the volume, not only its filesystem name (A-IS-65 L9, T7 pure leg)",
+      "translated": "RED - a remote volume refuses even when it reports NTFS or ReFS; the admission reads the volume, not only its filesystem name (A-IS-65 L9, T7 pure leg)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "59fce60412 Merge the row 4b fixtures head (4addc97344, dev 3975913beb taken in) into the rects branch",
+      "translated": "Merge the row 4b fixtures head (4addc97344, dev 3975913beb taken in) into the rects branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "01f25a8c5f Merge #13259 head ae9a9a7e8b (carries dev 3975913beb) into ci/computer-live-macos-pool-fixes",
+      "translated": "Merge #13259 head ae9a9a7e8b (carries dev 3975913beb) into ci/computer-live-macos-pool-fixes"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4addc97344 Merge dev 3975913beb into test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge dev 3975913beb into test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "daacce7dc3 Merge remote-tracking branch 'origin/dev' into inst-13299",
+      "translated": "Merge remote-tracking branch 'origin/dev' into inst-13299"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bc8971a851 Merge remote-tracking branch 'origin/dev' into inst-13274",
+      "translated": "Merge remote-tracking branch 'origin/dev' into inst-13274"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "671b2fff1f Merge remote-tracking branch 'origin/dev' into inst-13260",
+      "translated": "Merge remote-tracking branch 'origin/dev' into inst-13260"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "cfaf7f92a4 Merge dev into cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on",
+      "translated": "Merge dev into cu-v2/task-25-p3b-serve-concurrent-same-uid-clients-on"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "af6b27a733 docs(changes): name the fragment for its PR (#13498)",
+      "translated": "Name the fragment for its PR (#13498)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "b6d20db858 fix(computer): the interaction lock is the OS file lock on every OS through ONE helper - flock on unix (open path unchanged), std File::lock/try_lock on Windows on a fresh non-inheritable handle shared read/write only, a reparse point or non-regular file refuses, unlock then close on drop, any other target refuses; the row-60 deferral comment is removed (A-IS-65 L1, L3, L8, L10(c), L12)",
+      "translated": "The interaction lock is the OS file lock on every OS through ONE helper - flock on unix (open path unchanged), std File::lock/try_lock on Windows on a fresh non-inheritable handle shared read/write only, a reparse point or non-regular file refuses, unlock then close on drop, any other target refuses; the row-60 deferral comment is removed (A-IS-65 L1, L3, L8, L10(c), L12)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "753e89a058 style(thread): format interrupt.ts and its parity test (#13444 hosted fmt:check red)",
+      "translated": "Format interrupt.ts and its parity test (#13444 hosted fmt:check red)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b9e16a1ac1 conformance fixtures: the WKWebView fixture removes its own WebKit networking temp folders at quit, after the networking process holding them exits (bounded, a typed failure if not)",
+      "translated": "Conformance fixtures: the WKWebView fixture removes its own WebKit networking temp folders at quit, after the networking process holding them exits (bounded, a typed failure if not)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "fecd746670 conformance fixtures: the driver points each fixture's XDG homes and CFFIXED_USER_HOME into the run's profile directory (green)",
+      "translated": "Conformance fixtures: the driver points each fixture's XDG homes and CFFIXED_USER_HOME into the run's profile directory (green)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "a879503bf0 conformance fixtures: a fixture's XDG data, cache and config homes and its CoreFoundation home must sit in the run's own directory (red)",
+      "translated": "Conformance fixtures: a fixture's XDG data, cache and config homes and its CoreFoundation home must sit in the run's own directory (red)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "37fb78ce48 Merge dev 83373dcbb5 into test/cu-is-row04b-fixtures-p2 (take dev's tip; merge only)",
+      "translated": "Merge dev 83373dcbb5 into test/cu-is-row04b-fixtures-p2 (take dev's tip; merge only)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5724343f0b test(computer): RED - the interaction lock excludes across processes, a killed holder frees it, held is not an error, a holder's child does not keep it, a link at the lock file refuses (A-IS-65 T2, T3, T4, T10, T11 reparse leg; red on the Windows legs)",
+      "translated": "RED - the interaction lock excludes across processes, a killed holder frees it, held is not an error, a holder's child does not keep it, a link at the lock file refuses (A-IS-65 T2, T3, T4, T10, T11 reparse leg; red on the Windows legs)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c8ef58dd22 fix(computer): a session with no runtime root refuses every exec on a real backend, with nothing sent; only the fake acts without the interaction lock (A-IS-65 L10(b))",
+      "translated": "A session with no runtime root refuses every exec on a real backend, with nothing sent; only the fake acts without the interaction lock (A-IS-65 L10(b))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7a7c586ce6 Merge branch 'dev' into ci/cu-is-row6b-ledger-drift",
+      "translated": "Merge branch 'dev' into ci/cu-is-row6b-ledger-drift"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5b9e14035e test(computer): RED - a real-backend session with no runtime root refuses exec with nothing sent (A-IS-65 L10(b), T9)",
+      "translated": "RED - a real-backend session with no runtime root refuses exec with nothing sent (A-IS-65 L10(b), T9)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "953195af56 docs(changes): name the fragment for its PR (#13473)",
+      "translated": "Name the fragment for its PR (#13473)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "65bb6f7257 feat(device-service-core): clock seam and fake-owner failure modes",
+      "translated": "Clock seam and fake-owner failure modes"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "744ee05b5e test(omo-native): the remote interrupt --json result now carries the typed background field",
+      "translated": "The remote interrupt --json result now carries the typed background field"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "48bfc40612 test(computer): the one-file-per-hand test compares path components, not a '/' string (Windows red at row 17, R70ch(2); assertion unchanged)",
+      "translated": "The one-file-per-hand test compares path components, not a '/' string (Windows red at row 17, R70ch(2); assertion unchanged)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "dde6078e8f fix(computer): both markers make their directory entry durable through ONE shared helper, so the pre-input marker writes on Windows (Windows reds at row 17, R70ch(1))",
+      "translated": "Both markers make their directory entry durable through ONE shared helper, so the pre-input marker writes on Windows (Windows reds at row 17, R70ch(1))"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6cb592c93f Merge commit '83373dcbb545ae2336e58abb46af028e9ad29a9e' into test/cu-is-row4e-preflight-cleanup",
+      "translated": "Merge commit '83373dcbb545ae2336e58abb46af028e9ad29a9e' into test/cu-is-row4e-preflight-cleanup"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "5c995351a1 changes: fragment for #13458",
+      "translated": "Changes: fragment for #13458"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c3ef0d53b4 fix(remote): omo remote sessions --device names an unknown device",
+      "translated": "Omo remote sessions --device names an unknown device"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "87f1163e1b fix(remote): omo remote devices lists this device",
+      "translated": "Omo remote devices lists this device"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "08496cea4a changes: fragment for #13444",
+      "translated": "Changes: fragment for #13444"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "2ac1a6adee fix(thread): thread_interrupt stops the interrupted turn's background jobs",
+      "translated": "Thread_interrupt stops the interrupted turn's background jobs"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c8a5c9d2d3 conformance fixtures: the self-test usage names the a11y sabotage target, as the README does (prose only, no test)",
+      "translated": "Conformance fixtures: the self-test usage names the a11y sabotage target, as the README does (prose only, no test)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d68eaa25fe docs(computer): C2's restart leg is unit-proved; the engine's hello.generation wiring is owed to row 28 (review L1 of #13367)",
+      "translated": "C2's restart leg is unit-proved; the engine's hello.generation wiring is owed to row 28 (review L1 of #13367)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "9a13836f50 fix(computer): record and release take an artifact digest only as a plain path component (review L2 of #13367)",
+      "translated": "Record and release take an artifact digest only as a plain path component (review L2 of #13367)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "84c977ca4e test(computer): RED - an artifact digest that is not a plain path component is refused (review L2 of #13367)",
+      "translated": "RED - an artifact digest that is not a plain path component is refused (review L2 of #13367)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6bb992e69c Merge row 16 (f8489aad9d) into row 17 (R70t: rows 15 and 16's native fixes)",
+      "translated": "Merge row 16 (f8489aad9d) into row 17 (R70t: rows 15 and 16's native fixes)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f8489aad9d Merge row 15 (353e2d1a05) into row 16 (R70t: row 15's native fix)",
+      "translated": "Merge row 15 (353e2d1a05) into row 16 (R70t: row 15's native fix)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "8fc95e218c fix(computer): the native contract builds and passes on macOS and Windows (absolute() off on macOS; a write-through rename commits the stop marker on Windows)",
+      "translated": "The native contract builds and passes on macOS and Windows (absolute() off on macOS; a write-through rename commits the stop marker on Windows)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "faba871350 conformance fixtures: README documents --app-key, --a11y, the a11y sabotage target, the hermetic leg and CONFORMANCE_FIXTURE_DATA_DIR (prose only, no test)",
+      "translated": "Conformance fixtures: README documents --app-key, --a11y, the a11y sabotage target, the hermetic leg and CONFORMANCE_FIXTURE_DATA_DIR (prose only, no test)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2f92e4bd6e conformance fixtures: the hermetic leg runs last against a baseline taken before the first leg, and checks macOS HTTPStorages, Saved Application State and Preferences (green)",
+      "translated": "Conformance fixtures: the hermetic leg runs last against a baseline taken before the first leg, and checks macOS HTTPStorages, Saved Application State and Preferences (green)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41fe3bfba9 ci(computer): compare the Windows ledger after the plan is written",
+      "translated": "Compare the Windows ledger after the plan is written"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7abe552a72 conformance fixtures: the hermetic check must count leftovers from a baseline taken before the first leg, and macOS bundle-id app data (red)",
+      "translated": "Conformance fixtures: the hermetic check must count leftovers from a baseline taken before the first leg, and macOS bundle-id app data (red)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "51974df4a8 fix(computer): age.rs names SESSIONS_DIR inside its unix-only test, so the Windows build has no unused import",
+      "translated": "Age.rs names SESSIONS_DIR inside its unix-only test, so the Windows build has no unused import"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "353e2d1a05 fix(computer): the replay driver and its tests run on Windows (case names with '/', compiled stand-in engines)",
+      "translated": "The replay driver and its tests run on Windows (case names with '/', compiled stand-in engines)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7abf0fe78e docs(changes): changelog fragment for #13367 (cu-v3 row 17)",
+      "translated": "Changelog fragment for #13367 (cu-v3 row 17)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "67506dedb9 fix(computer): the fake's source guard ends a block comment at its own close, counting nesting",
+      "translated": "The fake's source guard ends a block comment at its own close, counting nesting"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8b8cdfca11 test(computer): the fake's source guard must catch an env item after a nested block comment",
+      "translated": "The fake's source guard must catch an env item after a nested block comment"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7b95593f3a docs(changes): fragment for #13363",
+      "translated": "Fragment for #13363"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "d3a7e8f18c fix(computer): the fake's source guard skips comments inside a grouped std import",
+      "translated": "The fake's source guard skips comments inside a grouped std import"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "17aa43a44a test(computer): the fake's source guard must catch an env item preceded by a comment inside the group",
+      "translated": "The fake's source guard must catch an env item preceded by a comment inside the group"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ff4ffdab20 Merge row 16 (3fadff4083) into row 17 (R70 cascade)",
+      "translated": "Merge row 16 (3fadff4083) into row 17 (R70 cascade)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3fadff4083 Merge row 15 (494f3b8854) into row 16 (R70 cascade)",
+      "translated": "Merge row 15 (494f3b8854) into row 16 (R70 cascade)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "494f3b8854 Merge row 14 (ROW 14 FINAL dbf96deb44) into row 15 (R70 cascade)",
+      "translated": "Merge row 14 (ROW 14 FINAL dbf96deb44) into row 15 (R70 cascade)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b6f8b8871a Merge dev 4a26ea1181 into test/cu-is-row04b-fixtures-p2",
+      "translated": "Merge dev 4a26ea1181 into test/cu-is-row04b-fixtures-p2"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7fd94492d2 Merge commit '4a26ea11815caf5cc983aa5b8abc4ac0a6d7670b' into test/cu-is-row4e-preflight-cleanup",
+      "translated": "Merge commit '4a26ea11815caf5cc983aa5b8abc4ac0a6d7670b' into test/cu-is-row4e-preflight-cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "861feea1bd Merge dev into 7d (take dev once, 4a26ea11815caf5cc983aa5b8abc4ac0a6d7670b)",
+      "translated": "Merge dev into 7d (take dev once, 4a26ea11815caf5cc983aa5b8abc4ac0a6d7670b)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bd98ab2db1 Merge remote-tracking branch 'origin/dev' into ci/cu-is-row6b-ledger-drift",
+      "translated": "Merge remote-tracking branch 'origin/dev' into ci/cu-is-row6b-ledger-drift"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "db8e94e1fc conformance fixtures: the driver owns the Electron profile directory",
+      "translated": "Conformance fixtures: the driver owns the Electron profile directory"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4710785033 conformance fixtures: remove the Electron profile at process exit; hide the page fully in the a11y sabotage",
+      "translated": "Conformance fixtures: remove the Electron profile at process exit; hide the page fully in the a11y sabotage"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1d0d3106f2 conformance fixtures: hermetic web hosts, a page-scoped Windows a11y check, full trigger paths",
+      "translated": "Conformance fixtures: hermetic web hosts, a page-scoped Windows a11y check, full trigger paths"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2833aadc26 conformance fixtures: keep Mark done inside the WinForms client rect",
+      "translated": "Conformance fixtures: keep Mark done inside the WinForms client rect"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "924e32c884 Merge the row 4b fixtures head (0fe7c2a19d, dev taken in) into the rects follow-up",
+      "translated": "Merge the row 4b fixtures head (0fe7c2a19d, dev taken in) into the rects follow-up"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f02107d13b fix(computer): teardown counts only the probe's Xorg and fails on a leftover probe workdir",
+      "translated": "Teardown counts only the probe's Xorg and fails on a leftover probe workdir"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "cc948d4af1 test(computer): teardown counts only the probe's own Xorg and finds leftover probe workdirs - RED",
+      "translated": "Teardown counts only the probe's own Xorg and finds leftover probe workdirs - RED"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "36e7c675c7 test(conformance): give the stdio probe test room for the worst-case Windows cleanup",
+      "translated": "Give the stdio probe test room for the worst-case Windows cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0fe7c2a19d Merge dev (21541999d7, carries the #13295 preflight fix) into the row 4b fixtures branch",
+      "translated": "Merge dev (21541999d7, carries the #13295 preflight fix) into the row 4b fixtures branch"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3718f506f9 Merge dev into 7d (takes the preflight.test.ts Windows fix, #13295)",
+      "translated": "Merge dev into 7d (takes the preflight.test.ts Windows fix, #13295)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "04f275888a Merge commit '21541999d72a77ca45fa7075552b4ff030ae3df7' into test/cu-is-row4e-preflight-cleanup",
+      "translated": "Merge commit '21541999d72a77ca45fa7075552b4ff030ae3df7' into test/cu-is-row4e-preflight-cleanup"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "571e57182a conformance fixtures: keep the required-widget table module-private (knip)",
+      "translated": "Conformance fixtures: keep the required-widget table module-private (knip)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c87c001da6 docs(changes): fragment for #13299",
+      "translated": "Fragment for #13299"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2e987dd29a test(conformance): clean up the compiled stand-in engine with the shared EBUSY-retrying removeTreeSync",
+      "translated": "Clean up the compiled stand-in engine with the shared EBUSY-retrying removeTreeSync"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b04aaeb4da conformance fixtures: report screen rects for the GTK and WinForms widgets",
+      "translated": "Conformance fixtures: report screen rects for the GTK and WinForms widgets"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c4a43fe656 Merge dev into 7d (104 behind)",
+      "translated": "Merge dev into 7d (104 behind)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b1caa8bbb6 conformance fixtures: let Chromium join AT-SPI and fix the AX probe trust call",
+      "translated": "Conformance fixtures: let Chromium join AT-SPI and fix the AX probe trust call"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "0061e53c97 conformance fixtures: run the fixture workflow on pull requests and dispatch only",
+      "translated": "Conformance fixtures: run the fixture workflow on pull requests and dispatch only"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "71d081fc08 Merge dev (793cb21958, #13241 landed) into the row 4b fixtures branch",
+      "translated": "Merge dev (793cb21958, #13241 landed) into the row 4b fixtures branch"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "1ba1908b2f fix(computer): a failed artifact release is logged once, still in the next sweep report (gate review a6 LOW)",
+      "translated": "A failed artifact release is logged once, still in the next sweep report (gate review a6 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1ea558b39f test(computer): the test walks fail on an entry or file they cannot read (gate review a6 LOWs)",
+      "translated": "The test walks fail on an entry or file they cannot read (gate review a6 LOWs)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0cafb3a8ab test(computer): v3 funnel RED - the in-process grep-zero walk fails on a file it cannot read (gate review a6 LOW)",
+      "translated": "V3 funnel RED - the in-process grep-zero walk fails on a file it cannot read (gate review a6 LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "439050714f fix(computer): an artifact release that fails reaches the next sweep's warnings (planner R10)",
+      "translated": "An artifact release that fails reaches the next sweep's warnings (planner R10)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6af1081fc9 test(computer): v3 audit GC RED - an artifact that cannot be deleted is a sweep warning, and the GC goes on (planner R10)",
+      "translated": "V3 audit GC RED - an artifact that cannot be deleted is a sweep warning, and the GC goes on (planner R10)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "765ed47eb8 fix(computer): the artifact GC reports the read and delete errors it used to drop (gate review a5 LOW)",
+      "translated": "The artifact GC reports the read and delete errors it used to drop (gate review a5 LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "04ee097d93 fix(computer): an audit file that cannot be read for the chain link is logged (gate review a5 LOW)",
+      "translated": "An audit file that cannot be read for the chain link is logged (gate review a5 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c959e3afee test(computer): v3 audit RED - an unreadable audit file is an error, not a missing chain link (gate review a5 LOW)",
+      "translated": "V3 audit RED - an unreadable audit file is an error, not a missing chain link (gate review a5 LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "c5f84ce7ff fix(computer): a marker that cannot be written is logged; the refusal is unchanged (gate review a5 LOW)",
+      "translated": "A marker that cannot be written is logged; the refusal is unchanged (gate review a5 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0a7751c62e test(computer): v3 funnel RED - a marker that cannot be written is logged (gate review a5 LOW)",
+      "translated": "V3 funnel RED - a marker that cannot be written is logged (gate review a5 LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7cf35b002d fix(computer): the standalone replay plants a read-only dir as a plain file when running as root (gate review a4 LOW)",
+      "translated": "The standalone replay plants a read-only dir as a plain file when running as root (gate review a4 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "45364df0bd test(computer): v3 funnel RED - the marker-unavailable case refuses when planted as root (gate review a4 LOW)",
+      "translated": "V3 funnel RED - the marker-unavailable case refuses when planted as root (gate review a4 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8c494f8246 chore(computer): the C14 leg text says what is proved and where (gate review a4 MEDIUM)",
+      "translated": "The C14 leg text says what is proved and where (gate review a4 MEDIUM)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "60aaf91100 test(computer): the engine-process audit proof asserts its files exist, runs every fake persona, fails on unreadable entries (gate review a4)",
+      "translated": "The engine-process audit proof asserts its files exist, runs every fake persona, fails on unreadable entries (gate review a4)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "467ead2476 fix(computer): v3 guards report a brace, '..' or absolute addenda path as malformed (gate review a4 LOW)",
+      "translated": "V3 guards report a brace, '..' or absolute addenda path as malformed (gate review a4 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0413328694 test(computer): v3 guards RED - a brace, '..' or absolute addenda path is malformed (gate review a4 LOW)",
+      "translated": "V3 guards RED - a brace, '..' or absolute addenda path is malformed (gate review a4 LOW)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3a193cd01f test(computer): note that the zero-send clear-failure test pins the conservative a3 disposition (gate review a4 LOW)",
+      "translated": "Note that the zero-send clear-failure test pins the conservative a3 disposition (gate review a4 LOW)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0a111387ae fix(computer): the funnel logs the io error of every fail-closed step it survives (gate review a4 LOWs)",
+      "translated": "The funnel logs the io error of every fail-closed step it survives (gate review a4 LOWs)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eb391ce071 test(computer): v3 funnel RED - dropped io errors of fail-closed steps are logged (gate review a4 LOWs)",
+      "translated": "V3 funnel RED - dropped io errors of fail-closed steps are logged (gate review a4 LOWs)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "cadf96ee64 fix(computer): a crashed callId that cannot be poison-recorded is logged, marker kept (gate review a4 blocker)",
+      "translated": "A crashed callId that cannot be poison-recorded is logged, marker kept (gate review a4 blocker)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e6efbf7ad5 test(computer): v3 funnel RED - a crashed callId that cannot be poison-recorded is logged (gate review a4 blocker)",
+      "translated": "V3 funnel RED - a crashed callId that cannot be poison-recorded is logged (gate review a4 blocker)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f8ef30f864 conformance fixtures: fix the AX probe compile and name what AT-SPI can see",
+      "translated": "Conformance fixtures: fix the AX probe compile and name what AT-SPI can see"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0b02470063 chore(computer): C14 passed - the secure classification is proved through the engine process (R38; tests/secure_audit_engine_process.rs, 3 legs green on seoul at 1b6bb3a8eb)",
+      "translated": "C14 passed - the secure classification is proved through the engine process (R38; tests/secure_audit_engine_process.rs, 3 legs green on seoul at 1b6bb3a8eb)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1b6bb3a8eb style(computer): bun fmt script/computer-v3-guards-addenda.test.ts",
+      "translated": "Bun fmt script/computer-v3-guards-addenda.test.ts"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d4ab0d78df test(computer): the grep-zero set excludes exactly one file, the engine's fake sink by its exact path (R38, planner bound)",
+      "translated": "The grep-zero set excludes exactly one file, the engine's fake sink by its exact path (R38, planner bound)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "77c335d07d test(computer): the engine-process grep-zero set excludes the fake keyboard sink, which must hold the text (R38)",
+      "translated": "The engine-process grep-zero set excludes the fake keyboard sink, which must hold the text (R38)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "17b8bb9cee conformance fixtures: the electron-linux job must install at-spi2-core",
+      "translated": "Conformance fixtures: the electron-linux job must install at-spi2-core"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "126b835cef feat(computer): v3 guards --scope admits exact paths from SCOPE-ADDENDA.tsv beside the plan (planner ruling R46)",
+      "translated": "V3 guards --scope admits exact paths from SCOPE-ADDENDA.tsv beside the plan (planner ruling R46)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4abf854ec6 test(computer): v3 guards RED - --scope reads SCOPE-ADDENDA.tsv beside the plan (planner ruling R46)",
+      "translated": "V3 guards RED - --scope reads SCOPE-ADDENDA.tsv beside the plan (planner ruling R46)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "731e38cb0b test(computer): the engine-process audit proofs move to an engine integration test (R38 follow-up)",
+      "translated": "The engine-process audit proofs move to an engine integration test (R38 follow-up)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4193b176d4 conformance fixtures: Atspi.get_desktop takes an index; only bus errors are ENVIRONMENT",
+      "translated": "Conformance fixtures: Atspi.get_desktop takes an index; only bus errors are ENVIRONMENT"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "347dc6511f conformance fixtures: the AT-SPI probe must ask for Atspi 2.0",
+      "translated": "Conformance fixtures: the AT-SPI probe must ask for Atspi 2.0"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3198e9ec23 fix(computer): the fake reports scripted Secure Input as secure_input_active (planner ruling R38, option 2)",
+      "translated": "The fake reports scripted Secure Input as secure_input_active (planner ruling R38, option 2)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "779c6fb169 test(computer): the engine-process grep-zero leg under Secure Input - RED (planner ruling R38, option 2)",
+      "translated": "The engine-process grep-zero leg under Secure Input - RED (planner ruling R38, option 2)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bdd07e8b2c fix(computer): the fake reports a scripted secure focus as Secure Input, so the engine redacts it (planner ruling R38/R26)",
+      "translated": "The fake reports a scripted secure focus as Secure Input, so the engine redacts it (planner ruling R38/R26)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "78ba665416 test(computer): the engine-process secure leg runs again - RED (planner ruling on R38)",
+      "translated": "The engine-process secure leg runs again - RED (planner ruling on R38)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d437a6d354 test(computer): the engine-process secure leg is recorded UNOBSERVED, owed to row 26 (R38)",
+      "translated": "The engine-process secure leg is recorded UNOBSERVED, owed to row 26 (R38)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f6685be70c fix(computer): a marker cleanup that fails is logged; the primary error is still returned (gate review a3)",
+      "translated": "A marker cleanup that fails is logged; the primary error is still returned (gate review a3)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f7e68735b1 test(computer): v3 marker RED - a failed cleanup removal is reported, not dropped (gate review a3)",
+      "translated": "V3 marker RED - a failed cleanup removal is reported, not dropped (gate review a3)"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "7eacddb2c0 refactor(computer): MemoryMarkers moves to mutate/memory_markers.rs",
+      "translated": "MemoryMarkers moves to mutate/memory_markers.rs"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "f6adee6c37 fix(computer): the standalone replay restores narrowed dir modes on every exit (gate review a3)",
+      "translated": "The standalone replay restores narrowed dir modes on every exit (gate review a3)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "588123985e test(computer): v3 funnel RED - a panicking standalone replay restores its 0500 dir (gate review a3)",
+      "translated": "V3 funnel RED - a panicking standalone replay restores its 0500 dir (gate review a3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "6393536ac9 fix(computer): any callId the wire admits can be poison-recorded, so no crash wedges a scope (gate review a3)",
+      "translated": "Any callId the wire admits can be poison-recorded, so no crash wedges a scope (gate review a3)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "674e7c559d test(computer): v3 funnel RED - a crashed callId that is no path component wedges its scope (gate review a3)",
+      "translated": "V3 funnel RED - a crashed callId that is no path component wedges its scope (gate review a3)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "0d69aeea88 fix(computer): the funnel drops no audit, clear, permit or receipt result (gate review a3 B1, B2)",
+      "translated": "The funnel drops no audit, clear, permit or receipt result (gate review a3 B1, B2)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "82080fce50 test(computer): v3 funnel RED - no dropped audit, clear, permit or receipt result (gate review a3)",
+      "translated": "V3 funnel RED - no dropped audit, clear, permit or receipt result (gate review a3)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "17c2505068 conformance fixtures: force renderer accessibility and assert page controls are visible",
+      "translated": "Conformance fixtures: force renderer accessibility and assert page controls are visible"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "196bb7fa66 test(computer): the secure-field type audit is proved through the engine process - RED",
+      "translated": "The secure-field type audit is proved through the engine process - RED"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f05d420219 chore(changes): note the Windows ledger drift check",
+      "translated": "Note the Windows ledger drift check"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4506248abc Merge row 16 into row 17",
+      "translated": "Merge row 16 into row 17"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "de5a0330a9 fix(computer): paths.rs imports Path only where it is used (unix and tests), so clippy -D warnings passes on x86_64-pc-windows-msvc",
+      "translated": "Paths.rs imports Path only where it is used (unix and tests), so clippy -D warnings passes on x86_64-pc-windows-msvc"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4575dd8010 test(computer): every fixture reports a stable app key",
+      "translated": "Every fixture reports a stable app key"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ef66042f6f ci(computer): fail the Windows ledger job when a verdict drifts from the committed ledger",
+      "translated": "Fail the Windows ledger job when a verdict drifts from the committed ledger"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "109ecc292e test(computer): Electron and web-view fixtures on every OS",
+      "translated": "Electron and web-view fixtures on every OS"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "400cbc19f8 fix(computer): measure the macOS pool's teardown, up and sweep; exit 3 when nothing ran",
+      "translated": "Measure the macOS pool's teardown, up and sweep; exit 3 when nothing ran"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "70415e5581 test(computer): the committed Windows ledger must match a fresh measurement (RED)",
+      "translated": "The committed Windows ledger must match a fresh measurement (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a794f42dbd test(computer): macOS pool teardown, up, sweep and refusal must be measured (red)",
+      "translated": "MacOS pool teardown, up, sweep and refusal must be measured (red)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "65e0428f9b test(computer): GTK fixture reads a menu path that contains spaces",
+      "translated": "GTK fixture reads a menu path that contains spaces"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c3459ea3bb test(computer): fixture windows are titled Conformance Document",
+      "translated": "Fixture windows are titled Conformance Document"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8ff20a0af9 docs(computer): macOS live cells are recorded drops until a guest exists",
+      "translated": "MacOS live cells are recorded drops until a guest exists"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2420bac7fe ci(computer): fail the teardown check on an unread pgrep and on a leftover probe X lock",
+      "translated": "Fail the teardown check on an unread pgrep and on a leftover probe X lock"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e67b771ce0 docs(computer): README for the conformance fixture apps",
+      "translated": "README for the conformance fixture apps"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4bb7ec8951 test(computer): Electron fixture keeps the Chromium sandbox and reads control from fd 0",
+      "translated": "Electron fixture keeps the Chromium sandbox and reads control from fd 0"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b9dfb535e5 chore(knip): scope the Electron fixture unlisted-import ignore to its two files",
+      "translated": "Scope the Electron fixture unlisted-import ignore to its two files"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3eeba492bc test(computer): macOS AppKit fixture; fetch the Electron binary; read CRLF fixture lines",
+      "translated": "MacOS AppKit fixture; fetch the Electron binary; read CRLF fixture lines"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "3c2419d1fa fix(computer): marker cases get a fresh runtime dir and plant their state",
+      "translated": "Marker cases get a fresh runtime dir and plant their state"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "20fd0929b7 test(computer): the marker cases replay standalone - RED",
+      "translated": "The marker cases replay standalone - RED"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "16844c3cdb Merge row 15 into row 16",
+      "translated": "Merge row 15 into row 16"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "7b146bf705 Merge row 16 into row 17",
+      "translated": "Merge row 16 into row 17"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7dfb877720 feat(computer): fresh runtime dir per replay case, planted state, and the cargo target dir",
+      "translated": "Fresh runtime dir per replay case, planted state, and the cargo target dir"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "20b0bfd401 test(computer): replay runtime dirs, planted state and the engine path - RED",
+      "translated": "Replay runtime dirs, planted state and the engine path - RED"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "acbbfb1a5c test(computer): Windows, Electron and web-view conformance fixtures; fix the GTK drag leg",
+      "translated": "Windows, Electron and web-view conformance fixtures; fix the GTK drag leg"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "07c0da52b2 test(computer): Linux GTK conformance fixture with an engine-free self-test",
+      "translated": "Linux GTK conformance fixture with an engine-free self-test"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "60efb3cd37 Merge row 15 into row 16",
+      "translated": "Merge row 15 into row 16"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "9a258124a3 Merge row 16 into row 17",
+      "translated": "Merge row 16 into row 17"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e3a9dc4373 feat(computer): replay lists and directories, and the supersedes rule",
+      "translated": "Replay lists and directories, and the supersedes rule"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b26b33ad90 test(computer): replay supersedes - RED",
+      "translated": "Replay supersedes - RED"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "47d369cb4f Merge row 16 into row 17",
+      "translated": "Merge row 16 into row 17"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3a3a0d1744 Merge row 15 into row 16",
+      "translated": "Merge row 15 into row 16"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "568c16a0c1 style(computer): bun fmt the replay driver and its test (dev adopted bun fmt, #12225)",
+      "translated": "Bun fmt the replay driver and its test (dev adopted bun fmt, #12225)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c1d2668ab5 Merge row 16 into row 17",
+      "translated": "Merge row 16 into row 17"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "83b0d1fd77 Merge row 15 into row 16",
+      "translated": "Merge row 15 into row 16"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8e06216641 Merge #13120's reviewed head 2fb19d192e into row 15",
+      "translated": "Merge #13120's reviewed head 2fb19d192e into row 15"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "beaa9a845e fix(computer): SP-R labels never invalidate a reading; mutation set catches weakened rules; verdicts only from the gate",
+      "translated": "SP-R labels never invalidate a reading; mutation set catches weakened rules; verdicts only from the gate"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7bad8ea17f test(computer): SP-R label fields, mutation strength and gate-only verdicts (RED, folded nits)",
+      "translated": "SP-R label fields, mutation strength and gate-only verdicts (RED, folded nits)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bf038c6edc fix(computer): SP-R one verdict gate for every rule; numeric-FD visibility; bounded reconnect",
+      "translated": "SP-R one verdict gate for every rule; numeric-FD visibility; bounded reconnect"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c625f2d92a test(computer): SP-R one verdict gate, property and static checks (RED, review round 2)",
+      "translated": "SP-R one verdict gate, property and static checks (RED, review round 2)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "12cc267d65 Merge commit 'b7dbaf91d5835fa09978c86368b028799aabf091' into feat/cu-v3-row17-mutate-funnel",
+      "translated": "Merge commit 'b7dbaf91d5835fa09978c86368b028799aabf091' into feat/cu-v3-row17-mutate-funnel"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b7dbaf91d5 Merge commit 'a79bc8a1f3' into feat/cu-v3-row16-safety",
+      "translated": "Merge commit 'a79bc8a1f3' into feat/cu-v3-row16-safety"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a79bc8a1f3 fix(computer): replay defaults a missing transport to stdio only for imported oracle cases",
+      "translated": "Replay defaults a missing transport to stdio only for imported oracle cases"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "646460bb17 test(computer): RED - a missing transport is stdio only for imported oracle cases",
+      "translated": "RED - a missing transport is stdio only for imported oracle cases"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e4706cad9b fix(computer): row 17 conformance cases pin session.open and stopPath.start results that parse",
+      "translated": "Row 17 conformance cases pin session.open and stopPath.start results that parse"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "54c05d13c1 test(computer): SP-R L-STATE re-measured with the lsof positive control; silent-peer rows record the close code",
+      "translated": "SP-R L-STATE re-measured with the lsof positive control; silent-peer rows record the close code"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "43d121e595 fix(computer): SP-R pair control listener cannot raise a firewall dialog; self-test isolation",
+      "translated": "SP-R pair control listener cannot raise a firewall dialog; self-test isolation"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "bf91a55de1 fix(computer): SP-R probe failures are UNMEASURED, lsof zero needs a positive control",
+      "translated": "SP-R probe failures are UNMEASURED, lsof zero needs a positive control"
+    },
+    {
+      "category": "improved",
+      "scope": null,
+      "original": "4208919321 refactor(computer): SP-W KWin registry questions in their own module",
+      "translated": "SP-W KWin registry questions in their own module"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "e18208db66 fix(computer): SP-W readers that see nothing are UNMEASURED; a zero-row container writes its rows UNMEASURED",
+      "translated": "SP-W readers that see nothing are UNMEASURED; a zero-row container writes its rows UNMEASURED"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a143477c86 test(computer): SP-R class self-tests for the review findings (RED)",
+      "translated": "SP-R class self-tests for the review findings (RED)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4dc7e47038 test(computer): RED for SP-W readers that see nothing and for a zero-row container",
+      "translated": "RED for SP-W readers that see nothing and for a zero-row container"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "45ef2614fc test(computer): SP-W ledger re-measured with the final probe (release control legs, precondition notes)",
+      "translated": "SP-W ledger re-measured with the final probe (release control legs, precondition notes)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "4f664cbed1 fix(computer): SP-W answers only from readings that could come out the other way; release control leg; run-plan checks; self-test in test:computer",
+      "translated": "SP-W answers only from readings that could come out the other way; release control leg; run-plan checks; self-test in test:computer"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1a371450f4 test(computer): RED for SP-W answer rules, release control and run plan",
+      "translated": "RED for SP-W answer rules, release control and run plan"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "a55119b851 fix(computer): the poison read fails closed - an unreadable, symlinked or non-directory record refuses",
+      "translated": "The poison read fails closed - an unreadable, symlinked or non-directory record refuses"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c3da0366fd test(computer): v3 funnel RED - a tampered poison record still refuses the crashed callId",
+      "translated": "V3 funnel RED - a tampered poison record still refuses the crashed callId"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b81acab5de chore(changes): fragment for #13166",
+      "translated": "Fragment for #13166"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "52478d0972 fix(computer): a crashed callId stays refused as delivery_uncertain/unsafe and is never resent; ledger owners",
+      "translated": "A crashed callId stays refused as delivery_uncertain/unsafe and is never resent; ledger owners"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4190fffc81 test(computer): SP-R UNMEASURED reasons per the lead",
+      "translated": "SP-R UNMEASURED reasons per the lead"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "74fb658de4 test(computer): v3 funnel RED - a crashed callId is never delivered twice and reads delivery_uncertain on the wire",
+      "translated": "V3 funnel RED - a crashed callId is never delivered twice and reads delivery_uncertain on the wire"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "21b9f48c20 test(computer): SP-W re-measures the 9 interface-presence rows",
+      "translated": "SP-W re-measures the 9 interface-presence rows"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "423eb89239 fix(computer): SP-W records the enumerated portal interface list",
+      "translated": "SP-W records the enumerated portal interface list"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "30b48b8260 fix(computer): SP-W reads portal interface presence from Introspect; 9 rows INVALID until re-measured",
+      "translated": "SP-W reads portal interface presence from Introspect; 9 rows INVALID until re-measured"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c5cdb87daa test(computer): RED for SP-W portal interface enumeration",
+      "translated": "RED for SP-W portal interface enumeration"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ea42d6cb1c feat(computer): v3 session funnel - pre-input marker, audit, lock, permits, artifact retention",
+      "translated": "V3 session funnel - pre-input marker, audit, lock, permits, artifact retention"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "0f99671cc7 test(computer): v3 session funnel RED - marker, replay, kill, batch, audit, retention, secure field",
+      "translated": "V3 session funnel RED - marker, replay, kill, batch, audit, retention, secure field"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6af3339bac docs(changes): changelog fragment for #13163",
+      "translated": "Changelog fragment for #13163"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "15629204dc test(computer): probe ledger for SP-W",
+      "translated": "Probe ledger for SP-W"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7341ffbc1a test(computer): measure SP-R on a same-network pair and the hosted relay",
+      "translated": "Measure SP-R on a same-network pair and the hosted relay"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "5aa5d5fc2c fix(computer): v3 safety design excerpt line numbers run 381..=407",
+      "translated": "V3 safety design excerpt line numbers run 381..=407"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ab8e29424f test(computer): v3 safety design excerpt refuses a renumbered copy",
+      "translated": "V3 safety design excerpt refuses a renumbered copy"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "96ea20c77a fix(computer): v3 safety table citations name the right design lines",
+      "translated": "V3 safety table citations name the right design lines"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1dbb2ebc77 test(computer): v3 safety table citations quote their cited design line",
+      "translated": "V3 safety table citations quote their cited design line"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eda585c34e test(computer): probe ledger for SP-R",
+      "translated": "Probe ledger for SP-R"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "38e4bd9030 fix(computer): v3 safety tables carry every design entry; stop path on the wire",
+      "translated": "V3 safety tables carry every design entry; stop path on the wire"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "abcf56ff48 test(computer): v3 safety tables against the design's cited list",
+      "translated": "V3 safety tables against the design's cited list"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "d44fdc6787 row 25: merge dev 04e22c0b6b (post bun-fmt; car sources re-formatted)",
+      "translated": "Row 25: merge dev 04e22c0b6b (post bun-fmt; car sources re-formatted)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "406e13b47a feat(computer): v3 safety crate - gate order, supervisor, stop latch, protected tables",
+      "translated": "V3 safety crate - gate order, supervisor, stop latch, protected tables"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c406aed619 test(computer): v3 safety crate RED - gate order, stop path, supervisor, self set",
+      "translated": "V3 safety crate RED - gate order, stop path, supervisor, self set"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "aabe53398d Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "62602a3b9f Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "bed05e8f69 Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b9f04cd546 Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row15-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "3a9b96358c Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8d16ee162f Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "8450d7983b Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row15-engine",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "499bb23354 row 25: merge dev c70f66f84a",
+      "translated": "Row 25: merge dev c70f66f84a"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "7de34fd538 fix(computer): raw-byte stdio lines, inert notifications, replay setup errors exit 2",
+      "translated": "Raw-byte stdio lines, inert notifications, replay setup errors exit 2"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "03a5aa05e1 feat(computer): engine refusals through the closed error table",
+      "translated": "Engine refusals through the closed error table"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "b370defb94 Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "6f92d6f6ca Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "ff44651c05 Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "149002dc94 Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "85614a42f1 Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "68e8e71848 chore(computer): drop row 15's C2 deferred-leg line; row 12 re-owes it",
+      "translated": "Drop row 15's C2 deferred-leg line; row 12 re-owes it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "766585ecbc feat(computer): v3 walking skeleton - engine on the fake backend and the replay driver",
+      "translated": "V3 walking skeleton - engine on the fake backend and the replay driver"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "65b0cfe059 test(computer): RED - replay driver and walking-skeleton engine cases",
+      "translated": "RED - replay driver and walking-skeleton engine cases"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "c02d3c4282 Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row13-core-contract' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "314f8efd1c Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row12-core-protocol' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "2e9c165d76 Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine",
+      "translated": "Merge branch 'feat/cu-v3-row14-fake-backend' into feat/cu-v3-row15-engine"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "e8aa0e471c row 25: merge dev 6dca74badd",
+      "translated": "Row 25: merge dev 6dca74badd"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "1f6d76425c row 25: merge dev c40c98690d",
+      "translated": "Row 25: merge dev c40c98690d"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "41443a700a fix(desktop-engine): retry a reset-before-reply only on Unix sockets (#12744 review)",
+      "translated": "Retry a reset-before-reply only on Unix sockets (#12744 review)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "04b63e3bad row 25: merge dev a68fc1b0dd",
+      "translated": "Row 25: merge dev a68fc1b0dd"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "138b45eff7 row 25: merge dev def0749b63",
+      "translated": "Row 25: merge dev def0749b63"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "42def63c52 row 25: merge dev a96a51d8fc",
+      "translated": "Row 25: merge dev a96a51d8fc"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6953209ec9 test(desktop-core): placeholder the conformance fixture resume tokens (match train E 18a5392eca)",
+      "translated": "Placeholder the conformance fixture resume tokens (match train E 18a5392eca)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "4274329416 docs(changes): name the fragment for #12744",
+      "translated": "Name the fragment for #12744"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "f4d0ce70d4 docs(changes): add the P3b fragment for shared-session same-user clients",
+      "translated": "Add the P3b fragment for shared-session same-user clients"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "v5.1.74 is published from `abf50be3e7ec62019c4315acb0f087413983d583`: the CI-receipted release-state head `243acc0da00a05d9480f35045cb2678ca0001925` plus #13928's operator-built darwin workflow change, which touches `.github/workflows` only (6 files, 0 outside). The package bytes are identical to the receipted head, and the darwin artifacts are operator-built from `243acc0da00a05d9480f35045cb2678ca0001925`.",
+      "translated": "v5.1.74 is published from `abf50be3e7ec62019c4315acb0f087413983d583`: the CI-receipted release-state head `243acc0da00a05d9480f35045cb2678ca0001925` plus #13928's operator-built darwin workflow change, which touches `.github/workflows` only (6 files, 0 outside). The package bytes are identical to the receipted head, and the darwin artifacts are operator-built from `243acc0da00a05d9480f35045cb2678ca0001925`."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "These workflows predate #13915: the release tag is created inside the publish-main job rather than in a separate job before any platform package is published. The dispatch was checked to have no existing tag pointing at a different sha.",
+      "translated": "These workflows predate #13915: the release tag is created inside the publish-main job rather than in a separate job before any platform package is published. The dispatch was checked to have no existing tag pointing at a different sha."
+    }
+  ],
+  "translatedAt": "2026-11-16T22:11:57.419Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 60398
+}

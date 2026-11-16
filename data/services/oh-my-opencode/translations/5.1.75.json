@@ -1,0 +1,254 @@
+{
+  "version": "5.1.75",
+  "date": "2026-11-16",
+  "parsedAt": "2026-11-16T22:10:31.255Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`omo remote devices` shows this device offline while its device service is not connected, and `omo remote sessions --device` naming a device the account does not have reports it instead of listing nothing. ([#13916](https://github.com/code-yeongyu/oh-my-openagent/pull/13916))",
+      "translated": "EQ.omo 드라이버가 샌드박스를 생성하기 전에 심볼릭 링크된 임시 디렉터리를 확인하도록 수정되어, macOS에서의 레코딩에 더 이상 `/private<sandbox>` 경로가 포함되거나 신뢰할 수 없는 프로젝트가 포함되지 않습니다. 플랫폼의 EQ.omo golden 파일이 고정된 버전과 일주일 이상 차이 나는 senpi 버전으로 기록된 경우 실패하는 새로운 테스트가 추가되었습니다. ([#13865](https://github.com/code-yeongyu/oh-my-openagent/pull/13865))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Memory sync's own test suite no longer fails a later, unrelated test when one test times out while a sync cycle is still running: device teardown in the tests now stops the engine and waits for that cycle before removing its files, and the push-bounded test waits on the cycle instead of a fixed 30 s budget. ([#13887](https://github.com/code-yeongyu/oh-my-openagent/pull/13887), fixes [#13680](https://github.com/code-yeongyu/oh-my-openagent/issues/13680))",
+      "translated": "desktop-bench 비교 요약에서 회귀 임계값(x1.3 및 +0.5 ms)이 `undefined` 대신 정상적으로 출력됩니다. 이제 `eval-core.mjs`에서 내보내지 않는 이름을 구조 분해하는 대신 `compareBench`의 결과에서 해당 값을 읽어옵니다. ([#13838](https://github.com/code-yeongyu/oh-my-openagent/pull/13838), #12876 리뷰 L1 후속 조치, [#12567](https://github.com/code-yeongyu/oh-my-openagent/issues/12567))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The first memory sync cycle after signing in no longer fails with \"the device's sign-in token could not be read or refreshed\" when the system keychain briefly reads nothing. That one empty read is now checked again before sync treats the sign-in as gone; signing out still stops sync at once. ([#13879](https://github.com/code-yeongyu/oh-my-openagent/pull/13879), fixes [#13739](https://github.com/code-yeongyu/oh-my-openagent/issues/13739))",
+      "translated": "`omo remote bootstrap`이 장치 서비스를 0.1.27 대신 0.1.39 버전으로 설치합니다. 이전 버전은 절전 해제(wake) 및 전달(delivery) 최소 요구 사양보다 낮아 장치에 대한 open/create 요청에 `unsupported`로 응답하던 문제가 있었습니다. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Regenerating the computer-use prelude (`bun run generate` in `senpi-desktop-prelude`) now runs its generated method tables through `bun fmt`, so `prelude.js`, its `index.ts` allowlist and the desktop protocol tier tables stay formatter-clean instead of reverting to unformatted output at every release regeneration. The published prelude JavaScript is the formatted copy again. ([#13855](https://github.com/code-yeongyu/oh-my-openagent/pull/13855))",
+      "translated": "절전 해제 최소 요구 사양보다 낮은 버전의 장치 서비스에 대해 절전 해제를 시도할 때, 단순히 `unsupported`라고 표시하는 대신 서비스 버전, 최소 요구 버전 및 해결 방법을 함께 표시합니다. ([#13803](https://github.com/code-yeongyu/oh-my-openagent/pull/13803))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "A memory sync capture that receives files from other devices no longer scans every known file once per received file, so a large memory catching up on many incoming files stays fast. ([#13862](https://github.com/code-yeongyu/oh-my-openagent/pull/13862))",
+      "translated": "`omo remote devices` 실행 시 현재 장치를 목록의 가장 처음에 표시하며(기존에는 계정 목록에 다른 장치만 포함됨), `--json` 옵션 사용 시 각 행에 `this_device` 표시를 추가합니다. 계정에 없는 장치에 대해 `omo remote sessions --device`를 실행할 경우, 빈 목록을 출력하는 대신 해당 장치 이름을 명시하며 종료 코드 2번과 함께 실패합니다. ([#13458](https://github.com/code-yeongyu/oh-my-openagent/pull/13458), [#13402](https://github.com/code-yeongyu/oh-my-openagent/issues/13402)의 일부)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2ec6b5d944 ci(publish): operator-built darwin artifacts for the v5.1.75 release (workflows from #13928, merge 8f8f4d1076)",
+      "translated": "`thread_interrupt`가 중단된 턴(turn)에서 시작된 백그라운드 작업(백그라운드에서 실행 중이거나 자동 분리된 bash 명령 등)도 함께 중지합니다. 이를 통해 해당 작업이 종료될 때 스레드가 다시 깨어나 중단되지 않은 것처럼 응답하는 문제를 해결했습니다. 중지된 작업의 결과는 `background: { status: \"stopped\", stopped, failed }` 형식으로 표시되며, 중지 기능을 지원하지 않는 이전 버전의 엔진은 `background: { status: \"not_supported\" }`로 응답합니다. 로컬 장치와 원격 장치의 스레드 모두 동일한 인터럽트 코드를 실행하고 동일한 형식으로 응답합니다. ([#13444](https://github.com/code-yeongyu/oh-my-openagent/pull/13444))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "89bbf71eda Merge pull request #13887 from code-yeongyu/fix/memory-sync-push-bounded-test-13680",
+      "translated": "Computer use v3 (가상 백엔드): 환경 변수 읽기를 금지하는 소스 가드(source guard)가 개선되었습니다. 이제 그룹 내 항목 앞에 `//` 또는 `/* */` 주석이 있는 경우에도 `use std::{...}` 형식의 환경 모듈 그룹 임포트를 감지하여 보고합니다. 주석을 이용해 항목을 숨기거나, 쉼표 또는 중괄호 위치에서 항목을 분리할 수 없게 되었습니다. ([#13363](https://github.com/code-yeongyu/oh-my-openagent/pull/13363))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "598ec2344c Merge pull request #13862 from code-yeongyu/fix/memory-sync-capture-known-set",
+      "translated": "데스크톱 엔진: 클라이언트가 첫 응답 바이트를 받기 전 연결이 리셋된 경우, Unix 소켓에서만 재시도를 수행합니다. 데몬이 이미 요청을 처리했을 가능성이 있는 Windows 명명된 파이프(named pipe)에서는 재시도하지 않습니다. ([#12744](https://github.com/code-yeongyu/oh-my-openagent/pull/12744))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c3304b602a Merge pull request #13879 from code-yeongyu/fix/memory-sync-first-receive-token-13739",
+      "translated": "`thread_read` 대기 제한 시간(600,000 ms)이 사용되지 않는 export 대신 thread schema 내부로 통합되었습니다. 제한 시간 자체는 변경되지 않았으며, 동작상의 변화도 없습니다. ([#13864](https://github.com/code-yeongyu/oh-my-openagent/pull/13864))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "83422463da Merge pull request #13870 from code-yeongyu/docs/13855-pin-comment-wording",
+      "translated": "Windows 백엔드에서 Alt 키를 누르고 있는 동안 키 경로가 키를 전송하는 경우(수정 키 전용 조합, 누르고 있던 키를 뗄 때, Alt 키 해제 실패가 여전히 눌림 상태로 기록된 경우 등)에 대한 문서를 작성했습니다. 또한 Windows 테스트의 이름을 점검 순서에 맞게 변경했습니다. 사용자에게 직접적으로 변경되는 사항은 없습니다. ([#13824](https://github.com/code-yeongyu/oh-my-openagent/pull/13824), [#13821](https://github.com/code-yeongyu/oh-my-openagent/issues/13821) 수정)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9ed8307f17 Merge origin/dev into fix/memory-sync-first-receive-token-13739",
+      "translated": "X11 입력의 클라이언트 프로세스 리더 모듈 문서에 백그라운드 입력 확인을 위해 추가된 `/proc/<pid>/exe` 읽기 작업을 명시했습니다. 사용자에게 직접적으로 변경되는 사항은 없습니다. ([#13820](https://github.com/code-yeongyu/oh-my-openagent/pull/13820), [#13818](https://github.com/code-yeongyu/oh-my-openagent/issues/13818) 수정)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f47c976114 chore(changes): the fragment links this PR (#13887)",
+      "translated": "TUI의 `/remote enable`, `/remote disable`, `/remote control` 명령이 CLI의 원시 JSON 대신 문장 형태(\"이 장치에 대해 원격 세션이 활성화되었습니다.\", \"원격 제어가 비활성화되었습니다: ...\")로 응답합니다. `/remote enable`이 완료되지 못할 경우 종료 코드 대신 CLI의 오류 사유(예: \"OmO 장치 서비스를 다운로드할 수 없습니다.\")를 표시하며, 성공 시 CLI가 출력하는 경고(예: 장치가 연결되지 않음)도 결과 뒤에 표시됩니다. ([#13796](https://github.com/code-yeongyu/oh-my-openagent/pull/13796))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bc1abdab02 Merge origin/dev into fix/memory-sync-push-bounded-test-13680",
+      "translated": "remote"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8c3f1a1502 Merge origin/dev into fix/memory-sync-capture-known-set",
+      "translated": "Merge origin/dev into fix/memory-sync-capture-known-set"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "821eafd5a2 Merge remote-tracking branch 'origin/dev' into docs/13855-pin-comment-wording",
+      "translated": "Merge remote-tracking branch 'origin/dev' into docs/13855-pin-comment-wording"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "31e08cb319 Merge pull request #13916 from code-yeongyu/rt/13414-client-parity",
+      "translated": "Merge pull request #13916 from code-yeongyu/rt/13414-client-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "984088bb87 Merge origin/dev into fix/memory-sync-first-receive-token-13739",
+      "translated": "Merge origin/dev into fix/memory-sync-first-receive-token-13739"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9bd2382748 Merge pull request #13855 from code-yeongyu/fix/prelude-fmt-clean-regen",
+      "translated": "Merge pull request #13855 from code-yeongyu/fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f865a7afc5 Merge pull request #13918 from code-yeongyu/ci/platform-decision-body-comment",
+      "translated": "Merge pull request #13918 from code-yeongyu/ci/platform-decision-body-comment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ebeaac0e72 Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "03e4b7e8c5 ci(pr-platform-decision): restore why the PR body is read from the event file (#13859)",
+      "translated": "Restore why the PR body is read from the event file (#13859)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f9f610d53a Merge pull request #13912 from code-yeongyu/ci/platform-decision-one-cap",
+      "translated": "Merge pull request #13912 from code-yeongyu/ci/platform-decision-one-cap"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "add0ca2bc2 docs(changes): fragment for remote client read-path parity (#13916)",
+      "translated": "Fragment for remote client read-path parity (#13916)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "bca0d62dde Merge branch 'dev' into rt/13414-client-parity",
+      "translated": "Merge branch 'dev' into rt/13414-client-parity"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "72cecaeec7 fix(remote): the client's devices.list and sessions.list carry #13402's CLI behaviour (#13414)",
+      "translated": "The client's devices.list and sessions.list carry #13402's CLI behaviour (#13414)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "02915ac7ad Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "eac1e0af78 ci(pr-platform-decision): one file-cap number, owned by the classifier (#13859)",
+      "translated": "One file-cap number, owned by the classifier (#13859)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "86949060a2 Merge origin/dev into fix/memory-sync-capture-known-set",
+      "translated": "Merge origin/dev into fix/memory-sync-capture-known-set"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d81b80ade6 Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2fc39fc83f Merge origin/dev into fix/memory-sync-first-receive-token-13739",
+      "translated": "Merge origin/dev into fix/memory-sync-first-receive-token-13739"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "00026f3825 chore(changes): the fragment carries this PR's number (#13887)",
+      "translated": "The fragment carries this PR's number (#13887)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "223aefb941 test(memory-sync): teardown waits for a running cycle; push-bounded waits on the cycle",
+      "translated": "Teardown waits for a running cycle; push-bounded waits on the cycle"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ea7660546f fix(memory-sync): re-read a transiently empty credential once before retiring the capture",
+      "translated": "Re-read a transiently empty credential once before retiring the capture"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4e51d430c6 Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7560233dd2 docs(desktop-prelude): describe the whole-file bun fmt pass in the pin fixture comment",
+      "translated": "Describe the whole-file bun fmt pass in the pin fixture comment"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d15ec64eb8 perf(memory-sync): look up known keys in a set when picking joining files",
+      "translated": "Look up known keys in a set when picking joining files"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2a9d548e4a chore(fmt): drop the generate-assets.ts output ignores from .prettierignore",
+      "translated": "Drop the generate-assets.ts output ignores from .prettierignore"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "45ed149542 Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/prelude-fmt-clean-regen"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "6ab79387ee docs(changelog): fragment for #13855",
+      "translated": "Fragment for #13855"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8c82979a85 fix(desktop-prelude): format the generator's outputs with bun fmt and regenerate them",
+      "translated": "Format the generator's outputs with bun fmt and regenerate them"
+    }
+  ],
+  "translatedAt": "2026-11-16T22:11:57.418Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 4797
+}
