@@ -1,0 +1,356 @@
+{
+  "version": "5.1.79",
+  "date": "2026-11-19",
+  "parsedAt": "2026-11-19T07:31:28.608Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The `/remote` close in the TUI follows `thread_close`'s close contract (#14234). A close refused because the thread has messages it has not read names `/remote close <session> --force` and lists those messages, or says the ids are unavailable on that device's engine. The picker then offers \"Close anyway\". A forced close lists the messages it dropped. The refusal's `details.reason` is the engine's own reason (`turn_active` or `work_pending`). ([#14246](https://github.com/code-yeongyu/oh-my-openagent/pull/14246), fixes [#14245](https://github.com/code-yeongyu/oh-my-openagent/issues/14245)) ([#14248](https://github.com/code-yeongyu/oh-my-openagent/pull/14248))",
+      "translated": "배포된 설치 스모크 테스트가 패키징하기 전에 latest의 tarball이 커밋될 때까지 대기"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Thread tools: a command for a thread whose session parked on another device after it was listed no longer fails `unsupported` with advice to update omo on that device. The device service answers such a command `route_unlisted` (its host no longer lists that session, so nothing was sent to it). `thread_close` now answers `closed: false, reason: \"not_live\"`, and the other thread tools answer `not_resumable`, as for a session that ended there. A create, or a reopen's session-file lookup, refused that way is `host_unavailable`, with a retry. ([#14237](https://github.com/code-yeongyu/oh-my-openagent/pull/14237), fixes [#14233](https://github.com/code-yeongyu/oh-my-openagent/issues/14233)) ([#14248](https://github.com/code-yeongyu/oh-my-openagent/pull/14248))",
+      "translated": "Dev 95e7eb528d (#14239, #14025)를 thread train 3에 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "The cold-wake session host unit (and every other unit or plist the cold-wake install writes) is now written 0644 under any umask. Under umask 077 it was written 0600, because a file's creation mode is masked by the umask; the mode is now set explicitly before the file is moved into place. ([#14249](https://github.com/code-yeongyu/oh-my-openagent/pull/14249), fixes [#14247](https://github.com/code-yeongyu/oh-my-openagent/issues/14247)) ([#14248](https://github.com/code-yeongyu/oh-my-openagent/pull/14248))",
+      "translated": "Code-yeongyu/feat/11344-model-routing-resolve-2에서 온 풀 리퀘스트 #14025 병합"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A cold-wake unit or plist an earlier build already left 0600 is set back to 0644 the next time the install (or a refresh to a newer runtime) finds its content unchanged, with no reload or restart. A file this user cannot change the mode of (another owner's, or on a read-only filesystem) is left as it is and the install still succeeds. ([#14249](https://github.com/code-yeongyu/oh-my-openagent/pull/14249)) ([#14248](https://github.com/code-yeongyu/oh-my-openagent/pull/14248))",
+      "translated": "Code-yeongyu/p0/relcwd-owned-folder에서 온 풀 리퀘스트 #14239 병합"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "**`thread_close` no longer drops messages a thread has not read unless you ask it to.** Before, it always interrupted the session and silently dropped any messages queued behind its run. Now:",
+      "translated": "Dev 5b42751b12 (release v5.1.78)를 thread train 3에 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "The desktop can ask OmO which model each category and agent runs. A new read-only extension request, `omo.modelRouting.resolve`, answers the model every category (under its canonical name) and every task agent would spawn on, using the same resolvers a `task` call uses against the session's project config, model registry and sign-ins, and says whether that model came from your omo.json or from OmO's defaults. ([#14025](https://github.com/code-yeongyu/oh-my-openagent/pull/14025))",
+      "translated": "Origin/dev (5b42751b12)를 feat/11344-model-routing-resolve-2에 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "822bd92303 Merge pull request #14290 from code-yeongyu/release/v5.1.79-source-state",
+      "translated": "Code-yeongyu/release/v5.1.78-source-state에서 온 풀 리퀘스트 #14243 병합"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "fd7c18a9de Merge pull request #14286 from code-yeongyu/ratchet-no-ignore",
+      "translated": "#1424"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2d1b133359 fix(lint-ratchet): the lint ratchet refuses a file oxlint skipped, so a config's ignorePatterns cannot hide one either",
+      "translated": "The lint ratchet refuses a file oxlint skipped, so a config's ignorePatterns cannot hide one either"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0bed7304a4 fix(lint-ratchet): lint ratchet runs oxlint with --no-ignore, so an ignore file cannot hide a file from it",
+      "translated": "Lint ratchet runs oxlint with --no-ignore, so an ignore file cannot hide a file from it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "abfb5be796 Merge pull request #14248 from code-yeongyu/release-train/omo-20261119-thread-train-3",
+      "translated": "Merge pull request #14248 from code-yeongyu/release-train/omo-20261119-thread-train-3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7559752bf0 Merge pull request #14267 from code-yeongyu/fix/11845-progress-aware-spawn-budget",
+      "translated": "Merge pull request #14267 from code-yeongyu/fix/11845-progress-aware-spawn-budget"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5e628bcd6f Merge pull request #14268 from code-yeongyu/feat/no-bun-mock-module",
+      "translated": "Merge pull request #14268 from code-yeongyu/feat/no-bun-mock-module"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c7367ed9aa test(omo-native): review fixes for the progress-aware budget",
+      "translated": "Review fixes for the progress-aware budget"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "07b5060b91 test(script): cover createRequire and members read off a loaded bun:test",
+      "translated": "Cover createRequire and members read off a loaded bun:test"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "42ef9ed14e fix(script): no-module-mock also sees bun:test loaded through createRequire",
+      "translated": "No-module-mock also sees bun:test loaded through createRequire"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "94f3fcc203 feat(script): ratchet module mocks in tests (no-module-mock)",
+      "translated": "Ratchet module mocks in tests (no-module-mock)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e9940fb6bb test(omo-native): bound daemon spawn waits by child CPU progress, not wall clock",
+      "translated": "Bound daemon spawn waits by child CPU progress, not wall clock"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "8356fb89da Merge pull request #14259 from code-yeongyu/fix/14257-published-smoke-tarball-wait",
+      "translated": "Merge pull request #14259 from code-yeongyu/fix/14257-published-smoke-tarball-wait"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "1de932cb39 fix(ci): fail fast on invalid smoke wait overrides; name sub-minute waits in seconds",
+      "translated": "Fail fast on invalid smoke wait overrides; name sub-minute waits in seconds"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a20f5a8f3e fix(ci): wait for latest's tarball to commit before the published install smoke packs it",
+      "translated": "Wait for latest's tarball to commit before the published install smoke packs it"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "50641b1434 Merge dev 95e7eb528d (#14239, #14025) into thread train 3",
+      "translated": "Merge dev 95e7eb528d (#14239, #14025) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "95e7eb528d Merge pull request #14025 from code-yeongyu/feat/11344-model-routing-resolve-2",
+      "translated": "Merge pull request #14025 from code-yeongyu/feat/11344-model-routing-resolve-2"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "452b41dd6b Merge pull request #14239 from code-yeongyu/p0/relcwd-owned-folder",
+      "translated": "Merge pull request #14239 from code-yeongyu/p0/relcwd-owned-folder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "608ebb582e Merge dev 5b42751b12 (release v5.1.78) into thread train 3",
+      "translated": "Merge dev 5b42751b12 (release v5.1.78) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "ff717ee44d Merge origin/dev (5b42751b12) into feat/11344-model-routing-resolve-2",
+      "translated": "Merge origin/dev (5b42751b12) into feat/11344-model-routing-resolve-2"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "5b42751b12 Merge pull request #14243 from code-yeongyu/release/v5.1.78-source-state",
+      "translated": "Merge pull request #14243 from code-yeongyu/release/v5.1.78-source-state"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a59c0a28a4 docs(changes): fold #14249's fragment into 14248.md",
+      "translated": "Fold #14249's fragment into 14248.md"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "12bdc2c44b Merge #14249 (cold-wake unit mode 0644 under any umask, Fixes #14247) into thread train 3",
+      "translated": "Merge #14249 (cold-wake unit mode 0644 under any umask, Fixes #14247) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "24ed73e7fb Merge #14227 (drop the dead no-endpoint check in device-service-core) into thread train 3",
+      "translated": "Merge #14227 (drop the dead no-endpoint check in device-service-core) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "053403d460 fix(cold-wake): make the unchanged-unit mode repair best effort (#14249)",
+      "translated": "Make the unchanged-unit mode repair best effort (#14249)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "4543cc7fbc fix(cold-wake): repair the mode of an unchanged unit left 0600 (#14247)",
+      "translated": "Repair the mode of an unchanged unit left 0600 (#14247)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a51b95ff70 Merge current dev (train-3 prep)",
+      "translated": "Merge current dev (train-3 prep)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "bc80fcf31f docs(changes): fold the thread train 3 members' fragments into 14248.md",
+      "translated": "Fold the thread train 3 members' fragments into 14248.md"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "7bc8c2bb08 docs(changes): note the cold-wake unit mode fix (#14249)",
+      "translated": "Note the cold-wake unit mode fix (#14249)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "9136ad1f53 fix(train): move the two-CLI-generations comment back above typedFailure (#14246 review LOW, comment only)",
+      "translated": "Move the two-CLI-generations comment back above typedFailure (#14246 review LOW, comment only)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3dadbb1284 fix(cold-wake): write the session-host unit 0644 regardless of umask (#14247)",
+      "translated": "Write the session-host unit 0644 regardless of umask (#14247)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e323a3683e Merge #14246 (L1/L2 follow-up of #14242, Fixes #14245) into thread train 3",
+      "translated": "Merge #14246 (L1/L2 follow-up of #14242, Fixes #14245) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "645afac4ce test(thread): train 3 resolution - #14237's route_unlisted close expects #14242's dropped_deliveries",
+      "translated": "Train 3 resolution - #14237's route_unlisted close expects #14242's dropped_deliveries"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "05a6e32a06 docs(changes): fragment for #14246",
+      "translated": "Fragment for #14246"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "c8221344c7 fix(remote): /remote close carries the close contract (force, dropped ids, surface-named hint); unread refusal keeps the engine's reason (#14245)",
+      "translated": "/remote close carries the close contract (force, dropped ids, surface-named hint); unread refusal keeps the engine's reason (#14245)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "f30e165403 Merge #14242 (thread close unread, Fixes #14234) into thread train 3",
+      "translated": "Merge #14242 (thread close unread, Fixes #14234) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "84ce4a7ff2 Merge #14237 (thread route unlisted, Fixes #14233) into thread train 3",
+      "translated": "Merge #14237 (thread route unlisted, Fixes #14233) into thread train 3"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "81368b7d1b chore(thread): un-export two module-local constants (values unchanged) and format (#14242 static checks)",
+      "translated": "Un-export two module-local constants (values unchanged) and format (#14242 static checks)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "0b7bc8920f docs(changes): fragment for #14242",
+      "translated": "Fragment for #14242"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2244531554 fix(thread): thread_close never drops unread deliveries unless forced; dropped_deliveries on every close (#14234)",
+      "translated": "Thread_close never drops unread deliveries unless forced; dropped_deliveries on every close (#14234)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "a51ee84fb4 test(thread): correct the cleanup comment (review L1 of #14239): bun:test already awaits an async hook; the wrapper exists to remove the owned folder",
+      "translated": "Correct the cleanup comment (review L1 of #14239): bun:test already awaits an async hook; the wrapper exists to remove the owned folder"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "99994cec02 fix(thread): an endpoint-level route_unlisted (reopen lookup) is host_unavailable, one mapping for open and find_session (#14237 review L1)",
+      "translated": "An endpoint-level route_unlisted (reopen lookup) is host_unavailable, one mapping for open and find_session (#14237 review L1)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e462f2a34d test(thread): the relative-cwd case owns its caller folder instead of assuming a repo-root cwd (#14238)",
+      "translated": "The relative-cwd case owns its caller folder instead of assuming a repo-root cwd (#14238)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "026c659f5a docs(changes): fragment for #14237",
+      "translated": "Fragment for #14237"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "2c005dd906 fix(thread): answer route_unlisted as a session the device no longer runs, not 'update omo' (#14233)",
+      "translated": "Answer route_unlisted as a session the device no longer runs, not 'update omo' (#14233)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "916de04c94 refactor(device-service-core): drop the dead no-endpoint check after the endpoint lookup",
+      "translated": "Drop the dead no-endpoint check after the endpoint lookup"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "199099f68d Merge origin/dev (630a673483) into the branch; regenerate bundles once",
+      "translated": "Merge origin/dev (630a673483) into the branch; regenerate bundles once"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "76a98618c8 chore(build): regenerate bundles after merging dev",
+      "translated": "Regenerate bundles after merging dev"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "e0590e588a Merge dev into feat/11344-model-routing-resolve-2",
+      "translated": "Merge dev into feat/11344-model-routing-resolve-2"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "847200fe34 Merge remote-tracking branch 'origin/dev' into feat/11344-model-routing-resolve-2",
+      "translated": "Merge remote-tracking branch 'origin/dev' into feat/11344-model-routing-resolve-2"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "3556503cbc docs(changes): name the fragment for #14025",
+      "translated": "Name the fragment for #14025"
+    }
+  ],
+  "translatedAt": "2026-11-19T07:36:40.465Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 7603
+}
