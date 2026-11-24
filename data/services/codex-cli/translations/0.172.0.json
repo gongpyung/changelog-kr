@@ -1,0 +1,614 @@
+{
+  "version": "0.172.0",
+  "date": "2026-11-24",
+  "parsedAt": "2026-11-24T22:30:43.081Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Follow thread links from search results and transcripts to open saved conversations and nested agents in the terminal. (#62332)",
+      "translated": "검색 결과 및 트랜스크립트의 스레드 링크를 따라 터미널에서 저장된 대화와 중첩된 에이전트를 열 수 있습니다. (#62332)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Press `Tab` to complete arguments for supported slash commands. For example, `/mcp lo` completes to `/mcp login`. (#62343)",
+      "translated": "`Tab` 키를 눌러 지원되는 슬래시 명령어의 인자를 자동 완성할 수 있습니다. 예를 들어, `/mcp lo`는 `/mcp login`으로 완성됩니다. (#62343)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Jump between task groups in the agent command center with `Shift+Up` and `Shift+Down`. (#62200)",
+      "translated": "에이전트 커맨드 센터에서 `Shift+Up` 및 `Shift+Down`을 사용하여 작업 그룹 간을 이동할 수 있습니다. (#62200)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Optional stdio MCP servers with cached tool lists now start on their first tool call by default. (#62366)",
+      "translated": "도구 목록이 캐시된 선택적 stdio MCP 서버는 이제 기본적으로 첫 번째 도구 호출 시 시작됩니다. (#62366)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "Set an approval reviewer for individual connected app tools in `config.toml`. (#62360)",
+      "translated": "`config.toml`에서 개별 연결된 앱 도구에 대한 승인 검토자를 설정할 수 있습니다. (#62360)"
+    },
+    {
+      "category": "added",
+      "scope": null,
+      "original": "App-server clients can select Amazon Bedrock Runtime during setup or sign-in. (#62222)",
+      "translated": "앱 서버 클라이언트는 설정 또는 로그인 중에 Amazon Bedrock Runtime을 선택할 수 있습니다. (#62222)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "`codex exec resume` restores saved sandbox permissions, the working directory, and workspace roots unless explicitly overridden. (#62194)",
+      "translated": "명시적으로 재설정하지 않는 한, `codex exec resume` 실행 시 저장된 샌드박스 권한, 작업 디렉토리 및 워크스페이스 루트가 복원됩니다. (#62194)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Remote sessions preserve working directories, workspace roots, and writable paths when the client and server run on different operating systems. (#62375, #62376, #62377)",
+      "translated": "클라이언트와 서버가 서로 다른 운영 체제에서 실행될 때도 원격 세션에서 작업 디렉토리, 워크스페이스 루트 및 쓰기 가능한 경로가 유지됩니다. (#62375, #62376, #62377)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Codex reports provider errors as soon as they arrive in a response stream and identifies which API spend limit was reached. (#62329, #62356)",
+      "translated": "Codex는 응답 스트림에 공급자 오류가 도착하는 즉시 이를 보고하고, 어떤 API 소비 한도에 도달했는지 식별합니다. (#62329, #62356)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Interrupting a parent turn preserves queued replies from child agents for the next turn. (#62348)",
+      "translated": "부모 턴을 중단해도 하위 에이전트의 대기 중인 응답은 다음 턴을 위해 유지됩니다. (#62348)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Use `PageUp` and `PageDown` to read and submit answer choices that are taller than the terminal’s answer area. (#62209)",
+      "translated": "터미널의 답변 영역보다 긴 답변 선택지를 읽고 제출하려면 `PageUp` 및 `PageDown`을 사용하세요. (#62209)"
+    },
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "Cloud replies that finish after history loads now update in place, keeping the terminal transcript in order. (#62403)",
+      "translated": "히스토리를 불러온 후 완료된 클라우드 응답은 이제 제자리에서 업데이트되어 터미널 트랜스크립트 순서를 유지합니다. (#62403)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "The bundled `openai-docs` skill now covers migration to GPT-6.2 Astra and Sol, including endpoint choices and tool-calling requirements. (#62447)",
+      "translated": "번들로 제공되는 `openai-docs` 스킬에 엔드포인트 선택 및 도구 호출 요구 사항을 포함한 GPT-6.2 Astra 및 Sol로의 마이그레이션 내용이 추가되었습니다. (#62447)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Code Mode now uses gRPC for all host connections. The `code_mode_host_grpc` setting is deprecated. (#62476)",
+      "translated": "Code Mode는 이제 모든 호스트 연결에 gRPC를 사용합니다. `code_mode_host_grpc` 설정은 더 이상 사용되지 않습니다. (#62476)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Python formatting and SDK type generation now verify dependency hashes against the repository lockfile. (#62346)",
+      "translated": "Python 포맷팅 및 SDK 타입 생성 시 이제 저장소 lockfile에 대해 종속성 해시를 검증합니다. (#62346)"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62190 Route turn and response checkpoints through the rollout budget policy",
+      "translated": "턴 및 응답 체크포인트를 롤아웃 예산 정책을 통해 라우팅합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62192 Distinguish Windows sandbox provisioning timeouts and pipe closures",
+      "translated": "Windows 샌드박스 프로비저닝 타임아웃과 파이프 폐쇄를 구분합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62194 Preserve saved sandbox permissions when resuming `codex exec`",
+      "translated": "`codex exec` 재개 시 저장된 샌드박스 권한을 유지합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62200 Add task group navigation to the agent command center",
+      "translated": "에이전트 커맨드 센터에 작업 그룹 탐색 기능을 추가합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62202 Omit unknown server versions from `/status`",
+      "translated": "`/status`에서 알 수 없는 서버 버전을 제외합니다."
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62205 Keep sandbox preparation with the command through launch",
+      "translated": "실행 시까지 명령과 함께 샌드박스 준비 상태 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62206 Prevent duplicate initial context when injection races the first turn",
+      "translated": "첫 번째 턴에서 주입 경합 발생 시 초기 컨텍스트 중복 방지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62209 Allow paging through long choices in async questions",
+      "translated": "비동기 질문의 긴 선택지에서 페이지 탐색 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62215 Resolve Linux sandbox mode once before launching the helper",
+      "translated": "헬퍼 실행 전 Linux 샌드박스 모드를 한 번 확인하도록 수정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62222 Allow Bedrock Runtime selection during setup and login",
+      "translated": "설정 및 로그인 중 Bedrock Runtime 선택 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62225 Tag Guardian review counts with turn origin",
+      "translated": "Guardian 검토 횟수에 턴 출처 태그 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62245 Refactor realtime handoff and history access",
+      "translated": "실시간 핸드오프 및 히스토리 접근 방식 리팩토링"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62251 Derive realtime input receipts from thread history",
+      "translated": "스레드 히스토리에서 실시간 입력 영수증 도출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62271 Gate local realtime frame history on paginated storage",
+      "translated": "페이지 단위 저장소에서 로컬 실시간 프레임 히스토리 제어"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62274 Support independent refreshes of managed Guardian policy",
+      "translated": "관리형 Guardian 정책의 독립적인 새로고침 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62276 Refresh managed Guardian policy independently of MCP",
+      "translated": "MCP와 독립적으로 관리형 Guardian 정책 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62284 Use the system clock for in-memory MCP message boards",
+      "translated": "인메모리 MCP 메시지 보드에 시스템 시계 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62288 Persist realtime handoffs before accepting turn input",
+      "translated": "턴 입력 수락 전 실시간 핸드오프 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62292 Route injected plaintext agent mail through the native mailbox",
+      "translated": "주입된 평문 에이전트 메일을 네이티브 사서함을 통해 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62299 Preserve pending realtime speech when a call ends",
+      "translated": "통화 종료 시 대기 중인 실시간 음성 보존"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62302 Route local MCP board notifications through response item injection",
+      "translated": "응답 항목 주입을 통해 로컬 MCP 보드 알림 라우팅"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62308 Extract Guardian verdict execution and pending-action context",
+      "translated": "Guardian 판결 실행 및 대기 중인 작업 컨텍스트 추출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62309 Use attached Guardian reviewers for synchronous approvals",
+      "translated": "동기 승인에 연결된 Guardian 검토자 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62310 Use Guardian V3 board evidence for synchronous approvals",
+      "translated": "동기 승인에 Guardian V3 보드 증거 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62314 Keep authorization evidence local to agent forks",
+      "translated": "인증 증거를 에이전트 포크의 로컬 상태로 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62317 Move sandbox preparation into platform backends",
+      "translated": "샌드박스 준비 과정을 플랫폼 백엔드로 이동"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62320 Trace MCP binding capture and tool catalog refresh",
+      "translated": "MCP 바인딩 캡처 및 도구 카탈로그 새로고침 추적"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62325 Accept inbound Noise connections in remote exec-server",
+      "translated": "원격 exec-server에서 인바운드 Noise 연결 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62326 Measure plugin recommendation latency during initial context setup",
+      "translated": "초기 컨텍스트 설정 중 플러그인 추천 지연 시간 측정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62329 Report API spend limit errors by scope",
+      "translated": "API 지출 한도 오류를 범위별로 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62331 Migrate the Windows MXC sandbox to the public V1 SDK",
+      "translated": "Windows MXC 샌드박스를 퍼블릭 V1 SDK로 마이그레이션"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62332 Open Codex thread links inside the TUI",
+      "translated": "TUI 내부에서 Codex 스레드 링크 열기 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62335 Let users open the command center from provider error screens",
+      "translated": "제공자 오류 화면에서 커맨드 센터를 열 수 있도록 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62337 Box the config reload future for persistent MCP tool approvals",
+      "translated": "지속적인 MCP 도구 승인을 위해 설정 재로드 future를 Box 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62338 Account for macOS voice build parallelism in Bazel",
+      "translated": "Bazel에서 macOS 보이스 빌드 병렬 처리 고려"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62343 Add slash command argument completion to the TUI composer",
+      "translated": "TUI 작성기에 슬래시 명령 인자 자동 완성 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62346 Verify dependency hashes when running Python repository tools",
+      "translated": "Python 저장소 도구 실행 시 의존성 해시 검증"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62348 Preserve queued agent messages when a parent turn is interrupted",
+      "translated": "상위 턴이 중단될 때 대기 중인 에이전트 메시지 보존"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62350 Support piped I/O when starting Seatbelt sandbox commands",
+      "translated": "Seatbelt 샌드박스 명령 시작 시 파이프 I/O 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62353 Add a shared sandbox launcher for Linux and macOS",
+      "translated": "Linux 및 macOS용 공용 샌드박스 런처 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62354 Treat statusless bio and cyber policy errors as terminal",
+      "translated": "상태가 없는 바이오 및 사이버 정책 오류를 치명적 오류(terminal)로 처리"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62356 Surface Responses stream errors as soon as they arrive",
+      "translated": "Responses 스트림 오류 발생 시 즉시 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62357 Report why turn critical path capture is incomplete",
+      "translated": "턴 임계 경로(critical path) 캡처가 불완전한 원인 보고"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62358 Reserve credential permission tables in Codex configuration",
+      "translated": "Codex 설정에서 자격 증명 권한 테이블 예약"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62360 Allow per-tool approval reviewers for Codex apps",
+      "translated": "Codex 앱에 도구별 승인 검토자 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62362 Make sidebar file preview errors easier to act on",
+      "translated": "사이드바 파일 미리보기 오류에 더 쉽게 대응할 수 있도록 개선"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62366 Enable lazy startup for stdio MCP servers by default",
+      "translated": "Stdio MCP 서버의 지연 시작(lazy startup)을 기본으로 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62370 Share config layer entries across snapshots",
+      "translated": "스냅샷 간에 설정 레이어 항목 공유"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62372 Make Guardian V3 routing and retrieval guidance configurable",
+      "translated": "Guardian V3 라우팅 및 검색 가이드를 설정 가능하도록 변경"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62373 Add opt-in in-memory message boards for Guardian v3",
+      "translated": "Guardian v3에 선택적 인메모리 메시지 보드 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62374 Reconsider denials in attached Guardian reviews",
+      "translated": "첨부된 Guardian 리뷰의 거부 사항 재검토"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62375 Preserve app-server thread working directories across platforms",
+      "translated": "여러 플랫폼에서 app-server 스레드 작업 디렉터리 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62376 Preserve sandbox writable roots across client and server platforms",
+      "translated": "클라이언트 및 서버 플랫폼 간에 샌드박스 쓰기 가능 루트 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62377 Preserve workspace roots across client and server platforms",
+      "translated": "클라이언트 및 서버 플랫폼 간에 워크스페이스 루트 유지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62378 Remove the 4,000-byte prompt limit for `thread/sample`",
+      "translated": "`thread/sample`에 대한 4,000바이트 프롬프트 제한 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62382 Skip the sandbox denial wait when unified exec output closes",
+      "translated": "통합 실행 출력이 닫힐 때 샌드박스 거부 대기 생략"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62384 Centralize transcript overlay input routing",
+      "translated": "트랜스크립트 오버레이 입력 라우팅 중앙화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62386 Prepare managed proxy settings once per sandbox command",
+      "translated": "샌드박스 명령어당 한 번씩 관리형 프록시 설정 준비"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62387 Expose custom status lines in `/experimental`",
+      "translated": "`/experimental`에서 사용자 정의 상태 줄 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62388 Support optional Apps tool results in Responses requests",
+      "translated": "Responses 요청에서 선택적 Apps 도구 결과 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62389 Pause runtime sandbox integrity checks",
+      "translated": "런타임 샌드박스 무결성 검사 일시 중지"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62390 Highlight clickable links and controls on hover in the fullscreen TUI",
+      "translated": "전체 화면 TUI에서 마우스 호버 시 클릭 가능한 링크 및 컨트롤 강조"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62392 Pass eligible connector results through to ChatGPT Responses",
+      "translated": "적격한 커넥터 결과를 ChatGPT Responses로 전달"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62400 Test saved chat hover highlighting in the sidebar chooser",
+      "translated": "사이드바 선택기에서 저장된 채팅의 호버 강조 표시 테스트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62403 Reconcile unfinished Cloud replies in the TUI transcript",
+      "translated": "TUI 트랜스크립트에서 완료되지 않은 Cloud 응답 조정"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62407 Deduplicate large tool output strings in rollout traces",
+      "translated": "Rollout trace에서 대규모 도구 출력 문자열 중복 제거"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62415 Enable network access in the shell snapshot filesystem test",
+      "translated": "Shell snapshot filesystem 테스트에서 네트워크 액세스 활성화"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62419 Allow per-sample model overrides in `thread/sample`",
+      "translated": "`thread/sample`에서 샘플별 모델 오버라이드 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62420 Box the future returned by response item injection",
+      "translated": "Response item injection에 의해 반환된 future를 Box로 래핑"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62421 Reject provider query parameters for connector result passthrough",
+      "translated": "Connector result passthrough에 대한 provider 쿼리 매개변수 거부"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62423 Include nested Apps tool results in Code Mode sampling requests",
+      "translated": "Code Mode 샘플링 요청에 중첩된 Apps 도구 결과 포함"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62430 Support tool-specific JavaScript preloads in Code Mode",
+      "translated": "Code Mode에서 도구별 JavaScript 프리로드 지원"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62432 Add opt-in OAuth discovery to config server loaders",
+      "translated": "Config server loader에 선택적 OAuth discovery 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62434 Expand connector result metadata coverage across auth configurations",
+      "translated": "인증 구성 전반에 걸쳐 connector result 메타데이터 범위 확장"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62435 Let extensions attach metadata to MCP tool requests",
+      "translated": "확장이 MCP 도구 요청에 메타데이터를 첨부할 수 있도록 허용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62437 Defer Git worktree status until the turn starts",
+      "translated": "턴이 시작될 때까지 Git worktree 상태 확인 지연"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62439 Add Windows MXC sandbox launch diagnostics",
+      "translated": "Windows MXC 샌드박스 실행 진단 추가"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62447 Update the `openai-docs` skill for GPT-6.2",
+      "translated": "GPT-6.2를 위한 `openai-docs` 스킬 업데이트"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62474 Send authorized connector results over Responses WebSockets",
+      "translated": "Responses WebSockets를 통해 인증된 connector result 전송"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62476 Use gRPC for all code-mode host connections",
+      "translated": "모든 code-mode 호스트 연결에 gRPC 사용"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62477 Box the thread startup future in `spawn_thread`",
+      "translated": "`spawn_thread`에서 스레드 시작 future를 Box로 래핑"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62489 Honor elastic budgets for attached Guardian reviews",
+      "translated": "첨부된 Guardian 리뷰에 대해 탄력적 예산(elastic budgets) 준수"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62496 Refresh managed Guardian policy across Codex threads",
+      "translated": "Codex 스레드 전반에서 관리형 Guardian 정책 새로고침"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62499 Expose Daybreak availability in model discovery",
+      "translated": "모델 discovery에서 Daybreak 가용성 노출"
+    },
+    {
+      "category": "other",
+      "scope": null,
+      "original": "#62507 Add Statsig counters for `exec_command` latency",
+      "translated": "`exec_command` 지연 시간에 대한 Statsig 카운터 추가"
+    }
+  ],
+  "translatedAt": "2026-11-24T22:33:12.179Z",
+  "translationEngine": "gemini",
+  "translationProvider": "gemini",
+  "translationModel": "gemini-3-flash-preview",
+  "translationEndpointType": "native",
+  "translationCharCount": 6948
+}
