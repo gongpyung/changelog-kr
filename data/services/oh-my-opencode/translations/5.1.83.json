@@ -1,0 +1,242 @@
+{
+  "version": "5.1.83",
+  "date": "2026-11-24",
+  "parsedAt": "2026-11-24T09:59:07.349Z",
+  "translationStatus": "pending",
+  "entries": [
+    {
+      "category": "fixed",
+      "scope": null,
+      "original": "A project on TypeScript 7 or later gets TypeScript diagnostics after an edit through its own `tsc --lsp --stdio`, with nothing else installed. The compiler is taken from the edited file's project, so a monorepo package on TypeScript 7 is served by its own `tsc` even when the session starts at the repository root, while a sibling package on an older TypeScript keeps typescript-language-server. A diagnostics scan of a whole directory sends each file to its own project's server, so a scan at the repository root covers both kinds of package, and a package whose server is slow to start no longer holds up the others, nor does giving up on it stop a server another request is still waiting for. A file is judged by where it really lives: a symlink inside the session never lends it another project's compiler, and a `bin/tsc` belonging to another kind of project, or a `node_modules/.bin/tsc` left behind without its `typescript` package, never hides the TypeScript installed for the package. A `typescript` command you configured is never replaced. A project on an older TypeScript, or none, still resolves typescript-language-server exactly as before. ([#14656](https://github.com/code-yeongyu/oh-my-openagent/pull/14656))",
+      "translated": "TypeScript 7 이상 버전의 프로젝트는 별도의 설치 없이 자체 `tsc --lsp --stdio`를 통해 편집 후 TypeScript 진단을 수행합니다. 컴파일러는 편집 중인 파일의 프로젝트에서 가져오므로, 저장소 루트에서 세션을 시작하더라도 TypeScript 7을 사용하는 모노레포 패키지는 자체 `tsc`를 사용하고, 이전 버전의 TypeScript를 사용하는 형제 패키지는 기존처럼 `typescript-language-server`를 유지합니다. 전체 디렉터리에 대한 진단 스캔 시 각 파일을 해당 프로젝트의 서버로 전송하므로, 저장소 루트에서의 스캔으로 두 종류의 패키지를 모두 처리할 수 있습니다. 또한 특정 서버의 시작이 느려도 다른 서버를 지연시키지 않으며, 특정 요청을 중단하더라도 다른 요청이 대기 중인 서버를 멈추지 않습니다. 파일은 실제 위치를 기준으로 판단됩니다. 세션 내의 심볼릭 링크가 다른 프로젝트의 컴파일러를 사용하게 하지 않으며, 다른 유형의 프로젝트에 속한 `bin/tsc`나 `typescript` 패키지 없이 남겨진 `node_modules/.bin/tsc`가 해당 패키지에 설치된 TypeScript를 가리지 않습니다. 사용자가 설정한 `typescript` 명령은 교체되지 않으며, 이전 버전의 TypeScript를 사용하거나 사용하지 않는 프로젝트는 기존과 동일하게 `typescript-language-server`를 확인합니다. ([#14656](https://github.com/code-yeongyu/oh-my-open"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "Ultrawork: verifying a UI deliverable asks for a play-through, a script that walks the product to several places or states and screenshots each, re-run after each feature. The default directive's existing verification sentences are rewritten in place and it is 6 bytes shorter. ([#14654](https://github.com/code-yeongyu/oh-my-openagent/pull/14654))",
+      "translated": "Ultrawork: verifying a UI deliverable asks for a play-through, a script that walks the product to several places or states and screenshots each, re-run after each feature. The default directive's existing verification sentences are rewritten in place and it is 6 bytes shorter. ([#14654](https://github.com/code-yeongyu/oh-my-openagent/pull/14654))"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1cfa727787 Merge pull request #14853 from code-yeongyu/fix/13986-remote-send-windows",
+      "translated": "Merge pull request #14853 from code-yeongyu/fix/13986-remote-send-windows"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "95cbf08c0c Merge pull request #14656 from code-yeongyu/fix/14642-tsc-native-lsp",
+      "translated": "Merge pull request #14656 from code-yeongyu/fix/14642-tsc-native-lsp"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a0a58c156c test(native): keep the store worker from source; end each case with the send and clean up after it (#13986)",
+      "translated": "Keep the store worker from source; end each case with the send and clean up after it (#13986)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4b68bab3c4 test(native): remote send exactly-once cases load the shipped store worker and end with the send (#13986)",
+      "translated": "Remote send exactly-once cases load the shipped store worker and end with the send (#13986)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1fce963c5b Merge dev 3836f44bfd into fix/14642-tsc-native-lsp",
+      "translated": "Merge dev 3836f44bfd into fix/14642-tsc-native-lsp"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "3836f44bfd Merge pull request #14848 from code-yeongyu/release/v5.1.82-land-stamp",
+      "translated": "Merge pull request #14848 from code-yeongyu/release/v5.1.82-land-stamp"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "55d509eead Merge release: v5.1.82 stamp (#14845) into dev",
+      "translated": "Merge release: v5.1.82 stamp (#14845) into dev"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "872bf3fd2b Merge pull request #14780 from code-yeongyu/fix/build-extension-cold-build-progress",
+      "translated": "Merge pull request #14780 from code-yeongyu/fix/build-extension-cold-build-progress"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "fde98aaf7a Merge pull request #14654 from code-yeongyu/fix/14643-ulw-ui-playthrough",
+      "translated": "Merge pull request #14654 from code-yeongyu/fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b71f279b76 Merge dev 615362696c into fix/build-extension-cold-build-progress",
+      "translated": "Merge dev 615362696c into fix/build-extension-cold-build-progress"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "615362696c Merge pull request #14843 from code-yeongyu/fix/14842-v14-backlog-baseline",
+      "translated": "Merge pull request #14843 from code-yeongyu/fix/14842-v14-backlog-baseline"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "1147dca196 Merge dev 154679e986 into fix/14643-ulw-ui-playthrough",
+      "translated": "Merge dev 154679e986 into fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "713d705656 test(thread): take the v14 case's backlog baseline after the start delivery is written (#14842)",
+      "translated": "Take the v14 case's backlog baseline after the start delivery is written (#14842)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "2955f01f9f chore(knip): export-check the new process-tree CPU reader (#13965)",
+      "translated": "Export-check the new process-tree CPU reader (#13965)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c26eaf68a9 test(build-extension): exit-kill case is POSIX-only; tree-gone checks ignore zombies; trip waits for the leader (#13965)",
+      "translated": "Exit-kill case is POSIX-only; tree-gone checks ignore zombies; trip waits for the leader (#13965)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "7752e500ff test(build-extension): win32 is an explicit unmeasurable outcome; trip kill falls back (#13965)",
+      "translated": "Win32 is an explicit unmeasurable outcome; trip kill falls back (#13965)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "35f23e2a80 test(build-extension): portable bounded-build cases, a kill that throws rejects, bound per runner (#13965)",
+      "translated": "Portable bounded-build cases, a kill that throws rejects, bound per runner (#13965)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "caf0705abc test(build-extension): bound cold builds with the shared tree watcher on every platform (#13965)",
+      "translated": "Bound cold builds with the shared tree watcher on every platform (#13965)"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "c914af016c Merge dev b742b12f8e into fix/build-extension-cold-build-progress",
+      "translated": "Merge dev b742b12f8e into fix/build-extension-cold-build-progress"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "52362cc894 Merge dev 2c4033078c into fix/14643-ulw-ui-playthrough",
+      "translated": "Merge dev 2c4033078c into fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d9851a3529 Merge branch 'dev' into fix/14643-ulw-ui-playthrough",
+      "translated": "Merge branch 'dev' into fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "a2a2017657 Merge remote-tracking branch 'origin/dev' into fix/build-extension-cold-build-progress",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/build-extension-cold-build-progress"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "92d4c87f65 Merge remote-tracking branch 'origin/dev' into fix/14643-ulw-ui-playthrough",
+      "translated": "Merge remote-tracking branch 'origin/dev' into fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "41ab8b17ff Merge branch 'dev' into fix/14643-ulw-ui-playthrough",
+      "translated": "Merge branch 'dev' into fix/14643-ulw-ui-playthrough"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "d1571b9048 Merge branch 'dev' into fix/14642-tsc-native-lsp",
+      "translated": "Merge branch 'dev' into fix/14642-tsc-native-lsp"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "002393d99c fix(lsp-core): keep two manager test helpers file-local",
+      "translated": "Keep two manager test helpers file-local"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "9b377baa8c fix(lsp-core): turn an acquisition into a reference without a gap",
+      "translated": "Turn an acquisition into a reference without a gap"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "e1ebcc449c fix(lsp-core): let a timed-out waiter detach from a shared start and pass over a stale tsc shim",
+      "translated": "Let a timed-out waiter detach from a shared start and pass over a stale tsc shim"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "ece0df4f2f fix(lsp-core): scope directory scan clients to each group and take tsc only from node_modules/.bin",
+      "translated": "Scope directory scan clients to each group and take tsc only from node_modules/.bin"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "78f69f4bad fix(lsp-core): judge the TypeScript server by real location and per file in directory scans",
+      "translated": "Judge the TypeScript server by real location and per file in directory scans"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "03a73ed9de fix(lsp-core): key resident LSP clients by resolved command",
+      "translated": "Key resident LSP clients by resolved command"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "8aca434b9f fix(lsp-core): take native tsc from the edited file's project and keep configured commands",
+      "translated": "Take native tsc from the edited file's project and keep configured commands"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "28719216fb docs(changes): fragment for #14656",
+      "translated": "Fragment for #14656"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "b1c752c209 docs(changes): fragment for #14654",
+      "translated": "Fragment for #14654"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "4ca98913ae fix(ultrawork): UI verification asks for a play-through of the product",
+      "translated": "UI verification asks for a play-through of the product"
+    },
+    {
+      "category": "changed",
+      "scope": null,
+      "original": "f05081f053 fix(lsp-core): serve a TypeScript 7 project through its own tsc --lsp",
+      "translated": "Serve a TypeScript 7 project through its own tsc --lsp"
+    }
+  ],
+  "translatedAt": "2026-11-24T09:59:58.639Z",
+  "translationEngine": "mock",
+  "translationProvider": "mock",
+  "translationModel": "",
+  "translationEndpointType": "",
+  "translationCharCount": 3381
+}
